@@ -1,0 +1,154 @@
+<html>
+<head>  
+<title>Bourgain的魔法: 一个Szemerédi型定理的调和分析证明</title>
+</head>
+        
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+<em>按：Jean Bourgain(1954-2018)绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触Bourgain的工作或思想. 这是一个(不定期)连载系列，记录Bourgain的数学魔法.</em>
+</p>
+<p>
+自1975年Szemerédi定理(和Szemerédi正则性引理)诞生后，她和她广泛的变体们就成为了数学界的核心话题之一. 这类定理的哲学是“一个足够大/足够随机的集合一定会出现丰富的结构”. 今天介绍Bourgain1986年对 $\mathbb{R}^2$ 正密度子集的Szemerédi型定理的证明，从中可以感受到调和分析在组合学中的威力. 笔者主要参考了以下文献：</p>
+<p>[1] J.  Bourgain, <em>A Szemerédi type theorem for sets of positive density in R^k</em>. </p>
+<p>[2] T. Tao, <em>Exploring the toolkit of Jean Bourgain</em>. </p>
+<p>
+我们先介绍主要结果. 
+</p>
+<p class="thm">
+<b>定理1.</b>(Furstenberg, Katznelson, Weiss) 设可测集 $A\subset \mathbb{R}^2$ 有上界密度 $\delta=\delta(A) >0$ , 则存在 $l_0 > 0$ s.t. 对<em>任意</em> $l\geq l_0$ , 存在 $x,y\in A$ , $\vert x-y\vert =l$ . 这里上界密度
+$$
+\delta(A):=\limsup_{R\to +\infty} \frac{\vert A\cap B_R \vert}{\vert B_R\vert}, 
+$$
+$\vert \cdot\vert$ 是Lebesgue测度，$B_R$ 是原点为中心，$R$ 为半径的圆盘.
+</p>
+<p>
+粗略地说，只要集合在平面上足够"稠密"，那么集合中所有点对的距离取遍充分大的正实数. KW的原始证明也是基于遍历论(Furstenberg的一大贡献就是给出了Szemerédi定理的遍历论证明). 而Bourgain证明的第一步是将结论<em>定量化</em>(quantitative formulation)，以便硬分析工具的介入. 
+</p>
+<p class="thm">
+<b>定理2.</b>(Bourgain) 设可测集 $B\subset [0,1]^2$ , $\vert B\vert\geq \delta >0$ . 则对 $0 \lt t_1 \lt 1$ , 充分大的 $J$，和分划 $0 \lt t_J \lt t_{J-1}\lt ... \lt t_1 \lt 1$ 满足 $t_{j+1}\leq t_j/2$ ，都存在有 $1\leq j\leq J$ s.t. 
+$$I_j:=\int_{\mathbb{R}^2}\int_{S^1} 1_B(x) 1_B(x+t_j\omega) \ d\sigma(\omega)dx \gtrsim \delta^2.$$
+</p>
+<p>
+首先看看定理2如何得到定理1. 
+</p>
+<p>
+<em>2 $\Rightarrow$ 1</em>. 假设定理1不成立，则存在 $0 \lt l_1 \lt l_2 \lt ...\lt l_J \lt ...$ s.t. 
+</p>
+$$
+\vert x-y\vert\neq l_k, \forall x,y \in  A, k\in\mathbb{N}. 
+$$
+<p>
+WLOG, 设有二进分解 $l_{k+1}\geq 2l_{k}$ . 由上界密度定义，对充分大的 $J$ 仍存在 $R>l_J$ , $\vert A\cap B_R\vert\geq \delta R^2$ . 令 
+</p>
+$$
+B:= \frac{1}{R} A\subset [0,1]^2, \ t_j:=l_{J+1-j}/R, 
+$$
+<p>
+则 $B$ 符合定理2条件，但根据假设，对任意 $1\leq j\leq J$ , $I_j \equiv 0$ , 矛盾 ！因此定理2就是定理1的定量化.&emsp;$\Box$
+</p>
+<p>
+下面着手定理2的证明. 
+</p>
+<p>
+<em>证明</em>. 用Plancherel定理变换到频率空间上，
+</p>
+$$
+\int_{\mathbb{R}^2}\int_{S^1} \widehat{1_B}(x) \widehat{1_B}(x+t_j\omega) \,d\sigma(\omega)dx
+$$  
+$$
+=\int_{S^1}\int_{\mathbb{R}^2} \vert \widehat{1_B}(\xi)\vert^2 e^{it_j\omega\cdot\xi} \,d\xi d\sigma(\omega)
+$$
+$$
+=\int_{\mathbb{R}^2} \vert \widehat{1_B}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \,d\xi,
+$$
+<p>
+其中 $S^1$ 测度 $\sigma$ 的Fourier变换
+</p>
+$$
+\widehat{\sigma}(\xi):=\int_{S^1} e^{i\xi\cdot \omega}\ d\sigma(\omega). 
+$$
+<p>
+接下来做标准的频率分解. 引入充分小的待定常数 $0 < \epsilon = \epsilon(\delta) < 1/2$ , 对充分大的 $J$ 和每个 $J/2\leq j\leq J$ 考虑 
+</p>
+<p>
+&emsp;<em>Case 1</em>. 低频项 $\vert\xi\vert\leq t_j^{-1}\epsilon$ : 此时 
+</p>
+$$
+\widehat{\sigma}(t_j\xi)\gtrsim 1.
+$$ 
+<p>
+另外
+</p>
+$$
+\vert \widehat{1_B}(\xi)-\vert B\vert \ \vert = \vert \widehat{1_B}(\xi)-\widehat{1_B}(0)\vert \lesssim \vert \xi \vert \ \vert B\vert. 
+$$
+<p>
+由$t_j\sim 2^{-j}$ , 取 $J$ s.t.
+</p>
+$$
+\epsilon t_j^{-1} \geq 1,\ \forall J/2\leq j\leq J, 
+$$
+<p>
+于是存在绝对常数 $C$ (在不同式子中会变化), 对任意 $J/2 \leq j \leq J$ 有下界估计
+</p>
+$$
+\int_{\vert\xi\vert\leq t_j^{-1}\epsilon} \vert \widehat{1_B}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi
+$$
+$$
+\geq C \int_{\vert \xi\vert \leq 1/2} \vert \widehat{1_B}(\xi)\vert^2 \ d\xi
+$$
+$$
+\geq C \int_{\vert \xi\vert \leq 1/2} \vert B\vert^2 \ d\xi \geq C \vert B \vert^2 .
+$$
+<p>
+这部分的困难在于要<em>使 $C$ 与 $\epsilon, j, J$ 都无关</em>, 这在[1][2]原文中都没有具体体现(典中典之“it is not difficult to obtain”) , 于是笔者“擅自”将原来 $1 \leq j \leq J$ 限制为仅考虑 $J/2\leq j\leq J$, 如此并不影响后续论证. 
+</p>
+<p>
+&emsp;<em>Case 2</em>. 高频项 $\vert\xi\vert\geq (\epsilon t_j)^{-1}$ : 由震荡积分理论或直接计算可得 $\vert \widehat{\sigma}(\xi)\vert\lesssim \vert \xi\vert^{-1/2}$ , 所以有小量估计
+</p>
+$$
+\int_{\vert\xi\vert\geq (\epsilon t_j)^{-1}} \vert \widehat{1_A}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi \lesssim \epsilon^{1/2} \vert B\vert. 
+$$
+<p>
+&emsp;<em>Case 3</em>. 中间项 $\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}$ : 此时如果直接估计只能得到 $\lesssim \vert B\vert $ . 为了获得小量上界，Bourgain巧妙地运用了<em>二进抽屉原理</em>(dyadic pigeonholing argument). 记每个二进圆环为
+</p>
+$$
+D_j=\{ \epsilon t_j^{-1} \lt \vert \xi\vert < (\epsilon t_j)^{-1} \}, 
+$$
+<p>
+则每个 $\xi \in \mathbb{R}^2$ 至多被 $O(\log 1/ \epsilon)$ 个 $D_j$ 覆盖. 注意上界与 $\xi$ , $J$ 无关，这就是二进分解的<em>几乎正交性</em>. 所以
+</p>
+$$
+\sum_{j=J/2}^{J} \int_{\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}} \vert \widehat{1_A}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi
+$$
+$$
+\lesssim \log \frac{1}{\epsilon}\ \vert B\vert . 
+$$
+<p>
+于是由抽屉原理，存在 $J/2 \leq j \leq J$ s.t.
+</p>
+$$
+\int_{\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}} \vert \widehat{1_A}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi \lesssim J^{-1}\log \frac{1}{\epsilon} \ \vert B\vert.
+$$
+<p>
+只需 $J > \epsilon^{-1}\log \epsilon^{-1}$ 即有小量估计 $\lesssim \epsilon \vert B\vert$ 对某个 $J/2\leq j\leq J$ 成立. 这里抽屉原理帮助我们<em>选取一个合适的尺度</em> $t_j$ , 大大加强了原有结果.
+</p>
+<p>
+综上，存在充分小的 $\epsilon$ 以及某个 $j$ s.t. 
+</p>
+$$
+I_j \geq C\vert B\vert^2-\epsilon^{1/2}\vert B\vert-\epsilon^1\vert B\vert \gtrsim \delta^2, 
+$$
+<p>
+Bourgain的魔法奏效了！&emsp;$\Box$
+</p>
+</div>
+        
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+        
+</html>
