@@ -1,0 +1,30 @@
+/* 文章卡片，年份卡片 */
+.card, .year {
+  min-width: 220px;
+  margin: 0;
+  width: 100%;
+}
+.card {
+  border-style: solid none none none;
+  border-width: 1px;
+  border-color: grey;
+}
+.year {
+  border-style: none;
+}
+a, a:hover {
+  text-decoration: none;
+}
+.cardcontent {
+  padding: 10px 0px;
+}
+.title {
+  color: black;
+}
+.cardlink:hover .title {
+  text-decoration: underline;
+}
+.time, .intro {
+  color: rgb(128,128,128);
+  font-size: small;
+}
