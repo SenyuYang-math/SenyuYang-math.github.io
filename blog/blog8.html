@@ -1,0 +1,174 @@
+<html>
+<head>  
+<title>Brezis-Lieb引理与一个变分问题</title>
+</head>
+        
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+<em>按：Haim Brezis教授于2024年7月7日离世. 偶是从他的经典教材入门了泛函和Sobolev空间. R.I.P.</em>
+</p>
+<p>
+不少实分析教材会布置以下习题.
+</p>
+<p class="thm">
+<b>问题.</b> 设区域 $\Omega \subset \mathbb{R}^n$ , $f_n$ 是 $L^1(\Omega)$ 中的一族序列 s.t.
+$$
+f_n \to f \ a.e.\ , \ \Vert f_n \Vert_{L^1} \to \Vert f \Vert_{L^1} .
+$$
+证明：$\Vert f_n - f \Vert_{L^1} \to 0$ .
+</p>
+<p>
+其实问题就是以下引理[2]的直接推论.
+</p>
+<p class="thm">
+<b>Brezis-Lieb引理.</b> 设序列 $f_n $ 在 $L^p(\Omega)$ 中有界( $1 \leq p \lt \infty$ )，并存在 $\Omega$ 上的 $f$ s.t. $f_n \to f$ a.e. , 则 $f \in L^p(\Omega)$ , 且
+$$
+\lim_{n \to \infty} \int_{\Omega} \vert f_n \vert^p -\vert f \vert^p - \vert f_n- f \vert^p = 0. 
+$$
+</p>
+<p>
+今天的主题就是证明Brezis-Lieb引理并应用她来解决一个临界椭圆PDE对应的变分问题(后面会看到，临界意味着Sobolev嵌入的紧性缺失). 主要的参考文献有 </p>
+<p>[1] H. Brezis, <em>Functional analysis, Sobolev spaces and partial differential equations</em>. </p>
+<p>[2] H. Brezis, E. Lieb, <em>A relation between pointwise convergence of functions and convergence of functionals</em>. </p>
+<p>[3] H. Brezis, L. Nirenberg, <em>Positive Solutions of Nonlinear Elliptic Equations Involving Critical Sobolev Exponents</em>. </p>
+<h2> 
+  证明
+</h2>
+<p>
+笔者参考了[1]的习题4.13, 4.16和4.17. 首先由Fatou引理立得 $f \in L^p(\Omega)$ . 不难看出Brezis-Lieb引理就是<em>Fatou引理的定量版本</em> , 能够给出更精细的收敛结果. 我们需要两个初等的估计：对 $a, b \in \mathbb{R}$ , 
+</p>
+$$
+\left\vert \vert a + b \vert - \vert a \vert -\vert b \vert \right\vert \leq 2 \vert b \vert ;
+$$
+$$
+\left\vert \vert a + b \vert^p - \vert a \vert^p -\vert b \vert^p \right\vert \lesssim ( \vert a \vert^{p-1} \vert b \vert + \vert a \vert \vert b \vert^{p-1} ), \ 1 \lt p \lt \infty .
+$$
+<p>
+在引理中自然令 $a = f_n - f$ , $b = f$ .<br> 
+</p>
+<p>
+当 $p=1$ 时，对第一个不等式积分并用控制收敛定理即得证；
+</p>
+<p>
+当 $p > 1$ 时，受限于第二个不等式比较粗糙，证明会复杂不少. 一个巧妙的观察是 $f \in L^p \Rightarrow \vert f \vert^{p-1} \in L^{p'}$ , $p'$ 是 $p$ 的共轭指标，所以不等式的右边就转化为一个弱收敛问题(这个对偶论证显然针对 $1 \lt p \lt \infty$ ). $L^p$ 有自反性，所以 $f_n$ 有弱收敛子列 $f_{n_k} \rightharpoonup \tilde{f} \in L^p$ , $f_{n_k} \to f$ a.e. 由Mazur引理(凸集的弱闭包等于强闭包)，存在一族 $f_{n_k}$ 的有限凸组合 $g_k$ s.t. $\Vert g_k - \tilde{f} \Vert_{p} \to 0$ . 由凸性同样有 $g_k\to f$ a.e.（!） 而 $g_k$ 中也有收敛子列使得 a.e. 收敛于 $\tilde{f}$ (Riesz引理), 所以 $\tilde{f} = f$ a.e. , $f_{n_k} \rightharpoonup f$ . 注意到上述论证对 $f_n$ 的任意子列也成立，所以 $f_n$ 的任意子列也有一个子列弱收敛于 $f$ , 因此 $f_n \rightharpoonup f$ (另一个Riesz引理). 结合第二个不等式，Brezis-Lieb引理即得证.&emsp;$\Box$ 
+</p>
+<h2>
+  应用
+</h2> 
+<p>
+在[3]中Brezis和Nirenberg考虑了有界区域 $\Omega \subset \mathbb{R}^n$ 上椭圆边值问题的正解 $u \in H_0^1(\Omega)$ : 
+</p>
+$$
+-\Delta u =  u^{p} + \lambda u \ \ \text{ on } \Omega,
+$$
+$$
+u > 0 \ \ \text{ on } \Omega, 
+$$
+$$
+u = 0 \ \ \text{ on } \partial \Omega, 
+$$
+<p>
+其中临界指标 $p = (n+2)/(n-2) $ , $\lambda \geq 0$ . 这个问题是几何学著名的Yamabe问题的一个简化模型，保留了其指标临界的特点. 另外[3]似乎没有提到 $\partial \Omega$ 的光滑性要求，而椭圆边值问题的细节笔者已经忘光了qwq所以在此姑且认为 $\partial \Omega$ 是 $C^1$ 的.
+</p>
+<p>
+根据[3]上述问题的 $H_0^1$ 解对应了以下Lagrangian作用量
+</p>
+$$
+\mathcal{L}_{\lambda}(u) := \frac{1}{2} \int_{\Omega} \vert \nabla u \vert^2 - \frac{1}{p+1}\int_{\Omega} \vert u \vert^{p+1} - \frac{\lambda}{2} \int_{\Omega} u^2
+$$
+<p>
+的变分问题
+</p>
+$$
+K_{\lambda} := \inf_{u\in H_0^1(\Omega) \neq 0} \frac{\int \vert \nabla u \vert^2 -\lambda \vert u \vert^2 }{ \Vert u \Vert_{p+1}^2} , 
+$$
+$$
+\text{是否存在 } u \text{ s.t. } \mathcal{L}_{\lambda}(u) = K_{\lambda} \text{ ? }
+$$
+<p>
+不难看出问题可以约化为 $\Vert u \Vert_{p+1} = 1$ 的情形. 主要的困难在于临界的Sobolev嵌入 $H_0^1 \hookrightarrow L^{p+1}$ <em>不是紧的</em>，无法直接得到极小化子的存在性. [3]先证明了一个关键的结论（这个命题也来源于对Yamabe问题的研究. 限于篇幅，对证明有兴趣的读者还请自行阅读原文啦～
+</p>
+<p class="thm">  
+<b>命题.</b> 对 $n \geq 4$ 时的任意 $\lambda > 0$ 以及 $n = 3$ 时充分大的 $\lambda$ , 都有 $S_{\lambda} \lt S_0$ . 
+</p>
+<p>
+现在我们展示Brezis-Lieb引理是如何施展魔法的. 给定一个极小化序列 $\{ f_n \}$ , $\Vert f_n \Vert_{p+1} = 1$ . $H_0^1$ 是Hilbert的, 所以不妨设
+</p>
+$$
+f_n \rightharpoonup f \in H_0^1.
+$$
+<p>
+进一步不妨设 
+</p>
+$$
+f_n \to f \text{ in } L^2, \ \ f_n \to f \text{ a.e.}
+$$
+<p>
+$L^2$ 强收敛是因为Sobolev嵌入 $H_0^1 \to L^2$ $(n \geq 3)$ 是紧的；再用Riesz引理即可取出a.e.收敛子列. 于是有
+</p>
+$$
+\int \vert \nabla f_n \vert^2 - \lambda \int \vert f_n \vert^2 = K_{\lambda} + o(1), n \to \infty. \tag{1}
+$$
+<p>
+由定义，$K_0\geq 0$ , $\int \vert \nabla f_n \vert^2 \geq  K_0 \int \vert f_n \vert_{L^{p+1}}^2 = K_0$ . 所以对 $\lambda > 0$ , 
+</p>
+$$
+\lambda \int \vert f_n \vert^2 K_0 - K_{\lambda} > 0, 
+$$
+<p>
+i.e. $f_n, f \neq 0$ . 令 $g_n = f_n - f \neq 0$ , 由弱收敛可知 $\int \nabla f \cdot \nabla g_n = o(1)$ , 所以$(1)$ 等价于
+</p>
+$$
+\int \vert \nabla f \vert^2 + \int \vert \nabla g_n \vert^2 - \lambda \int \vert f \vert^2 = K_{\lambda} + o(1), 
+$$
+<p>
+进而
+</p>
+$$
+\int \vert \nabla f \vert^2 - \lambda \int \vert f \vert^2 + K_0 \Vert g_n \Vert_{p+1}^2 \leq K_{\lambda} + o(1).  \tag{2}
+$$
+<p>
+现在由Brezis-Lieb引理，
+</p>
+$$
+\Vert f_n \Vert_{p+1}^{p+1} = \Vert f \Vert_{p+1}^{p+1} + \Vert g_n \Vert_{p+1}^{p+1} + o(1).
+$$
+<p>
+$p+1\geq 2$ , 所以 
+</p>
+$$
+1 = \Vert f_n \Vert_{p+1}^{2} \leq \Vert f \Vert_{p+1}^{2} + \Vert g_n \Vert_{p+1}^{2} + o(1). 
+$$
+<p>
+如果 $K_{\lambda} \geq 0$ , 将上式代入 $(2)$ 可得
+</p>
+$$ 
+\int \vert \nabla f \vert^2 - \lambda \int \vert f \vert^2 + K_0 \Vert g_n \Vert_{p+1}^2 
+$$
+$$
+\leq K_{\lambda} \Vert f \Vert_{p+1}^{2} + K_{\lambda} \Vert g_n \Vert_{p+1}^{2} + o(1)
+$$
+$$
+\leq K_{\lambda} \Vert f \Vert_{p+1}^{2} + K_{0} \Vert g_n \Vert_{p+1}^{2} + o(1) ,
+$$
+<p>
+i.e. $\mathcal{L}_{\lambda} (f) \leq K_{\lambda} $ , $f \in H_0^1$ 为所求极小化子; (可以看到如果只有较粗糙的Fatou引理，这段论证将会失效) 
+</p>
+<p>
+如果 $K_{\lambda} \lt 0$ , 由Fatou引理可知 $\Vert f \Vert_{p+1} \leq 1$ , 对 $(2)$ 左右两式直接放缩即有
+</p>
+$$
+\int \vert \nabla f \vert^2 - \lambda \int \vert f \vert^2 \leq K_{\lambda} + o(1) \leq K_{\lambda} \Vert f\Vert_{p+1}^2 + o(1),
+$$
+<p>
+我们同样获得了极小化子 $f$ ！&emsp;$\Box$
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+</html>
