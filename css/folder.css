@@ -1,0 +1,31 @@
+/*  可折叠内容  */
+  .collapsible {
+  background-color: rgba(128,128,128,0.2); /* #eee */
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+  
+/* 图标+和- */
+.collapsible:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+  
+/* 设置可折叠内容的样式。 注意:默认隐藏 */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
