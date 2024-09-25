@@ -1,0 +1,97 @@
+<html>
+<head>  
+<title>线代作业题：1维Ising模型的配分函数</title>
+<!-- 折叠组件样式 -->
+<link rel="stylesheet" type="text/css" href="../css/folder.css">
+</head>
+        
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  近段时间在随缘学习统计物理，发现求解$1$维Ising模型的配分函数(partition function)就可以作为一道不错的线代一/高代一习题，简单记录一下<span style="text-decoration: line-through">于是又可以水掉一篇博客了</span>. 
+</p>
+<p class="thm">
+  <b>问题.</b> 设有限集$\Omega:=\{1, 2, ..., N\}$, 所有函数$\omega: \Omega\to \{1, -1\}$构成的集合记为$\mathcal{S}$. 记$\omega_i:= \omega(i), i \in \Omega$. 定义$\mathcal{S}$上的函数
+  $$
+  H(\omega)=H_N(\omega):=-J \sum_{i=1}^N \omega_i \omega_{i+1} - h \sum_{i=1}^N \omega_i,
+  $$
+  其中$n+1$视为$1$, $J>0, h\in \mathbb{R}$为给定常数. 请用$N, J, h$表示以下函数
+  $$
+  Z(\beta)=Z_{N,J,h}(\beta):= \sum_{\omega\in\mathcal{S}} e^{-\beta H(\omega)},\ \beta \gt 0.
+  $$
+</p>
+<p>
+读者可以先自己尝试. 此去一千里↓↓↓
+</p>       
+<br/>
+<button type="button" class="collapsible">解</button>
+<div class="content">
+<p>
+利用周期性，把$Z$展开写作
+$$
+  Z(\beta)=\sum_{\omega\in\mathcal{S}} T_{\omega_1 \ \omega_2}T_{\omega_2 \ \omega_3}...T_{\omega_{N-1} \ \omega_N}T_{\omega_N \ \omega_1},\tag{*}
+$$
+其中
+$$
+  T_{\omega_i\ \omega_{i+1}}:= \exp{} \left[ \beta\left( \frac{1}{2}h\omega_i+J\omega_i\omega_{i+1}+\frac{1}{2}h\omega_{i+1}\right) \right], \ i\in\Omega.
+$$
+那么每个$T_{\omega_i\ \omega_{i+1}}$都有$4$种状态$T_{++}, T_{+-}, T_{-+}, T{--}$, 我们用一个二阶实对称矩阵
+$$
+  T:=
+  \begin{pmatrix}
+    T_{++} & T_{+-}\\
+    T_{-+} & T_{+-}
+  \end{pmatrix}
+  =
+   \begin{pmatrix}
+    e^{\beta(J+h)} & e^{-\beta Jh}\\
+    e^{-\beta Jh} & e^{\beta(J-h)}
+   \end{pmatrix}
+$$
+来记住这些状态，$T$称为<b>转移矩阵</b>(transfer matrix, 这个名字来自于概率论的Markov链). 注意这里我们使用$+,-$而不是数字来标记矩阵的行和列. 
+</p>
+<p>
+一个关键的观察在于如果在$(*)$中固定$\omega$的$N-1$个分量——不妨设$\omega_2$为唯一变量，则
+$$
+  \sum_{\omega_2\in \{1,-1\}} T_{\omega_1\ \omega_2}T_{\omega_2\ \omega_3}
+$$
+就是转移矩阵的<b>乘积</b>$(T\circ T)_{\omega_1\ \omega_3}=(T^2)_{\omega_1\ \omega_3}$！以此类推，
+$$
+  Z(\beta)=\sum_{\omega_1}\sum_{\omega_3}...\sum_{\omega_N} (T^2)_{\omega_1\ \omega_3}T_{\omega_3\ \omega_4}...T_{\omega_N\ \omega_1}
+$$
+$$
+  =...=\sum_{\omega_{1}=1,-1} (T^N)_{\omega_1\ \omega_1}
+$$
+$$
+  =\mathrm{trace}\ T^N,
+$$
+现在就差临门一脚. $T$实对称，自然可以对角化，求得特征值
+$$
+  \lambda_{\pm}=e^{\beta J}\mathrm{cosh} (\beta h)\pm \left( e^{2\beta J} \mathrm{sinh}^2(\beta h)+e^{-2\beta J}\right)^{1/2}.
+$$
+可对角矩阵的迹等于特征值之和，因此
+$$
+  Z(\beta)=\lambda_{+}^N+ \lambda_{-}^N=\lambda_{+}^{N}\left[ 1 + \left(\frac{\lambda_{+}}{\lambda_{-}}\right)^N \right].
+$$
+</p>
+</div>
+&ensp;<br/>
+<p>
+  <em>注</em>. 将$\Omega$视为均匀分布在1维圆周$S^1$上的$N$个原子组成的系统，$\{1,-1\}$代表原子磁矩的取向（自旋向上或向下）. $J$是相邻原子磁矩的耦合系数，$J>0$代表顺磁性，$J\lt 0$代表逆磁性. $h$是外部磁场的作用. 此时$\omega\in\mathcal{S}$就刻画了这个系统的一种状态，$H(\omega)$即为该状态的哈密顿量(能量). $\beta$是一个与温度的倒数$T_{\beta}^{-1}$相关的量，配分函数$Z(\beta)$的意义在于
+  $$
+  \mathbb{P}[\omega]:=\frac{e^{-\beta H(\omega)} }{Z(\beta)}
+  $$
+  就是温度$T_{\beta}$时系统的(平衡)态处于$\omega$的概率. 这就是统计物理中的$1$维Ising模型, 这里$e^{-\beta H}$形式的出现源于平衡态的Boltzmann分布. 
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+
+<!-- 折叠脚本 -->
+<script type="text/javascript" src="../js/folder.js"></script>
+
+</html>
