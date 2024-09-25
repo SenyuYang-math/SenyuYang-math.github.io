@@ -1,0 +1,60 @@
+<html>
+<head>  
+<title>Van der Corput不等式</title>
+<!-- 折叠组件样式 -->
+<link rel="stylesheet" type="text/css" href="../css/folder.css">
+</head>
+        
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+偷懒一次，囫囵记个不等式，单纯觉得证明有点意思. 不等式及其证明是一位概率方向的朋友告诉我的 :-)
+</p>
+<p class="thm">
+<b>定理.</b>(Van der Corput) 给定Hilbert空间 $H$ 中 $m$ 个单位向量 $e_i \ (1 \leq i \leq m)$ . 那么对任意单位向量 $v \in H$ ,
+$$
+\left(\sum_i \vert \left\langle v, e_i \right\rangle \vert \right)^2 \leq \sum_{i,j} \vert \left\langle e_i, e_j \right\rangle \vert.
+$$
+</p>
+<p>
+直观地讲，不等式的含义是如果 $v$ 与许多 $e_i$ 关联性很强(即左式很大，用内积表达关联性也是数据科学的基操了)，那么一定有很多对 $(e_i, e_j)$ 强关联（听起来就有股概率味）. 读者可以先自己尝试证明. 此去一千里↓↓↓
+</p>
+<br/>
+<button type="button" class="collapsible">证明</button>
+<div class="content">        
+<p>
+存在 $a_i \in \{ ±1 \}$ (如果在 $\mathbb{C}$ 上则取 $a_i \in S^1$) s.t. $\vert \left\langle v, e_i \right\rangle \vert$ $= \left\langle v, a_i e_i \right\rangle$ , 于是
+</p>
+$$
+\left(\sum_i \vert \left\langle v, e_i \right\rangle \vert \right)^2
+$$
+$$
+= \left\langle v, \sum_i a_i e_i \right\rangle^2
+$$
+$$
+\leq \Vert v \Vert^2 \Vert \sum_i a_i e_i \Vert^2
+$$
+$$
+\leq \sum_{i,j} \vert a_i a_j \left\langle e_i, e_j \right\rangle \vert
+$$
+$$
+= \sum_{i,j} \vert \left\langle e_i, e_j \right\rangle \vert,
+$$
+<p>
+不等式得证.&emsp;$\Box$
+</p>
+<p>
+<b>Q:</b> 这里引入 $a_i$ 的作用是什么呢？
+</p>
+</div>
+&ensp;<br/>
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+<!-- 折叠组件js -->
+<script type="text/javascript" src="../js/folder.js"></script>
+
+</body>
+</html>
