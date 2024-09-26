@@ -6,14 +6,14 @@
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-集合论有以下基本且熟知的定理：
+集合论有以下基本，熟知但并不显然的定理：
 <p class="thm">
   <b>定理1</b> (Schroeder-Bernstein)<b>.</b> 设集合$A , B$ 之间存在单射
  $$f\colon A\to B\ ,\ g\colon B\to A.$$
  则 $\vert A\vert =\vert B\vert$ , i.e. 存在双射 $h: A \to B$ .
 </p>
 <p>
-  定理的证明并不简单. 笔者偶然看到一个基于格论和不动点的清爽证明，鉴于其直观性和启发性布置为中法班分析Ⅰ的一道（法式）大习题. 在这里记录一下证明细节.
+  众所周知，证明并不容易. 偶然看到一个基于格论和不动点的清爽证明，鉴于其直观性和启发性布置为中法班分析Ⅰ的一道（法式）大习题. 在这里记录一下证明细节.
 </p>
 <h2>证明动机，Banach分解</h2>
 <p>
@@ -21,7 +21,7 @@
   $$f\colon A\to f(A)\ , \ g^{-1}\colon g(B) \to B \ .$$
   前者是“大定义域-小值域”，后者是“小定义域-大值域”，一个自然的想法是：能不能找到一个“平衡” $f, g^{-1}$ 的子集 $X\subset A$ , 将 $A$ 分解为 $X$ 和 $A\setminus X$ s.t.
   $$h := f \ \text{on } X\ , \ h := g^{-1} \ \text{on } A\setminus X\ $$
-  即为所求双射？这就是所谓的<b>Banach分解</b>：
+  即为所求双射？因此定理1就是下述<b>Banach分解</b>的直接推论.
 </p>
 <p class="thm">
   <b>定理2</b> (Banach)<b>.</b> 设集合 $A, B$ 之间有映射(无需单射！)
@@ -29,9 +29,6 @@
   则存在 $X\subseteq A$ 使得
   $$g\colon B\setminus f(X) \to A\setminus X$$
   是满射.
-</p>
-<p>
-  <i>定理2 $\Rightarrow$ 定理1</i>. 请读者自行验证.&emsp;$\Box$
 </p>
 <h2>格论补给站</h2>
 <p>
