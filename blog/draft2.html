@@ -13,7 +13,7 @@
  则 $\vert A\vert =\vert B\vert$ , i.e. 存在双射 $h: A \to B$ .
 </p>
 <p>
-  定理的证明并不简单. 笔者偶然看到一个基于格论和不动点定理的清爽证明，鉴于其直观性和启发性将其布置为中法班分析Ⅰ的一道（法式）习题. 在这里记录一下证明细节.
+  定理的证明并不简单. 笔者偶然看到一个基于格论和不动点的清爽证明，鉴于其直观性和启发性布置为中法班分析Ⅰ的一道（法式）习题. 在这里记录一下证明细节.
 </p>
 <h2>证明动机，Banach分解</h2>
 <p>
@@ -26,21 +26,31 @@
 <p class="thm">
   <b>定理2</b> (Banach)<b>.</b> 设集合 $A, B$ 之间有映射(无需单射！)
   $$f\colon A\to B\ ,\ g\colon B\to A.$$
-  则存在 $X\subset A$ 使得
+  则存在 $X\subseteq A$ 使得
   $$g\colon B\setminus f(X) \to A\setminus X$$
   是满射.
 </p>
 <p>
-  <i>定理2 $\Rightarrow$ 定理1</i>.  
+  <i>定理2 $\Rightarrow$ 定理1</i>. 请读者自行验证.&emsp;$\Box$
 </p>
 <h2>格论补给站</h2>
 <p>
-  一个<b>偏序集</b>(poset) 配备有一个偏序 $\leq$ s.t.
+  一个<b>偏序集</b>(poset) $P$ 配备有一个偏序 $\leq$ s.t.
+  <ol>
+    <li>自反性：$x\leq x$ , $\forall x\in P$ ;</li>
+    <li>反对称性：$(x\leq y \wedge y\leq x) \Rightarrow x=y$ ;</li>
+    <li>传递性：$x\leq y\leq z \Rightarrow x\leq z$ .</li>
+  </ol>
+</p>
+<p>
+  对非空子集 $S\subseteq P$ , 自然可以定义上(下)界和上(下)确界，后者记为 $\sup S$ ($\inf S$) . 由反对称性可知确界一旦存在就是唯一的. 如果任意一对元素 $\{a,b\}\subseteq P$ 的上确界都存在，则称$P$为一个<b>格</b>(lattice). 进一步地，如果任意子集 $S \subseteq P$ 的上确界都存在，则称格 $P$ 是<b>完备</b>(complete)的. 完备性可以看作格上的<i>确界原理</i>. 注意上确界的存在性蕴含了下确界的存在性，即补集的上确界.
+</p>
+<p>
+  格之间最自然的态射当然是保序映射：设有两个格 $L, L'$ , 映射 $f: L\to L'$ 是<b>保序</b>(order-preserving mappings)的，如果
+  $$ x\leq y \Rightarrow f(x)\leq f(y)\ , \ \forall x , y\in L \ .$$
 </p>
 <h2>不动点定理，完成证明</h2>
 <p>
-  格之间最自然的态射当然是<b>保序映射</b>(order-preserving mappings)：设有两个格 $L, L'$ , 映射 $f: L\to L'$ 是保序的，如果
-  $$ x\leq y \Rightarrow f(x)\leq f(y)\ , \ \forall x , y\in L \ .$$
   回忆数学分析的一个经典命题：$[0,1]\to [0,1]$ 的单调函数有不动点. 对于完备格也有平行的版本：
 </p>
 <p class="thm">
@@ -51,7 +61,10 @@
   $$E:=\{x\in L\colon x\leq f(x)\} \ .$$
   首先 $\inf L \in E$ , i.e. $E \neq \emptyset$ . 设 $s=\sup E \in L$ , 则有
   $$x\leq f(x) \leq f(s)\ , \ \forall x\in E\ .$$
-  所以 $f(s)$ 是 $E$ 的上界，$s\leq f(s)$ . 进一步有 $f(s)\leq f(f(s))$ i.e. $f(s)\leq E$ , 所以 $f(s)\leq s$ . 综上，$s=f(s)$ .&emsp;$\Box$
+  所以 $f(s)$ 是 $E$ 的上界，$s\leq f(s)$ . 进一步有 $f(s)\leq f(f(s))$ i.e. $f(s)\in E$ , 所以 $f(s)\leq s$ . 综上，$s=f(s)$ .&emsp;$\Box$
+</p>
+<p>
+  至此，Banach分解的证明水到渠成.
 </p>
 <p>
   <i>定理2的证明</i>. 考虑映射
