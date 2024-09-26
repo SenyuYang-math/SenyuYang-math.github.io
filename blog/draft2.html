@@ -47,10 +47,16 @@
   <b>定理3</b> (Knaster-Tarski)<b>.</b>  设 $L$ 是完备格，$f\colon L \to L$ 是保序映射. 则 $f$ 有至少一个不动点 $x\in L$ , 即 $f(x)=x$ .
 </p>
 <p>
-  <i>证明</i>. 
+  <i>证明</i>. 考虑子集
+  $$E:=\{x\in L\colon x\leq f(x)\} \ .$$
+  首先 $\inf L \in E$ , i.e. $E \neq \emptyset$ . 设 $s=\sup E \in L$ , 则有
+  $$x\leq f(x) \leq f(s)\ , \ \forall x\in E\ .$$
+  所以 $f(s)$ 是 $E$ 的上界，$s\leq f(s)$ . 进一步有 $f(s)\leq f(f(s))$ i.e. $f(s)\leq E$ , 所以 $f(s)\leq s$ . 综上，$s=f(s)$ .&emsp;$\Box$
 </p>
 <p>
-  <i>定理2的证明</i>. 
+  <i>定理2的证明</i>. 考虑映射
+  $$\Phi \colon \mathcal{P}(A) \to \mathcal{P}(A)\ , \ Y \mapsto A\setminus g(B\setminus f(Y)) \ . $$
+  将 $f, g$ 从 $A, B$ 提升到 $\mathcal{P}(A), \mathcal{P}(B)$ 上，易知 $f, g$ 都是保序的. $\Phi$ 中包括了两次补运算，所以 $\Phi$ 也是保序的. 由K-T不动点定理，存在$X\subseteq A$ s.t. $\Phi(X) = X$ . 等式两边取补集即得 $g(B\setminus f(X))=A\setminus X$ .&emsp;$\Box$
 </p>
 <h2>延伸：计算不动点</h2>
 <p>
