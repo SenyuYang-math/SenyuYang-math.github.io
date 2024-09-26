@@ -14,6 +14,7 @@ btitle[10] = "线代作业题：1维Ising模型的配分函数"; bdate[10] = "20
 btitle[11] = "等宽曲线与Crofton公式"; bdate[11] = "2024/08/16"; 
 btitle[12] = "集中紧性原理 (Ⅰ) : 动机，主要结果"; bdate[12] = "2024/08/31";
 btitle[13] = "集中紧性原理 (Ⅱ) : 尺度和位置的确定"; bdate[13] = "2024/09/06";
+btitle[14] = "Schroeder-Bernstein定理的不动点证明"; bdate[14] = "2024/09/26";
 // btitle[] = ""; bdate[] = "";
 var amount = btitle.length;
 // 获取网址
