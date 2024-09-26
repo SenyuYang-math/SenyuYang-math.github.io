@@ -34,7 +34,8 @@
   <i>证明</i>. 可以取子列保证 $\Vert f_n\Vert_{L^{p^*}} \to \epsilon$ . 由命题6和命题7，存在 $k_n\in \mathbb{Z}$ , $x_n\in\mathbb{R}^d$ s.t.
   $$\liminf_{n\to \infty} \Vert \Delta_{k_n}f_n \Vert_{L^{p^*}} \gtrsim A\left( \frac{\epsilon}{A}\right)^{\frac{d}{2}}\ ,$$
   $$\liminf_{n\to \infty} 2^{\frac{2-d}{2}k_n}\vert \Delta_{k_n} f_n(x_n) \vert \gtrsim A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ .$$
-  由笔记Ⅱ的讨论，我们取 $\lambda_n:=2^{-k_n}$ . 选取好 $\lambda_n$ 和 $x_n$ , 自然用 $H^1$ 的自反性取出子列 $\{f_n\}$  s.t. 存在 $\phi\in \dot{H}^1$ 使 $(11)$ 成立. 弱收敛不能直接给出 $\Vert\phi \Vert_{\dot{H}^1}$ 的正下界，我们需要选取一个好的test function联合经典的duality argument：令
+  由笔记Ⅱ的讨论，我们取 $\lambda_n:=2^{-k_n}$ . 选取好 $\lambda_n$ 和 $x_n$ , 自然用 $H^1$ 的自反性取出子列 $\{f_n\}$  s.t. 存在 $\phi\in \dot{H}^1$ 使 $(11)$ 成立. <br/>
+  弱收敛不能直接给出 $\Vert\phi \Vert_{\dot{H}^1}$ 的正下界，我们需要选取一个好的test function联合经典的duality argument：令
   $$\varphi:= \Delta_0 \delta\ , \ \widehat{\varphi}(\xi)= \psi(\xi)\ ,$$
   其中 $\delta$ 是Dirac分布，$\psi$ 是构造L-P分解的bump function（参考这篇<a href="./blog5.html">博客</a>）. 令 $q^*$ 为 $p^*$ 的Hölder对偶指标，则视 $\varphi\in L^{q^*}$ , 
   $$
