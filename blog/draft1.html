@@ -17,12 +17,12 @@
   下面的定理指出把 $\phi$ “吹出”后 $\{f_n\}$ 会显著地变小，因此如此迭代后就可以期望 $\Vert r_n^{J} \Vert_{L^{p^*}}\to 0$ .
 </p>
 <p class="thm">
-  <b>定理8</b> (inverse Sobolev不等式)<b>.</b> 设 $\{f_n\} \subset \dot{H}^1(\mathbb{R}^d)$ , $d > 3$ . 如果存在 $A, \epsilon > 0$ , 
+  <b>定理8</b> (inverse Sobolev嵌入)<b>.</b> 设 $\{f_n\} \subset \dot{H}^1(\mathbb{R}^d)$ , $d > 3$ . 如果存在 $A, \epsilon > 0$ , 
   $$\lim_{n\to\infty} \Vert f_n\Vert_{\dot{H}^1} = A \ , \ \liminf_{n\to \infty} \Vert f_n\Vert_{L^{p^*}} = \epsilon\ ,$$
   则存在 $\{f_n\}$ 的一个子列（仍用 $n$ 编号），$\phi \in \dot{H}^1$ , $\{\lambda_n\}\subset \mathbb{R}^+$ 和 $\{x_n\} \in \mathbb{R}^d$ s.t.
   $$
   \begin{align*}
-  & \left(\lambda_n^j\right)^{\frac{d-2}{2}}f_n(\lambda_n x+x_n) \rightharpoonup \phi(x) \ \text{ in } \dot{H}^1\ , \tag{11} \\
+  & \lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n) \rightharpoonup \phi(x) \ \text{ in } \dot{H}^1\ , \tag{11} \\
   & \lim_{n\to\infty} \left[ \Vert f_n\Vert_{\dot{H}^1}^2 - \Vert f_n-\phi_n\Vert_{\dot{H}^1}^2\right] = \Vert \phi\Vert_{\dot{H}^1}^2 \gtrsim A^2(\frac{\epsilon}{A})^{\frac{d^2}{2}} \ , \tag{12}\\
   & \limsup_{n\to \infty} \Vert f_n-\phi_n \Vert_{L^{p^*}} \leq \epsilon \left[1-(\frac{\epsilon}{A})^{\frac{d(d+2)}{2}}\right]^{1/p^*}\ . \tag{13}
   \end{align*}
@@ -34,9 +34,18 @@
   <i>证明</i>. 可以取子列保证 $\Vert f_n\Vert_{L^{p^*}} \to \epsilon$ . 由命题6和命题7，存在 $k_n\in \mathbb{Z}$ , $x_n\in\mathbb{R}^d$ s.t.
   $$\liminf_{n\to \infty} \Vert \Delta_{k_n}f_n \Vert_{L^{p^*}} \gtrsim A\left( \frac{\epsilon}{A}\right)^{\frac{d}{2}}\ ,$$
   $$\liminf_{n\to \infty} 2^{\frac{2-d}{2}k_n}\vert \Delta_{k_n} f_n(x_n) \vert \gtrsim A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ .$$
-  由笔记Ⅱ的讨论，我们取 $\lambda_n:=k_n^{-1}$ . 选取好 $\lambda_n$ 和 $x_n$ , 自然用 $H^1$ 的自反性取出子列 $\{f_n\}$  s.t. 存在 $\phi\in \dot{H}^1$ 使 $(11)$ 成立. 弱收敛不能直接给出 $\Vert\phi \Vert_{\dot{H}^1}$ 的正下界，我们需要选取一个好的test function联合经典的duality argument：令
+  由笔记Ⅱ的讨论，我们取 $\lambda_n:=2^{-k_n}$ . 选取好 $\lambda_n$ 和 $x_n$ , 自然用 $H^1$ 的自反性取出子列 $\{f_n\}$  s.t. 存在 $\phi\in \dot{H}^1$ 使 $(11)$ 成立. 弱收敛不能直接给出 $\Vert\phi \Vert_{\dot{H}^1}$ 的正下界，我们需要选取一个好的test function联合经典的duality argument：令
   $$\varphi:= \Delta_0 \delta\ , \ \widehat{\varphi}(\xi)= \psi(\xi)\ ,$$
-  其中 $\delta$ 是Dirac分布，$psi$ 是构造L-P分解的bump function（参考这篇<a href="./blog5.html">博客</a>）.
+  其中 $\delta$ 是Dirac分布，$\psi$ 是构造L-P分解的bump function（参考这篇<a href="./blog5.html">博客</a>）. 令 $q^*$ 为 $p^*$ 的Hölder对偶指标，则视 $\varphi\in L^{q^*}$ , 
+  $$
+  \begin{align*}
+  \vert \int_{\mathbb{R}^d} \bar{\varphi} \phi\ dx\vert = & \lim_{n\to\infty} \vert \int_{\mathbb{R}^d} \bar{\varphi}(x) 2^{\frac{2-d}{2}k_n}f_n(2^{-k_n} x+x_n) \ dx \vert \\
+  = & \lim_{n\to\infty} 2^{\frac{2-d}{2}k_n} \vert \int_{\mathbb{R}^d} 2^{k_nd} \bar{\varphi}(2^{k_n}(y-x_n)) f_n(y) \ dy \vert \\
+  = & \lim_{n\to\infty} 2^{\frac{2-d}{2}k_n} \vert \Delta_{k_n}f_n(x_n) \vert \\
+  \gtrsim & A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}} \ ,
+  $$
+  于是得到
+  $$\Vert \phi\Vert_{\dot{H}^1} \gtrsim \Vert \phi\Vert_{L^{p^*}} \gtrsim A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ .$$
 </p>
 </div>
 
