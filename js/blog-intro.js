@@ -13,4 +13,5 @@ bintro[10] = "来自统计物理的计算题，一个漂亮的观察.";
 bintro[11] = "等宽曲线的Barbier定理，以及Crofton公式的一个分析式证明.";
 bintro[12] = "讨论Sobolev嵌入的紧性缺失，叙述了bubble decomposition.";
 bintro[13] = "给出确定尺度的思路和关键工具：频率精细化的Sobolev不等式.";
+bintro[14] = "以格论的语言叙述了一个清爽、直观的证明.";
 // bintro[] = "";
