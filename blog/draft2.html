@@ -1,0 +1,47 @@
+<html>
+<head>  
+<title>Schroeder-Bernstein定理的不动点证明</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+集合论有以下基本且熟知的定理：
+<p class="thm">
+  <b>定理1</b> (Schroeder-Bernstein)<b>.</b> 设集合$A , B$ 之间存在单射
+ \[f: A\to B\ ,\ g: B\to A.\]
+ 则 $\vert A\vert =\vert B\vert$ , i.e. 存在双射 $h: A \to B$ .
+</p>
+<p>
+  定理的证明并不简单. 笔者偶然看到一个基于格论和不动点定理的清爽证明，鉴于其直观性和启发性将其布置为中法班分析Ⅰ的一道（法式）习题. 在这里记录一下证明细节.
+</p>
+<h2>证明动机，Banach分解</h2>
+<p>
+  困难自然在于没有 $f , g$ 具体结构的情况下构造 $h$ . 我们手头上的双射有
+  $$f: A\to f(A)\ , \ g^{-1}: g(B) \to B \ .$$
+  前者是“大定义域-小值域”，后者是“小定义域-大值域”，一个自然的想法是：能不能找到一个“平衡” $f, g^{-1}$ 的子集 $X\subset A$ , 将 $A$ 分解为 $X$ 和 $A\setminus X$ s.t.
+  $$h := f \ \text{on } X\ , \ h:=g^{-1} \ \text{on } A\setminus X\ $$
+  就是所求双射？这就是所谓的<b>Banach分解</b>：
+</p>
+<p class="thm">
+  <b>定理2</b> (Banach)<b>.</b> 设集合 $A, B$ 之间有映射(无需单射！)
+  $$f: A\to B\ ,\ g: B\to A.$$
+  则存在 $X\subset A$ 使得
+  $$g: B\setminus f(X) \to A\setminus X$$
+  是满射.
+</p>
+<p>
+  <i>定理2 $\Rightarrow$ 定理2</i>.  
+</p>
+<h2>格论补给站</h2>
+<p>
+  一个<b>偏序集</b>(poset) 配备有一个偏序 $\leq$ 满足以下关系：
+</p>
+<h2>不动点定理，完成证明</h2>
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+</html>
