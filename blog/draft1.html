@@ -37,7 +37,7 @@
   由笔记Ⅱ的讨论，我们取 $\lambda_n:=2^{-k_n}$ . 选取好 $\lambda_n$ 和 $x_n$ , 自然用 $H^1$ 的自反性取出子列 $\{f_n\}$  s.t. 存在 $\phi\in \dot{H}^1$ 使 $(11)$ 成立. <br/>
   弱收敛不能直接给出 $\Vert\phi \Vert_{\dot{H}^1}$ 的正下界，我们需要选取一个好的test function联合经典的duality argument：令
   $$\varphi:= \Delta_0 \delta\ , \ \widehat{\varphi}(\xi)= \psi(\xi)\ ,$$
-  其中 $\delta$ 是Dirac分布，$\psi$ 是构造L-P分解的bump function（参考这篇<a href="./blog5.html">博客</a>）. 令 $q^*$ 为 $p^*$ 的Hölder对偶指标，则视 $\varphi\in L^{q^*}$ , 
+  其中 $\delta$ 是Dirac分布，$\psi$ 是构造L-P分解的bump function（参考这篇<a href="./blog5.html">博客</a>）. 令 $q^*$ 为 $p^*$ 的Hölder对偶指标，则视 $\varphi\in L^{q^*}$ , $\Vert \varphi\Vert_{L^{q^*}} > 0$ ,  
   $$
   \begin{align*}
   \vert \int_{\mathbb{R}^d} \bar{\varphi} \phi\ dx\vert = & \lim_{n\to\infty} \vert \int_{\mathbb{R}^d} \bar{\varphi}(x) 2^{\frac{2-d}{2}k_n}f_n(2^{-k_n} x+x_n) \ dx \vert \\
@@ -48,7 +48,24 @@
   $$
   于是得到
   $$\Vert \phi\Vert_{\dot{H}^1} \gtrsim \Vert \phi\Vert_{L^{p^*}} \gtrsim A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ .$$
+  因此 $(12)$ 是以下经典事实的直接推论. 
 </p>
+<p class="thm">
+  <b>引理9/练习.</b> 在Hilbert空间 $H$ 上，
+  $$f_n\rightharpoonup f \Rightarrow \Vert f_n\Vert^2- \Vert f\Vert^2-\Vert f_n-f\Vert^2 \to 0\ .$$
+</p>
+<p>
+  现在证明 $13$ . $\{\lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n)\}$ 在 $\dot{H}^1$ 中有界，由Rellich紧嵌入定理可知在任意一个紧集上在子列意义下有
+  $$\lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n) \to \phi \ \ \text{in } \ L^2\ .$$
+  于是可以再取子列使得 a.e. 收敛，再由Brezis-Lieb引理（参考这篇<a href="./blog8.html">博客</a>）
+</p>
+<p class="thm">
+  <b>引理10.</b> 设序列 $f_n $ 在 $L^p(\Omega)$ 中有界( $1 \leq p \lt \infty$ )，并存在 $\Omega$ 上的 $f$ s.t. $f_n \to f$ a.e. , 则 $f \in L^p(\Omega)$ , 且
+  $$\lim_{n \to \infty} \int_{\Omega} \vert f_n \vert^p -\vert f \vert^p - \vert f_n- f \vert^p = 0. $$
+</p>
+  立即得到
+  $$\limsup_{n\to \infty} \Vert \lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n)-\phi \Vert_{L^{p^*}}^{p^*} = \epsilon^{p^*} - \Vert \phi\Vert_{L^{p^*}}^{p^*}\ .$$
+  作尺度变换就证明了 $(13)$ .&emsp;$\Box$
 </div>
 
 <!-- js脚本 -->
