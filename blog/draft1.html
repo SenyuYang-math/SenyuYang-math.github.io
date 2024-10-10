@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  <em>按：这是笔者学习集中紧性原理(concentration compactness)的系列笔记，也将作为2024秋季“临界NLS方程”讨论班的资料之一. 初学难免出现纰漏，欢迎评论区讨论指正~</em>
+  <em>按：这是笔者学习集中紧性原理(concentration compactness)的系列笔记，也将作为未来“临界NLS方程”讨论班的资料之一. 初学难免出现纰漏，欢迎评论区讨论指正~</em>
 </p>
 <p>
   <a href="./blog13.html">笔记Ⅱ</a>的命题6和命题7给出了 $\{f_n\}$ 的一个“大”泡泡 $\phi$ 和相应的尺度 $\{\lambda_n\}$ 与 位置 $\{x_n\}$ . 这一节将继续利用这两个命题完成bubble decomposition的构造. 
@@ -19,12 +19,12 @@
 <p class="thm">
   <b>定理8</b> (inverse Sobolev嵌入)<b>.</b> 设 $\{f_n\} \subset \dot{H}^1(\mathbb{R}^d)$ , $d > 3$ . 如果存在 $A, \epsilon > 0$ , 
   $$\lim_{n\to\infty} \Vert f_n\Vert_{\dot{H}^1} = A \ , \ \liminf_{n\to \infty} \Vert f_n\Vert_{L^{p^*}} = \epsilon\ ,$$
-  则存在 $\{f_n\}$ 的一个子列（仍用 $n$ 编号），$\phi \in \dot{H}^1$ , $\{\lambda_n\}\subset \mathbb{R}^+$ 和 $\{x_n\} \in \mathbb{R}^d$ s.t.
+  则存在 $\{f_n\}$ 的一个子列（仍用 $n$ 编号），$\phi \in \dot{H}^1$ , $\{\lambda_n\}\subset \mathbb{R}^+$ , $\{x_n\} \in \mathbb{R}^d$ 和常数 $C, c \gt 0$ s.t.
   $$
   \begin{align*}
   & \lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n) \rightharpoonup \phi(x) \ \text{ in } \dot{H}^1\ , \tag{11} \\
-  & \lim_{n\to\infty} \left[ \Vert f_n\Vert_{\dot{H}^1}^2 - \Vert f_n-\phi_n\Vert_{\dot{H}^1}^2\right] = \Vert \phi\Vert_{\dot{H}^1}^2 \gtrsim A^2(\frac{\epsilon}{A})^{\frac{d^2}{2}} \ , \tag{12}\\
-  & \limsup_{n\to \infty} \Vert f_n-\phi_n \Vert_{L^{p^*}} \leq \epsilon \left[1-(\frac{\epsilon}{A})^{\frac{d(d+2)}{2}}\right]^{1/p^*}\ . \tag{13}
+  & \lim_{n\to\infty} \left[ \Vert f_n\Vert_{\dot{H}^1}^2 - \Vert f_n-\phi_n\Vert_{\dot{H}^1}^2\right] = \Vert \phi\Vert_{\dot{H}^1}^2 \geq C^2c^2A^2(\frac{\epsilon}{A})^{\frac{d^2}{2}} \ , \tag{12}\\
+  & \limsup_{n\to \infty} \Vert f_n-\phi_n \Vert_{L^{p^*}} \leq \epsilon \left[1-c(\frac{\epsilon}{A})^{\frac{d(d+2)}{2}}\right]^{1/p^*}\ . \tag{13}
   \end{align*}
   $$
   其中bubble
@@ -47,8 +47,8 @@
   \end{align*}
   $$
   于是得到
-  $$\Vert \phi\Vert_{\dot{H}^1} \gtrsim \Vert \phi\Vert_{L^{p^*}} \gtrsim A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ .$$
-  因此 $(12)$ 是以下经典事实的直接推论. 
+  $$\Vert \phi\Vert_{\dot{H}^1} \geq C\Vert \phi\Vert_{L^{p^*}} \geq Cc A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ ,$$
+  其中 $C, c$ 只与 $d$ 相关. 因此 $(12)$ 是以下经典事实的直接推论. 
 </p>
 <p class="thm">
   <b>引理9/练习.</b> 在Hilbert空间 $H$ 上，
@@ -63,8 +63,8 @@
   <b>引理10.</b> 设序列 $f_n $ 在 $L^p(\Omega)$ 中有界( $1 \leq p \lt \infty$ )，并存在 $\Omega$ 上的 $f$ s.t. $f_n \to f$ a.e. , 则 $f \in L^p(\Omega)$ , 且
   $$\lim_{n \to \infty} \int_{\Omega} \vert f_n \vert^p -\vert f \vert^p - \vert f_n- f \vert^p = 0. $$
 </p>
-  立即得到
-  $$\limsup_{n\to \infty} \Vert \lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n)-\phi \Vert_{L^{p^*}}^{p^*} = \epsilon^{p^*} - \Vert \phi\Vert_{L^{p^*}}^{p^*}\ ,$$
+  即有
+  $$\limsup_{n\to \infty} \Vert \lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n)-\phi \Vert_{L^{p^*}}^{p^*} = \epsilon^{p^*} - \Vert \phi\Vert_{L^{p^*}}^{p^*}\ .$$
   scaling invariance就得到了 $(13)$ .&emsp;$\Box$
 </div>
 
