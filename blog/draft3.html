@@ -1,0 +1,47 @@
+<html>
+<head>  
+<title>Strichartz估计的几何方法 (Ⅰ) : 主要结果和框架</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  Strichartz估计对色散方程和波方程的重要性无需赘述. 一般文献普遍采用了Fourier分析 $\times$ $TT^*$ method的证明，那么一个有趣的问题出现：能否在物理空间上工作，给出Strichartz估计更几何直观的解释？为回答这一问题，偶开启了本系列博客——文章[1]的阅读笔记，围绕以下关键技术展开: 
+  <ul>
+    <li>tube局部化, wave-packet分解.</li>
+    <li>Induction on space-time scale(本质就是bootstrap).</li>
+    <li>wave-packets相互作用的几何.</li>
+    <li>向量场方法, null condition.</li>
+  </ul>
+  一言以蔽之，我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息（这是我们的核心思想）. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的. 事实上我们的主要内容相当于在时空 $\mathbf{R}^{n+1}$ 中做decoupling, 听起来还蛮有意思呢~.
+</p>
+<p>
+  主要的材料是
+</p>
+<p>
+  [1] S. Klainerman, I. Rodnianski and T. Tao, <i>A physical space approach to wave equation bilinear estimates</i> . J. Anal. Math. <b>87</b> (2002), 299-336. 
+</p>
+<p>
+  在笔记中，空间维数 $n\geq 2$ , 所有常数均至多与 $n$ 相关.
+</p>
+<h2>主要记号</h2>
+<p>
+  一个free waves $\phi=\phi(x,t)$ 是 $\mathbf{R}^{n+1}$ 线性波方程
+  $$\Box u(x,t):= (-\frac{\partial^2}{\partial_t^2}+\Delta)u(x,t) = 0$$  
+  的解, 并配备有初值（此时省略空间变量 $x$ ）
+  $$\phi[0]:=(\phi_0(x), \phi_1(x)=\phi_t) \ .$$
+  我们约定 $\delta \phi$ 代表空间方向的导数，$\partial \phi$ 代表时空全体所有方向的导数. $\phi$ 最重要的守恒量是能量
+  $$E[\phi](t):=\frac{1}{2}\int_{\mathbf{R}^n} \vert \partial\phi\vert^2 \ dx \equiv E[\phi](0)\ ,$$
+  简记为 $E[\phi]$ .
+</p>
+
+  
+
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+</html>
