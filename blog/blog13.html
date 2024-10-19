@@ -112,8 +112,62 @@
   \end{align*}$$
 </p>
 <p>
-  现在对 $\{ f_n \}$ 能得到一组恰当的尺度 $\{ \lambda_n \}$ 和位置 $\{ x_n \}$, 加上 $\dot{H}^1$是Hilbert让我们能通过弱紧性和 $(6)$ 得到bubble $\phi$ , 我们完成了构造的第一步. 从 $(9)$ 的来源可知 $\phi$ 应该是组成 $\{ f_n \}$ 的“最大”的bubble, 那么怎样得到 $\{ f_n \}$ 所有的bubble呢？自然的想法是迭代地使用 $(9)(10)$ , 从大到小将bubble们逐个“吹出”. 我们将在笔记Ⅲ实现这一过程并完成最终的构造，待续~
+  现在对 $\{ f_n \}$ 能得到一组恰当的尺度 $\{ \lambda_n \}$ 和位置 $\{ x_n \}$, 加上 $\dot{H}^1$是Hilbert让我们能通过弱紧性和 $(6)$ 得到bubble $\phi$ , 我们完成了构造的第一步. 从 $(9)$ 的来源可知 $\phi$ 应该是组成 $\{ f_n \}$ 的“最大”的bubble, 那么怎样得到 $\{ f_n \}$ 所有的bubble呢？自然的想法是迭代地使用 $(9)(10)$ , 从大到小将bubble们逐个“吹出”. 下一小节将建立起迭代格式.
 </p>
+<h2>迭代格式</h2>
+<p>
+  下面的定理指出把 $\phi$ “吹出”后 $\{f_n\}$ 会显著地变小，因此在每一步迭代中作此操作格式后就可以期望 $\Vert r_n^{J} \Vert_{L^{p^*}}\to 0$ .
+</p>
+<p class="thm">
+  <b>定理8</b> (inverse Sobolev嵌入)<b>.</b> 设 $\{f_n\} \subset \dot{H}^1(\mathbb{R}^d)$ , $d > 3$ . 如果存在 $A, \epsilon > 0$ , 
+  $$\lim_{n\to\infty} \Vert f_n\Vert_{\dot{H}^1} = A \ , \ \liminf_{n\to \infty} \Vert f_n\Vert_{L^{p^*}} = \epsilon\ ,$$
+  则存在 $\{f_n\}$ 的一个子列（仍用 $n$ 编号），$\phi \in \dot{H}^1$ , $\{\lambda_n\}\subset \mathbb{R}^+$ , $\{x_n\} \in \mathbb{R}^d$ 和常数 $C, c \gt 0$ s.t.
+  $$
+  \begin{align*}
+  & \lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n) \rightharpoonup \phi(x) \ \text{ in } \dot{H}^1\ , \tag{11} \\
+  & \lim_{n\to\infty} \left[ \Vert f_n\Vert_{\dot{H}^1}^2 - \Vert f_n-\phi_n\Vert_{\dot{H}^1}^2\right] = \Vert \phi\Vert_{\dot{H}^1}^2 \geq C^2c^2A^2(\frac{\epsilon}{A})^{\frac{d^2}{2}} \ , \tag{12}\\
+  & \limsup_{n\to \infty} \Vert f_n-\phi_n \Vert_{L^{p^*}} \leq \epsilon \left[1-c(\frac{\epsilon}{A})^{\frac{d(d+2)}{2}}\right]^{1/p^*}\ . \tag{13}
+  \end{align*}
+  $$
+  其中bubble
+  $$\phi_n:= \lambda_n^{\frac{2-d}{2}}\phi\left(\frac{x- x_n}{\lambda_n}\right)\ . $$
+</p>
+<p>
+  <i>证明</i>. 可以取子列保证 $\Vert f_n\Vert_{L^{p^*}} \to \epsilon$ . 由命题6和命题7，存在 $k_n\in \mathbb{Z}$ , $x_n\in\mathbb{R}^d$ s.t.
+  $$\liminf_{n\to \infty} \Vert \Delta_{k_n}f_n \Vert_{L^{p^*}} \gtrsim A\left( \frac{\epsilon}{A}\right)^{\frac{d}{2}}\ ,$$
+  $$\liminf_{n\to \infty} 2^{\frac{2-d}{2}k_n}\vert \Delta_{k_n} f_n(x_n) \vert \gtrsim A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ .$$
+  由笔记Ⅱ的讨论，我们取 $\lambda_n:=2^{-k_n}$ . 选取好 $\lambda_n$ 和 $x_n$ , 自然用 $H^1$ 的自反性取出子列 $\{f_n\}$  s.t. 存在 $\phi\in \dot{H}^1$ 使 $(11)$ 成立. <br/>
+  弱收敛不能直接给出 $\Vert\phi \Vert_{\dot{H}^1}$ 的正下界，我们需要选取一个好的test function联合经典的duality argument：令
+  $$\varphi:= \Delta_0 \delta\ , \ \widehat{\varphi}(\xi)= \psi(\xi)\ ,$$
+  其中 $\delta$ 是Dirac分布，$\psi$ 是构造L-P分解的bump function（参考这篇<a href="./blog5.html">博客</a>）. 令 $q^*$ 为 $p^*$ 的Hölder对偶指标，则视 $\varphi\in L^{q^*}$ , $\Vert \varphi\Vert_{L^{q^*}} > 0$ ,  
+  $$
+  \begin{align*}
+  \vert \int_{\mathbb{R}^d} \bar{\varphi} \phi\ dx\vert = & \lim_{n\to\infty} \vert \int_{\mathbb{R}^d} \bar{\varphi}(x) 2^{\frac{2-d}{2}k_n}f_n(2^{-k_n} x+x_n) \ dx \vert \\
+  = & \lim_{n\to\infty} 2^{\frac{2-d}{2}k_n} \vert \int_{\mathbb{R}^d} 2^{k_nd} \bar{\varphi}(2^{k_n}(y-x_n)) f_n(y) \ dy \vert \\
+  = & \lim_{n\to\infty} 2^{\frac{2-d}{2}k_n} \vert \Delta_{k_n}f_n(x_n) \vert \\
+  \gtrsim & A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}} \ ,
+  \end{align*}
+  $$
+  于是得到
+  $$\Vert \phi\Vert_{\dot{H}^1} \geq C\Vert \phi\Vert_{L^{p^*}} \geq Cc A \left(\frac{\epsilon}{A}\right)^{\frac{d^2}{4}}\ ,$$
+  其中 $C, c$ 只与 $d$ 相关. 因此 $(12)$ 是以下经典事实的直接推论. 
+</p>
+<p class="thm">
+  <b>引理9/练习.</b> 在Hilbert空间 $H$ 上，
+  $$f_n\rightharpoonup f \Rightarrow \Vert f_n\Vert^2- \Vert f\Vert^2-\Vert f_n-f\Vert^2 \to 0\ .$$
+</p>
+<p>
+  现在证明 $(13)$ . $\{\lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n)\}$ 在 $\dot{H}^1$ 中有界，由Rellich紧嵌入定理可知在任意一个紧集上在子列意义下有
+  $$\lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n) \to \phi \ \ \text{in } \ L^2\ .$$
+  于是可以再取子列使得 a.e. 收敛，再由Brezis-Lieb引理（参考这篇<a href="./blog8.html">博客</a>）
+</p>
+<p class="thm">
+  <b>引理10.</b> 设序列 $f_n $ 在 $L^p(\Omega)$ 中有界( $1 \leq p \lt \infty$ )，并存在 $\Omega$ 上的 $f$ s.t. $f_n \to f$ a.e. , 则 $f \in L^p(\Omega)$ , 且
+  $$\lim_{n \to \infty} \int_{\Omega} \vert f_n \vert^p -\vert f \vert^p - \vert f_n- f \vert^p = 0. $$
+</p>
+  即有
+  $$\limsup_{n\to \infty} \Vert \lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n)-\phi \Vert_{L^{p^*}}^{p^*} = \epsilon^{p^*} - \Vert \phi\Vert_{L^{p^*}}^{p^*}\ .$$
+  scaling invariance就得到了 $(13)$ .&emsp;$\Box$
 </div>
 
 <!-- js脚本 -->
