@@ -1,13 +1,13 @@
 <html>
 <head>  
-<title>Schroeder-Bernstein定理的不动点证明（续）</title>
+<title>Schroeder-Bernstein定理（续）：不动点的构造</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  在上一篇<a href="./blog14.html" target="_blank">博客</a>中，我们介绍了Schroeder-Bernstein定理的不动点证明. 证明是存在性的，而这篇续集将基于证明的方法给出双射的显式构造. 概念，记号和序号就沿用上一篇博客的.
+  在上一篇<a href="./blog14.html">博客</a>中，我们介绍了Schroeder-Bernstein定理的不动点证明. 证明是存在性的，而这篇续集将基于证明的方法给出双射的显式构造. 概念，记号和序号就沿用上一篇博客的.
 </p>
 <p>
    已知集合 $A,B$ 之间的双射本质上是格 $(\mathcal{P}(A), \subseteq)$ 上的保序映射
@@ -21,7 +21,7 @@
 <p>
   显然 $\Phi$ 是序列连续的，因为 $\mathcal{P}(A)$ 上可以直接写出 $\sup_n Y_n = \cup_n Y_n$ . 因此以下定理是我们构造不动点的依据.
 </p>
-<p>
+<p class="thm">
   <b>定理7.</b> 设格 $(L, \leq)$ 完备且有最小元(记为 $o$ ), $f$ 保序且序列连续. 则 $\sup_n f^{(n)}(o)$ 存在并且是 $f$ 的最小不动点. 其中 $f^{(n)}$ 代表 $f$ 迭代 $n$ 次的映射.
 </p>
 <p>
