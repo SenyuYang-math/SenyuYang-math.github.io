@@ -15,7 +15,7 @@ btitle[11] = "等宽曲线与Crofton公式"; bdate[11] = "2024/08/16";
 btitle[12] = "集中紧性原理 (Ⅰ) : 动机，主要结果"; bdate[12] = "2024/08/31";
 btitle[13] = "集中紧性原理 (Ⅱ) : 大bubble的尺度和位置"; bdate[13] = "2024/09/06";
 btitle[14] = "Schroeder-Bernstein定理的不动点证明"; bdate[14] = "2024/09/26";
-btitle[15] = "Schroeder-Bernstein定理的不动点证明（续）"; bdate[15] = "2024/10/20";
+btitle[15] = "Schroeder-Bernstein定理 (续) : 构造不动点"; bdate[15] = "2024/10/20";
 // btitle[] = ""; bdate[] = "";
 var amount = btitle.length;
 // 获取网址
