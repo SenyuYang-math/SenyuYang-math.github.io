@@ -1,41 +1,41 @@
 <html>
 <head>  
-<title>波方程Strichartz估计的几何 (Ⅰ)</title>
+<title>Physical approach to Fourier results (Ⅰ) : tube decomposition</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  Strichartz估计对色散pde的重要性无需赘述. 一般文献普遍采用了Fourier分析 $\times$ $TT^*$ method的证明，那么一个有趣的问题出现：能否在物理空间上工作，给出Strichartz估计更几何直观的解释？把目光集中在波方程上，偶开启本系列博客——文章
+  Strichartz估计对色散pde的重要性无需赘述. 一般文献普遍采用了Fourier分析 $\times$ $TT^*$ method的证明，那么一个有趣的问题出现：能否在physical space上工作，给出Strichartz估计更几何直观的解释？把目光集中在波方程上，偶开启新系列博客<i>Physical approach to Fourier results</i>. 第一部分是文章
 </p>
 <p>
   [1] S. Klainerman, I. Rodnianski and T. Tao, <i>A physical space approach to wave equation bilinear estimates</i> . J. Anal. Math. <b>87</b> (2002), 299-336. 
 </p>
 <p>
-  的阅读笔记，并围绕以下关于关键技术展开: 
+  的阅读笔记，围绕以下关于关键技术展开: 
   <ul>
-    <li>tube局部化, wave-packet的相互作用.</li>
-    <li>induction on scales.</li>
+    <li>tube decomposition, wave packet的相互作用;</li>
+    <li>时空的分划，induction on scales.</li>
     <li>向量场方法, null condition.</li>
   </ul>
-  总之我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息（这是我们的核心思想）. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling, 还蛮有意思呢~
+  总之我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息（这是我们的核心思想）. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling, 还蛮有意思呢~
 </p>
 <h2>记号，主要结果</h2>
 <p>
   在笔记中，空间维数 $n\geq 2$ , 所有常数均至多与 $n$ 相关.
 </p>
 <p>
-  一个free waves $\phi=\phi(x,t)$ 是 $\mathbf{R}^{n+1}$ 线性波方程
+  一个<b>free waves</b> $\phi=\phi(x,t)$ 是 $\mathbf{R}^{n+1}$ 线性波方程
   $$\Box u(x,t):= (-\frac{\partial^2}{\partial_t^2}+\Delta)u(x,t) = 0$$  
   的解, 并配备有初值（此时省略空间变量 $x$ ）
   $$\phi[0]:=(\phi_0(x), \phi_1(x)=\phi_t) \ .$$
-  我们约定 $\nabla \phi$ 代表空间方向的导数，$\partial \phi$ 代表时空全体所有方向的导数. $\phi$ 最重要的守恒量是能量
+  我们约定 $\nabla \phi$ 代表空间方向的导数，$\partial \phi$ 代表时空全体所有方向的导数. $\phi$ 最重要的守恒量是<b>energy</b>
   $$E[\phi](t):=\frac{1}{2}\int_{\mathbf{R}^n} \vert \partial\phi\vert^2 \ dx \equiv E[\phi](0)\ ,$$
   简记为 $E[\phi]$ .
 </p>
 <p>
-  设 $\lambda=2^k$ 是一个二进整数. 我们称 $\phi$ 有频率 $\lambda$ , 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上.
+  设 $\lambda=2^k$ 是一个二进整数. 我们称 $\phi$ 是一个频率 $\lambda$ 的<b>wave-packet</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上.
 </p>
 
   
