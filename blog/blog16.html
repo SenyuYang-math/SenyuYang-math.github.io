@@ -25,7 +25,7 @@
     这一情形. 考虑等距变换
     $$T\colon \ (x_1, x_2, x_3, ... , x_{n+1})\mapsto  (x_1, x_2, -x_3, ... , -x_{n+1}) \ .$$ 
     注意 $T$ 保持 $p,v$ 不动，且将测地线映为测地线，因此 
-    $$T\circ \gamma(t) = \gamma(t), \ \forall t\in [0, 1].$$
+    $$T\circ \gamma(t) = \gamma(t), \ \forall t\in [0, 1] \ .$$
     $T$ 在 $\mathbf{S}^n$ 上的不动点集为大圆 $C=\{x_1^2+x_2^2=1,\ x_3=...=x_{n+1}=0\} \cong S^1$ . 因此 $\gamma \subset C$ , 由 $\gamma$ 的最小性即证明了结论.&emsp;$\Box$
   </p>
   <h2> $S^1$ 上的正交组 $\{ z^k \}$ </h2>
@@ -36,7 +36,7 @@
     <b>定理2.</b> 设 $\mathbb{C}$ 上有（首一）多项式 $f(z) = a_0 + a_1 z + ... + a_{n-1} z^{n-1} + z^n$ . 则存在 $z_0 \in S^1$ s.t. $\vert f(z_0) \vert \geq 1$ .
   </p>
   <p>
-    <i>证明.</i> <span style="text-color:red">注意到</span> $\{ z^k \}_{1 \leq k \leq n}$ 构成Hilbert空间 $H:=L_{dz/2\pi}^{2}(S^1)$ 上的一组正交向量，于是用Bessel不等式得到
+    <i>证明.</i> <span style="text-color:red">注意到</span> $\{ z^k \}_{0 \leq k \leq n}$ 构成Hilbert空间 $H:=L_{dz/2\pi}^{2}(S^1)$ 上的一组正交向量，于是用Bessel不等式得到
     $$\Vert f\Vert_H \geq \left( \sum_{k=1}^{n-1} \vert a_k\vert^2 \right) + 1^2 \geq 1 . $$
     由于 $\Vert f\Vert_{C^0} \geq \Vert f \Vert_H$ , 因此 $z_0$ 存在.&emsp;$\Box$
   </p>
@@ -47,11 +47,11 @@
     显然这个积分发散. 物理学家的解释是自然界存在一个用于修正的cut-off function $\theta(x)$ s.t. 存在充分大的 $R>0$ , 
     $$\theta (x) =1 \ , \ x \lt R$$
     以及在无穷远处迅速衰减；而现实的物理量是
-    $\tilde{f}(\lambda):= \int_{0}^{\infty} \frac{\theta(x)}{x+\lambda} \; dx $
+    $$\tilde{f}(\lambda):= \int_{0}^{\infty} \frac{\theta(x)}{x+\lambda} \; dx $$
     从而避免发散的灾难. $\tilde{f}$ 就称为 $f$ 的<b>重整化</b>(renormalization) . 但问题在于我们事先并不知道 $\theta$ 的具体形式，物理学家进一步指出：如果能在实验室测得系统在状态 $\lambda_0$ 下的现实量 $\tilde{f}(\lambda_0)$ , 那么对任意 $\lambda \neq \lambda_0$ , 
     $$\begin{align*}
     \tilde{f}(\lambda)-\tilde{f}(\lambda_0) & = \int_{0}^{R} + \int_{R}^{\infty} \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \theta(x) \; dx \\
-    & \int_0^R \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \; dx + O(\frac{1}{R}) \ .
+    & = \int_0^R \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \; dx + O(\frac{1}{R}) \ .
     \end{align*}$$
     由于 $R$ 充分大，于是近似地认为
     $$\tilde{f}(\lambda) = \tilde{f}(\lambda_0) + \int_0^{\infty} \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \; dx \lt \infty \ .$$
