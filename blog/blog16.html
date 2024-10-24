@@ -42,11 +42,11 @@
   </p>
   <h2>one-loop重整化 (baby ver.)</h2>
   <p>
-    最近学习QFT时为了帮助理解遂构造了一个简单例子. 假设我们计算得到一个理论量
+    最近学习QFT时为了辅助理解构造的一个简单例子. 假设我们的计算得到一个理论量
     $$f(\lambda) := \int_{0}^{\infty} \frac{1}{x+\lambda} \; dx \ , \ \lambda > 0 \ .$$
     显然这个积分发散. 物理学家的解释是自然界存在一个用于修正的cut-off function $\theta(x)$ s.t. 存在充分大的 $R>0$ , 
     $$\theta (x) =1 \ , \ x \lt R$$
-    以及在无穷远处迅速衰减；而现实的物理量是
+    以及在无穷远处迅速衰减（在QFT中，这通常意味着动量不能来到 $\infty$）；而现实的物理量是
     $$\tilde{f}(\lambda):= \int_{0}^{\infty} \frac{\theta(x)}{x+\lambda} \; dx $$
     从而避免发散的灾难. $\tilde{f}$ 就称为 $f$ 的<b>重整化</b>(renormalization) . 但问题在于我们事先并不知道 $\theta$ 的具体形式，物理学家进一步指出：如果能在实验室测得系统在状态 $\lambda_0$ 下的现实量 $\tilde{f}(\lambda_0)$ , 那么对任意 $\lambda \neq \lambda_0$ , 
     $$\begin{align*}
@@ -55,7 +55,7 @@
     \end{align*}$$
     由于 $R$ 充分大，于是近似地认为
     $$\tilde{f}(\lambda) = \tilde{f}(\lambda_0) + \int_0^{\infty} \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \; dx \lt \infty \ .$$
-    如此我们并不需要知道 $\theta$ 的先验信息就能推算出 $\tilde{f}(\lambda)$ !
+    如此我们并不需要知道 $\theta$ 的先验信息就能推算出 $\tilde{f}(\lambda)$ , 这与尺度 $R$ 无关 !
   </p>
 </div>
 
