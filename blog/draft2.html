@@ -50,11 +50,11 @@
     $\tilde{f}(\lambda):= \int_{0}^{\infty} \frac{\theta(x)}{x+\lambda} \; dx $
     从而避免发散的灾难. $\tilde{f}$ 就称为 $f$ 的<b>重整化</b>(renormalization) . 但问题在于我们事先并不知道 $\theta$ 的具体形式，物理学家进一步指出：如果能在实验室测得系统在状态 $\lambda_0$ 下的现实量 $\tilde{f}(\lambda_0)$ , 那么对任意 $\lambda \neq \lambda_0$ , 
     $$\begin{align*}
-    \tilde{f}(\lambda)-\tilde{f}(\lambda_0) & = \int_{0}^{R} + \int_{R}^{\infty} \frac{\lambda_0 - \lambda}{(x+\lambda)(\x+\lambda_0)} \theta(x) \; dx \\
-    & \int_0^R \frac{\lambda_0 - \lambda}{(x+\lambda)(\x+\lambda_0)} \; dx + O(\frac{1}{R}) \ .
+    \tilde{f}(\lambda)-\tilde{f}(\lambda_0) & = \int_{0}^{R} + \int_{R}^{\infty} \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \theta(x) \; dx \\
+    & \int_0^R \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \; dx + O(\frac{1}{R}) \ .
     \end{align*}$$
     由于 $R$ 充分大，于是近似地认为
-    $$\tilde{f}(\lambda) = \tilde{f}(\lambda_0) + \int_0^{\infty} \frac{\lambda_0 - \lambda}{(x+\lambda)(\x+\lambda_0)} \; dx \lt \infty \ .$$
+    $$\tilde{f}(\lambda) = \tilde{f}(\lambda_0) + \int_0^{\infty} \frac{\lambda_0 - \lambda}{(x+\lambda)(x+\lambda_0)} \; dx \lt \infty \ .$$
     如此我们并不需要知道 $\theta$ 的先验信息就能推算出 $\tilde{f}(\lambda)$ !
   </p>
 </div>
