@@ -33,12 +33,12 @@
     来自一道博资考的复分析问题.
   </p>
   <p class="thm">
-    <b>定理2.</b> 设 $\mathbb{C}$ 上有（首一）多项式 $f(z) = a_0 a_1 z + ... + a_{n-1} z^{n-1} + z^n$ ($a_n=1$) . 则存在 $z_0 \in S^1$ s.t. $\vert f(z_0) \vert \geq 1$ .
+    <b>定理2.</b> 设 $\mathbb{C}$ 上有（首一）多项式 $f(z) = a_0 + a_1 z + ... + a_{n-1} z^{n-1} + z^n$ . 则存在 $z_0 \in S^1$ s.t. $\vert f(z_0) \vert \geq 1$ .
   </p>
   <p>
-    <i>证明.</i> 注意到 $\{ z^k \}_{1 \leq k \leq n}$ 构成Hilbert空间 $H:=L_{dz/2\pi}^{2}(S^1)$ 上的一组正交向量，于是用Bessel不等式得到
-    $$\Vert f\Vert_H \geq \sum_{k=1}^n \vert a_k\vert^2 \geq 1 . $$\
-    因此 $z_0$ 存在.&emsp;$\Box$
+    <i>证明.</i> <span style="text-decoration:underline">注意到</span> $\{ z^k \}_{1 \leq k \leq n}$ 构成Hilbert空间 $H:=L_{dz/2\pi}^{2}(S^1)$ 上的一组正交向量，于是用Bessel不等式得到
+    $$\Vert f\Vert_H \geq \left( \sum_{k=1}^{n-1} \vert a_k\vert^2 \right) + 1^2 \geq 1 . $$
+    由于 $\Vert f\Vert_{C^0} \geq \Vert f \Vert_H$ , 因此 $z_0$ 存在.&emsp;$\Box$
   </p>
 </div>
 
