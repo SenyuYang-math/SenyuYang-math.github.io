@@ -15,5 +15,5 @@ bintro[12] = "讨论Sobolev嵌入的紧性缺失，叙述了bubble decomposition
 bintro[13] = "用频率精细化的Sobolev不等式确定大bubble, 并建立迭代格式.";
 bintro[14] = "以格论的语言叙述了一个清爽、直观的证明.";
 bintro[15] = "基于不动点证明给出直接构造双射的算法.";
-bintro[16] = "球面测地线；正交性的应用；重整化(baby ver) .";
+bintro[16] = "球面的测地线；正交性的应用；重整化(baby ver) .";
 // bintro[] = "";
