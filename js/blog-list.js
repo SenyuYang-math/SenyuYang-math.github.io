@@ -16,6 +16,7 @@ btitle[12] = "集中紧性原理 (Ⅰ) : 动机，主要结果"; bdate[12] = "20
 btitle[13] = "集中紧性原理 (Ⅱ) : 大bubble的尺度和位置"; bdate[13] = "2024/09/06";
 btitle[14] = "Schroeder-Bernstein定理的不动点证明"; bdate[14] = "2024/09/26";
 btitle[15] = "Schroeder-Bernstein定理：构造不动点"; bdate[15] = "2024/10/20";
+btitle[16] = "近期随想 (1)"; bdate[16] = "2024/10/24";
 // btitle[] = ""; bdate[] = "";
 var amount = btitle.length;
 // 获取网址
