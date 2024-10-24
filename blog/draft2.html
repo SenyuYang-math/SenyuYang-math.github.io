@@ -1,16 +1,20 @@
 <html>
 <head>  
-<title>球面的测地线</title>
+<title>近期随想 (1) </title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
   <p>
-    水一个想法. 众所周知 
+    记录几个小想法. 
+  </p>
+  <h2>求球面的测地线</h2>
+  <p>
+    众所周知有以下结论：
   </p>
   <p class="thm">
-    <b>定理.</b> $\mathbf{S}^n$ 上连接两个非极点(non-antipodal points) $p, q$ 的最短测地线(geodesic)是 $p, q$ 所在大圆(equator) $C \cong S^1$ 的一段弧(arc).
+    <b>定理1.</b> $\mathbf{S}^n$ 上连接两个非极点(non-antipodal points) $p, q$ 的最短测地线(geodesic)是 $p, q$ 所在大圆(equator) $C \cong S^1$ 的一段弧(arc).
   </p>
   <p>
     这里我们默认讨论的是自然的嵌入 $\mathbf{S}^n \hookrightarrow \mathbf{R}^{n+1}$ ，Euclidean度量 $dx^i\otimes dx^i$ 诱导了 $S^2$ 上的子流形度量 $g$ . 当然可以直接在极坐标卡上求解测地线方程, 但这里给出一个 <i>无需计算</i> 的思路，充分利用了 $\mathbf{S}^n$ 的齐性（等距变换）.
@@ -23,6 +27,18 @@
     注意 $T$ 保持 $p,v$ 不动，且将测地线映为测地线，因此 
     $$T\circ \gamma(t) = \gamma(t), \ \forall t\in [0, 1].$$
     $T$ 在 $\mathbf{S}^n$ 上的不动点集为大圆 $C=\{x_1^2+x_2^2=1,\ x_3=...=x_{n+1}=0\} \cong S^1$ . 因此 $\gamma \subset C$ , 由 $\gamma$ 的最小性即证明了结论.&emsp;$\Box$
+  </p>
+  <h2>系数控制边值</h2>
+  <p>
+    来自一道博资考的复分析问题.
+  </p>
+  <p class="thm">
+    <b>定理2.</b> 设 $\mathbb{C}$ 上有（首一）多项式 $f(z) = a_0 a_1 z + ... + a_{n-1} z^{n-1} + z^n$ ($a_n=1$) . 则存在 $z_0 \in S^1$ s.t. $\vert f(z_0) \vert \geq 1$ .
+  </p>
+  <p>
+    <i>证明.</i> 注意到 $\{ z^k \}_{1 \leq k \leq n}$ 构成Hilbert空间 $H:=L_{dz/2\pi}^{2}(S^1)$ 上的一组正交向量，于是用Bessel不等式得到
+    $$\Vert f\Vert_H \geq \sum_{k=1}^n \vert a_k\vert^2 \geq 1 . $$\
+    因此 $z_0$ 存在.&emsp;$\Box$
   </p>
 </div>
 
