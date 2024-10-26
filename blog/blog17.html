@@ -47,7 +47,7 @@
 </p>
 <p class="thm">
   <b>引理1.</b> 对任意正整数 $M$ 和 $\epsilon > 0$ 都有
-  $$r_2(M) := \# \{ (x,y)\in\mathbb{Z}^2 \colon x^2+y^2=M \} \lessim M^{\epsilon} \ .$$
+  $$r_2(M) := \# \{ (x,y)\in\mathbb{Z}^2 \colon x^2+y^2=M \} \lesssim M^{\epsilon} \ .$$
 </p>
 <p>
   <i>引理1的证明</i>. 已知 $\mathbb{Z}[i]$ 是唯一因子分解整环(UFD)，设 $M=p_1^{e_1}...p_m^{e_m}$ , $p_1, ... , p_m$ 为某些素因子. $M=x^2+y^2=(x+iy)(x-iy)$ , 所以 $x+iy$ 是 $M$ 的一个因子，因此存在 $e_1'\leq e_1, ..., e_m'\leq e_m$ s.t. $x+iy=p^{e_1'}...p^{e_m'}$ . 而 $M$ 全体因子的个数为 $O(N^{\epsilon})$ (练习, 先对素数幂验证) , 于是引理得证.&emsp;$\Box$
@@ -61,7 +61,7 @@
 </p>
 <p>
   <i>引理2的证明</i>. 设 $\mathbf{v}= (v, v_0)\in \mathbb{Z}^2\times \mathbb{Z}$ , $\vert \mathbf{v} \vert \lesssim N^2$ . 则
-  $$\# \{(m,n)\in \mathbb{Z}^2 : v(m, n)= \mathbf{v}\} = \#\{n=(n_1, n_2)\colon \vert n\vert^2+\vert v-n\vert^2=v_0\} \. $$
+  $$\# \{(m,n)\in \mathbb{Z}^2 : v(m, n)= \mathbf{v}\} = \#\{n=(n_1, n_2)\colon \vert n\vert^2+\vert v-n\vert^2=v_0\} \ . $$
   对约束方程配方得到
   $$(2n_1-v_1)^2+(2n_2-v_2)^2=2v_0-\vert v\vert^2 \ .$$
   由引理1就完成了证明.&emsp;$\Box$
@@ -70,13 +70,13 @@
   回到定理1的证明. 由 $(2)$ 立刻得到
   $$\begin{align*}
   \Vert u\Vert_{L^4}^4 \lesssim & L(N)^{1/2} \sum_{m,n} \vert a_m\vert^2 \vert a_n\vert^2\\
-  = N^{\epsilon} \left( \sum_{n} \vert a_n\vert^2 \right)^2 \\
-  = N^{\epsilon} \Vert u_0\Vert_{L^2}^4 \ .
+  = & N^{\epsilon} \left( \sum_{n} \vert a_n\vert^2 \right)^2 \\
+  = & N^{\epsilon} \Vert u_0\Vert_{L^2}^4 \ .
   \end{align*}$$
   于是在 $d=2$ 时定理1成立.&emsp;$\Box$
 </p>
 <p>
-  $d=1$ 的情形由于 $p=6$ 会出现三平方和，证明起来稍微复杂一些. (可以证明三平方和情形下 $r_3(M) \grtsim M^{1/2}$ , 因此直接证明是不可能的)
+  在 $d=1$ 的情形由于 $p=6$ 会出现三平方和，证明起来稍微复杂一些. (可以证明三平方和情形下 $r_3(M) \gtrsim M^{1/2}$ , 因此直接证明是不可能的)
 </p>
 <p>
   $d=1$ <i>的证明</i>. 在这里，重新定义 $\mathbf{v}:= (v, v_0) \in \mathbb{Z}^2$ , 以及
@@ -87,7 +87,7 @@
   \Vert u\Vert_{L^6}^6 = &\Vert u^3\Vert_{L^2}^2 \\
   = & \Vert \sum_{l,m,n} a_l a_m a_n e^{2\pi ix(l+m+n)+2\pi it(l^2+m^2+n^2)}\Vert_{L^2}^2 \\
   = & \sum_{\mathbf{v} \in \mathbb{Z}^2} \left(\sum_{l,m,n \colon \ v(l,m,n)=\mathbf{v} } a_l a_m a_n \right)^2 \\
-  \leq L_3(N)^{1/2} \sum_{l,m,n} \vert a_l\vert^2 \vert a_m\vert^2 \vert a_n\vert^2 \ .
+  \leq & L_3(N)^{1/2} \sum_{l,m,n} \vert a_l\vert^2 \vert a_m\vert^2 \vert a_n\vert^2 \ .
   \end{align*}$$
   于是由下面的 $(3)$ 即完成定理1的证明.&emsp;$\Box$
 </p>
@@ -97,7 +97,9 @@
 </p>
 <p>
   <i>引理3的证明</i>. 类似地重写为
-  $$\# \{(l,m,n)\in \mathbb{Z}^3 : v(l,m,n)= \mathbf{v}\} = \#\{(m, n)\in\mathbb{Z}^2 \colon m^2+n^2+(v-m-n)^2=v_0\} \. $$
+  $$\begin{align*} & \# \{(l,m,n)\in \mathbb{Z}^3 : v(l,m,n)= \mathbf{v}\} \\
+  = & \#\{(m, n)\in\mathbb{Z}^2 \colon m^2+n^2+(v-m-n)^2=v_0\} \ . 
+  \end{align*}$$
   对约束方程配方得到
   $$\frac{3}{4}(m+n)^2+\frac{1}{4}(m-n)^2-v(m+n)=\frac{v_0-v^2}{2} \ .$$
   令 $m'=m+n, n'=m-n$ , 得到
@@ -106,7 +108,7 @@
 </p>
 <br/>
 <p>
-  仔细复盘证明可以看到
+  从定理1及其证明可以看到
   <ol>
     <li>定理1相当于给出了格点<b>抛物面</b> (parabloid) 
     $$P_N:=\{(n, \vert n\vert^2)\in \mathbb{Z}^{d+1} \colon \vert n\vert \leq N\}\ , \ d=1,2$$  
@@ -116,10 +118,12 @@
       在高维情形 $d\geq 3$ , 定理的困难在于 $p\neq \mathbb{Z}$ 导致我们无法简单地写出multilinear type $L^2$ estimate. 本质上我们还在依赖Plancherel定理，因此建立一般的 $L^p$ 空间的decoupling理论对于定理1的研究是必要的.
     </li>
     <li>
-      事实上decoupling理论会被用于研究以下Diophantine问题：
-      $$n_1+n_2+...+n_m= n \ \text{on} \ \mathbb{Z}^d \ ,$$
-      $$n_1^k+...+\vert n_m^k =n_0 \in\mathbb{Z} \ , \ k\in \mathbb{N}^* \ .$$
-      定理1的证明正是考虑了 $k=2$ 的情况. 
+      事实上decoupling理论会被用于研究以下Diophantine问题 $D(a,k)$：
+      $$n_1+n_2+...+n_k= m_1 + m_2+...+m_k \ \text{on} \ \mathbb{Z}_{\vert \cdot \vert \leq N} \ ,$$
+      $$n_1^q+...+ n_k^q = m_1^q +...+ m_k^q \ .$$
+      定理1正是对应了 $q=2$ 的情况. 事实上考虑exponential sum
+      $$u(x,t)=\sum_{1\leq n\leq N} e^{2\pi i(xn+tn^2)} \ ,$$
+      则定理1指出 $\int \vert u\vert^6 \lesssim N^{3+\epsilon}$ . 将积分项展开即得到 $D(2, 3)$ 解个数的估计 $\lesssim N^{3+\epsilon}$ . 而 $D(3,3)$ 的估计是一个公开问题！exponential sum是解析数论中非常重要的研究对象，比如Riemann hypothesis, Goldbach's conjecture都与之有关. Bourgain生前也研究过RH, 偶唯有敬佩.
     </li>
   </ol>
 </p>
