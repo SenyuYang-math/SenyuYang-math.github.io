@@ -10,12 +10,12 @@
   <i>按：Jean Bourgain(1954-2018)绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触Bourgain的工作或思想. 这是一个(不定期)连载系列，记录Bourgain的数学魔法.</i>
 </p>
 <p>
-  1993年Bourgain在文章[1]中开创性地研究了exponential sum等解析数论的对象，在缺乏色散的情况下得到了环面 $\mathbb{T}^d\ (d=1, 2)$ Schrödinger方程的Strichartz估计
+  1993年Bourgain开创性地考虑了exponential sum等解析数论的对象，在缺乏色散的情况下得到了环面 $\mathbb{T}^d\ (d=1, 2)$ Schrödinger方程的Strichartz估计
 </p>
 <p class="thm">
   <b>定理1</b> (Bourgain)<b>.</b> 设 $d=1, 2$ , $u(x,t)$ 满足 $\mathbb{T}^d \times \mathbb{R}$ 上的Schrödinger方程
   $$i\partial_t u + \Delta u =0 \ . $$
-  如果存在 $N\in \mathbb{N}^*$ s.t. 初值 $u_0$ 的频率 $\leq N $, i.e.
+  如果存在 $N\in \mathbb{N}^*$ s.t. 初值 $u_0$ 的频率 $\leq N$ , i.e.
   $$u_0=\sum_{n\in\mathbb{Z}^d\ , \ \vert n \vert \leq N} a_n e^{2\pi i n\cdot x}\ ,$$
   则对任意 $\epsilon > 0$ 都有Strichartz估计
   $$\Vert u\Vert_{L^p(\mathbb{T}^d\times [0,1])} \lesssim N^{\epsilon} \Vert u_0\Vert_{L^2(\mathbb{T}^d)} \ , \tag{1}$$
@@ -23,7 +23,7 @@
   $$p = \frac{2(d+2)}{d} \ .$$
 </p>
 <p>
-  这个结果成为Fourier decoupling理论的先声（之一），也正是decoupling在证明高维情形下的定理1 (Bourgain's conjecture) 中发挥了关键作用. 这篇博客将展开这个由Bourgain引发的奇迹，就作为偶学习decoupling的预热吧.
+  这个结果成为Fourier decoupling理论的先声（之一），也正是decoupling在证明高维情形下的定理1 (Bourgain-Demeter, 2014) 中发挥了关键作用. 这篇博客将展开这个由Bourgain引发的奇迹，就作为偶学习decoupling的预热吧.
 </p>
 <p>
   <b>注.</b> Strichartz估计建立在 $\mathbb{T}^d\times [0,1]$ 而非全局时间 $\mathbb{T}^d \times \mathbb{R}$ , 原因自然是闭流形上的解没有长时间衰减的行为.
@@ -32,7 +32,7 @@
   先讨论 $d=2$ 的情形.
 </p>
 <p>
-  $d=2$ <i>的证明.</i> 对方程作Fourier分析得到
+  $d=2$ <i>的证明</i>. 对方程作Fourier分析得到
   $$u(x,t) = \sum_{n\in \mathbb{Z}^2 \\ \vert n\vert \leq N} a_n e^{2\pi ix\cdot n + 2\pi it\vert n\vert^2} \ .$$
   (熟悉数论的读者应该会联想到著名的Jacobi theta function)<br/>
   为了用Plancherel定理，我们将 $L^p=L^4$ 写作bilinear type的 $L^2$ : 
@@ -73,7 +73,7 @@
   = & N^{\epsilon} \left( \sum_{n} \vert a_n\vert^2 \right)^2 \\
   = & N^{\epsilon} \Vert u_0\Vert_{L^2}^4 \ .
   \end{align*}$$
-  于是在 $d=2$ 时定理1成立.&emsp;$\Box$
+  于是在 $d=2$ 时 $(1)$ 成立.&emsp;$\Box$
 </p>
 <p>
   在 $d=1$ 的情形由于 $p=6$ 会出现三平方和，证明起来稍微复杂一些. (可以证明三平方和情形下 $r_3(M) \gtrsim M^{1/2}$ , 因此直接证明是不可能的)
@@ -89,7 +89,7 @@
   = & \sum_{\mathbf{v} \in \mathbb{Z}^2} \left(\sum_{l,m,n \colon \ v(l,m,n)=\mathbf{v} } a_l a_m a_n \right)^2 \\
   \leq & L_3(N)^{1/2} \sum_{l,m,n} \vert a_l\vert^2 \vert a_m\vert^2 \vert a_n\vert^2 \ .
   \end{align*}$$
-  于是由下面的 $(3)$ 即完成定理1的证明.&emsp;$\Box$
+  于是由下面的 $(3)$ 即完成 $(1)$ 的证明.&emsp;$\Box$
 </p>
 <p class="thm">
   <b>引理3.</b> 对任意 $\epsilon > 0$ , 有
@@ -115,17 +115,16 @@
     上对于 $L^6, L^4$ 的decoupling理论. 
     </li>
     <li>
-      在高维情形 $d\geq 3$ , 定理的困难在于 $p\neq \mathbb{Z}$ 导致我们无法简单地写出multilinear type $L^2$ estimate. 本质上我们还在依赖Plancherel定理，因此建立一般的 $L^p$ 空间的decoupling理论对于定理1的研究是必要的.
-    </li>
-    <li>
-      事实上decoupling理论会被用于研究以下Diophantine问题 $D(a,k)$：
-      $$n_1+n_2+...+n_k= m_1 + m_2+...+m_k \ \text{on} \ \mathbb{Z}_{\vert \cdot \vert \leq N} \ ,$$
-      $$n_1^q+...+ n_k^q = m_1^q +...+ m_k^q \ .$$
-      定理1正是对应了 $q=2$ 的情况. 事实上考虑exponential sum
-      $$u(x,t)=\sum_{1\leq n\leq N} e^{2\pi i(xn+tn^2)} \ ,$$
-      则定理1指出 $\int \vert u\vert^6 \lesssim N^{3+\epsilon}$ . 将积分项展开即得到 $D(2, 3)$ 解个数的估计 $\lesssim N^{3+\epsilon}$ . 而 $D(3,3)$ 的估计是一个公开问题！exponential sum是解析数论中非常重要的研究对象，比如Riemann hypothesis, Goldbach's conjecture都与之有关. Bourgain生前也研究过RH, 偶唯有敬佩.
+      在高维情形 $d\geq 3$ , 定理的困难在于 $p\neq \mathbb{Z}$ 导致我们无法简单地写出multi-linear type $L^2$ estimate. 本质上我们还在依赖Plancherel定理，因此建立一般的 $L^p$ 空间的decoupling理论对于定理1的研究是必要的.
     </li>
   </ol>
+<p>
+  另外decoupling理论会被用于研究以下Diophantine问题 $D(a,k)$：
+  $$n_1+n_2+...+n_k= m_1 + m_2+...+m_k \ \text{on} \ \mathbb{Z}_{\vert \cdot \vert \leq N} \ ,$$
+  $$n_1^q+...+ n_k^q = m_1^q +...+ m_k^q \ .$$    
+  定理1正是对应了 $q=2$ 的情况. 事实上考虑exponential sum
+  $$u(x,t)=\sum_{1\leq n\leq N} e^{2\pi i(xn+tn^2)} \ ,$$   
+  则定理1指出 $\int \vert u\vert^6 \lesssim N^{3+\epsilon}$ . 将积分项展开即得到 $D(2, 3)$ 解个数的估计 $\lesssim N^{3+\epsilon}$ . 而 $D(3,3)$ 的估计是一个公开问题！exponential sum是解析数论中非常重要的研究对象，比如Riemann hypothesis, Goldbach's conjecture都与之有关. Bourgain生前也研究过RH, 偶唯有敬佩.
 </p>
 </div>
 
