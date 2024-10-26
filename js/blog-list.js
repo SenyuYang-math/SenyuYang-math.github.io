@@ -6,7 +6,7 @@ btitle[2] = "多项式方法与有限域Kakeya猜想"; bdate[2] = "2024/02/19";
 btitle[3] = "Bootstrap Method(baby ver.)"; bdate[3] = "2024/03/08"; 
 btitle[4] = "Cauchy积分定理的几何风证明"; bdate[4] = "2024/03/14"; 
 btitle[5] = "Littlewood-Paley定理的随机化证明"; bdate[5] = "2024/05/12"; 
-btitle[6] = "Bourgain的魔法：一道2024年丘赛题与双线性Strichartz估计"; bdate[6] = "2024/06/28"; 
+btitle[6] = "Bourgain的魔法：一道2024年丘赛题与bilinear Strichartz"; bdate[6] = "2024/06/28"; 
 btitle[7] = "Bourgain的魔法：一个Szemerédi型定理的调和分析证明"; bdate[7] = "2024/07/03"; 
 btitle[8] = "Brezis-Lieb引理与一个变分问题"; bdate[8] = "2024/07/17"; 
 btitle[9] = "Van der Corput不等式"; bdate[9] = "2024/07/18"; 
@@ -17,6 +17,7 @@ btitle[13] = "集中紧性原理 (Ⅱ) : 大bubble的尺度和位置"; bdate[13]
 btitle[14] = "Schroeder-Bernstein定理的不动点证明"; bdate[14] = "2024/09/26";
 btitle[15] = "Schroeder-Bernstein定理：构造不动点"; bdate[15] = "2024/10/20";
 btitle[16] = "近期随想 (1)"; bdate[16] = "2024/10/24";
+btitle[17] = "Bourgain的魔法：环面Schrödinger方程与平方和的计数"; bdate[17] = "2024/10/26";
 // btitle[] = ""; bdate[] = "";
 var amount = btitle.length;
 // 获取网址
