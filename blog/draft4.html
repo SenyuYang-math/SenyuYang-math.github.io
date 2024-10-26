@@ -16,7 +16,7 @@
   <b>定理1</b> (Bourgain)<b>.</b> 设 $d=1, 2$ , $u(x,t)$ 满足 $\mathbb{T}^d \times \mathbb{R}$ 上的Schrödinger方程
   $$i\partial_t u + \Delta u =0 \ . $$
   如果存在 $N\in \mathbb{N}*$ s.t. 初值 $u_0$ 的频率 $\leq N $, i.e.
-  $$u_0=\sum_{n\in\mathbb{Z}^d\ , \ \vert n \vert \leq N} a_n e^{i n\cdot x}\ ,$$
+  $$u_0=\sum_{n\in\mathbb{Z}^d\ , \ \vert n \vert \leq N} a_n e^{2\pi i n\cdot x}\ ,$$
   则对任意 $\epsilon > 0$ 都有Strichartz估计
   $$\Vert u\Vert_{L^p(\mathbb{T}^d\times [0,1])} \lesssim N^{\epsilon} \Vert u_0\Vert_{L^2(\mathbb{T}^d)} \ ,$$
   其中Strichartz指标
@@ -24,6 +24,22 @@
 </p>
 <p>
   这个结果成为Fourier decoupling理论的滥觞之一，也正是decoupling在证明高维情形下的定理1 (Bourgain's conjecture) 中发挥了关键作用. 这篇博客将仔细地介绍这个由Bourgain引发的奇迹.
+</p>
+<h2>
+  $d=2$ : 二平方和
+</h2>
+<p>
+  <i>证明.</i> 对方程作Fourier分析得到
+  $$u(x,t) = \sum_{n\in \mathbb{Z}^2 \\ \vert n\vert \leq N} a_n e^{2\pi ix\cdot n + 2\pi it\vert n\vert^2} \ .$$
+  为了用Plancherel定理，我们将 $L^p=L^4$ 写作bilinear type的 $L^2$ : 
+  $$\begin{align*}
+  \Vert u\Vert_{L^4}^4 = & \Vert u^2\Vert_{L^2}^2\\
+  =& \Vert \sum_{m,n} a_m a_n e^{ix\cdot (m+n) + it(\vert m\vert^2+ \vert n\vert^2)}\Vert_{L^2}^2 \\
+  \leq & \sum_{\mathbf{v} \in \mathbb{Z}^3 \\ \vert \mathbf{v}\vert \leq 3N} \left( \sum_{m,n \colon v(m,n)=\mathbf{v}} \vert a_m a_n\vert^2\right) \ ,
+  \end{align*}$$
+  其中 $v(m,n):=(m+n , \vert m\vert^2+\vert n \vert^2)$ . 关键在于估计
+  $$L(\mathbf{v}) := # \{(m,n)\in \mathbb{Z}^2 : v(m, n)= \mathbf{v}\}$$
+  的大小. 
 </p>
 </div>
 
