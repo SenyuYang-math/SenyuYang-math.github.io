@@ -7,7 +7,7 @@ window.MathJax = {
     displayMath: [['$$', '$$']],
     macros: {
       RR: "{\\bf R}",
-      p: "{\partial}"
+      p: "{\\partial}"
     }
   }
 };
