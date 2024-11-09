@@ -1,13 +1,43 @@
 <html>
 <head>  
-<title>用Ricci流分类二维曲面</title>
+<title>三维无旋水波的时空共振 (Ⅰ) : 主要结果，动机</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  <i>按：谨以此篇纪念今年9月29日去世的Richard Hamilton教授，R.I.P.</i>
+  <i>按：这一系列博客是偶学习G-M-S在三维无旋重力水波方程的工作所写的笔记，欢迎补充、指正~</i>
+</p>
+<p>
+  文章
+</p>
+<p color="grey">
+  [1] Germain, Masmoudi, Shatah, <i>Global solutions for the gravity water waves equations in dimension 3</i>, Ann. Math. 2012.
+</p>
+<p>
+  证明了三维无旋重力水波小初值问题解的整体存在性. 首先给出几个基本设定：
+  <ul>
+    <li>$v$ : 流体的速度场(velocity);</li>
+    <li>$\Omega = \{ (x,z) = (x_1,x_2,z) \in \mathbb{R}^3 ,  z\leq h(x,t) \}$ : 流体占据的区域. 其中函数 $h$ 是水面的高度(height); </li>
+    <li>$S= \{ (x,h(x,t)),  x \in \mathbb{R}^2\}$ : $h$ 的图像，即流体的表面<i>水波</i>; </li>
+    <li>$\mathbf{D}_t \stackrel{def}{=}\p_t  + v\cdot \nabla $ : material derivative, 描述了流体粒子沿 $v$ 的输运.</li>
+  </ul>
+  在这个记号下无旋水波问题由以下系统描述：
+  $$
+  \begin{align*}
+&\begin{cases}
+\tag{E}
+\mathbf{D}_tv= -\nabla p -  g e_3 \quad  (x, z) \in \Omega,\\
+\nabla \cdot v =0 , \nabla \times v = 0 \quad (x, z) \in \Omega,\\
+\end{cases}\\
+&
+\begin{cases}\tag{BC}
+\partial_t h+ v \cdot\nabla_{(x,z)} (h-z)=0 \quad x\in \mathbb{R}^2 ,\\
+p|_{S} =  0.
+\end{cases}
+\end{align*}
+  $$
 </p>
 </div>
 
