@@ -4,7 +4,11 @@ window.MathJax = {
   showMathMenu: false,
   tex: {
     inlineMath: [['$', '$']], 
-    displayMath: [['$$', '$$']]
+    displayMath: [['$$', '$$']],
+    macros: {
+      RR: "{\\bf R}",
+      p: "{\partial}"
+    }
   }
 };
 
