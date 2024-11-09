@@ -7,6 +7,8 @@ window.MathJax = {
     displayMath: [['$$', '$$']],
     macros: {
       RR: "{\\bf R}",
+      CH: "{\\mathcal{H}}", 
+      CN: "{\\mathcal{N}}", 
       p: "{\\partial}"
     }
   }
