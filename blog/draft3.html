@@ -39,10 +39,10 @@
 </p>
 <p>
   设 $\phi=\phi(x,t)$ 是一个 $\lambda$ wave-packet, 导数
-  $$\nabla_x^m \phi =\lambda^{m-n} \Delta_\lambda \nabla_x^n\phi \ .$$
+  $$\nabla_x^m \phi =\lambda^{m-l} \Delta_\lambda \nabla_x^l\phi \ .$$
   在物理空间上展开 $\Delta_\lambda$ 即有
-  $$| \nabla_x^m\phi(x) | \lesssim_M \lambda^{m-n} \int |\nabla_x^n \phi(x+y/\lambda)| \left\langle y \right\rangle^{-M}$$
-  对任意 $M>0$ 成立, 特别地我们有
+  $$| \nabla_x^m\phi(x) | \lesssim_M \lambda^{m-l} \int |\nabla_x^l \phi(x+y/\lambda)| \left\langle y \right\rangle^{-M} \ dy$$
+  对任意 $M>0$ 成立, 特别地我们由Young不等式得到
   $$\Vert \phi\Vert_{L^\infty} \lesssim \lambda^{n/2-1} E[\phi]^{1/2} \ .$$
   这启发我们在估计bilinear term $Q(\phi, \psi)$ 的 $L^2(\mathbf{R}^{n+1})$ 范数时应当用 $L^\infty$ 控制低频部分，用 $L^2$ 控制高频项. 
 </p>
@@ -53,17 +53,26 @@
 <p class="thm">
   <b>定理1</b> (local ver)<b>.</b> 设有二进整数 $\lambda, \mu$ , 令 $\epsilon > 0$ . 则有
   $$\begin{align*}
-  \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \lesssim & R^\epsilon \min{\lambda, \mu}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{\lambda, \mu}\gtrsim 1 \ ,\\
-  \lesssim & R^{1/2} \min{\lambda, \mu}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{\lambda, \mu}\lesssim 1 \ ,
+  \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\gtrsim 1 \ ,\\
+  \lesssim & R^{1/2} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\lesssim 1 \ ,
   \end{align*}$$
   其中 $\phi$ ($\psi$) 分别是 $\lambda$ ($\mu$) wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下null forms
   $$Q_0(\phi, \psi) := \partial_t\phi \partial_t\psi - \nabla \phi \cdot \nabla \psi \ ,$$
   $$Q_{\alpha\beta}(\phi,\psi) := \partial_\alpha \phi \partial_\beta \psi - \partial_\alpha \psi \partial_\beta \phi \ .$$
 </p>
+<p>
+  进一步可以用Littlewood-Paley理论拼贴出一般情形 
+</p>
 <p class="thm">
   <b>定理2</b> (null form estimate)<b>.</b> 设 $\phi, \psi$ 都是free waves, $Q$ 是一个null form, 则有
-  $$\Vert Q(\phi, \psi)\Vert_{L^2(\mathbf{R}^n\times [0,1])} \lesssim E[\langle D \rangle^{\frac{n-1}{2}+\epsilon} \phi]^{1/2} E[\psi]^{1/2}\ ,$$
+  $$\Vert Q(\phi, \psi)\Vert_{L^2(\mathbf{R}^{n+1})} \lesssim E[\langle D \rangle^{\frac{n-1}{2}+\epsilon} \phi]^{1/2} E[\psi]^{1/2}\ ,$$
   对任意 $\epsilon > 0$ 成立，其中 $\langle D \rangle$ 代表Fourier multipler $\langle \xi \rangle$ .
+</p>
+<p>
+  接下来的几篇文章将给出定理1的证明和定理1 $\Rightarrow$ 定理2的证明. 
+</p>
+<p>
+  <b>注.</b> 定理1, 2均会损失 $epsilon$ 个导数，由tube分解和尺度归纳导致. 后面会指出通过一些技巧可以避免 $\epsilon$ 损失. 
 </p>
 
   
