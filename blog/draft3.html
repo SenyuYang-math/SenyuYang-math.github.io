@@ -1,13 +1,13 @@
 <html>
 <head>  
-<title>Strichartz估计的physical approach (Ⅰ) : tube分解</title>
+<title>Strichartz估计的physical approach (Ⅰ) : 介绍，tube分解</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  Strichartz估计对色散pde的重要性无需赘述. 一般文献普遍采用了Fourier分析(frequency approach) $\times$ $TT^*$ method的证明. Strichartz估计也是系统在物理空间传播时色散的体现，那么有趣的问题出现：能否在physical space上工作，给出Strichartz估计更几何直观的解释？把目光集中在波方程上，偶开启新系列：文章
+  (Bilinear) Strichartz估计对非线性色散PDE的重要性无需赘述，一般文献普遍采用Fourier分析(frequency approach) $\times$ $TT^*$ method的证明. Strichartz估计也是系统在物理空间传播时色散的体现，那么有趣的问题出现：能否在physical space上工作，给出Strichartz估计更几何直观的解释？集中于波方程，偶开启一个新系列：文章
 </p>
 <p>
   [1] S. Klainerman, I. Rodnianski and T. Tao, <i>A physical space approach to wave equation bilinear estimates</i> . J. Anal. Math. <b>87</b> (2002), 299-336. 
@@ -15,13 +15,13 @@
 <p>
   的阅读笔记，将围绕以下关键技术展开: 
   <ul>
-    <li>tube分解, wave packet的相互作用</li>
+    <li>tube分解, wave-packet的相互作用</li>
     <li>尺度归纳(induction on scales)</li>
     <li>向量场方法, null condition</li>
   </ul>
-  总之我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息（这是我们的核心思想）. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling, 还蛮有意思呢~
+  总之我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息（这是我们的核心思想）. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling, 还蛮有意思的.
 </p>
-<h2>预备，主要结果</h2>
+<h2>预备</h2>
 <p>
   在笔记中，空间维数 $n\geq 2$ , 所有常数均至多与 $n$ 相关.
 </p>
@@ -30,12 +30,40 @@
   $$\Box u(x,t):= (-\frac{\partial^2}{\partial_t^2}+\Delta)u(x,t) = 0$$  
   的解, 并配备有初值（此时省略空间变量 $x$ ）
   $$\phi[0]:=(\phi_0(x), \phi_1(x)=\phi_t) \ .$$
-  我们约定 $\nabla \phi$ 代表空间方向的导数，$\partial \phi$ 代表时空全体所有方向的导数. $\phi$ 最重要的守恒量是<b>energy</b>
-  $$E[\phi](t):=\frac{1}{2}\int_{\mathbf{R}^n} \vert \partial\phi\vert^2 \ dx \equiv E[\phi](0)\ ,$$
+  我们约定 $\nabla_x \phi$ 代表空间方向的导数，$\nabla_{x,t} \phi$ 代表时空全体所有方向的导数. $\phi$ 最重要的守恒量是<b>energy</b>
+  $$E[\phi](t):=\frac{1}{2}\int_{\mathbf{R}^n} \vert \nabla_{x,t}\phi\vert^2 \ dx \equiv E[\phi](0)\ ,$$
   简记为 $E[\phi]$ .
 </p>
 <p>
-  设 $\lambda=2^k$ 是一个二进整数. 借助Littlewood-Paley分解，我们称 $\phi$ 是一个频率 $\lambda$ 的<b>wave-packet</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上.
+  设 $\lambda=2^k$ 是一个二进整数. 借助Littlewood-Paley分解，我们称 $\phi$ 是一个频率 $\lambda$ 的<b>wave-packet</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上. 引入频率 $\lambda$ 的投影算子 $\Delta_{\lambda}$ , 如果 $\phi$ 是一个free wave, 那么由multipler的交换性 $\Delta_\lambda \phi$ 是一个 $\lambda$ wave-packet.
+</p>
+<p>
+  设 $\phi=\phi(x,t)$ 是一个 $\lambda$ wave-packet, 导数
+  $$\nabla_x^m \phi =\lambda^{m-n} \Delta_\lambda \nabla_x^n\phi \ .$$
+  在物理空间上展开 $\Delta_\lambda$ 即有
+  $$| \nabla_x^m\phi(x) | \lesssim_M \lambda^{m-n} \int |\nabla_x^n \phi(x+y/\lambda)| \left\langle y \right\rangle^{-M}$$
+  对任意 $M>0$ 成立, 特别地我们有
+  $$\Vert \phi\Vert_{L^\infty} \lesssim \lambda^{n/2-1} E[\phi]^{1/2} \ .$$
+  这启发我们在估计bilinear term $Q(\phi, \psi)$ 的 $L^2(\mathbf{R}^{n+1})$ 范数时应当用 $L^\infty$ 控制低频部分，用 $L^2$ 控制高频项. 
+</p>
+<h2>主要结果一: null form estimate</h2>
+<p>
+  有了上述准备，我们叙述文章的第一个主要结果.
+</p>
+<p class="thm">
+  <b>定理1</b> (local ver)<b>.</b> 设有二进整数 $\lambda, \mu$ , 令 $\epsilon > 0$ . 则有
+  $$\begin{align*}
+  \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \lesssim & R^\epsilon \min{\lambda, \mu}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{\lambda, \mu}\gtrsim 1 \ ,\\
+  \lesssim & R^{1/2} \min{\lambda, \mu}^{frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{\lambda, \mu}\lessssim 1 \ ,
+  \end{align*}$$
+  其中 $\phi$ ($\psi$) 分别是 $\lambda$ ($\mu$) wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下null forms
+  $$Q_0(\phi, \psi) := \partial_t\phi \partial_t\psi - \nabla \phi \cdot \nabla \psi \ ,$$
+  $$Q_{\alpha\beta}(\phi,\psi) := \partial_\alpha \phi \partial_\beta \psi - \partial_\alpha \psi \partial_\beta \phi \ .$$
+</p>
+<p class="thm">
+  <b>定理2</b> (null form estimate)<b>.</b> 设 $\phi, \psi$ 都是free waves, $Q$ 是一个null form, 则有
+  $$\Vert Q(\phi, \psi)\Vert_{L^2(\mathbf{R}^n\times [0,1])} \lesssim E[\langle D \rangle^{\frac{n-1}{2}+\epsilon} \phi]^{1/2} E[\psi]^{1/2}\ ,$$
+  对任意 $\epsilon > 0$ 成立，其中 $\langle D \rangle$ 代表Fourier multipler $\langle \xi \rangle$ .
 </p>
 
   
