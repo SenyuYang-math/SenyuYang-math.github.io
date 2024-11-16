@@ -7,7 +7,39 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  TBA
+  <i>按：因为实在很忙所以几个长篇系列还在赶工中咕咕咕...所以先发一篇写好的短文水一水吧（笑）</i>
+</p>
+<p>
+  一个经典的问题是：一个度量空间和Hilbert空间 $\ell^2$ (或者 $k$ 维Euclidean空间 $\mathbf{E}^k$) 相差多远？J. Bourgain在文章
+</p>
+<p>
+  [1] J. Bourgain, <i>On Lipschitz embedding of finite metric spaces into Hilbert space</i>, Israel J. Math. <b>52</b>   (1985) , 46-52. 
+</p>
+<p>
+  对基数有限的度量空间给出以下结果.
+</p>
+<p class="thm">
+  <b>定义.</b> 设 $(X, d_X)$ , $(Y, d_Y)$ 是（有限）度量空间，$f: X\to Y$ 为单射，则定义 $X, Y$之间的 $f$ -  <b>Lipschitz距离</b> $\mathrm{d}_f(X,Y) := \Vert f\Vert_{Lip} \Vert f^{-1}\|_{f(X)}\Vert_{Lip}$ , 
+  其中
+  $$\Vert f\Vert_{Lip}\colon \sup_{x,x'\in X} \frac{d_Y(f(x), f(x'))}{d_X(x, x')} \ .$$
+  进一步可以定义 $X, Y$ 之间的Lipschitz距离$\mathrm{d}(X,Y) := \inf_{f} d_f(X, Y)$ . 
+</p>
+<p class="thm">
+  <b>定理1</b> (Bourgain)<b>.</b> 存在常数 $C>0$ , 对任意一个有限度量空间 $(X,d)$ ($\| X\|=n$) 都存在一个嵌入映射 $f: X\to E=(\mathbf{E}^{2^n}, \Vert \cdot \Vert)$ s.t. 
+  $$ \Vert f(x)-f(y)\Vert \leq d(x,y) \leq C \log{n} \Vert f(x)-f(y)\Vert .$$
+  i.e. $d_f(X, E)\leq K\log n$ . 
+</p>
+<p>
+  除此之外[1]还给出了一个例子：给定一个有限连通无向图 $G$ , 顶点数 $\| V(G) \|=n$ . 可以赋予 $V(G)$ 一个度量 $d$ 为连接两点最短路径的长度，这里设每条边的长度为 $1$ . 下一个定理说明定理1的结果是几乎sharp的.
+</p>
+<p class="thm">
+  <b>定理2</b> (Bourgain)<b>.</b> 存在常数 $c>0$ s.t.  $\mathrm{d}(G, \ell^2) \geq c \log{n} / \log \log n$ .
+</p>
+<p>
+  <i>定理1的证明.</i> 分为以下几步：
+</p>
+<p>
+  &ensp;Step1.  我们用每个 $X$ 的子集 $A$ 标记 $E$ 的基底. 
 </p>
 </div>
 
