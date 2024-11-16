@@ -1,45 +1,61 @@
 <html>
 <head>  
-<title>Fourier Decoupling笔记</title>
+<title>Bourgain的魔法：有限度量空间的Euclidean嵌入</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  <i>按：因为实在很忙所以几个长篇系列还在赶工中咕咕咕...所以先发一篇写好的短文水一水吧（笑）</i>
+  <i>按：</i>
 </p>
 <p>
-  一个经典的问题是：一个度量空间和Hilbert空间 $\ell^2$ (或者 $k$ 维Euclidean空间 $\mathbf{E}^k$) 相差多远？J. Bourgain在文章
+  因为实在很忙所以几个长篇系列还在赶工中咕咕咕...所以先发一篇写好的短文水一水吧（笑）. 一个经典的问题是：一般的度量空间和Hilbert空间 $\ell^2$ (或者 $k$ 维Euclidean空间 $\mathbf{E}^k$) 相差多远？J. Bourgain在文章
 </p>
 <p>
-  [1] J. Bourgain, <i>On Lipschitz embedding of finite metric spaces into Hilbert space</i>, Israel J. Math. <b>52</b>   (1985) , 46-52. 
+  J. Bourgain, <i>On Lipschitz embedding of finite metric spaces into Hilbert space</i>, Israel J. Math. <b>52</b>   (1985) , 46-52. 
 </p>
 <p>
-  对基数有限的度量空间给出以下结果.
+  在有限度量空间情形下通过随机化和尺度分解-平均等技术漂亮地解决了这一问题，这期博客就来详细展示其中的魔法. 
 </p>
+<h2>预备，叙述</h2>
 <p class="thm">
-  <b>定义.</b> 设 $(X, d_X)$ , $(Y, d_Y)$ 是（有限）度量空间，$f: X\to Y$ 为单射，则定义 $X, Y$之间的 $f$ -  <b>Lipschitz距离</b> $\mathrm{d}_f(X,Y) := \Vert f\Vert_{Lip} \Vert f^{-1}\|_{f(X)}\Vert_{Lip}$ , 
+  <b>定义.</b> 设 $(X, d_X)$ , $(Y, d_Y)$ 是（有限）度量空间，$f: X\to Y$ 为单射，则定义 $X, Y$之间的 $\mathbf{f}$<b>-distorsion</b> $\mathrm{d}_f(X,Y) := \Vert f\Vert_{Lip} \Vert f^{-1}\|_{f(X)}\Vert_{Lip}$ , 
   其中
-  $$\Vert f\Vert_{Lip}\colon \sup_{x,x'\in X} \frac{d_Y(f(x), f(x'))}{d_X(x, x')} \ .$$
-  进一步可以定义 $X, Y$ 之间的Lipschitz距离$\mathrm{d}(X,Y) := \inf_{f} d_f(X, Y)$ . 
+  $$\Vert f\Vert_{Lip} := \sup_{x,x'\in X} \frac{d_Y(f(x), f(x'))}{d_X(x, x')} \ .$$
+  进一步可以定义 $X, Y$ 之间的<b>distorsion</b> $\mathrm{d}(X,Y) := \inf_{f} d_f(X, Y)$ . 
+</p>
+<p>
+  <b>注.</b> 不难得知 $\mathrm{d}_f(X,Y)\geq 1$, 等号成立 iff $f$ 是等距同构，所以distorsion $\mathrm{d}_f$ 和 $\mathrm{d}$ 就是刻画两个度量空间相差程度的理想指标.
 </p>
 <p class="thm">
-  <b>定理1</b> (Bourgain)<b>.</b> 存在常数 $C>0$ , 对任意一个有限度量空间 $(X,d)$ ($\| X\|=n$) 都存在一个嵌入映射 $f: X\to E=(\mathbf{E}^{2^n}, \Vert \cdot \Vert)$ s.t. 
-  $$ \Vert f(x)-f(y)\Vert \leq d(x,y) \leq C \log{n} \Vert f(x)-f(y)\Vert .$$
-  i.e. $d_f(X, E)\leq K\log n$ . 
+  <b>定理1</b> (Bourgain)<b>.</b> 存在常数 $C>0$ , 对任意一个 $n$-point 度量空间 $(X,d)$ 都存在一个嵌入映射 $f: X\to E=(\mathbf{E}^{O(\log{n})}, \Vert \cdot \Vert)$ s.t. 
+  $$ \Vert f(x)-f(y)\Vert \leq d(x,y) \leq C \log{n} \Vert f(x)-f(y)\Vert \ .$$
+  i.e. $\mathrm{d}(X, E)$ , $\operatorname{dim} E$ 均有上界 $O(\log{n})$ . 
 </p>
 <p>
-  除此之外[1]还给出了一个例子：给定一个有限连通无向图 $G$ , 顶点数 $\| V(G) \|=n$ . 可以赋予 $V(G)$ 一个度量 $d$ 为连接两点最短路径的长度，这里设每条边的长度为 $1$ . 下一个定理说明定理1的结果是几乎sharp的.
+  这里可以看到Bourgain的结果<i>同时</i>将distorsion和dimension控制在相较于 $\|X\|$ 非常小的尺度，这对于理论和应用都非常重要. 我们可以将一个除此之外[1]还给出了一个例子：给定一个有限连通无向图 $G$ , 顶点数 $\| V(G) \|=n$ . 可以赋予 $V(G)$ 一个度量 $d$ 为连接两点最短路径的长度，这里设每条边的长度为 $1$ . 读者可以自己证明当 $G$ 是一个square-graph（即 $4$ 个顶点首尾相连）时，$V(G)$ 不可能等距嵌入 $\ell^2$ 中（自然不可能嵌入 $\mathbf{E}^k$），这种非Euclidean例子在理论计算机科学(TCS)和数据分析(DA)中经常自然地出现，将这些离散数据小误差地嵌入低维度的Euclidean空间将方便我们采用高效、直观的算法进行处理. 而下一个定理说明Bourgain的结果是几乎sharp的，从理论上否定了更小distorsion的方案.  
 </p>
 <p class="thm">
-  <b>定理2</b> (Bourgain)<b>.</b> 存在常数 $c>0$ s.t.  $\mathrm{d}(G, \ell^2) \geq c \log{n} / \log \log n$ .
+  <b>定理2</b> (Bourgain)<b>.</b> 存在常数 $c>0$ s.t.  
+  $$\mathrm{d}(V(G), \ell^2) \geq c \frac{\log{n}}{\log \log n} \ .$$
 </p>
 <p>
-  <i>定理1的证明.</i> 分为以下几步：
+  <b>注.</b> 事实上[Linial-London-Rabinovich]和[Khot-Naor]进一步把定理2的结果加强到sharp. 
+</p>
+<h2>distorion上界的证明</h2>
+<p>
+  定理1的证明来自<a href="https://web.math.princeton.edu/~naor/homepage%20files/embeddings_extensions.pdf" target="_blank">[Noar]</a>(p. 13-14) 对Bourgain原始证明的简化.
 </p>
 <p>
-  &ensp;Step1.  我们用每个 $X$ 的子集 $A$ 标记 $E$ 的基底. 
+  &emsp;Step 1. 我们先在 $\mathbf{E}^{2^n}$ 上工作，用每个 $A\in \mathscr{P}(X)$ 标记它的基底. 现在将 $X$ 看作一个（离散）概率空间: 选定一个整数 $1\leq j \leq \log{2}{n} + 1$ , 我们在 $X$ 随机选取点组成一个随机集 $A_p$ ，每个点都独立地有概率 $2^{-j}$ 被选中, 这自然地诱导了一个概率测度 $p_j\colon p_j(A)=\mathbb{P}(A_p=A)$. 这里采用二进概率是为了和后续讨论 $A$ 的尺度相对应. 构造单射 $f_j$ : $f(x)$ 在 $A$-基底的坐标为 
+  $$x^A:=\sqrt{p_j(A)} d(x,A)\ .$$
+  后面我们看到，可以适当选择 $O(\log{n})$ 个 $A$ 从而将 $\mathbf{E}^{2^n}$ 缩小为 $E$ . 那么
+  $$\Vert f_j(x)-f_j(y)\Vert^2 = \sum_{A} p_j(A) \left(d(x,A)-d(y,A)\right)^2 \leq \sum_{A} p_j(A) d(x,y)^2 \leq d(x,y)^2 \ ,$$
+  定理1的第一个不等号得证. 注意这里与 $j$ 的选取无关. 
+</p>
+<p>
+  &emsp;Step 2. 定理1的第二个不等号需要更多讨论. 直观上我们希望 $A$ 能良好地分离 $x, y$ 从而控制 $\Vert f_j(x)-f_j(y)\Vert^2$ 的下界，为此我们加入一些几何上的考虑.  
 </p>
 </div>
 
