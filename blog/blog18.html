@@ -19,7 +19,7 @@
   [1] J. Bourgain, <i>On Lipschitz embedding of finite metric spaces into Hilbert space</i> 
 </p>
 <p>
-  在有限度量空间的情形通过<b>随机化</b>和<b>尺度分解-平均</b>等技术漂亮地解决了这一问题，下面就详细展示其中的魔法. 
+  在有限度量空间的情形解决了这个问题. 其中使用了诸如<b>随机化</b>和<b>尺度分解-平均</b>等来自分析视角的技术，下面就详细展示其中的魔法. 
 </p>
 <h2>预备，叙述</h2>
 <p class="thm">
@@ -77,20 +77,20 @@
   $$I_j:=\mathbb{P}(A\cap A_1\neq \emptyset) = 1-(1-\frac{1}{2^j})^{2^{j-1}} \geq 1-e^{-1/2}\ .$$
   如果 $A_0\cap A_1 = \emptyset$ , 上述两个事件相互独立. 所以对 $r_j$ 做一个修正 
   $$\tilde{r}_j := \min{(r_j, d(x,y)/3)}\ ,$$
-  于是 $B^o(x,\tilde{r}_j) \cap B(y,\tilde{r}_{j-1})=\emptyset$ , 并且有
-  $$\begin{align*}
-  & |d(x,A)-d(y,A)|\geq \tilde{r}_j-\tilde{r}_{j-1} \ , \ \text{if } A\cap B^o(x,\tilde{r}_j)=\emptyset\ , \ A\cap B(y,\tilde{r}_{j-1}) \neq \emptyset \ , \\
-  & \mathbb{P}\left(A\cap B^o(x,\tilde{r}_j)=\emptyset\ , \ A\cap B(y,\tilde{r}_{j-1}) \neq \emptyset\right) \geq S_j\ I_j \geq \frac{1}{C} \ .
-  \end{align*}$$
-  第一个估计意味着可以用 $A$ 在度量尺度 $r_j$ 层次分离 $x, y$ . 对于第二个估计，考虑事件
-  $$\Omega_{j} := \{A\subset X : \vert d(x,A)-d(y,A)|\geq \tilde{r}_j-\tilde{r}_{j-1}\} \ ,$$
+  于是 $B^o(x,\tilde{r}_j) \cap B(y,\tilde{r}_{j-1})=\emptyset$ . 所以如果发生事件
+  $$\mathcal{E}_j^{x,y} : A\cap B^o(x,\tilde{r}_j)=\emptyset\ , \ A\cap B(y,\tilde{r}_{j-1}) \neq \emptyset$$
+则有
+  $$|d(x,A)-d(y,A)|\geq \tilde{r}_j-\tilde{r}_{j-1} \ ,$$
+  $$\mathbb{P}\left( \mathcal{E}_j^{x,y}\right) \geq S_j\ I_j \geq \frac{1}{C} \ .$$
+  第一个估计意味着可以用 $A$ 在尺度 $r_j$ 的层次分离 $x, y$ . 对于第二个估计，考虑事件
+  $$\Omega_{j}^{x,y} := \{A\subset X : \vert d(x,A)-d(y,A)|\geq \tilde{r}_j-\tilde{r}_{j-1}\} \ ,$$
   那么有
-  $$\mathbb{E}_j |d(x,A)-d(y,A)|^2 \geq \mathbb{P}(\Omega_j) (\tilde{r}_j-\tilde{r}_{j-1})^2 \geq (\tilde{r}_j-\tilde{r}_{j-1})^2/C \ .$$
-  这里的关键在于 $C>0$ 与 $j$ 无关，这来自于一开始的观察中 $A_1$ 与 $A_0$ 尺度相近 $\approx 2^j$ ！
+  $$\mathbb{E}_j |d(x,A)-d(y,A)|^2 \geq \mathbb{P}(\Omega_j^{x,y}) (\tilde{r}_j-\tilde{r}_{j-1})^2 \geq (\tilde{r}_j-\tilde{r}_{j-1})^2/C \ .$$
+  这里的关键在于 $C>0$ 与 $j$ 无关，这来自于一开始的观察中 $A_1$ 与 $A_0$ 大小相近 $\approx 2^j$ ！
 </p>
 <h2>Step 3: 尺度平均化</h2>
 <p>
-  现在还有一个问题：$\tilde{r}_j-\tilde{r}_{j-1}$ 无法控制 $d(x,y)$（控制distortion）. 一个观察是在大尺度下（$j$ 充分大）$\tilde{r_j} \approx d(x,y)/3$ , 而 $\tilde{r_0}=0$ , 所以一个巧妙的想法是将各个尺度的概率取平均：定义新的概率测度
+  现在还有一个问题：$\tilde{r}_j-\tilde{r}_{j-1}$ 无法控制 $d(x,y)$（控制distortion）. 观察到在大尺度下 $\tilde{r}_{\log{n}} = d(x,y)/3$ ; 而可以令 $\tilde{r}_0=0$ . 所以一个巧妙的想法是将各个尺度的概率取平均：定义新的概率测度
   $$p: p(A)=\frac{1}{\log{n}}\sum_{j=1}^{\log{n}} p_j(A) \ ,$$
   并构造真正的单射 $f$ s.t. $f(x)$ 在 $A$-基底的坐标为 $\sqrt{p(A)} \ d(x,A)$ . 平均化不会改变Step 1的结果；而
   $$\begin{align*}
@@ -101,6 +101,7 @@
   \end{align*}$$
   定理1的第二个不等号得证，我们得到了 $X\to \mathbf{E}^{2^n}$ 的 $O(\log{n})$-distorsion嵌入.&emsp;$\Box$
 </p>
+
 <!-- <h2>$\operatorname{dim} E=O(\log{n})^2$ 的构造</h2>
 <p>
   我们降低维度的出发点是不再考虑整个 $\mathscr{P}(X)$ , 而是对 $\log {n}$ 个尺度 $j$ 都随机地选出 $c\log{n}$ 个 $A_{i,j}\subset X$ , 我们期待各种不同的尺度下有充分高的概率使得 $\Omega_j$ 发生. 事实上我们重新构造映射
@@ -109,7 +110,6 @@
   $$\mathbb{P}(A_{i,j}\in \Omega_j)\geq \frac{1}{C} \ ,$$
   且上述事件关于 $i$ 相互独立. 所以对固定的尺度 $j$ , 
   $$\mathbb{E}|\{A_{i,j}\in \Omega_j : 1\leq i\leq c\log{n}\}| \geq \frac{c\log{n}}{C}\ .$$ -->
-  
 </p>
 </div>
 
