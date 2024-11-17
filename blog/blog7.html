@@ -109,7 +109,7 @@ $$
 &emsp;<em>Case 2</em>. 高频项 $\vert\xi\vert\geq (\epsilon t_j)^{-1}$ : 由震荡积分理论或直接计算可得 $\vert \widehat{\sigma}(\xi)\vert\lesssim \vert \xi\vert^{-1/2}$ , 所以有小量估计
 </p>
 $$
-\int_{\vert\xi\vert\geq (\epsilon t_j)^{-1}} \vert \widehat{1_A}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi \lesssim \epsilon^{1/2} \vert B\vert. 
+\int_{\vert\xi\vert\geq (\epsilon t_j)^{-1}} \vert \widehat{1_B}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi \lesssim \epsilon^{1/2} \vert B\vert. 
 $$
 <p>
 &emsp;<em>Case 3</em>. 中间项 $\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}$ : 此时如果直接估计只能得到 $\lesssim \vert B\vert $ . 为了获得小量上界，Bourgain巧妙地运用了<em>二进抽屉原理</em>(dyadic pigeonholing argument). 记每个二进圆环为
@@ -121,7 +121,7 @@ $$
 则每个 $\xi \in \mathbb{R}^2$ 至多被 $O(\log 1/ \epsilon)$ 个 $D_j$ 覆盖. 注意上界与 $\xi$ , $J$ 无关，这就是二进分解的<em>几乎正交性</em>. 所以
 </p>
 $$
-\sum_{j=J/2}^{J} \int_{\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}} \vert \widehat{1_A}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi
+\sum_{j=J/2}^{J} \int_{\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}} \vert \widehat{1_B}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi
 $$
 $$
 \lesssim \log \frac{1}{\epsilon}\ \vert B\vert . 
@@ -130,7 +130,7 @@ $$
 于是由抽屉原理，存在 $J/2 \leq j \leq J$ s.t.
 </p>
 $$
-\int_{\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}} \vert \widehat{1_A}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi \lesssim J^{-1}\log \frac{1}{\epsilon} \ \vert B\vert.
+\int_{\epsilon t_j^{-1} \lt \vert \xi\vert \lt (\epsilon t_j)^{-1}} \vert \widehat{1_B}(\xi)\vert^2 \widehat{\sigma}(t_j\xi) \ d\xi \lesssim J^{-1}\log \frac{1}{\epsilon} \ \vert B\vert.
 $$
 <p>
 只需 $J > \epsilon^{-1}\log \epsilon^{-1}$ 即有小量估计 $\lesssim \epsilon \vert B\vert$ 对某个 $J/2\leq j\leq J$ 成立. 这里抽屉原理帮助我们<em>选取一个合适的尺度</em> $t_j$ , 大大加强了原有结果.
