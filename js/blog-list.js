@@ -17,7 +17,7 @@ btitle[13] = "集中紧性原理 (Ⅱ) : 大bubble的尺度和位置"; bdate[13]
 btitle[14] = "Schroeder-Bernstein定理的不动点证明"; bdate[14] = "2024/09/26";
 btitle[15] = "Schroeder-Bernstein定理：构造不动点"; bdate[15] = "2024/10/20";
 btitle[16] = "近期随想 (1)"; bdate[16] = "2024/10/24";
-btitle[17] = "Bourgain的魔法：环面Schrödinger方程与平方和的计数"; bdate[17] = "2024/10/26";
+btitle[17] = "Bourgain的魔法：环面Schrödinger方程与格点计数"; bdate[17] = "2024/10/26";
 btitle[18] = "Bourgain的魔法：有限度量空间的Euclidean嵌入"; bdate[18] = "2024/11/17";
 // btitle[] = ""; bdate[] = "";
 var amount = btitle.length;
