@@ -1,7 +1,7 @@
 window.MathJax = {
-  showProcessingMessages: true, 
-  messageStyle: 'none', 
-  showMathMenu: false,
+  options: {
+    enableMenu: false
+  },
   tex: {
     inlineMath: [['$', '$']], 
     displayMath: [['$$', '$$']],
