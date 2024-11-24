@@ -17,7 +17,7 @@ icon.src = 'https://kit.fontawesome.com/c61fec31c6.js';
 icon.crossorigin = 'anonymous';
 icon.async = true;
 document.head.appendChild(icon);
-// 文章标题, 跳转链接
+// 文章标题, 正文末尾
 (function () {
   var blogtitle = document.createElement('script');
   blogtitle.src = '../js/blog-list.js';
