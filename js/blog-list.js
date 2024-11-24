@@ -20,6 +20,7 @@ btitle[16] = "近期随想 (1)"; bdate[16] = "2024/10/24";
 btitle[17] = "Bourgain的魔法：环面Schrödinger方程与格点计数"; bdate[17] = "2024/10/26";
 btitle[18] = "Bourgain的魔法：有限度量空间的Euclidean嵌入"; bdate[18] = "2024/11/17";
 // btitle[] = ""; bdate[] = "";
+
 var amount = btitle.length;
 // 获取网址
 var blogurl = window.location.pathname;
@@ -29,34 +30,47 @@ var urllength = urltxt.length;
 var number = Number(urltxt.substring(10,urllength-5));
 // 博客文章页面
 if (urllength > 12) {
+
 // 创建文章标题
 const date = document.getElementById('container');
 date.insertAdjacentHTML('afterbegin', '<span id="blogdate" class="blogdate">' + bdate[number] + '</span><hr class="titleline">');
 const title = document.getElementById('container');
 title.insertAdjacentHTML('afterbegin', '<h1 id="blogtitle" style="margin-bottom: 10px;">' + btitle[number] + '</h1>');
-// 创建版权许可
-const blogcopy = document.getElementById('container');
-blogcopy.insertAdjacentHTML('beforeend', '<div id="copyright"></div>');
-fetch('../temp/copyright.html')
-  .then(response => response.text())
-  .then(data => {
-  document.querySelector('#copyright').innerHTML = data;
-});
-// 创建跳转模块
-const nextlink = document.getElementById('container');
-nextlink.insertAdjacentHTML('beforeend', '<div id="nextlink"></div>');
-let nexturl = './blog' + String(number + 1) + '.html';
-let prevurl = './blog' + String(number - 1) + '.html';
-// 插入跳转网址
-if (number < 2) {
-  document.getElementById('nextlink').innerHTML = '<div style="width: 25%; float:left; padding:30px 0px; color:grey"><i class="fa-solid fa-arrow-left"></i>&nbsp;<span>无</span></div><div style="float:right; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + nexturl + '">&nbsp;<i class="fa-solid fa-arrow-right"></i></a></div><div style="width:25%; float:right; padding:30px 0px; text-align:right; color:grey">'+ btitle[number+1] + '</div><div style="margin:0 auto; width:20%; padding:30px 0px; position:relative; text-align:center"><a href="../blog.html" style="text-decoration: none">Home</a></div>';}
-else if (number+2 > amount) {
-  document.getElementById('nextlink').innerHTML = '<div style="float:left; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + prevurl + '"><i class="fa-solid fa-arrow-left"></i>&nbsp;</a></div><div style="width:25%; float:left; padding:30px 0px; text-align:left; color:grey">' + btitle[number-1] + '</div><div style="float:right; padding:30px 0px; text-align:right">&nbsp;<i class="fa-solid fa-arrow-right"></i></div><div style="width:25%; float:right; padding:30px 0px; text-align:right; color:grey">无</div><div style="margin:0 auto; width:20%; padding:30px 0px; position:relative; text-align:center"><a href="../blog.html" style="text-decoration: none">Home</a></div>';  
+
+//创建文末功能区
+const bottom = document.getElementById('container');
+bottom.insertAdjacentHTML('beforeend','<div id="bottom"></div>');
+  
+  // 打印按钮
+  const print = document.getElementById('bottom');
+  print.insertAdjacentHTML('beforeend', '<div id="print-button" style="width:50%; margin:0 auto"><p><input value="Print" type="button" onclick="handlePrint()"/></p></div>');
+
+  // 创建版权许可
+  const blogcopy = document.getElementById('bottom');
+  blogcopy.insertAdjacentHTML('beforeend', '<div id="copyright"></div>');
+  fetch('../temp/copyright.html')
+    .then(response => response.text())
+    .then(data => {
+    document.querySelector('#copyright').innerHTML = data;
+  });
+
+  // 创建跳转模块
+  const nextlink = document.getElementById('bottom');
+  nextlink.insertAdjacentHTML('beforeend', '<div id="nextlink"></div>');
+  let nexturl = './blog' + String(number + 1) + '.html';
+  let prevurl = './blog' + String(number - 1) + '.html';
+    // 插入跳转网址
+  if (number < 2) {
+    document.getElementById('nextlink').innerHTML = '<div style="width: 25%; float:left; padding:30px 0px; color:grey"><i class="fa-solid fa-arrow-left"></i>&nbsp;<span>无</span></div><div style="float:right; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + nexturl + '">&nbsp;<i class="fa-solid fa-arrow-right"></i></a></div><div style="width:25%; float:right; padding:30px 0px; text-align:right; color:grey">'+ btitle[number+1] + '</div><div style="margin:0 auto; width:20%; padding:30px 0px; position:relative; text-align:center"><a href="../blog.html" style="text-decoration: none">Home</a></div>';
+  }
+  else if (number+2 > amount) {
+    document.getElementById('nextlink').innerHTML = '<div style="float:left; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + prevurl + '"><i class="fa-solid fa-arrow-left"></i>&nbsp;</a></div><div style="width:25%; float:left; padding:30px 0px; text-align:left; color:grey">' + btitle[number-1] + '</div><div style="float:right; padding:30px 0px; text-align:right">&nbsp;<i class="fa-solid fa-arrow-right"></i></div><div style="width:25%; float:right; padding:30px 0px; text-align:right; color:grey">无</div><div style="margin:0 auto; width:20%; padding:30px 0px; position:relative; text-align:center"><a href="../blog.html" style="text-decoration: none">Home</a></div>';  
+  } else {
+    document.getElementById('nextlink').innerHTML = '<div style="float:left; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + prevurl + '"><i class="fa-solid fa-arrow-left"></i>&nbsp;</a></div><div style="width:25%; float:left; padding:30px 0px; text-align:left; color:grey">' + btitle[number-1] + '</div><div style="float:right; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + nexturl + '">&nbsp;<i class="fa-solid fa-arrow-right"></i></a></div><div style="width:25%; float:right; padding:30px 0px; text-align:right; color:grey">' + btitle[number+1] + '</div><div style="margin:0 auto; width:20%; padding:30px 0px; position:relative; text-align:center"><a href="../blog.html" style="text-decoration: none">Home</a></div>';
+  }
+
 } else {
-  document.getElementById('nextlink').innerHTML = '<div style="float:left; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + prevurl + '"><i class="fa-solid fa-arrow-left"></i>&nbsp;</a></div><div style="width:25%; float:left; padding:30px 0px; text-align:left; color:grey">' + btitle[number-1] + '</div><div style="float:right; padding:30px 0px; text-align:right"><a style="text-decoration:none" href="' + nexturl + '">&nbsp;<i class="fa-solid fa-arrow-right"></i></a></div><div style="width:25%; float:right; padding:30px 0px; text-align:right; color:grey">' + btitle[number+1] + '</div><div style="margin:0 auto; width:20%; padding:30px 0px; position:relative; text-align:center"><a href="../blog.html" style="text-decoration: none">Home</a></div>';
-}
-} else {
-  // 博客主页目录
+// 博客主页目录
   for (i=1; i < amount; i++) {
     document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="blog/blog' + i + '.html"><div class="cardlink"><p class="time">' + bdate[i].toString().substring(5) + '</p><p class="title">' + btitle[i] + '</p><p class="intro">' + bintro[i] + '</p></div></a></div></div>');
     if (i+2 > amount || Number(bdate[i].toString().substring(0,4)) < Number(bdate[i+1].toString().substring(0,4))) {
