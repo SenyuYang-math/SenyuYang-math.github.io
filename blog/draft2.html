@@ -40,7 +40,7 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
   因此命题2和G-N不等式给出了命题1相对初等的证明，并且从证明能看到div方程与Sobolev嵌入的关系.
 </p>
 <p>
-<input value='Print' type='button' onclick='handlePrint()' />
+<input value='Print' type='button' onclick='handlePrint()' id="print-button"/>
 </p>
 </div>
 
@@ -51,6 +51,8 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
             var originContents = document.body.innerHTML;
             var actContents = document.getElementById("container").innerHTML;
             document.body.innerHTML = actContents;
+            let button = document.getElementById("print-button")
+            document.querySelector('body').removeChild(button)
             window.print();
             document.body.innerHTML= originContents;
          }
