@@ -47,5 +47,3 @@ window.onload = (function () {
   comment.async = true;
   document.body.appendChild(comment);
 })();
-let vpower = document.getElementsByClassName('vpower txt-right');
-vpower.remove();
