@@ -44,6 +44,13 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   // 打印按钮
   const print = document.getElementById('bottom');
   print.insertAdjacentHTML('beforeend', '<div id="print-button"><p><input value="Print" type="button" onclick="handlePrint()"/></p></div>');
+  const handlePrint = () => {
+            var originContents = document.body.innerHTML;
+            var actContents = document.getElementById("container").innerHTML;
+            document.body.innerHTML = actContents;
+            window.print();
+            document.body.innerHTML= originContents;
+  }
 
   // 创建版权许可
   const blogcopy = document.getElementById('bottom');
