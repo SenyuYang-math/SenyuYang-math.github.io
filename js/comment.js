@@ -1,5 +1,5 @@
 // 创建评论区块
-const comment = document.getElementById('container');
+const comment = document.getElementById('bottom');
 comment.insertAdjacentHTML('afterend', '<div id="vcomments" class="comment"></div>');
 valineConfig = {
   el: '#vcomments',
