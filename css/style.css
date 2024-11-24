@@ -43,10 +43,10 @@
      font-family: Verdana, sans-serif;
    }
 /* blog标题样式 */
-  .blogtitle{
+  #blogtitle{
     margin-bottom: 10px;
   }
-  .blogdate{
+  #bloginfo{
     font-size:small;
   }
   .titleline{
