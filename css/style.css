@@ -84,6 +84,12 @@ mjx-container[jax="CHTML"][display="true"] {
 .comment {
   padding-top: 20px;
 }
+/* 按钮样式 */
+#print-button {
+  background-color: white;
+  border: none;
+  color: blue;
+}
 .navbar, .comment, .foot, #bottom {
   margin: 0 auto;
 }
