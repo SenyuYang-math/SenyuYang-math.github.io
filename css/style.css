@@ -88,7 +88,7 @@ mjx-container[jax="CHTML"][display="true"] {
   margin: 0 auto;
 }
 @media (max-width: 768px) {
-  .container, .comment, .foot {
+  .container, .comment, .foot, #bottom {
     width: 85%; /* 在小屏幕下将宽度设置为85% */
   }
   .navbar {
@@ -96,7 +96,7 @@ mjx-container[jax="CHTML"][display="true"] {
   }
 }
 @media (min-width: 768px) {
-  .container, .comment, .foot {
+  .container, .comment, .foot, #bottom {
     width: 50%; /* 在大屏幕下将宽度设置为50% */
   }
   .navbar {
