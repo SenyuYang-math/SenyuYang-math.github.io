@@ -7,9 +7,11 @@
 <!--正文区块-->
 <div id="container" class="container">
 <h2>引子：div方程的$L^{\infty}$-解</h2>
+<p>
 首先是最简单的情形：考虑 $f$ 是 $0$-form i.e. 函数，以及div方程
 $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
 如果 $X$ 是一个梯度场 i.e. $X=\nabla u$ , 则Poisson方程 $\Delta u = f$ 的解 $u \in \dot{W}^{2,n}$ 诱导了所谓的canonical solution $X\in \dot{W}^{1,n }$ . 但 $X$ 不一定是 $L^{\infty}$ 的，我们会在后面证明这一点. 这本质是因为Sobolev嵌入会在 $\dot{W}^{1,n}\hookrightarrow L^{\infty}$ 情形下 <i>失效</i> ！不过方程 $(1)$ 是未定的，所以可以问：$(1)$ 是否有 $L^{\infty}$-解？结论是肯定的.
+</p>
 <p class="thm">
   <b>命题1</b> (Bourgain-Brezis)<b>.</b> 对于 $f\in L^n(\mathbb{R}^n)$ , 存在向量场 $\tilde{X}$ (在分布意义下) 是方程 $(1)$ 的 $L^{\infty}$-解, 并满足Sobolev型估计
   $$\| \tilde{X}\|_{L^{\infty}} \lesssim \| f\|_{L^n} \ .$$
@@ -37,16 +39,20 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
 <p>
   因此命题2和G-N不等式给出了命题1相对初等的证明，并且从证明能看到div方程与Sobolev嵌入的关系.
 </p>
+<p>
 <input value='Print' type='button' onclick='handlePrint()' />
+</p>
 </div>
 
 <!-- js脚本 -->
 <script src="../js/blog.js"></script>
 <script type="text/javascript">
          const handlePrint = () => {
+            var originContents = document.body.innerHTML;
             var actContents = document.getElementById("container").innerHTML;
             document.body.innerHTML = actContents;
             window.print();
+            document.body.innerHTML= originContents;
          }
 </script>
 
