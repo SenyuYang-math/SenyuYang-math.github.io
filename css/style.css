@@ -55,6 +55,7 @@
   }
 /* 正文区块样式 */
 .container{
+  margin: 0 auto;
   margin-top: 56px;/* 顶端防止导航栏遮挡 */
   flex:1;
 }
@@ -83,7 +84,7 @@ mjx-container[jax="CHTML"][display="true"] {
 .comment {
   padding-top: 20px;
 }
-.navbar, .container, .comment, .foot, #bottom {
+.navbar, .comment, .foot, #bottom {
   margin: 0 auto;
 }
 @media (max-width: 768px) {
