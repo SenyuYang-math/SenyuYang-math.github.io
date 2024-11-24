@@ -9,7 +9,7 @@
 <h2>div方程的 $L^{\infty}$-解与Sobolev嵌入</h2>
 首先是最简单的情形：考虑 $f$ 是 $0$-form i.e. 函数，以及div方程
 $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
-如果 $X$ 是一个梯度场 i.e. $X=\nabla u$ , 则Poisson方程 $\Delta u = f$ 的解 $u \in \dot{W}^{2,n}$ 诱导了所谓的canonical solution $X\in \dot{W}^{1,n }$ . 但 $X$ 不一定是 $L^{\infty}$ 的，我们会在后面证明这一点. 这本质是因为Sobolev嵌入会在 $\dot{W}^{1,n}\hookrightarrow L^{\infty}$ 情形下 <i>失效</i> ！不过方程 $(1)$ 是未定的，所以可以问 $(1)$ 是否有 $L^{\infty}$-解？结论是肯定的.
+如果 $X$ 是一个梯度场 i.e. $X=\nabla u$ , 则Poisson方程 $\Delta u = f$ 的解 $u \in \dot{W}^{2,n}$ 诱导了所谓的canonical solution $X\in \dot{W}^{1,n }$ . 但 $X$ 不一定是 $L^{\infty}$ 的，我们会在后面证明这一点. 这本质是因为Sobolev嵌入会在 $\dot{W}^{1,n}\hookrightarrow L^{\infty}$ 情形下 <i>失效</i> ！不过方程 $(1)$ 是未定的，所以可以问：$(1)$ 是否有 $L^{\infty}$-解？结论是肯定的.
 <p class="thm">
   <b>命题1</b> (Bourgain-Brezis)<b>.</b> 对于 $f\in L^n(\mathbb{R}^n)$ , 存在向量场 $\tilde{X}$ (在分布意义下) 是方程 $(1)$ 的 $L^{\infty}$-解, 并满足Sobolev型估计
   $$\| \tilde{X}\|_{L^{\infty}} \lesssim \| f\|_{L^n} \ .$$
@@ -26,7 +26,7 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
   $$\int_{\mathbb{R}^n} uf = \int_{\mathbb{R}^n} u \operatorname{div} \tilde{X} \ dx = -\int_{\mathbb{R}^n} \nabla u\cdot \tilde{X}\ ,$$
   其中右式可以被 $\|\nabla u\|_{L^1} \|f\|_{L^n}$ 控制，再用对偶即得到G-N不等式；另一方面，设G-N不等式成立，考虑工作空间
   $$S:= \{\nabla u : u\in C_0^\infty\} \subset L^1 \ .$$
-  于是常规地构造 $E$ 上的线性泛函
+  于是按惯例构造 $S$ 上的线性泛函
   $$\ell: \nabla u \mapsto -\int_{\mathbb{R}^n} u f \ .$$
   注意G-N不等式说明 $\ell$ 有界，所以可以用Hahn-Banach定理将 $\ell$ 延拓为 $L^1$ 向量场上的线性泛函 $\mathscr{L}$ , 并有范数上界
   $$\|\mathscr{L}\| \leq \|\ell\| \lesssim \|f\|_{L^n} \ .$$
@@ -35,7 +35,7 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
   对所有 $L^1$-向量场 $Y$ 成立. $\tilde{X}$ 即为命题1所求.&emsp;$\Box$
 </p>
 <p>
-  因此命题2和G-N不等式给出了命题1相对初等的证明，从中能看到div方程与Sobolev嵌入的关系.
+  因此命题2和G-N不等式给出了命题1相对初等的证明，并且从证明能看到div方程与Sobolev嵌入的关系.
 </p>
 </div>
 
