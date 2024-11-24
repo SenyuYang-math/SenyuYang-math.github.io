@@ -43,8 +43,9 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   
   // 打印按钮
   const print = document.getElementById('bottom');
-  print.insertAdjacentHTML('beforeend', '<div id="print-button"><p><input value="Print" type="button" onclick="handlePrint()"/></p></div>');
-  const handlePrint = () => {
+  print.insertAdjacentHTML('beforeend', '<div><p><input id="print-button" value="Print" type="button"/></p></div>');
+  var button = document.getElementById('print-button');
+  button.onclick = function() {
             var originContents = document.body.innerHTML;
             var actContents = document.getElementById("container").innerHTML;
             document.body.innerHTML = actContents;
