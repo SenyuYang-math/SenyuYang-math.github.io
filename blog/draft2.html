@@ -51,8 +51,8 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
             var originContents = document.body.innerHTML;
             var actContents = document.getElementById("container").innerHTML;
             document.body.innerHTML = actContents;
-            let button = document.getElementById("print-button")
-            document.querySelector('body').removeChild(button)
+            let button = document.getElementById("print-button");
+            document.querySelector('body').removeChild(button);
             window.print();
             document.body.innerHTML= originContents;
          }
