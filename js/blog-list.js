@@ -33,7 +33,7 @@ if (urllength > 12) {
 
 // 创建文章标题
 const date = document.getElementById('container');
-date.insertAdjacentHTML('afterbegin', '<span id="blogdate" class="blogdate">' + bdate[number] + '</span><hr class="titleline">');
+date.insertAdjacentHTML('afterbegin', '<span id="blogdate">' + bdate[number] + '&emsp;<i class="fa-solid fa-pencil"></i> Ysy</span><hr class="titleline">');
 const title = document.getElementById('container');
 title.insertAdjacentHTML('afterbegin', '<h1 id="blogtitle" style="margin-bottom: 10px;">' + btitle[number] + '</h1>');
 
