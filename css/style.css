@@ -8,7 +8,6 @@
 }
 .navbar {
   padding: 0px;
-  margin: 0 auto;
   list-style-type: none;
   overflow: hidden;
   }
@@ -31,8 +30,7 @@
 /* 页脚样式 */
 .foot{
   bottom: 0; 
-  padding: 0px; 
-  margin: 0 auto; 
+  padding: 0px;  
   font-size:small; 
   color: rgb(128,128,128)
 }
@@ -57,7 +55,6 @@
   }
 /* 正文区块样式 */
 .container{
-  margin: 0 auto;
   margin-top: 56px;/* 顶端防止导航栏遮挡 */
   flex:1;
 }
@@ -83,8 +80,10 @@ mjx-container[jax="CHTML"][display="true"] {
   padding: 30px 0px;
 }
 /* 评论区样式 */
-.comment{
+.comment {
   padding-top: 20px;
+}
+.navbar, .container, .comment, .foot, #bottom {
   margin: 0 auto;
 }
 @media (max-width: 768px) {
