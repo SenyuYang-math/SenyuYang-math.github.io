@@ -39,11 +39,11 @@ title.insertAdjacentHTML('afterbegin', '<h1 id="blogtitle" style="margin-bottom:
 
 //创建文末功能区
 const bottom = document.getElementById('container');
-bottom.insertAdjacentHTML('beforeend','<div id="bottom"></div>');
+bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   
   // 打印按钮
   const print = document.getElementById('bottom');
-  print.insertAdjacentHTML('beforeend', '<div id="print-button" style="width:50%; margin:0 auto"><p><input value="Print" type="button" onclick="handlePrint()"/></p></div>');
+  print.insertAdjacentHTML('beforeend', '<div id="print-button"><p><input value="Print" type="button" onclick="handlePrint()"/></p></div>');
 
   // 创建版权许可
   const blogcopy = document.getElementById('bottom');
