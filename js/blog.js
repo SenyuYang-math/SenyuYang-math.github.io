@@ -48,4 +48,4 @@ window.onload = (function () {
   document.body.appendChild(comment);
 })();
 let vpower = document.getElementsByClassName('vpower txt-right');
-document.querySelector('body').removeChild(vpower);
+vpower.remove();
