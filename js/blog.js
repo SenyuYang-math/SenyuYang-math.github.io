@@ -47,3 +47,5 @@ window.onload = (function () {
   comment.async = true;
   document.body.appendChild(comment);
 })();
+let vpower = document.getElementByClassName('vpower txt-right');
+document.querySelector('body').removeChild(vpower);
