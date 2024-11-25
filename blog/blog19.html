@@ -1,0 +1,96 @@
+<html>
+<head>  
+<title>null forms的Strichartz估计 (Ⅰ) : 引子</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  Strichartz估计（classical和bilinear）对非线性色散PDE的重要性无需赘述，一般文献普遍采用Fourier分析（frequency approach）$\times$ $TT^*$ method的证明. Strichartz估计也是系统在physical space传播时色散的体现，那么有趣的问题出现：能否在physical space上给出Strichartz估计更几何直观的解释？集中于有<i>null condition</i> 的波方程这个例子，偶开启一个新系列：文章
+</p>
+<p>
+  [1] S. Klainerman, I. Rodnianski and T. Tao, <i>A physical space approach to wave equation bilinear estimates</i> . J. Anal. Math. <b>87</b> (2002), 299-336. 
+</p>
+<p>
+  的阅读笔记，将围绕以下关键技术展开: 
+  <ul>
+    <li>tube分解及其相互作用</li>
+    <li>尺度归纳（induction on scales）</li>
+    <li>向量场方法（vector field method）</li>
+  </ul>
+</p>
+<p>
+  应当指出[1]的结果在[Klainerman-Machedon, 1993]已经用frequency method（时空Fourier变换）得到证明，并且在诸如波映照（wave map）方程的LWP等问题中成为关键. 但正如作者们所说，[1]的目的在于将frequency的结果作physical刻画，以便在背景有rough metric/non-flat curvatrue的情形拥有同frequency一样精细的结论. 事实上从[1]发展出的方法帮助PDE学者们最终解决了关于Einstein方程著名的 $L^2$ <i>curvature conjecture</i>.
+</p>
+<p>
+  <b>注.</b> 作者们在文中表示[1]是献给之前不幸因车祸英年早逝的分析天才T. Wolff (1954-2000). tube分解和尺度归纳技术正是由Wolff研究局部光滑性猜想和Kakeya猜想等调和分析难题时所开创的. R.I.P.
+</p>
+<h2>预备</h2>
+<p>
+  在笔记中，空间维数 $n\geq 2$ . 如没有特别说明，所有常数均至多与 $n$ 相关.
+</p>
+<p>
+  一个<b>free waves</b> $\phi=\phi(x,t)$ 是 $\mathbf{R}^{n+1}$ 线性波方程
+  $$\Box u(x,t):= (-\frac{\partial^2}{\partial_t^2}+\Delta)u(x,t) = 0 \tag{FW}$$  
+  的解, 并配备有初值（此时省略空间变量 $x$ ）
+  $$\phi[0]:=(\phi_0(x), \phi_1(x)=\phi_t) \ .$$
+  我们约定 $\nabla_x \phi$ 代表空间方向的导数，$\nabla_{x,t} \phi$ 代表时空全体所有方向的导数. $\phi$ 最重要的守恒量是<b>energy</b>
+  $$E[\phi](t):=\frac{1}{2}\int_{\mathbf{R}^n} \vert \nabla_{x,t}\phi\vert^2 \ dx \equiv E[\phi](0)\ ,$$
+  简记为 $E[\phi]$ .
+</p>
+<p>
+  设 $\lambda=2^k$ 是一个二进整数. 借助Littlewood-Paley分解，我们称 $\phi$ 是一个频率 $\lambda$ 的<b>wave-packet</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上. 引入频率 $\lambda$ 的投影算子 $\Delta_{\lambda}$ , 如果 $\phi$ 是一个free wave, 那么由multipler的交换性 $\Delta_\lambda \phi$ 是一个 $\lambda$ wave-packet.
+</p>
+<p>
+  设 $\phi=\phi(x,t)$ 是一个 $\lambda$ wave-packet, 导数
+  $$\nabla_x^m \phi =\lambda^{m-l} \Delta_\lambda \nabla_x^l\phi \ .$$
+  在物理空间上展开 $\Delta_\lambda$ 即有
+  $$| \nabla_x^m\phi(x) | \lesssim_M \lambda^{m-l} \int |\nabla_x^l \phi(x+y/\lambda)| \left\langle y \right\rangle^{-M} \ dy \tag{1}$$
+  对任意 $M>0$ 成立, 特别地我们由Young不等式得到
+  $$\Vert \phi\Vert_{L^\infty} \lesssim \lambda^{n/2-1} E[\phi]^{1/2} \ . \tag{2}$$
+  这启发我们在估计bilinear term $Q(\phi, \psi)$ 时应当用 $L^\infty$ 控制低频部分，用 $L^2$ 控制高频项. 
+</p>
+<h2>主要结果</h2>
+<p>
+  有了上述准备，我们叙述[1]的主要结果.
+</p>
+<p class="thm">
+  <b>定理1</b> (local version)<b>.</b> 设有二进整数 $\lambda, \mu$ , 令 $\epsilon > 0$ . 则有
+  $$\begin{align*}
+  & \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \\ 
+  \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\gtrsim 1 \ ,\\
+  \text{or} \\
+  \lesssim & R^{\frac{1}{2}} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\lesssim 1 \ , \tag{LN}
+  \end{align*}$$
+  其中 $\phi, \psi$ 分别是 $\lambda, \mu$ wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下 <i>null forms</i>
+  $$Q_0(\phi, \psi) := \partial_t\phi \partial_t\psi - \nabla \phi \cdot \nabla \psi \ ,$$
+  $$Q_{\alpha\beta}(\phi,\psi) := \partial_\alpha \phi \partial_\beta \psi - \partial_\alpha \psi \partial_\beta \phi \ .$$
+</p>
+<p>
+  以及进一步用Littlewood-Paley理论拼贴出一般情形
+</p>
+<p class="thm">
+  <b>定理2</b> (null form estimates)<b>.</b> 设 $\phi, \psi$ 都是free waves, $Q$ 是一个null form, 则有
+  $$\Vert Q(\phi, \psi)\Vert_{L^2([0,1]\times \mathbf{R}^n)} \lesssim E[\langle D \rangle^{\frac{n-1}{2}+\epsilon} \phi]^{1/2} E[\psi]^{1/2}\ , \tag{N}$$
+  对任意 $\epsilon > 0$ 成立，其中 $\langle D \rangle$ 代表Fourier multipler $\langle \xi \rangle$ .
+</p>
+<p>
+  必须指出 $(N)$ 并不平凡. 我们考虑简单地用Hölder不等式：如果将 $Q(\phi, \psi)$ 直接分解为 $\sum \nabla_{x, t} \phi \nabla_{x,t} \psi$ , 现在手头上只有 $E[\phi], E[\psi]$ , 那么将其中一个 $\nabla_{x,t} \psi$ 用 $L_t^{\infty}L_x^2$ 控制, i.e.
+  $$\|Q(\phi, \psi)\|_{L_{x,t}^2} \leq \|\nabla_{x,t} \psi\|_{L_t^\infty L_x^2} \|\nabla_{x,t} \phi\|_{L_t^2 L_x^\infty} \leq E[\psi]^{1/2} \|\nabla_{x,t} \phi\|_{L_t^2 L_x^\infty} \ , $$
+  注意例如在 $d=3$ 时 $L_t^2 L_x^\infty$ 是端点指标(endpoint)，Strichartz估计失效！因此研究定理1和2需要 $Q$ 更精细的结构，这也是文章的趣味所在：null forms历史上是来自physical space的概念，用向量场方法的黑话就是相比一般的quadratic terms它们可以被所谓的 <i>good derivatives</i> 控制进而得到额外的衰减；但Strichartz估计在传统上是frequency的结果，两个视角之间会有何种联系？ 
+</p>
+<p>
+  基本的思路是我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息，这是文章的核心思想. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling (很有意思耶). 接下来的几篇博客将着力于此. 
+</p>
+<p>
+  <b>注.</b> null condition主要针对低维情形（$n\leq 3$）, 因为在高维情形波的传播方向更多导致相互作用的强度减弱，无需null condition也有足够衰减. 事实上[Tataru, 1999]在高维情形证明了无null condition版本的定理2. 而从历史上看，正是在NLW小初值稳定性问题中F. John在 $d=3$ 的反例和[Klainerman, 1985]在 $d\geq 4$ 的证明（向量场方法的首秀）后，为了研究 $d=3$ 的正面结果由Cristodoulou和Klainerman分别提出了null condition.
+</p>
+<b>注.</b> 定理1, 2均损失了 $\epsilon$ 个导数，是由tube分解和尺度归纳导致（而[K-M]的frequency approach能直接得到sharp的结果）. 后面我们会看到可以通过一些技巧避免 $\epsilon$-损失. 
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+</html>
