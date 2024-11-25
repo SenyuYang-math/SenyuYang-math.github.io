@@ -48,18 +48,20 @@
   在物理空间上展开 $\Delta_\lambda$ 即有
   $$| \nabla_x^m\phi(x) | \lesssim_M \lambda^{m-l} \int |\nabla_x^l \phi(x+y/\lambda)| \left\langle y \right\rangle^{-M} \ dy \tag{1}$$
   对任意 $M>0$ 成立, 特别地我们由Young不等式得到
-  $$\Vert \phi\Vert_{L^\infty} \lesssim \lambda^{n/2-1} E[\phi]^{1/2} \ .$$
+  $$\Vert \phi\Vert_{L^\infty} \lesssim \lambda^{n/2-1} E[\phi]^{1/2} \ . \tag{2}$$
   这启发我们在估计bilinear term $Q(\phi, \psi)$ 时应当用 $L^\infty$ 控制低频部分，用 $L^2$ 控制高频项. 
 </p>
-<h2>主要结果一: null form estimate</h2>
+<h2>主要结果</h2>
 <p>
-  有了上述准备，我们叙述[1]的第一个主要结果.
+  有了上述准备，我们叙述[1]的主要结果.
 </p>
 <p class="thm">
-  <b>定理1</b> (local ver)<b>.</b> 设有二进整数 $\lambda, \mu$ , 令 $\epsilon > 0$ . 则有
+  <b>定理1</b> (local version)<b>.</b> 设有二进整数 $\lambda, \mu$ , 令 $\epsilon > 0$ . 则有
   $$\begin{align*}
-  \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\gtrsim 1 \ ,\\
-  \lesssim & R^{1/2} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\lesssim 1 \ , \tag{2}
+  & \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \\ 
+  \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\gtrsim 1 \ ,\\
+  \text{or} \\
+  \lesssim & R^{1/2} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\lesssim 1 \ , \tag{L-Null}
   \end{align*}$$
   其中 $\phi, \psi$ 分别是 $\lambda, \mu$) wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下 <i>null forms</i>
   $$Q_0(\phi, \psi) := \partial_t\phi \partial_t\psi - \nabla \phi \cdot \nabla \psi \ ,$$
