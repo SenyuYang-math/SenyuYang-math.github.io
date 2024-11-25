@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>Strichartz估计的physical approach (Ⅰ) : 介绍，tube分解</title>
+<title>Strichartz估计的physical approach (Ⅰ) : tube分解</title>
 </head>
 
 <body id="body">
@@ -48,7 +48,7 @@
 </p>
 <h2>主要结果一: null form estimate</h2>
 <p>
-  有了上述准备，我们叙述文章的第一个主要结果.
+  有了上述准备，我们叙述[1]的第一个主要结果.
 </p>
 <p class="thm">
   <b>定理1</b> (local ver)<b>.</b> 设有二进整数 $\lambda, \mu$ , 令 $\epsilon > 0$ . 则有
@@ -56,7 +56,7 @@
   \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\gtrsim 1 \ ,\\
   \lesssim & R^{1/2} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\lesssim 1 \ ,
   \end{align*}$$
-  其中 $\phi$ ($\psi$) 分别是 $\lambda$ ($\mu$) wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下null forms
+  其中 $\phi$ ($\psi$) 分别是 $\lambda$ ($\mu$) wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下 <i>null forms</i>
   $$Q_0(\phi, \psi) := \partial_t\phi \partial_t\psi - \nabla \phi \cdot \nabla \psi \ ,$$
   $$Q_{\alpha\beta}(\phi,\psi) := \partial_\alpha \phi \partial_\beta \psi - \partial_\alpha \psi \partial_\beta \phi \ .$$
 </p>
@@ -69,10 +69,10 @@
   对任意 $\epsilon > 0$ 成立，其中 $\langle D \rangle$ 代表Fourier multipler $\langle \xi \rangle$ .
 </p>
 <p>
-  接下来的几篇文章将给出定理1的证明和定理1 $\Rightarrow$ 定理2的证明. 
+  <b>注.</b> 定理1, 2均会损失 $\epsilon$ 个导数，由tube分解和尺度归纳导致. 后面会指出通过一些技巧可以避免 $\epsilon$ 损失. 
 </p>
 <p>
-  <b>注.</b> 定理1, 2均会损失 $\epsilon$ 个导数，由tube分解和尺度归纳导致. 后面会指出通过一些技巧可以避免 $\epsilon$ 损失. 
+  定理有趣在null forms是来自physical space的概念，用波方程的黑话说就是null forms相比一般情形可以被所谓的 <i>good derivatives</i> 控制进而得到额外的衰减，我们将在后续章节中解释这一点；但Strichartz估计在传统上是frequency的结果，两个体系之间会有何种联系？接下来（的几篇文章）将给出定理1的证明和定理1 $\Rightarrow$ 定理2的证明. 
 </p>
 
   
