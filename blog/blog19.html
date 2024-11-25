@@ -24,7 +24,7 @@
   应当指出[1]的结果在[Klainerman-Machedon, 1993]已经用frequency method（时空Fourier变换）得到证明，并且在诸如波映照（wave map）方程的LWP等问题中成为关键. 但正如作者们所说，[1]的目的在于将frequency的结果作physical刻画，以便在背景有rough metric/non-flat curvatrue的情形拥有同frequency一样精细的结论. 事实上从[1]发展出的方法帮助PDE学者们最终解决了关于Einstein方程著名的 $L^2$ <i>curvature conjecture</i>.
 </p>
 <p>
-  <b>注.</b> 作者们在文中表示[1]是献给之前不幸因车祸英年早逝的分析天才T. Wolff (1954-2000). tube分解和尺度归纳技术正是由Wolff研究局部光滑性猜想和Kakeya猜想等调和分析难题时所开创的. R.I.P.
+  <b>注.</b> 作者们在文中表示[1]是献给之前不幸因车祸英年早逝的天才分析学者T. Wolff (1954-2000). tube分解和尺度归纳技术正是由Wolff在研究调和分析四大猜想时所开创的. R.I.P.
 </p>
 <h2>预备</h2>
 <p>
@@ -59,16 +59,15 @@
   <b>定理1</b> (local version)<b>.</b> 设有二进整数 $\lambda, \mu$ , 令 $\epsilon > 0$ . 则有
   $$\begin{align*}
   & \Vert Q(\phi, \psi) \Vert_{L^2(\mathbf{Q}_R)} \\ 
-  \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\gtrsim 1 \ ,\\
-  \text{or} \\
-  \lesssim & R^{\frac{1}{2}} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ \text{if } R\min{(\lambda, \mu)}\lesssim 1 \ , \tag{LN}
+  \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ R\min{(\lambda, \mu)}\gtrsim 1 \ , \ \text{or} \\
+  \lesssim & R^{\frac{1}{2}} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ R\min{(\lambda, \mu)}\lesssim 1 \ , \tag{LN}
   \end{align*}$$
   其中 $\phi, \psi$ 分别是 $\lambda, \mu$ wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下 <i>null forms</i>
   $$Q_0(\phi, \psi) := \partial_t\phi \partial_t\psi - \nabla \phi \cdot \nabla \psi \ ,$$
   $$Q_{\alpha\beta}(\phi,\psi) := \partial_\alpha \phi \partial_\beta \psi - \partial_\alpha \psi \partial_\beta \phi \ .$$
 </p>
 <p>
-  以及进一步用Littlewood-Paley理论拼贴出一般情形
+  并进一步拼贴出一般情形
 </p>
 <p class="thm">
   <b>定理2</b> (null form estimates)<b>.</b> 设 $\phi, \psi$ 都是free waves, $Q$ 是一个null form, 则有
@@ -81,7 +80,7 @@
   注意例如在 $d=3$ 时 $L_t^2 L_x^\infty$ 是端点指标(endpoint)，Strichartz估计失效！因此研究定理1和2需要 $Q$ 更精细的结构，这也是文章的趣味所在：null forms历史上是来自physical space的概念，用向量场方法的黑话就是相比一般的quadratic terms它们可以被所谓的 <i>good derivatives</i> 控制进而得到额外的衰减；但Strichartz估计在传统上是frequency的结果，两个视角之间会有何种联系？ 
 </p>
 <p>
-  基本的思路是我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息，这是文章的核心思想. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling (很有意思耶). 接下来的几篇博客将着力于此. 
+  基本的思路是我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息，这是文章的核心思想. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling (很有意思耶). 接下来的几篇博客将着力于此并证明定理1和2. 
 </p>
 <p>
   <b>注.</b> null condition主要针对低维情形（$n\leq 3$）, 因为在高维情形波的传播方向更多导致相互作用的强度减弱，无需null condition也有足够衰减. 事实上[Tataru, 1999]在高维情形证明了无null condition版本的定理2. 而从历史上看，正是在NLW小初值稳定性问题中F. John在 $d=3$ 的反例和[Klainerman, 1985]在 $d\geq 4$ 的证明（向量场方法的首秀）后，为了研究 $d=3$ 的正面结果由Cristodoulou和Klainerman分别提出了null condition.
