@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>div-curl系统 (Ⅰ) : $L^{\infty}$-解与Sobolev嵌入</title>
+<title>div-curl系统 (Ⅰ) : L^∞-解与Sobolev嵌入</title>
 </head>
 
 <body id="body">
@@ -16,14 +16,14 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
 如果 $X$ 是一个梯度场 i.e. $X=\nabla u$ , 则Poisson方程 $\Delta u = f$ 的解 $u \in \dot{W}^{2,n}$ 诱导了所谓的canonical solution $X\in \dot{W}^{1,n }$ . 但 $X$ 不一定是 $L^{\infty}$ 的，我们会在后面证明这一点. 这本质是因为Sobolev嵌入会在 $\dot{W}^{1,n}\hookrightarrow L^{\infty}$ 情形下 <i>失效</i> ！不过方程 $(1)$ 是未定的，所以可以问：$(1)$ 是否有 $L^{\infty}$-解？结论是肯定的.
 </p>
 <p class="thm">
-  <b>命题1</b> (Bourgain-Brezis)<b>.</b> 对于 $f\in L^n(\mathbb{R}^n)$ , 存在向量场 $\tilde{X}$ (在分布意义下) 是方程 $(1)$ 的 $L^{\infty}$-解, 并满足Sobolev型估计
+  <b>命题1.</b> 对于 $f\in L^n(\mathbb{R}^n)$ , 存在向量场 $\tilde{X}$ (在分布意义下) 是方程 $(1)$ 的 $L^{\infty}$-解, 并满足Sobolev型估计
   $$\| \tilde{X}\|_{L^{\infty}} \lesssim \| f\|_{L^n} \ .$$
 </p>
 <p>
   Bourgain-Brezis的观察是考虑duality argument
 </p>
 <p class="thm">
-  <b>命题2</b> (Bourgain-Brezis)<b>.</b> 命题1等价于经典的Gaglinardo-Nirenberg不等式，i.e. 对所有 $u\in C_{0}^{\infty}(\mathbb{R}^n)$ 有Sobolev嵌入
+  <b>命题2.</b> 命题1等价于经典的Gaglinardo-Nirenberg不等式，i.e. 对所有 $u\in C_{0}^{\infty}(\mathbb{R}^n)$ 有Sobolev嵌入
   $$\|u\|_{L^{n/(n-1)}}\lesssim \|\nabla u\|_{L^1} \ .$$
 </p>
 <p>
@@ -44,8 +44,11 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
 </p>
 <h2>高维情形：Hodge系统</h2>
   我们考虑 $\mathbb{R}^n$ 的（实）Hodge-de-Rham理论：对 $\mathbb{R}^n$ 上的外形式丛 $(\Lambda(\mathbb{R}^n), d)$ , 令 $\mathrm{d}^*$ 为外微分算子 $d$ 的对偶，Hodge-Laplace算子为 $\Delta = d d^* + d^* d$ . 注意对于 $1$-形式 $Y$ , $d^* Y = \operatorname{div} Y$ . 因此我们将第一节的方程推广为
-  $$d^*Y=f \ , f\in L^n(\Lambda^{k}(\mathbb{R}^n)) \ , \ 0 \leq k\leq n-1\ .$$
-  我们想问：是否存在 $Y\in L^\infty(\Lambda^{k+1}(\mathbb{R}^n))$ 为方程的一个弱解？
+  $$d^*Y=f \ , f\in L^n , \tag{2}$$
+  其中 $f$ 是 $k$-形式（$0\leq k\leq n-1$）. 我们想问：是否存在 $Y\in L^\infty(\Lambda^{k+1})$ 为 $(2)$ 的一个弱解？因为 $d^*\circ d^* = 0$ , 所以方程有解需要相容性条件 $d^* f =0$ . 于是根据 $\mathbb{R}^n$ 上的Hodge理论同样可以得到：存在 $k+1$-形式 $X \in \dot{W}^{1,n}$ s.t. $d^*X = f$ . 因此我们的问题可以归结为
+  <p class="thm">
+    <b>定理3</b> (Bourgain-Brezis)<b>.</b> 
+  </p>
 </div>
 
 <!-- js脚本 -->
