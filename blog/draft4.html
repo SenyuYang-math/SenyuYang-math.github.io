@@ -7,10 +7,10 @@
 <!-- 正文区块 -->
 <div id="container" class="container">
 <p>
-  因为@Yifan的<a href="https://www.zhihu.com/question/63235177/answer/206831429">推荐</a>查阅了文章
+  因为@Yifan的<a href="https://www.zhihu.com/question/63235177/answer/206831429" target="_blank">推荐</a>查阅了文章
 </p>
 <p>
-  B. Green, T. Tao, <i>On sets defining few ordinary lines</i> ,
+  B. Green, T. Tao, <i>On sets defining few ordinary lines</i>
 </p>
 <p>
   于是写篇博客记一下.下面是一个在数竞教材出镜率极高的结果.
@@ -23,6 +23,7 @@
 </p>
 <p>
   先贴一个大家耳熟能详的绝妙证明<span style="text-decoration:line-through">来水字数</span>.
+</p>
 <p>
   <i>Kelley的经典证明</i>. 令 $P$ 为给定的 $n$-点集，集合 $L_P$ 为所有经过 $P$ 中至少两个点的直线（自然非空）. 考虑点线对
   $$PL := \{ (p,\ell) : p \in P, \ell \in L_P , p \notin \ell\} \ ,$$
@@ -30,6 +31,7 @@
   $$\operatorname{dist} (p_0, \ell_0) = \min_{PL}{\operatorname{dist} (p, \ell)} \ .$$ 
   下面证明 $\ell_0$ 为满足命题的直线. 假设 $\ell_0$ 经过 $p_1, p_2, p_3 \in P$ , 过 $p_0$ 作 $\ell_0$ 垂线得到垂足 $q$ . WLOG, 设 $p_1, p_2$ 在 $Q$ 的同一侧，顺序为 $q, p_1, p_2$（$Q , p_1$ 可能重合）. 现在连接 $p_0, p_2$ 得到直线 $\ell_1$ , 则 $(p_1, \ell_1) \in PL$ , 且 $\operatorname{dist} (p_1, \ell_1) \lt \operatorname{dist} (p_0, \ell_0)$ , 与 $(p_0, \ell_0)$ 定义矛盾！再由 $L_P$ 定义可知 $\ell_0$ 恰好进过 $P$ 中的两个点.&emsp;$\Box$
 </p>
+<br/>
 <p>
   虽然很巧妙，但证明依赖于“距离”这个概念，而问题本身只依赖于点线之间的关联（所谓的 <i>incidence geometry</i>）. 如无必要勿增实体，现在转向[Melchior, 1940]的拓扑证明（并采用[Green-Tao]中的表述）. 我们将在射影平面 $\mathbb{R}P^2$ 上讨论，关于 $\mathbb{R}P^2$ 的具体构造和对偶性质笔者不在这里赘述. 注意 $\mathbb{R}^2$ 可以自然地嵌入 $\mathbb{R}P^2$ : $(x,y) \mapsto [x,y,1]$ . 
 </p>
@@ -37,7 +39,7 @@
   <i>Melchior的拓扑证明</i>. 将 $P$ 嵌入 $\mathbb{R}P^2$ 中，并考虑其对偶直线集 $P^*$ . 我们构造 $P^*$ 层面的图 $G_P=G_P(V, E)$ 如下：顶点集
   $$V:= \{ v \in \mathbb{R}P^2 : \exists \ell_1, \ell_2 \in P^* \text{ s.t. } v \in \ell_1\cap\ell_2\}$$
   和边集
-  $$E:= \{ \overline{v_1v_2} : v_1 \ , v_2\in V , v_1\neq v_2 \ , \exists \ell\in P^* \text{ s.t. } overline{v_1v_2} \subset \ell \text{ 且 } \overline{v_1v_2} \text{ 内部没有顶点 } \} \ .$$
+  $$E:= \{ \overline{v_1v_2} : v_1 \ , v_2\in V , v_1\neq v_2 \ , \exists \ell\in P^* \text{ s.t. } \overline{v_1v_2} \subset \ell \text{ 且 } \overline{v_1v_2} \text{ 内部没有顶点 } \} \ .$$
   其中上划线代表两点所连线段. 换言之，$V$ 的对偶是那些连接 $P$ 中至少两个点的（射影）直线. 对任意 $v\in V$ , 设其对偶经过两个点 $p_1 , p_2\in P$ . 由于 $P$ 不全贡献，存在 $p' \in P$ s.t. $p_1p_2p$ 构成一个非退化的（射影）三角形，直线 $p_1p', p_2p'$ 的对偶 $v_1, v_2 \in V$ 且不与 $v$ 重合，因此 $v$ 至少与 $V$ 中的两个点相连 i.e. $\operatorname{deg} v \geq 2 \ , \ \forall v \in V $（注意 $v$ 和 $v_1 / v_2$ 之间可能有其他顶点，不过调整相连的点即可避免）；另一方面，这个三角形还说明每条 $p^*\in P^*$ 都至少连接 $2$ 个 $V$ 中的顶点，所以每条经过 $v$ 的 $p^*$ 都是 $E$ 中的边且 $E$ 中没有自环（loop）. 综合这两个性质即可说明图 $G_P$ 给出了 $\mathbb{R}P^2$ 的一个（射影）多边形剖分，同调论的工具因此得以介入. 
   现在对 $V$ 划分：设一个顶点恰好与 $k$ 条 $P^*$ 中的直线相交（$2\leq k \leq n$），记这样的顶点共有 $N_k$ 个，根据对偶性我们的目标就是得到 $N_2$ 的正下界. 显然
   $$|V| = \sum_{k=2}^n N_k \ . \tag{1}$$
@@ -61,7 +63,7 @@
 <p>
   <b>Dirac-Motzkin conjecture</b> (Green-Tao)<b>.</b> 对充分大的 $n$ , $\mathbb{R}P^2$ 中的 $n$-点集至少有 $f(n)$ 条ordinary lines, 其中
   $$\begin{align*}
-  f(2m)=m \ , \ f(4m+1)=3m \ , \f(4m-1)=3m-3 \ .
+  f(2m)=m \ , \ f(4m+1)=3m \ , \ f(4m-1)=3m-3 \ .
   \end{align*}$$
 </p>
 <p>
