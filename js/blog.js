@@ -36,14 +36,14 @@ document.body.appendChild(mathjax);
   headfoot.async = true;
   document.body.appendChild(headfoot);
 })();
-// valine评论系统
-var valine = document.createElement('script');
-valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
-valine.async = true;
-document.head.appendChild(valine);
-window.onload = (function () {
-  var comment = document.createElement('script');
-  comment.src = '../js/comment.js';
-  comment.async = true;
-  document.body.appendChild(comment);
-})();
+// // valine评论系统
+// var valine = document.createElement('script');
+// valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
+// valine.async = true;
+// document.head.appendChild(valine);
+// window.onload = (function () {
+//   var comment = document.createElement('script');
+//   comment.src = '../js/comment.js';
+//   comment.async = true;
+//   document.body.appendChild(comment);
+// })();
