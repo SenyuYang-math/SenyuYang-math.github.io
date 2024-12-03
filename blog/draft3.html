@@ -11,12 +11,9 @@
 </p>
 <h2>tube与wave-packet</h2>
 <p>
-  我们在以下的标准cube上工作：
+  为证明 $(LN)$ , 我们将在以下的标准cube上工作：
   $$\mathbf{Q}_R^{(0)} := \{(x,t) : |x_i| \lt R \text{ for } 1\leq i \leq n \ ; \ R\leq t \leq 2R\} \ .$$
   其中 <i>尺度</i> $R \gtrsim 1$ . 注意当 $R$ 增大时 $\mathbf{Q}_R^{(0)}$ 以速度 $1$ 向未来传播并扩大，且与初始（类空）曲面 $t=0$ 保持 $R$ 的距离. 这是后续应用向量场方法的关键.
-</p>
-<p>
-  现在取一个充分小的 $0\lt \epsilon \ll 1$ , 接下来的常数系数会与 $\epsilon$ 有关.
 </p>
 <p class="thm">
   <b>定义3.</b> 给定 <i>尺度</i> $1\lesssim r \lesssim R$ , <i>方向</i> $\omega\in S^{n-1}$ , <i>起始点</i> $x_0\in \mathbf{R}^n$ . 称
@@ -30,16 +27,19 @@
   现在考虑沿着 $T$ 传播的free waves. 通过正规化，我们规定free wave的能量 $E[\phi], E[\psi]1$ .
 </p>
 <p class-"thm">
-  <b>定义4</b> (tube局部化)<b>.</b> 设 $T$ 是一个tube, $\phi$ 是一个 $\mu$-free wave, $\mu \gtrsim 1$ , $E[\phi]= 1$ . 称 $\phi$ 是一个 $T$<i>-局部的</i> wave-packet, 如果有 $L^{\infty}$ 估计
+  <b>定义4</b> (tube局部化)<b>.</b> 设 $T$ 是一个tube, $\phi$ 是一个 $\mu$-波包, $\mu \gtrsim 1$ , $E[\phi]= 1$ . 称 $\phi$ 是一个 $T$<i>-局部的</i> 波包, 如果有 $L^{\infty}$ 估计
   $$|\nabla_{x,t}\phi(x,t)|\lesssim \left(R+\operatorname{dist}((x,t), T)\right)^{-100 n} \mu^{n/2} \tag{3}$$
   对任意 $(x,t)\notin T$ , $R/2 \leq t \leq 5R/2$ 都成立；以及有 $L^2$ 估计
   $$\left(\int_{x : (x,t)\notin T \ , \ |x|\lesssim R} |\nabla_{x,t} \phi|^2 \ dx\right)^{1/2} \lesssim \left(R+\operatorname{dist}((x,t), T)\right)^{-100 n}\tag{4}$$
   对任意 $R/2 \leq t \leq 5R/2$ 成立. 在此条件下，约定记号 $\phi=\phi_T$ .（$100n$ 可以换作任何充分大的幂次）
 </p>
 <p>
-  注意 $(3)$ 是 $(4)$ 和 $(1)$ 的推论. $T$-局部化的free waves将是我们研究波相互作用的基础构件.
+  注意 $(3)$ 是 $(4)$ 和 $(1)$ 的推论. $T$-局部化的波包将是我们研究波相互作用的基础构件.
 </p>
 <h2>结果，Fourier式证明</h2>
+<p>
+  现在我们叙述如何将一个free wave“几乎正交”地分解为若干 $T$-局部的波包. 任取一个充分小的 $0\lt \epsilon \ll 1$ , 接下来的常数系数会与 $\epsilon$ 有关.
+</p>
 <p>
   TBA
 </p>
