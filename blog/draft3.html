@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅱ) : tube分解，Fourier式证明</title>
+<title>null form的Strichartz估计 (Ⅱ) : tube分解的Fourier式构造</title>
 </head>
 
 <body id="body">
@@ -9,7 +9,7 @@
 <p>
   接<a href="./blog19.html" target="_blank">上一篇</a>文章，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.
 </p>
-<h2>tube与wave-packet</h2>
+<h2>波包的局部化，tube分解</h2>
 <p>
   为证明 $(LN)$ , 我们将在以下的 <i>标准时空cube</i> 上工作：
   $$\mathbf{Q}_R^{(0)} := \{(x,t) : |x_i| \lt R \ , \ 1\leq i \leq n \ ; \ R\leq t \leq 2R\} \ .$$
@@ -37,9 +37,8 @@
   $(3)$ 和 $(4)$ 的右式不能为 $0$ , 否则违反uncertainty principle. $T$-局部化的波包将是我们研究波相互作用的基础构件.
 </p>
 <p>
-  <b>注.</b> $(3)$ 是 $(4)$ 和 $(1)$ 的推论.
+  <b>注/练习.</b> 读者可以验证 $(3)$ 是 $(4)$ 和 $(1)$ 的推论.
 </p>
-<h2>结果，Fourier式证明</h2>
 <p>
   现在我们叙述如何将一个free wave“几乎正交”地分解为若干 $T$-局部的波包. 任取一个充分小的 $0\lt \epsilon \ll 1$ , 接下来的常数系数会与 $\epsilon$ 有关.
 </p>
@@ -59,6 +58,7 @@
 <p>
   <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
 </p>
+<h2>Fourier式构造（第一步）</h2>
 <p>
   接下来（以及下一篇博客），我们先给出tube分解的一个依赖于Fourier分析的证明. 这个证明将给出无误差项 $\phi_{error}$ 的精确分解. 而我们追求的proof on physcical space将留到后面给出.
 </p>
