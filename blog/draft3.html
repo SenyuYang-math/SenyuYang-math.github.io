@@ -34,13 +34,10 @@
   对任意 $R/2 \leq t \leq 5R/2$ 成立. 在此条件下，约定记号 $\phi=\phi_T$ .（$100n$ 可以换作任何充分大的幂次）
 </p>
 <p>
-  $(3)$ 和 $(4)$ 的右式不能为 $0$ , 否则违反uncertainty principle. $T$-局部化的波包将是我们研究波相互作用的基础构件.
+  $(3)$ 和 $(4)$ 的右式不能为 $0$ , 否则违反uncertainty principle. 读者可自行验证：$(3)$ 是 $(4)$ 和 $(1)$ 的推论.
 </p>
 <p>
-  <b>注/练习.</b> 读者可以验证 $(3)$ 是 $(4)$ 和 $(1)$ 的推论.
-</p>
-<p>
-  现在我们叙述如何将一个free wave“几乎正交”地分解为若干 $T$-局部的波包. 任取一个充分小的 $0\lt \epsilon \ll 1$ , 接下来的常数系数会与 $\epsilon$ 有关.
+  做足准备，现在叙述如何将一个free wave“几乎正交”地分解为若干 $T$-局部的波包. 任取一个充分小的 $0\lt \epsilon \ll 1$ , 接下来的常数系数会与 $\epsilon$ 有关.
 </p>
 <p class="thm">
   <b>定理5</b> (尺度 $R$ 的tube分解)<b>.</b> 设 $\phi$ 为一个 $\mu$-波包，$\mu \gtrsim 1$ , $E[\phi]= 1$ . 令 $R\gtrsim 1$ 以及 $R^{1/2 +\epsilon} \lesssim r \lesssim R$ . 则存在一族（可数的）长度 $R$, 宽度 $r$ 的tube $\mathbf{T}$ , 对每个 $T\in\mathbf{T}$ 都存在一个 $T$-局部的 $\mu$-波包 $\phi_T$ s.t. 
@@ -58,12 +55,31 @@
 <p>
   <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
 </p>
-<h2>Fourier式构造（第一步）</h2>
+<h2>Fourier式构造（第一部分）</h2>
 <p>
   接下来（以及下一篇博客），我们先给出tube分解的一个依赖于Fourier分析的证明. 这个证明将给出无误差项 $\phi_{error}$ 的精确分解. 而我们追求的proof on physcical space将留到后面给出.
 </p>
 <p>
-  <i>Fourier式证明</i>. 
+  <i>Fourier式证明</i>. 构造分为以下几步.
+</p>
+<p>
+  &emsp;<i>Step 1: 时间导数</i>. 我们沿用[1]的框架，仅在空间 $\mathbf{R}^n$ 上做Fourier. 为了在频率层面获取 $\partial_t$ 的信息，我们对 $\phi$ 的初值做以下 <i>半波分解</i> : 
+  $$\phi[0]= \sum_{+\ ,\ -} \left(\frac{\phi(0)\pm i\sqrt{-\Delta}^{-1}\phi_t(0)}{2} \ , \ \pm i \sqrt{-\Delta}\frac{\phi(0)\pm i\sqrt{-\Delta}^{-1}\phi_t(0)}{2}\right) \ .$$
+  这个分解依然保持频率 $\mu$ . 注意算子 $\sqrt{-\Delta}^{-1}$ i.e. Fourier multipler $|\xi|^{-1}$ 在 $n\geq 2$ 时有定义. 读者可进一步验证分解出来的两个半波关于能量诱导的内积是正交的，因此我们可以将tube分解归约为以下初值类的 $\phi$ : 
+  $$\phi_t(0) = +i\sqrt{-\Delta}\phi(0) \ .$$
+  如此便可以将时间导数转换到空间上. 
+</p>
+<p>
+  &emsp;<i>Step 2: 空间分解</i>. 为方便表示tube的尺度和位置，我们约定常量 $s:= R^{-\epsilon/2}r$ , $\Lambda := R^{-\epsilon/4}r$ . 因为 $\phi$ 是free waves, 只要 $\phi[0]$ 满足 $(6)$ 和 $(7)$ , 那么对任意 $t>0$ 也自动成立，因此我们期待将初始曲面 $\{t=0\}$ 和 $S^{n-1}$ 适当分解为若干“底座”和方向后，即可确定我们所需的 $\mathbf{T}$ . 于是构造：设 $\Omega\subset \mathbf{R}^n$ 为一族间距 $s$ 的格点, 于是 $\mathbf{R}^n$ 上存在单位分解 $1=\sum_{x_0\in \Omega} \chi_{x_0}$ s.t. 对每个 $\chi_{x_0}$ 有
+  $$\operatorname{supp} \widehat{\chi_{x_0}} \subset \{|\xi|\ll \mu\} \ , $$
+  以及
+  $$|\chi_{x_0}(x)| \lesssim_M R^{-M}\mu^{-M} \ \text{if} \ |x-x_0|\gg s \ ,$$
+  其中 $M$ 可以任意大. 事实上借助Littlewood-Paley分解可以构造 $\chi_{x_0}:= P_{\mu/C} \mathrm{1}_{Q(x_0)}$ , 其中 $Q(x_0)$ 为 $\Omega$ 诱导的边长 $s$ 的cube（构成 $\mathbf{R}^n$ 的分划）. 同样地可以给定 $\Theta\subset S^{n-1}$ 为一族间距 $s/R$ 的方向从而得到单位分解 $\mathrm{1}_{S^{n-1}}=\sum_{\omega\in \Theta} \eta_{\omega}$ , 其中 $\eta_{\omega}$ 是以 $\omega$ 为中心，半径 $O(s/R)$ 的圆盘对应的bump function. 于是定义
+  $$\mathbf{T} := \{T(R,r,x_0,\omega) : x_0\in \Omega\ , \ \omega\in \Theta\} \ .$$
+  由此可知密度控制（定理5的3）成立.
+</p>
+<p>
+  &emsp;<i>Step 3: 初值局部化</i>. TBA
 </p>
 </div>
 
