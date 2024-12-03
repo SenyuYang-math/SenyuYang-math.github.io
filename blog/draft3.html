@@ -12,7 +12,7 @@
 <h2>tube与wave-packet</h2>
 <p>
   为证明 $(LN)$ , 我们将在以下的 <i>标准时空cube</i> 上工作：
-  $$\mathbf{Q}_R^{(0)} := \{(x,t) : |x_i| \lt R \text{ for } 1\leq i \leq n \ ; \ R\leq t \leq 2R\} \ .$$
+  $$\mathbf{Q}_R^{(0)} := \{(x,t) : |x_i| \lt R \ , \ 1\leq i \leq n \ ; \ R\leq t \leq 2R\} \ .$$
   其中 <i>尺度</i> $R \gtrsim 1$ . 注意当 $R$ 增大时 $\mathbf{Q}_R^{(0)}$ 以速度 $1$ 向未来传播并扩大，且与初始（类空）曲面 $t=0$ 保持 $R$ 的距离. 这是后续应用向量场方法的关键.
 </p>
 <p class="thm">
@@ -48,8 +48,8 @@
   <li><i>Bessel不等式</i>
   $$\sum_{T\in\mathbf{T}} E[\phi_T] \lesssim 1 \tag{6}$$</li>
   <li><i>几乎正交性</i> : 存在常数系数 $C$ s.t.
-  $$E[\sum_{T\in\mathbf{T}'}] \lesssim R^{C\epsilon} \sum_{T\in\mathbf{T}'} E[\phi_T] + R^{-100n} \tag{7}$$
-  对任意子集 $\mathbf{T}'\subseteq \mathbf{T}$ 成立. </li>
+  $$E[\sum_{T\in\mathbf{T}'}\phi_T] \lesssim R^{C\epsilon} \left(\sum_{T\in\mathbf{T}'} E[\phi_T]\right) + R^{-100n} \tag{7}$$
+  对任意子集 $\mathbf{T}'\subseteq \mathbf{T}$ 成立.<br/> </li>
   <li><i>误差控制</i> ：对任何一个时空cube $\mathbf{Q}_R$ , $\mathbf{T}$ 中与之相交的tube数量是 $O(R^{10n})$ .</li>
   </ol>
 </p>
