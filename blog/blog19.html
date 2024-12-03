@@ -40,10 +40,10 @@
   简记为 $E[\phi]$ .
 </p>
 <p>
-  设 $\lambda=2^k$ 是一个二进整数. 借助Littlewood-Paley分解，我们称 $\phi$ 是一个频率 $\lambda$ 的<b>wave-packet</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上. 引入频率 $\lambda$ 的投影算子 $\Delta_{\lambda}$ , 如果 $\phi$ 是一个free wave, 那么由multipler的交换性 $\Delta_\lambda \phi$ 是一个 $\lambda$ wave-packet.
+  设 $\lambda=2^k$ 是一个二进整数. 借助Littlewood-Paley分解，我们称 $\phi$ 是一个频率 $\lambda$<b>-波包</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上. 引入频率 $\lambda$ 的投影算子 $\Delta_{\lambda}$ , 如果 $\phi$ 是一个free wave, 那么由multipler的交换性 $\Delta_\lambda \phi$ 是一个 $\lambda$-波包.
 </p>
 <p>
-  设 $\phi=\phi(x,t)$ 是一个 $\lambda$ wave-packet, 导数
+  设 $\phi=\phi(x,t)$ 是一个 $\lambda$-波包, 导数
   $$\nabla_x^m \phi =\lambda^{m-l} \Delta_\lambda \nabla_x^l\phi \ .$$
   在物理空间上展开 $\Delta_\lambda$ 即有
   $$| \nabla_x^m\phi(x) | \lesssim_M \lambda^{m-l} \int |\nabla_x^l \phi(x+y/\lambda)| \left\langle y \right\rangle^{-M} \ dy \tag{1}$$
@@ -62,7 +62,7 @@
   \lesssim & R^\epsilon \min{(\lambda, \mu)}^{\frac{n-1}{2}+\epsilon} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ R\min{(\lambda, \mu)}\gtrsim 1 \ , \ \text{or} \\
   \lesssim & R^{\frac{1}{2}} \min{(\lambda, \mu)}^{\frac{n}{2}} E[\phi]^{1/2} E[\psi]^{1/2} \ , \ R\min{(\lambda, \mu)}\lesssim 1 \ , \tag{LN}
   \end{align*}$$
-  其中 $\phi, \psi$ 分别是 $\lambda, \mu$ wave-packet, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下 <b>null forms</b>
+  其中 $\phi, \psi$ 分别是 $\lambda, \mu$-波包, $\mathbf{Q}_R \subset \mathbf{R}^{n+1}$ 是一个边长 $R > 0$ 的方体，以及 $Q$ 是以下 <b>null forms</b>
   $$Q_0(\phi, \psi) := \partial_t\phi \partial_t\psi - \nabla \phi \cdot \nabla \psi \ ,$$
   $$Q_{\alpha\beta}(\phi,\psi) := \partial_\alpha \phi \partial_\beta \psi - \partial_\alpha \psi \partial_\beta \phi \ .$$
 </p>
@@ -80,7 +80,7 @@
   注意例如在 $d=3$ 时 $L_t^2 L_x^\infty$ 是端点指标(endpoint)，Strichartz估计失效！因此研究定理1和2需要 $Q$ 更精细的结构，这也是文章的趣味所在：null forms历史上是来自physical space的概念，用向量场方法的黑话就是相比一般的quadratic terms它们可以被所谓的 <i>good derivatives</i> 控制进而得到额外的衰减；但Strichartz估计在传统上是frequency的结果，两个视角之间会有何种联系？ 
 </p>
 <p>
-  基本的思路是我们同时需要frequency & physics的局部化来捕获wave-packet传播的几何信息，这是文章的核心思想. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；同时wave-packet在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling (很有意思耶). 接下来的几篇博客将着力于此并证明定理1和2. 
+  基本的思路是我们同时需要frequency & physics的局部化来捕获波包传播的几何信息，这是文章的核心思想. 熟悉调和分析的读者会意识到：由于uncertainty principle, 同时做局部化是困难的；另外波包在时空中传播时会不断相互作用 i.e. tube们不断相交，这需要考虑不同尺度下的几何，相当于在时空 $\mathbf{R}^{n+1}$ 中做 $L^2$ decoupling (很有意思耶). 接下来的几篇博客将着力于此并证明定理1和2. 
 </p>
 <p>
   <b>注.</b> null condition主要针对低维情形（$n\leq 3$）, 因为在高维情形波的传播方向更多导致相互作用的强度减弱，无需null condition也有足够衰减. 事实上[Tataru, 1999]在高维情形证明了无null condition版本的定理2. 而从历史上看，正是在NLW小初值稳定性问题中F. John在 $n=3$ 的反例和[Klainerman, 1985]在 $n\geq 4$ 的证明（向量场方法的首秀）后，为了研究 $n=3$ 的正面结果由Cristodoulou和Klainerman分别提出了null condition.
