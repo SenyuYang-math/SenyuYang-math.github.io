@@ -40,12 +40,12 @@
   简记为 $E[\phi]$ .
 </p>
 <p>
-  设 $\lambda=2^k$ 是一个二进整数. 借助Littlewood-Paley分解，我们称 $\phi$ 是一个频率 $\lambda$<b>-波包</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上. 引入频率 $\lambda$ 的投影算子 $\Delta_{\lambda}$ , 如果 $\phi$ 是一个free wave, 那么由multipler的交换性 $\Delta_\lambda \phi$ 是一个 $\lambda$-波包.
+  设 $\lambda=2^k$ 是一个二进整数. 借助Littlewood-Paley分解，我们称 $\phi$ 是一个频率 $\lambda$<b>-波包</b>, 如果 $\widehat{\phi}(\xi, t)$ 支撑在区域 $\vert \xi \vert \sim \lambda$ 上. 引入频率 $\lambda$ 的投影算子 $P_{\lambda}$ , 如果 $\phi$ 是一个free wave, 那么由multipler的交换性 $P_\lambda \phi$ 是一个 $\lambda$-波包.
 </p>
 <p>
   设 $\phi=\phi(x,t)$ 是一个 $\lambda$-波包, 导数
-  $$\nabla_x^m \phi =\lambda^{m-l} \Delta_\lambda \nabla_x^l\phi \ .$$
-  在物理空间上展开 $\Delta_\lambda$ 即有
+  $$\nabla_x^m \phi =\lambda^{m-l} P_\lambda \nabla_x^l\phi \ .$$
+  在物理空间上展开 $P_\lambda$ 即有
   $$| \nabla_x^m\phi(x) | \lesssim_M \lambda^{m-l} \int |\nabla_x^l \phi(x+y/\lambda)| \left\langle y \right\rangle^{-M} \ dy \tag{1}$$
   对任意 $M>0$ 成立, 特别地我们由Young不等式得到
   $$\Vert \phi\Vert_{L^\infty} \lesssim \lambda^{n/2-1} E[\phi]^{1/2} \ . \tag{2}$$
