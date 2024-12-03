@@ -70,13 +70,13 @@
   如此便可以将时间导数转换到空间上. 
 </p>
 <p>
-  &emsp;<i>Step 2: 空间分解</i>. 为方便表示tube的尺度和位置，我们约定常量 $s:= R^{-\epsilon/2}r$ , $\Lambda := R^{-\epsilon/4}r$ . 因为 $\phi$ 是free waves, 只要 $\phi[0]$ 满足 $(6)$ 和 $(7)$ , 那么对任意 $t>0$ 也自动成立，因此我们期待将初始曲面 $\{t=0\}$ 和 $S^{n-1}$ 适当分解为若干“底座”和方向后，即可确定我们所需的 $\mathbf{T}$ . 构造如下：设 $\Omega\subset \mathbf{R}^n$ 为一族间距 $s$ 的格点, 于是 $\mathbf{R}^n$ 上存在单位分解 
+  &emsp;<i>Step 2: 空间分解</i>. 为方便表示tube的尺度和位置，我们约定常量 $s:= R^{-\epsilon/2}r$ , $\Lambda := R^{-\epsilon/4}r$ . 因为 $\phi$ 是free waves, 只要 $\phi[0]$ 满足 $(6)$ 和 $(7)$ , 那么对任意 $t>0$ 也自动成立，因此我们期待将初始曲面 $\{t=0\}$ 和 $S^{n-1}$ 适当分解为若干“底座”和方向后，即可确定我们所需的 $\mathbf{T}$ . 构造如下. 设 $\Omega\subset \mathbf{R}^n$ 为一族间距 $s$ 的格点, 于是 $\mathbf{R}^n$ 上存在单位分解 
   $$1=\sum_{x_0\in \Omega} \chi_{x_0} \ ,$$
   s.t. 对每个 $\chi_{x_0}$ 有frequency-physics的 <i>同时局部化</i> ：
   $$\operatorname{supp} \widehat{\chi_{x_0}} \subset \{|\xi|\ll \mu\} \ , $$
-  以及
-  $$|\chi_{x_0}(x)| \lesssim_M R^{-M}\mu^{-M} \ \text{if} \ |x-x_0|\gg s \ ,$$
-  其中 $M$ 可以任意大. 事实上借助Littlewood-Paley分解可以构造 $\chi_{x_0}:= P_{\mu/10000} \mathrm{1}_{Q(x_0)}$ , 其中 $Q(x_0)$ 为 $\Omega$ 诱导的边长 $s$ 的cube（构成 $\mathbf{R}^n$ 的分划）. 同样地可以给定 $\Theta\subset S^{n-1}$ 为一族间距 $s/R$ 的方向从而得到单位分解 
+  以及对任意 $M>0$ 有
+  $$|\chi_{x_0}(x)| \lesssim_M R^{-M}\mu^{-M} \ \text{if} \ |x-x_0|\gg s \ .$$
+  事实上借助Littlewood-Paley分解可以构造 $\chi_{x_0}:= P_{\mu/10000} \mathrm{1}_{Q(x_0)}$ , 其中 $Q(x_0)$ 为 $\Omega$ 诱导的边长 $s$ 的cube（构成 $\mathbf{R}^n$ 的分划）. 同样地可以给定 $\Theta\subset S^{n-1}$ 为一族间距 $s/R$ 的方向从而得到单位分解 
   $$\mathrm{1}_{S^{n-1}}=\sum_{\omega\in \Theta} \eta_{\omega}\ ,$$
   其中 $\eta_{\omega}$ 是以 $\omega$ 为中心，半径 $O(s/R)$ 的圆盘对应的bump function. 于是定义
   $$\mathbf{T} := \{T(R,r,x_0,\omega) : x_0\in \Omega\ , \ \omega\in \Theta\} \ .$$
