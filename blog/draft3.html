@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅱ) : tube分解</title>
+<title>null form的Strichartz估计 (Ⅱ) : tube分解，Fourier式证明</title>
 </head>
 
 <body id="body">
@@ -34,7 +34,10 @@
   对任意 $R/2 \leq t \leq 5R/2$ 成立. 在此条件下，约定记号 $\phi=\phi_T$ .（$100n$ 可以换作任何充分大的幂次）
 </p>
 <p>
-  注意 $(3)$ 是 $(4)$ 和 $(1)$ 的推论. $T$-局部化的波包将是我们研究波相互作用的基础构件.
+  $(3)$ 和 $(4)$ 的右式不能为 $0$ , 否则违反uncertainty principle. $T$-局部化的波包将是我们研究波相互作用的基础构件.
+</p>
+<p>
+  <b>注.</b> $(3)$ 是 $(4)$ 和 $(1)$ 的推论.
 </p>
 <h2>结果，Fourier式证明</h2>
 <p>
@@ -47,11 +50,19 @@
   <ol>
   <li><i>Bessel不等式</i>
   $$\sum_{T\in\mathbf{T}} E[\phi_T] \lesssim 1 \tag{6}$$</li>
-  <li><i>几乎正交性</i> : 存在常数系数 $C$ s.t.
-  $$E[\sum_{T\in\mathbf{T}'}\phi_T] \lesssim R^{C\epsilon} \left(\sum_{T\in\mathbf{T}'} E[\phi_T]\right) + R^{-100n} \tag{7}$$
-  对任意子集 $\mathbf{T}'\subseteq \mathbf{T}$ 成立.<br/> </li>
-  <li><i>误差控制</i> ：对任何一个时空cube $\mathbf{Q}_R$ , $\mathbf{T}$ 中与之相交的tube数量是 $O(R^{10n})$ .</li>
+  <li><i>几乎正交性</i> : 存在常数系数 $C$ s.t. 对任意子集 $\mathbf{T}'\subseteq \mathbf{T}$ 都有
+  $$E[\sum_{T\in\mathbf{T}'}\phi_T] \lesssim R^{C\epsilon} \left(\sum_{T\in\mathbf{T}'} E[\phi_T]\right) + R^{-100n} \ .\tag{7}$$</li>
+  <li><i>密度控制</i> ：对任何一个时空cube $\mathbf{Q}_R$ , $\mathbf{T}$ 中与之相交的tube数量是 $O(R^{10n})$ .</li>
   </ol>
+</p>
+<p>
+  <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
+</p>
+<p>
+  接下来（以及下一篇博客），我们先给出tube分解的一个依赖于Fourier分析的证明. 这个证明将给出无误差项 $\phi_{error}$ 的精确分解. 而我们追求的proof on physcical space将留到后面给出.
+</p>
+<p>
+  <i>Fourier式证明</i>. 
 </p>
 </div>
 
