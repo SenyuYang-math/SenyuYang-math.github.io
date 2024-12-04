@@ -88,7 +88,7 @@
   其中 $a$ 是二进环形区域 $\{|\xi|\sim \mu\}$ 对应的bump function. 换言之，$P_{\mu \ , \ \omega}$ 将frequency投影至某个Fourier tube $T(\mu, s\mu/R , \xi_0 , \omega)$ 上，$|\xi_0|=\mu$ （这里请与physical space的tube做区分）. 所以 $P_{\mu\ , \ \omega}$ 对应的kernel $K_{\mu, \omega}(x)$ 有频率的 <i>local constant</i> 性质！注意
   $$|x|\mu, |x|s\mu/R \gtrsim R^{\epsilon}\mu \ text{if} \ |x|\gtrsim s \ ,$$ 
   于是分部积分若干次即有
-  $$|\nabla K_{\mu \ , \ \omega}(x)| \lesssim_M R^{-M}\mu^{-M} \ \text{if} \ |x|\gtrsim s \tag{10}$$
+  $$|K_{\mu \ , \ \omega}(x)| \lesssim_M R^{-M}\mu^{-M} \ \text{if} \ |x|\gtrsim s \tag{10}$$
   对任意 $M>0$ 成立（$|x|$ 需要远离 $0$ 是uncertainty principle的体现）. 现在可以定义初值的tube局部化如下
   $$\phi_T(0)=\phi_{T(R,r,x_0,\omega)}(0) := P_{\mu, \omega}(\chi_{x_0}\phi(0)) \ , \ T\in\mathbf{T}$$
   以及半波条件
@@ -98,13 +98,21 @@
 <p>
   &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；后者我们放在后面证明. 因此选择合适的 $M>0$ ，
   $$E[\phi] \gtrsim \sum_{T\in\mathbf{T}} E[\phi_T] - \left(\frac{1}{s}\right)^{\gtrsim M} \sum_{T\in \mathbf{T}}E[\phi_T]$$
-  即可得到Bessel不等式 $(6)$ . 下面证明 $(7)$ 成立. Step 1将时间导数转换到空间上，因此只需证明
-  $$\|\sum_{(x_0\ , \ \omega)\in X} \nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{(x_0\ , \ \omega)\in X} \| \nabla_xP_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2}^2\right)^{1/2}+R^{-100n}$$
-  对任意 $X\subseteq \Omega\times \Theta$ 成立. 而由 $\{P_{\mu\, \ \omega}\}$ 的几乎正交性，只需证明
-  $$\|\sum_{x_0\in Y} \nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{x_0\in Y} \| \nabla_xP_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2}^2\right)^{1/2}+R^{-150n} \tag{11}$$
-  对任意 $\omega\in \Theta$ 和 $Y\subseteq \Omega$ 成立. 现在取 $\Lambda=R^{-\epsilon/4}r=R^{\epsilon/4}s$ , 由 $(9)$ , $(10)$ 以及 $E[\phi]=1$ 可得
-  $$|\nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))(x)|\lesssim (R+|x-x_0|)^{-M}\mu^{-M} \ \text{if} \ |x-x_0| \gtrsim \Lambda \tag{12}$$
-  对任意 $M>0$ 成立，因此可以将 $\nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))$ 分离为在球 $B(x_0 , O(\Lambda))$ 上的局部项和有 $(R+|x-x_0|)^{-150n}$ 衰减的余项. 现在每个球只与 $O(2\Lambda/s)^n = O(R^{c\epsilon})$ 个球相交，所以 $(11)$ 左式中局部项 $\times$ 局部项之和被右式的第一项控制（这里可以看到损失 $R^{C\epsilon}$ 来源于 $(9)$ 中的 $\gg$ 不能替换为 $\gtrsim$ , 这与 $(10)$ 一样是uncertainty principle的体现）；而 (局部项 $+$ 余项) $\times$ 余项之和
+  即证明了Bessel不等式 $(6)$ . 下面考虑 $(7)$ . Step 1将时间导数转换到空间上，因此只需证明
+  $$\|\sum_{T\in \mathbf{X}} \nabla_x \phi_T\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{T\in \mathbf{X}} \| \nabla_x \phi_T\|_{L^2}^2\right)^{1/2}+R^{-100n}$$
+  对任意 $\mathbf{X}\subseteq \mathbf{T}$ 成立. 而由 $\{P_{\mu\, \ \omega}\}$ 的几乎正交性，只需证明
+  $$\|\sum_{x_0\in Y} \nabla_x \phi_T\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{x_0\in Y} \| \nabla_x \phi_T\|_{L^2}^2\right)^{1/2}+R^{-150n} \tag{11}$$
+  对任意 $Y\subseteq \Omega$ 和固定的 $\omega\in\Theta$ 成立. 现在取 $\Lambda=R^{-\epsilon/4}r=R^{\epsilon/4}s$ , 由 $(9)$ , $(10)$ 可得
+  $$|\nabla_x \phi_T(x, 0)|\lesssim (R+|x-x_0|)^{-M}\mu^{-M} E[\chi_{x_0}\phi] \ \text{if} \ |x-x_0| \gtrsim \Lambda \tag{12}$$
+  对任意 $M>0$ 成立，其中最后的 $\chi_{x_0}$ 可视为原版 $\chi_{x_0}$ 的修正以便在获取 $(9)$ 的衰减后仍保持 $\phi$ 的physical局部化. 因此可以将 $\nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))$ 分离为在球 $B(x_0 , O(\Lambda))$ 上的局部项和有 $(R+|x-x_0|)^{-150n}$ 衰减的余项. 现在每个球只与 $O(2\Lambda/s)^n = O(R^{c\epsilon})$ 个球相交，所以 $(11)$ 左式中局部项 $\times$ 局部项之和被右式的第一项控制（这里可以看到损失 $R^{C\epsilon}$ 来源于 $(9)$ 中的 $\gg$ 不能替换为 $\gtrsim$ , 这与 $(10)$ 一样是uncertainty principle的体现）；而由 $(12)$ 可知余项 $\times$ (局部项 $+$ 余项)之和
+  $$\lesssim \sum_{x_0\in Y} \sum_{x_0'in Y} \int_{|x-x_0|\gtrsim \Lambda} (R+|x-x_0|)^{-M}\mu^{-M} E[\phi_T] \phi_{T'}(x,0) \ dx \lesssim R^{-150n} \ ,$$
+  至此 $(11)$——进而几乎正交性 $(7)$ 得证. 
+</p>
+<p>
+  &emsp;<i>Step 5: tube局部化</i>. 现在我们需要证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的Fourier分析就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，看看借此如何实现时空中的局部化. 
+</p>
+<p>
+  <b>未完待续~</b>(≧◡≦)
 </p>
 </div>
 
