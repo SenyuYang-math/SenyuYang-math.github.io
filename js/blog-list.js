@@ -48,26 +48,12 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   print.insertAdjacentHTML('beforeend', '<div><p style="text-align:right"><button id="print-button"><i class="fa-solid fa-print"></i> 打印这篇博客</button></p></div>');
   var button = document.getElementById('print-button');
   button.onclick = function() {
-            var originContents = document.body.innerHTML;
-            var actContents = document.getElementById("container").innerHTML;
-            document.body.innerHTML = actContents;
-            function insertPageBreaks() {
-            const elements = document.querySelectorAll('.container');
-            let accumulatedHeight = 0;
-            const pageHeight = 945;  // 假设A4纸的高度为1122px
-            elements.forEach((element) => {
-            accumulatedHeight += element.offsetHeight;
-            if (accumulatedHeight > pageHeight) {
-            const pageBreak = document.createElement('div');
-            pageBreak.className = 'page-break';
-            element.parentNode.insertBefore(pageBreak, element);
-            accumulatedHeight = element.offsetHeight;
-            }
-            });
-            }
-            document.addEventListener('DOMContentLoaded', insertPageBreaks);
-            window.print();
-            document.body.innerHTML= originContents;
+            printJS({printable: 'container', type: 'html', scanStyles: false, css: '../css/style.css'});
+            // var originContents = document.body.innerHTML;
+            // var actContents = document.getElementById("container").innerHTML;
+            // document.body.innerHTML = actContents;
+            // window.print();
+            // document.body.innerHTML= originContents;
   }
 
   // 创建版权许可
