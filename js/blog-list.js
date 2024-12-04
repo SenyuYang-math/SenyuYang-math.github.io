@@ -48,7 +48,7 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   print.insertAdjacentHTML('beforeend', '<div><p style="text-align:right"><button id="print-button"><i class="fa-solid fa-print"></i> 打印这篇博客</button></p></div>');
   var button = document.getElementById('print-button');
   button.onclick = function() {
-            printJS({printable: 'container', type: 'html', scanStyles: false, css: '../css/style.css'});
+            printJS({printable: 'container', type: 'html', scanStyles: false, css: 'https://senyuyang-math.github.io/css/style.css', style: `@page { size: auto; }`);
             // var originContents = document.body.innerHTML;
             // var actContents = document.getElementById("container").innerHTML;
             // document.body.innerHTML = actContents;
