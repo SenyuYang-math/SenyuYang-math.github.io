@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅱ) : tube分解及其构造（初值方法）</title>
+<title>null form的Strichartz估计 (Ⅱ) : tube分解，基于初值的构造</title>
 </head>
 
 <body id="body">
@@ -55,9 +55,9 @@
 <p>
   <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
 </p>
-<h2>初值方法的构造（第一部分）</h2>
+<h2>初值构造（上）</h2>
 <p>
-  接下来（以及下一篇博客），我们先给出tube分解的一个依赖于Fourier分析的证明. 这个证明将给出无误差项 $\phi_{error}$ 的精确分解，同时结合了向量场方法. 而我们追求的完全基于physcical space的证明将留到后面给出.
+  接下来（以及下一篇博客），我们给出tube分解一个依赖于Fourier分析的证明. 该证明将获得无误差项 $\phi_{error}$ 的精确分解，同时结合了向量场方法. 而我们追求的完全基于physcical space的证明将留到未来给出.
 </p>
 <p>
   <i>证明（初值方法）</i>. 构造分为以下几步.
@@ -93,7 +93,12 @@
   $$\phi_T(0)=\phi_{T(R,r,x_0,\omega)}(0) := P_{\mu, \omega}(\chi_{x_0}\phi(0)) \ , \ T\in\mathbf{T}$$
   以及半波条件
   $$\partial_t \phi_T(0) := i\sqrt{-\Delta} \phi_T(0) \ ,$$
-  并令 $\phi_{error} \equiv 0$ . 我们希望该初值类演化的free wave即为所求的 $\{\phi_T\}$ . 从构造可知 $\phi_T$ 是 $\mu$-波包，由 $(FW)$ 线性和单位分解即证明了分解式 $(5)$ .
+  并令 $\phi_{error} \equiv 0$ . 我们希望该初值类演化的free wave $\{\phi_T\}$ 即为分解定理所需 . 从构造可知 $\phi_T$ 是 $\mu$-波包，由 $(FW)$ 线性和单位分解即证明了分解式 $(5)$ .
+</p>
+<p>
+  <b>注.</b> 这里以 $\omega$ 为tube方向的动机来自下面的共振分析. 将 $\phi$ 写为
+  $$\phi(x, t) = \int_{\mathbf{R}^n} e^{i( x\cdot \xi\pm t|\xi|)} \widehat{\phi}(\xi, 0) \ d\xi \ .$$
+  因此 $|\phi|$ 较大的区域应当落在共振集 $\{t|\xi|\pm x\cdot \xi=0\}$ 附近. 如果 $\widehat{\phi(0)}$ 如前面一般支撑在 $T_\omega$ 上，那么共振条件就蕴含着 $\omega_x \sim \omega_T$ 且 $|x|=t$ , 从物理观点 i.e. 波包沿着 $\omega_T$ 方向以速度 $1$ 传播.
 </p>
 <p>
   &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；后者我们放在后面证明. 因此选择合适的 $M>0$ ，
@@ -109,7 +114,7 @@
   因此 $(11)$——进而几乎正交性 $(7)$ 得证. 
 </p>
 <p>
-  &emsp;<i>Step 5: tube局部化</i>. 现在我们需要证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的Fourier分析就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，看看借此如何实现时空中的局部化. 
+  &emsp;<i>Step 5: tube局部化</i>. 现在我们需要证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的Fourier分析就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此如何实现时空的局部化. 
 </p>
 <p>
   <b>未完待续~</b>(≧◡≦)
