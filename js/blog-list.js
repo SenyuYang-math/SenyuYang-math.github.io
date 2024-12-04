@@ -51,6 +51,21 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
             var originContents = document.body.innerHTML;
             var actContents = document.getElementById("container").innerHTML;
             document.body.innerHTML = actContents;
+            function insertPageBreaks() {
+            const elements = document.querySelectorAll('.content');
+            let accumulatedHeight = 0;
+            const pageHeight = 945;  // 假设A4纸的高度为1122px
+            elements.forEach((element) => {
+            accumulatedHeight += element.offsetHeight;
+            if (accumulatedHeight > pageHeight) {
+            const pageBreak = document.createElement('div');
+            pageBreak.className = 'page-break';
+            element.parentNode.insertBefore(pageBreak, element);
+            accumulatedHeight = element.offsetHeight;
+            }
+            });
+            }
+            document.addEventListener('DOMContentLoaded', insertPageBreaks);
             window.print();
             document.body.innerHTML= originContents;
   }
