@@ -84,11 +84,11 @@
 </p>
 <p>
   &emsp;<i>Step 3: 初值局部化</i>. 现在定义Fourier局部化算子 $P_{\mu\ , \ \omega}$ :
-  $$\widehat{P_{\mu\ , \ \omega}f}(\xi) := \eta_\omega \left(\frac{\xi}{|\xi|}\right)a(|\xi|)\widehat{f}(\xi) \ ,$$
-  其中 $a$ 是二进环形区域 $\{|\xi|\sim \mu\}$ 对应的bump function. 换言之，$P_{\mu \ , \ \omega}$ 将frequency投影至某个Fourier tube $T(\mu, s\mu/R , \xi_0 , \omega)$ 上，$|\xi_0|=\mu$ （这里请与physical space的tube做区分）. 所以 $P_{\mu\ , \ \omega}$ 对应的kernel $K_{\mu, \omega}(x)$ 有频率的 <i>local constant</i> 性质！注意
-  $$|x|\mu, |x|s\mu/R \gtrsim R^{\epsilon}\mu \ , \ \text{if} \ |x|\gtrsim s \ ,$$ 
+  $$\widehat{P_{\mu, \omega}f}(\xi) := \eta_\omega \left(\frac{\xi}{|\xi|}\right)a(|\xi|)\widehat{f}(\xi) \ ,$$
+  其中 $a$ 是二进环形区域 $\{|\xi|\sim \mu\}$ 对应的bump function. 换言之，$P_{\mu, \omega}$ 将frequency投影至某个Fourier tube $T(\mu, s\mu/R , \xi_0 , \omega)$ 上，$|\xi_0|=\mu$ （这里请与physical space的tube做区分）. 所以 $P_{\mu, \omega}$ 对应的kernel $K_{\mu, \omega}(x)$ 有频率的 <i>local constant</i> 性质！注意
+  $$|x|\mu \gtrsim R^{\epsilon}\mu , |x|s\mu/R \gtrsim R^{\epsilon}\mu \ , \ \text{if} \ |x|\gtrsim s \ ,$$ 
   于是分部积分若干次即有
-  $$|K_{\mu \ , \ \omega}(x)| \lesssim_M R^{-M}\mu^{-M} \ , \ \text{if} \ |x|\gtrsim s \tag{10}$$
+  $$|K_{\mu, \omega}(x)| \lesssim_M R^{-M}\mu^{-M} \ , \ \text{if} \ |x|\gtrsim s \tag{10}$$
   对任意 $M>0$ 成立（$|x|$ 需要远离 $0$ 是uncertainty principle的体现）. 现在可以定义初值的tube局部化如下
   $$\phi_T(0)=\phi_{T(R,r,x_0,\omega)}(0) := P_{\mu, \omega}(\chi_{x_0}\phi(0)) \ , \ T\in\mathbf{T}$$
   以及半波条件
