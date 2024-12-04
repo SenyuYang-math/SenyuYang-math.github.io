@@ -52,7 +52,7 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
             var actContents = document.getElementById("container").innerHTML;
             document.body.innerHTML = actContents;
             function insertPageBreaks() {
-            const elements = document.querySelectorAll('.content');
+            const elements = document.querySelectorAll('.container');
             let accumulatedHeight = 0;
             const pageHeight = 945;  // 假设A4纸的高度为1122px
             elements.forEach((element) => {
