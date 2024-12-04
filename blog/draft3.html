@@ -1,13 +1,13 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅱ) : tube分解的Fourier式构造</title>
+<title>null form的Strichartz估计 (Ⅱ) : tube分解及其构造（初值方法）</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  接<a href="./blog19.html" target="_blank">上一篇</a>文章，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.
+  接本系列的<a href="./blog19.html" target="_blank">第一篇</a>博客，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.
 </p>
 <h2>波包的局部化，tube分解</h2>
 <p>
@@ -55,27 +55,27 @@
 <p>
   <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
 </p>
-<h2>Fourier式构造（第一部分）</h2>
+<h2>初值方法的构造（第一部分）</h2>
 <p>
-  接下来（以及下一篇博客），我们先给出tube分解的一个依赖于Fourier分析的证明. 这个证明将给出无误差项 $\phi_{error}$ 的精确分解. 而我们追求的proof on physcical space将留到后面给出.
+  接下来（以及下一篇博客），我们先给出tube分解的一个依赖于Fourier分析的证明. 这个证明将给出无误差项 $\phi_{error}$ 的精确分解，同时结合了向量场方法. 而我们追求的完全基于physcical space的证明将留到后面给出.
 </p>
 <p>
-  <i>Fourier式证明</i>. 构造分为以下几步.
+  <i>证明（初值方法）</i>. 构造分为以下几步.
 </p>
 <p>
   &emsp;<i>Step 1: 时间导数</i>. 我们沿用[1]的框架，仅在空间 $\mathbf{R}^n$ 上做Fourier. 为了在频率层面获取 $\partial_t$ 的信息，我们对 $\phi$ 的初值做以下 <i>半波分解</i> : 
   $$\phi[0]= \sum_{+\ ,\ -} \left(\frac{\phi(0)\pm i\sqrt{-\Delta}^{-1}\phi_t(0)}{2} \ , \ \pm i \sqrt{-\Delta}\frac{\phi(0)\pm i\sqrt{-\Delta}^{-1}\phi_t(0)}{2}\right) \ .$$
   这个分解依然保持频率 $\mu$ . 注意算子 $\sqrt{-\Delta}^{-1}$ i.e. Fourier multipler $|\xi|^{-1}$ 在 $n\geq 2$ 时有定义. 读者可进一步验证分解出来的两个半波关于能量诱导的内积是正交的，因此我们可以将tube分解归约为以下初值类的 $\phi$ : 
-  $$\phi_t(0) = +i\sqrt{-\Delta}\phi(0) \ .$$
+  $$\phi_t(0) = +i\sqrt{-\Delta}\phi(0) \ .\tag{8}$$
   如此便可以将时间导数转换到空间上. 
 </p>
 <p>
-  &emsp;<i>Step 2: 空间分解</i>. 为方便表示tube的尺度和位置，我们约定常量 $s:= R^{-\epsilon/2}r$ , $\Lambda := R^{-\epsilon/4}r$ . 因为 $\phi$ 是free waves, 只要 $\phi[0]$ 满足 $(6)$ 和 $(7)$ , 那么对任意 $t>0$ 也自动成立，因此我们期待将初始曲面 $\{t=0\}$ 和 $S^{n-1}$ 适当分解为若干“底座”和方向后，即可确定我们所需的 $\mathbf{T}$ . 构造如下. 设 $\Omega\subset \mathbf{R}^n$ 为一族间距 $s$ 的格点, 于是 $\mathbf{R}^n$ 上存在单位分解 
+  &emsp;<i>Step 2: 空间分解</i>. 为方便表示tube的尺度和位置，我们约定常量 $s:= R^{-\epsilon/2}r$ . 因为 $\phi$ 是free waves, 只要 $\phi[0]$ 满足 $(6)$ 和 $(7)$ , 那么对任意 $t>0$ 也自动成立，因此我们期待将初始曲面 $\{t=0\}$ 和 $S^{n-1}$ 适当分解为若干“底座”和方向后，即可确定我们所需的 $\mathbf{T}$ . 构造如下. 设 $\Omega\subset \mathbf{R}^n$ 为一族间距 $s$ 的格点, 于是 $\mathbf{R}^n$ 上存在单位分解 
   $$1=\sum_{x_0\in \Omega} \chi_{x_0} \ ,$$
   s.t. 对每个 $\chi_{x_0}$ 有frequency-physics的 <i>同时局部化</i> ：
   $$\operatorname{supp} \widehat{\chi_{x_0}} \subset \{|\xi|\ll \mu\} \ , $$
   以及对任意 $M>0$ 有
-  $$|\chi_{x_0}(x)| \lesssim_M R^{-M}\mu^{-M} \ \text{if} \ |x-x_0|\gg s \ .$$
+  $$|\chi_{x_0}(x)| \lesssim_M R^{-M}\mu^{-M} \ \text{if} \ |x-x_0|\gg s \ .\tag{9}$$
   事实上借助Littlewood-Paley分解可以构造 $\chi_{x_0}:= P_{\mu/10000} \mathrm{1}_{Q(x_0)}$ , 其中 $Q(x_0)$ 为 $\Omega$ 诱导的边长 $s$ 的cube（构成 $\mathbf{R}^n$ 的分划）. 同样地可以给定 $\Theta\subset S^{n-1}$ 为一族间距 $s/R$ 的方向从而得到单位分解 
   $$\mathrm{1}_{S^{n-1}}=\sum_{\omega\in \Theta} \eta_{\omega}\ ,$$
   其中 $\eta_{\omega}$ 是以 $\omega$ 为中心，半径 $O(s/R)$ 的圆盘对应的bump function. 于是定义
@@ -83,7 +83,28 @@
   注意这个构造保证了密度的控制.
 </p>
 <p>
-  &emsp;<i>Step 3: 初值局部化</i>. TBA
+  &emsp;<i>Step 3: 初值局部化</i>. 现在定义Fourier局部化算子 $P_{\mu\ , \ \omega}$ :
+  $$\widehat{P_{\mu\ , \ \omega}f}(\xi) := \eta_\omega \left(\frac{\xi}{|\xi|}\right)a(|\xi|)\widehat{f}(\xi) \ ,\tag{9}$$
+  其中 $a$ 是二进环形区域 $\{|\xi|\sim \mu\}$ 对应的bump function. 换言之，$P_{\mu \ , \ \omega}$ 将frequency投影至某个Fourier tube $T(\mu, s\mu/R , \xi_0 , \omega)$ 上，$|\xi_0|=\mu$ （这里请与physical space的tube做区分）. 所以 $P_{\mu\ , \ \omega}$ 对应的kernel $K_{\mu, \omega}(x)$ 有频率的 <i>local constant</i> 性质！注意
+  $$|x|\mu, |x|s\mu/R \gtrsim R^{\epsilon}\mu \ text{if} \ |x|\gtrsim s \ ,$$ 
+  于是分部积分若干次即有
+  $$|\nabla K_{\mu \ , \ \omega}(x)| \lesssim_M R^{-M}\mu^{-M} \ text{if} \ |x|\gtrsim s \tag{10}$$
+  对任意 $M>0$ 成立. （$|x|$ 需要远离 $0$ 是uncertainty principle的体现）现在可以定义初值的tube局部化如下
+  $$\phi_T(0)=\phi_{T(R,r,x_0,\omega)}(0) := P_{\mu, \omega}(\chi_{x_0}\phi(0)) \ , \ T\in\mathbf{T}$$
+  以及半波条件
+  $$\partial_t \phi_T(0) := I\sqrt{-\Delta} \phi_T(0) \ ,$$
+  并令 $\phi_{error} \equiv 0$ . 我们希望该初值类演化的free wave即为所求的 $\{\phi_T\}$ . 从构造可知 $\phi_T$ 是 $\mu$-波包，由 $(FW)$ 线性和单位分解即证明了分解式 $(5)$ .
+</p>
+<p>
+  &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；后者我们放在后面证明. 因此选择合适的 $M>0$ ，
+  $$E[\phi] \gtrsim \sum_{T\in\mathbf{T}} E[\phi_T] - \left(\frac{1}{s}\right)^{gtrsim M} \sum_{T\in \mathbf{T}}E[\phi_T]$$
+  即可得到Bessel不等式 $(6)$ . 下面证明 $(7)$ 成立. Step 1将时间导数转换到空间上，因此只需证明
+  $$\|\sum_{(x_0\ , \ \omega)\in X} \nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{(x_0\ , \ \omega)\in X} \| \nabla_xP_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2}^2\right)^{1/2}+R^{-100n}$$
+  对任意 $X\subseteq \Omega\times \Theta$ 成立. 而由<span style="text-decoration:underline">Plancherel定理</span>和$\{P_{\mu\, \ \omega}\}$ 的几乎正交性，只需证明
+  $$\|\sum_{x_0\in Y} \nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{x_0\in Y} \| \nabla_xP_{\mu, \omega}(\chi_{x_0}\phi(0))\|_{L^2}^2\right)^{1/2}+R^{-150n} \tag{11}$$
+  对任意 $\omega\in \Theta$ 和 $Y\subseteq \Omega$ 成立. 而由 $(9)$ , $(10)$ 以及 $E[\phi]=1$ 可得
+  $$|\nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))(x)|\lesssim (R+|x-x_0|)^{-M}\mu^{-M} \ \text{if} \ |x-x_0| \gtrsim \Lambda \tag{12}$$
+  对任意 $M>0$ 成立，因此可以将 $\nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))$ 分离为在球 $B(x_0 , O(\Lambda))$ 上的局部项和带 $(R+|x-x_0|)^{-150n}$ 的衰减余项. 现在每个球只与 $O(2\Lambda/s)^n = O(R^{c\epsilon})$ 个球相交，所以 $(11)$ 左式中局部项 $\times$ 局部项之和被右式的第一项控制；而 (局部项 $+$ 余项) $\times$ 余项之和
 </p>
 </div>
 
