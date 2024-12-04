@@ -36,6 +36,12 @@ document.body.appendChild(mathjax);
   headfoot.async = true;
   document.body.appendChild(headfoot);
 })();
+// 打印组件
+var pr = document.createElement('script');
+pr.src = 'https://printjs-4de6.kxcdn.com/print.min.js';
+pr.crossorigin = 'anonymous';
+pr.async = true;
+document.body.appendChild(pr);
 // // valine评论系统
 // var valine = document.createElement('script');
 // valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
