@@ -13,7 +13,7 @@
 <p>
   为证明 $(LN)$ , 我们将在以下的 <i>标准时空cube</i> 上工作：
   $$\mathbf{Q}_R^{(0)} := \{(x,t) : |x_i| \lt R \ , \ 1\leq i \leq n \ ; \ R\leq t \leq 2R\} \ .$$
-  其中 <i>尺度</i> $R \gtrsim 1$ . 注意当 $R$ 增大时 $\mathbf{Q}_R^{(0)}$ 以速度 $1$ 向未来传播并扩大，且与初始（类空）曲面 $t=0$ 保持 $R$ 的距离. 这是后续应用向量场方法的关键.
+  其中 <i>尺度</i> $R \gtrsim 1$ . 注意当 $R$ 增大时 $\mathbf{Q}_R^{(0)}$ 以速度 $1$ 向未来传播并扩大，且与初始（类空）曲面 $t=0$ 保持距离 $R$ . 这是后续应用向量场方法的关键.
 </p>
 <p class="thm">
   <b>定义3.</b> 给定 <i>长度</i> $R$ , <i>宽度</i> $1\lesssim r \lesssim R$ , <i>方向</i> $\omega\in S^{n-1}$ , <i>起始点</i> $x_0\in \mathbf{R}^n$ . 称
@@ -45,7 +45,7 @@
   其中误差项 $\phi_{error}$ 是一个 $\mu$-波包，$E[\phi_{error}] \ll 1$ . 进一步有 
   <ol>
   <li><i>Bessel不等式</i>
-  $$\sum_{T\in\mathbf{T}} E[\phi_T] \lesssim 1 \tag{6}$$</li>
+  $$\sum_{T\in\mathbf{T}} E[\phi_T] \lesssim 1 \ .\tag{6}$$</li>
   <li><i>几乎正交性</i> : 存在常数系数 $C$ s.t. 对任意子集 $\mathbf{T}'\subseteq \mathbf{T}$ 都有
   $$E[\sum_{T\in\mathbf{T}'}\phi_T] \lesssim R^{C\epsilon} \left(\sum_{T\in\mathbf{T}'} E[\phi_T]\right) + R^{-100n} \ .\tag{7}$$</li>
   <li><i>密度控制</i> ：对任何一个时空cube $\mathbf{Q}_R$ , $\mathbf{T}$ 中与之相交的tube数量是 $O(R^{10n})$ .</li>
@@ -55,6 +55,7 @@
 <p>
   <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
 </p>
+<hr style="width:75%; height:1px; margin:40px auto">
 <p>
   接下来（以及下一篇博客），我们给出tube分解一个依赖于Fourier分析的证明. 该证明将获得无误差项 $\phi_{error}$ 的精确分解，同时结合了向量场方法. 而我们追求的完全基于physcical space的证明将留到未来给出. 本期博客将给出构造的前两部分：
 </p>
@@ -72,7 +73,7 @@
   s.t. 对每个 $\chi_{x_0}$ 有frequency-physics的 <i>同时局部化</i> ：
   $$\operatorname{supp} \widehat{\chi_{x_0}} \subset \{|\xi|\ll \mu\} \ , $$
   以及对任意 $M>0$ 有
-  $$|\chi_{x_0}(x)| \lesssim_M |x-x_0|^{-M}\mu^{-M} \ , \ \text{if} \ |x-x_0|\geq 10s \ .\tag{9}$$
+  $$|\chi_{x_0}(x)| \lesssim_M |x-x_0|^{-M}\mu^{-M} \ , \ \text{if} \ |x-x_0|\gtrsim s \ .\tag{9}$$
 </p>
 <p>
   <b>注.</b> 借助Littlewood-Paley分解可以构造 $\chi_{x_0}:= P_{\mu/100} \mathrm{1}_{Q(x_0)}$ , 其中 $Q(x_0)$ 为 $\Omega$ 诱导的边长 $s$ 的cube（构成 $\mathbf{R}^n$ 的分划）. 
@@ -99,7 +100,7 @@
   这里宽度带有系数 $s/R\leq R^{-(1+\epsilon)/2} \lt 1$ 是关键的，这确定了 $T_F$ 作为一个“细长”tube的朝向，但还蕴含了更多精细性质：考虑对偶tube $T_F^*=(R/(s\mu), \mu, 0, \omega^{\perp})$ i.e. 
   $$x\in T_F^* \iff \xi_0+1/x\in T_F \ .$$
   那么对于 $x\in 1/10 T_F^*$ , $|x\cdot(\xi-\xi_0)|\lt 1/10$ 对任意 $\xi\in T_F$ 成立 i.e. $T_F$ 位于驻相（stationary phase）. 结合局部常数性质可知 $K_{\mu,\omega}$ 在 $T_F^*$ 不会vanish，这是uncertainty principle的体现. 因此如果希望获得衰减，$x$ 要远离 $T_F^*$ 使得 $e^{ix\cdot(\xi-\xi_0)}$ 在 $T_F$ 的大部分区域上有高的振荡频率; 事实上做若干次分部积分就能获得 $|x|\gg 1$ 情形下 $K_{\mu, \omega}$ 足够好的衰减. 另外注意到
-  $$|x|\mu \gtrsim R^{\epsilon}\mu , |x|s\mu/R \gtrsim R^{\epsilon}\mu \ , \ \text{if} \ |x|\gtrsim s \ ,$$ 
+  $$|x|\mu \gtrsim |x|s\mu/R \gtrsim R^{\epsilon}\mu \ , \ \text{if} \ |x|\gtrsim s \ ,$$ 
   因此有如下的kernel估计
   $$|K_{\mu, \omega}(x)| \lesssim_M R^{-M}\mu^{-M} \ , \ \text{if} \ |x|\gtrsim s \tag{10}$$
   对任意 $M>0$ 成立.
@@ -120,7 +121,7 @@
   <b>注.</b> 关于 $T_F$ , $T_F^*$ 和局部常数性质的讨论在Fourier decoupling理论等调和分析的话题中也会扮演关键角色. 
 </p>
 <p>
-  &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；事实上前者显然，而后者可以考虑每个交错乘积 $\chi_{x_0}\chi_{x_0'}$ 都会给 $\chi_{x_0}\phi_T(0)\cdot \chi_{x_0'}\phi_{T'}(0)$ 带上一个weight $|x_0-x_0'|^{-M}\mu^{-M}$ 的衰减 , 那么除了 $x_0$ 周围的 $O(n^10)$ 个格点外其他交错项之和 $\lesssim s^{-M})$ i.e.
+  &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$ 以及 $\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；事实上前者显然，而后者可以考虑每个交错乘积 $\chi_{x_0}\chi_{x_0'}$ 都会给 $\chi_{x_0}\phi_T(0)\cdot \chi_{x_0'}\phi_{T'}(0)$ 带上一个weight $|x_0-x_0'|^{-M}\mu^{-M}$ 的衰减 , 那么除了 $x_0$ 周围的 $O(n^10)$ 个格点外其他交错项之和 $\lesssim s^{-M})$ i.e.
   $$E[\phi] \gtrsim \sum_{T\in\mathbf{T}} E[\phi_T] - s^{-M} \sum_{T\in \mathbf{T}}E[\phi_T] \ , $$
   取 $M\gg 1$ 即证明了Bessel不等式 $(6)$ . 下面考虑 $(7)$ . Step 1将时间导数转换到空间上，因此只需证明
   $$\|\sum_{T\in \mathbf{X}} \nabla_x \phi_T\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{T\in \mathbf{X}} \| \nabla_x \phi_T\|_{L^2}^2\right)^{1/2}+R^{-100n}$$
@@ -128,13 +129,16 @@
   $$\|\sum_{x_0\in Y} \nabla_x \phi_T\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{x_0\in Y} \| \nabla_x \phi_T\|_{L^2}^2\right)^{1/2}+R^{-150n} \tag{11}$$
   对任意 $Y\subseteq \Omega$ 和固定的 $\omega\in\Theta$ 成立. 现在取 $\Lambda=R^{-\epsilon/4}r=R^{\epsilon/4}s$ , 由 $(9)$ , $(10)$ 可得
   $$|\nabla_x \phi_T(x, 0)|\lesssim (R+|x-x_0|)^{-M}\mu^{-M} E[\chi_{x_0}\phi] \ , \ \text{if} \ |x-x_0| \gtrsim \Lambda \tag{12}$$
-  对任意 $M>0$ 成立，其中最后的 $\chi_{x_0}$ 可视为原版 $\chi_{x_0}$ 的修正以便在获取 $(9)$ 的衰减后仍保持 $\phi$ 的physical局部化. 因此可以将 $\nabla_x P_{\mu, \omega}(\chi_{x_0}\phi(0))$ 分离为在球 $B(x_0 , O(\Lambda))$ 上的局部项和有 $(R+|x-x_0|)^{-150n}$ 衰减的余项. 现在每个球只与 $O(2\Lambda/s)^n = O(R^{c\epsilon})$ 个球相交，所以 $(11)$ 左式中局部项 $\times$ 局部项之和被右式的第一项控制；而由 $(12)$ 可知余项 $\times$ (局部项 $+$ 余项)之和
-  $$\lesssim \sum_{x_0\in Y} \sum_{x_0'\in Y} \int_{|x-x_0|\gtrsim \Lambda} E[\chi_{x_0} \phi] (R+|x-x_0|)^{-M}\mu^{-M} \phi_{T'}(x,0) \ dx \lesssim R^{-150n} \ ,$$
+  对任意 $M>0$ 和 $T=T(x_0)$ 成立，其中最后的 $\chi_{x_0}$ 可视为原版 $\chi_{x_0}$ 的修正以便在获取 $(9)$ 的衰减后仍保持 $\phi$ 的physical局部化. 因此可以将 $\nabla_x \phi_T(0)$ 分离为在球 $B(x_0 , O(\Lambda))$ 上的局部项和有 $(R+|x-x_0|)^{-150n}$ 衰减的余项. 现在每个球只与 $O(2\Lambda/s)^n = O(R^{c\epsilon})$ 个球相交，所以 $(11)$ 左式中局部项 $\times$ 局部项之和被右式的第一项控制；而由 $(12)$ 可知余项 $\times$ (局部项 $+$ 余项)之和
+  $$\begin{align*}
+  \lesssim & \sum_{x_0\in Y} \sum_{x_0'\in Y} \int_{|x-x_0|\gtrsim \Lambda} E[\chi_{x_0} \phi] (R+|x-x_0|)^{-M}\mu^{-M} \phi_{T'}(x,0) \ dx\\
+  \lesssim & R^{-150n} \ ,
+  \end{align*}$$
   因此 $(11)$——进而几乎正交性 $(7)$ 得证. 
 </p>
 <hr style="width:75%; height:1px; margin:40px auto">
 <p>
-  现在我们还需证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的普通导数 $\nabla$ 来反映局部化就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此完成tube分解的构造. 
+  现在我们还需证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T$-局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的普通导数 $\nabla$ 来反映局部化就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此完成tube分解的构造. 
 </p>
 <p>
   <b>未完待续~</b>(≧◡≦)
