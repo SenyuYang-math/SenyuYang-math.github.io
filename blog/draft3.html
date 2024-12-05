@@ -109,8 +109,8 @@
   因此 $|\phi|$ 较大的区域应当落在共振集 $\{t|\xi|\pm x\cdot \xi=0\}$ 附近. 如果 $\widehat{\phi(0)}$ 如前面一般支撑在 $T_\omega$ 上，那么共振条件就蕴含着 $\omega_x \sim \omega_T$ 且 $|x|=t$ , 从物理观点 i.e. 波包沿着 $\omega_T$ 方向以速度 $1$ 传播.
 </p>
 <p>
-  &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；后者我们放在后面证明. 因此选择合适的 $M>0$ ，
-  $$E[\phi] \gtrsim \sum_{T\in\mathbf{T}} E[\phi_T] - \left(\frac{1}{s}\right)^{\gtrsim M} \sum_{T\in \mathbf{T}}E[\phi_T]$$
+  &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；事实上前者显然，而后者可以考虑每个交错乘积 $\chi_{x_0}\chi_{x_0'}$ 都会给 $\chi_{x_0}\phi_T(0)\cdot \chi_{x_0'}\phi_{T^'}(0)$ 带上一个weight $|x_0-x_0'|^{-M}\mu^{-M}$ 的衰减 , 那么除了 $x_0$ 周围的 $O(s^n)$ 个格点外其他交错项之和有上界 $O(s^{-200n})$ i.e.
+  $$E[\phi] \gtrsim \sum_{T\in\mathbf{T}} E[\phi_T] - s^{-200n} \sum_{T\in \mathbf{T}}E[\phi_T] \ , $$
   即证明了Bessel不等式 $(6)$ . 下面考虑 $(7)$ . Step 1将时间导数转换到空间上，因此只需证明
   $$\|\sum_{T\in \mathbf{X}} \nabla_x \phi_T\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{T\in \mathbf{X}} \| \nabla_x \phi_T\|_{L^2}^2\right)^{1/2}+R^{-100n}$$
   对任意 $\mathbf{X}\subseteq \mathbf{T}$ 成立. 而由 $\{P_{\mu, \omega}\}$ 的几乎正交性，只需证明
@@ -122,7 +122,7 @@
   因此 $(11)$——进而几乎正交性 $(7)$ 得证. 
 </p>
 <p>
-  &emsp;<i>Step 5: tube局部化</i>. 现在我们需要证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的Fourier分析就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此如何实现时空的局部化. 
+  &emsp;<i>Step 5: tube局部化</i>. 现在我们需要证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的普通导数 $\nabla$ 来反映局部化就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此完成tube分解的构造. 
 </p>
 <p>
   <b>未完待续~</b>(≧◡≦)
