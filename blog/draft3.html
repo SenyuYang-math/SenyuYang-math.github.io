@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  接本系列的<a href="./blog19.html" target="_blank">第一篇</a>博客，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.（P.S. 原论文[1]略去了大量细节导致不少计算缺失动机甚至有gap。。。笔者在这篇博客会尽力弥补）
+  接本系列的<a href="./blog19.html" target="_blank">第一篇</a>博客，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.（P.S. 原论文[1]略去了大量计算细节导致不少步骤缺乏动机甚至有gap。。。笔者在这篇博客会尽力弥补，sad）
 </p>
 <h2>波包的局部化，tube分解</h2>
 <p>
@@ -132,7 +132,7 @@
   $$\lesssim \sum_{x_0\in Y} \sum_{x_0'\in Y} \int_{|x-x_0|\gtrsim \Lambda} E[\chi_{x_0} \phi] (R+|x-x_0|)^{-M}\mu^{-M} \phi_{T'}(x,0) \ dx \lesssim R^{-150n} \ ,$$
   因此 $(11)$——进而几乎正交性 $(7)$ 得证. 
 </p>
-<hr style="width:80%; height:1px; padding: 12px auto">
+<hr style="width:75%; height:1px; margin:40px auto">
 <p>
   现在我们还需证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的普通导数 $\nabla$ 来反映局部化就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此完成tube分解的构造. 
 </p>
