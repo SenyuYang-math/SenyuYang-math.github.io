@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅰ) : 引子</title>
+<title>null form的Strichartz估计 (Ⅰ) : 引子，tube分解</title>
 </head>
 
 <body id="body">
@@ -87,6 +87,62 @@
 </p>
 <p>
   <b>注.</b> 定理1, 2均损失了 $\epsilon$ 个导数，是由tube分解和尺度归纳导致（而[K-M]的frequency approach能直接得到sharp的结果）. 后面我们会看到可以通过一些技巧避免 $\epsilon$-损失. 
+</p>
+<h2>波包局部化，tube分解</h2>
+<p>
+  现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解. 我们将在以下的 <i>标准时空cube</i> 上工作：
+  $$\mathbf{Q}_R^{(0)} := \{(x,t) : |x_i| \lt R \ , \ 1\leq i \leq n \ ; \ R\leq t \leq 2R\} \ .$$
+  其中 <i>尺度</i> $R \gtrsim 1$ . 注意当 $R$ 增大时 $\mathbf{Q}_R^{(0)}$ 以速度 $1$ 向未来传播并扩大，且与初始（类空）曲面 $t=0$ 保持距离 $R$ . 这是后续应用向量场方法的关键.
+</p>
+<p class="thm">
+  <b>定义3.</b> 给定 <i>长度</i> $R$ , <i>宽度</i> $1\lesssim r \lesssim R$ , <i>方向</i> $\omega\in S^{n-1}$ , <i>起始点</i> $x_0\in \mathbf{R}^n$ . 称
+  $$T=T(R, r, \omega, x_0):= \{(x,t) : |x-t\omega-x_0|\leq r \ ; \ 0\leq t \leq 3R\}$$
+  为时空 $\mathbf{R}^{n+1}$ 中的一个 <i>tube</i> .
+</p>
+<p>
+  这里 $t$ 的范围保证 $T$ 能完整穿过 $\mathbf{Q}_R^{(0)}$ , 更小的 $r$ 保证 $T$ 不会覆盖整个 $\mathbf{Q}_R^{(0)}$ ，这样讨论若干 $T$ 在 $\mathbf{Q}_R^{(0)}$ 中的相互作用才有意义. 
+</p>
+<p>
+  现在考虑沿着 $T$ 传播的波包. 通过正规化，我们规定波包的能量 $E[\phi]=1$ .
+</p>
+<p class="thm">
+  <b>定义4</b> (tube局部化)<b>.</b> 设 $T$ 是一个tube, $\phi$ 是一个 $\mu$-波包, $\mu \gtrsim 1$ , $E[\phi]= 1$ . 称 $\phi$ 是一个 $T$<i>-局部的</i> 波包, 如果有 $L^{\infty}$ 估计
+  $$|\nabla_{x,t}\phi(x,t)|\lesssim \left(R+\operatorname{dist}((x,t), T)\right)^{-100 n} \mu^{n/2} \tag{3}$$
+  对任意 $(x,t)\notin T$ , $R/2 \leq t \leq 5R/2$ 都成立；以及有 $L^2$ 估计
+  $$\left(\int_{x : (x,t)\notin T \ , \ |x|\lesssim R} |\nabla_{x,t} \phi|^2 \ dx\right)^{1/2} \lesssim \left(R+\operatorname{dist}((x,t), T)\right)^{-100 n}\tag{4}$$
+  对任意 $R/2 \leq t \leq 5R/2$ 成立. 在此条件下，约定记号 $\phi=\phi_T$ .（$100n$ 可以换作任何充分大的幂次）
+</p>
+<p>
+  $(3)$ 和 $(4)$ 的右式不能为 $0$ , 否则违反uncertainty principle. 读者可自行验证：$(3)$ 是 $(4)$ 和 $(1)$ 的推论.
+</p>
+<p>
+  做足准备，现在叙述如何将一个free wave“几乎正交”地分解为若干 $T$-局部的波包. 任取一个充分小的 $0\lt \epsilon \ll 1$ , 接下来的常数系数会与 $\epsilon$ 有关.
+</p>
+<p class="thm">
+  <b>定理5</b> (尺度 $R$ 的tube分解)<b>.</b> 设 $\phi$ 为一个 $\mu$-波包，$\mu \gtrsim 1$ , $E[\phi]= 1$ . 令 $R\gtrsim 1$ 以及 $R^{1/2 +\epsilon} \lesssim r \ll R$ . 则存在一族（可数的）长度 $R$, 宽度 $r$ 的tube $\mathbf{T}$ , 对每个 $T\in\mathbf{T}$ 都存在一个 $T$-局部的 $\mu$-波包 $\phi_T$ s.t. 
+  $$\phi = \sum_{T\in\mathbf{T}} \phi_T + \phi_{error} \ , \tag{5}$$
+  其中误差项 $\phi_{error}$ 是一个 $\mu$-波包，$E[\phi_{error}] \ll 1$ . 进一步有 
+  <ol>
+  <li><i>Bessel不等式</i>
+  $$\sum_{T\in\mathbf{T}} E[\phi_T] \lesssim 1 \ .\tag{6}$$</li>
+  <li><i>几乎正交性</i> : 存在常数系数 $C$ s.t. 对任意子集 $\mathbf{T}'\subseteq \mathbf{T}$ 都有
+  $$E[\sum_{T\in\mathbf{T}'}\phi_T] \lesssim R^{C\epsilon} \left(\sum_{T\in\mathbf{T}'} E[\phi_T]\right) + R^{-100n} \ .\tag{7}$$</li>
+  <li><i>密度控制</i> ：对任何一个时空cube $\mathbf{Q}_R$ , $\mathbf{T}$ 中与之相交的tube数量是 $O(R^{10n})$ .</li>
+  </ol>
+  <br/>
+</p>
+<p>
+  <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
+</p>
+<p>
+  <b>注.</b> 各种版本的波包分解自Fefferman的时代起就在调和分析领域有丰富的应用，特别在千禧年前后在限制性估计、Kakeya问题等等的驱动下有了很大发展。读者也可以将其视为某种意义下的decoupling定理.
+</p>
+<hr style="height:1px; width:75%; margin:40px auto">
+<p>
+  下一篇博客将利用tube分解和尺度归纳技术证明 $(LN)$ 的“透射”情形；而tube分解的具体构造我们留在系列的最后，给出Fourier式和几何式两个证明.
+</p>
+<p>
+  <b>未完待续~</b>(≧◡≦)
 </p>
 </div>
 
