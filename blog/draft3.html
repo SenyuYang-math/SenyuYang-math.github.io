@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  接本系列的<a href="./blog19.html" target="_blank">第一篇</a>博客，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.
+  接本系列的<a href="./blog19.html" target="_blank">第一篇</a>博客，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.（P.S. 原论文[1]略去了大量细节导致不少计算缺失动机甚至有gap。。。笔者在这篇博客会尽力弥补）
 </p>
 <h2>波包的局部化，tube分解</h2>
 <p>
@@ -90,11 +90,11 @@
   $$\widehat{P_{\mu, \omega}f}(\xi) := \eta_\omega \left(\frac{\xi}{|\xi|}\right)a(|\xi|)\widehat{f}(\xi) \ ,$$
   其中 $a$ 是二进环形区域 $\{|\xi|\sim \mu\}$ 对应的bump function. 换言之，$P_{\mu, \omega}$ 将frequency投影至某个Fourier tube $T_{F}(\mu, s\mu/R , \xi_0 , \omega)$ 上，$|\xi_0|=\mu$ . 这里 $T_F$ 是 $\mathbf{R}^n$ 中的tube，一条长边为 $\mu$ , 其余短边为 $s\mu/R$ , $\xi_0$ 代表tube的中心（请与physical space的tube做区分）. 所以 $P_{\mu, \omega}$ 对应的kernel $K_{\mu, \omega}(x)$ 有频率的 <i>局部常数（local constant）</i> 性质！这里必须指出宽度带有系数 $s/R\ll 1$ 是关键的，这粗略地反映了 $T_F$ 作为一个“细长”tube的朝向，但还代表了更多精细的性质：考虑对偶tube $T_F^*=(R/(s\mu), \mu, 0, \omega^{\perp})$ i.e. 
   $$x\in T_F^* \iff \xi_0+1/x\in T_F \ .$$
-  那么在 $1/10 T_F^*$ 上 $|x\cdot(\xi-\xi_0)|\lt 1/10$ , 结合局部常数性质可知 $K_{\mu,\omega}$ 在 $T_F^*$ 不会vanish，这是uncertainty principle的体现. 因此如果希望获得衰减，$x$ 要远离 $T_F^*$ 使得 $e^{ix\cdot(\xi-\xi_0)}$ 在 $T_F$ 的大部分区域上有高的振荡频率; 事实上
-<!--   $$|x|\mu \gtrsim R^{\epsilon}\mu , |x|s\mu/R \gtrsim R^{\epsilon}\mu \ , \ \text{if} \ |x|\gtrsim s \ ,$$ 
-  我们期望得到如下衰减
+  那么在 $1/10 T_F^*$ 上 $|x\cdot(\xi-\xi_0)|\lt 1/10$ i.e. 驻相（stationary phase）, 结合局部常数性质可知 $K_{\mu,\omega}$ 在 $T_F^*$ 不会vanish，这是uncertainty principle的体现. 因此如果希望获得衰减，$x$ 要远离 $T_F^*$ 使得 $e^{ix\cdot(\xi-\xi_0)}$ 在 $T_F$ 的大部分区域上有高的振荡频率; 事实上做若干次分部积分就能获得 $|x|\gg 1$ 情形下 $K_{\mu, \omega}$ 足够好的衰减. 另外注意到
+  $$|x|\mu \gtrsim R^{\epsilon}\mu , |x|s\mu/R \gtrsim R^{\epsilon}\mu \ , \ \text{if} \ |x|\gtrsim s \ ,$$ 
+  因此有如下的kernel估计
   $$|K_{\mu, \omega}(x)| \lesssim_M R^{-M}\mu^{-M} \ , \ \text{if} \ |x|\gtrsim s \tag{10}$$
-  对任意 $M>0$ 成立.  -->
+  对任意 $M>0$ 成立.
 </p>
 <p>
   现在可以定义初值的tube局部化如下
@@ -104,7 +104,7 @@
   并令 $\phi_{error} \equiv 0$ . 我们希望该初值类演化的free wave $\{\phi_T\}$ 即为分解定理所需 . 从 $\widehat{\chi_{x_0}}$ 小支集可知 $\phi_T$ 是 $\mu$-波包，由 $(FW)$ 线性和单位分解即证明了分解式 $(5)$ .
 </p>
 <p>
-  <b>注.</b> 这里以 $\omega$ 为tube方向同样能从共振分析看出动机. 将 $\phi$ 写为
+  <b>注.</b> 这里以 $\omega$ 为tube方向同样能从驻相分析看出动机. 将 $\phi$ 写为
   $$\phi(x, t) = \int_{\mathbf{R}^n} e^{i( x\cdot \xi\pm t|\xi|)} \widehat{\phi}(\xi, 0) \ d\xi \ .$$
   因此 $|\phi|$ 较大的区域应当落在共振集 $\{t|\xi|\pm x\cdot \xi=0\}$ 附近. 如果 $\widehat{\phi(0)}$ 如前面一般支撑在 $T_\omega$ 上，那么共振条件就蕴含着 $\omega_x \sim \omega_T$ 且 $|x|=t$ , 从物理观点 i.e. 波包沿着 $\omega_T$ 方向以速度 $1$ 传播.
 </p>
