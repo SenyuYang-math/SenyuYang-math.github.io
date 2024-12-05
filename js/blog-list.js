@@ -19,7 +19,7 @@ btitle[15] = "Schroeder-Bernstein定理：构造不动点"; bdate[15] = "2024/10
 btitle[16] = "近期随想 (1)"; bdate[16] = "2024/10/24";
 btitle[17] = "Bourgain的魔法：环面Schrödinger方程与格点计数"; bdate[17] = "2024/10/26";
 btitle[18] = "Bourgain的魔法：有限度量空间的Euclidean嵌入"; bdate[18] = "2024/11/17";
-btitle[19] = "null form的Strichartz估计 (Ⅰ) : 引子"; bdate[19] = "2024/11/26";
+btitle[19] = "null form的Strichartz估计 (Ⅰ) : 引子, tube分解"; bdate[19] = "2024/11/26";
 btitle[20] = "（20th纪念）Sylvester-Gallai定理的拓扑证明"; bdate[20] = "2024/11/28";
 // btitle[] = ""; bdate[] = "";
 
