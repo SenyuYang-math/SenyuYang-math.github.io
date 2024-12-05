@@ -55,13 +55,10 @@
 <p>
   <b>注.</b> 第3条说明一个cube中波包的相互作用强度不会太大，这有助于我们控制tube局部化 $(3)$ 和 $(4)$ 的误差.
 </p>
-<h2>初值构造（上）</h2>
 <p>
-  接下来（以及下一篇博客），我们给出tube分解一个依赖于Fourier分析的证明. 该证明将获得无误差项 $\phi_{error}$ 的精确分解，同时结合了向量场方法. 而我们追求的完全基于physcical space的证明将留到未来给出.
+  接下来（以及下一篇博客），我们给出tube分解一个依赖于Fourier分析的证明. 该证明将获得无误差项 $\phi_{error}$ 的精确分解，同时结合了向量场方法. 而我们追求的完全基于physcical space的证明将留到未来给出. 本期博客将给出构造的前两部分：
 </p>
-<p>
-  <i>证明（初值方法）</i>. 构造分为以下几步.
-</p>
+<h2>初值构造（上）：基本构件</h2>
 <p>
   &emsp;<i>Step 1: 时间导数</i>. 我们沿用[1]的框架，仅在空间 $\mathbf{R}^n$ 上做Fourier. 为了在频率层面获取 $\partial_t$ 的信息，我们对 $\phi$ 的初值做以下 <i>半波分解</i> : 
   $$\phi[0]= \sum_{+\ ,\ -} \left(\frac{\phi(0)\pm i\sqrt{-\Delta}^{-1}\phi_t(0)}{2} \ , \ \pm i \sqrt{-\Delta}\frac{\phi(0)\pm i\sqrt{-\Delta}^{-1}\phi_t(0)}{2}\right) \ .$$
@@ -85,6 +82,7 @@
   $$\mathbf{T} := \{T(R,r,x_0,\omega) : x_0\in \Omega\ , \ \omega\in \Theta\} \ .$$
   注意这个构造保证了密度的控制.
 </p>
+<h2>初值构造（中）：几乎正交分解</h2>
 <p>
   &emsp;<i>Step 3: 初值局部化</i>. 现在定义Fourier局部化算子 $P_{\mu ,  \omega}$ :
   $$\widehat{P_{\mu, \omega}f}(\xi) := \eta_\omega \left(\frac{\xi}{|\xi|}\right)a(|\xi|)\widehat{f}(\xi) \ ,$$
@@ -109,9 +107,9 @@
   因此 $|\phi|$ 较大的区域应当落在共振集 $\{t|\xi|\pm x\cdot \xi=0\}$ 附近. 如果 $\widehat{\phi(0)}$ 如前面一般支撑在 $T_\omega$ 上，那么共振条件就蕴含着 $\omega_x \sim \omega_T$ 且 $|x|=t$ , 从物理观点 i.e. 波包沿着 $\omega_T$ 方向以速度 $1$ 传播.
 </p>
 <p>
-  &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；事实上前者显然，而后者可以考虑每个交错乘积 $\chi_{x_0}\chi_{x_0'}$ 都会给 $\chi_{x_0}\phi_T(0)\cdot \chi_{x_0'}\phi_{T^'}(0)$ 带上一个weight $|x_0-x_0'|^{-M}\mu^{-M}$ 的衰减 , 那么除了 $x_0$ 周围的 $O(s^n)$ 个格点外其他交错项之和有上界 $O(s^{-200n})$ i.e.
-  $$E[\phi] \gtrsim \sum_{T\in\mathbf{T}} E[\phi_T] - s^{-200n} \sum_{T\in \mathbf{T}}E[\phi_T] \ , $$
-  即证明了Bessel不等式 $(6)$ . 下面考虑 $(7)$ . Step 1将时间导数转换到空间上，因此只需证明
+  &emsp;<i>Step 4: 几乎正交性</i>. 由Step 2, Step 3可知 $\{P_{\mu, \omega}\}$以及$\{\chi_{x_0}\}$ 分别在frequency和physical space上几乎正交；事实上前者显然，而后者可以考虑每个交错乘积 $\chi_{x_0}\chi_{x_0'}$ 都会给 $\chi_{x_0}\phi_T(0)\cdot \chi_{x_0'}\phi_{T^'}(0)$ 带上一个weight $|x_0-x_0'|^{-M}\mu^{-M}$ 的衰减 , 那么除了 $x_0$ 周围的 $O(n^10)$ 个格点外其他交错项之和 $\lesssim s^{-M})$ i.e.
+  $$E[\phi] \gtrsim \sum_{T\in\mathbf{T}} E[\phi_T] - s^{-M} \sum_{T\in \mathbf{T}}E[\phi_T] \ , $$
+  取 $M\gg 1$ 即证明了Bessel不等式 $(6)$ . 下面考虑 $(7)$ . Step 1将时间导数转换到空间上，因此只需证明
   $$\|\sum_{T\in \mathbf{X}} \nabla_x \phi_T\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{T\in \mathbf{X}} \| \nabla_x \phi_T\|_{L^2}^2\right)^{1/2}+R^{-100n}$$
   对任意 $\mathbf{X}\subseteq \mathbf{T}$ 成立. 而由 $\{P_{\mu, \omega}\}$ 的几乎正交性，只需证明
   $$\|\sum_{x_0\in Y} \nabla_x \phi_T\|_{L^2} \lesssim R^{C\epsilon} \left( \sum_{x_0\in Y} \| \nabla_x \phi_T\|_{L^2}^2\right)^{1/2}+R^{-150n} \tag{11}$$
@@ -121,8 +119,9 @@
   $$\lesssim \sum_{x_0\in Y} \sum_{x_0'\in Y} \int_{|x-x_0|\gtrsim \Lambda} E[\chi_{x_0} \phi] (R+|x-x_0|)^{-M}\mu^{-M} \phi_{T'}(x,0) \ dx \lesssim R^{-150n} \ ,$$
   因此 $(11)$——进而几乎正交性 $(7)$ 得证. 
 </p>
+<hr style="height:1px">
 <p>
-  &emsp;<i>Step 5: tube局部化</i>. 现在我们需要证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的普通导数 $\nabla$ 来反映局部化就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此完成tube分解的构造. 
+  现在我们还需证明由Step 3得到的局部化初值 $\phi_T(0)$ 确实能演化出 $\mathbf{R}^{n+1}$ 上 $T$-局部化的 $\phi$ . 注意Step 4中证明的 $(6)$ , $(7)$ 只关于能量 $E[\phi]$ 所以本质是 <i>初值</i> 的性质，但 $T-$局部化是波包在时空中传播的 <i>整体</i> 性质，单纯依靠 $\mathbf{R}^n$ 上的普通导数 $\nabla$ 来反映局部化就力有不逮了. 在下一期博客我们将引入经典的Klainerman向量场方法，借此完成tube分解的构造. 
 </p>
 <p>
   <b>未完待续~</b>(≧◡≦)
