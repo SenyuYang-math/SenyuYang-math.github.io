@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  接本系列的<a href="./blog19.html" target="_blank">第一篇</a>博客，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.（P.S. 原论文[1]略去了大量计算细节导致不少步骤缺乏动机甚至有gap。。。笔者在这篇博客会尽力弥补，sad）
+  接本系列的上一期博客<a href="./blog19.html" target="_blank"><i>引子</i></a>，现在开始局部版估计 $(LN)$ 的证明. 这一期我们引入最重要的工具：tube分解.（P.S. 原论文[1]略去了大量计算细节导致不少步骤缺乏动机甚至有gap。。。笔者在这篇博客会尽力弥补，sad）
 </p>
 <h2>波包的局部化，tube分解</h2>
 <p>
@@ -92,7 +92,7 @@
   &emsp;<i>Step 3: 初值局部化</i>. 现在定义Fourier局部化算子 $P_{\mu ,  \omega}$ :
   $$\widehat{P_{\mu, \omega}f}(\xi) := \eta_\omega \left(\frac{\xi}{|\xi|}\right)a(|\xi|)\widehat{f}(\xi) \ ,$$
   其中 $a$ 是二进环形区域 $\{|\xi|\sim \mu\}$ 对应的bump function. 换言之，$P_{\mu, \omega}$ 将frequency投影至某个Fourier tube
-  $$T_{F}(\mu, s\mu/R , \xi_0 , \omega) \ , \ |\xi_0|=\mu \ .$
+  $$T_{F}(\mu, s\mu/R , \xi_0 , \omega) \ , \ |\xi_0|=\mu \ .$$
   这里 $T_F$ 是 $\mathbf{R}^n$ 中的tube，一条长边为 $\mu$ , 其余短边为 $s\mu/R$ , $\xi_0$ 代表tube的中心（请与physical space的tube做区分）. 所以 $P_{\mu, \omega}$ 对应的kernel $K_{\mu, \omega}(x)$ 有频率的 <i>局部常数（local constant）</i> 性质. 
 </p>
 <p>
@@ -114,7 +114,7 @@
 <p>
   <b>注.</b> 这里以 $\omega$ 为tube方向同样能从驻相分析看出动机. 将 $\phi$ 写为
   $$\phi(x, t) = \int_{\mathbf{R}^n} e^{i( x\cdot \xi\pm t|\xi|)} \widehat{\phi}(\xi, 0) \ d\xi \ .$$
-  因此 $|\phi|$ 较大的区域应当落在共振集 $\{t|\xi|\pm x\cdot \xi=0\}$ 附近. 如果 $\widehat{\phi(0)}$ 如前面一般支撑在 $T_\omega$ 上，那么共振条件就蕴含着 $\omega_x \sim \omega_T$ 且 $|x|=t$ , 从物理观点 i.e. 波包沿着 $\omega_T$ 方向以速度 $1$ 传播.
+  因此 $|\phi|$ 较大的区域应当落在驻相集 $\{t|\xi|\pm x\cdot \xi=0\}$ 附近. 如果 $\widehat{\phi(0)}$ 如前面一般支撑在 $T_F$ 上，那么驻相条件就包括了 $\omega_x \sim \pm\omega_T$ 且 $|x|=t$ 的情形，从物理观点 i.e. 波包沿着 $\pm\omega_T$ 方向以速度 $1$ 传播.
 </p>
 <p>
   <b>注.</b> 关于 $T_F$ , $T_F^*$ 和局部常数性质的讨论在Fourier decoupling理论等调和分析的话题中也会扮演关键角色. 
