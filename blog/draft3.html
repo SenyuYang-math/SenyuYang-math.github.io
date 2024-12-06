@@ -12,8 +12,8 @@
 <h2>尺度归纳</h2>
 <p>
   为简化过程我们做scaling和normalize，WLOG 设 $E[\phi]=E[\psi]=1$ , $1=\lambda\leq \mu$ . 对于任意 $R>0$ , 简单使用Hölder不等式和 $(1)$ 即有
-  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim & R^{1/2}\| \nabla_{x,t} \phi \|_{L^\infty_t L^\infty_x} \| \nabla_{x,t} \psi \|_{L^\infty_t L^2_x} 
-\lesssim R^{1/2} \ . \tag{LN(\frac{1}{2})}$$
+  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{1/2}\| \nabla_{x,t} \phi \|_{L^\infty_t L^\infty_x} \| \nabla_{x,t} \psi \|_{L^\infty_t L^2_x} 
+\lesssim R^{1/2} \ . \tag{LN(1/2)}$$
   这对小尺度 $R\lesssim 1$ 已经足够，因此下面令 $R\gg 1$ . 
 </p>
 <p>
@@ -21,7 +21,7 @@
 </p>
 <p>
   我们的目标是在大尺度情形把 $1/2$ 优化为 $\epsilon \ll 1$ . 来自T. Wolff的魔法是：如果能将大尺度问题 $\mathbf{Q}_{R^{\alpha}}$ <i>转化为更小尺度的</i> $\mathbf{Q}_{R^{(1-c)\alpha}}$ 情形，那么相应地就能把 $(LN)$ 的系数项从 $R^\alpha$ 下降为 $R^{(1-c)\alpha}$ ; 如果 $c$ 与 $\alpha$ 无关，那么我们就通过bootstrap证明所有 $\alpha$-指数的 $(LN)$ ! 具体地讲，考虑
-  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim_{\alpha} R^{\alpha} \ , \tag{LN(\alpha)}$$
+  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim_{\alpha} R^{\alpha} \ , \tag{LN(α)}$$
   我们将证明（因为tube分解我们会额外损失 $O(\epsilon)$ 个导数）
 </p>
 <p class="thm">
@@ -39,7 +39,7 @@
   因为我们在 $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上工作，所以对带 $\operatorname{dist}(T , \mathbf{Q}_R)$ 的项 , $L^{\infty}$-局部化 $(3)$ 会给 $LN(\alpha)$ 附上额外的衰减 $R^{-100n}$ ; 对 $T'$ 类似的情形用 $L^2$-局部化 $(4)$ 同理. 因此只需考虑所有起始点 $x_0, x_0'$ 落在边长 $10R$ ，中心位于原点的cube $\mathbf{K}\subset \mathbf{R}^n$ 的情形. 由tube分解的密度控制，这些tube的总数为 $O(R^{10n})$ .
 </p>
 <p>
-  考虑 $|x_0-x_0'|\gg r$ 的情形，则 $T\cap T'$ 如果相交则必定要有大的交角，这被称为 <i>透射（transverse interaction）</i> ，<span style="text-decoration:line-through">就像那条烂大街的比喻：两个人就像相交的直线，匆匆相遇又匆匆告别</span>；反之则 $T\capT'$ 可能会很大，称为 <i>共振（resonant interaction）</i>. 后者在[1]称为parallel, 笔者站在时空共振理论的观点<span style="text-decoration:line-through">以及为了对仗</span>换了个称呼. 为了落实这个想法，我们需要 <i>对physical space做细分</i> ：
+  考虑 $|x_0-x_0'|\gg r$ 的情形，则 $T\cap T'$ 如果相交则必定要有大的交角，这被称为 <i>透射（transverse interaction）</i> ，<span style="text-decoration:line-through">就像那条烂大街的比喻：两个人就像相交的直线，匆匆相遇又匆匆告别</span>；反之则 $T\cap T'$ 可能会很大，称为 <i>共振（resonant interaction）</i>. 后者在[1]称为parallel, 笔者站在时空共振理论的观点<span style="text-decoration:line-through">以及为了对仗</span>换了个称呼. 为了落实这个想法，我们需要 <i>对physical space做细分</i> ：
 </p>
 <p>
   取一个待定的尺度 $r\ll \rho_0 \ll R$ . 我们将 $\mathbf{K}$ 分解为各级二进尺度的子cube $\kappa \subset \mathbf{K}$（可参考Calderón-Zygmund分解的构造）, 其中每个子方块的边长 $\ell(\kappa)$ 至少有 $\rho_0$ . 适当平移可以保证每个 $x_0, x_0'$ 都落在某些 $\kappa$ 的内部. 于是对每个 $\kappa$ 都能定义
@@ -53,8 +53,8 @@
 <p>
   特别地，close pair意味着 $\operatorname{dist}(\kappa, \kappa')\approx \ell(\kappa)= \ell(\kappa')\geq \rho_0$ . 现在我们可以将 $T$ , $T'$ 的几何关系分类为
   <ul>
-    <li>透射：存在 $\kappa\sim\kappa'$ s.t. $T\inT(\kappa)$ , $T'\inT'(\kappa')$ ;</li>
-    <li>共振：存在 $\kappa\approx\kappa'$ s.t. $T\inT(\kappa)$ , $T'\inT'(\kappa')$ .</li>
+    <li>透射：存在 $\kappa\sim\kappa'$ s.t. $T\in T(\kappa)$ , $T'\inT'(\kappa')$ ;</li>
+    <li>共振：存在 $\kappa\approx\kappa'$ s.t. $T\in T(\kappa)$ , $T'\inT'(\kappa')$ .</li>
   </ul>
 </p>
 <p>
