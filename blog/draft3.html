@@ -1,0 +1,79 @@
+<html>
+<head>  
+<title>null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射情形</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  接第一篇文章 <a href="../blog19.html" target="_blank"><i>引子，tube分解</i></a> ，我们开始用tube分解（cf. 定理5）做具体的估计. 
+</p>
+<h2>尺度归纳</h2>
+<p>
+  为简化过程我们做scaling和normalize，WLOG 设 $E[\phi]=E[\psi]=1$ , $1=\lambda\leq \mu$ . 对于任意 $R>0$ , 简单使用Hölder不等式和 $(1)$ 即有
+  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim & R^{1/2}\| \nabla_{x,t} \phi \|_{L^\infty_t L^\infty_x} \| \nabla_{x,t} \psi \|_{L^\infty_t L^2_x} 
+\lesssim R^{1/2} \ . \tag{LN(\frac{1}{2})}$$
+  这对小尺度 $R\lesssim 1$ 已经足够，因此下面令 $R\gg 1$ . 
+</p>
+<p>
+  另外通过（Minkowski）时空的平移不变性，我们化归到 $\mathbf{Q}_R=\mathbf{Q}_{R}^{(0)}$ 的标准情形. 这一点[1]一笔带过，其实有些微妙之处. 空间平移当然没问题，但时间平移呢？自然是因为波方程的演化算子 $U(t)$ 是可逆的，而且根据未来给出的tube分解具体构造可知tube局部化的结构被 $U(t)$ 保持；所以对靠近初始曲面 $\{t=0\}$ 的 $\mathbf{Q}_R$ , 都可以通过将初值逆向传播时间 $\sim R$ 后的数据作为新的初值从而标准化.
+</p>
+<p>
+  我们的目标是在大尺度情形把 $1/2$ 优化为 $\epsilon \ll 1$ . 来自T. Wolff的魔法是：如果能将大尺度问题 $\mathbf{Q}_{R^{\alpha}}$ <i>转化为更小尺度的</i> $\mathbf{Q}_{R^{(1-c)\alpha}}$ 情形，那么相应地就能把 $(LN)$ 的系数项从 $R^\alpha$ 下降为 $R^{(1-c)\alpha}$ ; 如果 $c$ 与 $\alpha$ 无关，那么我们就通过bootstrap证明所有 $\alpha$-指数的 $(LN)$ ! 具体地讲，考虑
+  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim_{\alpha} R^{\alpha} \ , \tag{LN(\alpha)}$$
+  我们将证明（因为tube分解我们会额外损失 $O(\epsilon)$ 个导数）
+</p>
+<p class="thm">
+  <b>引理6</b> (尺度归纳, induction on scales)<b>.</b> 设估计 $LN(\alpha)$ 对某个 $\alpha>0$ 成立，则存在只与 $n$ 相关的常数 $c\lt 1$ 和 $C> 0$ s.t. 任意 $\epsilon>0$ 都有估计 $LN((1-c)\alpha+C\epsilon)$ 成立. 
+</p>
+<p>
+  即完成了 $(LN)$ 的证明（我们已经有 $LN(1/2)$ 作为归纳的起点）. 下面开始引理6的证明. 我们用tube分解
+  $$\phi=\sum_{T\in \mathbf{T}}\phi_T + \phi_{error}\ , \ \psi=\sum_{T'\in\mathbf{T}'} \psi_{T'} +\psi_{error}$$
+  展开 $Q(\phi, \psi)$ , 其中带 $\phi_{error}$ 或 $\psi_{error}$ 项的booststrap直接由 $E[\phi_{error}], E[\psi_{error}]\ll 1$ 可得; 事实上由tube分解的证明可知 $E[\phi_{error}], E[\psi_{error}] \lesssim R^{-50n}$ , 自然可以吸收 $LN(\alpha)$ $(\alpha\leq 1/2)$ . 因此我们只需考虑波包之间的相互作用
+  $$\sum_{T\in \mathbf{T}}\sum_{T'\in\mathbf{T}'} Q(\phi_T, \psi_{T'}) \ . \tag{8}$$
+  而尺度归纳的魔法关键在于以下观察：通过几乎正交性 $(7)$ 将估计归约为tube两两相互作用的估计；如果两根尺度 $(R,r)$ tube不相交或者有“大交角”，那么他们相互作用区域的尺度只有 $\approx r \ll R$ （想象平面上两根交角 $45^{\circ}$ 的tube相交区域的面积） ！而null form结构的角色在于消除“小交角”的较差情形（想象两根tube底座相交且方向一致，那么在任何时间这两个波包都会叠加）. 下一节将仔细分类这两种情况的几何.
+</p>
+<h2>透射与共振：physical space的细分</h2>
+<p>
+  因为我们在 $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上工作，所以对带 $\operatorname{dist}(T , \mathbf{Q}_R)$ 的项 , $L^{\infty}$-局部化 $(3)$ 会给 $LN(\alpha)$ 附上额外的衰减 $R^{-100n}$ ; 对 $T'$ 类似的情形用 $L^2$-局部化 $(4)$ 同理. 因此只需考虑所有起始点 $x_0, x_0'$ 落在边长 $10R$ ，中心位于原点的cube $\mathbf{K}\subset \mathbf{R}^n$ 的情形. 由tube分解的密度控制，这些tube的总数为 $O(R^{10n})$ .
+</p>
+<p>
+  考虑 $|x_0-x_0'|\gg r$ 的情形，则 $T\cap T'$ 如果相交则必定要有大的交角，这被称为 <i>透射（transverse interaction）</i> ，<span style="text-decoration:line-through">就像那条烂大街的比喻：两个人就像相交的直线，匆匆相遇又匆匆告别</span>；反之则 $T\capT'$ 可能会很大，称为 <i>共振（resonant interaction）</i>. 后者在[1]称为parallel, 笔者站在时空共振理论的观点<span style="text-decoration:line-through">以及为了对仗</span>换了个称呼. 为了落实这个想法，我们需要 <i>对physical space做细分</i> ：
+</p>
+<p>
+  取一个待定的尺度 $r\ll \rho_0 \ll R$ . 我们将 $\mathbf{K}$ 分解为各级二进尺度的子cube $\kappa \subset \mathbf{K}$（可参考Calderón-Zygmund分解的构造）, 其中每个子方块的边长 $\ell(\kappa)$ 至少有 $\rho_0$ . 适当平移可以保证每个 $x_0, x_0'$ 都落在某些 $\kappa$ 的内部. 于是对每个 $\kappa$ 都能定义
+  $$T(\kappa) := \{T\in \mathbf{T} : x_0\in \kappa\} \ , \ T'(\kappa) := \{T'\in\mathbf{T}' : x_0'\in \kappa\} \ . $$
+</p>
+<p class="thm">
+  <b>定义7</b> (二分，dichotomy)<b>.</b> 两个二进子cube $\kappa, \kappa'$ 有且仅有以下两种情形<br/>
+  (i) <i>close pair</i> : 如果 $\kappa, \kappa'$ 位于同一二进尺度，且两者不相邻而所属的上一级cube相邻. 记为 $\kappa \sim \kappa'$ ; <br/>
+  (ii) <i>adjacent pair</i> : 如果 $\kappa, \kappa'$ 都有边长（最低尺度） $\rho_0$ 且两者相等或相邻. 记为 $\kappa\approx \kappa'$ .
+</p>
+<p>
+  特别地，close pair意味着 $\operatorname{dist}(\kappa, \kappa')\approx \ell(\kappa)= \ell(\kappa')\geq \rho_0$ . 现在我们可以将 $T$ , $T'$ 的几何关系分类为
+  <ul>
+    <li>透射：存在 $\kappa\sim\kappa'$ s.t. $T\inT(\kappa)$ , $T'\inT'(\kappa')$ ;</li>
+    <li>共振：存在 $\kappa\approx\kappa'$ s.t. $T\inT(\kappa)$ , $T'\inT'(\kappa')$ .</li>
+  </ul>
+</p>
+<p>
+  因此我们能继续将 $(8)$ 分解为透射项
+  $$\sum_{\kappa, \kappa'\subset \mathbf{K}: \kappa\sim \kappa'} Q(\phi_{\kappa}, \psi_{\kappa'}) \tag{9}$$
+  和共振项
+  $$\sum_{\kappa, \kappa'\subset \mathbf{K}: \kappa\approx \kappa'} Q(\phi_{\kappa}, \psi_{\kappa'}) \ , \tag{10}$$
+  其中
+  $$\phi_\kappa := \sum_{T\in T(\kappa)} \phi_T\ , \ \psi_{\kappa'} := \sum_{T\in T'(\kappa')} \psi_{T'} \ .$$
+  下一节将证明透射项 $(LN)$ 估计的bootstrap. 共振项将留到下一期博客，我们将借助向量场方法解析null form的结构. 
+</p>
+<h2>透射项的bootstrap</h2>
+<p>
+  TBA
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+</html>
