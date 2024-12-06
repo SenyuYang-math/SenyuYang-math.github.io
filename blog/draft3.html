@@ -13,7 +13,7 @@
 <p>
   为简化过程我们做scaling和normalize，WLOG 设 $E[\phi]=E[\psi]=1$ , $1=\lambda\leq \mu$ . 对于任意 $R>0$ , 简单使用Hölder不等式和 $(1)$ 即有
   $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{1/2}\| \nabla_{x,t} \phi \|_{L^\infty_t L^\infty_x} \| \nabla_{x,t} \psi \|_{L^\infty_t L^2_x} 
-\lesssim R^{1/2} \ . \tag{LN(1/2)}$$
+\lesssim R^{1/2} \ . \tag{LN($\frac{1}{2}$)}$$
   这对小尺度 $R\lesssim 1$ 已经足够，因此下面令 $R\gg 1$ . 
 </p>
 <p>
@@ -21,7 +21,7 @@
 </p>
 <p>
   我们的目标是在大尺度情形把 $1/2$ 优化为 $\epsilon \ll 1$ . 来自T. Wolff的魔法是：如果能将大尺度问题 $\mathbf{Q}_{R^{\alpha}}$ <i>转化为更小尺度的</i> $\mathbf{Q}_{R^{(1-c)\alpha}}$ 情形，那么相应地就能把 $(LN)$ 的系数项从 $R^\alpha$ 下降为 $R^{(1-c)\alpha}$ ; 如果 $c$ 与 $\alpha$ 无关，那么我们就通过bootstrap证明所有 $\alpha$-指数的 $(LN)$ ! 具体地讲，考虑
-  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim_{\alpha} R^{\alpha} \ , \tag{$LN(\alpha)$}$$
+  $$\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \lesssim_{\alpha} R^{\alpha} \ , \tag{LN($\alpha$)}$$
   我们将证明（因为tube分解我们会额外损失 $O(\epsilon)$ 个指标）
 </p>
 <p class="thm">
