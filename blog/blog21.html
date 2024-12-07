@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射情形</title>
+<title>null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射关系的几何</title>
 </head>
 
 <body id="body">
@@ -34,7 +34,7 @@
   $$\sum_{T\in \mathbf{T}}\sum_{T'\in\mathbf{T}'} Q(\phi_T, \psi_{T'}) \ . \tag{8}$$
   而尺度归纳的魔法关键在于以下观察：通过几乎正交性 $(7)$ 将估计归约为tube两两相互作用的估计；如果两根尺度 $(R,r)$ tube不相交或者有“大交角”，那么他们相互作用区域的尺度 $\ll R$ ！而null form结构的角色在于消除“小交角”的较差情形（想象两根tube底座相交且方向一致，那么在任何时刻这两个波包都会叠加）. 下一节将仔细分类这两种情况的几何.
 </p>
-<h2>透射与共振：physical space的细分</h2>
+<h2>透射与共振：空间尺度的细分</h2>
 <p>
   因为我们在 $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上工作，所以对带 $\operatorname{dist}(T , \mathbf{Q}_R)$ 的项 , $L^{\infty}$-局部化 $(3)$ 会给 $LN(\alpha)$ 附上额外的衰减 $R^{-100n}$ ; 对 $T'$ 类似的情形用 $L^2$-局部化 $(4)$ 同理. 因此只需考虑所有起始点 $x_0, x_0'$ 落在边长 $10R$ ，中心位于原点的cube $\mathbf{K}\subset \mathbf{R}^n$ 的情形. 由tube分解的密度控制，这些tube的总数为 $O(R^{10n})$ .
 </p>
@@ -69,7 +69,7 @@
 <p>
   下一节将证明透射项 $(LN)$ 估计的bootstrap. 共振项将留到下一期博客. 
 </p>
-<h2>透射项的bootstrap</h2>
+<h2>透射项的bootstrap: $\mathbf{Q}_R$ 的细分</h2>
 <p>
   注意 $\kappa$ 的二进尺度只有 $O(\log R)$ 个层级，这个损失可以被 $R^{C\epsilon}$ 吸收，所以只需证明
 $$\| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \sim \kappa';\\ \ell(\kappa) = \ell(\kappa') = \rho} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{(1-c)\alpha+C\epsilon} \tag{11}$$
@@ -77,7 +77,7 @@ $$\| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \sim \kappa';\\ \ell(\kappa) =
 </p>
 <p>
 于是固定 $\rho$ . 由定义可知对每个 $\kappa$ 只有 $O(1)$ 个 $\kappa'\sim\kappa$ , 反之亦然（i.e. 透射关系的 <i>几乎正交性</i> ）; 对于下面 $(12)$ 的误差余项而言，$\kappa, \kappa'$ 的总数 $O(R^{n/2})$ 也会被吸收. 因此由Cauchy-Schwarz以及Bessel不等式只需证明
-$$\begin{align*}\label{12}
+$$\begin{align*}\tag{12}
   \| Q( \phi_\kappa, \psi_{\kappa'} )\|_{L^2(\mathbf{Q}_R)}^2 \lesssim & R^{2(1-c)\alpha+2C\epsilon} \left(\sum_{T \in T(\kappa)} E(\phi_T)\right) \left(\sum_{T' \in T'(\kappa')} E(\psi_{T'})\right)
   & + R^{-100n}
 \end{align*}$$
@@ -99,7 +99,7 @@ $$\begin{align*}
 $$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}^2 \lesssim R^{2(1-c)\alpha} E\left(\sum_{T\in T(\kappa)\cap \mathbf{Q}_{R^{1-c}}} \phi_T\right) E\left(\sum_{T' \in T'(\kappa') \cap \mathbf{Q}_{R^{1-c}}} \psi_{T'}\right) \ ,$$
 于是用tube分解的几乎正交性 $(7)$ 做decoupling可得
 $$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}^2 \lesssim R^{2(1-c)\alpha+2C\epsilon} \left(\sum_{T \in T(\kappa)\cap \mathbf{Q}_{R^{1-c}}}\sum_{T' \in T'(\kappa)\cap \mathbf{Q}_{R^{1-c}}} E(\phi_T) E(\psi_{T'}) \right) \ .$$
-再将其代入 $(13)$ 有
+这里decoupling的意义在于把 $T, T'$ 各自的能量乘积转换为两者在 $\mathbf{Q}_{R^{1-c}}$ 上的 <i>joint energy</i> , 而如后面所见不同 $\mathbf{Q}_R$ 的joint energy因为透射而几乎正交. 再将上式代入 $(13)$ 有
 $$ R^{2(1-c)\alpha+2C\epsilon}\left(\sum_{\mathbf{Q}_{R^{1-c}}} \sum_{T \in T(\kappa)\cap\mathbf{Q}_{R^{1-c}}}
 \sum_{T' \in T'(\kappa') \cap \mathbf{Q}_{R^{1-c}}}
 E(\phi_T) E(\psi_{T'}) \right) \ ,$$
