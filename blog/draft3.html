@@ -32,7 +32,7 @@
   $$\phi=\sum_{T\in \mathbf{T}}\phi_T + \phi_{error}\ , \ \psi=\sum_{T'\in\mathbf{T}'} \psi_{T'} +\psi_{error}$$
   展开 $Q(\phi, \psi)$ , 其中带 $\phi_{error}$ 或 $\psi_{error}$ 项的booststrap直接由 $E[\phi_{error}], E[\psi_{error}]\ll 1$ 可得; 事实上由tube分解的证明可知 $E[\phi_{error}], E[\psi_{error}] \lesssim R^{-50n}$ , 自然可以吸收 $LN(\alpha)$ $(\alpha\leq 1/2)$ . 因此我们只需考虑波包之间的相互作用
   $$\sum_{T\in \mathbf{T}}\sum_{T'\in\mathbf{T}'} Q(\phi_T, \psi_{T'}) \ . \tag{8}$$
-  而尺度归纳的魔法关键在于以下观察：通过几乎正交性 $(7)$ 将估计归约为tube两两相互作用的估计；如果两根尺度 $(R,r)$ tube不相交或者有“大交角”，那么他们相互作用区域的尺度只有 $\approx r \ll R$ （想象平面上两根交角 $45^{\circ}$ 的tube相交区域的面积）！而null form结构的角色在于消除“小交角”的较差情形（想象两根tube底座相交且方向一致，那么在任何时间这两个波包都会叠加）. 下一节将仔细分类这两种情况的几何.
+  而尺度归纳的魔法关键在于以下观察：通过几乎正交性 $(7)$ 将估计归约为tube两两相互作用的估计；如果两根尺度 $(R,r)$ tube不相交或者有“大交角”，那么他们相互作用区域的尺度只有 $\approx r \ll R$ （想象平面上两根交角 $45^{\circ}$ 的tube相交区域的面积）！而null form结构的角色在于消除“小交角”的较差情形（想象两根tube底座相交且方向一致，那么在任何时刻这两个波包都会叠加）. 下一节将仔细分类这两种情况的几何.
 </p>
 <h2>透射与共振：physical space的细分</h2>
 <p>
@@ -64,65 +64,52 @@
   $$\sum_{\kappa, \kappa'\subset \mathbf{K}: \kappa\approx \kappa'} Q(\phi_{\kappa}, \psi_{\kappa'}) \ , \tag{10}$$
   其中
   $$\phi_\kappa := \sum_{T\in T(\kappa)} \phi_T\ , \ \psi_{\kappa'} := \sum_{T\in T'(\kappa')} \psi_{T'} \ .$$
-  下一节将证明透射项 $(LN)$ 估计的bootstrap. 共振项将留到下一期博客，我们将借助向量场方法解析null form的结构. 
+  下一节将证明透射项 $(LN)$ 估计的bootstrap. 共振项将留到下一期博客. 
 </p>
 <h2>透射项的bootstrap</h2>
 <p>
   注意 $\kappa$ 的二进尺度只有 $O(\log R)$ 个层级，这个损失可以被 $R^{C\epsilon}$ 吸收，所以只需证明
-$$\| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \sim \kappa'; \ell(\kappa) = \ell(\kappa') = \rho} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{(1-c)\alpha+C\epsilon}$$
+$$\| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \sim \kappa'; \ell(\kappa) = \ell(\kappa') = \rho} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{(1-c)\alpha+C\epsilon} \tag{11}$$
 对某个常数 $0\lt c\lt 1$ and 所有 $\rho_0 \leq \rho \leq R$ 都成立.  
 </p>
 <p>
-于是固定 $\rho$.  由定义对每个 $\kappa$ 只有 $O(1)$ 个 $\kappa'\sim\kappa$ , 反之亦然. 因此由Cauchy-Schwarz以及Bessel不等式，只需证明
-$$\| Q( \phi_\kappa, \psi_{\kappa'} )\|_{L^2(\mathbf{Q}_R)} \lesssim R^{(1-c)\alpha+C\epsilon} (\sum_{T \in \T(\kappa)} E(\phi_T))^{1/2} (\sum_{T' \in \T'(\kappa')} E(\psi_{T'}))^{1/2} + R^{-50n} \tag{11}$$
+于是固定 $\rho$.  由定义可知对每个 $\kappa$ 只有 $O(1)$ 个 $\kappa'\sim\kappa$ , 反之亦然. 因此由Cauchy-Schwarz以及Bessel不等式，只需证明
+$$\| Q( \phi_\kappa, \psi_{\kappa'} )\|_{L^2(\mathbf{Q}_R)}^2 \lesssim R^{2(1-c)\alpha+C\epsilon} \left(\sum_{T \in T(\kappa)} E(\phi_T)\right) \left(\sum_{T' \in T'(\kappa')} E(\psi_{T'})\right) + R^{-100n} \tag{12}$$
 对所有边长 $\rho$ 的close pair $\kappa$ , $\kappa'$ 成立.
 </p>
 <p>
-于是再固定 $\kappa$, $\kappa'$. 我们观察到如果一对close pair上的两根tubes $T$, $T'$ 相交, 由初等几何论证可知两者的交角有量级 $\sim \rho/R$ ; 这点非常关键，正是因为标准的 $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 远离 $\{t=0\}$ . $T, T'$ 的宽度 $r$ , 且 $\rho \geq \rho_0 \gg r$（不妨令 $\rho_0=R^{c}r$ , $c$ 为充分小但固定的正数）, 于是可以用边长 $O(Rr/\rho)=O(R^{1-c}) \ll R$ 的cube覆盖 $T\cap T'$ , 这就是bootstrap的核心！为了运用这个观察我们将尺度 $R$ 的 $\mathbf{Q}_R$ 细分为更精细的子cubes $\mathbf{Q}_{R^{1-c}}$ . 于是可以将 $(11)$ 的左式分解为 
-$$( \sum_{\mathbf{Q}_{R^{1-c}}} \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}^2)^{1/2} \ .$$
-因此我们只需考虑每个 $\mathbf{Q}_{R^{1-c}}$ 以及与之相交的 $T, T'$ ; 由tube的几何（有限传播速度来看）以及局部化估计，i.e. 我们只需考虑那些被 $\mathbf{Q}_{R^{1-c}}$ 的反向光锥覆盖的 $\phi$, $\psi$ .
+于是再固定 $\kappa$, $\kappa'$. 我们观察到如果一对close pair上的两根tubes $T$, $T'$ 相交, 由初等几何论证可知两者的交角有量级 $\sim \rho/R$ ; 这点非常关键，正是因为标准的 $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 远离 $\{t=0\}$ . $T, T'$ 的宽度 $r$ , 且 $\rho \geq \rho_0 \gg r$（不妨令 $\rho_0=R^{c}r$ , $c$ 为充分小但固定的正数）, 于是可以用边长 $O(Rr/\rho)=O(R^{1-c}) \ll R$ 的cube覆盖 $T\cap T'$ , 这就是bootstrap的核心！为了运用这个观察我们将尺度 $R$ 的 $\mathbf{Q}_R$ 分划为更精细的子cubes $\mathbf{Q}_{R^{1-c}}$ . 于是可以将 $(11)$ 的左式分解为 
+$$( \sum_{\mathbf{Q}_{R^{1-c}}} \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}^2)^{1/2} \ . \tag{13}$$
+因此我们只需考虑每个 $\mathbf{Q}_{R^{1-c}}$ 以及与之相交的 $T, T'$ ; 更精确地说，先考虑单个不与 $\mathbf{Q}_{R^{1-c}}$ 相交的 $T \in \T(\kappa)$ , 由 Hölder, Bessel不等式和 $T$-局部化估计可得 
+$$\begin{align*}
+\| Q( \phi_T, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})} &\lesssim R^{\frac{1-c}{2}} \| \nabla_{x,t} \phi_T \|_{L^\infty_{x,t}} \| \nabla_{x,t} \psi_{\kappa'} \|_{L^\infty_t L^2_x}\\
+&\lesssim R^{\frac{1-c}{2}} R^{-100n} E(\psi_{\kappa'})\\
+&\ll R^{-99n}.
+\end{align*}$$
+再对全体tubes $T$ 和子cube $\mathbf{Q}_{R^{1-c}}$ 求和，由于总数只有 $R^{-10n}$ 自然可以被 $(12)$ 控制的. 因此我们只需考虑 $\phi_{\kappa}$ 中的 $\sum_{T \in T(\kappa): T \cap \mathbf{Q}_{R^{1-c}} \neq \emptyset} \phi_T$ , 其求和条件简写为 $T\in T(\kappa)\cap \mathbf{Q}_{R^{1-c}}$; 类似地将 $\psi_{\kappa'}$ 替换.  
 </p>
-<!-- Consider first the contribution of a single tube $T \in \T(\kappa)$ which does not intersect $\cube_{Rr/\rho}$.  By H\"older, Bessel \eqref{bessel}, and the decay \eqref{local} of $\phi_T$ outside of $T$, we have 
-\bas
-\| Q( \phi_T, \psi_{\kappa'} ) \|_{L^2(\cube_{Rr/\rho})}
-&\lesssim \bigg(\frac{Rr}{\rho}\bigg)^{\frac 12} 
-\| \nabla_{x,t} \phi_T \|_{L^\infty_{x,t}}
-\| \nabla_{x,t} \psi_{\kappa'} \|_{L^\infty_t L^2_x}\\
-&\lesssim \bigg(\frac{Rr}{\rho}\bigg)^{\frac 12} R^{-100n}
-E(\psi_{\kappa'})\\
-&\lesssim R^{-99n}.
-\end{align*}
-Summing this over all tubes $T$ and all cubes $\cube_{Rr/\rho}$ we see that this contribution is acceptable.  Thus we may replace $\phi_\kappa$ by $\sum_{T \in \T(\kappa): T \cap \cube_{Rr/\rho} \neq \emptyset} \phi_T$.  Similarly for $\psi_{\kappa'}$ (but we continue to keep the low frequency in $L^\infty_x$ and the high frequency in $L^2_x$).  
-
-We are now ready to apply the hypothesis $B(\alpha)$.  Modulo acceptable errors, we thus have
-$$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\cube_{Rr/\rho})}
-\lesssim (\frac{Rr}{\rho})^\alpha
-E(\sum_{T \in \T(\kappa): T \cap \cube_{Rr/\rho} \neq \emptyset} \phi_T)^{1/2} 
-E(\sum_{T' \in \T'(\kappa'): T' \cap \cube_{Rr/\rho} \neq \emptyset} \psi_{T'})^{1/2}.$$
-Applying \eqref{ortho} we obtain
-$$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\cube_{Rr/\rho})}
-\lesssim (\frac{Rr}{\rho})^\alpha R^{C\eps}
-(\sum_{T \in \T(\kappa): T \cap \cube_{Rr/\rho} \neq \emptyset}
-\sum_{T' \in \T'(\kappa'): T' \cap \cube_{Rr/\rho} \neq \emptyset}
-E(\phi_T) E(\psi_{T'}) )^{1/2}.$$
-The expression inside the square root may be thought of as a measure of how much joint energy of $\phi$ and $\psi$ can interact within the cube $\cube_{Rr/\rho}$.  The point is that different cubes $\cube_{Rr/\rho}$ will require disjoint portions of the joint energy because of transversality, and this will allow us to sum.  Indeed, if we insert the above bound into the left-hand side of \eqref{transverse-bound}, we obtain a total bound of
-$$ (\frac{Rr}{\rho})^\alpha R^{C\eps}
-(\sum_{\cube_{Rr/\rho}} \sum_{T \in \T(\kappa): T \cap \cube_{Rr/\rho} \neq \emptyset}
-\sum_{T' \in \T'(\kappa'): T' \cap \cube_{Rr/\rho} \neq \emptyset}
-E(\phi_T) E(\psi_{T'}) )^{1/2}.$$
-By transversality of $\kappa$ and $\kappa'$ and elementary geometry, we see that for each $T \in \T(\kappa)$, $T' \in \T'(\kappa)$ there are only $O(1)$ cubes $\cube_{Rr/\rho}$ for which the above summation is non-vacuous.  Thus we can bound the previous by
-$$ (Rr/\rho)^\alpha R^{C\eps}
-(\sum_{T \in \T(\kappa)}
-\sum_{T' \in \T'(\kappa')}
-E(\phi_T) E(\psi_{T'}) )^{1/2}.$$
-Since $\rho \geq \rho_0$, we see that this is acceptable if we set
-\be{theta-def}
-\rho_0 := R^c r
-\end{equation}
-for some small absolute constant $c>0$ to be chosen later. 
-</p> -->
+<p>
+现在使用归纳假设 $LN(\alpha)$ : 
+$$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})} \lesssim R^{(1-c)\alpha} E\left(\sum_{T\in T(\kappa)\cap \mathbf{Q}_{R^{1-c}}} \phi_T\right)^{1/2} E\left(\sum_{T' \in T'(\kappa') \cap \mathbf{Q}_{R^{1-c}}} \psi_{T'}\right)^{1/2} \ ,$$
+于是用几乎正交性 $(7)$ 做decoupling可得
+$$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}\lesssim R^{(1-c)\alpha+C\epsilon} \left(\sum_{T \in T(\kappa)\cap \mathbf{Q}_{R^{1-c}}}\sum_{T' \in T'(\kappa)\cap \mathbf{Q}_{R^{1-c}}} E(\phi_T) E(\psi_{T'}) \right)^{1/2} \ .$$
+再将其代入 $(13)$ 有
+$$ R^{(1-c)\alpha+C\epsilon}
+\left(\sum_{\mathbf{Q}_{R^{1-c}}} \sum_{T \in T(\kappa)\cap\mathbf{Q}_{R^{1-c}}}
+\sum_{T' \in T'(\kappa') \cap \mathbf{Q}_{R^{1-c}}}
+E(\phi_T) E(\psi_{T'}) \right)^{1/2} \ ,$$
+再根据close pair的性质（透射）, 每一对 $T \in T(\kappa)$ , $T' \in T'(\kappa)$ 都只有 $O(1)$ 个 $\mathbf{Q}_{R^{1-c}}$ 与之相交.  因此上式可以被
+$$ R^{(1-c)\alpha+C\epsilon}\left(\sum_{T \in T(\kappa)}\sum_{T' \in \T'(\kappa')} E(\phi_T) E(\psi_{T'}) \right)^{1/2}$$
+控制，于是 $(12)$ , $(11)$——进而透射情形的引理6成立.
+</p>
+<hr style="height:1px; width:75%; margin:40px auto">
+<p>
+  现在还剩下共振项 $(10)$ 的bootstrap估计. 下一期博客将从Fourier分析和向量场方法两个角度解析null form的结构，并借此消除共振情形的影响从而完成引理6——进而定理1的证明.
+</p>
+<p>
+  未完待续~(≧◡≦)
+</p>
 </div>
-
 <!-- js脚本 -->
 <script src="../js/blog.js"></script>
 
