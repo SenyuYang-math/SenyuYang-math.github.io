@@ -35,7 +35,7 @@ document.body.appendChild(mathjax);
   // jaxcdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/tex-mml-chtml.js';
   jaxcdn.src = '//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
   // jaxcdn.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-  jaxcdn.async = defer;
+  jaxcdn.defer = true;
   document.body.appendChild(jaxcdn);
 // 打印组件
 var pr = document.createElement('script');
