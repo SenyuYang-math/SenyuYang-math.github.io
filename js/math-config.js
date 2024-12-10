@@ -1,7 +1,8 @@
-window.MathJax.Hub.Config({
+// 2.7.5版本配置
+MathJax.Hub.Config({
   showProcessingMessages: true,
-  messageStyle: 'normal',
-  jax: ['input/TeX', 'output/HTML-CSS'], 
+  messageStyle: "normal",
+  jax: ["input/TeX", "output/HTML-CSS"], 
   tex2jax: {
     inlineMath: [['$', '$']], 
     displayMath: [['$$', '$$']],
@@ -12,8 +13,8 @@ window.MathJax.Hub.Config({
     //       p: "{\\partial}",
     //     }
   }
-  'HTML-CSS': {
-    availableFonts: ['STIX', 'TeX'], 
+  "HTML-CSS": {
+    availableFonts: ["TeX"], 
     showMathMenu: false,
   }
 });
