@@ -12,7 +12,7 @@
     //       CN: "{\\mathcal{N}}", 
     //       p: "{\\partial}",
     //     }
-  }
+  // }
 //   "HTML-CSS": {
 //     availableFonts: ["TeX"], 
 //     showMathMenu: false,
