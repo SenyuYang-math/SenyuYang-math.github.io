@@ -28,15 +28,8 @@ document.head.appendChild(icon);
 // 配置Mathjax
 var mathjax = document.createElement('script');
 mathjax.src = '../js/math-config.js';
-mathjax.type = 'text/x-mathjax-config';
 mathjax.async = true;
 document.body.appendChild(mathjax);
-  var jaxcdn = document.createElement('script');
-  // jaxcdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/tex-mml-chtml.js';
-  jaxcdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js';
-  // jaxcdn.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-  jaxcdn.async = true;
-  document.body.appendChild(jaxcdn);
 // 打印组件
 var pr = document.createElement('script');
 pr.src = 'https://printjs-4de6.kxcdn.com/print.min.js';
