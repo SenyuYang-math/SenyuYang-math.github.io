@@ -1,6 +1,6 @@
 window.MathJax.Hub.Config({
   showProcessingMessages: true,
-  messageStyle: "none",
+  messageStyle: "simple",
   jax: ["input/TeX", "output/HTML-CSS"], 
   tex2jax: {
     inlineMath: [["$", "$"]], 
