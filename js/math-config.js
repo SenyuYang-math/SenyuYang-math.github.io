@@ -1,11 +1,10 @@
 window.MathJax.Hub.Config({
   showProcessingMessages: true,
-  messageStyle: "simple",
-  jax: ["input/TeX", "output/HTML-CSS"], 
+  messageStyle: 'normal',
+  jax: ['input/TeX', 'output/HTML-CSS'], 
   tex2jax: {
-    inlineMath: [["$", "$"]], 
-    displayMath: [["$$", "$$"]],
-    skipTags: ["script", "script", "head"], 
+    inlineMath: [['$', '$']], 
+    displayMath: [['$$', '$$']],
     //     macros: {
     //       RR: "{\\bf R}",
     //       CH: "{\\mathcal{H}}", 
@@ -13,8 +12,8 @@ window.MathJax.Hub.Config({
     //       p: "{\\partial}",
     //     }
   }
-  "HTML-CSS": {
-    availableFonts: ["STIX", "TeX"], 
+  'HTML-CSS': {
+    availableFonts: ['STIX', 'TeX'], 
     showMathMenu: false,
   }
 });
