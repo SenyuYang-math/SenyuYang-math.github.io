@@ -24,7 +24,7 @@ document.head.appendChild(icon);
 var mathjax = document.createElement('script');
 mathjax.src = '../js/math-config.js';
 mathjax.type = 'text/x-mathjax-config';
-mathjax.async = true;
+mathjax.async = false;
 document.body.appendChild(mathjax);
   var jaxcdn = document.createElement('script');
   // jaxcdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/tex-mml-chtml.js';
