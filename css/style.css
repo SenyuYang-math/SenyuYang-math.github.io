@@ -70,7 +70,7 @@ p a:link, a:visited{
 /*   font-style: italic; */
 }
 /* MathJax长公式滚动条 */
-mjx-container[jax="CHTML"][display="true"] {
+mjx-container[jax="SVG"][display="true"] {
   overflow-x: auto;
   overflow-y: hidden;
   /*  带标签\tag{}的公式能正常显示滚动条  */
