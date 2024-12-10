@@ -33,7 +33,7 @@ mathjax.async = true;
 document.body.appendChild(mathjax);
   var jaxcdn = document.createElement('script');
   // jaxcdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/tex-mml-chtml.js';
-  jaxcdn.src = '//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  jaxcdn.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js';
   // jaxcdn.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
   jaxcdn.async = true;
   document.body.appendChild(jaxcdn);
