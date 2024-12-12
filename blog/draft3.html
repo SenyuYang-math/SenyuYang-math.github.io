@@ -1,0 +1,57 @@
+<html>
+<head>  
+<title>null form的Strichartz估计 (Ⅲ) : 向量场方法，共振项的几何，完成证明</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  接第二篇文章 <a href="./blog21.html" target="_blank"><i>尺度归纳，透射项的几何</i></a> , 我们开始研究共振项的估计，在最后完成定理1和定理2的证明.
+</p>
+<h2>工具箱：向量场，null frames</h2>
+<p>
+  波方程 $(FW)$ 自然地生活在Minkowski时空 $(\mathbf{R}^{n+1}, g)$ 上，其中标准Lorentz度量
+  $$g:= -dt\otimes dt + \sum_{i=1}^n dx^i \otimes dx^i \ .$$
+  按照几何学的习惯，我们对上下标采用Einstein求和约定（将时间 $t$ 用 $x^0$ 标记），并通过 $g$-缩并来升降坐标. 于是 $g$ 写作二次型有
+  $$\left(g^{\mu\nu}\right) = \operatorname{diag} \{-1, +1, +1, ..., +1\} \ .$$
+  $(FW)$ 可以写为Casimir算子的形式
+  $$\partial_\mu\partial^{\mu}\phi = 0 \ .$$
+  注意到，$(FW)$ 的Lagrangian
+  $$\mathcal{L}[\phi]=\frac{1}{2}\left(|\partial_t\phi|^2 - |\nabla_x\phi|^2\right)= g(\nabla\phi, \nabla\phi)$$
+  自然地与几何量 $g$ 联系起来；事实上，<i>Noether定理</i> 指出 $(FW)$ 的守恒量自然地对应了 $g$ 的全体 <i>Killing场</i> ：
+  <ul>
+    <li>Translation $\partial_{\mu}$</li>
+    <li>Rotations $\Omega_{ij} := x_i\partial_j - x_j\partial_i$</li>
+    <li>Lorentz boosts $L_i=\Omega_{i0} := x^i\partial_t + t\partial_i = x_i\partial_0 - x_0 \partial_i$</li>
+  </ul>
+  一些读者还可以看出以上十个向量场正好是生成了Poincaré群的Lie代数（物理人则称为“无穷小生成元”）. 根据后文需要，我们还引入一个 <i>共形Killing场</i> 
+  <ul>
+    <li>Scaling $S := t\partial_t + r\partial_r$</li>
+  </ul>
+  其中径向导数
+  $$\partial_r=\omega^i\partial_i\ , \ r=|x|\ , \ \omega^i=\frac{x^i}{r}\ .$$
+  我们用
+  $$\Gamma \in \{\partial_\mu, \Omega_{\mu\nu} , S\}$$
+  将这些 $1$-order weighted向量场收集起来，并令 $\Gamma^k$ 代表全体由 $\Gamma$ 组成的 $k$-order导数（$k\in\mathbb{N}$）. 
+</p>
+<p>
+  向量场方法的第一个关键在于 <i>交换性（commutative）</i>： 
+  $$[\Box, \partial_\mu] = [\Box, \Omega_{\mu\nu}] = 0 \ , \ [\Box , S] = 2\Box$$
+  以及
+  $$[\Gamma, \Gamma'] = \sum \Gamma \ \text{or} \ =0 \ .$$
+  由此得到高阶 $(FW)$
+  $$\Box \Gamma^k \phi = 0 \ , \ forall \Gamma, k \ .$$
+  于是有 <i>高阶能量守恒</i>
+  $$E^k[\phi](t)=E[\Gamma^k\phi](t)\equiv E^k[\phi(0)] \ ,$$
+  i.e. 
+  $$\|\nabla_{x,t}\Gamma^k\phi(t)\|_{L^2}\lesssim \|\nabla_{x,t}\Gamma^{k}\phi(0)\|_{L^2}\ . \tag{?}$$
+  TBA...
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>
+</html>
