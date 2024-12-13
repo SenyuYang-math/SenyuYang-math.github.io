@@ -14,12 +14,10 @@
   波方程 $(FW)$ 自然地生活在Minkowski时空 $(\mathbf{R}^{n+1}, g)$ 上，其中标准Lorentz度量
   $$g:= -dt\otimes dt + \sum_{i=1}^n dx^i \otimes dx^i \ .$$
   按照几何学的习惯，我们对上下标采用Einstein求和约定（将时间 $t$ 用 $x^0$ 标记），并通过 $g$-缩并来升降坐标. 于是 $g$ 写作二次型有
-  $$\left(g^{\mu\nu}\right) = \operatorname{diag} \{-1, +1, +1, ..., +1\} \ .$$
-  $(FW)$ 也有Casimir算子的形式
-  $$\partial_\mu \partial^\mu \phi = 0 \ .$$
-  注意到，$(FW)$ 的Lagrangian
-  $$\mathcal{L}[\phi]=\frac{1}{2}\left(|\partial_t\phi|^2 - |\nabla_x\phi|^2\right)= g(\nabla\phi, \nabla\phi)$$
-  自然地与几何量 $g$ 联系起来；事实上，<i>Noether定理</i> 指出 $(FW)$ 的守恒量自然地对应了 $g$ 的全体 <i>Killing场</i>（Minkowski时空的对称性）：
+  $$\left(g_{\mu\nu}\right) = \operatorname{diag} \{-1, +1, +1, ..., +1\} \ .$$
+  注意到，$(FW)$ 的Lagrangian作用量
+  $$\mathcal{L}[\phi]=\frac{1}{2}\left(|\partial_t\phi|^2 - |\nabla_x\phi|^2\right)= -g(\nabla\phi, \nabla\phi)$$
+  自然地联系了几何量 $g$ ; 事实上，<i>Noether定理</i> 指出 $(FW)$ 的守恒量自然地对应了 $g$ 的 <i>Killing场</i>（Minkowski时空的对称性）：
   <ul>
     <li>Translation $\partial_{\mu}$</li>
     <li>Rotations $\Omega_{ij} := x_i\partial_j - x_j\partial_i$</li>
@@ -37,10 +35,7 @@
 <p>
   我们用
   $$\Gamma \in \{\partial_\mu, \Omega_{\mu\nu} , S\}$$
-  将这些 $1$-order weighted向量场收集起来，并令 $\Gamma^k$ 代表全体由 $\Gamma$ 组成的 $k$-order导数（$k\in\mathbb{N}$）. 
-</p>
-<p>
-  向量场方法的第一个关键在于
+  将这些 $1$-order weighted向量场收集起来，并令 $\Gamma^k$ 代表全体由 $\Gamma$ 组成的 $k$-order导数（$k\in\mathbb{N}$）. 向量场方法的第一个关键在于
 </p>
 <p class="thm">
   <b>命题?</b> (交换子, commutator)<b>.</b> 令 $[ \cdot , \cdot ]$ 为Lie括号，则有以下关系
