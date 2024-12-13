@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅲ) : 向量场方法，共振项的几何，完成证明</title>
+<title>null form的Strichartz估计 (Ⅲ) : 向量场方法与共振项，完成证明</title>
 </head>
 
 <body id="body">
@@ -9,44 +9,87 @@
 <p>
   接第二篇文章 <a href="./blog21.html" target="_blank"><i>尺度归纳，透射项的几何</i></a> , 我们开始研究共振项的估计，在最后完成定理1和定理2的证明.
 </p>
-<h2>工具箱：向量场，null frames</h2>
+<h2>向量场方法与局部化估计</h2>
 <p>
   波方程 $(FW)$ 自然地生活在Minkowski时空 $(\mathbf{R}^{n+1}, g)$ 上，其中标准Lorentz度量
   $$g:= -dt\otimes dt + \sum_{i=1}^n dx^i \otimes dx^i \ .$$
   按照几何学的习惯，我们对上下标采用Einstein求和约定（将时间 $t$ 用 $x^0$ 标记），并通过 $g$-缩并来升降坐标. 于是 $g$ 写作二次型有
   $$\left(g^{\mu\nu}\right) = \operatorname{diag} \{-1, +1, +1, ..., +1\} \ .$$
-  $(FW)$ 可以写为Casimir算子的形式
-  $$\partial_\mu\partial^{\mu}\phi = 0 \ .$$
+  $(FW)$ 也有Casimir算子的形式
+  $$\partial_\mu \partial^\mu \phi = 0 \ .$$
   注意到，$(FW)$ 的Lagrangian
   $$\mathcal{L}[\phi]=\frac{1}{2}\left(|\partial_t\phi|^2 - |\nabla_x\phi|^2\right)= g(\nabla\phi, \nabla\phi)$$
-  自然地与几何量 $g$ 联系起来；事实上，<i>Noether定理</i> 指出 $(FW)$ 的守恒量自然地对应了 $g$ 的全体 <i>Killing场</i> ：
+  自然地与几何量 $g$ 联系起来；事实上，<i>Noether定理</i> 指出 $(FW)$ 的守恒量自然地对应了 $g$ 的全体 <i>Killing场</i>（Minkowski时空的对称性）：
   <ul>
     <li>Translation $\partial_{\mu}$</li>
     <li>Rotations $\Omega_{ij} := x_i\partial_j - x_j\partial_i$</li>
-    <li>Lorentz boosts $L_i=\Omega_{i0} := x^i\partial_t + t\partial_i = x_i\partial_0 - x_0 \partial_i$</li>
+    <li>Lorentz boosts $L_i=\Omega_{i0} := x_i\partial_t + t\partial_i = x_i\partial_0 - x_0 \partial_i$</li>
   </ul>
-  一些读者还可以看出以上十个向量场正好是生成了Poincaré群的Lie代数（物理人则称为“无穷小生成元”）. 根据后文需要，我们还引入一个 <i>共形Killing场</i> 
+  根据后文需要，我们还引入一个 <i>共形Killing场</i> 
   <ul>
     <li>Scaling $S := t\partial_t + r\partial_r$</li>
   </ul>
-  其中径向导数
-  $$\partial_r=\omega^i\partial_i\ , \ r=|x|\ , \ \omega^i=\frac{x^i}{r}\ .$$
+  其中径向导数 $\partial_r=\omega^i\partial_i$ , $r:=|x|$ , $\omega^i:=\frac{x^i}{r}$ . 
+</p>
+<p>
+  <b>注.</b> 一些读者还可以看出以上十个向量场正好是生成了Poincaré群的Lie代数（物理人则称为“无穷小生成元”）; 笔者将在后续的一篇注记从几何角度做出解释.
+</p>
+<p>
   我们用
   $$\Gamma \in \{\partial_\mu, \Omega_{\mu\nu} , S\}$$
   将这些 $1$-order weighted向量场收集起来，并令 $\Gamma^k$ 代表全体由 $\Gamma$ 组成的 $k$-order导数（$k\in\mathbb{N}$）. 
 </p>
 <p>
-  向量场方法的第一个关键在于 <i>交换性（commutative）</i>： 
+  向量场方法的第一个关键在于
+</p>
+<p class="thm">
+  <b>命题?</b> (交换子, commutator)<b>.</b> 令 $[ \cdot , \cdot ]$ 为Lie括号，则有以下关系
   $$[\Box, \partial_\mu] = [\Box, \Omega_{\mu\nu}] = 0 \ , \ [\Box , S] = 2\Box$$
   以及
   $$[\Gamma, \Gamma'] = \sum \Gamma \ \text{or} \ =0 \ .$$
-  由此得到高阶 $(FW)$
-  $$\Box \Gamma^k \phi = 0 \ , \ forall \Gamma, k \ .$$
-  于是有 <i>高阶能量守恒</i>
-  $$E^k[\phi](t)=E[\Gamma^k\phi](t)\equiv E^k[\phi(0)] \ ,$$
-  i.e. 
-  $$\|\nabla_{x,t}\Gamma^k\phi(t)\|_{L^2}\lesssim \|\nabla_{x,t}\Gamma^{k}\phi(0)\|_{L^2}\ . \tag{?}$$
-  TBA...
+</p>
+<p>
+  于是 $\Box \Gamma^k \phi = 0$ 对free wave $\phi$ 和任意 $\Gamma, k$ 成立，进而有 <i>高阶能量估计</i>
+  $$\|\nabla_{x,t}\Gamma^k\phi(t)\|_{L^2}\lesssim \|\nabla_{x,t}\Gamma^{k}\phi(0)\|_{L^2}\ , \ \forall k\in\mathbb{N} \ .\tag{?}$$
+  放在PDE的语境中，作用高阶导数是自然的，因为需要将 $L^{\infty}$ 嵌入 $H^s$（$s>n/2$）来封闭能量估计.
+</p>
+<p>
+  <b>注.</b> $\Omega_{\mu\nu}, S$ 的交换子关系自然是不平凡的；笔者将在后续的一篇注记从几何角度做出解释.
+</p>
+<p>
+  现在来到初值层面，向量场方法的第二个关键在于physics-frequency的 <i>同时局部化</i> . 直觉上，$t=0$ 时 $\Gamma$ 的 $x$-weight和tube局部化的限制让我们期待 $(?)$ 能给出 $\partial_{\mu}$ 在physical space的衰减；另外在我们问题的背景中，$\Gamma$ 的导数部分又能将 $\lambda$-波包 $\phi$ 的frequency提取出来. 下面我们给出上述动机的精确表达. 对于 $\lambda$-波包 $\phi$ ,
+  $$\|\nabla_{x,t}\Gamma^k\phi(t)\|_{L^2}\lesssim \|(1+\lambda |x|)^2\nabla_{x,t}\phi(0)\|_{L^2}\ ;$$
+  现在按定理1的条件设 $E[\phi]=1$ 以及 $R, \lambda \gtrsim 1$ , $R^{1/2}\ll r\ll R$（注意不要与前文的 $r=|x|$ 混淆）. 回忆tube局部化 $(4)$ , 如果 $\phi$ 还是 $T$-局部的，
+  $$\left(\int_{|x|\gg r} |x|^{200n} |\nabla_{x,t}\phi(0)|^2 \ dx\right)^{1/2} \lesssim 1 \ , \tag{?}$$
+  于是
+  $$\|\nabla_{x,t}\Gamma^k\phi(0)\|_{L^2}\lesssim r^{k}\lambda^k + r^{-100n+k}\lambda^k \ ,$$
+  进而有同时局部化估计
+  $$\|\Gamma^k\phi(0)\|_{L^2}\lesssim r^{k}\lambda^{k-1} + r^{-100n+k}\lambda^{k-1} \ . \tag{?}$$  
+</p>
+<h2>色散估计，good derivatives</h2>
+<p>
+  现在考虑null form $Q(\phi, \psi)$ 的局部估计. 根据前文的讨论不妨设 $1=\lambda\leq \psi$ 那么 $L^\infty$ 估计会落在 $\phi$ 上. 注意在标准的时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上 $t\sim R \gg r$ 以及 $|x|\lesssim t$ , 因此我们希望通过 $\Gamma$ 的 $(x,t)$-weight去获得 $|\partial|_{L^\infty}$ 的衰减，从而吸收 $(?)$ 中的尺度 $r$ 完成尺度归纳. 事实上向量场方法的第三个关键就在于
+</p>
+<p class="thm">
+  <b>命题?</b> ($\partial$ 的衰减)<b>.</b> $\partial_\mu$ 与 $\Gamma$ 有以下关系
+  $$\begin{align*}
+  \partial_t= & \frac{t}{t^2-r^2}S-\frac{x^j}{t^2-r^2}L_j \ , \\
+  \partial_i= & \frac{1}{t}L_i- \frac{x^i}{t^2-r^2}S+ \frac{x^ix^j}{t(t^2-r^2)}L_j\ .
+  \end{align*}$$
+</p>
+<p>
+  根据命题的计算，在 $\mathbf{Q}_R$ 上我们有逐点的 <i>色散估计(dispersive estimate)</i> 
+  $$\begin{align*}\tag{Disp-1}
+  |\nabla_{x,t}^k \phi(x,t)| \lesssim & \frac{1}{|t-|x||^k}\sum_{j=0}^k |\Gamma^j\phi(x,t)| \\
+  \lesssim & \left(\frac{r}{|t-|x||}\right)^{k} +r^{-100n} \ ,
+  \end{align*}$$
+  其中第二行估计由 $(?)$ 和频率局部化 $(2)$ 得到. 
+</p>
+<p>
+  <b>注.</b> 熟悉波方程的读者可以看到 $(Disp-1)$ 就是Klainerman-Sobolev不等式的frequency局部版本. 
+</p>
+<p>
+  当 $|x|\leq t/2$ 或 $|x|\geq 2|t|$ i.e. $(x,t)$ 远离光锥时，$|t-|x|| \sim R$ , 所以 $(Disp-1)$ 能提供smallness $(r/R)^k$ . 问题出现在 $|x|\sim t$ i.e. $(x,t)$ 在光锥附近的情形，这时null form的结构成为关键. 
 </p>
 </div>
 
