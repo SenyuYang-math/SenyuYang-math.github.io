@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>null form的Strichartz估计 (Ⅲ) : 向量场方法与同时局部化，null form的结构</title>
+<title>null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化与色散</title>
 </head>
 
 <body id="body">
@@ -9,7 +9,7 @@
 <p>
   接第二篇文章 <a href="./blog21.html" target="_blank"><i>尺度归纳，透射项的几何</i></a> , 我们引入向量场方法为null form的共振项估计做准备.
 </p>
-<h2>向量场方法与局部化估计</h2>
+<h2>向量场方法：physics-frequency局部化</h2>
 <p>
   出于几何学的习惯，我们对上下标采用Einstein求和约定（其中 $t=x^0$）. 按照波方程文献的习惯，我们还约定拉丁字母 $i, j, ...$ 标记空间分量，希腊字母 $\alpha, \beta, ...$ 标记全体时空分量. $\mathbf{R}^{n+1}$ 上的 <i>Minkowski度量</i> $g$ 有坐标表示 $\left(g_{\alpha\beta}\right) =$ $\operatorname{diag} \{-1, +1, +1, ..., +1\}$ .
   于是可以通过 $g$ 升降指标，i.e. $x_0=-x^0$ , $x_i=x^i$ . d'Alambert算子 $\Box=\partial^\alpha\partial_\alpha$ .
@@ -28,7 +28,7 @@
   其中径向导数 $\partial_r=\omega^i\partial_i$ , $\omega^i:=\frac{x^i}{|x|}$ . 我们用 $\Gamma \in \{\partial_\alpha, \Omega_{\alpha\beta} , S\}$ 将这些向量场收集起来，并令 $\Gamma^k$ 代表全体由 $\Gamma$ 组成的 $k$ 阶导数（$k\in\mathbb{N}$）. 向量场方法的第一个关键是<b>交换向量场</b>
 </p>
 <p class="thm">
-  <b>命题7</b> (交换子, commutator)<b>.</b> 令 $[ \cdot , \cdot ]$ 为Lie括号，则有以下关系
+  <b>命题9</b> (交换子, commutator)<b>.</b> 令 $[ \cdot , \cdot ]$ 为Lie括号，则有以下关系
   $$[\Box, \partial_\alpha] = [\Box, \Omega_{\alpha\beta}] = 0 \ , \ [\Box , S] = 2\Box \tag{14}$$
   以及
   $$[\partial_{\alpha}, \Gamma'] = \sum \partial \ \text{or} \ =0 \ .$$
@@ -45,38 +45,38 @@
 </p>
 <br/>
 <p>
-  现在来到初值层面，向量场方法的第二个关键在于physics-frequency<b>同时局部化</b> . 直觉上，$t=0$ 时 $\Gamma$ 的 $x$-weight和tube局部化的限制让我们期待 $(15)$ 能给出 $\partial_\alpha$ 在physical space的衰减；另外在我们问题的背景中，$\Gamma$ 的导数部分又能将 $\lambda$-波包 $\phi$ 的frequency提取出来. 下面我们给出上述动机的精确表达. 对于 $\lambda$-波包 $\phi$ ,
+  现在来到初值层面，向量场方法的第二个关键在于physics-frequency的<b>同时局部化</b> . 直觉上，$t=0$ 时 $\Gamma$ 的 $x$-weight和tube局部化的限制让我们期待 $(15)$ 能给出 $\partial_\alpha$ 在physical space的衰减；另外在我们问题的背景中，$\Gamma$ 的导数部分又能将 $\lambda$-波包 $\phi$ 的frequency提取出来. 下面我们给出上述动机的精确表达. 对于 $\lambda$-波包 $\phi$ ,
   $$\|\nabla_{x,t}\Gamma^k\phi(t)\|_{L^2}\lesssim \|(1+\lambda |x|)^2\nabla_{x,t}\phi(0)\|_{L^2}\ ;$$
   现在按定理1的条件设 $E[\phi]=1$ 以及 $R, \lambda \gtrsim 1$ . 回忆tube局部化 $(4)$ , 我们类似地考虑在待定尺度参数 $R^{1/2}\ll \Lambda \ll R$ 下的 $L^2$-局部化
-  $$\left(\int_{|x|\gg \Lambda} |x|^{200n} |\nabla_{x,t}\phi(0)|^2 \ dx\right)^{1/2} \lesssim 1 \ , \tag{16}$$
+  $$\left(\int_{|x|\gg \Lambda} |x|^{200n} |\nabla_{x,t}\phi(0)|^2 \ dx\right)^{1/2} \lesssim 1 \ , \tag{$\Lambda$-Local}$$
   于是
   $$\|\nabla_{x,t}\Gamma^k\phi(0)\|_{L^2}\lesssim \Lambda^{k}\lambda^k + \Lambda^{-100n+k}\lambda^k \ ,$$
   进而有同时局部化的 $L^2$ 估计
-  $$\|\Gamma^k\phi(t)\|_{L^2}\lesssim \Lambda^{k}\lambda^{k-1} + \Lambda^{-100n+k}\lambda^{k-1} \ . \tag{17}$$  
+  $$\|\Gamma^k\phi(t)\|_{L^2}\lesssim \Lambda^{k}\lambda^{k-1} + \Lambda^{-100n+k}\lambda^{k-1} \ . \tag{16}$$  
 </p>
 <p>
-  <b>注.</b> 这里不能取 $T$-局部化的参数 $r$ , 因为后面的处理需要考虑两个不同的波包 $\phi, \psi$ 在 <i>同一个尺度</i> 的局部化.
+  <b>注.</b> 这里不能取 $T$-局部化的宽度参数 $r$ , 因为后面的处理需要考虑两个不同的波包 $\phi, \psi$ . 我们采用的向量场默认了空间基点 $x=0$（在初值层面自然也有时间基点 $t=0$）, e.g. $L_1=(x_1-0)\partial_t+(t-0)\partial_1$ . 如果直接使用 $r$，上一篇博客给出的共振条件规定 $\operatorname{dist}_{t=0}(T, T') \sim \rho_0=R^c$（$c>0$）, 我们就无法对 $\phi_T, \psi_{T'}$ 采用 <i>同一个基点和尺度</i>的向量场, e.g. 如果从 $(x,t)=0$ 出发的 $\phi_T$ 对应 $\Lambda=r$ , 那么 $\psi_{T'}$ 在同样的向量场下对应的weight将是 $\Lambda=r+\rho_0\gg r$ 云云. 因此好办法就是稍微放大尺度 $\Lambda=\rho_0$ , 然后用一个空间cube $\{|x-0|\leq\rho_0\}$ 包含 $T(t=0)$ 和 $T'(t=0)$ . 但出于一般性，我们依然保持 $\Lambda$ 待定 . 
 </p>
 <h2>色散估计：局部版本的K-S不等式</h2>
 <p>
-  我们还需要 $L^{\infty}$ 估计. 根据前文的讨论不妨设波包 $\phi, \psi$ 的frequency分别为 $1=\lambda\leq \mu$ , 那么 $L^\infty$ 估计会落在 $\phi$ 上. 注意在标准的时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上 $t\sim R \gg \Lambda$ 以及 $|x|\lesssim t$ , 因此我们希望通过 $\Gamma$ 的 $(x,t)$-weight去获得 $|\partial\phi|_{L^\infty}$ 的衰减，从而吸收 $(17)$ 中的尺度 $\Lambda$ 完成尺度归纳. 事实上向量场方法的第三个关键就在于<b>色散估计</b>（dispersion）
+  我们还需要 $L^{\infty}$ 估计. 根据前文的讨论不妨设波包 $\phi, \psi$ 的frequency分别为 $1=\lambda\leq \mu$ , 那么 $L^\infty$ 估计会落在 $\phi$ 上. 注意在标准的时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上 $t\sim R \gg \Lambda$ 以及 $|x|\lesssim t$ , 因此我们希望通过 $\Gamma$ 的 $(x,t)$-weight去获得 $|\partial\phi|_{L^\infty}$ 的衰减，从而吸收 $(16)$ 中的尺度 $\Lambda$ 完成尺度归纳. 事实上向量场方法的第三个关键就在于<b>色散估计</b>（dispersion）
 </p>
 <p class="thm">
-  <b>命题8</b> ($\partial$ 的衰减)<b>.</b> $\partial$ 与 $\Gamma$ 有以下关系
+  <b>命题10</b> ($\partial$ 的衰减)<b>.</b> $\partial$ 与 $\Gamma$ 有以下关系
   $$\begin{align*}
   \partial_t= & \frac{t}{t^2-r^2}S-\sum\frac{x_j}{t^2-r^2}L_j \ , \\
   \partial_i= & \frac{1}{t}L_i- \frac{x_i}{t^2-r^2}S+ x_i \sum \frac{x_j}{t(t^2-r^2)}L_j\ .
   \end{align*}$$
 </p>
 <p>
-  根据命题8, $(17)$ 和frequency局部化 $(2)$ , 在 $\mathbf{Q}_R$ 上
+  根据命题8, $(16)$ 和frequency局部化 $(2)$ , 在 $\mathbf{Q}_R$ 上
   $$\begin{align*}\tag{Disp-1}
   |\nabla_{x,t}^k \phi(x,t)| \lesssim \left(\frac{\Lambda}{|t-|x||}\right)^{k} +\Lambda^{-100n} \ ,
   \end{align*}$$ 
 </p>
 <p>
   当 $|x|\leq t/2$ 或 $|x|\geq 2|t|$ i.e. $(x,t)$ 远离光锥时，$|t-|x|| \sim R$ , 所以 $(\mathrm{Disp-1})$ 能一致地提供小量 $(\Lambda/R)^k$ . 而在 $|x|\sim t \sim R$ i.e. $(x,t)$ 在光锥附近的情形，注意到球面 $S^{n-1}$ 上各方向的单位切向量 $A=\{A_i:=\partial_i-\omega_i\partial_r\}$ :
-  $$A_i=\frac{1}{|x|} x^j\Omega_{ji} \Rightarrow |A_i\phi|\lesssim \frac{1}{R} |\Gamma \phi| \ , \tag{18}$$
+  $$A_i=\frac{1}{|x|} x^j\Omega_{ji} \Rightarrow |A_i\phi|\lesssim \frac{1}{R} |\Gamma \phi| \ , \tag{17}$$
   其中在 $S^{n-1}$ 的每个atlas上都可以选取 $n-1$ 个 $A_i$ 张成其上的切丛. 于是考虑 $S^{n-1}$ 上的Sobolev不等式（实际上是Newton-Leibniz公式否则只能得到正则性 $>n-1$ 的结果） 
   $$\|u\|_{L^\infty(S^{n-1})} \lesssim \|u\|_{L^1(S^{n-1})} + \|A^{n-1}u\|_{L^1(S^{n-1})} \ ,$$
   令 $u=|\nabla_{x,t}^k\phi(x',t)|^2$ , $|x'|\sim R$ 即有
@@ -92,7 +92,7 @@
   \end{align*}$$
   <!--   \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
   \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x'|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\ -->
-  再由同时局部化 $(17)$ 即有
+  再由同时局部化 $(16)$ 即有
   $$|\nabla_{x,t}\phi(t,x)| \lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} E[\phi]^{1/2}+ \Lambda^{-90n} \ , \ \text{if} \ |x|\sim t \ . \tag{Disp-2}$$
   将 $(\text{Disp-1})$, $(\text{Disp-2})$ 合并，注意合并时 $k= \frac{n-1}{2}$ 的限制能被 $\lambda=1$ 吸收，我们就得到了 <i>同时局部化</i> i.e. $\lambda=1$ 且 $\Lambda$-局部的 <b>Klainerman-Sobolev不等式</b>
   $$\|\nabla_{x,t}^k\phi(t)\|_{L^\infty}\lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} + \Lambda^{-90n}\ ,\ \forall k\geq 0 \ . \tag{K-S}$$
@@ -104,12 +104,12 @@
   所以当两个波包的方向 $|\omega_\xi-\omega_\eta|$ 时multipler的 $L^\infty$ 范数 i.e. $Q$ 的 $L^2$ 范数应当是一个小量，从而吸收掉方向相近带来的共振项！
 </p>
 <p>
-  再回到physical space上，我们知道估计quadratic term的困难源于 $(\text{Disp-1})$ 只适用于远离光锥之外 i.e. $\partial$ 的衰减只有 $\lesssim |t-|x||^{-1}$ , 这离我们的期待 $\lesssim (t+|x|)^{-1}$ 差了不少. 但 $(18)$ 告诉我们 $S^{n-1}$ 的切向量 $A$ 正好有所需的衰减，Klainerman和Christodoulou正是巧妙地观察到这一点：相比于普通导数 $\partial$ , 有些"good derivative"在波的传播中具有更快的衰减. 有哪些呢？从波传播的几何上，采用以下的 <i>null frames</i> 是更自然的坐标选择：
+  再回到physical space上，我们知道估计quadratic term的困难源于 $(\text{Disp-1})$ 只适用于远离光锥之外 i.e. $\partial$ 的衰减只有 $\lesssim |t-|x||^{-1}$ , 这离我们的期待 $\lesssim (t+|x|)^{-1}$ 差了不少. 但 $(17)$ 告诉我们 $S^{n-1}$ 的切向量 $A$ 正好有所需的衰减，Klainerman和Christodoulou正是巧妙地观察到向量场方法的第四个关键：相比于普通导数 $\partial$ , 有些<b>good derivatives</b>在波的传播中具有更快的衰减. 有哪些呢？从波传播的几何上，采用以下的 <i>null frames</i> 是更自然的坐标选择：
   $$L= \partial_t+\partial_r\ , \ \underline{L}= \partial_t-\partial_r\ , \ A=\{A_i\} \ . \tag{NF}$$ 
   现在从波方程的光锥和奇性传播的角度可以看出，光锥的法向量 $\partial_t-\partial_r$ 应当是比较差的方向. 事实上
 </p>
 <p class="thm">
-  <b>命题9</b> (Good vs Bad)<b>.</b> $(NF)$ 与 $\Gamma$ 有以下关系
+  <b>命题11</b> (Good vs Bad)<b>.</b> $(NF)$ 与 $\Gamma$ 有以下关系
   $$\begin{align*}
   L= & \frac{1}{t+|x|}(S+\sum \omega_iL_i) \ , \\
   \underline{L}= & \frac{1}{t-|x|}(S-\sum \omega_iL_i) \ , \\
@@ -128,18 +128,18 @@
   $$\partial_t= \frac{1}{2}(L+\underline{L}) \ , \ \partial_i=A_i + \frac{x^i}{2|x|}(L-\underline{L}) \ ,$$
   我们就能发现null form展开后"bad term" $\underline{L}\phi\underline{L}\psi$ 消失！所以
   $$|Q(\phi, \psi)|\lesssim |{\nabla \mkern-13mu/}\phi||\nabla_{x,t}\psi|+|\nabla_{x,t}\phi||{\nabla \mkern-13mu/}\psi| \ ,$$
-  结合 $(\text{Disp-G})$ , $(\text{K-S})$ 和 $(17)$ 即有
+  结合 $(\text{Disp-G})$ , $(\text{K-S})$ 和 $(16)$ 即有
 </p> 
 <p class="thm">
-  <b>命题10.</b> 对于 $1=\lambda\leq \mu$ 且 $T, T'$-局部的波包 $\phi, \psi$ , null form有 <i>improved</i> $L^2$<i>-估计</i>
+  <b>命题12.</b> 设有频率 $1=\lambda\leq \mu$ 的波包 $\phi, \psi$ , $E[\phi]=E[\psi]=1$. 如果 $\phi(0), \psi(0)$ 同时满足 $(\Lambda\text{-Local})$ , 则null form有 <i>improved</i> $L^2$<i>-估计</i>
   $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n+1}{2}} + R^{-40n} \ . \tag{Impv-$L^2$}$$
 </p>
 <p>
-  <b>注.</b> 如果直接使用 $(\text{K-S})$ 只能得到小量 $(\Lambda/R)^{\frac{n-1}{2}}$ , 这对 $n=2, 3$ 的Strichartz估计是不够的.  
+  <b>注.</b> 如果直接使用 $(\text{K-S})$ 只能得到 $(\Lambda/R)^{\frac{n-1}{2}}$ , 这个小量对 $n=2, 3$ 的Strichartz估计是不够的.  
 </p>
 <hr style="height:1px; width:75%; margin:40px auto">
 <p>
-  现在我们借助向量场方法和null frames的魔法给出波包在physical sapce传播行为的几何速写，并得到null form的精细结构以及加强的估计 $(\text{Impv-}L^2)$ . 下一期博客我们将利用这些结果完成共振项的bootstrap，并一举完成定理1和定理2的证明.
+  目前我们借助向量场方法的术式给出了波包的几何速写，并得到null form的精细结构以及加强版估计 $(\text{Impv-}L^2)$ . 下一期博客我们将利用这些结果完成共振项的bootstrap，并一举完成定理1和定理2的证明.
 </p>
 <p>
   <b>未完待续~</b>(≧◡≦)
