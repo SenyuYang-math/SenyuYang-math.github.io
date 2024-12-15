@@ -92,11 +92,11 @@
   为了用 $E[\phi]$ 控制，进一步在径向区间 $I_x := [|x|-O(1), |x|+O(1)]$ 上积分（此时 $|x'|\sim |x|\sim R$），由co-area公式可得
   $$\begin{align*}
   |\nabla_{x,t}^k\phi(x,t)| \lesssim & \left(\int_{I_x} |\nabla_{x,t}^k\phi(x,t)|^2 \ d|x'|\right)^{1/2}\\ 
-  \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
-  \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x'|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
-  = & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \|\sum_{0\leq a\leq n-1} \Lambda^{-a} \Gamma^{a}\nabla_{x,t}^k \phi(t, \cdot)\|_{L^2} \\
-  \leq & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \sum_{0\leq a\leq n-1} \Lambda^{-a} E[\Gamma^{a}\nabla_{x,t}^{k-1} \phi(t)]^{1/2}\ ,
+  \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \|\sum_{0\leq a\leq n-1} \Lambda^{-a} \Gamma^{a}\nabla_{x,t}^k \phi(t, \cdot)\|_{L^2} \\
+  \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \sum_{0\leq a\leq n-1} \Lambda^{-a} E[\Gamma^{a}\nabla_{x,t}^{k-1} \phi(t)]^{1/2}\ ,
   \end{align*}$$
+  <!--   \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
+  \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x'|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\ -->
   再由同时局部化 $(17)$ 即有
   $$|\nabla_{x,t}\phi(t,x)| \lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} E[\phi]^{1/2}+ \Lambda^{-90n} \ , \ \text{if} \ |x|\sim t \ . \tag{Disp-2}$$
   将 $(\text{Disp-1})$, $(\text{Disp-2})$ 合并，注意合并时 $k= \frac{n-1}{2}$ 的限制能被 $\lambda=1$ 吸收，我们就得到了 <i>同时局部化</i> i.e. $\lambda=1$ 且 $\Lambda$-局部的 <b>Klainerman-Sobolev不等式</b>
