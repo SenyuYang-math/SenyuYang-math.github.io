@@ -34,7 +34,7 @@
   <b>命题7</b> (交换子, commutator)<b>.</b> 令 $[ \cdot , \cdot ]$ 为Lie括号，则有以下关系
   $$[\Box, \partial_\alpha] = [\Box, \Omega_{\alpha\beta}] = 0 \ , \ [\Box , S] = 2\Box$$
   以及
-  $$[\partial_{\alpha}, \Gamma'] = \sum \Gamma \ \text{or} \ =0 \ .$$
+  $$[\partial_{\alpha}, \Gamma'] = \sum \partial \ \text{or} \ =0 \ .$$
 </p>
 <p>
   于是 $\Box \Gamma^k \phi = 0$ 对free wave $\phi$ 和任意 $\Gamma, k$ 成立，进而有 <i>高阶能量估计</i>
@@ -56,16 +56,19 @@
 <p>
   现在来到初值层面，向量场方法的第二个关键在于physics-frequency<b>同时局部化</b> . 直觉上，$t=0$ 时 $\Gamma$ 的 $x$-weight和tube局部化的限制让我们期待 $(15)$ 能给出 $\partial_\alpha$ 在physical space的衰减；另外在我们问题的背景中，$\Gamma$ 的导数部分又能将 $\lambda$-波包 $\phi$ 的frequency提取出来. 下面我们给出上述动机的精确表达. 对于 $\lambda$-波包 $\phi$ ,
   $$\|\nabla_{x,t}\Gamma^k\phi(t)\|_{L^2}\lesssim \|(1+\lambda |x|)^2\nabla_{x,t}\phi(0)\|_{L^2}\ ;$$
-  现在按定理1的条件设 $E[\phi]=1$ 以及 $R, \lambda \gtrsim 1$ , $R^{1/2}\ll r\ll R$（注意不要误将 $r$ 当作 $|x|$）. 回忆tube局部化 $(4)$ , 如果 $\phi$ 还是 $T$-局部的，
-  $$\left(\int_{|x|\gg r} |x|^{200n} |\nabla_{x,t}\phi(0)|^2 \ dx\right)^{1/2} \lesssim 1 \ , \tag{16}$$
+  现在按定理1的条件设 $E[\phi]=1$ 以及 $R, \lambda \gtrsim 1$ . 回忆tube局部化 $(4)$ , 我们类似地考虑在待定尺度参数 $R^{1/2}\ll \Lambda \ll R$ 下的 $L^2$-局部化
+  $$\left(\int_{|x|\gg \Lambda} |x|^{200n} |\nabla_{x,t}\phi(0)|^2 \ dx\right)^{1/2} \lesssim 1 \ , \tag{16}$$
   于是
-  $$\|\nabla_{x,t}\Gamma^k\phi(0)\|_{L^2}\lesssim r^{k}\lambda^k + r^{-100n+k}\lambda^k \ ,$$
+  $$\|\nabla_{x,t}\Gamma^k\phi(0)\|_{L^2}\lesssim \Lambda^{k}\lambda^k + \Lambda^{-100n+k}\lambda^k \ ,$$
   进而有同时局部化的 $L^2$ 估计
-  $$\|\Gamma^k\phi(0)\|_{L^2}\lesssim r^{k}\lambda^{k-1} + r^{-100n+k}\lambda^{k-1} \ . \tag{17}$$  
+  $$\|\Gamma^k\phi(0)\|_{L^2}\lesssim \Lambda^{k}\lambda^{k-1} + \Lambda^{-100n+k}\lambda^{k-1} \ . \tag{17}$$  
+</p>
+<p>
+  <b>注.</b> 这里不能取 $T$-局部化的参数 $r$ , 因为后面的处理需要考虑两个不同的波包 $\phi, \psi$ 在 <i>同一个尺度</i> 的局部化.
 </p>
 <h2>色散估计：局部版本的K-S不等式</h2>
 <p>
-  我们还需要 $L^{\infty}$ 估计. 根据前文的讨论不妨设波包 $\phi, \psi$ 的frequency分别为 $1=\lambda\leq \mu$ , 那么 $L^\infty$ 估计会落在 $\phi$ 上. 注意在标准的时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上 $t\sim R \gg r$ 以及 $|x|\lesssim t$ , 因此我们希望通过 $\Gamma$ 的 $(x,t)$-weight去获得 $|\partial\phi|_{L^\infty}$ 的衰减，从而吸收 $(17)$ 中的尺度 $r$ 完成尺度归纳. 事实上向量场方法的第三个关键就在于<b>色散估计</b>（dispersion）
+  我们还需要 $L^{\infty}$ 估计. 根据前文的讨论不妨设波包 $\phi, \psi$ 的frequency分别为 $1=\lambda\leq \mu$ , 那么 $L^\infty$ 估计会落在 $\phi$ 上. 注意在标准的时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ 上 $t\sim R \gg \Lambda$ 以及 $|x|\lesssim t$ , 因此我们希望通过 $\Gamma$ 的 $(x,t)$-weight去获得 $|\partial\phi|_{L^\infty}$ 的衰减，从而吸收 $(17)$ 中的尺度 $\Lambda$ 完成尺度归纳. 事实上向量场方法的第三个关键就在于<b>色散估计</b>（dispersion）
 </p>
 <p class="thm">
   <b>命题8</b> ($\partial$ 的衰减)<b>.</b> $\partial$ 与 $\Gamma$ 有以下关系
@@ -78,32 +81,32 @@
   根据命题的计算，在 $\mathbf{Q}_R$ 上我们有逐点的
   $$\begin{align*}\tag{Disp-1}
   |\nabla_{x,t}^k \phi(x,t)| \lesssim & \frac{1}{|t-|x||^k}\sum_{j=0}^k |\Gamma^j\phi(x,t)| \\
-  \lesssim & \left(\frac{r}{|t-|x||}\right)^{k} +r^{-100n} \ ,
+  \lesssim & \left(\frac{\Lambda}{|t-|x||}\right)^{k} +\Lambda^{-100n} \ ,
   \end{align*}$$
   其中第二行估计由 $(17)$ 和frequency局部化 $(2)$ 得到. 
 </p>
 <p>
-  当 $|x|\leq t/2$ 或 $|x|\geq 2|t|$ i.e. $(x,t)$ 远离光锥时，$|t-|x|| \sim R$ , 所以 $(\mathrm{Disp-1})$ 能一致地提供小量 $(r/R)^k$ . 而在 $|x|\sim t \sim t$ i.e. $(x,t)$ 在光锥附近的情形，注意到球面 $S^{n-1}$ 上各方向的单位切向量 $A=\{A_i:=\partial_i-\omega_+i\partial_r\}$ :
+  当 $|x|\leq t/2$ 或 $|x|\geq 2|t|$ i.e. $(x,t)$ 远离光锥时，$|t-|x|| \sim R$ , 所以 $(\mathrm{Disp-1})$ 能一致地提供小量 $(\Lambda/R)^k$ . 而在 $|x|\sim t \sim R$ i.e. $(x,t)$ 在光锥附近的情形，注意到球面 $S^{n-1}$ 上各方向的单位切向量 $A=\{A_i:=\partial_i-\omega_i\partial_r\}$ :
   $$A_i=\frac{1}{|x|} x^j\Omega_{ji} \Rightarrow |A_i\phi|\lesssim \frac{1}{R} |\Gamma \phi| \ , \tag{18}$$
   其中在 $S^{n-1}$ 的每个atlas上都可以选取 $n-1$ 个 $A_i$ 张成其上的切丛. 于是考虑 $S^{n-1}$ 上的Sobolev不等式（实际上是Newton-Leibniz公式否则只能得到正则性 $>n-1$ 的结果） 
   $$\|u\|_{L^\infty(S^{n-1})} \lesssim \|u\|_{L^1(S^{n-1})} + \|A^{n-1}u\|_{L^1(S^{n-1})} \ ,$$
   令 $u=|\nabla_{x,t}^k\phi(x',t)|^2$ , $|x'|\sim R$ 即有
   $$\begin{align*}
   |\nabla_{x,t}^k\phi(x',t)|^2 \lesssim & \int_{S^{n-1}} \sum_{a+b\leq n-1} |A^{a}\nabla_{x,t}^k\phi(|x'|\omega, t)| \ |A^{b}\nabla_{x,t}^k\phi(|x'|\omega, t)| \ d\omega \\ 
-  \lesssim & \left(\frac{r}{R}\right)^{n-1}\int_{S^{n-1}} |x'|^{n-1}\left( \sum_{0\leq a\leq n-1} r^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega)|\right)^2 \ d\omega\ .
+  \lesssim & \left(\frac{\Lambda}{R}\right)^{n-1}\int_{S^{n-1}} |x'|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega)|\right)^2 \ d\omega\ .
   \end{align*}$$
   为了用 $E[\phi]$ 控制，进一步在径向区间 $I_x := [|x|-O(1), |x|+O(1)]$ 上积分（此时 $|x'|\sim |x|\sim R$），由co-area公式可得
   $$\begin{align*}
   |\nabla_{x,t}^k\phi(x,t)| \lesssim & \left(\int_{I_x} |\nabla_{x,t}^k\phi(x,t)|^2 \ d|x'|\right)^{1/2}\\ 
-  \lesssim & \left(\frac{r}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x|^{n-1}\left( \sum_{0\leq a\leq n-1} r^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
-  \lesssim & \left(\frac{r}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x'|^{n-1}\left( \sum_{0\leq a\leq n-1} r^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
-  = & \left(\frac{r}{R}\right)^{\frac{n-1}{2}} \|\sum_{0\leq a\leq n-1} r^{-a} \Gamma^{a}\nabla_{x,t}^k \phi(t, \cdot)\|_{L^2} \\
-  \leq & \left(\frac{r}{R}\right)^{\frac{n-1}{2}} \sum_{0\leq a\leq n-1} r^{-a} E[\Gamma^{a}\nabla_{x,t}^{k-1} \phi(t)]^{1/2}\ ,
+  \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
+  \lesssim & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \left(\int_{I_x} \int_{S^{n-1}} |x'|^{n-1}\left( \sum_{0\leq a\leq n-1} \Lambda^{-a} |\Gamma^{a}\nabla_{x,t}^k \phi(t, |x'|\omega) |\right)^2 \ d\omega d|x'|\right)^{1/2}\\
+  = & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \|\sum_{0\leq a\leq n-1} \Lambda^{-a} \Gamma^{a}\nabla_{x,t}^k \phi(t, \cdot)\|_{L^2} \\
+  \leq & \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} \sum_{0\leq a\leq n-1} \Lambda^{-a} E[\Gamma^{a}\nabla_{x,t}^{k-1} \phi(t)]^{1/2}\ ,
   \end{align*}$$
   再由同时局部化 $(17)$ 即有
-  $$|\nabla_{x,t}\phi(t,x)| \lesssim \left(\frac{r}{R}\right)^{\frac{n-1}{2}} E[\phi]^{1/2}+ r^{-90n} \ , \ \text{if} \ |x|\sim t \ . \tag{Disp-2}$$
-  将 $(\text{Disp-1})$, $(\text{Disp-2})$ 合并，注意合并时 $k= \frac{n-1}{2}$ 的限制能被 $\lambda=1$ 吸收，我们就得到了 <i>同时局部化</i> i.e. $\lambda=1$ 且 $T(R,r)$-局部的 <b>Klainerman-Sobolev不等式</b>
-  $$\|\nabla_{x,t}^k\phi(t)\|_{L^\infty}\lesssim \left(\frac{r}{R}\right)^{\frac{n-1}{2}} + r^{-90n}\ ,\ forall k\geq 0 \ . \tag{K-S}$$
+  $$|\nabla_{x,t}\phi(t,x)| \lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} E[\phi]^{1/2}+ \Lambda^{-90n} \ , \ \text{if} \ |x|\sim t \ . \tag{Disp-2}$$
+  将 $(\text{Disp-1})$, $(\text{Disp-2})$ 合并，注意合并时 $k= \frac{n-1}{2}$ 的限制能被 $\lambda=1$ 吸收，我们就得到了 <i>同时局部化</i> i.e. $\lambda=1$ 且 $\Lambda$-局部的 <b>Klainerman-Sobolev不等式</b>
+  $$\|\nabla_{x,t}^k\phi(t)\|_{L^\infty}\lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n-1}{2}} + \Lambda^{-90n}\ ,\ \forall k\geq 0 \ . \tag{K-S}$$
 </p>
 <h2>null form的结构：good drivative</h2>
 <p>
@@ -128,7 +131,7 @@
   因此用记号
   $${\nabla \mkern-13mu/} := \{L, A_i\}$$
   收集所有的good derivatives , 于是
-  $$|{\nabla \mkern-13mu/}\phi|\leq \frac{1}{t} |\Gamma\phi| \ , \tag{Disp-Good}$$
+  $$|{\nabla \mkern-13mu/}\phi|\leq \frac{1}{t} |\Gamma\phi| \ , \tag{Disp-G}$$
 </p>
 <p>
   <b>注.</b> $(NF)$ 的"null"来源于 $L, \underline{L}$ 是光在Minkowski时空中的传播方向，而Minkowski长度 $|L|_g=|\underline{L}|_g=0$ . 光的传播路径也因此称为null geodesic.
@@ -138,11 +141,11 @@
   $$\partial_t= \frac{1}{2}(L+\underline{L}) \ , \ \partial_i=A_i + \frac{x^i}{2|x|}(L-\underline{L}) \ ,$$
   我们就能发现null form展开后"bad term" $\underline{L}\phi\underline{L}\psi$ 消失！所以
   $$|Q(\phi, \psi)|\lesssim |{\nabla \mkern-13mu/}\phi||\nabla_{x,t}\psi|+|\nabla_{x,t}\phi||{\nabla \mkern-13mu/}\psi| \ ,$$
-  结合 $(\text{Disp-G})$ 和 $(\text{K-S})$ 即有
+  结合 $(\text{Disp-G})$ , $(\text{K-S})$ 和 $(17)$ 即有
 </p> 
 <p class="thm">
   <b>命题10.</b> 对于 $1=\lambda\leq \mu$ 且 $T, T'$-局部的波包 $\phi, \psi$ , null form有 <i>improved</i> $L^2$<i>-估计</i>
-  $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{r}{R}\right)^{\frac{n+1}{2}} + R^{-40n} \ . \tag{Impr-$L^2$}$$
+  $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n+1}{2}} + R^{-40n} \ . \tag{Impr-$L^2$}$$
 </p>
 <p>
   <b>注.</b> 如果直接使用 $(K-S)$ 只能得到小量 $(r/R)^{\frac{n-1}{2}}$ , 这对 $n=2, 3$ 的Strichartz估计是不够的.  
