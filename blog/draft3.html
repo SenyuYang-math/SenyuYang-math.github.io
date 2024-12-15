@@ -26,13 +26,11 @@
   <ul>
     <li>Scaling $S := t\partial_t + |x|\partial_r$</li>
   </ul>
-  其中径向导数 $\partial_r=\omega^i\partial_i$ , $\omega^i:=\frac{x^i}{|x|}$ . 我们用
-  $$\Gamma \in \{\partial_\alpha, \Omega_{\alpha\beta} , S\} \tag{14}$$
-  将这些 $1$-order weighted向量场收集起来，并令 $\Gamma^k$ 代表全体由 $\Gamma$ 组成的 $k$-order导数（$k\in\mathbb{N}$）. 向量场方法的第一个关键在于<b>交换向量场</b>
+  其中径向导数 $\partial_r=\omega^i\partial_i$ , $\omega^i:=\frac{x^i}{|x|}$ . 我们用 $\Gamma \in \{\partial_\alpha, \Omega_{\alpha\beta} , S\}$ 将这些 $1$-order weighted向量场收集起来，并令 $\Gamma^k$ 代表全体由 $\Gamma$ 组成的 $k$-order导数（$k\in\mathbb{N}$）. 向量场方法的第一个关键在于<b>交换向量场</b>
 </p>
 <p class="thm">
   <b>命题7</b> (交换子, commutator)<b>.</b> 令 $[ \cdot , \cdot ]$ 为Lie括号，则有以下关系
-  $$[\Box, \partial_\alpha] = [\Box, \Omega_{\alpha\beta}] = 0 \ , \ [\Box , S] = 2\Box$$
+  $$[\Box, \partial_\alpha] = [\Box, \Omega_{\alpha\beta}] = 0 \ , \ [\Box , S] = 2\Box \tag{14}$$
   以及
   $$[\partial_{\alpha}, \Gamma'] = \sum \partial \ \text{or} \ =0 \ .$$
 </p>
@@ -72,12 +70,10 @@
   \end{align*}$$
 </p>
 <p>
-  根据命题的计算，在 $\mathbf{Q}_R$ 上我们有逐点的
+  根据命题8, $(17)$ 和frequency局部化 $(2)$ , 在 $\mathbf{Q}_R$ 上
   $$\begin{align*}\tag{Disp-1}
-  |\nabla_{x,t}^k \phi(x,t)| \lesssim & \frac{1}{|t-|x||^k}\sum_{j=0}^k |\Gamma^j\phi(x,t)| \\
-  \lesssim & \left(\frac{\Lambda}{|t-|x||}\right)^{k} +\Lambda^{-100n} \ ,
-  \end{align*}$$
-  其中第二行估计由 $(17)$ 和frequency局部化 $(2)$ 得到. 
+  |\nabla_{x,t}^k \phi(x,t)| \lesssim & \lesssim & \left(\frac{\Lambda}{|t-|x||}\right)^{k} +\Lambda^{-100n} \ ,
+  \end{align*}$$ 
 </p>
 <p>
   当 $|x|\leq t/2$ 或 $|x|\geq 2|t|$ i.e. $(x,t)$ 远离光锥时，$|t-|x|| \sim R$ , 所以 $(\mathrm{Disp-1})$ 能一致地提供小量 $(\Lambda/R)^k$ . 而在 $|x|\sim t \sim R$ i.e. $(x,t)$ 在光锥附近的情形，注意到球面 $S^{n-1}$ 上各方向的单位切向量 $A=\{A_i:=\partial_i-\omega_i\partial_r\}$ :
@@ -122,9 +118,7 @@
   \end{align*}$$
 </p>
 <p>
-  因此用记号
-  $${\nabla \mkern-13mu/} := \{L, A_i\}$$
-  收集所有的good derivatives , 于是
+  因此用记号 ${\nabla \mkern-13mu/} := \{L, A_i\}$ 收集所有的good derivatives , 于是
   $$|{\nabla \mkern-13mu/}\phi|\leq \frac{1}{t} |\Gamma\phi| \ , \tag{Disp-G}$$
 </p>
 <p>
