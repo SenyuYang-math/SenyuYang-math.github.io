@@ -88,7 +88,13 @@ $$\begin{align*}\tag{12}
 对每一对边长 $\rho$ 的close pair $\kappa$ , $\kappa'$ 成立.
 </p>
 <p>
-于是再固定 $\kappa$, $\kappa'$ . 为了运用上一节最后的几何观察，我们将尺度 $R$ 的 $\mathbf{Q}_R$ 分划为更精细的子cubes $\mathbf{Q}_{R^{1-c}}$ . 于是可以将 $(11)$ 的左式分解为 
+于是再固定 $\kappa$, $\kappa'$ . 为了运用上一节最后的几何观察，我们将尺度 $R$ 的 $\mathbf{Q}_R$ 分划为更精细的子cubes $\mathbf{Q}_{R^{1-c}}$ . 现在透射的几何性质可以转化为 <i>组合性质</i> :
+</p>
+<p class="thm">
+  <b>命题8.</b> 每一对来自close pair的 $(T, T')$ 都只有 $O(1)$ 个 $\mathbf{Q}_{R^{1-c}}$ 与两者相交.</li>
+</p>
+<p>
+考虑共振情形这个反例，命题的含义就很清楚了. 于是可以将 $(11)$ 的左式分解为 
 $$\sum_{\mathbf{Q}_{R^{1-c}}\subset \mathbf{Q}_R} \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}^2 \ . \tag{13}$$
 因此我们只需考虑每个 $\mathbf{Q}_{R^{1-c}}$ 以及与之相交的 $T, T'$ ; 更精确地说，先考虑单个不与 $\mathbf{Q}_{R^{1-c}}$ 相交的 $T \in T(\kappa)$ , 由 Hölder, Bessel不等式和 $T$-局部化估计可得 
 $$\begin{align*}
@@ -105,11 +111,7 @@ $$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}^2 \lesssim
 $$ \| Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_{R^{1-c}})}^2 \lesssim R^{2(1-c)\alpha+2C\epsilon} \left(\sum_{T \in T(\kappa)\cap \mathbf{Q}_{R^{1-c}}}\sum_{T' \in T'(\kappa)\cap \mathbf{Q}_{R^{1-c}}} E(\phi_T) E(\psi_{T'}) \right) \ .$$
 这里decoupling的意义在于把 $T, T'$ 各自的能量乘积转换为两者在 $\mathbf{Q}_{R^{1-c}}$ 上的 <i>joint energy</i> , 而如后面所见不同 $\mathbf{Q}_R$ 的joint energy因为透射而几乎正交. 再将上式代入 $(13)$ 有
 $$ R^{2(1-c)\alpha+2C\epsilon}\left(\sum_{\mathbf{Q}_{R^{1-c}}} \sum_{T \in T(\kappa)\cap\mathbf{Q}_{R^{1-c}}}\sum_{T' \in T'(\kappa') \cap \mathbf{Q}_{R^{1-c}}}E(\phi_T) E(\psi_{T'}) \right) \ ,$$
-再根据close pair的性质可得
-<ul>
-  <li>每一对 $(T, T')$ 都只有 $O(1)$ 个 $\mathbf{Q}_{R^{1-c}}$ 与两者相交.</li>
-</ul>
-这就是之前讨论的透射项 <i>几何性质的组合表现</i> ! 想象一下共振情形的反例就非常清楚了. 因此上式可以被
+再根据命题8，上式可以被
 $$ R^{2(1-c)\alpha+2C\epsilon}\left(\sum_{T \in T(\kappa)}\sum_{T' \in T'(\kappa')} E(\phi_T) E(\psi_{T'}) \right)$$
 控制，于是 $(12)$ , $(11)$——进而透射情形的引理6成立.
 </p>
