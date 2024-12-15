@@ -13,7 +13,7 @@
 <p>
   出于几何学的习惯，我们对上下标采用Einstein求和约定（其中 $t=x^0$）. 按照波方程文献的习惯，我们还约定拉丁字母 $i, j, ...$ 标记空间分量，希腊字母 $\alpha, \beta, ...$ 标记全体时空分量. 于是 $\mathbf{R}^{n+1}$ 上的 <i>Minkowski度量</i> $g$ 有坐标表示
   $$g:= g_{\alpha\beta}dx^{\alpha}\otimes dx^{\beta} \ , \ \left(g_{\alpha\beta}\right) = \operatorname{diag} \{-1, +1, +1, ..., +1\} \ .$$
-  于是可以通过 $g$ 升降指标，i.e. $x_0=-x^0$ , $x_i=x^i$ . 
+  于是可以通过 $g$ 升降指标，i.e. $x_0=-x^0$ , $x_i=x^i$ . 比如d'Alambert算子可以写作协变形式 $\Box=\partial^\alpha\partial_\alpha$ .
 </p>  
 <p>  
   PDE大师S. Klainerman为波方程构建了以下魔法术式：Minkowski时空中的向量场
@@ -44,13 +44,9 @@
 <p>
   <b>注.</b> $\Gamma$ 在物理学家研究广义相对论时就已经出现了，这里给出一些几何解释. 注意到 $(FW)$ 的Lagrangian作用量
   $$\mathscr{L}[\phi]=\frac{1}{2}\left(|\partial_t\phi|^2 - |\nabla_x\phi|^2\right)= -g(\nabla\phi, \nabla\phi)$$
-  自然地联系了几何量 $g$ ; 事实上，<i>Noether定理</i> 指出 $(FW)$ 的守恒量自然地对应了 $g$ 的等距同构群——Poincaré群（的一个连通分支） . 而对应的Lie代数 i.e. $g$ 的 <i>Killing向量场</i> 就是由全体 $\Gamma$ 除去 $S$ 而生成的（物理学家习惯称为“无穷小生成元”）！引入所谓的Lie derivative $\mathcal{L}$ 则有定量的刻画
-  $$\mathcal{L}_{\Gamma\setminus S} g=0 \ , \ \mathcal{L}_{S} g = 2g \ .$$
-  尽管可以直接计算验证，$\Omega_{\alpha\beta}, S$ 的交换子关系也有着更几何的意味：d'Alambert算子
-  $$\Box=\partial^\alpha\partial_\alpha$$
-  就是Minkowski空间的 <i>Laplace-Beltrami算子</i>. 计算可知向量场 $X$ 与 $\Box$ 交换等价于 <i>Killing方程</i>
-  $$\nabla_{\alpha}X_\beta + \nabla_\beta X_\alpha = 0 \ ,$$
-  这就是 $\mathcal{L}_X g=0$ 的坐标形式. 上式定义的二阶张量称为 $X$ 的deformation tensor $\pi^{(X)}$ . 
+  自然地联系了几何量 $g$ : <i>Noether定理</i> 说明 $(FW)$ 的守恒量对应了 $g$ 的等距同构群——Poincaré群（的连通分支） . 其Lie代数 i.e. $g$ 的 <i>Killing向量场</i> 就是由全体 $\Gamma$ 除去 $S$ 而生成的！引入Lie derivative $\mathcal{L}$ 即有
+  $$\mathcal{L}_{\Gamma\setminus S} \ g=0 \ , \ \mathcal{L}_{S}\ g = 2g \ .$$
+  前文的性质都与Killing场的性质有关.
 </p>
 <br/>
 <p>
@@ -61,7 +57,7 @@
   于是
   $$\|\nabla_{x,t}\Gamma^k\phi(0)\|_{L^2}\lesssim \Lambda^{k}\lambda^k + \Lambda^{-100n+k}\lambda^k \ ,$$
   进而有同时局部化的 $L^2$ 估计
-  $$\|\Gamma^k\phi(0)\|_{L^2}\lesssim \Lambda^{k}\lambda^{k-1} + \Lambda^{-100n+k}\lambda^{k-1} \ . \tag{17}$$  
+  $$\|\Gamma^k\phi(t)\|_{L^2}\lesssim \Lambda^{k}\lambda^{k-1} + \Lambda^{-100n+k}\lambda^{k-1} \ . \tag{17}$$  
 </p>
 <p>
   <b>注.</b> 这里不能取 $T$-局部化的参数 $r$ , 因为后面的处理需要考虑两个不同的波包 $\phi, \psi$ 在 <i>同一个尺度</i> 的局部化.
@@ -145,14 +141,14 @@
 </p> 
 <p class="thm">
   <b>命题10.</b> 对于 $1=\lambda\leq \mu$ 且 $T, T'$-局部的波包 $\phi, \psi$ , null form有 <i>improved</i> $L^2$<i>-估计</i>
-  $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n+1}{2}} + R^{-40n} \ . \tag{Impr-$L^2$}$$
+  $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{\Lambda}{R}\right)^{\frac{n+1}{2}} + R^{-40n} \ . \tag{Impv-$L^2$}$$
 </p>
 <p>
-  <b>注.</b> 如果直接使用 $(K-S)$ 只能得到小量 $(r/R)^{\frac{n-1}{2}}$ , 这对 $n=2, 3$ 的Strichartz估计是不够的.  
+  <b>注.</b> 如果直接使用 $(\text{K-S})$ 只能得到小量 $(\Lambda/R)^{\frac{n-1}{2}}$ , 这对 $n=2, 3$ 的Strichartz估计是不够的.  
 </p>
 <hr style="height:1px; width:75%; margin:40px auto">
 <p>
-  现在我们借助向量场方法和null frames的魔法给出波包在physical sapce传播行为的几何速写，并得到null form的精细结构以及加强的估计 $(\text{Impr-}L^2)$ . 下一期博客我们将利用这些结果完成共振项的bootstrap，并一举完成定理1和定理2的证明.
+  现在我们借助向量场方法和null frames的魔法给出波包在physical sapce传播行为的几何速写，并得到null form的精细结构以及加强的估计 $(\text{Impv-}L^2)$ . 下一期博客我们将利用这些结果完成共振项的bootstrap，并一举完成定理1和定理2的证明.
 </p>
 <p>
   <b>未完待续~</b>(≧◡≦)
