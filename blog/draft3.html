@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  接第二篇文章 <a href="./blog21.html" target="_blank"><i>尺度归纳，透射项的几何</i></a> , 我们开始研究共振项的估计，在最后完成定理1和定理2的证明.
+  接第二篇文章 <a href="./blog21.html" target="_blank"><i>尺度归纳，透射项的几何</i></a> , 我们引入向量场方法为null form的共振项估计做准备.
 </p>
 <h2>向量场方法与局部化估计</h2>
 <p>
@@ -105,7 +105,7 @@
   将 $(\text{Disp-1})$, $(\text{Disp-2})$ 合并，注意合并时 $k= \frac{n-1}{2}$ 的限制能被 $\lambda=1$ 吸收，我们就得到了 <i>同时局部化</i> i.e. $\lambda=1$ 且 $T(R,r)$-局部的 <b>Klainerman-Sobolev不等式</b>
   $$\|\nabla_{x,t}^k\phi(t)\|_{L^\infty}\lesssim \left(\frac{r}{R}\right)^{\frac{n-1}{2}} + r^{-90n}\ ,\ forall k\geq 0 \ . \tag{K-S}$$
 </p>
-<h2>Good drivative与null form</h2>
+<h2>null form的结构：good drivative</h2>
 <p>
   现在回到我们的主题：null form $Q(\phi,\psi)$ . 在第一篇文章我们知道对于一般的quadratic terms得不到想要的结果，那么null forms有什么特殊结构呢？我们先从Fourier分析的层面观察：例如考虑以下null form对应的Fourier multipler 
   $$Q_0\mapsto |\xi||\eta|-\xi\cdot\eta , \ Q_{ij}\mapsto \xi \wedge \eta \ .$$
@@ -145,7 +145,7 @@
   $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{r}{R}\right)^{\frac{n+1}{2}} + R^{-40n} \ . \tag{Impr-$L^2$}$$
 </p>
 <p>
-  <b>注.</b> 如果直接使用 $(K-S)$ 只能得到小量 $(r/R)^{frac{n-1}{2}}$ , 这对 $n=2, 3$ 的Strichartz估计是不够的.  
+  <b>注.</b> 如果直接使用 $(K-S)$ 只能得到小量 $(r/R)^{\frac{n-1}{2}}$ , 这对 $n=2, 3$ 的Strichartz估计是不够的.  
 </p>
 <hr style="height:1px; width:75%; margin:40px auto">
 <p>
