@@ -22,6 +22,7 @@ btitle[18] = "Bourgain的魔法：有限度量空间的Euclidean嵌入"; bdate[1
 btitle[19] = "null form的Strichartz估计 (Ⅰ) : 引子, tube分解"; bdate[19] = "2024/11/26";
 btitle[20] = "(20th纪念) Sylvester-Gallai定理的拓扑证明"; bdate[20] = "2024/11/28";
 btitle[21] = "null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射项的几何"; bdate[21] = "2024/12/07";
+btitle[22] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化与色散"; bdate[22] = "2024/12/15";
 // btitle[] = ""; bdate[] = "";
 
 var amount = btitle.length;
