@@ -3,7 +3,7 @@ var btitle = new Array(); var bdate = new Array();
 btitle[0] = "null"; bdate[0] = "null"; 
 btitle[1] = "照亮球的外表面需要多少盏灯"; bdate[1] = "2024/02/12"; 
 btitle[2] = "多项式方法与有限域Kakeya猜想"; bdate[2] = "2024/02/19"; 
-btitle[3] = "Bootstrap Method(baby ver.)"; bdate[3] = "2024/03/08"; 
+btitle[3] = "Grownwall不等式的bootstrap式证明; bdate[3] = "2024/03/08"; 
 btitle[4] = "Cauchy积分定理的几何风证明"; bdate[4] = "2024/03/14"; 
 btitle[5] = "Littlewood-Paley定理的随机化证明"; bdate[5] = "2024/05/12"; 
 btitle[6] = "Bourgain的魔法：一道2024年丘赛题与bilinear Strichartz"; bdate[6] = "2024/06/28"; 
