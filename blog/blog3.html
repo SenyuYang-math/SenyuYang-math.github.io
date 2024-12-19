@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>Grownwall不等式的bootstrap式证明</title>
+<title>Gronwall不等式的bootstrap式证明</title>
 </head>
         
 <body id="body">
@@ -8,7 +8,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-最近很忙没有什么好topic, 来水几句不然博客没有一篇分析方向太不像PDE废柴了. 以下是广为人知的<b>Grownwall不等式</b>，没有她可能会饿死很多PDE人（笑）
+最近很忙没有什么好topic, 来水几句不然博客没有一篇分析方向太不像PDE废柴了. 以下是广为人知的<b>Gronwall不等式</b>，没有她可能会饿死很多PDE人（笑）
 </p>
 <p class="thm">
 <b>定理.</b> 设连续函数$f:\mathbb{R}\to\mathbb{R}$，可积函数$g:\mathbb{R}\to\mathbb{R}$均恒正. 如果存在$A\geq 0$，对任意$t\in[0,T]$满足
@@ -41,7 +41,7 @@ $$
 =Ae^{(1+\epsilon)\int_0^t g(s)ds}<(1+\epsilon)Ae^{(1+\epsilon)\int_0^t g(s)ds}.
 $$
 <p>
-由$f$连续性可知存在$\delta>0$, $[0,t+\delta)\subset O$. 所以$O$是开集. 综上可知$O=[0,T]$，令$\epsilon\to 0$即得到Grownwall不等式.&emsp;$\Box$
+由$f$连续性可知存在$\delta>0$, $[0,t+\delta)\subset O$. 所以$O$是开集. 综上可知$O=[0,T]$，令$\epsilon\to 0$即得到Gronwall不等式.&emsp;$\Box$
 </p> 
 <p>
 <b>Q:</b> 如果直接把定理结论作为条件$(B)$，证明会出现什么问题?
