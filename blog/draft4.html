@@ -61,7 +61,7 @@
 </p>
 <p class="thm">
   <b>引理3</b> (Chebotarëv)<b>.</b> 设整数 $1\leq n\leq p$ . 令 $\{x_1, ... , x_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 两两不同，$\{\xi_1, ... , \xi_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 同样两两不同. 则矩阵
-  $$F_n:=\left( e^{}\frac{2\pi i x_j\xi_k}{p}\right)_{1\leq j, k \leq n}$$
+  $$F_n:=\left( e^{\frac{2\pi i x_j\xi_k}{p}}\right)_{1\leq j, k \leq n}$$
   的 $\det \neq 0$ , i.e. $F_n$ 非退化.
 </p>
 <p>
@@ -72,14 +72,20 @@
   $$T:\ell^2(A)\to\ell^2(\tilde{A}) \ , \ f\mapsto \widehat{f}\mid_{\tilde{A}}$$
   是线性同构映射. 
 </p>
+<p>
+  <i>证明</i>. TBA
+</p>
 <p class="thm">
   <b>定理5</b> (Sharp version for $\mathbb{Z}/p\mathbb{Z}$ , $p$-UC)<b>.</b> 设 $f: \mathbb{Z}/p\mathbb{Z} \to \mathbb{C}$ 非零，则
-  $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq p+1 \.$$
+  $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq p+1 \ .$$
   进一步地，如果非空 $A,B\subset \mathbb{Z}/p\mathbb{Z}$ 满足 $|A|+|B|\geq p+1$ , 则存在 $f$ s.t. 
   $$\operatorname{supp}(f)=A \ , \ \operatorname{supp}(\widehat{f})=B \ .$$
 </p>
 <p class="thm">
   <b>命题6.</b> $p$-UC $\Rightarrow$ 引理3.
+</p>
+<p>
+  <i>证明</i>. TBA
 </p>
 <p class="thm">
   <b>引理7.</b> 设有素数 $p$ , 正整数 $n$ 和多项式 $P\in \mathbb{Z}[x_1, ..., x_n]$ . 如果存在 $n$ 个（可以重复的） $p$ 阶单位根 $\omega_1, ..., \omega_n$ s.t. $P(\omega_1, ..., \omega_n)=0$ , 则 $p | P(1,..., 1)$ .
