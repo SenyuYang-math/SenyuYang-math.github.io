@@ -23,12 +23,14 @@
   $$|A+B|\geq \min \left( |A|+|B|-1, p \right) \ .\tag{1}$$
 </p>
 <p>
-  这个定理的代数证明（Alon的Combinatorial Nullstellensatz）已经是耳熟能详（参见 @Yifan老师 的 这篇文章）. 相较于多项式方法，这里我们将从调和分析的角度，i.e. 选择Fourier basis来看待C-D定理. 我们先快速回忆一般的有限交换群（finite abelian group, FAG）上的调和分析：设 $G$ 是一个FAG, $e: G\times G \to S^1\subset \mathbb{C}$ 是 $G$ 一个非退化的bi-character, e.g. 对于一般的循环群 $\mathbb{Z}/N\mathbb{Z}$ 有 $e=e(x,\xi):= e^{\frac{2\pi i x\xi}{N}}$ . 那么任意 $f: G\to \mathbb{C}$ 都可以定义 <i>Fourier变换</i> $\widehat{f} : G\to \mathbb{C}$ 为
+  这个定理的代数证明（N. Alon的Combinatorial Nullstellensatz）已经广为传诵（参见 @Yifan老师 的 这篇文章）. 相较于多项式方法，现在我们从调和分析的角度，i.e. 选择Fourier basis来看待C-D定理. 我们先快速回忆一般的有限交换群（finite abelian group, FAG）上的调和分析：设 $G$ 是一个FAG, $e: G\times G \to S^1\subset \mathbb{C}$ 是 $G$ 一个非退化的bi-character, e.g. 对于一般的循环群 $\mathbb{Z}/N\mathbb{Z}$ 有 
+  $$e=e(x,\xi):= e^{\frac{2\pi i x\xi}{N}}\ .$$
+  那么任意 $f: G\to \mathbb{C}$ 都可以定义 <i>Fourier变换</i> $\widehat{f} : G\to \mathbb{C}$ 为
   $$\widehat{f}(\xi) := \frac{1}{|G|} \sum_{x\in G} f(x) \overline{e(x,\xi)} \ .$$
   $\{e(\cdot , \xi) \}$ 作为 $\ell^2(G)$ 上的一组正交Fourier基，同样有 <i>Plancherel identity</i>
   $$\frac{1}{|G|} \sum_{x\in G} |f(x)|^2 \equiv \sum_{\xi\in G} |\widehat{f}(\xi)| \ .$$
   我们还可以定义 <i>卷积（convolution）</i>
-  $$f\star g(x) := \frac{1}{|G|} \sum_{y\in G} f(y)g(x-y) \ .$$
+  $$f* g(x) := \frac{1}{|G|} \sum_{y\in G} f(y)g(x-y) \ .$$
 </p>  
 <p>
   <b>注.</b> 这里 $e: G\times G\to S^1$ 的第二个 $G$ 应严格地写作 $G$ 的对偶群 $\widehat{G}$ , 但在FGA情形两者是同构的，为方便分析语言故不做区分.
@@ -39,21 +41,23 @@
   \|\widehat{f}\|_{\ell^\infty} \leq & \frac{1}{|G|}\sum_{x\in G} |f(x)| \\
   \leq & \frac{|\operatorname{supp}(f)|^{1/2}}{|G|^{1/2}} \left( \frac{1}{|G|} \sum_{x\in G} |f(x)|^2 \right)^{1/2} \\
   \leq & \frac{|\operatorname{supp}(f)|^{1/2}}{|G|^{1/2}} \left( \sum_{\xi\in G} |\widehat{f}(\xi)|^2 \right)^{1/2} \\
-  leq & \frac{|\operatorname{supp}(f)|^{1/2} |\operatorname{supp}(\widehat{f})|^{1/2}}{|G|^{1/2}} \|\widehat{f}\|_{\ell^\infty} \ ,
+  \leq & \frac{|\operatorname{supp}(f)|^{1/2} |\operatorname{supp}(\widehat{f})|^{1/2}}{|G|^{1/2}} \|\widehat{f}\|_{\ell^\infty} \ ,
   \end{align*}$$
   我们得到经典的 <i>不确定性定理</i>
 </p>
 <p class="thm">
-  <b>定理2</b> (classical uncertainty principle, CUP)<b>.</b> 设 $G$ 是一个FAG, 则任意非零的 $f: G\to \mathbb{C}$ 都满足
+  <b>定理2</b> (uncertainty principle, UP)<b>.</b> 设 $G$ 是一个FAG, 则任意非零的 $f: G\to \mathbb{C}$ 都满足
   $$|\operatorname{supp}(f)| |\operatorname{supp}(\widehat{f})| \geq |G| \ .\tag{2}$$
 </p>
 <p>
   <b>注.</b> 进一步地，$(1)$ 的等号成立 iff 存在子群 $H\leq G$ s.t. $f, \widehat{f}$ 当中有一个 $=\mathbf{1}_H$ . 
 </p>
 <p>
-  现在回到定理1的背景. 假设我们选出了支集为 $A, B$ 的两个函数 $f, g$ , 那么 $\operatorname{supp}(f\star g) \subset A+B$ , $\operatorname{supp} (\widehat{f\star g}) = \operatorname{supp} (\widehat{f}\widehat{g}) = \widehat{A}\cap \widehat{B}$ , 其中 $\widehat{A} , \widehat{B}$ 是 $f, g$ 的Fourier支集. 因此利用不确定性原理，只要可以控制 $|\widehat{A}\cap \widehat{B}|$ 我们就能期待 $|A+B|$ 的下界. 但CUP的强度并不足够：
-  $$(2)\Rightarrow |\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq 2p^{1/2} \ ,$$
-  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了CUP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 情形我们应当能做到更好. 此时一个来自代数数论的引理给予我们启发：
+  现在回到定理1的背景. 假设我们选出了支集为 $A, B$ 的两个函数 $f, g$ , 那么 
+  $$\operatorname{supp}(f* g) \subset A+B \ , \ \operatorname{supp} (\widehat{f* g}) = \operatorname{supp} (\widehat{f} \widehat{g}) = \widehat{A}\cap \widehat{B}\ ,$$
+  其中 $\widehat{A} , \widehat{B}$ 是 $f, g$ 的Fourier支集. 因此利用不确定性原理，只要可以控制 $|\widehat{A}\cap \widehat{B}|$ 我们就能期待 $|A+B|$ 的下界. 但UP的强度仍然不够：
+  $$(2)\Rightarrow |\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq 2p^{1/2}$$
+  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了UP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 情形我们应当能做到更好. 一个来自代数数论的引理能给予我们启发：
 </p>
 <p class="thm">
   <b>引理3</b> (Chebotarëv)<b>.</b> 设整数 $1\leq n\leq p$ . 令 $\{x_1, ... , x_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 两两不同，$\{\xi_1, ... , \xi_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 同样两两不同. 则矩阵
@@ -62,6 +66,23 @@
 </p>
 <p>
   让我们更仔细地理解引理与不确定性原理的联系. TBA...
+</p>
+<p class="thm">
+  <b>推论4.</b> 设非空 $A, \tilde{A} \subset \mathbb{Z}/p\mathbb{Z}$ , $|A|=|\tilde{A}|$ . 则Fourier projection
+  $$T:\ell^2(A)\to\ell^2(\tilde{A}) \ , \ f\mapsto \widehat{f}\mid_{\tilde{A}}$$
+  是线性同构映射. 
+</p>
+<p class="thm">
+  <b>定理5</b> (Sharp version for $\mathbb{Z}/p\mathbb{Z}$ , $p$-UC)<b>.</b> 设 $f: \mathbb{Z}/p\mathbb{Z} \to \mathbb{C}$ 非零，则
+  $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq p+1 \.$$
+  进一步地，如果非空 $A,B\subset \mathbb{Z}/p\mathbb{Z}$ 满足 $|A|+|B|\geq p+1$ , 则存在 $f$ s.t. 
+  $$\operatorname{supp}(f)=A \ , \ \operatorname{supp}(\widehat{f})=B \ .$$
+</p>
+<p class="thm">
+  <b>命题6.</b> $p$-UC $\Rightarrow$ 引理3.
+</p>
+<p class="thm">
+  <b>引理7.</b> 设有素数 $p$ , 正整数 $n$ 和多项式 $P\in \mathbb{Z}[x_1, ..., x_n]$ . 如果存在 $n$ 个（可以重复的） $p$ 阶单位根 $\omega_1, ..., \omega_n$ s.t. $P(\omega_1, ..., \omega_n)=0$ , 则 $p | P(1,..., 1)$ .
 </p>
 </div>
 
