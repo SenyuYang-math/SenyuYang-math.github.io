@@ -7,11 +7,31 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  利用上一篇博客 <a href="./blog22.html" targer="_blank">向量场方法，局部化与色散</a> 的结果，现在我们对共振项做尺度归纳，并收束于这个系列的最终目标：<a href="./blog19.html" target="_blank">[定理1 & 定理2, Ⅰ]</a> . 
+  利用上一篇博客 <a href="./blog22.html" targer="_blank">向量场方法，局部化与色散</a> 的结果，现在我们对共振项做bootstrap, 并收束于这个系列的最终目标：<a href="./blog19.html" target="_blank">[定理1&2, Ⅰ]</a> . 
 </p>
 <h2>共振项的bootstrap, 完成定理1</h2>
 <p>
-  TBA
+  回顾 <a href="./blog21.html" target="_blank">透射项</a> 一节的设定：我们选取了共振尺度 $\rho_0=R^c r$ , 并约定了adjacent pair $\kappa\approx\kappa'$ 作为共振条件. 现在我们还需要估计共振项 $(10)$ , i.e. 证明
+  $$\| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{(1-c)\alpha+C\epsilon} \ .$$
+  如 $(12)$ 同样的论证，可以归约为证明
+  $$\begin{align*}\tag{18}
+  \| Q( \phi_\kappa, \psi_{\kappa'} )\|_{L^2(\mathbf{Q}_R)}^2 \lesssim & R^{2(1-c)\alpha+2C\epsilon} \left(\sum_{T \in T(\kappa)} E(\phi_T)\right) \left(\sum_{T' \in T'(\kappa')} E(\psi_{T'})\right) \\
+  & + R^{-25n}
+  \end{align*}$$
+  对任意一对adjacent pair $\kappa, \kappa'$ 一致地成立. 因此固定 $\kappa, \kappa'$ 并展开
+  $$\| Q( \phi_\kappa, \psi_{\kappa'} )\|_{L^2(\mathbf{Q}_R)}^2=\|\sum_{T\in\mathbf{T}(\kappa), T'\in\mathbf{T}(\kappa')} Q(\phi_T,\psi_{T'})\|_{L^2(\mathbf{Q}_R)} \ .$$
+  与共振项类似，我们继续将问题约化为 $T\cap T'\neq \emptyset$ 的情形. 此时由共振条件，每个 $T$ 只与 $O(R^{C'(c+\epsilon)})$ 个 $T'$ 相交，反之亦然；事实上根据tube分解的构造，可知同一族 $\mathbb{T}$ 的tube的初始位置两两间隔 $\geq R^{-\epsilon}r$ , 而 $\kappa, \kappa'$ 尺度为 $\rho_0$ . 于是只需估计
+  $$R^{2C'(c+\epsilon)} \sum_{T\in\mathbf{T}(\kappa), T'\in\mathbf{T}(\kappa')} \|Q(\phi_T,\psi_{T'})\|_{L^2(\mathbf{Q}_R)} \ .$$
+  这里化归为 $\ell^2$ 求和正是为了应用tube分解的几乎正交性，因此只需证明
+  $$R^{2C'(c+\epsilon)}\|Q(\phi_T,\psi_{T'})\|_{L^2(\mathbf{Q}_R)} \lesssim R^{2(1-c)\alpha+C\epsilon}E[\phi_T]E[\psi_{T'}] + R^{-40n} \ .\tag{19}$$
+  而根据上一篇博客最后对null form证明的 $(\text{Impv-}L^2)$ （取 $Lambda\sim \rho_0$）
+  $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{\rho_0}{R}\right)^{\frac{n+1}{2}}E[\phi_T]E[\psi_{T'}] + R^{-40n} \ .$$
+  于是在时间区间 $R\leq t\leq 2R$ 上积分，当 $c\ll 1$ , $r\ll R^{2/3}$ 即有 
+  $$\begin{align*}
+  \|Q(\phi_T,\psi_{T'})\|_{L^2(\mathbf{Q}_R)} \lesssim & R^{1/2} R^{Cc}\left(\frac{r}{R}\right)^{\frac{n+1}{2}}E[\phi_T]E[\psi_{T'}] +R^{-35n} \\
+  \lesssim & R^{-\delta}E[\phi_T]E[\psi_{T'}]+R^{-35n} \ , \tag{20}
+  \end{align*}$$
+  其中 $\delta >0$ 是一个绝对常数. 进一步调整 $c,\epsilon\ll 1$ , 于是 $(19)$——进而引理6和定理1得证.&emsp;$\Box$
 </p>
 <h2>定理2的证明：$\mathbf{Q}_R$ 的拼贴</h2>
 <p>
