@@ -24,7 +24,7 @@
 </p>
 <p>
   这个定理的代数证明（N. Alon的Combinatorial Nullstellensatz）已经广为传诵（参见 @Yifan老师 的 这篇文章）. 相较于多项式方法，现在我们从调和分析的角度，i.e. 选择Fourier basis来看待C-D定理. 我们先快速回忆一般的有限交换群（finite abelian group, FAG）上的调和分析：设 $G$ 是一个FAG, $e: G\times G \to S^1\subset \mathbb{C}$ 是 $G$ 一个非退化的bi-character, e.g. 对于一般的循环群 $\mathbb{Z}/N\mathbb{Z}$ 有 
-  $$e=e(x,\xi):= e^{\frac{2\pi i x\xi}{N}}\ .$$
+  $$e=e(x,\xi):= e^{2\pi i x\xi/N}\ .$$
   那么任意 $f: G\to \mathbb{C}$ 都可以定义 <i>Fourier变换</i> $\widehat{f} : G\to \mathbb{C}$ 为
   $$\widehat{f}(\xi) := \frac{1}{|G|} \sum_{x\in G} f(x) \overline{e(x,\xi)} \ .$$
   $\{e(\cdot , \xi) \}$ 作为 $\ell^2(G)$ 上的一组正交Fourier基，同样有 <i>Plancherel identity</i>
@@ -61,13 +61,13 @@
 </p>
 <p class="thm">
   <b>引理3</b> (Chebotarëv)<b>.</b> 设整数 $1\leq n\leq p$ . 令 $\{x_1, ... , x_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 两两不同，$\{\xi_1, ... , \xi_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 同样两两不同. 则矩阵
-  $$F_n:=\left( e^{\frac{2\pi i x_j\xi_k}{p}}\right)_{1\leq j, k \leq n}$$
+  $$F_n:=\left( e^{2\pi i x_j\xi_k/p}\right)_{1\leq j, k \leq n}$$
   的 $\det \neq 0$ , i.e. $F_n$ 非退化.
 </p>
 <p>
   证明留给附录（还有彩蛋喔）. 现在我们考虑任意的 $A=\{x_1, ..., x_n\}$ 和 $\tilde{A}=\{\xi_1, ..., \xi_n\}$ , 那么Fourier变换 $\mathcal{F}$ 作为线性变换与projection $P: \mathbb{C}^p\to \mathbb{C}^{|\tilde{A}|}$ 的复合 
   $$T=\pi\circ\mathcal{F}: f\mapsto \widehat{f}|_{\tilde{A}}$$ 
-  的矩阵表示就是 $F_n$ , i.e. $T$ 是线性同构映射. 于是对于非零 $f\in \ell^2{A}$ , 任何足够大（$\geq |A|$）的集合一定与 $\operatorname{supp}(\widehat{f})$ 相交，一个 <i>线性版本</i> 的UC就很自然了：
+  的矩阵表示就是 $F_n$ , i.e. $T$ 是线性同构映射. 于是对于非零 $f\in \ell^2(A)$ , 任何足够大（$\geq |A|$）的集合一定与 $\operatorname{supp}(\widehat{f})$ 相交，一个 <i>线性形式</i> 的UC就很自然了：
 </p>
 <p class="thm">
   <b>定理4</b> ($\mathbb{Z}/p\mathbb{Z}$ version, $p$-UC)<b>.</b> 设 $f: \mathbb{Z}/p\mathbb{Z} \to \mathbb{C}$ 非零，则
@@ -82,12 +82,14 @@
   事实上 $T$ 作为同构映射预示了一个表面上不可思议的联系（这一点[1]没有明说）
 </p>
 <p clas"thm">
-  <b>命题5</b> ($\mathbb{Z}/p\mathbb{Z}$ 的分析 $leftrightarrow$ 分圆数 $e^{2\pi i/p}$ 的代数)<b>.</b> $p$-UC $\Leftrightarrow$ Chebotarëv引理. 
+  <b>命题5</b> ($\mathbb{Z}/p\mathbb{Z}$ 的分析 $\leftrightarrow$ 分圆数 $e^{2\pi i/p}$ 的代数)<b>.</b> $p$-UC $\Leftrightarrow$ Chebotarëv引理. 
 </p>
 <p>
-  <i>证明</i>. 只需证明（$Rightarrow$）. 反证法：采用Chebotarëv引理的记号，假设存在 $1\leq n\leq p$ s.t. $\det F_n = 0$ . 于是存在非零的 $\mathbf{v}=(v_1, ..., v_n)\in \mathbb{C}^n$ s.t. $F_n \mathbf{v} = 0$ . 我们构造
-  $$f(x_j)=\bar{v_j}\ \text{for} \ 1\leq j\leq n \ ; \ f(x)=0 \ , \ \text{o.w.} \ .$$
-  由 $\mathbf{v}$ 的定义，Fourier变换 $\widehat{f}(\xi_k)=0$ 对任意 $1\leq k \leq n$ 成立. 所以 $|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \leq n+(p-n) =n$ , 与 $p$-UC矛盾！因此引理3得证.&emsp;$\Box$
+  <i>证明</i>. 只需证明（$\Rightarrow$）. 反证法：采用Chebotarëv引理的记号，假设存在 $1\leq n\leq p$ s.t. $\det F_n = 0$ . 于是存在非零的 $\mathbf{v}=(v_1, ..., v_n)\in \mathbb{C}^n$ s.t. $F_n \mathbf{v} = 0$ . 我们构造
+  $$f(x_j)=\bar{v_j}\ \text{for} \ 1\leq j\leq n \ ; \ f(x)=0 \ , \ \text{o.w.}$$
+  由 $\mathbf{v}$ 的定义，Fourier变换 $\widehat{f}(\xi_k)=0$ 对任意 $1\leq k \leq n$ 成立. 所以 
+  $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \leq n+(p-n) =n\ ,$$
+  与 $p$-UC矛盾！因此引理3得证.&emsp;$\Box$
 </p>
 <p>
   <b>注.</b> 不少代数方向的朋友和偶谈过调和分析与表示论，数论云云的联系，e.g. Tate's thesis. 偶自然一窍不通，只好抛砖引玉留给读者探索.
@@ -100,7 +102,7 @@
   $$\operatorname{supp}(f)=A \ \text{and} \ \operatorname{supp}(\widehat{f})=B\ .$$
 </p>
 <p>
-  <i>证明.</i> 我们选取一个 $\tilede{A}\subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|\tilde{A}|=|A|$ 且 $\tilde{A}\cap B$ 为单点集（记为 $\{\xi_0\}$）. $T$ 可逆，因此存在 $f$ s.t. $\operatorname{supp}(\widehat{f})\cap \tilde{A} = \{\xi_0\}$ . 又 $|\tilde{A}|+|B|=p+1$ , 所以 $\operatorname{supp}(\widehat{f})\subset B$ . 现在由 $p$-UC 可知 
+  <i>证明.</i> 我们选取一个 $\tilde{A}\subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|\tilde{A}|=|A|$ 且 $\tilde{A}\cap B$ 为单点集（记为 $\{\xi_0\}$）. $T$ 可逆，因此存在 $f$ s.t. $\operatorname{supp}(\widehat{f})\cap \tilde{A} = \{\xi_0\}$ . 又 $|\tilde{A}|+|B|=p+1$ , 所以 $\operatorname{supp}(\widehat{f})\subset B$ . 现在由 $p$-UC 可知 
   $$|\operatorname{supp}(\widehat{f})|\geq p+1-|A|=|B|\ ,$$
   因此 $\operatorname{supp}(\widehat{f})=B$ .&emsp;$\Box$
 </p>
@@ -108,7 +110,11 @@
   借助这个sharp构造，我们终于能将组合对象实现为 $f, \widehat{f}$ 的支集.
 </p>
 <p>
-  <i>C-D定理的证明.</i> 根据之前关于卷积的讨论，我们选取 $X,Y \subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|X|=p+1-|A|$ , $|Y|=p+1-|B|$ , 并且调整至 $|X\cap Y|=\max (|X|+|Y|-p, 1)$（容斥原理）. 于是存在 $f\neq 0$ s.t. $\operatorname{supp}(f)=A$ , $\operatorname{supp}(\widehat{f})=X$ ; $B, Y$ 有相应的 $g\neq 0$ . $f*g$ 的 $p$-UC即得到
+  <i>C-D定理的证明.</i> 根据之前关于卷积的讨论，我们选取 $X,Y \subset \mathbb{Z}/p\mathbb{Z}$ s.t. 
+  $$|X|=p+1-|A|\ ,\ |Y|=p+1-|B|\ ,$$
+  并且由容斥原理调整至 
+  $$|X\cap Y|=\max (|X|+|Y|-p, 1)\ .$$ 
+  于是存在 $f\neq 0$ s.t. $\operatorname{supp}(f)=A$ , $\operatorname{supp}(\widehat{f})=X$ ; $B, Y$ 有相应的 $g\neq 0$ . $f*g$ 的 $p$-UC即得到
   $$|A+B|\geq p+1-|X\cap Y|\geq \min (|A|+|B|-1, p) \ ,$$
   C-D定理得证.&emsp;$\Box$
 </p>
