@@ -23,7 +23,7 @@
   与共振项类似，我们继续将问题约化为在 $\mathbf{Q}_R$ 中 $T\cap T'\neq \emptyset$ 的情形. 此时由共振条件，每个 $T$ 只与 $O(R^{C'(c+\epsilon)})$ 个 $T'$ 相交，反之亦然；事实上根据tube分解的构造，可知同一族 $\mathbb{T}$ 的tube的初始位置两两间隔 $\geq R^{-\epsilon}r$ , 而 $\kappa, \kappa'$ 尺度为 $\rho_0$ . 于是只需估计
   $$R^{2C'(c+\epsilon)} \sum_{T\in\mathbf{T}(\kappa), T'\in\mathbf{T}(\kappa')} \|Q(\phi_T,\psi_{T'})\|_{L^2(\mathbf{Q}_R)}^2 \ .$$
   这里化归为 $\ell^2$ 求和正是为了应用tube分解的几乎正交性，因此只需证明
-  $$R^{2C'(c+\epsilon)}\|Q(\phi_T,\psi_{T'})\|_{L^2(\mathbf{Q}_R)}^2 \lesssim R^{2(1-c)\alpha+C\epsilon}E[\phi_T]E[\psi_{T'}] + R^{-70n} \ .\tag{19}$$
+  $$R^{2C'(c+\epsilon)}\|Q(\phi_T,\psi_{T'})\|_{L^2(\mathbf{Q}_R)}^2 \lesssim R^{2(1-c)\alpha}E[\phi_T]E[\psi_{T'}] + R^{-70n} \ .\tag{19}$$
   而根据上一篇博客最后对null form证明的 $(\text{Impv-}L^2)$ （取 $\Lambda\sim \rho_0$）
   $$\|Q(\phi,\psi)(t)\|_{L^2} \lesssim \left(\frac{\rho_0}{R}\right)^{\frac{n+1}{2}}E[\phi_T]^{1/2}E[\psi_{T'}]^{1/2} + R^{-40n} \ .$$
   于是在时间区间 $R\leq t\leq 2R$ 上积分，当 $c\ll 1$ , $r\ll R^{2/3}$ 即有 
@@ -37,7 +37,10 @@
   <b>注.</b> 使用 $(\text{Impv-}L^2)$ 应当格外小心：首先，根据tube局部化的定义，局部化估计 $(7), (8)$ 只在 $R/2\leq t\leq 5R/2$ 上成立，因此 $(\text{Impv-}L^2)$ 的初值曲面应当调整为 $\{t=R/2\}$ , 但因为我们在 $t-R/2\gtrsim R$ 上做估计，因此向量场方法——进而 $(\text{Impv-}L^2)$ 依然成立；另外，因为 $\kappa\approx\kappa'$ 且在 $\mathbf{Q}_R$ 中 $T\cap T'\neq \emptyset$ , 所以在 $t=R/2$ 时 $\phi_T, \psi_{T'}$ 仍然保持 $(\Lambda\text{-Local})$ 的条件.
 </p>
 <p>
-  <b>注.</b> 
+  <b>注.</b> 事实上根据共振条件和在 $\mathbf{Q}_R$ 相交的条件，可知 $\phi_\kappa , \psi_{\kappa'}$ 在 $t=R/2$ 时仍然保持 $(\Lambda\text{-Local})$ 的条件（$\Lambda\sim 2\rho_0$）. 因此上述证明可以更加精简 i.e. 无需展开 $Q(\phi_\kappa, \psi_{\kappa'})$ .
+</p>
+<p>
+  <b>注.</b> 因为做 $R\leq t\leq 2R$ 的积分，所以如果没有null condition, 在 $n=2, 3$ 时我们无法得到 $(20)$ .
 </p>
 <h2>定理2的证明：$\mathbf{Q}_R$ 的拼贴</h2>
 <p>
