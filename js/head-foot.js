@@ -4,12 +4,12 @@ headnav.insertAdjacentHTML('afterbegin', '<div id="headnav" class="head"></div>'
 const footbar = document.getElementById('body');
 footbar.insertAdjacentHTML('beforeend', '<div id="footbar" class="foot"></div>');
 // 调用html模板
-fetch('../temp/head.html')
+fetch('senyuyang-math.github.io/temp/head.html')
             .then(response => response.text())
             .then(data => {
                 document.querySelector('#headnav').innerHTML = data;
             });
-fetch('../temp/foot.html')
+fetch('senyuyang-math.github.io/temp/foot.html')
             .then(response => response.text())
             .then(data => {
                 document.querySelector('#footbar').innerHTML = data;
