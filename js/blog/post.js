@@ -20,7 +20,7 @@ var number = Number(urltxt.substring(11,urllength-5));
   headfoot.src = '../../js/head-foot.js';
   headfoot.async = true;
   document.body.appendChild(headfoot);
-async function() {
+async function title() {
 //文章标题区块
   await function titlesetup() {
     const titleblock = document.getElementById('container');
