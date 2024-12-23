@@ -42,8 +42,10 @@ function infoinput() {
     bloginfo.async = true;
     document.body.appendChild(bloginfo);
 }
+const titleload = async function() {
 await title();
 infoinput();
+}
 //创建文末功能区
 const bottom = document.getElementById('container');
 bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');  
