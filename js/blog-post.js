@@ -1,3 +1,11 @@
+// 网页数据
+var amount = btitle.length;
+// 获取网址
+var urltxt = window.location.pathname.toString();
+var urllength = urltxt.length;
+// 获取文章序数
+var year = Number(urltxt.substring(6, 10));
+var number = Number(urltxt.substring(11,urllength-5));
 // 整体样式
   var meta = document.createElement('meta');
   meta.charset = 'utf-8';
@@ -22,7 +30,7 @@ icon.async = true;
 document.head.appendChild(icon);
 // 文章标题, 正文末尾
   var blogtitle = document.createElement('script');
-  blogtitle.src = 'https://senyuyang-math.github.io/js/blog-list-2024.js';
+  blogtitle.src = 'https://senyuyang-math.github.io/js/blog-list-' + year + '.js';
   blogtitle.async = true;
   document.body.appendChild(blogtitle);
 // 配置Mathjax
