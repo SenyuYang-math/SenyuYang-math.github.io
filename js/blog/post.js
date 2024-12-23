@@ -21,9 +21,9 @@ var number = Number(urltxt.substring(11,urllength-5));
   headfoot.async = true;
   document.body.appendChild(headfoot);
 //文章标题区块
-  var titlescr = document.creatElement('script');
+  var titlescr = document.createElement('script');
   titlesrc.src = '../../js/title.js';
-  titlesrc.onload = infoinput();
+  titlesrc.onload = 'infoinput()';
   document.body.appendChild(titlesrc);
 // 导入文章信息
 function infoinput() {
