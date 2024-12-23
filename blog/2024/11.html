@@ -1,0 +1,124 @@
+<html>
+<head>  
+<title>等宽曲线和Crofton公式</title>
+</head>
+        
+<body id="body">
+<!-- 正文区块 -->
+<div id="container" class="container">
+<p>
+咕咕了很久呀~今天的主题来自积分几何(integral geometry)的Crofton公式. 
+</p>        
+<h2>
+  丘赛题中的等宽曲线
+</h2>
+<p>
+起因有朋友问了2021年丘赛分析组面试第3题，做完后觉得蛮有趣<span style="text-decoration: line-through">并且觉得博客不能再灌水了</span>于是想着多讲一些吧（笑）
+</p>
+<p class="thm">
+  <b>问题.</b> 设单位圆周 $S^1 \subset \mathbb{R}^2$. 对任意 $v \in S^1$, 定义映射 $\pi_v: \mathbb{R}^2 \to \mathbb{R}$, $\pi_v(x)=\left\langle v, x\right\rangle$. 设 $A, B \subset \mathbb{R}^2$是凸(convex)的有界开集，$m$是 $\mathbb{R}$上的Lebesgue测度.<br/>
+  (i) 如果对任意 $v \in S^1$有 $m(\pi_v(A)) = m(\pi_v(B))$, 能否得到 $A = B$？在等距同构(isometric)意义下呢？<br/>
+  (ii) 如果对任意 $v \in S^1$有 $\pi_v(A) = \pi_v(B)$, 能否得到 $A = B$？<br/>
+</p>
+<p>
+  <em>解</em>. 先证明(ii)成立，用反证法. 假设存在$x \in B \setminus A$. $\{x\}, A$都是凸集，$\mathrm{Int} (A) \neq \emptyset$. 由Hahn-Banach分离定理存在一个连续线性函数(超平面)$\mathit{l}: \mathbb{R}^2\to \mathbb{R}$ s.t. $l(A) \lt l(x)$. 再由Riesz表示定理，存在$v\in \mathbb{R}^2$ s.t. $\mathit{l} \equiv \pi_v$. 做scaling即可令$v \in S^1$, 此时$\pi_v(B)\neq \pi_v(A)$, 矛盾！对$x \in A \setminus B$同理. 所以$A = B$，换言之凸集的形状和位置可由其所有方向的投影完全决定. &emsp;$\Box$
+</p>
+<p>
+  回到(i). 第一个论断显然不成立. 对于第二个论断，考虑最简单最对称的凸集：单位圆盘$\mathbb{D}$, 对任意$v \in S^1$有$\pi_v(\mathbb{D}) = (-1,1)$, $m \equiv 2$. 这个性质被称为<b>等宽</b>(shape of constant width). 那么还有与圆不同的等宽图形么？一个经典例子就是勒洛三角形(Reuleaux triangle), 构造如下：
+</p>
+<p style="text-align: center">
+  <img style="width:50%; position: center; margin: 0 auto" src="https://p1.ssl.qhimg.com/t014150e48e086a37bd.jpg">
+</p>
+<p style="text-align: center">        
+<em>给定一个等边三角形. 以每个顶点为圆心，边长为半径作以对边为弦的圆弧. 这三段圆弧围成的闭曲线的内部即为勒洛三角形.</em>
+</p>       
+<p>  
+  从作图过程可以直接得出等宽性，做适当的scaling就能使其投影的长度恒为$2$. 所以第二个论断也是错误的. &emsp;$\Box$
+</p>
+<p>再附上两个初等的思考题</p>
+<p>
+ <b>Q0:</b> 说明勒洛三角形和圆不满足(ii)的条件.
+</p>
+<p>
+  <b>Q1:</b> 对一般的$n$能否构造勒洛$n$边形（即在每条边上接一段相等的圆弧使其等宽）？
+</p>
+<p>
+  <b>Q2:</b> 尝试从勒洛三角形出发构造一个不同于圆的无尖点的凸等宽曲线.
+</p>
+<h2>
+  Barbier定理，Crofton公式
+</h2>
+<p>
+  关于等宽图形的边界——等宽曲线(curve of constant width)还有许多有趣的性质，比如
+</p>   
+<p class="thm">
+  <b>定理.</b>(Barbier) 宽度为 $w>0$的任意正则凸等宽曲线的周长都是 $\pi w$.
+</p>
+<p>
+  而这个神奇的定理又是更神奇的Crofton公式的直接推论. 首先铺设好舞台.  
+</p>
+<p class="thm">
+  <b>定义1.</b> 一条<b>平面正则曲线</b>(regular plane curve) $C$ 是指一个分段 $C^1$函数 $C: [0, L] \to \mathbb{R}^2$, $s \mapsto (x(s), y(s))$, 其中 $\vert x'(s) \vert^2 + \vert y'(s)\vert^2 \equiv 1 $. 称 $L$为 $C$的<b>周长</b>.<br/><br/><br/>
+  <b>定义2.</b> $\mathrm{Af}:=\mathrm{Gr}_1(\mathbb{R}^2)$是 $\mathbb{R}^2$上全体仿射直线 $l: s\in \mathbb{R} \mapsto w+sv \in \mathbb{R}^2$ $(w,v \in \mathbb{R}^2)$构成的集合.
+</p>
+<p>
+  自然我们希望能用坐标1-1地描述$\mathrm{Af}$, 这里我们采用如图的$(\theta, t)\in \mathbb{R}^2$方案，
+</p>
+<p style="text-align: center"><img style="width:50%" src="../../record/img/Af-coord.png" alt="coordiante of affine line" title="(θ,t)坐标"></p>
+<p>
+  其中当$t\neq 0$时，其符号为正当且仅当$l$的法向量$(\cos \theta, \sin \theta)$指向$l$. 为了得到1-1对应，我们商去以下等价关系
+  $$
+    \sim: (\theta+n\pi, t) \sim (\theta, (-1)^n t) , \ \forall n \in \mathbb{Z},     
+  $$
+  由此得到$\mathrm{Af}$与Mobius带同胚，$\theta \in [0, \pi)$. 我们当然可以将两张坐标卡$\mathcal{A}:=(0,\pi)\times \mathbb{R}$扭曲地(twisted)粘贴，使$\mathrm{Af}$成为一个微分流形. 自然可以在其中一张$\mathcal{A}$上定义平坦度量$g= d\theta^2+dt^2$以及对应的体积形式$dV_g= d\theta dt$. 这张坐标卡只与$\mathrm{Af}$相差一个零测集，在积分意义下已经足够.
+</p>
+<p>
+现在可以请主角登场了. 令人惊讶的地方在于Crofton公式几乎没有用到$C$的具体形状，甚至可以用Crofton公式对可微性更差的曲线定义“周长”，因此Crofton公式在计算机图形学中也有应用.
+</p>
+<p class="thm">
+  <b>Crofton公式</b> 记 $l\in \mathrm{Af}$与$C$的交点个数为 $\vert L \cap C \vert$，则有
+  $$
+    \int_{\mathrm{Af} } \vert l \cap C \vert \ dV_g  = 2L.
+  $$
+</p>
+<p>
+注意到对凸的正则闭曲线，$\vert l \cap C\vert =2$几乎处处成立，代入等宽条件即证明了Barbier定理！&emsp;$\Box$
+</p>
+<p>        
+下一节给出一种分析风味、本质是局部的证明，照搬了Wiki上的思路, 再补充了一点点细节.
+</p>      
+<h2>
+  证明（分析ver.）
+</h2>
+<p>
+  &emsp;<em>Step 1</em>. Crofton公式具有平移旋转不变性(Euclidean invariance). 事实上，右式的不变性我们在数学分析中已经学过；对于左式，任意一个欧氏变换都可实现为若干径向平移以及旋转的复合，细心讨论就会发现径向平移等价于对$t$平移, 旋转等价于对$\theta$的平移，都不会改变左式的值（说得时髦一些即$\int dt$和$\int d\theta$分别是Lie群$S^1$和$\mathbb{R}$上的不变积分）. 这个事实也可以表述为$V_g$是一个Euclidean invariant measure. 
+</p>
+<p>
+  &emsp;<em>Step 2</em>. $C$为一条线段的情形. 由不变性, 不妨将长为$L$的线段置于区间$[-L/2, L/2]$上. 对固定的$\theta \neq 0$, $t\in [-\vert \cos \theta \vert L/2, \vert \cos \theta \vert L/2]$. 于是
+  $$
+    \int_{\mathrm{Af} } \vert l \cap C \vert \ dV_g=\int_0^\pi d\theta \int_{-\vert \cos \theta \vert L/2}^{\vert \cos \theta \vert L/2} 1\ d\theta dt= 2L,
+  $$
+  Crofton公式成立.
+</p>
+<p>
+  &emsp;<em>Step 3</em>. 用若干线段逼近一般的正则曲线. 这步虽然很直观，但是由于$\vert l\cap C\vert$取值离散，没有直接的理由可以说明左式关于逼近的连续性！我们还需要花些功夫. 在$C$上取若干节点并用有限条线段$l_k$连接相邻两点 s.t. 在相邻节点之间$C=C_k$是$C^1$的. 由于$C^1$, 可以令每段$C_k$都位于$l_k$的同一侧；自然只需考虑$C$不是直线段的部分，因此进一步令每段$C_k$与$l_k$仅在节点处相交，且任意$l$的$\vert l \cap C_k \vert $有一致上界$M \lt \infty$. 可以取$l_k$的长度一致地小于一个$\epsilon > 0$ s.t. 每段$C_k$都含在$l_k$为底边的三角形$\Delta_k$之中(见下图)，每个$\Delta_k$的底角一致地小于一个$O(\epsilon) > 0$, 且$C_k$的各点处切线与$l_k$的夹角也以$\Delta_k$的底角为上界. 
+</p>
+<p style="text-align: center"><img src="../../record/img/curve-approx.png" alt="curve approximation" title="灵魂画手..." style="width:50%"></p>
+<p>
+  因此由中值定理可知
+  $$
+  \vert l \cap C_k \vert \equiv \vert l\cap l_k \vert, \ \text{if } \vert \operatorname{angle}(l, l_k) \vert \geq O(\epsilon).
+  $$
+  而$\operatorname{angle} \lt O(\epsilon)$时$t$的取值范围也是$O(\epsilon)$的，于是集合
+  $$
+  \mathrm{Ex}_k := \left\{ l \in \mathrm{Af}: \vert l \cap C_k \vert \neq \vert l\cap l_k \vert \right\}
+  $$
+  的测度被$\Delta_k$的面积控制，进而$\cup_k \mathrm{Ex}_k $的测度是$O(L\epsilon) \to 0$. 所以一般正则曲线的Crofton公式成立.&emsp;$\Box$
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../js/blog.js"></script>
+
+</body>   
+</html>
