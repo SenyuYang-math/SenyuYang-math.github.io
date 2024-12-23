@@ -25,16 +25,6 @@ var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
 mathjax.async = true;
 document.body.appendChild(mathjax);
-//文章标题区块
-function title() {
-  const titleblock = document.getElementById('container');
-  titleblock.insertAdjacentHTML('afterbegin', '<div id="titleblock"></div>');
-  fetch('../../temp/blog/title.html')
-    .then(response => response.text())
-    .then(data => {
-    document.querySelector('#titleblock').innerHTML = data;
-    });
-}
 // 导入文章信息
 function infoinput() {
     var bloginfo = document.createElement('script');
@@ -43,7 +33,11 @@ function infoinput() {
     document.body.appendChild(bloginfo);
 }
 async function titleload() {
-await title();
+const titleblock = document.getElementById('container');
+  titleblock.insertAdjacentHTML('afterbegin', '<div id="titleblock"></div>');
+  await fetch('../../temp/blog/title.html').then(response => response.text()).then(data => {
+    document.querySelector('#titleblock').innerHTML = data;
+  });
 infoinput();
 }
 titleload();
