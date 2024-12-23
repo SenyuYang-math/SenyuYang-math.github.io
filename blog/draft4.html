@@ -1,19 +1,19 @@
 <html>
 <head>  
-<title>不确定性原理，分圆数与Cauchy-Davenport定理</title>
+<title>不确定性原理，Cauchy-Davenport定理与分圆数</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  这期博客我们将沿着文章
+  你好2025！站在新的起点，我们在这期博客将沿着文章
 </p>
 <p>
   [1] T. Tao, <i>An uncertainty principle for cyclic groups of prime order</i>.
 </p>
 <p>
-  的路线探索一番. 我们约定 $p$ 是一个给定的素数；$|A|$ 表示一个有限集 $A$ 的基数（大小）；$|z|$ 代表 $z\in\mathbb{C}$ 的模.
+  的路线探索一番. 约定：$p$ 是一个给定的素数；$|A|$ 是有限集 $A$ 的基数（大小）；$|z|$ 是 $z\in\mathbb{C}$ 的模.
 </p>
 <p>
   首先是一个来自加性组合的著名结果. 
@@ -46,7 +46,7 @@
   我们得到经典的 <i>不确定性定理</i>
 </p>
 <p class="thm">
-  <b>定理2</b> (uncertainty principle, UP)<b>.</b> 设 $G$ 是一个FAG, 则任意非零的 $f: G\to \mathbb{C}$ 都满足
+  <b>定理2</b> (uncertainty principle, UCP)<b>.</b> 设 $G$ 是一个FAG, 则任意非零的 $f: G\to \mathbb{C}$ 都满足
   $$|\operatorname{supp}(f)| |\operatorname{supp}(\widehat{f})| \geq |G| \ .\tag{2}$$
 </p>
 <p>
@@ -55,9 +55,9 @@
 <p>
   现在回到定理1的背景. 假设我们选出了支集为 $A, B$ 的两个函数 $f, g$ , 那么卷积自然地联系上和集： 
   $$\operatorname{supp}(f* g) \subset A+B \ , \ \operatorname{supp} (\widehat{f* g}) = \operatorname{supp} (\widehat{f} \widehat{g}) = \widehat{A}\cap \widehat{B}\ ,$$
-  其中 $\widehat{A} , \widehat{B}$ 是 $f, g$ 的Fourier支集. 因此利用不确定性原理，只要可以控制 $|\widehat{A}\cap \widehat{B}|$ 我们就能期待 $|A+B|$ 的下界. 但UP的强度仍然不够：
+  其中 $\widehat{A} , \widehat{B}$ 是 $f, g$ 的Fourier支集. 因此根据UCP，只要可以控制 $|\widehat{A}\cap \widehat{B}|$ 我们就能期待 $|A+B|$ 的下界. 但UCP的强度仍然不够：
   $$(2)\Rightarrow |\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq 2p^{1/2}$$
-  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了UP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 情形我们应当能做到更好. 我们做些猜测：函数 $f: \mathbb{Z}/p\mathbb{Z}\to \mathbb{C}$ , 于是一一对应 $\mathbb{C}^p$ 中的向量；$\operatorname{supp}(f)=A$ 进一步将 $\mathbf{v}$ 限制为 $\mathbb{C}^{|A|}$ . 一个来自代数数论的引理能给予我们启发：
+  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了UCP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 应当有更好的结果. 我们做些讨论：函数 $f: \mathbb{Z}/p\mathbb{Z}\to \mathbb{C}$ , 于是一一对应 $\mathbb{C}^p$ 中的向量；$\operatorname{supp}(f)=A$ 进一步将 $\mathbf{v}$ 限制为 $\mathbb{C}^{|A|}$ . 一个来自代数数论的引理能给予我们启发：
 </p>
 <p class="thm">
   <b>引理3</b> (Chebotarëv)<b>.</b> 设整数 $1\leq n\leq p$ . 令 $\{x_1, ... , x_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 两两不同，$\{\xi_1, ... , \xi_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 同样两两不同. 则矩阵
@@ -67,29 +67,29 @@
 <p>
   证明留给附录（还有彩蛋喔）. 现在我们考虑任意的 $A=\{x_1, ..., x_n\}$ 和 $\tilde{A}=\{\xi_1, ..., \xi_n\}$ , 那么Fourier变换 $\mathcal{F}$ 作为线性变换与projection $P: \mathbb{C}^p\to \mathbb{C}^{|\tilde{A}|}$ 的复合 
   $$T=\pi\circ\mathcal{F}: f\mapsto \widehat{f}|_{\tilde{A}}$$ 
-  的矩阵表示就是 $F_n$ , i.e. $T$ 是线性同构映射. 于是对于非零 $f\in \ell^2(A)$ , 任何足够大（$\geq |A|$）的集合一定与 $\operatorname{supp}(\widehat{f})$ 相交，一个 <i>线性形式</i> 的UC就很自然了：
+  的矩阵表示就是 $F_n$ , i.e. $T$ 是线性同构映射. 于是对于非零 $f\in \ell^2(A)$ , 任何足够大（$\geq |A|$）的集合一定与 $\operatorname{supp}(\widehat{f})$ 相交，一个 <i>线性形式</i> 的UCP就很自然了：
 </p>
 <p class="thm">
-  <b>定理4</b> ($\mathbb{Z}/p\mathbb{Z}$ version, $p$-UC)<b>.</b> 设 $f: \mathbb{Z}/p\mathbb{Z} \to \mathbb{C}$ 非零，则
-  $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq p+1 \ .$$
+  <b>定理4</b> ($\mathbb{Z}/p\mathbb{Z}$ version, $p$-UCP)<b>.</b> 设 $f: \mathbb{Z}/p\mathbb{Z} \to \mathbb{C}$ 非零，则
+  $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq p+1 \ . \tag{3}$$
 </p>
 <p>
   <i>证明.</i> 反证法. 假设存在 $f\neq 0$ s.t. $|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \leq p$ . 我们记 $A=\operatorname{supp}(f)$ , 则由假设可知存在一个 $\tilde{A}$ s.t. 
   $$|\tilde{A}|=|A| \ \text{and} \ \tilde{A}\cap \operatorname{supp}(\widehat{f}) =\emptyset\ .$$ 
-  此时有 $Tf=0$ , 与 $T$ 是同构矛盾！因此 $p$-UC得证.&emsp;$\Box$ 
+  此时有 $Tf=0$ , 与 $T$ 是同构矛盾！因此 $p$-UCP得证.&emsp;$\Box$ 
 </p>
 <p>
   事实上 $T$ 作为同构映射预示了一个表面上不可思议的联系（这一点[1]没有明说）
 </p>
-<p clas"thm">
-  <b>命题5</b> ($\mathbb{Z}/p\mathbb{Z}$ 的分析 $\leftrightarrow$ 分圆数 $e^{2\pi i/p}$ 的代数)<b>.</b> $p$-UC $\Leftrightarrow$ Chebotarëv引理. 
+<p class="thm">
+  <b>命题5</b> ($\mathbb{Z}/p\mathbb{Z}$ 的分析 $\leftrightarrow$ 分圆数 $e^{2\pi i/p}$ 的代数)<b>.</b> $p$-UCP $\Leftrightarrow$ Chebotarëv引理. 
 </p>
 <p>
   <i>证明</i>. 只需证明（$\Rightarrow$）. 反证法：采用Chebotarëv引理的记号，假设存在 $1\leq n\leq p$ s.t. $\det F_n = 0$ . 于是存在非零的 $\mathbf{v}=(v_1, ..., v_n)\in \mathbb{C}^n$ s.t. $F_n \mathbf{v} = 0$ . 我们构造
   $$f(x_j)=\bar{v_j}\ \text{for} \ 1\leq j\leq n \ ; \ f(x)=0 \ , \ \text{o.w.}$$
   由 $\mathbf{v}$ 的定义，Fourier变换 $\widehat{f}(\xi_k)=0$ 对任意 $1\leq k \leq n$ 成立. 所以 
   $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \leq n+(p-n) =n\ ,$$
-  与 $p$-UC矛盾！因此引理3得证.&emsp;$\Box$
+  与 $p$-UCP矛盾！因此引理3得证.&emsp;$\Box$
 </p>
 <p>
   <b>注.</b> 不少代数方向的朋友和偶谈过调和分析与表示论，数论云云的联系，e.g. Tate's thesis. 偶自然一窍不通，只好抛砖引玉留给读者探索.
@@ -102,7 +102,7 @@
   $$\operatorname{supp}(f)=A \ \text{and} \ \operatorname{supp}(\widehat{f})=B\ .$$
 </p>
 <p>
-  <i>证明.</i> 我们选取一个 $\tilde{A}\subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|\tilde{A}|=|A|$ 且 $\tilde{A}\cap B$ 为单点集（记为 $\{\xi_0\}$）. $T$ 可逆，因此存在 $f$ s.t. $\operatorname{supp}(\widehat{f})\cap \tilde{A} = \{\xi_0\}$ . 又 $|\tilde{A}|+|B|=p+1$ , 所以 $\operatorname{supp}(\widehat{f})\subset B$ . 现在由 $p$-UC 可知 
+  <i>证明.</i> 我们选取一个 $\tilde{A}\subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|\tilde{A}|=|A|$ 且 $\tilde{A}\cap B$ 为单点集（记为 $\{\xi_0\}$）. $T$ 可逆，因此存在 $f$ s.t. $\operatorname{supp}(\widehat{f})\cap \tilde{A} = \{\xi_0\}$ . 又 $|\tilde{A}|+|B|=p+1$ , 所以 $\operatorname{supp}(\widehat{f})\subset B$ . 现在由 $p$-UCP可知 
   $$|\operatorname{supp}(\widehat{f})|\geq p+1-|A|=|B|\ ,$$
   因此 $\operatorname{supp}(\widehat{f})=B$ .&emsp;$\Box$
 </p>
@@ -114,20 +114,36 @@
   $$|X|=p+1-|A|\ ,\ |Y|=p+1-|B|\ ,$$
   并且由容斥原理调整至 
   $$|X\cap Y|=\max (|X|+|Y|-p, 1)\ .$$ 
-  于是存在 $f\neq 0$ s.t. $\operatorname{supp}(f)=A$ , $\operatorname{supp}(\widehat{f})=X$ ; $B, Y$ 有相应的 $g\neq 0$ . $f*g$ 的 $p$-UC即得到
+  于是存在 $f\neq 0$ s.t. $\operatorname{supp}(f)=A$ , $\operatorname{supp}(\widehat{f})=X$ ; $B, Y$ 有相应的 $g\neq 0$ . $f*g$ 的 $p$-UCP即得到
   $$|A+B|\geq p+1-|X\cap Y|\geq \min (|A|+|B|-1, p) \ ,$$
   C-D定理得证.&emsp;$\Box$
 </p>
-<h2>附录A：引理3的证明，在分圆域的应用</h2>
+<h2>附录：引理3的证明与分圆扩张</h2>
+<p>
+  现在着手引理3的证明. 考虑整系数多项式
+  $$F(z_1, ..., z_n)= \det \left( z_j^{\xi_k}\right)_{1\leq j, k \leq n} \ ,$$
+  我们希望证明分圆整数（cyclotomic integer） $F(\omega_1, ..., \omega_n)\neq 0$ , 其中 $p$ 阶单位根 $\omega_j = e^{2\pi i x_j/p}$ . 下面的引理提供了线索.
+</p>
 <p class="thm">
-  <b>引理7.</b> 设有素数 $p$ , 正整数 $n$ 和多项式 $P\in \mathbb{Z}[x_1, ..., x_n]$ . 如果存在 $n$ 个（可以重复的） $p$ 阶单位根 $\omega_1, ..., \omega_n$ s.t. $P(\omega_1, ..., \omega_n)=0$ , 则 $p | P(1,..., 1)$ .
+  <b>引理7.</b> 设有正整数 $n$ 和多项式 $P\in \mathbb{Z}[x_1, ..., x_n]$ . 如果存在 $n$ 个（可以重复的） $p$ 阶单位根 $\omega_1, ..., \omega_n$ s.t. $P(\omega_1, ..., \omega_n)=0$ , 则 $p | P(1,..., 1)$ .
 </p>
 <p>
   <i>证明.</i> 取 $p$ 阶本原单位根 $\zeta$ , 令 $\omega_k=\zeta^{\alpha_k}$ , $0\leq \alpha_k\lt p$ , $1\leq k\leq n$ . 构造一元多项式 
-  $$Q(z) := P(z^{\alpha_1}, ..., z^{\alpha_n}) \operatorname{mod} z^p-1 \in \mathbb{Z}[x]\ .$$
-  这里取模自然是因为 $\zeta^p-1=0$ . 于是 $\operatorname{deg} Q \leq p-1$ , 并且 $Q(\zeta)=0$ , $Q(1)=P(1, ..., 1)$ . 一个经典的结论是 <i>分圆多项式</i>
+  $$Q(z) := P(z^{\alpha_1}, ..., z^{\alpha_n}) (\mod z^p-1) \in \mathbb{Z}[x]\ .$$
+  这里取模自然是因为 $\zeta^p-1=0$ . 于是 $\operatorname{deg} Q \leq p-1$ , 并且 $Q(\zeta)=0$ , $Q(1)=P(1, ..., 1)$ . 回忆一个经典结论——<i>分圆多项式</i>
   $$f_p(z)=1+z+...+z^{p-1} , f(\zeta)=0$$
   在 $\mathbb{Z}$ 上不可约, i.e. $f_p$ 是 $\zeta$ 的极小多项式. 因此 $Q$ 只能是 $f_p$ 乘以某个整系数，于是 $p | Q(1)$ .&emsp;$\Box$
+</p>
+<p>
+  <i>引理3的证明.</i> 由引理7，我们似乎只需证明 $p \nmid F(1, ..., 1)$ ; 但 $F(1, ..., 1)=0$ , 所以我们要把提取出 $(1, ..., 1)$ 的零因式再使用引理7. 如果有两个下标不同的 $z_j$ 相同则 $F=0$ , 因此
+  $$F(z_1, ..., z_n)= P(z_1, ..., z_n) \cdot \Prod_{1\leq j\lt j'\leq n} (z_{j'}-z_j) \ .$$
+  因此只需证明 $P(\omega_1, ..., \omega_n)\neq 0$ , i.e. $p\nmid P(1, ..., 1)$ . 我们构造一类导数算子 $D_j:= (z_j\frac{d}{dz^j})$ 来“删除”零因式：对 $F$ 作用一次 $D_j$ , 由Leibniz法则，作用在 $P$ 的项仍然在 $(1, ..., 1)$ 上vanish; 而作用在零因式上则能将一个 $z_j$-零因子替换为 $z_j$ , 并不改变 $P(1, ..., 1)$ . 因此我们计算
+  $$D_1^0D_2^1\cdots D_n^{n-1} F(z_1, ..., z_n)\mid_{1, ..., 1} \ .\tag{4}$$
+  根据前面的分析可知 $(4)$ 的 $n(n-1)/2$ 阶导数恰好将所有零因式全部替换为 $\Prod z_j^{j-1}$ , 并且每个 $D_j^{j-1}$ 对 $z_j$-零因子有 $(j-1)!$ 种作用顺序，因此 
+  $(4) = P(1, ..., 1) \cdot \Prod_{j=1}^n (j-1)! \ .$ 
+  另一面，$D_j$ 作用在 $\det$ 上相当于对第 $j$ 列作用，而 $D_j z_j^{\xi_k} = \xi_k z_j^{\xi_k}$ , 所以由经典的Vandermonde行列式可知
+  $$(4) = \det \left(\xi_k^{j-1}\right) = \Prod_{1\leq k \lt k'\leq n} (z_{k'} - z_k) \ .$$
+  但因为 $\xi_k \leq p$ 且两两不同，所以 $p \nmid (4)$ , 进而 $p \nmid P(1, ..., 1)$ .&emsp;$\Box$
 </p>
 </div>
 
