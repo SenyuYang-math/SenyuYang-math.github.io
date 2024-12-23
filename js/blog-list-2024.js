@@ -24,6 +24,7 @@ btitle[20] = "(20th纪念) Sylvester-Gallai定理的拓扑证明"; bdate[20] = "
 btitle[21] = "null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射项的几何"; bdate[21] = "2024/12/07"; bintro[21] = "引入透射/共振两类作用项，对透射项完成尺度归纳的证明.";
 btitle[22] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化与色散"; bdate[22] = "2024/12/15"; bintro[22] = "发轫于Klainerman的几何杰作，并与Fourier视角相结合."
 // btitle[] = ""; bdate[] = "";
+var amount = btitle.length;
 
 // 博客文章页面
 if (urllength > 12) {
