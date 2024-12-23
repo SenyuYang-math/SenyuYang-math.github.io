@@ -30,7 +30,7 @@ function titlesetup() {
             .then(data => {
                 document.querySelector('#titleblock').innerHTML = data;
     });
-  resove();
+  resolve();
 });
 }
 // 文章标题, 正文末尾
