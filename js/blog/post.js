@@ -50,7 +50,7 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   print.insertAdjacentHTML('beforeend', '<div><p style="text-align:right"><button id="print-button"><i class="fa-solid fa-print"></i> 打印这篇博客</button></p></div>');
   var button = document.getElementById('print-button');
   button.onclick = function() {
-            // printJS({printable: 'container', type: 'html', scanStyles: false, css: 'https://senyuyang-math.github.io/css/style.css', style: `@page { size: A4 portrait; margin: 1.3cm 1.4cm}`);
+            // printJS({printable: 'container', type: 'html', scanStyles: false, css: '../../css/style.css', style: `@page { size: A4 portrait; margin: 1.3cm 1.4cm}`);
             var originContents = document.body.innerHTML;
             var actContents = document.getElementById("container").innerHTML;
             document.body.innerHTML = actContents;
@@ -60,7 +60,7 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   // 创建版权许可
   const blogcopy = document.getElementById('bottom');
   blogcopy.insertAdjacentHTML('beforeend', '<div id="copyright"></div>');
-  fetch('https://senyuyang-math.github.io/temp/copyright.html')
+  fetch('../../temp/blog/copyright.html')
     .then(response => response.text())
     .then(data => {
     document.querySelector('#copyright').innerHTML = data;
