@@ -61,7 +61,7 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
   // 创建版权许可
   const blogcopy = document.getElementById('bottom');
   blogcopy.insertAdjacentHTML('beforeend', '<div id="copyright"></div>');
-  fetch('../temp/copyright.html')
+  fetch('https//senyuyang-math.github.io/temp/copyright.html')
     .then(response => response.text())
     .then(data => {
     document.querySelector('#copyright').innerHTML = data;
