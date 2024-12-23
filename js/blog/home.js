@@ -32,6 +32,6 @@ document.body.appendChild(mathjax);
   var currYear = new Date().getFullYear();
   var archive = document.createElement('script');
   archive.id = 'blog-list';
-  archive.src = '../../js/blog/list-' + currYear + '.js';
+  archive.src = '../../js/blog/list/' + currYear + '.js';
   archive.async = true;
   document.body.appendChild(archive);
