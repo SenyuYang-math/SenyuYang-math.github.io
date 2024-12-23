@@ -27,10 +27,12 @@ var number = Number(urltxt.substring(11,urllength-5));
     document.querySelector('#titleblock').innerHTML = data;
   });
 // 导入文章信息
+function infoinput() {
     var bloginfo = document.createElement('script');
     bloginfo.src = '../../js/blog/list/' + year + '.js';
     bloginfo.async = true;
     document.body.appendChild(bloginfo);
+}
 // 配置Mathjax
 var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
