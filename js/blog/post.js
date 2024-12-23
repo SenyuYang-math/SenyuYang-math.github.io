@@ -20,11 +20,21 @@ var number = Number(urltxt.substring(11,urllength-5));
   headfoot.src = '../../js/head-foot.js';
   headfoot.async = true;
   document.body.appendChild(headfoot);
+// 配置Mathjax
+var mathjax = document.createElement('script');
+mathjax.src = '../../js/math-config.js';
+mathjax.async = true;
+document.body.appendChild(mathjax);
 //文章标题区块
-  var titlesrc = document.createElement('script');
-  titlesrc.src = '../../js/blog/title.js';
-  titlesrc.onload = 'infoinput()';
-  document.body.appendChild(titlesrc);
+function title() {
+  const titleblock = document.getElementById('container');
+  titleblock.insertAdjacentHTML('afterbegin', '<div id="titleblock"></div>');
+  fetch('../../temp/blog/title.html')
+    .then(response => response.text())
+    .then(data => {
+    document.querySelector('#titleblock').innerHTML = data;
+    });
+}
 // 导入文章信息
 function infoinput() {
     var bloginfo = document.createElement('script');
@@ -32,11 +42,8 @@ function infoinput() {
     bloginfo.async = true;
     document.body.appendChild(bloginfo);
 }
-// 配置Mathjax
-var mathjax = document.createElement('script');
-mathjax.src = '../../js/math-config.js';
-mathjax.async = true;
-document.body.appendChild(mathjax);
+await title();
+infoinput();
 //创建文末功能区
 const bottom = document.getElementById('container');
 bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');  
