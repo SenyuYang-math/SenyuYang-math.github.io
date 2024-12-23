@@ -57,7 +57,7 @@
   $$\operatorname{supp}(f* g) \subset A+B \ , \ \operatorname{supp} (\widehat{f* g}) = \operatorname{supp} (\widehat{f} \widehat{g}) = \widehat{A}\cap \widehat{B}\ ,$$
   其中 $\widehat{A} , \widehat{B}$ 是 $f, g$ 的Fourier支集. 因此根据UCP，只要可以控制 $|\widehat{A}\cap \widehat{B}|$ 我们就能期待 $|A+B|$ 的下界. 但UCP的强度仍然不够：
   $$(2)\Rightarrow |\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq 2p^{1/2}$$
-  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了UCP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 应当有更好的结果. 我们做些讨论：函数 $f: \mathbb{Z}/p\mathbb{Z}\to \mathbb{C}$ , 于是一一对应 $\mathbb{C}^p$ 中的向量；$\operatorname{supp}(f)=A$ 进一步将 $\mathbf{v}$ 限制为 $\mathbb{C}^{|A|}$ . 一个来自代数数论的引理能给予我们启发：
+  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了UCP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 应当有更好的结果. 我们做些讨论：函数 $f: \mathbb{Z}/p\mathbb{Z}\to \mathbb{C}$ , 于是一一对应 $\mathbb{C}^p$ 中的向量；$\operatorname{supp}(f)=A$ 进一步将 $\mathbf{v}$ 限制为 $\mathbb{C}^{|A|}$ . 一个来自代数数论（分圆域，cyclotomic field）的引理能给予我们启发：
 </p>
 <p class="thm">
   <b>引理3</b> (Chebotarëv)<b>.</b> 设整数 $1\leq n\leq p$ . 令 $\{x_1, ... , x_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 两两不同，$\{\xi_1, ... , \xi_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 同样两两不同. 则矩阵
@@ -65,7 +65,7 @@
   的 $\det \neq 0$ , i.e. $F_n$ 非退化.
 </p>
 <p>
-  证明留给附录（还有彩蛋喔）. 现在我们考虑任意的 $A=\{x_1, ..., x_n\}$ 和 $\tilde{A}=\{\xi_1, ..., \xi_n\}$ , 那么Fourier变换 $\mathcal{F}$ 作为线性变换与projection $P: \mathbb{C}^p\to \mathbb{C}^{|\tilde{A}|}$ 的复合 
+  证明留给附录作为彩蛋. 现在我们考虑任意的 $A=\{x_1, ..., x_n\}$ 和 $\tilde{A}=\{\xi_1, ..., \xi_n\}$ , 那么Fourier变换 $\mathcal{F}$ 作为线性变换与projection $P: \mathbb{C}^p\to \mathbb{C}^{|\tilde{A}|}$ 的复合 
   $$T=\pi\circ\mathcal{F}: f\mapsto \widehat{f}|_{\tilde{A}}$$ 
   的矩阵表示就是 $F_n$ , i.e. $T$ 是线性同构映射. 于是对于非零 $f\in \ell^2(A)$ , 任何足够大（$\geq |A|$）的集合一定与 $\operatorname{supp}(\widehat{f})$ 相交，一个 <i>线性形式</i> 的UCP就很自然了：
 </p>
@@ -82,7 +82,7 @@
   事实上 $T$ 作为同构映射预示了一个表面上不可思议的联系（这一点[1]没有明说）
 </p>
 <p class="thm">
-  <b>命题5</b> ($\mathbb{Z}/p\mathbb{Z}$ 的分析 $\leftrightarrow$ 分圆数 $e^{2\pi i/p}$ 的代数)<b>.</b> $p$-UCP $\Leftrightarrow$ Chebotarëv引理. 
+  <b>命题5</b> ($\mathbb{Z}/p\mathbb{Z}$ 的分析 $\leftrightarrow$ 分圆域的代数)<b>.</b> $p$-UCP $\Leftrightarrow$ Chebotarëv引理. 
 </p>
 <p>
   <i>证明</i>. 只需证明（$\Rightarrow$）. 反证法：采用Chebotarëv引理的记号，假设存在 $1\leq n\leq p$ s.t. $\det F_n = 0$ . 于是存在非零的 $\mathbf{v}=(v_1, ..., v_n)\in \mathbb{C}^n$ s.t. $F_n \mathbf{v} = 0$ . 我们构造
@@ -120,30 +120,33 @@
 </p>
 <h2>附录：引理3的证明与分圆扩张</h2>
 <p>
-  现在着手引理3的证明. 考虑整系数多项式
+  现在着手引理3的一个相对初等的证明（指不依赖于Galois理论）. 考虑整系数多项式
   $$F(z_1, ..., z_n)= \det \left( z_j^{\xi_k}\right)_{1\leq j, k \leq n} \ ,$$
-  我们希望证明分圆整数（cyclotomic integer） $F(\omega_1, ..., \omega_n)\neq 0$ , 其中 $p$ 阶单位根 $\omega_j = e^{2\pi i x_j/p}$ . 下面的引理提供了线索.
+  我们希望证明分圆整数（cyclotomic integer）$F(\omega_1, ..., \omega_n)\neq 0$ , 其中 $p$ 阶单位根 $\omega_j = e^{2\pi i x_j/p}$ . 下面的引理提供了线索.
 </p>
 <p class="thm">
   <b>引理7.</b> 设有正整数 $n$ 和多项式 $P\in \mathbb{Z}[x_1, ..., x_n]$ . 如果存在 $n$ 个（可以重复的） $p$ 阶单位根 $\omega_1, ..., \omega_n$ s.t. $P(\omega_1, ..., \omega_n)=0$ , 则 $p | P(1,..., 1)$ .
 </p>
 <p>
-  <i>证明.</i> 取 $p$ 阶本原单位根 $\zeta$ , 令 $\omega_k=\zeta^{\alpha_k}$ , $0\leq \alpha_k\lt p$ , $1\leq k\leq n$ . 构造一元多项式 
-  $$Q(z) := P(z^{\alpha_1}, ..., z^{\alpha_n}) (\mod z^p-1) \in \mathbb{Z}[x]\ .$$
+  <i>证明.</i> 取 $p$ 阶（本原）单位根 $\zeta=e^{2\pi i/p}$ , 令 $\omega_k=\zeta^{\alpha_k}$ , $0\leq \alpha_k\lt p$ , $1\leq k\leq n$ . 构造一元多项式 
+  $$Q(z) := P(z^{\alpha_1}, ..., z^{\alpha_n}) \mod (z^p-1) \in \mathbb{Z}[x]\ .$$
   这里取模自然是因为 $\zeta^p-1=0$ . 于是 $\operatorname{deg} Q \leq p-1$ , 并且 $Q(\zeta)=0$ , $Q(1)=P(1, ..., 1)$ . 回忆一个经典结论——<i>分圆多项式</i>
   $$f_p(z)=1+z+...+z^{p-1} , f(\zeta)=0$$
-  在 $\mathbb{Z}$ 上不可约, i.e. $f_p$ 是 $\zeta$ 的极小多项式. 因此 $Q$ 只能是 $f_p$ 乘以某个整系数，于是 $p | Q(1)$ .&emsp;$\Box$
+  在 $\mathbb{Z}$ 上不可约, i.e. $f_p$ 是 $\zeta$ 的 $\mathbb{Z}$-极小多项式. 因此 $Q$ 只能是 $f_p$ 乘以某个整系数，于是 $p\mid Q(1)$ .&emsp;$\Box$
 </p>
 <p>
   <i>引理3的证明.</i> 由引理7，我们似乎只需证明 $p \nmid F(1, ..., 1)$ ; 但 $F(1, ..., 1)=0$ , 所以我们要把提取出 $(1, ..., 1)$ 的零因式再使用引理7. 如果有两个下标不同的 $z_j$ 相同则 $F=0$ , 因此
-  $$F(z_1, ..., z_n)= P(z_1, ..., z_n) \cdot \Prod_{1\leq j\lt j'\leq n} (z_{j'}-z_j) \ .$$
-  因此只需证明 $P(\omega_1, ..., \omega_n)\neq 0$ , i.e. $p\nmid P(1, ..., 1)$ . 我们构造一类导数算子 $D_j:= (z_j\frac{d}{dz^j})$ 来“删除”零因式：对 $F$ 作用一次 $D_j$ , 由Leibniz法则，作用在 $P$ 的项仍然在 $(1, ..., 1)$ 上vanish; 而作用在零因式上则能将一个 $z_j$-零因子替换为 $z_j$ , 并不改变 $P(1, ..., 1)$ . 因此我们计算
+  $$F(z_1, ..., z_n)= P(z_1, ..., z_n) \cdot \prod_{1\leq j\lt j'\leq n} (z_{j'}-z_j) \ .$$
+  因此只需证明 $P(\omega_1, ..., \omega_n)\neq 0$ , i.e. $p\nmid P(1, ..., 1)$ . 我们构造一类导数算子 $D_j:= (z_j\frac{d}{dz^j})$ 来“删除”零因式：对 $F$ 作用一次 $D_j$ , 由Leibniz法则，作用在 $P$ 的项仍然在 $(1, ..., 1)$ 上vanish; 而作用在零因式上则能将一个 $z_j$-零因式替换为 $z_j$ , 并不改变 $P(1, ..., 1)$ . 因此我们计算
   $$D_1^0D_2^1\cdots D_n^{n-1} F(z_1, ..., z_n)\mid_{1, ..., 1} \ .\tag{4}$$
-  根据前面的分析可知 $(4)$ 的 $n(n-1)/2$ 阶导数恰好将所有零因式全部替换为 $\Prod z_j^{j-1}$ , 并且每个 $D_j^{j-1}$ 对 $z_j$-零因子有 $(j-1)!$ 种作用顺序，因此 
-  $(4) = P(1, ..., 1) \cdot \Prod_{j=1}^n (j-1)! \ .$ 
+  根据前面的分析可知 $(4)$ 的 $n(n-1)/2$ 阶导数恰好将所有零因式全部替换为 $\prod z_j^{j-1}$ , 并且每个 $D_j^{j-1}$ 对 $z_j$-零因式有 $(j-1)!$ 种作用顺序，因此 
+  $$(4) = P(1, ..., 1) \cdot \prod_{j=1}^n (j-1)! \ .$$
   另一面，$D_j$ 作用在 $\det$ 上相当于对第 $j$ 列作用，而 $D_j z_j^{\xi_k} = \xi_k z_j^{\xi_k}$ , 所以由经典的Vandermonde行列式可知
-  $$(4) = \det \left(\xi_k^{j-1}\right) = \Prod_{1\leq k \lt k'\leq n} (z_{k'} - z_k) \ .$$
+  $$(4) = \det \left(\xi_k^{j-1}\right) = \prod_{1\leq k \lt k'\leq n} (z_{k'} - z_k) \ .$$
   但因为 $\xi_k \leq p$ 且两两不同，所以 $p \nmid (4)$ , 进而 $p \nmid P(1, ..., 1)$ .&emsp;$\Box$
+</p>
+<p>
+  <b>注.</b> 顺便在这里请教下引理3和引理7在代数数论具体有什么应用呢？
 </p>
 </div>
 
