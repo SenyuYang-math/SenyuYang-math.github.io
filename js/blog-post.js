@@ -1,6 +1,4 @@
 // 网页数据
-var amount = btitle.length;
-// 获取网址
 var urltxt = window.location.pathname.toString();
 var urllength = urltxt.length;
 // 获取文章序数
