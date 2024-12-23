@@ -1,0 +1,61 @@
+<html>
+<head>  
+<title>Schroeder-Bernstein定理 (续) : 构造不动点</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  在上一篇<a href="./14.html">博客</a>中，我们介绍了Schroeder-Bernstein定理的不动点证明. 证明是存在性的，而这篇续集将基于证明的方法给出双射的显式构造. 概念，记号和序号就沿用上一篇博客的.
+</p>
+<p>
+   已知集合 $A,B$ 之间的双射本质上是格 $(\mathcal{P}(A), \subseteq)$ 上的保序映射
+   $$\Phi \colon Y \mapsto A\setminus g(B\setminus f(Y)) $$
+  的不动点. 我们在数学分析中学习过一个事实/技巧：单调连续函数 $f \colon [0,1] \to [0,1]$ 的不动点可以从通过选取初始点 $a_0 = 0$ 并求迭代格式 $a_{n+1}=f(a_n)$ 的极限得到，而且这里的连续性是必要的（令在 $[0,1/2)$ 上 $f(x) = (2x+1)/4$ 以及 $f(1/2)=3/4$ 即为反例）. 而格的保序映射也有对应的连续性概念. 
+</p>
+<p class="thm">
+  <b>定义6.</b> 称格 $(L, \leq)$ 的保序映射 $f$ 是<b>序列连续</b>(sequentially continuous)的，如果对任意 $L$ 的上升序列 $x_1 \leq ... \leq x_n \leq ...$ , s.t. 
+  $$f(\sup_n x_n) = \sup_n f(x_n) \ . $$
+</p>
+<p>
+  显然 $\Phi$ 是序列连续的，因为 $\mathcal{P}(A)$ 上可以直接写出 $\sup_n Y_n = \cup_n Y_n$ . 因此以下定理是我们构造不动点的依据.
+</p>
+<p class="thm">
+  <b>定理7.</b> 设格 $(L, \leq)$ 完备且有最小元(记为 $o$ ), $f$ 保序且序列连续. 则 $\sup_n f^{(n)}(o)$ 存在并且是 $f$ 的最小不动点. 其中 $f^{(n)}$ 代表 $f$ 迭代 $n$ 次的映射.
+</p>
+<p>
+  <i>证明</i>. $p:=\sup_n f^{(n)}(o)$ 的存在性由 $L$ 的完备性保证，下面证明其为最小不动点. 由 $f$ 的保序性和 $o$ 的最小性有递增序列
+  $$o \leq f(o) \leq ... \leq f^{(n)}(o) \leq ...$$
+  所以由 $f$ 的序列连续性和 $f^{(n)}(o)$ 的递增性，
+  $$f(p)= \sup_n f^{(n+1)}(o) = \sup_n f^{(n)}(o) = p \ .$$
+  而对于任意不动点 $q$ , 由 $o$ 最小性得 $f^{(n)}(o) \leq q$ , 进而 $p\leq q$ .&emsp;$\Box$
+</p>
+<p>
+  因此只需求出 $\sup_n \Phi^{(n)}(\emptyset)$ 即可得到 $\Phi$ 的不动点. 我们可以选取各种奇特的单射来构造众多意想不到的例子.
+</p>
+<p class="thm">
+  <b>例.</b> 考虑 $A=\mathbb{N}$ , $B=2\mathbb{N}$ , 以及单射
+  $$f\colon \mathbb{N} \to 4\mathbb{N} \subset 2\mathbb{N} \ , $$
+  $$g\colon 2\mathbb{N} \hookrightarrow \mathbb{N} \ .$$
+  则
+  $$\Phi\colon \mathbb{N} \to \mathbb{N} \ , \ Y\mapsto \mathbb{N}\setminus (2\mathbb{N}\setminus 4Y)=\mathbb{N}_{\text{odd}} \cup 4Y \ .$$
+  所以不动点
+  $$X = \bigcup_{n\in 2\mathbb{N}} 2^n\mathbb{N}_{\text{odd}}\ ,$$
+  $$\mathbb{N} \setminus X = \{ 0 \} \cup \bigcup_{n\in 2\mathbb{N}} 2^{n+1}\mathbb{N}_{\text{odd}} \ .$$
+  于是我们得到 $\mathbb{N}$ 和 $\mathbb{N}_{\text{even}}=2\mathbb{N}$ 之间一个非常规的双射：
+  $$\begin{align*}
+  h\colon & x\mapsto 4x \ , \ x\in X \ ; \\
+  & x\mapsto x \ , \ x\in \mathbb{N} \setminus X \ .
+  \end{align*}$$
+</p>
+<p>
+  读者可以自己动手计算其他的例子:-)
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
