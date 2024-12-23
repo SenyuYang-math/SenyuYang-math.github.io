@@ -54,17 +54,17 @@ document.body.appendChild(pr);
 const bottom = document.getElementById('container');
 bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');  
   // 打印按钮
-  const print = document.getElementById('bottom');
-  print.insertAdjacentHTML('beforeend', '<div><p style="text-align:right"><button id="print-button"><i class="fa-solid fa-print"></i> 打印这篇博客</button></p></div>');
-  var button = document.getElementById('print-button');
-  button.onclick = function() {
-            // printJS({printable: 'container', type: 'html', scanStyles: false, css: '../../css/style.css', style: `@page { size: A4 portrait; margin: 1.3cm 1.4cm}`);
-            var originContents = document.body.innerHTML;
-            var actContents = document.getElementById("container").innerHTML;
-            document.body.innerHTML = actContents;
-            window.print();
-            document.body.innerHTML= originContents;
-  }
+  // const print = document.getElementById('bottom');
+  // print.insertAdjacentHTML('beforeend', '<div><p style="text-align:right"><button id="print-button"><i class="fa-solid fa-print"></i> 打印这篇博客</button></p></div>');
+  // var button = document.getElementById('print-button');
+  // button.onclick = function() {
+  //           // printJS({printable: 'container', type: 'html', scanStyles: false, css: '../../css/style.css', style: `@page { size: A4 portrait; margin: 1.3cm 1.4cm}`);
+  //           var originContents = document.body.innerHTML;
+  //           var actContents = document.getElementById("container").innerHTML;
+  //           document.body.innerHTML = actContents;
+  //           window.print();
+  //           document.body.innerHTML= originContents;
+  // }
   // 创建版权许可
   const blogcopy = document.getElementById('bottom');
   blogcopy.insertAdjacentHTML('beforeend', '<div id="copyright"></div>');
@@ -80,7 +80,7 @@ valine.async = true;
 document.head.appendChild(valine);
 window.onload = (function () {
   var comment = document.createElement('script');
-  comment.src = '../../js/comment.js';
+  comment.src = '../../js/blog/comment.js';
   comment.async = true;
   document.body.appendChild(comment);
 })();
