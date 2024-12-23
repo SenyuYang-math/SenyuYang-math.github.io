@@ -53,7 +53,7 @@ title.insertAdjacentHTML('afterbegin', '<h1 id="blogtitle">' + btitle[number] + 
 } else {
 // 博客主页目录
   for (i=1; i < amount; i++) {
-    document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="blog/blog' + i + '.html"><div class="cardlink"><p class="time">' + bdate[i].toString().substring(5) + '</p><p class="title">' + btitle[i] + '</p><p class="intro">' + bintro[i] + '</p></div></a></div></div>');
+    document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + year '/' + i + '.html"><div class="cardlink"><p class="time">' + bdate[i].toString().substring(5) + '</p><p class="title">' + btitle[i] + '</p><p class="intro">' + bintro[i] + '</p></div></a></div></div>');
     if (i+2 > amount) {
       document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div id="year"><h2>2024</h2></div>');
     }
