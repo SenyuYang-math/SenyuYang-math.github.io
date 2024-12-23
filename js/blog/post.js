@@ -21,15 +21,17 @@ var number = Number(urltxt.substring(11,urllength-5));
   headfoot.async = true;
   document.body.appendChild(headfoot);
 //文章标题区块
-function titlesetup(callback) {
-const titleblock = document.getElementById('container');
-titleblock.insertAdjacentHTML('afterbegin', '<div id="titleblock"></div>');
-fetch('../../temp//blog/title.html')
+function titlesetup() {
+  return new Promise((resolve) => {
+    const titleblock = document.getElementById('container');
+    titleblock.insertAdjacentHTML('afterbegin', '<div id="titleblock"></div>');
+    fetch('../../temp//blog/title.html')
             .then(response => response.text())
             .then(data => {
                 document.querySelector('#titleblock').innerHTML = data;
+    });
+  resove();
 });
-callback();
 }
 // 文章标题, 正文末尾
 function titleinput() {
@@ -38,7 +40,7 @@ function titleinput() {
   blogtitle.async = true;
   document.body.appendChild(blogtitle);
 }
-titlesetup(titleinput);
+titlesetup().then(titleinput);
 // 配置Mathjax
 var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
