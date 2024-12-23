@@ -20,6 +20,14 @@ var number = Number(urltxt.substring(11,urllength-5));
   headfoot.src = '../../js/head-foot.js';
   headfoot.async = true;
   document.body.appendChild(headfoot);
+//文章标题区块
+const titleblock = document.getElementById('container');
+titleblock.insertAdjacentHTML('afterbegin', '<div id="titleblock"></div>');
+fetch('../../temp//blog/title.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('#titleblock').innerHTML = data;
+});
 // 图标库Font Awesome
 var icon = document.createElement('script');
 icon.src = 'https://kit.fontawesome.com/c61fec31c6.js';
