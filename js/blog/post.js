@@ -28,7 +28,7 @@ icon.async = true;
 document.head.appendChild(icon);
 // 文章标题, 正文末尾
   var blogtitle = document.createElement('script');
-  blogtitle.src = '../../js/blog/list-' + year + '.js';
+  blogtitle.src = '../../js/blog/list/' + year + '.js';
   blogtitle.async = true;
   document.body.appendChild(blogtitle);
 // 配置Mathjax
