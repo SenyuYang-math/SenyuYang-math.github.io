@@ -44,27 +44,9 @@ var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
 mathjax.async = true;
 document.body.appendChild(mathjax);
-// 打印组件
-var pr = document.createElement('script');
-pr.src = 'https://printjs-4de6.kxcdn.com/print.min.js';
-pr.crossorigin = 'anonymous';
-pr.async = true;
-document.body.appendChild(pr);
 //创建文末功能区
 const bottom = document.getElementById('container');
 bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');  
-  // 打印按钮
-  // const print = document.getElementById('bottom');
-  // print.insertAdjacentHTML('beforeend', '<div><p style="text-align:right"><button id="print-button"><i class="fa-solid fa-print"></i> 打印这篇博客</button></p></div>');
-  // var button = document.getElementById('print-button');
-  // button.onclick = function() {
-  //           // printJS({printable: 'container', type: 'html', scanStyles: false, css: '../../css/style.css', style: `@page { size: A4 portrait; margin: 1.3cm 1.4cm}`);
-  //           var originContents = document.body.innerHTML;
-  //           var actContents = document.getElementById("container").innerHTML;
-  //           document.body.innerHTML = actContents;
-  //           window.print();
-  //           document.body.innerHTML= originContents;
-  // }
   // 创建版权许可
   const blogcopy = document.getElementById('bottom');
   blogcopy.insertAdjacentHTML('beforeend', '<div id="copyright"></div>');
