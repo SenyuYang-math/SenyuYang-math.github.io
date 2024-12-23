@@ -29,7 +29,7 @@
   如果令 $k_n\in\mathbb{Z}$ 是满足 $\vert 2^{k_n}-\lambda_n^{-1}\vert$ 取到最小值的二进尺度，那么 $\operatorname{supp} \widehat{f_n}$ 一旦远离 $\vert \xi \vert \sim 2^{k_n}$ 就会与非退化性矛盾，i.e. 恰当的 $\lambda_n$ 会使 $\Vert \Delta_{k_n} f_n\Vert_{\dot{H}^1}$ 尽可能地大. 因此以下定理无论在结论的内涵还是证明的技术都有可取之处，可以视为Sobolev不等式在频率上的精细版本.
 </p>
 <p>
-  <i>注</i>. 关于Littlewood-Paley理论的定义，记号和结论，读者可以参考之前的这篇<a href="./blog5.html">博客</a>. 特别地，对于无下标的 $f$ , 笔记采用 $f_k$ 以简记在尺度 $2^k$ 的频率局部化 $\Delta_k f$ .
+  <i>注</i>. 关于Littlewood-Paley理论的定义，记号和结论，读者可以参考之前的这篇<a href="./5.html">博客</a>. 特别地，对于无下标的 $f$ , 笔记采用 $f_k$ 以简记在尺度 $2^k$ 的频率局部化 $\Delta_k f$ .
 </p>
 <p class="thm">
   <b>定理5</b> (Sobolev不等式, frequency-refined)<b>.</b> 对 $d\geq 3$ 和 $f\in \mathcal{S}(\mathbb{R}^d)$ , 
@@ -91,7 +91,7 @@
   接着做Schur test即完成证明.&emsp; $\Box$
 </p>
 <p>
-  可以看出定理并没有给出 $\lambda_n$ 的具体数值，而是像二进抽屉原理（参考这篇<a href="./blog7.html">博客</a>）一样给出存在性：
+  可以看出定理并没有给出 $\lambda_n$ 的具体数值，而是像二进抽屉原理（参考这篇<a href="./7.html">博客</a>）一样给出存在性：
 </p>  
 <p class="thm">  
   <b>命题6</b> (构造大的bubble)<b>.</b> 存在二进尺度 $k_n \sim \lambda_n^{-1}$ s.t. 
@@ -140,7 +140,7 @@
   由笔记Ⅱ的讨论，我们取 $\lambda_n:=2^{-k_n}$ . 选取好 $\lambda_n$ 和 $x_n$ , 自然用 $H^1$ 的自反性取出子列 $\{f_n\}$  s.t. 存在 $\phi\in \dot{H}^1$ 使 $(11)$ 成立. <br/>
   弱收敛不能直接给出 $\Vert\phi \Vert_{\dot{H}^1}$ 的正下界，我们需要选取一个好的test function联合经典的duality argument：令
   $$\varphi:= \Delta_0 \delta\ , \ \widehat{\varphi}(\xi)= \psi(\xi)\ ,$$
-  其中 $\delta$ 是Dirac分布，$\psi$ 是构造L-P分解的bump function（参考这篇<a href="./blog5.html">博客</a>）. 令 $q^*$ 为 $p^*$ 的Hölder对偶指标，则视 $\varphi\in L^{q^*}$ , $\Vert \varphi\Vert_{L^{q^*}} > 0$ ,  
+  其中 $\delta$ 是Dirac分布，$\psi$ 是构造L-P分解的bump function（参考这篇<a href="./5.html">博客</a>）. 令 $q^*$ 为 $p^*$ 的Hölder对偶指标，则视 $\varphi\in L^{q^*}$ , $\Vert \varphi\Vert_{L^{q^*}} > 0$ ,  
   $$
   \begin{align*}
   \vert \int_{\mathbb{R}^d} \bar{\varphi} \phi\ dx\vert = & \lim_{n\to\infty} \vert \int_{\mathbb{R}^d} \bar{\varphi}(x) 2^{\frac{2-d}{2}k_n}f_n(2^{-k_n} x+x_n) \ dx \vert \\
@@ -160,7 +160,7 @@
 <p>
   现在证明 $(13)$ . $\{\lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n)\}$ 在 $\dot{H}^1$ 中有界，由Rellich紧嵌入定理可知在任意一个紧集上在子列意义下有
   $$\lambda_n^{\frac{d-2}{2}}f_n(\lambda_n x+x_n) \to \phi \ \ \text{in } \ L^2\ .$$
-  于是可以再取子列使得 a.e. 收敛，再由Brezis-Lieb引理（参考这篇<a href="./blog8.html">博客</a>）
+  于是可以再取子列使得 a.e. 收敛，再由Brezis-Lieb引理（参考这篇<a href="./8.html">博客</a>）
 </p>
 <p class="thm">
   <b>引理10.</b> 设序列 $f_n $ 在 $L^p(\Omega)$ 中有界( $1 \leq p \lt \infty$ )，并存在 $\Omega$ 上的 $f$ s.t. $f_n \to f$ a.e. , 则 $f \in L^p(\Omega)$ , 且
