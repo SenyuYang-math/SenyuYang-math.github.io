@@ -32,6 +32,7 @@ var urllength = urltxt.length;
 // 获取文章序数
 var year = Number(urltxt.substring(6, 9));
 var number = Number(urltxt.substring(11,urllength-5));
+console.log(year, number);
 // 博客文章页面
 if (urllength > 12) {
   
