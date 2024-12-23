@@ -39,6 +39,7 @@ async function title() {
     document.body.appendChild(blogtitle);
   };
 };
+title();
 // 配置Mathjax
 var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
