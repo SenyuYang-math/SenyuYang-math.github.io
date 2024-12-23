@@ -25,14 +25,6 @@ btitle[21] = "null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射项的�
 btitle[22] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化与色散"; bdate[22] = "2024/12/15"; bintro[22] = "发轫于Klainerman的几何杰作，并与Fourier视角相结合."
 // btitle[] = ""; bdate[] = "";
 
-var amount = btitle.length;
-// 获取网址
-var urltxt = window.location.pathname.toString();
-var urllength = urltxt.length;
-// 获取文章序数
-var year = Number(urltxt.substring(6, 10));
-var number = Number(urltxt.substring(11,urllength-5));
-console.log(year, number);
 // 博客文章页面
 if (urllength > 12) {
   
