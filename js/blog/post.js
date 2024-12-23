@@ -23,7 +23,7 @@ var number = Number(urltxt.substring(11,urllength-5));
 //文章标题区块
   const titleblock = document.getElementById('container');
   titleblock.insertAdjacentHTML('afterbegin', '<div id="titleblock"></div>');
-  await fetch('../../temp//blog/title.html').then(response => response.text()).then(data => {
+  fetch('../../temp//blog/title.html').then(response => response.text()).then(data => {
     document.querySelector('#titleblock').innerHTML = data;
   });
 // 导入文章信息
