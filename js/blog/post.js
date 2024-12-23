@@ -22,7 +22,7 @@ var number = Number(urltxt.substring(11,urllength-5));
   document.body.appendChild(headfoot);
 //文章标题区块
   var titlesrc = document.createElement('script');
-  titlesrc.src = '../../js/title.js';
+  titlesrc.src = '../../js/blog/title.js';
   titlesrc.onload = 'infoinput()';
   document.body.appendChild(titlesrc);
 // 导入文章信息
