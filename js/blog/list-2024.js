@@ -27,8 +27,7 @@ btitle[22] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化�
 var amount = btitle.length;
 
 // 博客文章页面
-if (urllength > 12) {
-  
+if (urllength > 14) {
 // 创建文章标题
 const date = document.getElementById('container');
 date.insertAdjacentHTML('afterbegin', '<span id="bloginfo"><i class="fa-regular fa-calendar-days"></i> 2024/' + bdate[number] + '&emsp;<i class="fa-solid fa-pencil"></i> Ysy</span><hr class="titleline">');
@@ -53,9 +52,9 @@ title.insertAdjacentHTML('afterbegin', '<h1 id="blogtitle">' + btitle[number] + 
 } else {
 // 博客主页目录
   for (i=1; i < amount; i++) {
-    document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + currYear + '/' + i + '.html"><div class="cardlink"><p class="time">' + bdate[i].toString().substring(5) + '</p><p class="title">' + btitle[i] + '</p><p class="intro">' + bintro[i] + '</p></div></a></div></div>');
+    document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + currYear + '/' + i + '.html"><div class="cardlink"><p class="time">' + bdate[i] + '</p><p class="title">' + btitle[i] + '</p><p class="intro">' + bintro[i] + '</p></div></a></div></div>');
     if (i+2 > amount) {
-      document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div id="year"><h2>2024</h2></div>');
+    document.getElementById('blogindex').insertAdjacentHTML('afterbegin', '<div id="year"><h2>2024</h2></div>');
     }
-  }
+  } 
 }
