@@ -56,7 +56,9 @@ var valine = document.createElement('script');
   valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
   valine.async = true;
   document.head.appendChild(valine);
-var comment = document.createElement('script');
+window.onload = (function () {
+  var comment = document.createElement('script');
   comment.src = '../../js/blog/comment.js';
   comment.async = true;
   document.body.appendChild(comment);
+});
