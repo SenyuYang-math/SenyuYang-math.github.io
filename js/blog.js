@@ -7,11 +7,11 @@
   var style = document.createElement('link');
   style.rel = 'stylesheet';
   style.type = 'text/css';
-  style.href = 'senyuyang-math.github.io/css/style.css';
+  style.href = 'https://senyuyang-math.github.io/css/style.css';
   document.head.appendChild(style);
 // 导航栏，页脚
   var headfoot = document.createElement('script');
-  headfoot.src = 'senyuyang-math.github.io/js/head-foot.js';
+  headfoot.src = 'https://senyuyang-math.github.io/js/head-foot.js';
   headfoot.async = true;
   document.body.appendChild(headfoot);
 // 图标库Font Awesome
@@ -22,12 +22,12 @@ icon.async = true;
 document.head.appendChild(icon);
 // 文章标题, 正文末尾
   var blogtitle = document.createElement('script');
-  blogtitle.src = 'senyuyang-math.github.io/js/blog-list.js';
+  blogtitle.src = 'https://senyuyang-math.github.io/js/blog-list.js';
   blogtitle.async = true;
   document.body.appendChild(blogtitle);
 // 配置Mathjax
 var mathjax = document.createElement('script');
-mathjax.src = 'senyuyang-math.github.io/js/math-config.js';
+mathjax.src = 'https://senyuyang-math.github.io/js/math-config.js';
 mathjax.async = true;
 document.body.appendChild(mathjax);
 // 打印组件
@@ -43,7 +43,7 @@ valine.async = true;
 document.head.appendChild(valine);
 window.onload = (function () {
   var comment = document.createElement('script');
-  comment.src = '../js/comment.js';
+  comment.src = 'https://senyuyang-math.github.io/js/comment.js';
   comment.async = true;
   document.body.appendChild(comment);
 })();
