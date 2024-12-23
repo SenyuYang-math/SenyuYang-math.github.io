@@ -6,11 +6,3 @@
     .then(data => {
     document.querySelector('#titleblock').innerHTML = data;
     });
-// 导入文章信息
-  function titleinput() {
-    var blogtitle = document.createElement('script');
-    blogtitle.src = '../../js/blog/list/' + year + '.js';
-    blogtitle.async = true;
-    document.body.appendChild(blogtitle);
-  };
-};
