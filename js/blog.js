@@ -7,11 +7,11 @@
   var style = document.createElement('link');
   style.rel = 'stylesheet';
   style.type = 'text/css';
-  style.href = '../css/style.css';
+  style.href = 'senyuyang-math.github.io/css/style.css';
   document.head.appendChild(style);
 // 导航栏，页脚
   var headfoot = document.createElement('script');
-  headfoot.src = '../js/head-foot.js';
+  headfoot.src = 'senyuyang-math.github.io/js/head-foot.js';
   headfoot.async = true;
   document.body.appendChild(headfoot);
 // 图标库Font Awesome
@@ -22,12 +22,12 @@ icon.async = true;
 document.head.appendChild(icon);
 // 文章标题, 正文末尾
   var blogtitle = document.createElement('script');
-  blogtitle.src = '../js/blog-list.js';
+  blogtitle.src = 'senyuyang-math.github.io/js/blog-list.js';
   blogtitle.async = true;
   document.body.appendChild(blogtitle);
 // 配置Mathjax
 var mathjax = document.createElement('script');
-mathjax.src = '../js/math-config.js';
+mathjax.src = 'senyuyang-math.github.io/js/math-config.js';
 mathjax.async = true;
 document.body.appendChild(mathjax);
 // 打印组件
@@ -36,14 +36,14 @@ pr.src = 'https://printjs-4de6.kxcdn.com/print.min.js';
 pr.crossorigin = 'anonymous';
 pr.async = true;
 document.body.appendChild(pr);
-// // valine评论系统
-// var valine = document.createElement('script');
-// valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
-// valine.async = true;
-// document.head.appendChild(valine);
-// window.onload = (function () {
-//   var comment = document.createElement('script');
-//   comment.src = '../js/comment.js';
-//   comment.async = true;
-//   document.body.appendChild(comment);
-// })();
+// valine评论系统
+var valine = document.createElement('script');
+valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
+valine.async = true;
+document.head.appendChild(valine);
+window.onload = (function () {
+  var comment = document.createElement('script');
+  comment.src = '../js/comment.js';
+  comment.async = true;
+  document.body.appendChild(comment);
+})();
