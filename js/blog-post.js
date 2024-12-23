@@ -22,7 +22,7 @@ icon.async = true;
 document.head.appendChild(icon);
 // 文章标题, 正文末尾
   var blogtitle = document.createElement('script');
-  blogtitle.src = 'https://senyuyang-math.github.io/js/blog-list.js';
+  blogtitle.src = 'https://senyuyang-math.github.io/js/blog-list-2024.js';
   blogtitle.async = true;
   document.body.appendChild(blogtitle);
 // 配置Mathjax
