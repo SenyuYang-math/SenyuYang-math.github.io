@@ -27,7 +27,8 @@ btitle[22] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化�
 var amount = btitle.length;
 
 // 博客文章页面
-if (urllength > 14) {
+console.log(urllength);
+if (urllength > 15) {
 var article = document.createElement('script');
   article.src = '../../js/blog/title.js';
   article.async = true;
