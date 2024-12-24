@@ -5,7 +5,7 @@ btitle[0] = "null"; bdate[0] = "null"; bintro[0] = "null";
 var amount = btitle.length;
 
 // 博客文章页面
-if (urllength > 15) {
+if (urllength < 20) {
 document.getElementById('blogtitle').innerHTML = btitle[number];
 document.getElementById('blogdate').innerHTML = '2025/' + bdate[number];
 } else {
