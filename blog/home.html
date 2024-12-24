@@ -34,10 +34,9 @@
 <script src="../js/home.js"></script>
 <script type="module">
   var currYear = new Date().getFullYear();
-  import { btitle } from '../js/blog/list/2024.js';
+  import { btitle, amount } from '../js/blog/module/2024.js';
 </script>
 <script>
-    var amount = btitle.length;
     document.getElementById('laLink').href = './' + currYear + '/' + (amount-1) + '.html';
     document.getElementById('laTime').insertAdjacentHTML('afterbegin', btime[amount-1]);
     document.getElementById('laTitle').insertAdjacentHTML('afterbegin', btitle[amount-1]);
