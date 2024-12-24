@@ -31,20 +31,7 @@
 </div>
 
 <!-- js脚本 -->
-<script src="../js/home.js"></script>
-<script type="module">
-  var currYear = new Date().getFullYear();
-  const list = '../js/blog/modules/' + currYear + '.js';
-  let { btitle, bdate, bintro, amount } = await import(list);
-    document.getElementById('laLink').href = './' + currYear + '/' + (amount-1) + '.html';
-    document.getElementById('laTime').insertAdjacentHTML('afterbegin', bdate[amount-1]);
-    document.getElementById('laTitle').insertAdjacentHTML('afterbegin', btitle[amount-1]);
-    document.getElementById('laIntro').insertAdjacentHTML('afterbegin', bintro[amount-1]);
-  var i = 1;
-  for (i=2024; i < 2050; i++) {
-    document.getElementById('archive').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + i + '/archive.html"><div class="cardlink"><p class="title" style="font-size:22px">' + i + '</p></div></a></div></div>')
-  }
-</script>
+<script src="../js/blog/home.js"></script>
   
 </body>
 </html>
