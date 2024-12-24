@@ -40,8 +40,6 @@ const titleblock = document.getElementById('container');
     document.querySelector('#titleblock').innerHTML = data;
   });
 infoinput();
-document.getElementById('blogtitle').innerHTML = btitle[number];
-document.getElementById('blogdate').innerHTML = '<a href="./archive.html">' + year + '</a>/' + bdate[number];
 }
 titleload();
 //创建文末功能区
