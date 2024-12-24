@@ -13,18 +13,19 @@
 <p>
 把Dr. Latency所看到的数学整理起来做成一个博物志，就是Math Blog的主题了♡ 
 </p>
-<!-- <div class="card" style="border-style:none">
+<div class="card" style="border-style:none">
     <div class="cardcontent">
-      <p class="title" style="color:grey">预告 | Title</p> 
-      <p class="intro">少女祈祷中...</p> 
+      <p class="title" style="color:grey">少女祈祷中...</p> 
+      <p class="intro">Loading</p> 
     </div>
-</div> -->
-<!--   生成归档目录   -->
-<div id="blogindex"></div>
+</div>
 </div>
 
 <!-- js脚本 -->
-<script src="../js/blog/home.js"></script>
+<script>
+  var currYear = new Date().getFullYear();
+  location.href = './' + currYear + '/archive.html'; 
+</script>
   
 </body>
 </html>
