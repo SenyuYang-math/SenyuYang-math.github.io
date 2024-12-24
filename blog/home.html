@@ -22,7 +22,7 @@
 <script>
   var currYear = new Date().getFullYear();
   var i = 1;
-  for (i=2024; i < currYear; i++) {
+  for (i=2024; i < currYear+1; i++) {
     document.getElementById('archive').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + i + '/archive.html"><div class="cardlink"><p class="title" style="font-size:22px">' + i + '</p></div></a></div></div>')
   }
 </script>
