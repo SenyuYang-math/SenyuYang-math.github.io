@@ -13,7 +13,7 @@
 <p>
 把Dr. Latency所看到的数学整理起来做成一个博物志，就是Math Blog的主题了♡ 
 </p>
-<h2>归档 | Archives</h2>
+<h2>开始探索吧~</h2>
   <div id="archive"></div>
 </div>
 
@@ -22,7 +22,7 @@
 <script>
   var currYear = new Date().getFullYear();
   var i = 1;
-  for (i=2024; i < 2050; i++) {
+  for (i=2024; i < currYear; i++) {
     document.getElementById('archive').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + i + '/archive.html"><div class="cardlink"><p class="title" style="font-size:22px">' + i + '</p></div></a></div></div>')
   }
 </script>
