@@ -34,8 +34,8 @@
 <script src="../js/home.js"></script>
 <script type="module">
   var currYear = new Date().getFullYear();
-  import { btitle, bdate, bintro, amount } from '../js/blog/modules/2024.js';
-    document.getElementById('laLink').href = './2024/' + (amount-1) + '.html';
+  import { btitle, bdate, bintro, amount } from '../js/blog/modules/${currYear}.js';
+    document.getElementById('laLink').href = './' + currYear + '/' + (amount-1) + '.html';
     document.getElementById('laTime').insertAdjacentHTML('afterbegin', bdate[amount-1]);
     document.getElementById('laTitle').insertAdjacentHTML('afterbegin', btitle[amount-1]);
     document.getElementById('laIntro').insertAdjacentHTML('afterbegin', bintro[amount-1]);
