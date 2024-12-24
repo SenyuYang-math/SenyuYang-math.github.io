@@ -12,6 +12,11 @@ var urllength = urltxt.length;
   style.type = 'text/css';
   style.href = '../../css/style.css';
   document.head.appendChild(style);
+  var card = document.createElement('link');
+  card.rel = 'stylesheet';
+  card.type = 'text/css';
+  card.href = '../../css/card.css';
+  document.head.appendChild(card);
 // 配置Mathjax
 var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
