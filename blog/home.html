@@ -13,13 +13,6 @@
 <p>
 把Dr. Latency所看到的数学整理起来做成一个博物志，就是Math Blog的主题了♡ 
 </p>
-<h2>预告 | Next</h2>
-<div class="card">
-  <div class="cardcontent">
-    <p class="title" style="color:grey">不确定性原理，加性组合...</p> 
-  </div>
-</div>
-    
 <h2>最新 | Latest</h2>
 <div id="latest">
   <div class="card">
@@ -41,15 +34,16 @@
 <script src="../js/home.js"></script>
 <script>
   var currYear = new Date().getFullYear();
-  // (async function() {
-  //   var laList = document.createElement('script');
-  //   laList.src= '../js/blog/list/' + currYear + '.js'; 
-  //   await document.body.appendChild(laList);
-  //   document.getElementById('laLink').href = './' + currYear + '/' + (amount-1) + '.html';
-  //   document.getElementById('laTime').insertAdjacentHTML('afterbegin', btime[amount-1]);
-  //   document.getElementById('laTitle').insertAdjacentHTML('afterbegin', btitle[amount-1]);
-  //   document.getElementById('laIntro').insertAdjacentHTML('afterbegin', bintro[amount-1]);
-  // });
+  async function rewrite() {
+    var laList = document.createElement('script');
+    laList.src= '../js/blog/list/' + currYear + '.js'; 
+    await document.body.appendChild(laList);
+    document.getElementById('laLink').href = './' + currYear + '/' + (amount-1) + '.html';
+    document.getElementById('laTime').insertAdjacentHTML('afterbegin', btime[amount-1]);
+    document.getElementById('laTitle').insertAdjacentHTML('afterbegin', btitle[amount-1]);
+    document.getElementById('laIntro').insertAdjacentHTML('afterbegin', bintro[amount-1]);
+  };
+  rewrite();
   for (i=2024; i < currYear+1; i++) {
     document.getElementById('archive').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + i + '/archive.html"><div class="cardlink"><p class="title"><b>' + i + '</b></p></div></a></div></div>');
   } 
