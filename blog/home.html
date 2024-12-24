@@ -33,12 +33,9 @@
 <!-- js脚本 -->
 <script src="../js/home.js"></script>
 <script>
-  var urltxt = window.location.pathname.toString();
-  var urllength = urltxt.length;
   var currYear = new Date().getFullYear();
-  var laList = document.createElement('script');
-  laList.src= '../js/blog/list/' + currYear + '.js'; 
-  document.body.appendChild(laList);
+  import { btitle } from '../js/blog/list/' + currYear + '.js';
+  console.log(btitle);
 </script>
 <script>
     document.getElementById('laLink').href = './' + currYear + '/' + (amount-1) + '.html';
