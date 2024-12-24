@@ -27,10 +27,7 @@
 </div>
 
 <h2>归档 | Archives</h2>
-<hr style="height:1px">
-<div style="padding: 20px 0">
-  <div id="archive" style="overflow-x:scroll; height:30px"></div>
-</div>
+  <div id="archive"></div>
 </div>
 
 <!-- js脚本 -->
@@ -45,8 +42,8 @@
     document.getElementById('laIntro').insertAdjacentHTML('afterbegin', bintro[amount-1]);
   var i = 1;
   for (i=2024; i < 2050; i++) {
-    document.getElementById('archive').insertAdjacentHTML('afterbegin', '<a href="./' + i + '/archive.html"><span style="font-size: 22px">' + i + '</span></a>&emsp;');
-  } 
+    document.getElementById('archive').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + i + '/archive.html"><div class="cardlink"><p class="title" style="font-size:22px">' + i + '</p></div></a></div></div>')
+  }
 </script>
   
 </body>
