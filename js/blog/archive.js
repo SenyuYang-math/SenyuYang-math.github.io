@@ -12,12 +12,6 @@ var urllength = urltxt.length;
   style.type = 'text/css';
   style.href = '../../css/style.css';
   document.head.appendChild(style);
-// 图标库Font Awesome
-var icon = document.createElement('script');
-icon.src = 'https://kit.fontawesome.com/c61fec31c6.js';
-icon.crossorigin = 'anonymous';
-icon.async = true;
-document.head.appendChild(icon);
 // 配置Mathjax
 var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
@@ -29,9 +23,9 @@ document.body.appendChild(mathjax);
   headfoot.async = true;
   document.body.appendChild(headfoot);
 //导入博客列表
-  var currYear = new Date().getFullYear();
+  var archYear = Number(urltxt.substring(6, 10));;
   var archive = document.createElement('script');
   archive.id = 'blog-list';
-  archive.src = '../../js/blog/list/' + currYear + '.js';
+  archive.src = '../../js/blog/list/' + archYear + '.js';
   archive.async = true;
   document.body.appendChild(archive);
