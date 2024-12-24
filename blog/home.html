@@ -13,18 +13,43 @@
 <p>
 把Dr. Latency所看到的数学整理起来做成一个博物志，就是Math Blog的主题了♡ 
 </p>
+<h2>预告 | Next</h2>
 <div class="card" style="border-style:none">
-    <div class="cardcontent">
-      <p class="title" style="color:grey">少女祈祷中...</p> 
-      <p class="intro">Loading</p> 
-    </div>
+  <div class="cardcontent">
+    <p class="title" style="color:grey">不确定性原理，加性组合...</p> 
+  </div>
 </div>
+    
+<h2>最新 | Latest</h2>
+<div id="latest">
+  <div class="card">
+    <div class="cardcontent">
+      <a id="laLink"><div class="cardlink">
+        <p id="laTime" class="time"></p>
+        <p id="laTitle" class="title"></p>
+        <p id="laIntro" class="intro"></p>
+      </div></a>
+    </div>
+  </div>
+</div>
+
+<h2>归档 | Archives</h2>
+<div id="archive"></div>
 </div>
 
 <!-- js脚本 -->
 <script>
   var currYear = new Date().getFullYear();
-  location.href = './' + currYear + '/archive.html'; 
+  (async function() {
+    await document.getElementsByTagName('body').insertAdjacentHTML('beforeend', '<script src="../../js/blog/list/' + currYear + '.js"></script>');
+    document.getElementById('laLink').href = './' + currYear + '/' + (amount-1) + '.html';
+    document.getElementById('laTime').insertAdjacentHTML('afterbegin', btime[amount-1]);
+    document.getElementById('laTitle').insertAdjacentHTML('afterbegin', btitle[amount-1]);
+    document.getElementById('laIntro').insertAdjacentHTML('afterbegin', bintro[amount-1]);
+    });
+  for (i=2024; i < currYear-1; i++) {
+    document.getElementById('archive').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./' + i + '/archive.html"><div class="cardlink"><p class="title"><b>' + i + '</b></p></div></a></div></div>');
+  } 
 </script>
   
 </body>
