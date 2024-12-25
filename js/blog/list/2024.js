@@ -26,14 +26,7 @@ btitle[22] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化�
 // btitle[] = ""; bdate[] = "";
 var amount = btitle.length;
 
-// 博客文章标题
-if (urllength < 20) {
-  document.getElementById('blogtitle').innerHTML = btitle[number];
-  document.getElementById('blogdate').innerHTML = '<a href="./archive.html" style="text-decoration:none">2024</a>/' + bdate[number];
-} else {
-// 该年份目录
-  var homepage = document.createElement('script');
-  homepage.src = '../../js/blog/content.js';
-  homepage.async = true;
-  document.body.appendChild(homepage);
-}
+var classify = document.createElement('script');
+  classify.src = '../../js/blog/class.js';
+  classify.async = true;
+  document.body.appendChild(classify);
