@@ -5,14 +5,7 @@ btitle[1] = "不确定性原理，Cauchy-Davenport定理与分圆数"; bdate[1] 
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 
-// 博客文章标题
-if (urllength < 20) {
-  document.getElementById('blogtitle').innerHTML = btitle[number];
-  document.getElementById('blogdate').innerHTML = '<a href="./archive.html" style="text-decoration:none">2025</a>/' + bdate[number];
-} else {
-// 该年份目录
-  var homepage = document.createElement('script');
-  homepage.src = '../../js/blog/content.js';
-  homepage.async = true;
-  document.body.appendChild(homepage);
-}
+  var classify = document.createElement('script');
+  classify.src = '../../js/blog/class.js';
+  classify.async = true;
+  document.body.appendChild(classify);
