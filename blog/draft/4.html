@@ -23,7 +23,7 @@
   $$|A+B|\geq \min \left( |A|+|B|-1, p \right) \ .\tag{1}$$
 </p>
 <p>
-  这个定理的代数证明（N. Alon的Combinatorial Nullstellensatz）已经广为传诵（参见 @Yifan老师 的 这篇文章）. 相较于多项式方法，现在我们从调和分析的角度，i.e. 选择Fourier basis来看待C-D定理. 我们先快速回忆一般的有限交换群（finite abelian group, FAG）上的调和分析：设 $G$ 是一个FAG, $e: G\times G \to S^1\subset \mathbb{C}$ 是 $G$ 一个非退化的bi-character, e.g. 对于一般的循环群 $\mathbb{Z}/N\mathbb{Z}$ 有 
+  这个定理的多项式证明（N. Alon的Combinatorial Nullstellensatz）已经广为传诵（参见 <a href="https://www.zhihu.com/people/yifanjing" target="_blank">@Yifan</a> 老师的 <a href="https://zhuanlan.zhihu.com/p/351153834" target="_blank">文章</a>）. 相较于多项式方法，现在我们从调和分析的角度，i.e. 选择Fourier basis来看待C-D定理. 我们先快速回忆一般的有限交换群（finite abelian group, FAG）上的调和分析：设 $G$ 是一个FAG, $e: G\times G \to S^1\subset \mathbb{C}$ 是 $G$ 一个非退化的bi-character, e.g. 对于一般的循环群 $\mathbb{Z}/N\mathbb{Z}$ 有 
   $$e=e(x,\xi):= e^{2\pi i x\xi/N}\ .$$
   那么任意 $f: G\to \mathbb{C}$ 都可以定义 <i>Fourier变换</i> $\widehat{f} : G\to \mathbb{C}$ 为
   $$\widehat{f}(\xi) := \frac{1}{|G|} \sum_{x\in G} f(x) \overline{e(x,\xi)} \ .$$
@@ -46,7 +46,7 @@
   我们得到经典的 <i>不确定性定理</i>
 </p>
 <p class="thm">
-  <b>定理2</b> (uncertainty principle, UCP)<b>.</b> 设 $G$ 是一个FAG, 则任意非零的 $f: G\to \mathbb{C}$ 都满足
+  <b>命题2</b> (uncertainty principle, UCP)<b>.</b> 设 $G$ 是一个FAG, 则任意非零的 $f: G\to \mathbb{C}$ 都满足
   $$|\operatorname{supp}(f)| |\operatorname{supp}(\widehat{f})| \geq |G| \ .\tag{2}$$
 </p>
 <p>
@@ -55,9 +55,9 @@
 <p>
   现在回到定理1的背景. 假设我们选出了支集为 $A, B$ 的两个函数 $f, g$ , 那么卷积自然地联系上和集： 
   $$\operatorname{supp}(f* g) \subset A+B \ , \ \operatorname{supp} (\widehat{f* g}) = \operatorname{supp} (\widehat{f} \widehat{g}) = \widehat{A}\cap \widehat{B}\ ,$$
-  其中 $\widehat{A} , \widehat{B}$ 是 $f, g$ 的Fourier支集. 因此根据UCP，只要可以控制 $|\widehat{A}\cap \widehat{B}|$ 我们就能期待 $|A+B|$ 的下界. 但UCP的强度仍然不够：
+  其中 $\widehat{A} , \widehat{B}$ 是 $f, g$ 的Fourier支集. 因此根据UCP，只要可以控制 $|\widehat{A}\cap \widehat{B}|$ 我们就能期待 $|A+B|$ 的下界. 但UCP的强度仍然不够，比如
   $$(2)\Rightarrow |\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \geq 2p^{1/2}$$
-  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了UCP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 应当有更好的结果. 我们做些讨论：函数 $f: \mathbb{Z}/p\mathbb{Z}\to \mathbb{C}$ , 于是一一对应 $\mathbb{C}^p$ 中的向量；$\operatorname{supp}(f)=A$ 进一步将 $\mathbf{v}$ 限制为 $\mathbb{C}^{|A|}$ . 一个来自代数数论（分圆域，cyclotomic field）的引理能给予我们启发：
+  远低于 $(1)$ 右边的要求. 因此我们需要更多 $\mathbb{Z}/p\mathbb{Z}$ 的具体性质. 定理2的注记说明 $G$ 的非平凡子群诱导了UCP最差的情形，因此在单群 $\mathbb{Z}/p\mathbb{Z}$ 应当有更好的结果. 我们做些讨论：函数 $f: \mathbb{Z}/p\mathbb{Z}\to \mathbb{C}$ , 于是一一对应 $\mathbb{C}^p$ 中的向量；$\operatorname{supp}(f)=A$ 进一步将其限制在 $\mathbb{C}^{|A|}$ 中. 一个来自代数数论（分圆域，cyclotomic field）的引理能给予我们启发：
 </p>
 <p class="thm">
   <b>引理3</b> (Chebotarëv)<b>.</b> 设整数 $1\leq n\leq p$ . 令 $\{x_1, ... , x_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 两两不同，$\{\xi_1, ... , \xi_n\}\subset \mathbb{Z}/p\mathbb{Z}$ 同样两两不同. 则矩阵
@@ -65,7 +65,7 @@
   的 $\det \neq 0$ , i.e. $F_n$ 非退化.
 </p>
 <p>
-  证明留给附录作为彩蛋. 现在我们考虑任意的 $A=\{x_1, ..., x_n\}$ 和 $\tilde{A}=\{\xi_1, ..., \xi_n\}$ , 那么Fourier变换 $\mathcal{F}$ 作为线性变换与projection $P: \mathbb{C}^p\to \mathbb{C}^{|\tilde{A}|}$ 的复合 
+  引理的（初等）证明留给附录作为彩蛋. 现在我们考虑任意的 $A=\{x_1, ..., x_n\}$ 和 $\tilde{A}=\{\xi_1, ..., \xi_n\}$ , 那么Fourier变换 $\mathcal{F}$ 作为线性变换与projection $P: \mathbb{C}^p\to \mathbb{C}^{|\tilde{A}|}$ 的复合 
   $$T=\pi\circ\mathcal{F}: f\mapsto \widehat{f}|_{\tilde{A}}$$ 
   的矩阵表示就是 $F_n$ , i.e. $T$ 是线性同构映射. 于是对于非零 $f\in \ell^2(A)$ , 任何足够大（$\geq |A|$）的集合一定与 $\operatorname{supp}(\widehat{f})$ 相交，一个 <i>线性形式</i> 的UCP就很自然了：
 </p>
@@ -86,7 +86,7 @@
 </p>
 <p>
   <i>证明</i>. 只需证明（$\Rightarrow$）. 反证法：采用Chebotarëv引理的记号，假设存在 $1\leq n\leq p$ s.t. $\det F_n = 0$ . 于是存在非零的 $\mathbf{v}=(v_1, ..., v_n)\in \mathbb{C}^n$ s.t. $F_n \mathbf{v} = 0$ . 我们构造
-  $$f(x_j)=\bar{v_j}\ \text{for} \ 1\leq j\leq n \ ; \ f(x)=0 \ , \ \text{o.w.}$$
+  $$f(x_j)=\overline{v_j}\ \text{for} \ 1\leq j\leq n \ ; \ f(x)=0 \ , \ \text{o.w.}$$
   由 $\mathbf{v}$ 的定义，Fourier变换 $\widehat{f}(\xi_k)=0$ 对任意 $1\leq k \leq n$ 成立. 所以 
   $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \leq n+(p-n) =n\ ,$$
   与 $p$-UCP矛盾！因此引理3得证.&emsp;$\Box$
@@ -98,7 +98,7 @@
   现在我们回收最开始的C-D定理. $T$ 作为同构映射还预示着具体例子的存在性：
 </p>
 <p class="thm">
-  <b>命题6</b> (Sharpness of $p$-UC)</b> 设非空 $A, B\subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|A|+|B|= p+1$ , 则存在 $f: \mathbb{Z}/p\mathbb{Z}\to\mathbb{C}$ s.t. 
+  <b>命题6</b> (Sharpness of $p$-UC)<b>.</b> 设非空 $A, B\subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|A|+|B|= p+1$ , 则存在 $f: \mathbb{Z}/p\mathbb{Z}\to\mathbb{C}$ s.t. 
   $$\operatorname{supp}(f)=A \ \text{and} \ \operatorname{supp}(\widehat{f})=B\ .$$
 </p>
 <p>
@@ -118,9 +118,9 @@
   $$|A+B|\geq p+1-|X\cap Y|\geq \min (|A|+|B|-1, p) \ ,$$
   C-D定理得证.&emsp;$\Box$
 </p>
-<h2>附录：引理3的证明</h2>
+<h2>附录：Chebotarëv引理的证明</h2>
 <p>
-  现在着手引理3的一个相对初等的证明（指不依赖于Galois理论）. 考虑整系数多项式
+  现在着手Chebotarëv引理的一个相对初等的证明（指不依赖于Galois理论，来自Tao）. 考虑整系数多项式
   $$F(z_1, ..., z_n)= \det \left( z_j^{\xi_k}\right)_{1\leq j, k \leq n} \ ,$$
   我们希望证明分圆整数（cyclotomic integer）$F(\omega_1, ..., \omega_n)\neq 0$ , 其中 $p$ 阶单位根 $\omega_j = e^{2\pi i x_j/p}$ . 下面的引理提供了线索.
 </p>
@@ -135,18 +135,18 @@
   在 $\mathbb{Z}$ 上不可约, i.e. $f_p$ 是 $\zeta$ 的 $\mathbb{Z}$-极小多项式. 因此 $Q$ 只能是 $f_p$ 乘以某个整系数，于是 $p\mid Q(1)$ .&emsp;$\Box$
 </p>
 <p>
-  <i>引理3的证明.</i> 由引理7，我们似乎只需证明 $p \nmid F(1, ..., 1)$ ; 但 $F(1, ..., 1)=0$ , 所以我们要把提取出 $(1, ..., 1)$ 的零因式再使用引理7. 如果有两个下标不同的 $z_j$ 相同则 $F=0$ , 因此
+  <i>Chebotarëv引理的证明.</i> 由引理7，我们似乎只需证明 $p \nmid F(1, ..., 1)$ ; 但 $F(1, ..., 1)=0$ , 所以我们要提取出 $(1, ..., 1)$ 的零因式再使用引理7. 如果有两个下标不同的 $z_j$ 相同则 $F=0$ , 因此
   $$F(z_1, ..., z_n)= P(z_1, ..., z_n) \cdot \prod_{1\leq j\lt j'\leq n} (z_{j'}-z_j) \ .$$
   因此只需证明 $P(\omega_1, ..., \omega_n)\neq 0$ , i.e. $p\nmid P(1, ..., 1)$ . 我们构造一类导数算子 $D_j:= (z_j\frac{d}{dz^j})$ 来“删除”零因式：对 $F$ 作用一次 $D_j$ , 由Leibniz法则，作用在 $P$ 的项仍然在 $(1, ..., 1)$ 上vanish; 而作用在零因式上则能将一个 $z_j$-零因式替换为 $z_j$ , 并不改变 $P(1, ..., 1)$ . 因此我们计算
   $$D_1^0D_2^1\cdots D_n^{n-1} F(z_1, ..., z_n)\mid_{(1, ..., 1)} \ .\tag{4}$$
-  根据前面的分析可知 $(4)$ 的 $n(n-1)/2$ 阶导数恰好将所有零因式全部替换为 $\prod z_j^{j-1}$ , 并且每个 $D_j^{j-1}$ 对 $z_j$-零因式有 $(j-1)!$ 种作用顺序，因此 
+  根据前面的分析，$(4)$ 的 $n(n-1)/2$ 阶导数恰好将所有零因式全部替换为 $\prod z_j^{j-1}$ , 并且每个 $D_j^{j-1}$ 对 $z_j$-零因式有 $(j-1)!$ 种作用顺序，因此 
   $$(4) = P(1, ..., 1) \cdot \prod_{j=1}^n (j-1)! \ .$$
   另一面，$D_j$ 作用在 $\det$ 上相当于对第 $j$ 列作用，而 $D_j z_j^{\xi_k} = \xi_k z_j^{\xi_k}$ , 所以由经典的Vandermonde行列式可知
   $$(4) = \det \left(\xi_k^{j-1}\right) = \prod_{1\leq k \lt k'\leq n} (z_{k'} - z_k) \ .$$
   但因为 $\xi_k \leq p$ 且两两不同，所以 $p \nmid (4)$ , 进而 $p \nmid P(1, ..., 1)$ .&emsp;$\Box$
 </p>
 <p>
-  <b>注.</b> 顺便在这里请教下引理3和引理7在代数数论有什么具体应用呢？
+  <b>注.</b> 顺便在这里请教下Chebotarëv引理和引理7在代数数论和表示论有什么具体应用呢？
 </p>
 </div>
 
