@@ -26,7 +26,7 @@
   $$\begin{align*}
   | \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)}\lesssim & R^{1/2} R^{Cc}\left(\frac{r}{R}\right)^{(n+1)/2}E[\phi]^{1/2} E_[\psi]^{1/2}\\
   \lesssim & R^{-\delta} \ , \ \text{for} \ c, \epsilon \ll 1 \ , \tag{18}
-  $$
+  \end{align*}$$
   其中 $\delta\gt 0$ 是一个绝对常数 i.e. null form使得共振项被控制为小量，尺度归纳恒成立（事实上我们的结论根本不需要任何归纳假设）. 综合前文正规化的论证和透射项的结果（cf. Ⅱ），引理6——进而定理1
   $$\begin{align*}
   & \| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)} \\ 
@@ -57,7 +57,7 @@
   对 $\psi$ 有同样的结果. 注意到对于每个时空cube $\mathbf{Q}_R$ , 波的有限传播速度保证了 $\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)}$ 只与 $O(1)$ 个cubes上的初值有关. 因此由 $(\text{LN})$ 和Cauchy-Schwarz我们证明了physical全局而frequency局部的情形.
 </p>
 <p>
-  <b>注.</b> 这一段同时局部化的论证在Fourier restriction和decoupling理论非常经典，i.e. <i>局部常数性质（local constant）</i>, 可以视为uncertainty principle的定量版本.
+  <b>注.</b> 这一段同时局部化的论证在Fourier restriction和decoupling理论非常经典，i.e. <i>局部常数性质（local constant）</i>, 可以视为uncertainty principle的定量/几何版本.
 </p>
 <p>
   &emsp;<i>Step 2.</i> 现在固定 $R=1$ , 我们用Littlewood-Paley理论完成frequency的拼接. 自然地做Bony仿积分解
@@ -68,16 +68,16 @@
   & + \sum_{\lambda \sim \mu} Q(P_\lambda \phi, P_\mu \psi) \ . \tag{HH}
   \end{align*}$$
   $(\text{HL})$ 的频率集中在 $|\xi|\sim \lambda$ , 因此可以将 （经过modify后的）$P_{\lambda}$ <i>交换至作用整个</i> $Q$ . 于是由几乎正交性
-  $$\|(\text{HL})\|_{L^2([0,1]\time\mathbf{R}^n)} \lesssim \left(\sum_{\lambda} \|\sum_{\mu: \mu\ll\lambda}Q(P_\lambda \phi, P_\mu \psi)\|^2\right)^{1/2} \ .$$
+  $$\|(\text{HL})\|_{L^2([0,1]\times\mathbf{R}^n)} \lesssim \left(\sum_{\lambda} \|\sum_{\mu: \mu\ll\lambda}Q(P_\lambda \phi, P_\mu \psi)\|^2\right)^{1/2} \ .$$
   进而由Step 1结果和Young不等式可知，当 $\mu\lesssim 1$ 时 
   $$\begin{align*}
-  \|(\text{HL})_{\mu\lesssim 1}\|_{L^2([0,1]\time\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: \mu\lesssim 1 \\ \mu\ll\lambda} \mu^{n/2}E[P_\mu\psi]^{1/2}E[P_\lambda\phi]^{1/2}\right)^2\right)^{1/2} \\
+  \|(\text{HL})_{\mu\lesssim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: \mu\lesssim 1 \\ \mu\ll\lambda} \mu^{n/2}E[P_\mu\psi]^{1/2}E[P_\lambda\phi]^{1/2}\right)^2\right)^{1/2} \\
   \lesssim & \left(\sum_\lambda E[P_\lambda\phi] \left(\sum_{\mu} E[P_\mu\psi]^{1/2}\right)^2\right)^{1/2} \\
   \lesssim & E[\phi]^{1/2} E[\psi]^{1/2} \ ;
   \end{align*}$$
   而 $\mu\gtrsim 1$ 时
   $$\begin{align*}
-  \|(\text{HL})_{\mu\gtrsim 1}\|_{L^2([0,1]\time\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: 1\lesssim \mu \ll\lambda} \mu^{(n-1)/2+\epsilon}E[P_\mu\psi]^{1/2}E[P_\lambda\phi]^{1/2}\right)^2\right)^{1/2} \\
+  \|(\text{HL})_{\mu\gtrsim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: 1\lesssim \mu \ll\lambda} \mu^{(n-1)/2+\epsilon}E[P_\mu\psi]^{1/2}E[P_\lambda\phi]^{1/2}\right)^2\right)^{1/2} \\
   \lesssim & \left(\sum_\lambda \lambda^{(n-1)+\epsilon}E[P_\lambda\phi] \left(\sum_{\mu: \mu\ll\lambda\\ \mu\lesssim 1} E[P_\mu\psi]^{1/2}\right)^2\right)^{1/2} \\
   \lesssim & E[\left\langle D\right\rangle^{(n-1)/2+\epsilon}\phi]^{1/2} E[\psi]^{1/2} \ ,
   \end{align*}$$
@@ -88,7 +88,7 @@
 </p>
 <p>
   最后 $(\text{HH})$ 情形下因为对每个 $\mu$ 只有 $O(1)$ 个 $\lambda\sim \mu$ , 反之亦然，因此 $\mu\lesssim 1$ 时
-  $$\|(\text{HH})_{\lambda\sim\mu\gtrsim 1}\|_{L^2([0,1]\time\mathbf{R}^n)}\lesssim \sum_{\lambda\sim\mu \lesssim 1} \mu^{n/2}E[\phi]^{1/2}E[\psi]^{1/2} \ ,$$
+  $$\|(\text{HH})_{\lambda\sim\mu\gtrsim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim \sum_{\lambda\sim\mu \lesssim 1} \mu^{n/2}E[\phi]^{1/2}E[\psi]^{1/2} \ ,$$
   $\mu\gtrsim 1$ 同理. 综合上述估计可知全局估计 $(N)$ 成立.&emsp;$\Box$
 </p>
 <hr style="height:1px; width:75%; margin:40px auto">
