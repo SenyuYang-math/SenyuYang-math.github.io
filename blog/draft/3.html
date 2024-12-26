@@ -16,7 +16,10 @@
   其中标准时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ . 下面利用null condition的 $(\text{Impv-}L^2)$ , 我们能够得到更强的结果. 
 </p>
 <p>
-  首先，使用 $(\text{Impv-}L^2)$ 应当格外小心：首先，根据tube局部化的定义，局部化估计 $(7), (8)$ 只在 $R/2\leq t\leq 5R/2$ 上成立. 因此 $(\text{Impv-}L^2)$ 的初值曲面应当调整为 $\{t=R/2\}$ , 但因为我们在 $\mathbf{Q}_R\Rightarrow t-R/2\gtrsim R$ 上做估计，因此向量场方法——进而 $(\text{Impv-}L^2)$ 的证明依然成立；另外，因为 $\kappa\approx\kappa'$ , 并且如同透射情形我们只需考虑那些在 $\mathbf{Q}_R$ 中交集非空的tubes , 所以经过初等几何的论证可知 $\phi_\kappa , \psi_{\kappa'}$ 在 $t=R/2$ 时仍然保持 $(\Lambda\text{-Local})$ 的条件，其中 $\Lambda\sim 2\rho_0$ . 因此根据三角不等式和 $\text{Impv-}L^2$ 有
+  使用 $(\text{Impv-}L^2)$ 应当格外小心：首先，根据tube局部化的定义，局部化估计 $(7), (8)$ 只在 $R/2\leq t\leq 5R/2$ 上成立. 因此 $(\text{Impv-}L^2)$ 的初值曲面应当调整为 $\{t=R/2\}$ , 但因为我们在 $\mathbf{Q}_R\Rightarrow t-R/2\gtrsim R$ 上做估计，因此向量场方法——进而 $(\text{Impv-}L^2)$ 的证明依然成立.
+</p>
+<p>  
+  另外，因为 $\kappa\approx\kappa'$ , 并且如同透射情形我们只需考虑那些在 $\mathbf{Q}_R$ 中交集非空的tubes , 所以经过初等几何的论证可知 $\phi_\kappa , \psi_{\kappa'}$ 在 $t=R/2$ 时仍然保持 $(\Lambda\text{-Local})$ 的条件，其中 $\Lambda\sim 2\rho_0$ . 因此根据三角不等式和 $\text{Impv-}L^2$ 有
   $$\begin{align*}
     & \| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)} \\
   \lesssim & R^{1/2} \| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L_t^\infty L_x^2} \\
@@ -24,7 +27,7 @@
   \end{align*}$$
   由于每个 $\kappa$ 只与 $O(1)$ 个 $\kappa'$ 组成adjacent pair, 反之亦然，因此由Cauchy-Schwarz, 
   $$\begin{align*}
-  | \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)}\lesssim & R^{1/2} R^{Cc}\left(\frac{r}{R}\right)^{(n+1)/2}E[\phi]^{1/2} E_[\psi]^{1/2}\\
+  | \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)}\lesssim & R^{1/2} R^{Cc}\left(\frac{r}{R}\right)^{\frac{n+1}{2}}E[\phi]^{1/2} E_[\psi]^{1/2}\\
   \lesssim & R^{-\delta} \ , \ \text{for} \ c, \epsilon \ll 1 \ , \tag{18}
   \end{align*}$$
   其中 $\delta\gt 0$ 是一个绝对常数 i.e. null form使得共振项被控制为小量，尺度归纳恒成立（事实上我们的结论根本不需要任何归纳假设）. 综合前文正规化的论证和透射项的结果（cf. Ⅱ），引理6——进而定理1
@@ -45,14 +48,12 @@
 <p>
   现在着手最终目标
   $$\| Q(\phi, \psi)\|_{L^2([0,1]\times \mathbf{R}^n)} \lesssim E[\langle D \rangle^{\frac{n-1}{2}+\epsilon} \phi]^{1/2} E[\psi]^{1/2}\ , \tag{N}$$
-  的证明. 我们需要将 $(\text{LN})$ 在physics和frequency两个层面都“拼贴”出全局的估计.
+  的证明. 我们需要将 $(\text{LN})$ 在physics和frequency两个层面都“拼贴”出全局的估计. 
 </p>
 <p>
-  &emsp;<i>Step 1.</i> 固定frequency $\lambda, \mu$ , WLOG设 $\lambda\leq \mu$ . 我们先证明 $(\text{LN})$ 在physics space $[0, R]\times \mathbf{R}^n$ 上全局成立. 在小尺度情形 $R\lambda\lesssim 1$ 是平凡的，证明同之前证明归纳假设 $\text{LN}(\frac{1}{2})$ 一致；考虑大尺度情形 $R\lambda\gtrsim 1$ , 我们自然会将其分解为可数个 $\mathbf{Q}_R$ , 但困难来源于如何将初值能量局部化于这些时空cubes的底座中，同时不改变 $\phi, \psi$ 的频率（uncertainty principle）？我们考虑二进环 $|\xi|\sim \lambda$ 上的bump function $a_{\lambda}$ , 那么根据
-  $$\mathcal{F}^{-1}[a_\lambda] (x) = \int_{|\xi|\sim \lambda} e^{2\pi ix\cdot xi} a_\lambda(\xi) \ d\xi\ ,$$
-  现在令 $\mathcal{F}^{-1}[a_\lambda]$ 作为physical localized multipler: 在frequency层面 $\widehat{\phi}*a_\lambda$ 不改变 $\lambda$-局部化；在physics层面，高频部分的积分会因为振荡与bump的光滑性而快速衰减，而低频部分的贡献会集中在一个 $\{x: x\cdot \xi \lesssim 1, |\xi|\sim\lambda\}$ 的区域（所谓的时间共振，time resonance）. 而大尺度条件恰恰使得该区域具有尺度 $R$ . 因此我们可以在physcial space为每个 $\mathbf{Q}_R$ 构造合适的局部化 s.t. 
-  $$\phi(0)=\sum_{\mathbf{Q}_R} \phi_{\mathbf{Q}_R} \ ,$$
-  $$E[\phi]=\sum_{\mathbf{Q}_R} E[\phi_{\mathbf{Q}_R}] \ ,$$
+  &emsp;<i>Step 1.</i> 固定frequency $\lambda, \mu$ , WLOG设 $\lambda\leq \mu$ . 我们先证明 $(\text{LN})$ 在physics space $[0, R]\times \mathbf{R}^n$ 上全局成立. 在小尺度情形 $R\lambda\lesssim 1$ 是平凡的，证明同之前证明归纳假设 $\text{LN}(\frac{1}{2})$ 一致；考虑大尺度情形 $R\lambda\gtrsim 1$ , 我们自然会将其分解为可数个 $\mathbf{Q}_R$（现在将 $\mathbf{Q}_R$ 恢复为任意位置的时空cube）, 但困难来源于如何将初值能量局部化于这些时空cubes的底座中，同时不改变 $\phi, \psi$ 的频率（uncertainty principle）？我们考虑二进环 $|\xi|\sim \lambda$ 上的bump function $a_{\lambda}$ , 那么根据
+  $$\mathcal{F}^{-1}[a_\lambda] (x) = \int_{|\xi|\sim \lambda} e^{2\pi ix\cdot \xi} a_\lambda(\xi) \ d\xi\ ,$$
+  现在令 $\mathcal{F}^{-1}[a_\lambda]$ 作为physical localized multipler: 在frequency层面 $\widehat{\phi}*a_\lambda$ 不改变 $\lambda$-局部化；在physics层面，高频部分的积分会因为振荡与bump的光滑性而快速衰减，而低频部分的贡献会集中在一个 $\{x: x\cdot \xi \lesssim 1, |\xi|\sim\lambda\}$ 的区域（所谓的时间共振，time resonance）. 而大尺度条件恰恰使得该区域具有尺度 $O(R)$ . 因此我们可以在physcial space为每个 $\mathbf{Q}_R$ 在初值面 $t=0$ 构造合适的局部化 $\phi_{\mathbf{Q}_R}$ s.t. 
   $$E[\phi_{\mathbf{Q}_R}] \approx \int_{\mathbf{R}^n} |\nabla_{x, t} \phi(0)|^2 \left(1+\frac{\operatorname{dist}(x, \mathbf{Q}_R)}{R}\right)^{-100n} \ dx \ .$$
   对 $\psi$ 有同样的结果. 注意到对于每个时空cube $\mathbf{Q}_R$ , 波的有限传播速度保证了 $\| Q(\phi, \psi) \|_{L^2(\mathbf{Q}_R)}$ 只与 $O(1)$ 个cubes上的初值有关. 因此由 $(\text{LN})$ 和Cauchy-Schwarz我们证明了physical全局而frequency局部的情形.
 </p>
@@ -63,37 +64,37 @@
   &emsp;<i>Step 2.</i> 现在固定 $R=1$ , 我们用Littlewood-Paley理论完成frequency的拼接. 自然地做Bony仿积分解
   $$\begin{align*}
   Q(\phi, \psi) = & \sum_{\lambda, \mu} Q(P_\lambda \phi, P_\mu \psi) \\
-  = & \ \sum_{\lambda \gg \mu} Q(P_\lambda \phi, P_\mu \psi) \tag{HL} \\
-  & + \sum_{\lambda \ll \mu} Q(P_\lambda \phi, P_\mu \psi) \tag{LH} \\
-  & + \sum_{\lambda \sim \mu} Q(P_\lambda \phi, P_\mu \psi) \ . \tag{HH}
+  = & \ \ \ \sum_{\lambda \gg \mu} Q(P_\lambda \phi, P_\mu \psi) \tag{H-L} \\
+  & + \sum_{\lambda \ll \mu} Q(P_\lambda \phi, P_\mu \psi) \tag{L-H} \\
+  & + \sum_{\lambda \sim \mu} Q(P_\lambda \phi, P_\mu \psi) \ . \tag{H-H}
   \end{align*}$$
-  $(\text{HL})$ 的频率集中在 $|\xi|\sim \lambda$ , 因此可以将 （经过modify后的）$P_{\lambda}$ <i>交换至作用整个</i> $Q$ . 于是由几乎正交性
-  $$\|(\text{HL})\|_{L^2([0,1]\times\mathbf{R}^n)} \lesssim \left(\sum_{\lambda} \|\sum_{\mu: \mu\ll\lambda}Q(P_\lambda \phi, P_\mu \psi)\|^2\right)^{1/2} \ .$$
+  $(\text{H-L})$ 的频率集中在 $|\xi|\sim \lambda$ , 因此可以将 （经过modify后的）$P_{\lambda}$ <i>交换至作用整个</i> $Q$ . 于是由几乎正交性
+  $$\|(\text{H-L})\|_{L^2([0,1]\times\mathbf{R}^n)} \lesssim \left(\sum_{\lambda} \|\sum_{\mu: \mu\ll\lambda}Q(P_\lambda \phi, P_\mu \psi)\|^2\right)^{1/2} \ .$$
   进而由Step 1结果和Young不等式可知，当 $\mu\lesssim 1$ 时 
   $$\begin{align*}
-  \|(\text{HL})_{\mu\lesssim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: \mu\lesssim 1 \\ \mu\ll\lambda} \mu^{n/2}E[P_\mu\psi]^{1/2}E[P_\lambda\phi]^{1/2}\right)^2\right)^{1/2} \\
-  \lesssim & \left(\sum_\lambda E[P_\lambda\phi] \left(\sum_{\mu} E[P_\mu\psi]^{1/2}\right)^2\right)^{1/2} \\
+  \|(\text{H-L})_{\mu\lesssim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: \mu\lesssim 1, \mu\ll\lambda} \mu^{\frac{n}{2}}E[P_\mu\psi]^{\frac{1}{2}}E[P_\lambda\phi]^{\frac{1}{2}}\right)^2\right)^{1/2} \\
+  \lesssim & \left(\sum_\lambda E[P_\lambda\phi] \left(\sum_{\mu\ll \lambda} E[P_\mu\psi]^{\frac{1}{2}}\right)^2\right)^{1/2} \\
   \lesssim & E[\phi]^{1/2} E[\psi]^{1/2} \ ;
   \end{align*}$$
   而 $\mu\gtrsim 1$ 时
   $$\begin{align*}
-  \|(\text{HL})_{\mu\gtrsim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: 1\lesssim \mu \ll\lambda} \mu^{(n-1)/2+\epsilon}E[P_\mu\psi]^{1/2}E[P_\lambda\phi]^{1/2}\right)^2\right)^{1/2} \\
-  \lesssim & \left(\sum_\lambda \lambda^{(n-1)+\epsilon}E[P_\lambda\phi] \left(\sum_{\mu: \mu\ll\lambda\\ \mu\lesssim 1} E[P_\mu\psi]^{1/2}\right)^2\right)^{1/2} \\
-  \lesssim & E[\left\langle D\right\rangle^{(n-1)/2+\epsilon}\phi]^{1/2} E[\psi]^{1/2} \ ,
+  \|(\text{H-L})_{\mu\gtrsim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim & \left(\sum_\lambda \left(\sum_{\mu: 1\lesssim \mu \ll\lambda} \mu^{\frac{n-1}{2}+\epsilon}E[P_\mu\psi]^{\frac{1}{2}}E[P_\lambda\phi]^{\frac{1}{2}}\right)^2\right)^{1/2} \\
+  \lesssim & \left(\sum_\lambda \lambda^{(n-1)+2\epsilon}E[P_\lambda\phi] \left(\sum_{\mu: \mu\ll\lambda\\ \mu\lesssim 1} E[P_\mu\psi]^{\frac{1}{2}}\right)^2\right)^{1/2} \\
+  \lesssim & E[\left\langle D\right\rangle^{\frac{n-1}{2}+\epsilon}\phi]^{1/2} E[\psi]^{1/2} \ ,
   \end{align*}$$
-  因此 $(\text{HL})$ 满足估计 $(N)$ . 
+  因此 $(\text{H-L})$ 满足估计 $(N)$ . 
 </p>
 <p>
-  $(\text{LH})$ 的处理与上述基本一致；但因为作为bilinear improvement, 我们要把所有导数损失都转移到 $\phi$ 上，所以 $\lambda\gtrsim 1$ 的情形不需要把乘子替换为 $\mu^{(n-1)/2+\epsilon}$ . 
+  $(\text{L-H})$ 的处理与上述基本一致；但因为作为bilinear improvement, 我们要把所有导数损失都转移到 $\phi$ 上，所以 $\lambda\gtrsim 1$ 的情形不需要把乘子替换为 $\mu^{(n-1)/2+\epsilon}$ . 
 </p>
 <p>
-  最后 $(\text{HH})$ 情形下因为对每个 $\mu$ 只有 $O(1)$ 个 $\lambda\sim \mu$ , 反之亦然，因此 $\mu\lesssim 1$ 时
-  $$\|(\text{HH})_{\lambda\sim\mu\gtrsim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim \sum_{\lambda\sim\mu \lesssim 1} \mu^{n/2}E[\phi]^{1/2}E[\psi]^{1/2} \ ,$$
+  最后 $(\text{H-H})$ 情形下因为对每个 $\mu$ 只有 $O(1)$ 个 $\lambda\sim \mu$ , 反之亦然，因此 $\mu\lesssim 1$ 时
+  $$\|(\text{H-H})_{\lambda\sim\mu\gtrsim 1}\|_{L^2([0,1]\times\mathbf{R}^n)}\lesssim \sum_{\lambda\sim\mu \lesssim 1} \mu^{n/2}E[\phi]^{1/2}E[\psi]^{1/2} \ ,$$
   $\mu\gtrsim 1$ 同理. 综合上述估计可知全局估计 $(N)$ 成立.&emsp;$\Box$
 </p>
 <hr style="height:1px; width:75%; margin:40px auto">
 <p>
-  至此我们得到了本系列博客的主要结果，核心就是physical-frequency的同时局部化. 当然我们的关键工具——tube分解还没有证明，这点将在未来作为附录补充；笔者的目的在于展示两种分析视角——Fourier decoupling与向量场方法——如何通过几个精妙的想法在波方程的语境下和谐地统一，so本系列就此完结撒花(≧◡≦)
+  至此我们得到了本系列博客的主要结果，核心就是physical-frequency的同时局部化. 当然我们的关键工具——tube分解还没有证明，这点将在未来作为附录补充；我们的主要目的仍然在于展示两种分析视角——Fourier decoupling与向量场方法——如何通过几个精妙的想法联结、重塑. so本系列，乃至2024年的博客写作就此完结撒花(≧◡≦)
 </p>
 </div>
 
