@@ -24,14 +24,16 @@
 <script src="../js/home.js"></script>
 <script>
   var currYear = new Date().getFullYear();
+  // 向归档页面发送选中年份
   function jump(yearId) {
     var choice = document.getElementById(yearId).innerHTML;
     sessionStorage.setItem('year', choice);
     window.location.href = "./archive-year.html";
     console.log(choice.innerHTML);
   }
+  // 生成归档目录
   var i = 1;
-  for (i=2024; i < currYear+1; i++) {
+  for (i=2024; i < 2026; i++) {
     document.getElementById('archive').insertAdjacentHTML('afterbegin', '<div class="card"><div class="cardcontent"><a href="./archive-year.html" onclick="jump(' + i + ')"><div class="cardlink"><p id="' + i + '"class="title" style="font-size:22px">' + i + '</p></div></a></div></div>')
   }
 </script>
