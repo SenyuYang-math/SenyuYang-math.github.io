@@ -25,8 +25,8 @@
 <script>
   var currYear = new Date().getFullYear();
   function jump(yearId) {
-    var choice = document.getElementById('#' + yearId);
-    sessionStorage.setItem('year', choice.innerHTML);
+    var choice = document.getElementById('#' + yearId).innerHTML;
+    sessionStorage.setItem('year', choice);
     window.location.href = "./archive.html";
     console.log(choice.innerHTML);
   }
