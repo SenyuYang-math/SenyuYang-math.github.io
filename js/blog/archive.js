@@ -28,7 +28,8 @@ document.body.appendChild(mathjax);
   headfoot.async = true;
   document.body.appendChild(headfoot);
 //导入博客列表
-  var archYear = Number(urltxt.substring(6, 10));;
+  // var archYear = Number(urltxt.substring(6, 10));
+  var archYear = sessionStorage.getItem('year');
   var archive = document.createElement('script');
   archive.id = 'blog-list';
   archive.src = '../../js/blog/list/' + archYear + '.js';
