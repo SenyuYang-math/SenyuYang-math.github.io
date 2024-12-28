@@ -1,5 +1,5 @@
 // 博客文章标题
-if (urllength < 20) {
+if (urllength > 14) {
   document.getElementById('blogtitle').innerHTML = btitle[number];
   document.getElementById('blogdate').innerHTML = year + '/' + bdate[number];
 } else {
