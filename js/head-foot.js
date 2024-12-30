@@ -9,6 +9,11 @@ fetch('https://senyuyang-math.github.io/temp/head.html')
             .then(data => {
                 document.querySelector('#headnav').innerHTML = data;
             });
-fetch('https://senyuyang-math.github.io/temp/foot.html').then(response => response.text()).then(data => {
+async function footHTML() {
+  fetch('https://senyuyang-math.github.io/temp/foot.html').then(response => response.text()).then(data => {
                 document.querySelector('#footbar').innerHTML = data;
-            });
+              });
+  document.getElementById('sign').insertAdjacentHTML('afterbegin', '&copy; 2024-' + new Date().getFullYear() + ' Senyu Yang');
+}
+footHTML();
+
