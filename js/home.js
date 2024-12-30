@@ -1,4 +1,3 @@
-var currYear = new Date().getFullYear();
 // 整体样式
   var meta = document.createElement('meta');
   meta.charset = 'utf-8';
