@@ -14,5 +14,5 @@ await fetch('https://senyuyang-math.github.io/temp/foot.html').then(response => 
                 document.querySelector('#footbar').innerHTML = data;
             });
 document.getElementById('sign').insertAdjacentHTML('afterbegin', '&copy; 2024-' + currYear + ' Senyu Yang');
-});
+};
 footHTML();
