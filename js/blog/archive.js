@@ -1,6 +1,3 @@
-// 网页数据
-var urltxt = window.location.pathname.toString();
-var urllength = urltxt.length;
 // 整体样式
   var meta = document.createElement('meta');
   meta.charset = 'utf-8';
