@@ -1,5 +1,5 @@
+var currYear = new Date().getFullYear();
 // 整体样式
-(function () {
   var meta = document.createElement('meta');
   meta.charset = 'utf-8';
   meta.name = 'viewport';
@@ -10,7 +10,6 @@
   style.type = 'text/css';
   style.href = '../css/style.css';
   document.head.appendChild(style);
-})();
 // 图标库Font Awesome
 var icon = document.createElement('script');
 icon.src = 'https://kit.fontawesome.com/c61fec31c6.js';
