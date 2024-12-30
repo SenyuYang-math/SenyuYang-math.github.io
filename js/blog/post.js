@@ -1,5 +1,4 @@
-var currYear = new Date().getFullYear();
-// 网页数据
+// 网址数据
 var urltxt = window.location.pathname.toString();
 var urllength = urltxt.length;
 // 获取文章序数
