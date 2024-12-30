@@ -4,5 +4,6 @@
 献身的羔羊守护强者的知识
 </p>
 <script>
-  document.getElementById('sign').innerHTML = '&copy; 2024-' + currYear + ' Senyu Yang'
+  var currYear = new Date().getFullYear();
+  document.getElementById('sign').insertAdjacentHTML = ('afterbegin', '&copy; 2024-' + currYear + ' Senyu Yang');
 </script>
