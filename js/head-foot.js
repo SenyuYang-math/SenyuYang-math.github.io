@@ -13,7 +13,7 @@ async function footHTML() {
   await fetch('https://senyuyang-math.github.io/temp/foot.html').then(response => response.text()).then(data => {
                 document.querySelector('#footbar').innerHTML = data;
               });
-  document.getElementById('sign').innerHTML = '&copy; Senyu Yang, 2024-' + new Date().getFullYear();
+  document.getElementById('sign').innerHTML = '&copy; 2024-' + new Date().getFullYear() + ' Senyu Yang';
 }
 footHTML();
 
