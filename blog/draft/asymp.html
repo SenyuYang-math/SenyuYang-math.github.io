@@ -1,6 +1,6 @@
 <html>
 <head>  
-<title>递推数列的渐进行为：Poincaré定理</title>
+<title>递推数列的渐进稳定性：Poincaré定理</title>
 </head>
 
 <body id="body">
@@ -13,38 +13,44 @@
 <p>
   给定 $k\in\mathbb{N}^*$ ; 设对任意 $1\leq j\leq k$ 都有数列 $\{p_j(n)\}\subset \mathbb{C}$ , 且存在常数 $p_j\in\mathbb{C}$ s.t. 
   $$\lim_{n\to\infty} p_j(n) = p_j\ , \ 1\leq j \leq k\ . \tag{1}$$
-  现在考虑数列 $\{a(n)\}\subset \mathbb{C}$ s.t. 以下 <i>变系数</i> 递推关系（recurrence relation）成立：
-  $$a(n+k)=\sum{j=1}^{k} p_j(n) a(n+k-j) \ ,\ n\in \mathbb{N}\ . \tag{R}$$
+  现在考虑数列 $\{a(n)\}\subset \mathbb{C}$ s.t. 以下 <i>变系数</i> $k$ 阶递推关系（recurrence relation）成立：
+  $$a(n+k)=p_1(n) a(n+k-1) + \cdots + p_{k-1}(n)a(n+1) + p_k(n)a(n)\ . \tag{R}$$
   这类方程很自然地来自于变系数线性ODE的幂级数解（特别地，系数是有理函数的情形）; 我们希望获得 $\{a_n\}$ 的渐进行为（asymptotics）. $(\text{1})$ 意味着 $(\text{R})$ 可以视为以下常系数递推关系的 <i>微扰</i> : 
-  $$\tilde{a}(n+k)=\sum{j=1}^{k} p_j \tilde{a}(n+k-j) \ ,\ n\in \mathbb{N}\ . \tag{R-const}$$
+  $$\tilde{a}(n+k)=p_1 \tilde{a}(n+k-1) + \cdots + p_{k-1}\tilde{a}(n+1) + p_k\tilde{a}(n)\ . \tag{R-const}$$
   写下 $(\text{R-const})$ 的特征方程
   $$z^{k}-p_1z^{k-1}-\cdots -p_{k-1}z-p_{k} \tag{2}$$
   与相应的特征根 $\lambda_1, \cdots , \lambda_k$ . 于是对 $\alpha_1, \cdots , \alpha_k\in\mathbb{C}$ , 
   $$\tilde{a}(n):= \alpha_1\lambda_1^n+\cdots + \alpha_k\lambda_k^n$$
-  是 $(\tag{R-const})$ 的通解. 当特征根的模 <i>互相分离</i> i.e. $$|\lambda_1| \lt \cdots \lt |\lambda_k| $$ 时 , 我们发现 $\tilde{a}(n)$ 有且仅有以下两种渐进行为
+  是 $(\text{R-const})$ 的通解. 当特征根的模 <i>互相分离</i> i.e. $$|\lambda_1| \lt \cdots \lt |\lambda_k| $$ 时 , 我们发现 $\tilde{a}(n)$ 有且仅有以下两种渐进行为
 <ul>
-  <li>平凡解 $\tilde{a}(n)\euqiv 0$ ;</li>
-  <li>$n\gg 1$ 时 $\tilde{a}(n)\neq 0$ , 此时
-  $$\lim_{n\to\infty} \frac{\tilde{a}(n+1)}{\tilde{a}(n)} \in \{\lambda_1, \cdot, \lambda_k\} \ \text{exist}\ .$$
+  <li>平凡解 $\tilde{a}(n)\equiv 0$ ;</li>
+  <li>$n\gg 1$ 时 $\tilde{a}(n)\neq 0$ , 此时以下极限存在：
+  $$\lim_{n\to\infty} \frac{\tilde{a}(n+1)}{\tilde{a}(n)} \in \{\lambda_1, \cdots, \lambda_k\}\ .$$
   </li>
 </ul>
-于是自然的想法是以上结果在微扰下 <i>渐进稳定</i> :
+于是自然的想法是上述关系在微扰下 <i>渐进稳定</i> :
 </p>
 <p class="thm">
-  <b>定理1</b> (Poincaré)<b>.</b> $(\text{R})$ 的解 $\{a(n)\}$ 有且仅有以下两种渐进行为：
+  <b>定理1</b> (Poincaré)<b>.</b> $(\text{R})$ 的解 $\{a(n)\}$ 有且仅有以下两种渐进行为
   <ul>
-  <li>$\tilde{a}(n)\euqiv 0$ 对 $n\gg 1$ 成立;</li>
+  <li>$a(n)\equiv 0$ 对 $n\gg 1$ 成立;</li>
   <li>以下极限存在：
-  $$\lim_{n\to\infty} \frac{\tilde{a}(n+1)}{\tilde{a}(n)} \in \{\lambda_1, \cdot, \lambda_k\} \ .$$
+  $$\lim_{n\to\infty} \frac{a(n+1)}{a(n)} \in \{\lambda_1, \cdots, \lambda_k\} \ .$$
   </li>
 </ul>
+</p>
+<p>
+  接下来我们逐步给出Poincaré定理的证明.
 </p>
 <h2>推广：递推向量的一阶微扰</h2>
 <p>
   我们将 $(\text{R})$ 转换为微扰形式. 标量的高阶递推关系可以自然地写作高维向量的一阶递推关系
   $$\mathbf{v}(n+1)=[A+P(n)]\mathbf{v}(n)\ ,$$
-  其中 $A$ 为常数矩阵且特征方程为 $(2)$ ; $P(n)$ 由微扰项 $p_j(n)-p_j$ 组成. 
+  其中解向量
+  $$\mathbf{v}(n):=(a(n+k-1), \cdots , a(n+1), a(n))^{\mathrm{T}} \ ,$$
+  $A$ 为常数矩阵且特征方程为 $(2)$ ; $P(n)$ 由微扰项 $p_j(n)-p_j$ 组成. 
 </p>
+<h2>完成证明</h2>
 </div>
 
 <!-- js脚本 -->
