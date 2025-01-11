@@ -73,11 +73,24 @@
   <b>引理3.</b> 设 $A=\text{diag}(\lambda_1, \cdots, \lambda_k)$ 并满足 $(\text{Sep})$ , $P(n)$ 满足 $(3)$ . 则 $(R_1^k)$ 的每个解都存在MI.
 </p>
 <p>
-  <i>证明.</i> 此时对任意非零初值 $\mathbf{v}\in\mathbf{R}^3$ , 自然存在分量非零的最大指标. 如前文论证可知引理成立；具体细节留给读者验证（咕咕~）&emsp;$\Box$
+  <i>证明.</i> 此时对任意非零初值 $\mathbf{v}\in\mathbf{R}^3$ , 自然存在分量非零的最大指标，记为 $m$ . 设
+  $$1\leq m_n\leq k\colon \|\mathbf{v}(n)\|=|v_{m_n}(n)| \ .$$
+  我们只需证明：$m_n$ 关于 $n$ 单调不减. 用反证法，设存在 $n$ s.t. $r_{n+1}\lt r_n$ . 取 $\epsilon\gt 0$ s.t. 
+  $$\frac{|\lambda_i|+\epsilon}{|\lambda_j|-\espilon} \lt 1$$
+  对任意 $ 1\leq i \lt j \lt k$ 成立，则
+  $$|v_j(n+1)|\leq |\lambda_j||v_j(n)| + \epsilon|v_{m_n}(n)| \ ,$$
+  $$|v_j(n+1)|\geq |\lambda_j||v_j(n)| - \epsilon|v_{m_n}(n)|$$
+  对任意 $n\gg 1$ 成立. 因此
+  $$\begin{align*}
+  \frac{|v_{m_{n+1}}(n+1)|}{|v_{m_n}(n+1)|} \leq & \frac{|\lambda_{m_{n+1}}||v_{m_{n+1}}(n)| + \epsilon|v_{m_n}(n)|}{|\lambda_{m_n}||v_{m_n}(n)| - \epsilon|v_{m_n}(n)|} \\
+  = & \frac{|\lambda_{m_{n+1}}||v_{m_{n+1}}(n)|/|v_{m_n}(n)|+\epsilon}{|\lambda_{m_n}| - \epsilon}\\
+  \leq & \frac{|\lambda_{m_{n+1}}|+\epsilon}{|\lambda{m_n}|-\epslion} \lt 1 \ ,
+  \end{align*}$$
+  与 $m_{n+1}$ 的定义矛盾！因此引理成立.&emsp;$\Box$
 </p>
 <p>
   <b>注.</b> 注意引理3对一般的非对角 $A$ 也成立；事实上，设将 $A$ 对角化的基变换矩阵为 $B$ . 则对任意 $\mathbf{v}(0)$ , 
-$$A^M\mathbf{v}(0)=\left(B\operatorname{diag}\{\lambda_1^M, \cdots, \lambda_k^M\} \right) (B^{-1}\mathbf{v}(0)) \ ,$$
+$$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) \right) (B^{-1}\mathbf{v}(0)) \ ,$$
 由于 $B$ 的作用是对各分量做线性组合，因此存在一个指标 $m$ s.t. 对 <i>任意</i> $M\gt 0$ , $A^M\mathbf{v}(0)$ 的 $m$-分量有含有所有分量中最大的 $\lambda^M$ , 且 $\lambda^M$ 的系数是所有含 $\lambda^M$ 分量的系数中最大的. 基于上述论证，与对角情形类似读者可以验证引理仍然成立.
 </p>
 <p class="thm">
@@ -86,7 +99,11 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}\{\lambda_1^M, \cdots, \lambda_k^M\
   对每个 $j\neq m$ 都成立. 
 </p>
 <p>
-  <i>证明.</i> &emsp;$\Box$
+  <i>证明.</i> 如果 $j\gt m$ , 设 $\epsilon \gt 0$ s.t.
+  $$\frac{|\lambda_i|}{\lambda_j-\epsilon}\lt 1\ , \ \forall i\lt j \ .$$
+  因此对 $n\gg 1$ , 
+  $$v$$
+  &emsp;$\Box$
 </p>
 <p>
   <b>注.</b>
