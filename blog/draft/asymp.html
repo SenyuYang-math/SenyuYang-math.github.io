@@ -1,13 +1,13 @@
 <html>
 <head>  
-<title>递推数列的渐进稳定性：Poincaré定理</title>
+<title>递推数列的微扰与稳定性：Poincaré定理</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  本期博客介绍1885年H. Poincaré研究ODE时得到的定理. 作为一个基本结果，它在微分算子的谱理论，渐进稳定性问题等领域中被广泛使用. 
+  本期博客介绍1885年H. Poincaré研究ODE时得到的定理. 作为一个基本结果，它在微分算子的谱理论，渐进稳定性问题等领域中被广泛使用. <span style="text-decoration:line-through">作为数分一的大作业题也很合适嘛</span>
 </p>
 <h2>背景，主要结果</h2>
 <p>
@@ -30,7 +30,7 @@
   $$\lim_{n\to\infty} \frac{\tilde{a}(n+1)}{\tilde{a}(n)} \in \{\lambda_1, \cdots, \lambda_k\}\ .$$
   </li>
 </ul>
-于是自然的想法是上述关系在微扰下 <i>渐进稳定</i> :
+于是自然会猜测上述关系在微扰下 <i>渐进稳定</i> :
 </p>
 <p class="thm">
   <b>定理1</b> (Poincaré)<b>.</b> $(R_k)$ 的解 $\{a(n)\}$ 有且仅有以下两种渐进行为<br/>
@@ -50,7 +50,7 @@
   $A$ 为常数矩阵且特征方程为 $(2)$ ; $P(n)$ 由微扰项 $p_j(n)-p_j$ 组成. 
 </p>
 <p>
-  约定范数 $\| \cdot \|$ 对向量是 $\ell^{\infty}$-范数，对矩阵是 $\ell^1$-范数. 现在让我们先忘记 $A, P(n)$ 的具体结构，只保留 $A$ 的特征值分布 $(\text{Sep})$ 以及 $P(n)$ 的小性
+  约定范数 $\| \cdot \|$ 对向量是 $\ell^{\infty}$-范数，对矩阵是 $\ell^1$-范数. 现在让我们先忘记 $A, P(n)$ 的具体结构，只保留 $A$ 的特征值分布 $(\text{Sep})$ （用物理的黑话说，系统没有 <i>简并态</i>），以及 $P(n)$ 的小性
   $$\lim_{n\to\infty} \|P(n)\|=0 \ . \tag{3}$$
   注意 $(\text{Sep})$ 意味着
 </p>
@@ -59,7 +59,7 @@
   <li>当 $M\gg 1$ 时 $|A^M\mathbf{v}|$ 由 $v_{\lambda_m}$ 主导，其中 $m=\max\{1\leq j\leq k: v_{\lambda_j}\neq 0\}$ .</li>
 </ul>
 <p>
-  从第二点出发，我们自然引出了以下概念.
+  从第二点这个“动力学行为”出发，我们自然引出了以下概念.
 </p>
 <p class="thm">
   <b>定义2.</b> 称 $(R_1^k)$ 的解 $\mathbf{v}(n)=(v_1(n), \cdots, v_k(n))^{\text{T}}$ 具有 <b>最大指标</b>（maximal index, MI），如果存在 $1\leq m\leq k$ s.t. 
@@ -75,16 +75,16 @@
 <p>
   <i>证明.</i> 此时对任意非零初值 $\mathbf{v}\in\mathbf{R}^3$ , 自然存在分量非零的最大指标，记为 $m$ . 设
   $$1\leq m_n\leq k\colon \|\mathbf{v}(n)\|=|v_{m_n}(n)| \ .$$
-  我们只需证明：$m_n$ 关于 $n$ 单调不减. 用反证法，设存在 $n$ s.t. $r_{n+1}\lt r_n$ . 取 $\epsilon\gt 0$ s.t. 
-  $$\frac{|\lambda_i|+\epsilon}{|\lambda_j|-\espilon} \lt 1$$
-  对任意 $ 1\leq i \lt j \lt k$ 成立，则
+  我们只需证明：$m_n$ 关于 $n$ 单调不减. 用反证法，假设存在 $n$ s.t. $r_{n+1}\lt r_n$ . 取 $\epsilon\gt 0$ s.t. 
+  $$\frac{|\lambda_i|+\epsilon}{|\lambda_j|-\epsilon} \lt 1$$
+  对任意 $ 1\leq i \lt j \leq k$ 成立，则
   $$|v_j(n+1)|\leq |\lambda_j||v_j(n)| + \epsilon|v_{m_n}(n)| \ ,$$
   $$|v_j(n+1)|\geq |\lambda_j||v_j(n)| - \epsilon|v_{m_n}(n)|$$
   对任意 $n\gg 1$ 成立. 因此
   $$\begin{align*}
   \frac{|v_{m_{n+1}}(n+1)|}{|v_{m_n}(n+1)|} \leq & \frac{|\lambda_{m_{n+1}}||v_{m_{n+1}}(n)| + \epsilon|v_{m_n}(n)|}{|\lambda_{m_n}||v_{m_n}(n)| - \epsilon|v_{m_n}(n)|} \\
   = & \frac{|\lambda_{m_{n+1}}||v_{m_{n+1}}(n)|/|v_{m_n}(n)|+\epsilon}{|\lambda_{m_n}| - \epsilon}\\
-  \leq & \frac{|\lambda_{m_{n+1}}|+\epsilon}{|\lambda{m_n}|-\epslion} \lt 1 \ ,
+  \leq & \frac{|\lambda_{m_{n+1}}|+\epsilon}{|\lambda{m_n}|-\epsilon} \lt 1 \ ,
   \end{align*}$$
   与 $m_{n+1}$ 的定义矛盾！因此引理成立.&emsp;$\Box$
 </p>
@@ -93,20 +93,47 @@
 $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) \right) (B^{-1}\mathbf{v}(0)) \ ,$$
 由于 $B$ 的作用是对各分量做线性组合，因此存在一个指标 $m$ s.t. 对 <i>任意</i> $M\gt 0$ , $A^M\mathbf{v}(0)$ 的 $m$-分量有含有所有分量中最大的 $\lambda^M$ , 且 $\lambda^M$ 的系数是所有含 $\lambda^M$ 分量的系数中最大的. 基于上述论证，与对角情形类似读者可以验证引理仍然成立.
 </p>
+<p>
+  下一个引理说明MI的分量主导了 $\|\mathbf{v}(n)\|$ .
+</p>
 <p class="thm">
   <b>引理4.</b> 在引理3的条件下，设 $(R_1^k)$ 的非平凡解 $\{\mathbf{v}(n)\}$ 的MI为 $m$ , 则
-  $$\lim_{n\to \infty} \frac{|v_j(n)|}{|v_m(n)|}=0\tag{?}$$
+  $$\lim_{n\to \infty} \frac{|v_j(n)|}{|v_m(n)|}=0 \tag{4}$$
   对每个 $j\neq m$ 都成立. 
 </p>
 <p>
-  <i>证明.</i> 如果 $j\gt m$ , 设 $\epsilon \gt 0$ s.t.
-  $$\frac{|\lambda_i|}{\lambda_j-\epsilon}\lt 1\ , \ \forall i\lt j \ .$$
+  <i>证明.</i> 选取 $\epsilon \gt 0$ s.t.
+  $$\frac{|\lambda_i|}{|\lambda_j|-\epsilon}\lt 1\ , \ \forall i\lt j \ .$$
   因此对 $n\gg 1$ , 
-  $$v$$
-  &emsp;$\Box$
+  $$|v_j(n+1)|\leq |\lambda_j||v_j(n)| + \epsilon|v_m(n)| \ ,$$
+  $$|v_j(n+1)|\geq |\lambda_j||v_j(n)| - \epsilon|v_m(n)|$$
+  对任意 $ 1\leq j \leq m$ 成立. 现在考虑
+  $$s:=\limsup_{n\to\infty} \frac{|v_j(n)|}{|v_m(n)|} \ ,$$
+  由定义 $s\leq 1$ 存在. <br/>
+  &emsp;<i>Case 1</i> $j>m$ . 我们有以下估计
+  $$\begin{align*}
+  \frac{|v_j(n+1)|}{|v_m(n+1)|} \geq & \frac{|\lambda_j||v_j(n)|-\epsilon |v_m(n)|}{(|\lambda_j|+\epsilon)|v_m(n)|}\\
+  = & \frac{|\lambda_j||v_j(n)|/|v_m(n)|-\epsilon}{|\lambda_m|+\epsilon}
+  \end{align*}$$
+  对 $n \gg 1$ 成立. 因此
+  $$s\geq \frac{|\lambda_j|s-\epsilon}{|\lambda_m|+\epsilon} \ ,$$
+  于是
+  $$s\leq\frac{\epsilon}{|\lambda_j|-|\lambda_m|-\epsilon}$$
+  $\epsilon\ll 1$ 成立，i.e. $s=0$ ; <br/>
+  &emsp;<i>Case 2</i> $j\lt m$ . 我们同样有以下（反向）估计
+  $$\begin{align*}
+  \frac{|v_j(n+1)|}{|v_m(n+1)|} \leq & \frac{|\lambda_j||v_j(n)|+\epsilon |v_m(n)|}{(|\lambda_j|-\epsilon)|v_m(n)|}\\
+  = & \frac{|\lambda_j||v_j(n)|/|v_m(n)|+\epsilon}{|\lambda_m|-\epsilon}\\
+  = & q\frac{|v_j(n)|}{|v_m(n)|}+\frac{\epsilon}{|\lambda_m|-\epsilon}
+  \end{align*}$$
+  对 $n\gg 1$ 成立，其中 $q:=\frac{|\lambda_j|}{|\lambda_m|-\epsilon}\lt 1$. 固定 $N\gg 1$ , 于是归纳可得
+  $$\frac{|v_j(n)|}{|v_m(n)|}\leq q^{n-N}\frac{|v_j(n)|}{|v_m(n)|}+(1-q)^{-1}\frac{\epsilon}{|\lambda_m|-\epsilon}$$
+  对 $n\geq N$ 成立，代入 $q$ 值并令 $n\to \infty$ 可得 
+  $$s\leq \frac{\epsilon}{|\lambda_m|-|\lambda_j|-\epsilon}$$
+  对 $\epsilon\ll 1$ 成立，i.e. $s=0$ . 综上述，引理成立.&emsp;$\Box$
 </p>
 <p>
-  <b>注.</b>
+  <b>注.</b> 两种情形的控制是直观的：$j\lt m$ 时 $|\lambda_j|\lt |\lambda_m|$ , 在迭代中自然不占主导地位；$j\gt m$ 时如果 $v_j$ 过大则与 $m$ 是MI矛盾. 
 </p>
 <h2>完成证明</h2>
 <p>
@@ -114,13 +141,24 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
 </p>
 <p class="thm">
   <b>定理5</b> (一阶-高维版本, Saris-Elaydi-Jang)<b>.</b> 设 $A$ 满足 $(\text{Sep})$ , $P(n)$ 满足 $(3)$ . 则对 $(R_1^k)$ 的每个非平凡解 $\{\mathbf{v}(n)\}$ , 以下极限存在 
-  $$\lim_{n\to\infty} \frac{\|\mathbf{v}(n+1)\|}{\|\mathbf{v}(n)\|} \in \{\lambda_1,\cdots, \lambda_k\} \ .$$
+  $$\lim_{n\to\infty} \frac{\|\mathbf{v}(n+1)\|}{\|\mathbf{v}(n)\|} \in \{\lambda_1,\cdots, \lambda_k\} \ .\tag{5}$$
 </p>
 <p>
-  <i>证明.</i>
+  <i>证明.</i> 沿用前文的记号. WLOG, 取 $A=\operatorname{diag}(\lambda_1, \cdots, \lambda_k)$ , 则引理4给出 $(4)$ 对任意 $j\neq m$ 成立. 因此对 $j\neq m$ 有
+  $$\limsup_{n\to\infty}\frac{|v_j(n+1)|}{|v_m(n)|}\leq \lim_{n\to\infty} \left(|\lambda_j|\frac{|v_j(n)|}{|v_m(n)|}+\|B(n)\|\sum_{l=1}^k\frac{|v_l(n)|}{|v_m(n)|}\right) = 0\ ,$$
+  以及当 $j=m$ 时
+  $$\limsup_{n\to\infty}\frac{|v_m(n+1)-\lambda_m v_m(n)|}{|v_m(n)|}\leq \lim_{n\to\infty}\left(\|B(n)\|\sum_{l=1}^k\frac{|v_l(n)|}{|v_m(n)|}\right)=0 \ .$$
+  因此由 $m$ 的定义可得
+  $$\lim_{n\to\infty} \frac{\|\mathbf{v}(n+1)-\lambda_m\mathbf{v}(n)\|}{\|\mathbf{v}(n)\|} = 0 \ ,$$
+  i.e. $\lambda_m$ 即为定理成立所需的特征值.&emsp;$\Box$ 
 </p>
+<br/>
 <p>
-  <i>定理1的证明.</i> 
+  <i>定理1的证明.</i> 我们回到第二节开头的设定. 定理5保证了对每个非平凡解 $\{\mathbf{v}(n)\}$ 都存在某个特征根 $\lambda$ s.t. $(5)$ 成立. 进一步，由引理3的注可知存在MI $m$ s.t.
+  $$\|\mathbf{v}(n)\|\equiv |v_m(n)|=|a(n+k-m)|$$
+  对 $n\gg 1$ 成立. 因此
+  $$\lim_{n\to\infty}\frac{|a(n+1)|}{|a(n)|}=\lim_{n\to\infty}\frac{|a(n+k-m+1)|}{|a(n+k-m)|}=|\lambda| \ .$$
+  注意到
 </p>
 </div>
 
