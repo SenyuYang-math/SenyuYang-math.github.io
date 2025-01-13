@@ -11,7 +11,7 @@
 </p>
 <h2>背景，主要结果</h2>
 <p>
-  给定 $k\in\mathbb{N}^*$ ; 设对任意 $1\leq j\leq k$ 都有数列 $\{p_j(n)\}\subset \mathbb{C}$ , 且存在常数 $p_j\in\mathbb{C}$ s.t. 
+  给定 $k\in\mathbb{N}^*$ ; 对任意 $1\leq j\leq k$ 令数列 $\{p_j(n)\}\subset \mathbb{C}$ , 且存在常数 $p_j\in\mathbb{C}$ s.t. 
   $$\lim_{n\to\infty} p_j(n) = p_j\ , \ 1\leq j \leq k\ . \tag{1}$$
   现在考虑数列 $\{a(n)\}\subset \mathbb{C}$ s.t. 以下 <i>变系数</i> $k$ 阶递推关系（recurrence relation）成立：
   $$a(n+k)=p_1(n) a(n+k-1) + \cdots + p_{k-1}(n)a(n+1) + p_k(n)a(n)\ . \tag{$R_k$}$$
@@ -110,7 +110,7 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
   对任意 $ 1\leq j \leq m$ 成立. 现在考虑
   $$s:=\limsup_{n\to\infty} \frac{|v_j(n)|}{|v_m(n)|} \ ,$$
   由定义 $s\leq 1$ 存在. <br/>
-  &emsp;<i>Case 1</i> $j>m$ . 我们有以下估计
+  &emsp;<i>Case 1</i> : $j>m$ . 我们有以下估计
   $$\begin{align*}
   \frac{|v_j(n+1)|}{|v_m(n+1)|} \geq & \frac{|\lambda_j||v_j(n)|-\epsilon |v_m(n)|}{(|\lambda_j|+\epsilon)|v_m(n)|}\\
   = & \frac{|\lambda_j||v_j(n)|/|v_m(n)|-\epsilon}{|\lambda_m|+\epsilon}
@@ -120,7 +120,7 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
   于是
   $$s\leq\frac{\epsilon}{|\lambda_j|-|\lambda_m|-\epsilon}$$
   $\epsilon\ll 1$ 成立，i.e. $s=0$ ; <br/>
-  &emsp;<i>Case 2</i> $j\lt m$ . 我们同样有以下（反向）估计
+  &emsp;<i>Case 2</i> : $j\lt m$ . 我们同样有以下（反向）估计
   $$\begin{align*}
   \frac{|v_j(n+1)|}{|v_m(n+1)|} \leq & \frac{|\lambda_j||v_j(n)|+\epsilon |v_m(n)|}{(|\lambda_j|-\epsilon)|v_m(n)|}\\
   = & \frac{|\lambda_j||v_j(n)|/|v_m(n)|+\epsilon}{|\lambda_m|-\epsilon}\\
@@ -145,9 +145,9 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
 </p>
 <p>
   <i>证明.</i> 沿用前文的记号. WLOG, 取 $A=\operatorname{diag}(\lambda_1, \cdots, \lambda_k)$ , 则引理4给出 $(4)$ 对任意 $j\neq m$ 成立. 因此对 $j\neq m$ 有
-  $$\limsup_{n\to\infty}\frac{|v_j(n+1)|}{|v_m(n)|}\leq \lim_{n\to\infty} \left(|\lambda_j|\frac{|v_j(n)|}{|v_m(n)|}+\|B(n)\|\sum_{l=1}^k\frac{|v_l(n)|}{|v_m(n)|}\right) = 0\ ,$$
+  $$\limsup_{n\to\infty}\frac{|v_j(n+1)|}{|v_m(n)|}\leq \lim_{n\to\infty} \left(|\lambda_j|\frac{|v_j(n)|}{|v_m(n)|}+\|B(n)\|\right) = 0\ ,$$
   以及当 $j=m$ 时
-  $$\limsup_{n\to\infty}\frac{|v_m(n+1)-\lambda_m v_m(n)|}{|v_m(n)|}\leq \lim_{n\to\infty}\left(\|B(n)\|\sum_{l=1}^k\frac{|v_l(n)|}{|v_m(n)|}\right)=0 \ .$$
+  $$\limsup_{n\to\infty}\frac{|v_m(n+1)-\lambda_m v_m(n)|}{|v_m(n)|}\leq \lim_{n\to\infty}\|B(n)\|=0 \ .$$
   因此由 $m$ 的定义可得
   $$\lim_{n\to\infty} \frac{\|\mathbf{v}(n+1)-\lambda_m\mathbf{v}(n)\|}{\|\mathbf{v}(n)\|} = 0 \ ,$$
   i.e. $\lambda_m$ 即为定理成立所需的特征值.&emsp;$\Box$ 
