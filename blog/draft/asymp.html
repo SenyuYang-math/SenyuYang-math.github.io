@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  本期博客介绍1885年H. Poincaré研究ODE时得到的定理. 作为一个基本结果，它在微分算子的谱理论，渐进稳定性问题等领域中被广泛使用. <span style="text-decoration:line-through">作为数分一的大作业题也很合适嘛</span>
+  最近在读一些色散PDE自相似解的稳定性/blow-up的文章，因此学习到1885年H. Poincaré研究ODE时得到的定理，在此记录一下. <span style="text-decoration:line-through">作为数分一的大作业题也很合适嘛</span>
 </p>
 <h2>背景，主要结果</h2>
 <p>
@@ -17,13 +17,13 @@
   $$a(n+k)=p_1(n) a(n+k-1) + \cdots + p_{k-1}(n)a(n+1) + p_k(n)a(n)\ . \tag{$R_k$}$$
   这类方程很自然地来自于变系数线性ODE的幂级数解（特别地，系数是有理函数的情形）; 我们希望获得 $\{a_n\}$ 的渐进行为（asymptotics）. $(\text{1})$ 意味着 $(R_k)$ 可以视为以下常系数递推关系的 <i>微扰</i> : 
   $$\tilde{a}(n+k)=p_1 \tilde{a}(n+k-1) + \cdots + p_{k-1}\tilde{a}(n+1) + p_k\tilde{a}(n)\ . \tag{$\tilde{R}_k$}$$
-  写下 $(\tilde{R}_k)$ 的特征方程
-  $$z^{k}-p_1z^{k-1}-\cdots -p_{k-1}z-p_{k} \tag{2}$$
+  写下 $(\tilde{R}_k)$ 的特征多项式
+  $$z^{k}-p_1z^{k-1}-\cdots -p_{k-1}z-p_{k} \ , \ p_k\neq 0\tag{2}$$
   与相应的特征根 $\lambda_1, \cdots , \lambda_k$ . 于是对 $\alpha_1, \cdots , \alpha_k\in\mathbb{C}$ , 
   $$\tilde{a}(n):= \alpha_1\lambda_1^n+\cdots + \alpha_k\lambda_k^n$$
   是 $(\tilde{R}_k)$ 的通解. 当特征根的模 <i>互相分离</i> i.e. 
-  $$|\lambda_1| \lt \cdots \lt |\lambda_k| \tag{Sep}$$ 
-  时 , 我们发现 $\tilde{a}(n)$ 有且仅有以下两种渐进行为
+  $$0\lt |\lambda_1| \lt \cdots \lt |\lambda_k| \tag{Sep}$$ 
+  时 , 我们发现 $\tilde{a}(n)$ 有且仅有以下两种渐进行为（请读者自行验证）
 <ul>
   <li>平凡解 $\tilde{a}(n)\equiv 0$ ;</li>
   <li>$n\gg 1$ 时 $\tilde{a}(n)\neq 0$ , 此时以下极限存在：
@@ -157,8 +157,23 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
   <i>定理1的证明.</i> 我们回到第二节开头的设定. 定理5保证了对每个非平凡解 $\{\mathbf{v}(n)\}$ 都存在某个特征根 $\lambda$ s.t. $(5)$ 成立. 进一步，由引理3的注可知存在MI $m$ s.t.
   $$\|\mathbf{v}(n)\|\equiv |v_m(n)|=|a(n+k-m)|$$
   对 $n\gg 1$ 成立. 因此
-  $$\lim_{n\to\infty}\frac{|a(n+1)|}{|a(n)|}=\lim_{n\to\infty}\frac{|a(n+k-m+1)|}{|a(n+k-m)|}=|\lambda| \ .$$
-  注意到
+  $$\lim_{n\to\infty}\frac{|a(n+1)|}{|a(n)|}=\lim_{n\to\infty}\frac{|a(n+k-m+1)|}{|a(n+k-m)|}=|\lambda| \ ;$$
+  特别地，当 $n\gg 1$ 时 $|a(n)|\gt 0$ . 
+  设 
+  $$L=(\ell_{ij})_{1\leq i , j \leq k}\in GL(\mathbf{R}^k)\ \text{s.t.} \ A=L\operatorname{diag}(\lambda_1, \cdots, \lambda_k)L^{-1}$$
+  按张量记号设 $L^{-1}=(\ell^{ij})_{1\leq i , j \leq k}$ , $\ell^{il}\ell_{lj}=\delta_j^i$（$\delta$ 是Kronecker符号）. 令 $\mathbf{v}'(n) =L^{-1} \mathbf{v}(n)$ , 则 $\mathbf{v}'(n)$ 满足引理3和引理4的条件. 设 $\mathbf{v}'(n)$ 的MI为 $m$ . 由定理5的证明过程可知
+  $$\lim_{n\to\infty} \frac{|v_j'(n+r)|}{|v_m'(n)|} = 0 \ \text{for} \ j\neq m \ , \ r\in\mathbb{N} \ ;$$
+  $$\lim_{n\to \infty} \frac{v_m'(n+1)}{v_m'(n)} = \lambda_m \ .$$
+  $L$ 非奇异，因此存在 $1\leq s\leq k$ s.t. $\ell_{sm}\neq 0$ . 考察
+  $$\begin{align*}
+  \lim_{n\to\infty}\frac{v_s(n+1)}{v_s(n)} = & \lim_{n\to\infty} \frac{\ell_{sm}v_m'(n+1) + \sum_{j\neq m}\ell_{sj}v_j'(n+1)}{\ell_{sm}v_m'(n) + \sum_{j\neq m}\ell_{sj}v_j'(n)}\\
+  = & \lim_{n\to \infty} \frac{\ell_{sm}v_m'(n+1)/v_m'(n) + \sum_{j\neq m}\ell_{sj}v_j'(n+1)/v_m'(n)}{\ell_{sm}+\sum_{j\neq m}\ell_{sj}v_j'(n+1)/v_m'(n)} \\
+  = & \lambda_m \ .
+  \end{align*}$$
+  于是
+  $$\begin{align*}
+  \lim_{n\to\infty} \frac{a(n+1)}{a(n)} = &
+  \end{align*}$$
 </p>
 </div>
 
