@@ -167,13 +167,15 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
   $L$ 非奇异，因此存在 $1\leq s\leq k$ s.t. $\ell_{sm}\neq 0$ . 考察
   $$\begin{align*}
   \lim_{n\to\infty}\frac{v_s(n+1)}{v_s(n)} = & \lim_{n\to\infty} \frac{\ell_{sm}v_m'(n+1) + \sum_{j\neq m}\ell_{sj}v_j'(n+1)}{\ell_{sm}v_m'(n) + \sum_{j\neq m}\ell_{sj}v_j'(n)}\\
-  = & \lim_{n\to \infty} \frac{\ell_{sm}v_m'(n+1)/v_m'(n) + \sum_{j\neq m}\ell_{sj}v_j'(n+1)/v_m'(n)}{\ell_{sm}+\sum_{j\neq m}\ell_{sj}v_j'(n+1)/v_m'(n)} \\
+  = & \lim_{n\to \infty} \frac{\ell_{sm}\frac{v_m'(n+1)}{v_m'(n)} + \sum_{j\neq m}\ell_{sj}\frac{v_j'(n+1)}{v_m'(n)}}{\ell_{sm}+\sum_{j\neq m}\ell_{sj}\frac{v_j'(n+1)}{v_m'(n)}} \\
   = & \lambda_m \ .
   \end{align*}$$
-  于是
+  于是对于非平凡的 $\{a(n)\}$ , 
   $$\begin{align*}
-  \lim_{n\to\infty} \frac{a(n+1)}{a(n)} = &
+  \lim_{n\to\infty} \frac{a(n+1)}{a(n)} = & \lim_{n\to\infty} \frac{a(n+k-s+1)}{a(n+k-s)}\\
+  & \lim_{n\to\infty} \frac{v_s(n+1)}{v_s(n)} = \lambda_m \ .
   \end{align*}$$
+  Poincaré定理得证.&emsp;$\Box$
 </p>
 </div>
 
