@@ -2,6 +2,7 @@
 if (urllength > 15) {
   document.getElementById('blogtitle').innerHTML = btitle[number];
   document.getElementById('blogdate').innerHTML = year + '/' + bdate[number];
+  document.getElementsByTagName('title').innerHTML = btitle[number];
 } else {
 // 该年份目录
   var caseArchive = document.createElement('script');
