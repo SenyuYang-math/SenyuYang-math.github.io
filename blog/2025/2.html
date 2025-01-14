@@ -14,9 +14,9 @@
   给定 $k\in\mathbb{N}^*$ ; 对任意 $1\leq j\leq k$ 令数列 $\{p_j(n)\}\subset \mathbb{C}$ , 且存在常数 $p_j\in\mathbb{C}$ s.t. 
   $$\lim_{n\to\infty} p_j(n) = p_j\ , \ 1\leq j \leq k\ . \tag{1}$$
   现在考虑数列 $\{a(n)\}\subset \mathbb{C}$ s.t. 以下 <i>变系数</i> $k$ 阶递推关系（recurrence relation）成立：
-  $$a(n+k)=p_1(n) a(n+k-1) + \cdots + p_{k-1}(n)a(n+1) + p_k(n)a(n)\ . \tag{$R_k$}$$
-  这类差分方程很自然地来自于变系数线性ODE的幂级数解（特别地，系数是有理函数的情形）; 我们希望获得 $\{a_n\}$ 的渐进行为（asymptotics）. $(\text{1})$ 意味着 $(R_k)$ 可以视为以下常系数递推关系的 <i>微扰</i> : 
-  $$\tilde{a}(n+k)=p_1 \tilde{a}(n+k-1) + \cdots + p_{k-1}\tilde{a}(n+1) + p_k\tilde{a}(n)\ . \tag{$\tilde{R}_k$}$$
+  $$a(n+k)=\sum_{j=1}^k p_j(n)a(n+k-j)\ . \tag{$R_k$}$$
+  这类差分方程很自然地来自于变系数线性ODE的幂级数解（特别地，系数是有理函数的情形）; 我们希望获得 $\{a_n\}$ 的渐进行为（asymptotics）. $(1)$ 意味着 $(R_k)$ 可以视为以下常系数递推关系的 <i>微扰</i> : 
+  $$\tilde{a}(n+k)=\sum_{j=1}^k p_j \tilde{a}(n+k-j)\ . \tag{$\tilde{R}_k$}$$
   写下 $(\tilde{R}_k)$ 的特征多项式
   $$z^{k}-p_1z^{k-1}-\cdots -p_{k-1}z-p_{k} \ , \ p_k\neq 0\tag{2}$$
   与相应的特征根 $\lambda_1, \cdots , \lambda_k$ . 于是对 $\alpha_1, \cdots , \alpha_k\in\mathbb{C}$ , 
@@ -138,7 +138,7 @@
 </p>
 <p class="thm">
   <b>定理5</b> (一阶-高维版本, Saris-Elaydi-Jang)<b>.</b> 设 $A$ 满足 $(\text{Sep})$ , $P(n)$ 满足 $(3)$ . 则对 $(R_1^k)$ 的每个非平凡解 $\{\mathbf{v}(n)\}$ , 以下极限存在 
-  $$\lim_{n\to\infty} \frac{\|\mathbf{v}(n+1)\|}{\|\mathbf{v}(n)\|} \in \{\lambda_1,\cdots, \lambda_k\} \ .\tag{5}$$
+  $$\lim_{n\to\infty} \frac{\|\mathbf{v}(n+1)\|}{\|\mathbf{v}(n)\|} \in \{\lambda_1,\cdots, \lambda_k\} \ .$$
 </p>
 <p>
   <i>证明.</i> 沿用前文的记号. WLOG, 取 $A=\operatorname{diag}(\lambda_1, \cdots, \lambda_k)$ , 则引理4给出 $(4)$ 对任意 $j\neq m$ 成立. 因此对 $j\neq m$ 有
