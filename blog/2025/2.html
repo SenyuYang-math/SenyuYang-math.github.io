@@ -1,13 +1,13 @@
 <html>
 <head>  
-<title>递推数列的微扰与稳定性：Poincaré定理</title>
+<title>Blog is loading...</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  最近在读一些色散PDE自相似解的稳定性/blow-up的文章，因此学习到1885年H. Poincaré研究ODE时得到的定理，在此记录一下. <span style="text-decoration:line-through">作为数分一的大作业题也很合适嘛</span>
+  最近正在学习一些色散PDE自相似解的稳定性和blow-up行为，其中使用了H. Poincaré研究ODE时发现的一个结果, 就记录在这篇博客吧. <span style="text-decoration:line-through">作为数分一的大作业题也很合适嘛</span>
 </p>
 <h2>背景，主要结果</h2>
 <p>
@@ -15,7 +15,7 @@
   $$\lim_{n\to\infty} p_j(n) = p_j\ , \ 1\leq j \leq k\ . \tag{1}$$
   现在考虑数列 $\{a(n)\}\subset \mathbb{C}$ s.t. 以下 <i>变系数</i> $k$ 阶递推关系（recurrence relation）成立：
   $$a(n+k)=p_1(n) a(n+k-1) + \cdots + p_{k-1}(n)a(n+1) + p_k(n)a(n)\ . \tag{$R_k$}$$
-  这类方程很自然地来自于变系数线性ODE的幂级数解（特别地，系数是有理函数的情形）; 我们希望获得 $\{a_n\}$ 的渐进行为（asymptotics）. $(\text{1})$ 意味着 $(R_k)$ 可以视为以下常系数递推关系的 <i>微扰</i> : 
+  这类差分方程很自然地来自于变系数线性ODE的幂级数解（特别地，系数是有理函数的情形）; 我们希望获得 $\{a_n\}$ 的渐进行为（asymptotics）. $(\text{1})$ 意味着 $(R_k)$ 可以视为以下常系数递推关系的 <i>微扰</i> : 
   $$\tilde{a}(n+k)=p_1 \tilde{a}(n+k-1) + \cdots + p_{k-1}\tilde{a}(n+1) + p_k\tilde{a}(n)\ . \tag{$\tilde{R}_k$}$$
   写下 $(\tilde{R}_k)$ 的特征多项式
   $$z^{k}-p_1z^{k-1}-\cdots -p_{k-1}z-p_{k} \ , \ p_k\neq 0\tag{2}$$
@@ -24,13 +24,15 @@
   是 $(\tilde{R}_k)$ 的通解. 当特征根的模 <i>互相分离</i> i.e. 
   $$0\lt |\lambda_1| \lt \cdots \lt |\lambda_k| \tag{Sep}$$ 
   时 , 我们发现 $\tilde{a}(n)$ 有且仅有以下两种渐进行为（请读者自行验证）
+</p>
 <ul>
   <li>平凡解 $\tilde{a}(n)\equiv 0$ ;</li>
   <li>$n\gg 1$ 时 $\tilde{a}(n)\neq 0$ , 此时以下极限存在：
   $$\lim_{n\to\infty} \frac{\tilde{a}(n+1)}{\tilde{a}(n)} \in \{\lambda_1, \cdots, \lambda_k\}\ .$$
   </li>
 </ul>
-于是自然会猜测上述关系在微扰下 <i>渐进稳定</i> :
+<p>
+  于是自然会猜测上述关系在微扰下 <i>渐进稳定</i> :
 </p>
 <p class="thm">
   <b>定理1</b> (Poincaré)<b>.</b> $(R_k)$ 的解 $\{a(n)\}$ 有且仅有以下两种渐进行为<br/>
@@ -67,7 +69,7 @@
   对 <i>所有</i> $n\gg 1$ 成立.
 </p>
 <p>
-  围绕最大指标我们依次建立两个引理.
+  围绕最大指标，我们针对 $A$ 对角的情形依次建立两个引理.
 </p>
 <p class="thm">
   <b>引理3.</b> 设 $A=\text{diag}(\lambda_1, \cdots, \lambda_k)$ 并满足 $(\text{Sep})$ , $P(n)$ 满足 $(3)$ . 则 $(R_1^k)$ 的每个解都存在MI.
@@ -87,11 +89,6 @@
   \leq & \frac{|\lambda_{m_{n+1}}|+\epsilon}{|\lambda{m_n}|-\epsilon} \lt 1 \ ,
   \end{align*}$$
   与 $m_{n+1}$ 的定义矛盾！因此引理成立.&emsp;$\Box$
-</p>
-<p>
-  <b>注.</b> 注意引理3对一般的非对角 $A$ 也成立；事实上，设将 $A$ 对角化的基变换矩阵为 $B$ . 则对任意 $\mathbf{v}(0)$ , 
-$$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) \right) (B^{-1}\mathbf{v}(0)) \ ,$$
-由于 $B$ 的作用是对各分量做线性组合，因此存在一个指标 $m$ s.t. 对 <i>任意</i> $M\gt 0$ , $A^M\mathbf{v}(0)$ 的 $m$-分量有含有所有分量中最大的 $\lambda^M$ , 且 $\lambda^M$ 的系数是所有含 $\lambda^M$ 分量的系数中最大的. 基于上述论证，与对角情形类似读者可以验证引理仍然成立.
 </p>
 <p>
   下一个引理说明MI的分量主导了 $\|\mathbf{v}(n)\|$ .
@@ -154,14 +151,9 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
 </p>
 <br/>
 <p>
-  <i>定理1的证明.</i> 我们回到第二节开头的设定. 定理5保证了对每个非平凡解 $\{\mathbf{v}(n)\}$ 都存在某个特征根 $\lambda$ s.t. $(5)$ 成立. 进一步，由引理3的注可知存在MI $m$ s.t.
-  $$\|\mathbf{v}(n)\|\equiv |v_m(n)|=|a(n+k-m)|$$
-  对 $n\gg 1$ 成立. 因此
-  $$\lim_{n\to\infty}\frac{|a(n+1)|}{|a(n)|}=\lim_{n\to\infty}\frac{|a(n+k-m+1)|}{|a(n+k-m)|}=|\lambda| \ ;$$
-  特别地，当 $n\gg 1$ 时 $|a(n)|\gt 0$ . 
-  设 
-  $$L=(\ell_{ij})_{1\leq i , j \leq k}\in GL(\mathbf{R}^k)\ \text{s.t.} \ A=L\operatorname{diag}(\lambda_1, \cdots, \lambda_k)L^{-1}$$
-  按张量记号设 $L^{-1}=(\ell^{ij})_{1\leq i , j \leq k}$ , $\ell^{il}\ell_{lj}=\delta_j^i$（$\delta$ 是Kronecker符号）. 令 $\mathbf{v}'(n) =L^{-1} \mathbf{v}(n)$ , 则 $\mathbf{v}'(n)$ 满足引理3和引理4的条件. 设 $\mathbf{v}'(n)$ 的MI为 $m$ . 由定理5的证明过程可知
+  <i>定理1的证明.</i> 我们回到第二节开头的设定. 设 
+  $$L=(\ell_{ij})_{1\leq i , j \leq k}\in GL(\mathbf{R}^k)\ \text{s.t.} \ A=L\operatorname{diag}(\lambda_1, \cdots, \lambda_k)L^{-1} \ .$$
+  令 $\mathbf{v}'(n) =L^{-1} \mathbf{v}(n)$ , 则 $\mathbf{v}'(n)$ 满足引理3和引理4的条件. 设 $\mathbf{v}'(n)$ 的MI为 $m$ . 由定理5的证明过程可知
   $$\lim_{n\to\infty} \frac{|v_j'(n+r)|}{|v_m'(n)|} = 0 \ \text{for} \ j\neq m \ , \ r\in\mathbb{N} \ ;$$
   $$\lim_{n\to \infty} \frac{v_m'(n+1)}{v_m'(n)} = \lambda_m \ .$$
   $L$ 非奇异，因此存在 $1\leq s\leq k$ s.t. $\ell_{sm}\neq 0$ . 考察
@@ -173,9 +165,12 @@ $$A^M\mathbf{v}(0)=\left(B\operatorname{diag}(\lambda_1^M, \cdots, \lambda_k^M) 
   于是对于非平凡的 $\{a(n)\}$ , 
   $$\begin{align*}
   \lim_{n\to\infty} \frac{a(n+1)}{a(n)} = & \lim_{n\to\infty} \frac{a(n+k-s+1)}{a(n+k-s)}\\
-  & \lim_{n\to\infty} \frac{v_s(n+1)}{v_s(n)} = \lambda_m \ .
+  = & \lim_{n\to\infty} \frac{v_s(n+1)}{v_s(n)} = \lambda_m \ .
   \end{align*}$$
   Poincaré定理得证.&emsp;$\Box$
+</p>
+<p>
+  <b>注.</b> 如果直接使用定理5，我们只能得到 $\lim_{n\to\infty} \frac{|a(n+1)|}{|a(n)|} = |\lambda_m|$ .
 </p>
 </div>
 
