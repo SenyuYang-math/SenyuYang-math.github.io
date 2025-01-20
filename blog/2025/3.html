@@ -7,18 +7,18 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  翻阅去年的博客 <a href="../2024/5.html" target="_blank">Littlewood-Paley定理的随机化证明</a> 时意识到Khinchin不等式（即链接文章的引理3）可以用于“非显式”地构造一些反例。作为备忘，这里通过Hausdorff-Young不等式为例进行演示.
+  翻阅去年的博客 <a href="../2024/5.html" target="_blank">Littlewood-Paley定理的随机化证明</a> 时意识到Khinchin不等式（即链接文章的引理3）可以用于“非显式”地构造一些反例。这里给出一个简单的应用留作备忘. 
 </p>
 <p>
   通过Fourier变换的 $(1, \infty), (2, 2)$ 有界性和complex interpolation，我们得到熟知的Hausdorff-Young不等式
-  $$\|\widehat{f}\|_{L^{p'}(\mathbb{R}^d)}\leq \|f\|_{L^p(\mathbb{R}^d)}\ , \quad 1\leq p\leq 2 \ , \tag{1}$$
+  $$\|\widehat{f}\|_{L^{p'}(\mathbb{R}^d)}\leq \|f\|_{L^p(\mathbb{R}^d)}\ , \quad 1\leq p\leq 2 \ ,$$
   其中 $p'$ 是 $p$ 的Hölder对偶指标. 我们借助随机化的技术说明当 $p\lt 2$ 时H-Y不等式的反向版本不成立（注意 $p=2$ 时有Plancherel定理）. 我们首先回顾
 </p>
 <p class="thm">
   <b>Khinchin不等式.</b> 令一列独立同分布的随机变量 $\{ r_j\}_{j=\mathbb{Z}}$ 满足
   $$\mathbb{P}[r_j=1]=\mathbb[r_j=-1]=1/2.$$ 
   则对任意 $p\in [1,\infty)$ , $N\in \mathbb{N}^*$ 与 $\{ a_j \}_{j=1}^N\subset \mathbb{R}$ , 期望
-  $$\mathbb{E}\left[\vert \sum_{j=1}^N r_ja_j\vert^p\right] \approx_p \left( \sum_{j=1}^{N} a_j^2\right)^{p/2} \ .\tag{2}$$
+  $$\mathbb{E}\left[\vert \sum_{j=1}^N r_ja_j\vert^p\right] \approx_p \left( \sum_{j=1}^{N} a_j^2\right)^{p/2} \ .$$
 </p>
 <p>
   现在给定一个 $\phi\in C_0^{\infty}$ , 于是存在 $\{v_k\}_{1\leq k\leq N}\subset \mathbb{R}^d$ s.t.
