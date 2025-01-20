@@ -10,35 +10,39 @@
   翻阅去年的博客 <a href="../2024/5.html" target="_blank">Littlewood-Paley定理的随机化证明</a> 时意识到Khinchin不等式（即链接文章的引理3）可以用于“非显式”地构造一些反例。这里给出一个简单的应用留作备忘. 
 </p>
 <p>
-  通过Fourier变换的 $(1, \infty), (2, 2)$ 有界性和complex interpolation，我们得到熟知的Hausdorff-Young不等式
+  通过Fourier变换的 $(1, \infty), (2, 2)$ 有界性和complex interpolation，我们得到熟知的 <i>Hausdorff-Young不等式</i>
   $$\|\widehat{f}\|_{L^{p'}(\mathbb{R}^d)}\leq \|f\|_{L^p(\mathbb{R}^d)}\ , \quad 1\leq p\leq 2 \ ,$$
-  其中 $p'$ 是 $p$ 的Hölder对偶指标. 我们借助随机化的技术说明当 $p\lt 2$ 时H-Y不等式的反向版本不成立（注意 $p=2$ 时有Plancherel定理）. 我们首先回顾
+  其中 $p'$ 是 $p$ 的Hölder对偶指标. 下面我们借助随机化的技术说明当 $p\gt 2$ 时H-Y不等式不成立. 首先回顾
 </p>
 <p class="thm">
   <b>Khinchin不等式.</b> 令一列独立同分布的随机变量 $\{ r_j\}_{j=\mathbb{Z}}$ 满足
-  $$\mathbb{P}[r_j=1]=\mathbb[r_j=-1]=1/2.$$ 
+  $$\mathbb{P}[r_j=1]=\mathbb{P}[r_j=-1]=1/2.$$ 
   则对任意 $p\in [1,\infty)$ , $N\in \mathbb{N}^*$ 与 $\{ a_j \}_{j=1}^N\subset \mathbb{R}$ , 期望
   $$\mathbb{E}\left[\vert \sum_{j=1}^N r_ja_j\vert^p\right] \approx_p \left( \sum_{j=1}^{N} a_j^2\right)^{p/2} \ .$$
 </p>
 <p>
-  现在给定一个 $\phi\in C_0^{\infty}$ , 于是存在 $\{v_k\}_{1\leq k\leq N}\subset \mathbb{R}^d$ s.t.
-  $$\{\phi_k\}\colon \phi_k(x):= \phi(x -v_k)$$
-  两两支集不交；同时 $\widehat{\phi_k}(\xi)=e^{2\pi i \xi\cdot v_k}\widehat{\phi}(\xi)$ . 我们将 $\sum_{k=1}^N \phi_k$ 随机化为
-  $$f(x):=\sum_{k=1}^N r_k\phi_k(x)\ , \ \widehat{f}=\sum_{k=1}^N r_k e^{2\pi i \xi\cdot v_k} \widehat{\phi}(\xi)\ .$$
-  于是 $\|f\|_{L^p}=\|\phi\|_{L^p} N^{1/p}$ 关于 $\{r_j\}$ 一致成立；另一方面，我们的目的是构造尽可能小的 $\|\widehat{f}\|_{L^{p'}}$ , 一个来自概率组合的想法是
+  现在给定一个 $\phi\in \mathcal{S}$ s.t. $\widehat{\phi}\in C_0^{\infty}$ , 于是存在 $\{v_k\}_{1\leq k\leq N}\subset \mathbb{R}^d$ s.t.
+  $$\{\phi_k\}\colon \widehat{\phi_k}(\xi)= \widehat{\phi}(\xi -v_k)$$
+  的Fourier支集两两不交；此时 $\phi_k(x)=e^{2\pi i x\cdot v_k}\phi(x)$ . 我们将 $\sum_{k=1}^N \widehat{\phi_k}$ 随机化为
+  $$\widehat{f}(\xi):=\sum_{k=1}^N r_k\widehat{\phi_k}(\xi)\ , \ f(x)=\sum_{k=1}^N r_k e^{2\pi i x\cdot v_k} \phi(x)\ .$$
+  于是 $\|\widehat{f}\|_{L^{p'}}=\|\widehat{\phi}\|_{L^{p'}} N^{1/p'}$ 关于 $\{r_j\}$ 一致成立；另一方面，我们的目的是构造尽可能小的 $\|f\|_{L^{p}}$ , 一个来自概率组合的想法是
 </p>
 <cite>
-  <b>Erdös方法：</b>期望 $\mathbb{E}[X]$ 是 $X$ 的“平均值” $\Rightarrow$ 存在事件 $\omega$ s.t. $X(\omega) \leq \mathbb{E}(X)$（对 $\geq$ 也存在）.
+  <b>Erdös方法：</b>期望 $\mathbb{E}[X]$ 是 $X$ 的“平均值” $\Rightarrow$ 存在事件 $\omega$ s.t. $X(\omega) \leq \mathbb{E}[X]$（对 $\geq$ 也存在）.
 </cite>
 <p>  
   于是考虑
   $$\begin{align*}
-  \mathbb{E}\left[\vert \widehat{f}\vert_{L^{p'}}^{p'}\right] = & \int_{\xi\in\mathbb{R}^d} |\widehat{\phi}(\xi)|^{p'} \mathbb{E}\left[|\sum_{k=1}^N r_ke^{2\pi i \xi\cdot v_k}|^{p'}\right]\\
-  \leq & \int_{\xi\in\mathbb{R}^d} |\widehat{\phi}(\xi)|^{p'} N^{p'/2} \lesssim N^{p'/2} \ ,
+  \mathbb{E}\left[\Vert f\Vert_{L^{p}}^{p}\right] = & \int_{\mathbb{R}^d} |\phi(x)|^p \mathbb{E}\left[|\sum_{k=1}^N r_ke^{2\pi i x\cdot v_k}|^{p}\right]\\
+  = & N^{p/2} \int_{\mathbb{R}^d} |\phi(x)|^p \approx N^{p/2} \ ,
   \end{align*}$$
-  其中第二行估计来自Khinchin不等式，且常数系数与 $N$ 无关. 因此当 $p\lt 2$ 时，对任意 $N\gg 1$ 都存在 $f$ s.t.
-  $$\|f\|_{L^p}\gtrsim N^{\frac{2-p}{2p}}\|\widehat{f}\|_{L^{p'}} \ ,$$
-  i.e. H-Y不等式的反向版本不成立.
+  其中第二行估计来自Khinchin不等式，且常数系数与 $N$ 无关. 因此当 $p\gt 2$ 时，对任意 $N\gg 1$ 都存在 $f$ s.t.
+  $$\|\widehat{f}\|_{L^{p'}}\gtrsim N^{\frac{p-2}{2p}}\|f\|_{L^p} \ ,$$
+  i.e. H-Y不等式在 $p\gt 2$ 时不成立.
+</p>
+<br/>
+<p>
+  <b>练习.</b> 证明：在 $1\leq p\lt 2$ 时反向H-Y不等式不成立（注意 $p=2$ 时有Plancherel定理）.
 </p>
 </div>
 
