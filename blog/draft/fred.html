@@ -15,7 +15,7 @@
   均为有限维向量空间，且 $T$ 的指标（index）
   $$\operatorname{ind} T:= \operatorname{dim} \operatorname{ker} T - \operatorname{dim} \operatorname{coker} T=0.$$
 </p>
-<p>
+<p calss="thm">
   <b>定义2.</b> 设 $\Omega$ 是 $\mathbb{C}$ 中的一个开区域. 我们称一个复的单参数算子族 $T(z)\in \mathcal{L}(X, Y)$ $(z\in\Omega)$ 在 $\Omega$ 上<b>解析</b>（analytic），如果对任意 $x\in X, y^*\in Y^*$ , 函数
   $$f_{x, y^*}(z) := \langle y^*, T(z)x\rangle,\quad z\in\Omega$$
   是解析的. 
@@ -79,19 +79,19 @@
   G_w(z):= \begin{bmatrix}
   T(z) & R_-(w) \\
   R_+(w) & 0
-  \end{bmatrix}\colon X\oplus \mathbb{C}^n \to Y\oplus \mathbb{C}^n,\quad z\in\Omega.
+  \end{bmatrix}\colon X\oplus \mathbb{C}^{n_w} \to Y\oplus \mathbb{C}^{n_w},\quad z\in\Omega.
   \end{equation*}$$
   由命题4，$G_w(w)$ 是双射. 因此存在 $w$ 的某个开邻域 $\mathcal{O}(w)$ s.t. 对任意 $z\in \mathcal{O}(w)$ 都满足 $G_w(z)$ 是双射（一个小练习），并且 $G_w(z), G_w(z)^{-1}$ 在 $\mathcal{O}(w)$ 上解析（又一个小练习）. 设
   $$\begin{equation*}
   G_w^{-1}(z):= \begin{bmatrix}
-  S_w(z) & E_{w,+}(z) \\
+  S_w(z) & S_{w,+}(z) \\
   S_{w,-}(z) & S_{w,-+}(z)
-  \end{bmatrix}\colon Y\oplus \mathbb{C}^{n_{w,z}} \to X\oplus \mathbb{C}^{n_{w,z}},\quad z\in\mathcal{O}(w).
+  \end{bmatrix}\colon Y\oplus \mathbb{C}^{n_w} \to X\oplus \mathbb{C}^{n_w},\quad z\in\mathcal{O}(w).
   \end{equation*}$$
   我们建立一个关键的观察. 这将问题转化为有限维情形，进而归结为单复变函数论. 
 </p>
 <p class="thm">
-  <b>引理5.</b> 设 $z\in N(w)$ , $T(z)$ 可逆 $\Leftrightarrow$ $S_{w,-+}(z): \mathbb{C}^{n_{w,z}}\to \mathbb{C}^{n_{w,z}}$ 可逆. 
+  <b>引理5.</b> 设 $z\in N(w)$ , $T(z)$ 可逆 $\Leftrightarrow$ $S_{w,-+}(z): \mathbb{C}^{n_w}\to \mathbb{C}^{n_w}$ 可逆. 
 </p>
 <p>
   <i>证明.</i> 为简化记号，我们省略变量部分. 代入 $GG^{-1}=1$ 的第一行有
@@ -118,7 +118,13 @@
 </p>
 <h2>奇异点的亚纯性</h2>
 <p>
-  这一节着手证明推论：$D$ 是 $T^{-1}(z)$ 的极点.
+  这一节着手证明推论：$w\in D$ 是 $T^{-1}(z)$ 的极点. 由引理5的证明和 $D$ 的离散性，
+  $$T^{-1}(z)=S_w(z)-S_{w,+}(z)S_{w, -+}(z)S_{w,-}(z), \quad z\in\mathcal{O}(w)\setminus \{w\},$$
+  其中 $S, S_-, S_+$ 均在 $\mathcal{O}(w)$ 上解析. 此时 $f(z):=\det S_{w, -+}(z) \cdot S_{w, -+}^{-1}(z)$ 是 $\mathcal{O}(w)$ 上的解析 $n_w\times n_w$ 矩阵族，于是 $S_{w,-+}^{-1}$ 有Laurent展开
+  $$S_{w, -+}^{-1}(z)=\frac{R_{-N_w}}{(z-w)^{N_w}} + ... + \frac{R_{-1}}{(z-w)^{-1}} + \text{ analytic part } ,$$
+  其中 $0\lt N_w\in\mathbb{N} \lt \infty$ , $\{R_{-k}\}_{1\leq k\leq N_w}$ 为一族 $n_w\times n_w$ 矩阵. 代入 $T^{-1}(z)$ 的表达式即有
+  $$T^{-1}(z)=\frac{A_{-N_w}}{(z-w)^{N_w}} + ... + \frac{A_{-1}}{(z-w)^{-1}} + \text{ analytic part } ,$$
+  i.e. $w$ 是 $T^{-1}(z)$ 的 $N_w$ 阶极点，其中 $\{A_{-k}\}_{1\leq k\leq N_w}$ 为一族 $Y\to X$ 的有限秩算子. $\quad$$\Box$
 </p>
 </div>
 
