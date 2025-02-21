@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  本篇博客始终在Banach空间 $X, Y$ 以及 $X\to Y$ 的全体连续线性算子 $\mathcal{L}(X, Y)$ 上讨论. ${}^*$ 代表对偶空间（全体连续线性泛函）. 我们回忆
+  本篇博客始终在Banach空间 $X, Y$ 以及 $X\to Y$ 的全体连续线性算子 $\mathcal{L}(X, Y)$ 上讨论. 上标 ${}^*$ 代表对偶空间（全体连续线性泛函）. 我们回忆
 </p>
 <p class="thm">
   <b>定义1.</b> 我们称 $T\in\mathcal{L}(X, Y)$ 是<b>Fredholm算子</b>，如果 $\operatorname{ker} T\subset X, \operatorname{coker} T:=Y/\operatorname{im} T$ 均为有限维向量空间，且 $T$ 的指标（index）
@@ -104,7 +104,7 @@
   <b>注.</b> $GG^{-1}=1$ 的第一行代表了Fredholm算子的重要性质：存在 $S$ s.t. $TS-1$ 为有限秩算子. $S$ 称为 $T$ 的一个（右）广义逆. 一个具体的类比是PDE中的拟解（paramatrix）.
 </p>
 <p>
-  回到定理的证明. 现在只需判断有限维矩阵 $S_{w,-+}(z)$ 的可逆性，即研究解析函数 $\det S_{-+}_w(z)$ 的零点. 根据复分析我们知道在连通区域上非零解析函数的零点集没有聚点，因此可以进一步调整 $\mathcal{O}(w)$ s.t. 以下情况有且仅有一个成立：
+  回到定理的证明. 现在只需判断有限维矩阵 $S_{w,-+}(z)$ 的可逆性，即研究解析函数 $\det S_{w, -+}(z)$ 的零点. 根据复分析我们可以进一步调整 $\mathcal{O}(w)$ s.t. 以下情况有且仅有一个成立：
   <ul>
     <li>$\det S_{-+}$ 在 $\mathcal{O}(w)$ 上恒等于 $0$ .</li>
     <li>$\det S_{-+}$ 在 $\mathcal{O}(w)\setminus \{w\}$ 上恒不为 $0$ .</li>
