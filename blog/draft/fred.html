@@ -47,7 +47,7 @@
   下面我们引入一个研究Fredholm算子的重要媒介：<b>Grushin算子</b>. 设 
   $$n:=\operatorname{dim} \operatorname{ker} T=\operatorname{dim} \operatorname{coker} T\lt \infty.$$
   如命题3的证明所示，$R_-\in\mathcal{L}(\mathbb{C}^n, Y)$ 是单射，并且 $Y= \operatorname{im} T \oplus \operatorname{im} R_-$ . 同样地，我们选出 $x_1, ..., x_n\in X$ 为 $\operatorname{ker} T$ 的一组基，则通过Hahn-Banach定理可以构造 $\varphi_1, ..., \varphi_n\in X^*$ s.t. 
-  $$\varphi_j(e_k)=\delta_{jk}, \quad 1\leq j, k\leq n.$$
+  $$\varphi_j(x_k)=\delta_{jk}, \quad 1\leq j, k\leq n.$$
   于是线性算子
   $$R_+\colon X\to \mathbb{C}^n, x\mapsto (\varphi_1(x), ..., \varphi_n(x))$$
   是满射，并且限制算子 $R_+\mid_{\operatorname{ker} T}$ 是双射. 
@@ -66,9 +66,9 @@
   <b>命题4.</b> $G$ 是双射. 
 </p>
 <p>
-  <i>证明.</i> 设 $G(x, a)=0$ , i.e. $Tx+ R_-a=0$ , $R_+x=0$ . 于是 $Tx=R_-a=0$ . 由于 $R_-, R_+$ 均为单射，所以 $(x,a)=0$ . 因此 $G$ 是单射；而对任意 $(y, b)\in Y\oplus \mathbb{C}^n$ , 存在唯一的 $(y', a')\in \operatorname{im} T\oplus\mathbb{C}^n$ s.t. $y=y'+ R_-a'$ . 设 $y'=Tx'$ , 则令 
+  <i>证明.</i> 设 $G(x, a)=0$ , i.e. $Tx+ R_-a=0$ , $R_+x=0$ . 于是 $Tx=R_-a=0$ . 由于 $R_-, R_+$ 均为单射，所以 $(x,a)=0$ i.e. $G$ 是单射；而对任意 $(y, b)\in Y\oplus \mathbb{C}^n$ , 存在唯一的 $(y', a')\in \operatorname{im} T\oplus\mathbb{C}^n$ s.t. $y=y'+ R_-a'$ . 设 $y'=Tx'$ , 则令 
   $$x=x'+\sum_{j=1}^n (b_j-\varphi_j(x'))x_j$$
-  即有 $G(x, a')=y$ . 因此 $G$ 是满射. $\quad$$\Box$
+  即有 $G(x, a')=y$ i.e. $G$ 是满射. $\quad$$\Box$
 </p>
 <h2>奇异集的离散性</h2>
 <p>
