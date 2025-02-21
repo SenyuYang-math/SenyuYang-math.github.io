@@ -15,7 +15,10 @@
   均为有限维向量空间，且 $T$ 的指标（index）
   $$\operatorname{ind} T:= \operatorname{dim} \operatorname{ker} T - \operatorname{dim} \operatorname{coker} T=0.$$
 </p>
-<p calss="thm">
+<p>
+  <b>例.</b> 如果 $K\in \mathcal{L}(B, B)$ 是一个紧算子，则根据Fredholm-Riesz定理可知 $zI-K$ 是Fredholm算子，$\forall z\in\mathbb{C}$ .
+</p>
+<p class="thm">
   <b>定义2.</b> 设 $\Omega$ 是 $\mathbb{C}$ 中的一个开区域. 我们称一个复的单参数算子族 $T(z)\in \mathcal{L}(X, Y)$ $(z\in\Omega)$ 在 $\Omega$ 上<b>解析</b>（analytic），如果对任意 $x\in X, y^*\in Y^*$ , 函数
   $$f_{x, y^*}(z) := \langle y^*, T(z)x\rangle,\quad z\in\Omega$$
   是解析的. 
@@ -45,6 +48,7 @@
   $$T'\colon X\oplus \mathbb{C}^n \to Y , (x, a) \mapsto Tx+R_-a$$
   是双射. 根据开映射定理，$\operatorname{im} T = T'(X\oplus \{0\})$ 是闭的. $\quad$$\Box$
 </p>
+<br/>
 <p>
   下面我们引入一个研究Fredholm算子的重要媒介：<b>Grushin算子</b>. 设 
   $$n:=\operatorname{dim} \operatorname{ker} T=\operatorname{dim} \operatorname{coker} T\lt \infty.$$
@@ -96,8 +100,8 @@
 <p>
   <i>证明.</i> 为简化记号，我们省略变量部分. 代入 $GG^{-1}=1$ 的第一行有
   $$TS+R_-S_-=1, TS_+ + R_-S_{-+} = 0.$$
-  如果 $S_{-+}^{-1}$ 存在，则 $R_-=-TS_+S_{-+}$ , 于是
-  $$T(S-S_+S_{-+}S_-) =1,$$
+  如果 $S_{-+}^{-1}$ 存在，则 $R_-=-TS_+S_{-+}^{-1}$ . 于是
+  $$T(S-S_+S_{-+}^{-1}S_-) =1,$$
   i.e. $T$ 可逆；反之，设 $T^{-1}$ 存在. 由 $G^{-1}=1$ 的第二行有 $R_+S_+=1$ . 由第一行有 $S_+=-T^{-1}R_-S_{-+}$ , 于是
   $$-(R_+T^{-1}R_-)S_{-+} = 1,$$
   i.e. $S_{-+}$ 可逆.$\quad$$\Box$
@@ -119,12 +123,23 @@
 <h2>奇异点的亚纯性</h2>
 <p>
   这一节着手证明推论：$w\in D$ 是 $T^{-1}(z)$ 的极点. 由引理5的证明和 $D$ 的离散性，
-  $$T^{-1}(z)=S_w(z)-S_{w,+}(z)S_{w, -+}(z)S_{w,-}(z), \quad z\in\mathcal{O}(w)\setminus \{w\},$$
-  其中 $S, S_-, S_+$ 均在 $\mathcal{O}(w)$ 上解析. 此时 $f(z):=\det S_{w, -+}(z) \cdot S_{w, -+}^{-1}(z)$ 是 $\mathcal{O}(w)$ 上的解析 $n_w\times n_w$ 矩阵族，于是 $S_{w,-+}^{-1}$ 有Laurent展开
-  $$S_{w, -+}^{-1}(z)=\frac{R_{-N_w}}{(z-w)^{N_w}} + ... + \frac{R_{-1}}{(z-w)^{-1}} + \text{ analytic part } ,$$
-  其中 $0\lt N_w\in\mathbb{N} \lt \infty$ , $\{R_{-k}\}_{1\leq k\leq N_w}$ 为一族 $n_w\times n_w$ 矩阵. 代入 $T^{-1}(z)$ 的表达式即有
-  $$T^{-1}(z)=\frac{A_{-N_w}}{(z-w)^{N_w}} + ... + \frac{A_{-1}}{(z-w)^{-1}} + \text{ analytic part } ,$$
-  i.e. $w$ 是 $T^{-1}(z)$ 的 $N_w$ 阶极点，其中 $\{A_{-k}\}_{1\leq k\leq N_w}$ 为一族 $Y\to X$ 的有限秩算子. $\quad$$\Box$
+  $$T^{-1}(z)=S_w(z)-S_{w,+}(z)S_{w, -+}^{-1}(z)S_{w,-}(z), \quad z\in\mathcal{O}(w)\setminus \{w\},$$
+  其中 $S, S_-, S_+$ 均在 $\mathcal{O}(w)$ 上解析. 此时 
+  $$F(z):=\det S_{w, -+}(z) \cdot S_{w, -+}^{-1}(z)$$
+  是 $\mathcal{O}(w)$ 上的解析 $n_w\times n_w$ 矩阵族，于是 $S_{w,-+}^{-1}$ 有Laurent展开
+  $$S_{w, -+}^{-1}(z)=\frac{R_{w, -N_w}}{(z-w)^{N_w}} + ... + \frac{R_{w,-1}}{(z-w)^{-1}} + \text{ analytic part } ,$$
+  其中 $0\lt N_w\in\mathbb{N} \lt \infty$ , $\{R_{w,-k}\}_{1\leq k\leq N_w}$ 为一族 $n_w\times n_w$ 矩阵. 代入 $T^{-1}(z)$ 的表达式即有
+  $$T^{-1}(z)=\frac{A_{w, -N_w}}{(z-w)^{N_w}} + ... + \frac{A_{w,-1}}{(z-w)^{-1}} + \text{ analytic part } ,$$
+  i.e. $w$ 是 $T^{-1}(z)$ 的 $N_w$ 阶极点，其中 
+  $$\{A_{w,-k}\}_{1\leq k\leq N_w}\colon A_{w,-k}= S_{w,+}(z)R_{-k}S_{w,-}(z)$$
+  为一族 $Y\to X$ 的有限秩算子. $\quad$$\Box$
+</p>
+<p>
+  在下一节，我们将看到 $w$ 的阶数 $N_w$ 和留数项（residue）$A_{w,-1}$ 在具体应用中的意义.
+</p>
+<h2>几点应用</h2>
+<p>
+  TBA...
 </p>
 </div>
 
