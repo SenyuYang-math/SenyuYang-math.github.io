@@ -7,24 +7,24 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  本篇博客始终在Banach空间 $X, Y$ 以及 $X\to Y$ 的全体连续线性算子 $\mathcal{L}(X, Y)$ 上讨论. 上标 ${}^*$ 代表对偶空间（全体连续线性泛函）. 我们回忆
+  在准备sine-Gordon kink讨论班时学到一个分析线性算子的好工具——解析Fredholm理论，于是写篇笔记分享一下. 我们始终在Banach空间 $X, Y$ 以及 $X\to Y$ 的全体连续线性算子 $\mathcal{L}(X, Y)$ 上讨论. 上标 ${}^*$ 代表对偶空间（全体连续线性泛函）. 首先回忆
 </p>
 <p class="thm">
-  <b>定义1.</b> 我们称 $T\in\mathcal{L}(X, Y)$ 是<b>Fredholm算子</b>，如果 
+  <b>定义1.</b> 称 $T\in\mathcal{L}(X, Y)$ 是<b>Fredholm算子</b>，如果 
   $$\operatorname{ker} T\subset X, \operatorname{coker} T:=Y/\operatorname{im} T$$
   均为有限维向量空间，且 $T$ 的指标（index）
   $$\operatorname{ind} T:= \operatorname{dim} \operatorname{ker} T - \operatorname{dim} \operatorname{coker} T=0.$$
 </p>
 <p>
-  <b>例.</b> 如果 $K\in \mathcal{L}(B, B)$ 是一个紧算子，则根据Fredholm-Riesz定理可知 $zI-K$ 是Fredholm算子，$\forall z\in\mathbb{C}$ .
+  <b>例.</b> 如果 $K\in \mathcal{L}(B, B)$ 是一个紧算子，根据Fredholm-Riesz定理可知 $zI-K$ 是Fredholm算子，$\forall z\in\mathbb{C}$ .
 </p>
 <p class="thm">
-  <b>定义2.</b> 设 $\Omega$ 是 $\mathbb{C}$ 中的一个开区域. 我们称一个复的单参数算子族 $T(z)\in \mathcal{L}(X, Y)$ $(z\in\Omega)$ 在 $\Omega$ 上<b>解析</b>（analytic），如果对任意 $x\in X, y^*\in Y^*$ , 函数
+  <b>定义2.</b> 设 $\Omega$ 是 $\mathbb{C}$ 中的一个开区域. 称一个复的单参数算子族 $T(z)\in \mathcal{L}(X, Y)$ $(z\in\Omega)$ 在 $\Omega$ 上<b>解析</b>（analytic），如果对任意 $x\in X, y^*\in Y^*$ , 函数
   $$f_{x, y^*}(z) := \langle y^*, T(z)x\rangle,\quad z\in\Omega$$
   是解析的. 
 </p>
 <p>
-  我们的主要目标是建立以下的解析Fredholm理论，在应用一节我们会看到它是非常趁手的谱理论工具.
+  我们的目标是建立以下的主结论，并给出在谱理论的若干应用.
 </p>
 <p class="thm">
   <b>定理</b> (奇异集是离散的)<b>.</b> 令 $\Omega$ 为 $\mathbb{C}$ 上的连通开集. 设 $T(z)\in \mathcal{L}(X, Y)$ 在 $z\in \Omega$ 上解析的Fredholm算子族. 则以下情况有且仅有一个成立：<br/>
@@ -32,7 +32,7 @@
   &emsp;(b) 存在一个离散点集 $D\subset \Omega$ s.t. $T(z)$ 在 $\Omega\setminus D$ 上解析且可逆.
 </p>
 <p class="thm">
-   <b>推论</b> (奇点是极点)<b>.</b> $T(z)^{-1}$ 可延拓为 $\Omega$ 上的亚纯（meromorphic）函数；进一步地，$T(z)^{-1}$ 的负次数项系数都是有限秩（finite rank）算子. 
+   <b>推论</b> (奇点是极点)<b>.</b> $T(z)^{-1}$ 可延拓为 $\Omega$ 上的亚纯（meromorphic）函数；进一步地，$T(z)^{-1}$ 的Laurent展开的负次数项系数都是有限秩（finite rank）算子. 
 </p>
 <h2>预备：Grushin算子</h2>
 <p>
@@ -102,7 +102,7 @@
   $$TS+R_-S_-=1, TS_+ + R_-S_{-+} = 0.$$
   如果 $S_{-+}^{-1}$ 存在，则 $R_-=-TS_+S_{-+}^{-1}$ . 于是
   $$T(S-S_+S_{-+}^{-1}S_-) =1,$$
-  i.e. $T$ 可逆；反之，设 $T^{-1}$ 存在. 由 $G^{-1}=1$ 的第二行有 $R_+S_+=1$ . 由第一行有 $S_+=-T^{-1}R_-S_{-+}$ , 于是
+  i.e. $T$ 可逆；反之，设 $T^{-1}$ 存在. 由 $GG^{-1}=1$ 的第二行有 $R_+S_+=1$ . 由第一行有 $S_+=-T^{-1}R_-S_{-+}$ , 于是
   $$-(R_+T^{-1}R_-)S_{-+} = 1,$$
   i.e. $S_{-+}$ 可逆.$\quad$$\Box$
 </p>
