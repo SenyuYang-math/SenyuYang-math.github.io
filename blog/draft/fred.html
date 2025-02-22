@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  在准备sine-Gordon kink讨论班时学到一个分析线性算子的好工具——解析Fredholm理论，于是写篇笔记分享一下. 我们始终在Banach空间 $X, Y$ 以及 $X\to Y$ 的全体连续线性算子 $\mathcal{L}(X, Y)$ 上讨论. 上标 ${}^*$ 代表对偶空间（全体连续线性泛函）. 首先回忆
+  在准备讨论班时学到一个好工具——解析Fredholm理论，于是写篇笔记. 我们始终在Banach空间 $X, Y$ 以及 $X\to Y$ 的全体连续线性算子 $\mathcal{L}(X, Y)$ 上讨论. 上标 ${}^*$ 代表对偶空间（全体连续线性泛函）. 首先回忆
 </p>
 <p class="thm">
   <b>定义1.</b> 称 $T\in\mathcal{L}(X, Y)$ 是<b>Fredholm算子</b>，如果 
@@ -16,30 +16,28 @@
   $$\operatorname{ind} T:= \operatorname{dim} \operatorname{ker} T - \operatorname{dim} \operatorname{coker} T=0.$$
 </p>
 <p>
-  <b>例.</b> 如果 $K\in \mathcal{L}(B, B)$ 是一个紧算子，根据Fredholm-Riesz定理可知 $zI-K$ 是Fredholm算子，$\forall z\in\mathbb{C}$ .
-</p>
-<p class="thm">
-  <b>定义2.</b> 设 $\Omega$ 是 $\mathbb{C}$ 中的一个开区域. 称一个复的单参数算子族 $T(z)\in \mathcal{L}(X, Y)$ $(z\in\Omega)$ 在 $\Omega$ 上<b>解析</b>（analytic），如果对任意 $x\in X, y^*\in Y^*$ , 函数
-  $$f_{x, y^*}(z) := \langle y^*, T(z)x\rangle,\quad z\in\Omega$$
-  是解析的. 
+  <b>例.</b> 如果 $K\in \mathcal{L}(B, B)$ 是一个紧算子，根据Fredholm-Riesz定理可知 $K-zI$ 是Fredholm算子，$\forall z\in\mathbb{C}\setminus \{0\}$ .
 </p>
 <p>
-  我们的目标是建立以下的主结论，并给出在谱理论的若干应用.
+  本期博客的目标是建立以下的主结论
 </p>
 <p class="thm">
-  <b>定理</b> (奇异集是离散的)<b>.</b> 令 $\Omega$ 为 $\mathbb{C}$ 上的连通开集. 设 $T(z)\in \mathcal{L}(X, Y)$ 在 $z\in \Omega$ 上解析的Fredholm算子族. 则以下情况有且仅有一个成立：<br/>
+  <b>定理</b> (奇异集是离散的)<b>.</b> 令 $\Omega$ 为 $\mathbb{C}$ 上的连通开集. 设 $T(z)\in \mathcal{L}(X, Y)$ 在 $z\in \Omega$ 上<i>解析</i>（analytic）的Fredholm算子族. 则以下情况有且仅有一个成立：<br/>
   &emsp;(a) 对所有 $z\in\Omega$ , $T(z)$ 不可逆，或<br/>
   &emsp;(b) 存在一个离散点集 $D\subset \Omega$ s.t. $T(z)$ 在 $\Omega\setminus D$ 上解析且可逆.
 </p>
 <p class="thm">
-   <b>推论</b> (奇点是极点)<b>.</b> $T(z)^{-1}$ 可延拓为 $\Omega$ 上的亚纯（meromorphic）函数；进一步地，$T(z)^{-1}$ 的Laurent展开的负次数项系数都是有限秩（finite rank）算子. 
+   <b>推论</b> (奇点是极点)<b>.</b> $T(z)^{-1}$ 可延拓为 $\Omega$ 上的亚纯（meromorphic）函数；进一步地，$T(z)^{-1}$ 在任意 $w\in D$ 处的Laurent展开的负次数项系数都是有限秩（finite rank）算子. 
+</p>
+<p>
+  <b>注.</b> 令 $T(z)$ 等于上一条注的 $K-zI$ , $\Omega=\mathbb{C}\setminus \{0\}$ , 则上述结论刻画了resolvent $(K-zI)^{-1}$ 在孤立特征值 $w\in D$ 处的渐进行为. 这在 $K$ 的谱理论的核心地位无需多言.
 </p>
 <h2>预备：Grushin算子</h2>
 <p>
   这一节将补给Fredholm算子的若干性质. 
 </p>
 <p class="thm">
-  <b>命题3.</b> 设 $T$ 是Fredholm算子，则 $\operatorname{im} T\subset Y$ 是闭子空间. 
+  <b>命题2.</b> 设 $T$ 是Fredholm算子，则 $\operatorname{im} T\subset Y$ 是闭子空间. 
 </p>
 <p>
   <i>证明.</i> 只有闭性是不平凡的. 不妨设 $T$ 是单射，否则考虑 $\tilde{T}: X/\operatorname{ker} T \to Y$ , 依然有 $\operatorname{im} \tilde{T} = \operatorname{im} T$ . 由于 $\operatorname{dim} \operatorname{coker} T=n\lt \infty$ , 我们可选择 $y_1, ..., y_n\in Y$ s.t. $y_1+\operatorname{im} T, ..., y_n+\operatorname{im} T$ 为 $\operatorname{coker} T$ 的一组基. 因此线性算子
@@ -48,11 +46,13 @@
   $$T'\colon X\oplus \mathbb{C}^n \to Y , (x, a) \mapsto Tx+R_-a$$
   是双射. 根据开映射定理，$\operatorname{im} T = T'(X\oplus \{0\})$ 是闭的. $\quad$$\Box$
 </p>
-<br/>
+<p>
+  <b>注.</b> 维数的有限性体现在我们能够选取基底以构造直和结构，这在一般的Banach空间上是不平凡的.
+</p>
 <p>
   下面我们引入一个研究Fredholm算子的重要媒介：<b>Grushin算子</b>. 设 
   $$n:=\operatorname{dim} \operatorname{ker} T=\operatorname{dim} \operatorname{coker} T\lt \infty.$$
-  如命题3的证明所示，$R_-\in\mathcal{L}(\mathbb{C}^n, Y)$ 是单射，并且 $Y= \operatorname{im} T \oplus \operatorname{im} R_-$ . 同样地，我们选出 $x_1, ..., x_n\in X$ 为 $\operatorname{ker} T$ 的一组基，则通过Hahn-Banach定理可以构造 $\varphi_1, ..., \varphi_n\in X^*$ s.t. 
+  如命题2的证明所示，$R_-\in\mathcal{L}(\mathbb{C}^n, Y)$ 是单射，并且 $Y= \operatorname{im} T \oplus \operatorname{im} R_-$ . 同样地，我们选出 $x_1, ..., x_n\in X$ 为 $\operatorname{ker} T$ 的一组基，则通过Hahn-Banach定理可以构造 $\varphi_1, ..., \varphi_n\in X^*$ s.t. 
   $$\varphi_j(x_k)=\delta_{jk}, \quad 1\leq j, k\leq n.$$
   于是线性算子
   $$R_+\colon X\to \mathbb{C}^n, x\mapsto (\varphi_1(x), ..., \varphi_n(x))$$
@@ -69,7 +69,7 @@
   直观上，$G$ 填补了 $T$ 在 $\operatorname{ker} T, \operatorname{coker} T$ 上的“缺失”. 
 </p>
 <p class="thm">
-  <b>命题4.</b> $G$ 是双射. 
+  <b>命题3.</b> $G$ 是双射. 
 </p>
 <p>
   <i>证明.</i> 设 $G(x, a)=0$ , i.e. $Tx+ R_-a=0$ , $R_+x=0$ . 于是 $Tx=R_-a=0$ . 由于 $R_-, R_+$ 均为单射，所以 $(x,a)=0$ i.e. $G$ 是单射；而对任意 $(y, b)\in Y\oplus \mathbb{C}^n$ , 存在唯一的 $(y', a')\in \operatorname{im} T\oplus\mathbb{C}^n$ s.t. $y=y'+ R_-a'$ . 设 $y'=Tx'$ , 则令 
@@ -95,7 +95,7 @@
   我们建立一个关键的观察. 这将问题转化为有限维情形，进而归结为单复变函数论. 
 </p>
 <p class="thm">
-  <b>引理5.</b> 设 $z\in N(w)$ , $T(z)$ 可逆 $\Leftrightarrow$ $S_{w,-+}(z): \mathbb{C}^{n_w}\to \mathbb{C}^{n_w}$ 可逆. 
+  <b>引理4.</b> 设 $z\in N(w)$ , $T(z)$ 可逆 $\Leftrightarrow$ $S_{w,-+}(z): \mathbb{C}^{n_w}\to \mathbb{C}^{n_w}$ 可逆. 
 </p>
 <p>
   <i>证明.</i> 为简化记号，我们省略变量部分. 代入 $GG^{-1}=1$ 的第一行有
@@ -110,6 +110,9 @@
   <b>注.</b> $GG^{-1}=1$ 的第一行代表了Fredholm算子的重要性质：存在 $S$ s.t. $TS-1$ 为有限秩算子. $S$ 称为 $T$ 的一个（右）广义逆. 一个具体类比是PDE的拟基本解（parametrix）.
 </p>
 <p>
+  <b>注.</b> 如果 $\operatorname{ind} T \neq 0$ , 则 $S_{-+}: \mathbb{C}^{n_1} \to \mathbb{C}^{n_2}$ , $n_1\neq n_2$ . 这时讨论可逆性便失去了意义. 
+</p>
+<p>
   回到定理的证明. 现在只需判断有限维矩阵 $S_{w,-+}(z)$ 的可逆性，即研究解析函数 $\det S_{w, -+}(z)$ 的零点. 根据复分析我们可以进一步调整 $\mathcal{O}(w)$ s.t. 以下情况有且仅有一个成立：
   <ul>
     <li>$\det S_{-+}$ 在 $\mathcal{O}(w)$ 上恒等于 $0$ .</li>
@@ -122,7 +125,7 @@
 </p>
 <h2>在奇点的Laurent展开</h2>
 <p>
-  这一节着手证明推论：$w\in D$ 是 $T^{-1}(z)$ 的极点. 由引理5的证明和 $D$ 的离散性，
+  这一节着手证明推论：$w\in D$ 是 $T^{-1}(z)$ 的极点. 由引理4的证明和 $D$ 的离散性，
   $$T^{-1}(z)=S_w(z)-S_{w,+}(z)S_{w, -+}^{-1}(z)S_{w,-}(z), \quad z\in\mathcal{O}(w)\setminus \{w\},$$
   其中 $S, S_-, S_+$ 均在 $\mathcal{O}(w)$ 上解析. 此时 
   $$F(z):=\det S_{w, -+}(z) \cdot S_{w, -+}^{-1}(z)$$
@@ -135,11 +138,7 @@
   为一族 $Y\to X$ 的有限秩算子. $\quad$$\Box$
 </p>
 <p>
-  $T^{-1}(z)$ 的Laurent展开使我们能够对 $T(z)$ 的奇点做更定量的刻画. 在下一节，我们将看到 $w$ 的阶数 $N_w$ 和留数项（residue）$A_{w,-1}$ 在具体应用中的意义.
-</p>
-<h2>几点应用</h2>
-<p>
-  TBA...
+  $T^{-1}(z)$ 的Laurent展开使我们能够对 $T(z)$ 的奇点做出——远比一般的泛函技术——更加精细的刻画，我们将若干和应用留到下一期博客. 未完待续~
 </p>
 </div>
 
