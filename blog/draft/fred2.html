@@ -7,14 +7,58 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  接上一期博客，我们给出解析Fredholm理论的若干应用（特别地，对于紧算子的谱理论）.
+  接上一期博客，我们给出解析Fredholm理论的若干应用（特别地，对于紧算子的谱理论）. 首先回顾
+</p>
+<p class="thm">
+  <b>定理</b> (奇异集是离散的)<b>.</b> 令 $\Omega$ 为 $\mathbb{C}$ 上的连通开集. 设 $T(z)\in \mathcal{L}(X, Y)$ 在 $z\in \Omega$ 上<i>解析</i>（analytic）的Fredholm算子族. 则以下情况有且仅有一个成立：<br/>
+  &emsp;(a) 对所有 $z\in\Omega$ , $T(z)$ 不可逆，或<br/>
+  &emsp;(b) 存在一个离散点集 $D\subset \Omega$ s.t. $T(z)$ 在 $\Omega\setminus D$ 上解析且可逆.
+</p>
+<p class="thm">
+   <b>推论</b> (奇点是极点)<b>.</b> $T(z)^{-1}$ 可延拓为 $\Omega$ 上的亚纯（meromorphic）函数；进一步地，$T(z)^{-1}$ 在任意 $w\in D$ 处的Laurent展开的负次数项系数都是有限秩（finite rank）算子. 
+</p>
+<p>
+   在本期博客，我们将只考虑 $Y=X$ , $T(z)=K-zI$ 的形式，其中 $\Omega={\mathbb{C}}\setminus\{0\}$ , $K$ 为一个紧算子. 于是 $R(z):=T(z)^{-1}=(K-zI)^{-1}$ 即为 $K$ 的预解式（resolvent）.（注意这里并没有关于Hilbert空间框架中对称/自伴性的任何假设）
 </p>
 <h2>Riesz投影</h2>
 <p>
-  首先，根据 $D$ 的离散性我们可以选择一个以 $w$ 为中心且充分小的圆周 $C$ s.t. 其他极点均位于圆周外，做围道积分可得 $T(z)^{-1}$ 的留数（residue）
-  $$A_{w,-1}=\frac{1}{2\pi i}\int_{C} T(z)^{-1} \, \mathrm{d}z,$$
-  注意这与 $C$ 的选取无关. 直接计算可以证明 $A_{w,-1}^2=A_{w,-1}$ . 著名的<b>Riesz投影</b>，
-</p>  
+  设在 $w\in D$ 附近 $R(z)$ 有Laurent展开
+  $$R(z)=\frac{A_{w, -N_w}}{(z-w)^{N_w}} + ... + \frac{A_{w,-1}}{(z-w)^{-1}} + \text{ analytic part } .$$
+  首先，根据 $D$ 的离散性我们可以选择一个以 $w$ 为中心且充分小的简单闭曲线（比如圆周） $C_w$ s.t. 其他极点均位于 $C_w$ 外部，围道积分可得 $R(z)$ 在 $w$ 的留数算子（residue）
+  $$P_w:=A_{w,-1}=\frac{1}{2\pi i}\int_{C_w} (K-zI)^{-1} \ dz=\int_{C_w} R(z) \ dz.$$
+  注意定义与 $C_w$ 的选取无关. 从Cauchy积分的直观出发可以做出猜测：
+</p> 
+<ol>
+  <li>$P_w$ 是 $K$ 在离散谱 $z=w$ 部分的“投影”.</li>
+  <li>$P_w$ “精确”对应于 $K$ 在 $z=w$ 部分的信息.</li>
+</ol>
+<p>
+  这一节我们解决第一个问题：
+</p>
+<p class="thm">
+  <b>命题1.</b> $P_w$ 满足以下性质：<br/>
+  &emsp;(a) $P_w$ 是一个投影算子，i.e. $P_w^2=P_w$ . <br/>
+  &emsp;(b) 对任意 $n\geq 1$ 有 $\operatorname{ker} (K-w)^n \subset \operatorname{ran} P_w$ .
+</p>
+<p>
+  <i>证明.</i> (a): 取两条围绕 $w$ 充分小的简单闭曲线 $\C_\lambda, \C_\mu$ , 且 $\C_\mu$ 包含于 $C_\lambda$ 所围区域的内部. 根据resolvent的第一恒等式
+  $$R(\lambda)-R(\mu)=(\lambda-\mu)R(\lambda)R(\mu)$$
+  以及Cauchy定理，我们有
+  $$\begin{align*}
+  P_w^2 & = \frac{1}{(2\pi i)^2} \int_{C_\lambda}\int_{C_\mu} R(\lambda)R(\mu) \ d\mu d\lambda\\
+  & = \frac{1}{(2\pi i)^2}\int_{C_\lambda}\int_{C_\mu} \frac{1}{\lambda-\mu}\left( R(\lambda)-R(\mu) \right) \ d\mu d\lambda\\
+  & = \frac{1}{(2\pi i)^2}\int_{C_\lambda} R(\lambda) \left(\int_{C_\mu} \frac{1}{\lambda-\mu} \ d\mu\right) \ d\lambda\\
+  & \quad \ + \frac{1}{(2\pi i)^2}\int_{C_\mu}R(\mu) \left(\int_{C_\mu} \frac{1}{\mu-\lambda} \ d\lambda\right) \ d\mu\\
+  & = 0 + \frac{1}{2\pi i}\int_{C_\mu}R(\mu) \ d\mu = P_w.
+  \end{align*}$$
+  (b): 对任意 $f\in \operatorname{ker} (K-wI)^n$ , 只需证明 $P_wf=f$ . 直接计算
+  $$\begin{align*}
+  P_wf & = \frac{1}{2\pi i}\int_{C_w} \frac{1}{w-z} \left( 1+\frac{K-wI}{z-w} + ... +\frac{(K-wI)^{n-1}}{(z-w)^{n-1}}\right) f \ dz\\
+  & = \frac{1}{2\pi i} \int_{C_w} \frac{1}{w-z} \ dz \cdot f - \sum_{k=1}^{n-1}  \frac{1}{(z-w)^{k+1}} \ dz \cdot (K-wI)^{k}f\\
+  & = \frac{1}{2\pi i} \int_{C_w} \frac{1}{w-z} \ dz \cdot f + 0 = f.
+  \end{align*}$$
+  命题得证.&emsp;$\Box$
+</p>
 <h2>代数重数</h2>
 <p>
   从亚纯性的证明可知 $N_w$ 就是在 $\det S_{w,-+}$ 中的次数（j.e. 代数重数）. 我们断言
@@ -24,10 +68,6 @@
 </p>
 <p>
   <i>证明.</i> 
-</p>
-<h2>自由算子的微扰</h2>
-<p>
-  TBA...
 </p>
 </div>
 
