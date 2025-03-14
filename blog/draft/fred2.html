@@ -20,14 +20,16 @@
 <p>
    在本期博客中，我们考虑最常见的场景：
   $$Y=X ,\quad T(z)=K-zI,$$
-  其中 $\Omega={\mathbb{C}}\setminus\{0\}$ , $K$ 为一个紧算子. 于是 $R(z):=T(z)^{-1}=(K-zI)^{-1}$ 即为 $K$ 的预解式（resolvent）.（注意这里并没有关于Hilbert空间框架中对称/自伴性的任何假设）
+  其中 $\Omega={\mathbb{C}}\setminus\{0\}$ , $K$ 为一个紧算子（注意这里并没有关于Hilbert空间框架中对称/自伴性的任何假设）. 于是 $R(z):=T(z)^{-1}=(K-zI)^{-1}$ 即为 $K$ 的预解式（resolvent），并且推论给出了resolvent estimate
+  $$\|R(z)\|_{X \to X}\lesssim \frac{1}{|z-w|^{N_w}}$$
+  在 $w$ 的某个开邻域上成立.
 </p>
 <h2>Riesz投影</h2>
 <p>
   设在 $w\in D$ 附近 $R(z)$ 有Laurent展开
   $$R(z)=\frac{A_{w, -N_w}}{(z-w)^{N_w}} + ... + \frac{A_{w,-1}}{(z-w)^{-1}} + \text{ analytic part } .$$
   首先，根据 $D$ 的离散性我们可以选择一个以 $w$ 为中心且充分小的简单闭曲线（比如圆周） $C$ s.t. 其他极点均位于 $C$ 外部，围道积分可得 $R(z)$ 在 $w$ 的留数算子（residue）
-  $$P_w:=A_{w,-1}=\frac{1}{2\pi i}\int_{C} (K-zI)^{-1} \ dz=\int_{C} R(z) \ dz.$$
+  $$P_w:=A_{w,-1}=\frac{1}{2\pi i}\int_{\mathcal{C}} (K-zI)^{-1} \ dz=\int_{C} R(z) \ dz.$$
   注意定义与 $C_w$ 的选取无关. 从Cauchy积分的直观出发可以做出猜测：
 </p> 
 <ol>
@@ -40,29 +42,32 @@
 <p class="thm">
   <b>命题1.</b> $P_w$ 满足以下性质：<br/>
   &emsp;(a) $P_w$ 是一个投影算子，i.e. $P_w^2=P_w$ . <br/>
-  &emsp;(b) 对任意 $n\geq 1$ 有 $\operatorname{ker} (K-w)^n \subset \operatorname{ran} P_w$ .
+  &emsp;(b) 对任意 $n\geq 1$ 有 $\operatorname{ker} (K-w)^n \subseteq \operatorname{ran} P_w$ .
 </p>
 <p>
   <i>证明.</i> (a): 取两条围绕 $w$ 充分小的简单闭曲线 $C_\lambda, C_\mu$ , 且 $C_\mu$ 包含于 $C_\lambda$ 所围区域的内部. 根据resolvent的第一恒等式
   $$R(\lambda)-R(\mu)=(\lambda-\mu)R(\lambda)R(\mu)$$
   以及Cauchy定理，我们有
   $$\begin{align*}
-  P_w^2 & = \frac{1}{(2\pi i)^2} \int_{C_\lambda}\int_{C_\mu} R(\lambda)R(\mu) \ d\mu d\lambda\\
-  & = \frac{1}{(2\pi i)^2}\int_{C_\lambda}\int_{C_\mu} \frac{1}{\lambda-\mu}\left( R(\lambda)-R(\mu) \right) \ d\mu d\lambda\\
-  & = \frac{1}{(2\pi i)^2}\int_{C_\lambda} R(\lambda) \left(\int_{C_\mu} \frac{1}{\lambda-\mu} \ d\mu\right) \ d\lambda\\
-  & \quad \ + \frac{1}{(2\pi i)^2}\int_{C_\mu}R(\mu) \left(\int_{C_\mu} \frac{1}{\mu-\lambda} \ d\lambda\right) \ d\mu\\
-  & = 0 + \frac{1}{2\pi i}\int_{C_\mu}R(\mu) \ d\mu = P_w.
+  P_w^2 & = \frac{1}{(2\pi i)^2} \int_{\mathcal{C}_\lambda}\int_{\mathcal{C}_\mu} R(\lambda)R(\mu) \ d\mu d\lambda\\
+  & = \frac{1}{(2\pi i)^2}\int_{\mathcal{C}_\lambda}\int_{\mathcal{C}_\mu} \frac{1}{\lambda-\mu}\left( R(\lambda)-R(\mu) \right) \ d\mu d\lambda\\
+  & = \frac{1}{(2\pi i)^2}\int_{\mathcal{C}_\lambda} R(\lambda) \left(\int_{\mathcal{C}_\mu} \frac{1}{\lambda-\mu} \ d\mu\right) \ d\lambda\\
+  & \quad \ + \frac{1}{(2\pi i)^2}\int_{\mathcal{C}_\mu}R(\mu) \left(\int_{\mathcal{C}_\mu} \frac{1}{\mu-\lambda} \ d\lambda\right) \ d\mu\\
+  & = 0 + \frac{1}{2\pi i}\int_{\mathcal{C}_\mu}R(\mu) \ d\mu = P_w.
   \end{align*}$$
   (b): 对任意 $f\in \operatorname{ker} (K-wI)^n$ , 只需证明 $P_wf=f$ . 直接计算
   $$\begin{align*}
-  P_wf & = \frac{1}{2\pi i}\int_{C} \frac{1}{w-z} \left( 1+\frac{K-wI}{z-w} + ... +\frac{(K-wI)^{n-1}}{(z-w)^{n-1}}\right) f \ dz\\
-  & = \frac{1}{2\pi i} \left( \int_{C} \frac{1}{w-z} \ dz \right) f - \sum_{k=1}^{n-1} \frac{1}{2\pi i} \left( \frac{1}{(z-w)^{k+1}} \ dz \right) (K-wI)^{k}f\\
-  & = \frac{1}{2\pi i} \left(\int_{C} \frac{1}{w-z} \ dz \right) f + 0 = f.
+  P_wf & = \frac{1}{2\pi i}\int_{\mathcal{C}} \frac{1}{w-z} \left( 1+\frac{K-wI}{z-w} + ... +\frac{(K-wI)^{n-1}}{(z-w)^{n-1}}\right) f \ dz\\
+  & = \frac{1}{2\pi i} \left( \int_{\mathcal{C}} \frac{1}{w-z} \ dz \right) f - \sum_{k=1}^{n-1} \frac{1}{2\pi i} \left( \int_{\mathcal{C}}\frac{1}{(z-w)^{k+1}} \ dz \right) (K-wI)^{k}f\\
+  & = \frac{1}{2\pi i} \left(\int_{\mathcal{C}} \frac{1}{w-z} \ dz \right) f + 0 = f.
   \end{align*}$$
   命题得证.&emsp;$\Box$
 </p>
+<p>
+  $P_w$ 即为关于 $K$ 在离散谱 $z=w$ 处的 <i>Riesz投影</i> .
+</p>
 <p class="thm">
-  <b>推论2.</b> $\operatorname{ker} (K-zI)$ 有限维.
+  <b>推论2.</b> $\operatorname{ker} (K-zI)$ 有限维. 其维数称为 $K$ 在 $z=w$ 的 <i>几何重数</i>（geometric multiplicity）.
 </p>
 <p>
   <b>注</b>. 即使加强在Hilbert空间中，如果 $K$ 非自伴，那么 $P_w$ 也不一定是正交投影.
@@ -70,14 +75,21 @@
 <h2>代数重数</h2>
 <p>
   现在来回答第二点. 类比有限维的线性代数，定义 $K-wI$ 的general kernel
-  $\mathcal{N}_w:= \left\{ f\in X: \exist n\in \mathbb{N} \text{ s.t. } (K-wI)^n f=0\right\}.$
+  $$\mathcal{N}_w:= \left\{ f\in X: \exists n\in \mathbb{N} \text{ s.t. } (K-wI)^n f=0\right\}.$$
   我们断言
 </p>
 <p class="thm">
-  <b>命题6.</b> $\mathcal{N}_w = \operatorname{ran} P_w$ . 特别地，$K$ 在 $z=w$ 的 <i>代数重数</i>, i.e. $\operatorname{dim} \mathcal{N}_w$ , 恰好等于 $N_w$ .
+  <b>命题3.</b> $\operatorname{ran} P_w = \mathcal{N}_w$ . 特别地，$K$ 在 $z=w$ 的 <i>代数重数</i>（algebraic multiplicity）$\operatorname{dim} \mathcal{N}_w \leq N_w$ .
 </p>
 <p>
-  <i>证明.</i> 
+  <i>证明.</i> 由命题1可知 $\mathcal{N}_w\subseteq \operatorname{ran} P_w$ . 为证明 $\operatorname{ran} P_w \subseteq \mathcal{N}_w$ , 我们考虑
+  $$\begin{align*}
+  (T-w) P_w & = \frac{1}{2\pi i}\int_{\mathcal{C}} \left(K-zI+(z-w)I\right)(K-zI)^{-1} \ dz\\
+  & = \frac{1}{2\pi i}\int_{\mathcal{C}} (z-w)(K-zI)^{-1} \ dz.
+  \end{align*}$$
+  由归纳以及resolvent estimate可得
+  $$(T-w)^{N_w}P_w = \frac{1}{2\pi i}\int_{\mathcal{C}} (z-w)^{N_w}R(z) \ dz = 0,$$
+  i.e. $\operatorname{ran} P_w \subseteq \mathcal{N}_w$ . 命题得证.&emsp;$\Box$
 </p>
 </div>
 
