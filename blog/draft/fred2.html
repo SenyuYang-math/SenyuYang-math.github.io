@@ -28,9 +28,9 @@
 <p>
   设在 $w\in D$ 附近 $R(z)$ 有Laurent展开
   $$R(z)=\frac{A_{w, -N_w}}{(z-w)^{N_w}} + ... + \frac{A_{w,-1}}{(z-w)^{-1}} + \text{ analytic part } .$$
-  首先，根据 $D$ 的离散性我们可以选择一个以 $w$ 为中心且充分小的简单闭曲线（比如圆周） $C$ s.t. 其他极点均位于 $C$ 外部，围道积分可得 $R(z)$ 在 $w$ 的留数算子（residue）
-  $$P_w:=A_{w,-1}=\frac{1}{2\pi i}\int_{\mathcal{C}} (K-zI)^{-1} \ dz=\int_{C} R(z) \ dz.$$
-  注意定义与 $C_w$ 的选取无关. 从Cauchy积分的直观出发可以做出猜测：
+  首先，根据 $D$ 的离散性我们可以选择一个以 $w$ 为中心且充分小的简单闭曲线（比如圆周） $\mathcal{C}$ s.t. 其他极点均位于 $\mathcal{C}$ 外部，围道积分可得 $R(z)$ 在 $w$ 的留数算子（residue）
+  $$P_w:=A_{w,-1}=\frac{1}{2\pi i}\int_{\mathcal{C}} (K-zI)^{-1} \ dz=\int_{\mathcal{C}} R(z) \ dz.$$
+  注意定义与 $\mathcal{C}$ 的选取无关. 从Cauchy积分的直观出发可以做出猜测：
 </p> 
 <ol>
   <li>$P_w$ 是 $K$ 在离散谱 $z=w$ 部分的“投影”.</li>
@@ -45,7 +45,7 @@
   &emsp;(b) 对任意 $n\geq 1$ 有 $\operatorname{ker} (K-w)^n \subseteq \operatorname{ran} P_w$ .
 </p>
 <p>
-  <i>证明.</i> (a): 取两条围绕 $w$ 充分小的简单闭曲线 $C_\lambda, C_\mu$ , 且 $C_\mu$ 包含于 $C_\lambda$ 所围区域的内部. 根据resolvent的第一恒等式
+  <i>证明.</i> (a): 取两条围绕 $w$ 充分小的简单闭曲线 $\mathcal{C}_\lambda, \mathcal{C}_\mu$ , 且 $\mathcal{C}_\mu$ 包含于 $\mathcal{C}_\lambda$ 所围区域的内部. 根据resolvent的第一恒等式
   $$R(\lambda)-R(\mu)=(\lambda-\mu)R(\lambda)R(\mu)$$
   以及Cauchy定理，我们有
   $$\begin{align*}
@@ -58,7 +58,8 @@
   (b): 对任意 $f\in \operatorname{ker} (K-wI)^n$ , 只需证明 $P_wf=f$ . 直接计算
   $$\begin{align*}
   P_wf & = \frac{1}{2\pi i}\int_{\mathcal{C}} \frac{1}{w-z} \left( 1+\frac{K-wI}{z-w} + ... +\frac{(K-wI)^{n-1}}{(z-w)^{n-1}}\right) f \ dz\\
-  & = \frac{1}{2\pi i} \left( \int_{\mathcal{C}} \frac{1}{w-z} \ dz \right) f - \sum_{k=1}^{n-1} \frac{1}{2\pi i} \left( \int_{\mathcal{C}}\frac{1}{(z-w)^{k+1}} \ dz \right) (K-wI)^{k}f\\
+  & = \frac{1}{2\pi i} \left( \int_{\mathcal{C}} \frac{1}{w-z} \ dz \right) f \\
+  & \quad \ - \sum_{k=1}^{n-1} \frac{1}{2\pi i} \left( \int_{\mathcal{C}}\frac{1}{(z-w)^{k+1}} \ dz \right) (K-wI)^{k}f\\
   & = \frac{1}{2\pi i} \left(\int_{\mathcal{C}} \frac{1}{w-z} \ dz \right) f + 0 = f.
   \end{align*}$$
   命题得证.&emsp;$\Box$
