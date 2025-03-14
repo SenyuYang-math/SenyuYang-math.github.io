@@ -18,14 +18,16 @@
    <b>推论</b> (奇点是极点)<b>.</b> $T(z)^{-1}$ 可延拓为 $\Omega$ 上的亚纯（meromorphic）函数；进一步地，$T(z)^{-1}$ 在任意 $w\in D$ 处的Laurent展开的负次数项系数都是有限秩（finite rank）算子. 
 </p>
 <p>
-   在本期博客，我们将只考虑 $Y=X$ , $T(z)=K-zI$ 的形式，其中 $\Omega={\mathbb{C}}\setminus\{0\}$ , $K$ 为一个紧算子. 于是 $R(z):=T(z)^{-1}=(K-zI)^{-1}$ 即为 $K$ 的预解式（resolvent）.（注意这里并没有关于Hilbert空间框架中对称/自伴性的任何假设）
+   在本期博客中，我们考虑最常见的场景：
+  $$Y=X ,\quad T(z)=K-zI,$$
+  其中 $\Omega={\mathbb{C}}\setminus\{0\}$ , $K$ 为一个紧算子. 于是 $R(z):=T(z)^{-1}=(K-zI)^{-1}$ 即为 $K$ 的预解式（resolvent）.（注意这里并没有关于Hilbert空间框架中对称/自伴性的任何假设）
 </p>
 <h2>Riesz投影</h2>
 <p>
   设在 $w\in D$ 附近 $R(z)$ 有Laurent展开
   $$R(z)=\frac{A_{w, -N_w}}{(z-w)^{N_w}} + ... + \frac{A_{w,-1}}{(z-w)^{-1}} + \text{ analytic part } .$$
-  首先，根据 $D$ 的离散性我们可以选择一个以 $w$ 为中心且充分小的简单闭曲线（比如圆周） $C_w$ s.t. 其他极点均位于 $C_w$ 外部，围道积分可得 $R(z)$ 在 $w$ 的留数算子（residue）
-  $$P_w:=A_{w,-1}=\frac{1}{2\pi i}\int_{C_w} (K-zI)^{-1} \ dz=\int_{C_w} R(z) \ dz.$$
+  首先，根据 $D$ 的离散性我们可以选择一个以 $w$ 为中心且充分小的简单闭曲线（比如圆周） $C$ s.t. 其他极点均位于 $C$ 外部，围道积分可得 $R(z)$ 在 $w$ 的留数算子（residue）
+  $$P_w:=A_{w,-1}=\frac{1}{2\pi i}\int_{C} (K-zI)^{-1} \ dz=\int_{C} R(z) \ dz.$$
   注意定义与 $C_w$ 的选取无关. 从Cauchy积分的直观出发可以做出猜测：
 </p> 
 <ol>
@@ -33,7 +35,7 @@
   <li>$P_w$ “精确”对应于 $K$ 在 $z=w$ 部分的信息.</li>
 </ol>
 <p>
-  这一节我们解决第一个问题：
+  这一节我们证明第一点：
 </p>
 <p class="thm">
   <b>命题1.</b> $P_w$ 满足以下性质：<br/>
@@ -41,7 +43,7 @@
   &emsp;(b) 对任意 $n\geq 1$ 有 $\operatorname{ker} (K-w)^n \subset \operatorname{ran} P_w$ .
 </p>
 <p>
-  <i>证明.</i> (a): 取两条围绕 $w$ 充分小的简单闭曲线 $\C_\lambda, \C_\mu$ , 且 $\C_\mu$ 包含于 $C_\lambda$ 所围区域的内部. 根据resolvent的第一恒等式
+  <i>证明.</i> (a): 取两条围绕 $w$ 充分小的简单闭曲线 $C_\lambda, C_\mu$ , 且 $C_\mu$ 包含于 $C_\lambda$ 所围区域的内部. 根据resolvent的第一恒等式
   $$R(\lambda)-R(\mu)=(\lambda-\mu)R(\lambda)R(\mu)$$
   以及Cauchy定理，我们有
   $$\begin{align*}
@@ -53,18 +55,26 @@
   \end{align*}$$
   (b): 对任意 $f\in \operatorname{ker} (K-wI)^n$ , 只需证明 $P_wf=f$ . 直接计算
   $$\begin{align*}
-  P_wf & = \frac{1}{2\pi i}\int_{C_w} \frac{1}{w-z} \left( 1+\frac{K-wI}{z-w} + ... +\frac{(K-wI)^{n-1}}{(z-w)^{n-1}}\right) f \ dz\\
-  & = \frac{1}{2\pi i} \int_{C_w} \frac{1}{w-z} \ dz \cdot f - \sum_{k=1}^{n-1}  \frac{1}{(z-w)^{k+1}} \ dz \cdot (K-wI)^{k}f\\
-  & = \frac{1}{2\pi i} \int_{C_w} \frac{1}{w-z} \ dz \cdot f + 0 = f.
+  P_wf & = \frac{1}{2\pi i}\int_{C} \frac{1}{w-z} \left( 1+\frac{K-wI}{z-w} + ... +\frac{(K-wI)^{n-1}}{(z-w)^{n-1}}\right) f \ dz\\
+  & = \frac{1}{2\pi i} \left( \int_{C} \frac{1}{w-z} \ dz \right) f - \sum_{k=1}^{n-1} \frac{1}{2\pi i} \left( \frac{1}{(z-w)^{k+1}} \ dz \right) (K-wI)^{k}f\\
+  & = \frac{1}{2\pi i} \left(\int_{C} \frac{1}{w-z} \ dz \right) f + 0 = f.
   \end{align*}$$
   命题得证.&emsp;$\Box$
 </p>
+<p class="thm">
+  <b>推论2.</b> $\operatorname{ker} (K-zI)$ 有限维.
+</p>
+<p>
+  <b>注</b>. 即使加强在Hilbert空间中，如果 $K$ 非自伴，那么 $P_w$ 也不一定是正交投影.
+</p>
 <h2>代数重数</h2>
 <p>
-  从亚纯性的证明可知 $N_w$ 就是在 $\det S_{w,-+}$ 中的次数（j.e. 代数重数）. 我们断言
+  现在来回答第二点. 类比有限维的线性代数，定义 $K-wI$ 的general kernel
+  $\mathcal{N}_w:= \left\{ f\in X: \exist n\in \mathbb{N} \text{ s.t. } (K-wI)^n f=0\right\}.$
+  我们断言
 </p>
 <p class="thm">
-  <b>命题6.</b> 设 $w\in D$ , 则 $T(w)$ 的general kernel等于 $\operatorname{ker} T(w)^{N_w}$ .
+  <b>命题6.</b> $\mathcal{N}_w = \operatorname{ran} P_w$ . 特别地，$K$ 在 $z=w$ 的 <i>代数重数</i>, i.e. $\operatorname{dim} \mathcal{N}_w$ , 恰好等于 $N_w$ .
 </p>
 <p>
   <i>证明.</i> 
