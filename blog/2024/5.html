@@ -105,10 +105,11 @@ $$
 利用引理1可以得到著名的<em>Khinchin不等式</em>.
 </p>
 <p class="thm">
-<b>引理3.</b> 对任意 $p\in [1,\infty)$，$N\in \mathbb{N}$与 $\{ a_j \}_{j=1}^N\subset \mathbb{R}$，
+<b>引理3.</b> 对任意 $p\in (1,\infty)$，$N\in \mathbb{N}$与 $\{ a_j \}_{j=1}^N\subset \mathbb{R}$，
 $$
  \mathbb{E}\left[\vert \sum_{j=1}^N r_ja_j\vert^p\right] \approx_p \left( \sum_{j=1}^{N} a_j^2\right)^{p/2}.
 $$
+注意系数与 $N$ 无关.
 </p>
 <p>
 <em>证明</em>. 不妨作正规化：$\sigma^2=1$. 计算得
@@ -117,7 +118,7 @@ $$
 \mathbb{E}\vert S_N\vert^p = p\int_{0}^{\infty} \lambda^{p-1}\mathbb{P}\left[ S_N>\lambda\cdot 1 \right]=:C_p<\infty. 
 $$
 <p>
-上界得证. 对于下界，首先注意到$p=2$时左右两式恒等：
+上界得证. 对于下界，首先注意到 $p=2$ 时左右两式恒等：
 </p>
 $$
 \mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^2 = \mathbb{E}\left[\sum_{j,k}r_{j}r_{k}a_{j}a_{k}\right] = \sum_{j = 1}^{N}|a_{j}|^{2} = 1
@@ -126,13 +127,13 @@ $$
 于是由概率空间的有限测度性和Hölder不等式可知
 </p>
 $$
-\left(\mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^{p}\right)^{1/p}\leq 1,\ 1\leq p\leq 2,
+\left(\mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^{p}\right)^{1/p}\leq 1,\ 1\lt p\leq 2,
 $$
 $$
 \left(\mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^{p}\right)^{1/p}\geq 1,\ p\geq 2.
 $$
 <p>
-所以$p\geq 2$的情形已得证. 当$p\lt 2$时，我们采用经典的对偶论证(duality argument). 由Hölder不等式有
+所以$p\geq 2$的情形已得证. 当$1\lt p\lt 2$时，我们采用经典的对偶论证(duality argument). 由Hölder不等式有
 </p>
 $$
 \left(\mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^{p}\right)^{1/p}\left(\mathbb{E}\left|\sum_{j =1}^{N}r_{j}a_{j}\right|^{p'}\right)^{1/p'}\geq \left(\mathbb{E}\left|\sum_{j =1}^{N}r_{j}a_{j}\right|^{2}\right)=1.
@@ -142,6 +143,13 @@ $$
 </p>
 <p>
 这里解释一下建立上述引理的动机. 首先在一般情形下$l^1$和$l^2$是不能相互控制的，但上述引理指出在平均意义下$l^2$可以等价于$l^1$. 这就是所谓的<b>square-root cancellation</b>. 另外对取值在$\mathbb{C}$上的$a_j$可以通过以上引理和三角不等式建立相同的结果.
+</p>
+<p>
+  <b>注.</b> 这里我们只证明了所需的 $p\in(1, \infty)$ 情形. 事实上Khinchin不等式对 $0\lt p \lt \infty$ 都成立；一种证明基于 $p$ 阶矩的对数凸性（log-convex）:
+  $$\mathbb{E}[X^r]\leq \mathbb{E}[X^p]^{\frac{q-r}{q-p}}  \mathbb{E}[X^p]^{\frac{r-p}{q-p}}, \quad 0\lt p\lt r\lt q$$
+  对任意非负随机变量 $X$ 成立. 因此对于 $0\lt p \lt 2$ 的下界估计，选择任意一个 $q\gt 2$ 做插值
+  $$\mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^2\leq \left(\mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^p\right)^{\frac{q-2}{q-p}}\left(\mathbb{E}\left|\sum_{j = 1}^{N}r_{j}a_{j}\right|^q\right)^{\frac{2-p}{q-p}},$$
+  整理即完成证明. 
 </p>
 <h2>
   定理的证明
