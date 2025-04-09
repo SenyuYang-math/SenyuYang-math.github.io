@@ -7,37 +7,41 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  这是笔者在BICMR强化班课堂上听郭老师提到的一个奇特的例子，由A. Katok发现并由J. Milnor重制、发表.
+  这是笔者在BICMR强化班课堂上听郭老师提到的一个奇特的例子，由A. Katok发现，J. Milnor重新证明并发表.
 </p>
 <p class="thm">
   <b>定理</b> (Fubini's nightmare)<b>.</b> 存在圆柱面 $\Omega=(0,1)\times \mathbb{R}/\mathbb{Z}$ 中的一个可测子集 $E$ 和一族互不相交的实解析曲线 $\{\Gamma_\beta\}_{\beta\in[0,1]}$ s.t. <br/>
   (1) $|E|=1$ , 其中 $|\cdot|$ 代表Lebesgue测度.<br/>
-  (2) $\cup_{\beta} \Gamma_\beta = \Omega$ , i.e. $\{\Gamma_\beta\}$ 给出了 $\Omega$ 的一个叶状结构（foliation）.<br/>
+  (2) $\cup_{\beta}\ \Gamma_\beta = \Omega$ , i.e. $\{\Gamma_\beta\}$ 给出了 $\Omega$ 的一个叶状结构（foliation）.<br/>
   (3) 对任意 $\beta\in[0,1]$ , $E\cap\Gamma_\beta$ 至多为单点集. 
 </p>
 <p>
-  这个例子的反常在于 $E$ 在测度层面应当“充满”了 $\Omega$ , 与每一层 $\Gamma_\beta$ 的交集却很“稀疏”. 这点与几何测度论以及调和分析中出现的 <i>Nikodym set</i> 很是相似. 例子得名于一个简单的观察：考虑示性函数 $\mathbf{1}_E$ , 其 $L^1$ 积分不等于先在每层曲线上积分再对参数 $\beta$ 积分; 反过来这说明例子中的曲线族关于参数的正则性应当足够差（至少不能Lipschitz连续）. 下面我们着手构造这个例子.
+  这个例子的反常在于 $E$ 在测度层面应当“充满”了 $\Omega$ , 与每一层 $\Gamma_\beta$ 的交集却很“稀疏”. 这点与几何测度论以及调和分析中出现的 <i>Nikodym set</i> 很是相似. 例子得名于一个简单的观察：考虑示性函数 $\mathbf{1}_E$ , 其 $L^1$ 积分不等于先在每层曲线上积分再对参数 $\beta$ 积分; 反过来这说明例子中的曲线族关于参数的正则性应当足够差（至少不能Lipschitz连续）. 下面我们给出Milnor的构造.
 </p>
-<h2>一维动力系统的符号集</h2>
+<h2>一个动力系统</h2>
 <p>
   令 $p\in(0,1), x\in \mathbb{R}/\mathbb{Z}$ . 我们将 $\mathbb{R}/\mathbb{Z}$ 分解为 $I_0=[0,p)$ 和 $I_1=[p,1)$ . 定义一族分段连续映射 $f_p: \mathbb{R}/\mathbb{Z}\to \mathbb{R}/\mathbb{Z}$ 如下
-  $$\begin{equation}\label{eq:map}
+  $$\begin{equation}
   f_p(x):=\begin{cases}
     p^{-1}x,\quad x\in I_0;\\
     (1-p)^{-1}(x-p),\quad x\in I_1.
-  \end{cases}
+  \end{cases}\tag{1}
   \end{equation}$$
   迭代 $f_p$ 就得到 $\mathbb{R}/\mathbb{Z}$ 上的一个动力系统
   $$x=x_1\mapsto x_2 \mapsto \cdots \mapsto x_n \mapsto \cdots.$$
   一个观察是对任意区间 $J\subset \mathbb{R}/\mathbb{Z}$ , 原像 $f_p^{-1}(J)$ 分为在 $I_0$ 和 $I_1$ 的两个连通分支, 长度分别为 $p|J|$ 和 $(1-p)|J|$ ; 特别地，$|f_p^{-1}(J)|=|J|$ , i.e. $f_p$ 是保测度映射. 
 </p>
+<p style="text-align: center">
+  <img style="width:50%; position: center; margin: 0 auto" alt="$f_p$ 的图像" src="../../record/img/2025-5-1.png">
+</p>
+<p style="font-size: small; color: grey; text-align: center">        
+<em>$f_p$ 的图像.</em>
+</p>
 <p>
   我们定义系统的 <i>符号映射</i> (symbol mapping) 为
-  $$\begin{equation}\label{eq:symb}
-    S_p: x\in \mathbb{R}/\mathbb{Z} \mapsto (s_1, \cdots , s_n, \cdots)\in \{0,1\}^{\mathbb{N}},
-  \end{equation}$$
+  $$S_p: x\in \mathbb{R}/\mathbb{Z} \mapsto (s_1, \cdots , s_n, \cdots)\in \{0,1\}^{\mathbb{N}},\tag{2}$$
   $$\begin{equation*}
-    s_n=\begin{cases}
+    s_n=s_n(x):=\begin{cases}
     0, \quad x_n\in I_0,\\
     1, \quad x_n\in I_1.
   \end{cases}
@@ -50,11 +54,36 @@
   <b>命题1.</b> 前 $n$ 个符号 $(s_1,...,s_n)$ 的原像是 $\mathbb{R}/\mathbb{Z}$ 中一个Lebesgue测度为 $p(s_1)p(s_2)\cdots p(s_n)$ 的区间，其中 $p(0):=p, p(1):=(1-p)$ .
 </p>
 <p>
-  因此 $\mathbb{R}/\mathbb{Z}$ 上的符号映射等价于概率论中的 <i>Bernoulli试验</i> . 根据强大数律（Strong Large Number Law）我们有
+  因此 $\mathbb{R}/\mathbb{Z}$ 上的符号映射等价于概率论中的 <i>Bernoulli试验</i>，于是根据强大数律（Strong Large Number Law）有
 </p>
 <p class="thm">
   <b>命题2.</b> 对几乎处处的 $x\in \mathbb{R}/\mathbb{Z}$ 有 
-  $$\lim_{n\to\infty} \frac{1}{n}\sum_{k=1}^{n}s_n=1-p.$$
+  $$\lim_{n\to\infty} \frac{1}{n}\sum_{k=1}^{n}s_n=1-p.\tag{3}$$
+</p>
+<p>
+  因此构造子集
+  $$E:=\{(p,x)\in \Omega: S_p(x) \text{ 满足 } (\text{3})\} .$$
+  我们期待 $E$ 为所求的例子.
+</p>
+<p class="thm">
+  <b>命题3</b> $E$ 是可测集，且 $m(E)=1$ .
+</p>
+<p>
+  <i>证明.</i> $f_p$ 和 $f_p$ 的有限次复合都是分段连续，进而可测的. 因此 $\lim_{n\to\infty} \frac{1}{n}\sum_{k=1}^{n}s_n(x)$ 作为一族可测函数的逐点极限也是可测的，这证明了 $E$ 的可测性. 根据 $E$ 的定义，我们对示性函数 $\mathbf{1}_E$ 用Fubini定理：
+  $$|E| = \int_0^1 \int_{\mathbb{R}/\mathbb{Z}} \mathbf{1}_E \ \mathrm{d}x \mathrm{d}p  = \int_0^1 1 \ \mathrm{d}p = 1,$$
+  命题得证.&emsp;$\Box$
+</p>
+<h2>曲线族的编码</h2>
+<p>
+  继上一节的 $E$ , 我们现在构造相应的 $\{\Gamma_\beta\}$ , $\beta\in[0,1]$ . 做二进展开 $\beta=\sum_{n=1}^{\infty} 2^{-n}b_n$ , $b_n\in\{0,1\}$ . 我们定义曲线
+  $$\Gamma_\beta:=\{(p,x)\in\Omega: x=x(p,\beta) \text{ s.t. } S_p{x}=(b_1,\cdots,b_n,\cdots)\}.$$
+  由于 $S_N$ 是单射，$x(p,\beta)$ 有良定义. 显然 $\Omega=\cup_\beta\ \Gamma_\beta$ , 现在只需验证
+</p>
+<p class="thm">
+  <b>命题4.</b> 对每个 $\beta\in[0,1]$ , $x_(p,\beta)$ 是关于 $p$ 的实解析函数. 
+</p>
+<p>
+  <i>证明.</i> 
 </p>
 </div>
 
