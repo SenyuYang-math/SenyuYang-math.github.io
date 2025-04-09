@@ -51,7 +51,7 @@
   显然 $S_p$ 是单射：对固定的 $p\in(0,1)$ , 根据上文 $f_p^{-1}$ 的性质，前 $n$ 个符号将 $x=x_0$ 限制在大小 $\leq \max\{p^n , (1-p)^n\}$ 的区间内，且随着 $n$ 增大构成一族收缩区间套. 事实上根据这段计算我们得到：
 </p>
 <p class="thm">
-  <b>命题1.</b> 前 $n$ 个符号 $(s_1,...,s_n)$ 的原像是 $\mathbb{R}/\mathbb{Z}$ 中一个Lebesgue测度为 $p(s_1)p(s_2)\cdots p(s_n)$ 的区间，其中 $p(0):=p, p(1):=(1-p)$ .
+  <b>命题1.</b> 前 $n$ 个符号 $(s_1,\cdots,s_n)$ 的原像是 $\mathbb{R}/\mathbb{Z}$ 中一个Lebesgue测度为 $p(s_1)p(s_2)\cdots p(s_n)$ 的区间，其中 $p(0):=p, p(1):=(1-p)$ .
 </p>
 <p>
   因此 $\mathbb{R}/\mathbb{Z}$ 上的符号映射等价于概率论中的 <i>Bernoulli试验</i>，于是根据强大数律（Strong Large Number Law）有
@@ -66,7 +66,7 @@
   我们期待 $E$ 为所求的例子.
 </p>
 <p class="thm">
-  <b>命题3</b> $E$ 是可测集，且 $m(E)=1$ .
+  <b>命题3.</b> $E$ 是可测集，且 $m(E)=1$ .
 </p>
 <p>
   <i>证明.</i> $f_p$ 和 $f_p$ 的有限次复合都是分段连续，进而可测的. 因此 $\lim_{n\to\infty} \frac{1}{n}\sum_{k=1}^{n}s_n(x)$ 作为一族可测函数的逐点极限也是可测的，这证明了 $E$ 的可测性. 根据 $E$ 的定义，我们对示性函数 $\mathbf{1}_E$ 用Fubini定理：
@@ -76,11 +76,11 @@
 <h2>曲线族的编码</h2>
 <p>
   继上一节的 $E$ , 我们现在构造相应的 $\{\Gamma_\beta\}$ , $\beta\in[0,1)$ . 做二进展开 $\beta=\sum_{n=1}^{\infty} 2^{-n}b_n$ , $b_n\in\{0,1\}$ . 我们定义曲线
-  $$\Gamma_\beta:=\{(p,x)\in\Omega: x=x(p,\beta) \text{ s.t. } S_p(x)=(b_1,\cdots,b_n,\cdots)\}.$$
+  $$\Gamma_\beta:=\{(p,x)\in\Omega: x=x(p,\beta) \text{ s.t. } S_p(x)=(b_1,\cdots,b_n,\cdots)\}.\tag{4}$$
   由于 $S_N$ 是单射，$x(p,\beta)$ 有良定义，并且 $\{\Gamma_\beta\}$ 两两不相交. 显然 $\Omega=\cup_\beta\ \Gamma_\beta$ , 现在只需验证
 </p>
 <p class="thm">
-  <b>命题4.</b> 对每个 $\beta\in[0,1)$ , $x_(p,\beta)$ 是关于 $p$ 的实解析函数. 
+  <b>命题4.</b> 对每个 $\beta\in[0,1)$ , $x_(p,\beta)$ 是关于 $p\in(0,1)$ 的实解析函数. 
 </p>
 <p>
   <i>证明.</i> 
