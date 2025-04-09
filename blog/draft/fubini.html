@@ -10,10 +10,10 @@
   这是笔者在BICMR强化班课堂上听郭老师提到的一个奇特的例子，由A. Katok发现，J. Milnor重新证明并发表.
 </p>
 <p class="thm">
-  <b>定理</b> (Fubini's nightmare)<b>.</b> 存在圆柱面 $\Omega=(0,1)\times \mathbb{R}/\mathbb{Z}$ 中的一个可测子集 $E$ 和一族互不相交的实解析曲线 $\{\Gamma_\beta\}_{\beta\in[0,1]}$ s.t. <br/>
+  <b>定理</b> (Fubini's nightmare)<b>.</b> 存在圆柱面 $\Omega=(0,1)\times \mathbb{R}/\mathbb{Z}$ 中的一个可测子集 $E$ 和一族互不相交的实解析曲线 $\{\Gamma_\beta\}_{\beta\in[0,1)}$ s.t. <br/>
   (1) $|E|=1$ , 其中 $|\cdot|$ 代表Lebesgue测度.<br/>
   (2) $\cup_{\beta}\ \Gamma_\beta = \Omega$ , i.e. $\{\Gamma_\beta\}$ 给出了 $\Omega$ 的一个叶状结构（foliation）.<br/>
-  (3) 对任意 $\beta\in[0,1]$ , $E\cap\Gamma_\beta$ 至多为单点集. 
+  (3) 对任意 $\beta\in[0,1)$ , $E\cap\Gamma_\beta$ 至多为单点集. 
 </p>
 <p>
   这个例子的反常在于 $E$ 在测度层面应当“充满”了 $\Omega$ , 与每一层 $\Gamma_\beta$ 的交集却很“稀疏”. 这点与几何测度论以及调和分析中出现的 <i>Nikodym set</i> 很是相似. 例子得名于一个简单的观察：考虑示性函数 $\mathbf{1}_E$ , 其 $L^1$ 积分不等于先在每层曲线上积分再对参数 $\beta$ 积分; 反过来这说明例子中的曲线族关于参数的正则性应当足够差（至少不能Lipschitz连续）. 下面我们给出Milnor的构造.
@@ -75,12 +75,12 @@
 </p>
 <h2>曲线族的编码</h2>
 <p>
-  继上一节的 $E$ , 我们现在构造相应的 $\{\Gamma_\beta\}$ , $\beta\in[0,1]$ . 做二进展开 $\beta=\sum_{n=1}^{\infty} 2^{-n}b_n$ , $b_n\in\{0,1\}$ . 我们定义曲线
+  继上一节的 $E$ , 我们现在构造相应的 $\{\Gamma_\beta\}$ , $\beta\in[0,1)$ . 做二进展开 $\beta=\sum_{n=1}^{\infty} 2^{-n}b_n$ , $b_n\in\{0,1\}$ . 我们定义曲线
   $$\Gamma_\beta:=\{(p,x)\in\Omega: x=x(p,\beta) \text{ s.t. } S_p{x}=(b_1,\cdots,b_n,\cdots)\}.$$
-  由于 $S_N$ 是单射，$x(p,\beta)$ 有良定义. 显然 $\Omega=\cup_\beta\ \Gamma_\beta$ , 现在只需验证
+  由于 $S_N$ 是单射，$x(p,\beta)$ 有良定义，并且 $\{\Gamma_\beta\}$ 两两不相交. 显然 $\Omega=\cup_\beta\ \Gamma_\beta$ , 现在只需验证
 </p>
 <p class="thm">
-  <b>命题4.</b> 对每个 $\beta\in[0,1]$ , $x_(p,\beta)$ 是关于 $p$ 的实解析函数. 
+  <b>命题4.</b> 对每个 $\beta\in[0,1)$ , $x_(p,\beta)$ 是关于 $p$ 的实解析函数. 
 </p>
 <p>
   <i>证明.</i> 
