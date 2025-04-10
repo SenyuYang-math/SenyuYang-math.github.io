@@ -18,7 +18,9 @@
 <p>
   这个例子的反常在于 $E$ 在测度层面应当“充满”了 $\Omega$ , 与每一层 $\Gamma_\beta$ 的交集却很“稀疏”. 这点与几何测度论以及调和分析中出现的 <i>Nikodym set</i> 很是相似. 例子得名于一个简单的观察：考虑示性函数 $\mathbf{1}_E$ , 其 $L^1$ 积分不等于先在每层曲线上积分再对参数 $\beta$ 积分; 反过来这说明例子中的曲线族关于参数的正则性应当足够差（至少不能Lipschitz连续）. 下面我们给出Milnor的构造.
 </p>
-<hr style="height: 1px">
+<br/>
+<hr style="width: 80%;height: 1px">
+<br/>
 <p>
   我们从一个动力系统出发. 令 $p\in(0,1), x\in \mathbb{R}/\mathbb{Z}$ , 将 $\mathbb{R}/\mathbb{Z}$ 分解为 $I_0=[0,p)$ 和 $I_1=[p,1)$ . 定义一族分段连续映射 $f_p: \mathbb{R}/\mathbb{Z}\to \mathbb{R}/\mathbb{Z}$ 如下
   $$\begin{equation}
@@ -90,7 +92,7 @@
   &= p(b_1+p(b_1)\cdot (b_2+p(b_2)\cdot(b_3+ \cdots\\
   &= p(b_1+b_2p(b_1)+b_3p(b_1)p(b_2)+b_4p(b_1)p(b_2)p(b_3)+\cdots)\\
   &= pb_1 + p \sum_{k=1}^{\infty} \left(b_{k+1}\prod_{j=1}^{k} p(b_j)\right). \tag{5}
-  \end{\align*}$$
+  \end{align*}$$
   以 $p\in(0,1)$ 为中心做坐标变换 $p=(1-t)/2$ , $1-p=(1+t)/2$ . 取 $\delta\ll 1$ , 则在 $|t|\lt \delta$ 上 $b_{k+1}\prod_{j=1}^{k} p(b_j)$ 有一致的上界 $\left(\frac{1+\delta}{2}\right)^k$ . 于是级数 $(\text{5})$ 在 $p$ 的一个开邻域上收敛，i.e. $x(p,\beta)$ 在 $(0,1)$ 上实解析.&emsp;$\Box$  
 </p>
 <p>
