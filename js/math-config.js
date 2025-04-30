@@ -29,13 +29,11 @@
     macros: {
       R: "\\mathbb{R}",
       bR: "{\\bf R}",
-      bold: ["{\\bf #1}", 1]
+      bold: ["{\\bf #1}", 1],
+      pb: ["\\left( #1 \\right)", 1],
+      vb: ["\\left| #1 \\right|", 1],
+      norm: ["\\left\\| #1 \\right\\|", 1]
     },
-    environments: {
-      pb: ["\\left(", "\\right)"],
-      vb: ["\\left|", "\\right|"],
-      norm: ["\\left\\|", "\\right\\|"]
-    }
   }, 
   svg: {
     fontCache: 'global'
