@@ -26,12 +26,16 @@
   tex: {
     inlineMath: [['$', '$']], 
     displayMath: [['$$', '$$']],
-    // macros: {
-    //   RR: "{\\bf R}",
-    //   CH: "{\\mathcal{H}}", 
-    //   CN: "{\\mathcal{N}}", 
-    //   p: "{\\partial}",
-    // }
+    macros: {
+      R: "\\mathbb{R}",
+      bR: "{\\bf R}",
+      bold: ["{\\bf #1}", 1]
+    },
+    environments: {
+      pb: ["\\left(", "\\right)"],
+      vb: ["\\left|", "\\right|"],
+      norm: ["\\left\\|", "\\right\\|"]
+    }
   }, 
   svg: {
     fontCache: 'global'
