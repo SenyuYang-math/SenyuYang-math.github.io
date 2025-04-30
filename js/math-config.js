@@ -27,11 +27,18 @@
     inlineMath: [['$', '$']], 
     displayMath: [['$$', '$$']],
     macros: {
+      // 刻版体
+      N: "\\mathbb{N}",
       R: "\\mathbb{R}",
+      Z: "\\mathbb{Z}",
+      // 粗体
       bR: "{\\bf R}",
       bold: ["{\\bf #1}", 1],
+      // 括号
+      bb: ["\\left[ #1 \\right]", 1],
       pb: ["\\left( #1 \\right)", 1],
       vb: ["\\left| #1 \\right|", 1],
+      jb: ["\\left\\langle #1 \\right\\rangle", 1],
       norm: ["\\left\\| #1 \\right\\|", 1]
     },
   }, 
