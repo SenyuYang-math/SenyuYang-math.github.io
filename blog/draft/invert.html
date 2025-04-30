@@ -2,9 +2,9 @@
 <head>  
 <title id="pagetitle">Blog is loading...</title>
 </head>
-$$
-  \newcommand{\E}{\mathbf{E}}
-$$
+<div style="display: none">
+  $\newcommand{\E}{\mathbf{E}}$
+</div>
 
 <body id="body">
 <!--正文区块-->
@@ -16,7 +16,7 @@ $$
   系列停更了很久咕咕...本期博客将介绍Bourgain如何用泛函分析，随机化和组合学做线性代数（笑）. 我们的主角是以下的 <i>限制可逆性（restricted invertibilty）</i>：
 </p>
 <p class="thm">
-  <b>定理1</b> (Bourgain-Tzafriri, 1987)<b>.</b> 存在一致常数 $c$ s.t. 如果单位向量 $u_1,u_2,\ldots ,u_m\in \mathbf{E}^m$ 满足
+  <b>定理1</b> (Bourgain-Tzafriri, 1987)<b>.</b> 存在一致常数 $c$ s.t. 如果单位向量 $u_1,u_2,\ldots ,u_m\in \E^m$ 满足
   $$\begin{equation*} 
   \left\| \sum _1^m \lambda _i u_i \right\| \leq M \left( \sum _1^m \lambda _i^2 \right)^{1/2} 
   \end{equation*}$$
@@ -27,7 +27,7 @@ $$
   对任意 $(\lambda _1,\ldots ,\lambda _m)$ 成立.
 </p>
 <p>
-  另一个更定性的叙述是将 $u_1,\ldots , u_m$ 对应于线性算子 $T: \E^n\to \E^n$ , 其将标准单位基底 $e_i$ 映为 $u_i$ . 那么B-T定理说明 $T$ 一定可以限制在一定比例的 $e_i$ 上成为可逆映射，i.e. $T$ 的表示矩阵中一定有一个 $cm/M^2$ 的可逆子块.
+  另一个更定性的叙述是将 $u_1,\ldots , u_m$ 对应于线性算子 $T: \E^m\to \E^m$ , 其将标准单位基底 $e_i$ 映为 $u_i$ . 那么B-T定理说明 $T$ 一定可以限制在一定比例的 $e_i$ 上成为可逆映射，i.e. $T$ 的表示矩阵中一定有一个 $cm/M^2$ 的可逆子块.
 </p>
 <p>
   我们先概述B-T原始证明的框架. 
