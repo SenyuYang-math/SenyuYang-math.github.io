@@ -75,8 +75,8 @@
   但我们还需要控制 $|\sigma_0|=\sum \xi_i(\omega_0)$ 的下界. 好在对于大偏差事件 
   $$D_\gamma:=\left\{\omega\in\Omega: \vb{\sum_{i=1}^m \xi_i(\omega) - m\delta}\geq \gamma\right\}, \quad \forall \gamma \gt 0,$$ 
   概率论中的 <i>Bernstein不等式</i> 指出
-  $$\P(D_\gamma) \leq 2e^{-\frac{1}{2\delta(1-\delta)m+2\gamma/3}\gamma^2},$$
-  特别地，$\P(D_{c\delta m})\leq ...$ . 因此我们修改 $\omega_0$ 的选取：
+  $$\P(D_\gamma) \leq e^{-\frac{1}{2\pb{\delta(1-\delta)m+\gamma/3}}\gamma^2},$$
+  特别地，$\P(D_{c\delta m})\leq e^{-m\delta\frac{c^2}{(1+c/3)}}$ . 因此我们修改 $\omega_0$ 的选取：
   $$\int_{\Omega\setminus D_{c\delta m}} \sum_{i=1}^m\xi_i(\omega)\norm{P_{\sigma(\omega) \setminus \{i\}}(u_i)}^2 \D\P\leq m\delta^2 \norm{T}^2,$$
   于是存在 $\omega_0\in \Omega\setminus D_{c\delta m}$ 满足
   $$\sum_{i\in \sigma_0} \norm{P_{\sigma_0 \setminus \{i\}}(u_i)}^2 \leq \frac{1}{1-\P(D_{c\delta m})} m\delta^2 \norm{T}^2\leq ... \cssId{0-sum}{\tag{2}}$$
