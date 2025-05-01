@@ -49,7 +49,7 @@
   按定义可知 $\norm{T}_{HS}^2=\sum a_i^2$ , $\norm{T}=a_1$ . 另外，只有前 $k$ 个 $a_i$ 非零，因此 $\norm{T}_{HS}^2 \leq k \norm{T}^2$ .
 </p>
 <p>
-  对 $\tau\subset \{1,\ldots, m\}$ , 我们定义 $P_{\tau}(u_i)$ 为 $u_i$ 在 $\{u_j\}_{\tau}$ 所张成的子空间上的正交投影. 则全体 $\norm{P_{\sigma\setminus\{i\}}(u_i)}$ 刻画了 $\{u_i\}_{i\in\sigma}$ 在各方向上的非退化程度. B-T证明的第一步就着眼于此. 为了在缺乏先验结构的前提下选出合适的 $\sigma$ , 我们首先借助随机化和一阶矩估计.
+  对 $\tau\subset \{1,\ldots, m\}$ , 我们定义 $P_{\tau}(u_i)$ 为 $u_i$ 在 $\{u_j\}_{\tau}$ 所张成的子空间上的正交投影. 则全体 $\norm{P_{\sigma\setminus\{i\}}(u_i)}$ 刻画了 $\{u_i\}_{i\in\sigma}$ 在各方向上的非退化程度（越小越不退化）. B-T证明的第一步就着眼于此. 为了在缺乏先验结构的前提下选出合适的 $\sigma$ , 我们首先借助随机化和一阶矩估计.
 </p>
 <p>
   引入某个概率空间 $(\Omega, \mathcal{F}, \P)$ 上取值为 $\{0,1\}$ 的 i.i.d. 随机变量 $\{\xi_i\}_{1\leq i\leq m}$，设期望为 $\delta$ . 那么对于每个事件 $\omega\in\Omega$ , $\{\xi_i(\omega)\}$ 都标记了一个子集 
@@ -66,7 +66,7 @@
   其中，第四行对线性算子 $P_{\sigma(\omega)}T$ 使用引理2，此时 $\operatorname{rank} P_{\sigma(\omega)}T\leq \sum_{i=1}^m \xi_i(\omega)$ .
 </p>
 <p>
-  于是，一定存在 $omega_0\in\Omega$ s.t. 对于 $\sigma_0:=\sigma(\omega_0)$ , $\sum_{i\in \sigma_0} \norm{P_{\sigma(\omega) \setminus \{i\}}(u_i)}^2 \leq m\delta^2 \norm{T}^2$ .
+  于是，一定存在 $\omega_0\in\Omega$ s.t. 对于 $\sigma_0:=\sigma(\omega_0)$ , $\sum_{i\in \sigma_0} \norm{P_{\sigma(\omega) \setminus \{i\}}(u_i)}^2 \leq m\delta^2 \norm{T}^2$ .
 </p>
 </div>
 
