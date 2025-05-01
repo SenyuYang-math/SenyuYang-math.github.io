@@ -41,7 +41,8 @@
       jb: ["\\left\\langle #1 \\right\\rangle", 1],
       norm: ["\\left\\| #1 \\right\\|", 1],
       // 运算符
-      D: "\mathrm{d}"
+      D: "\\mathrm{d}",
+      p: "\\partial"
     },
   }, 
   svg: {
