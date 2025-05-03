@@ -76,18 +76,17 @@
   $$D_\gamma:=\left\{\omega\in\Omega: \vb{\sum_{i=1}^m \xi_i(\omega) - m\delta}\geq \gamma\right\}, \quad \forall \gamma \gt 0,$$ 
   概率论中的 <i>Bernstein不等式</i> 指出
   $$\P(D_\gamma) \leq e^{-\frac{1}{2\pb{\delta(1-\delta)m+\gamma/3}}\gamma^2},$$
-  特别地，$\P(D_{c\delta m})\leq e^{-m\delta\frac{c^2}{(1+c/3)}}$ . 因此我们修改 $\omega_0$ 的选取：
+  特别地，$p_0:=\P(D_{\delta m/2})\lt e^{-m\delta/10}$ . 因此我们修改 $\omega_0$ 的选取：
   $$\int_{\Omega\setminus D_{c\delta m}} \sum_{i=1}^m\xi_i(\omega)\norm{P_{\sigma(\omega) \setminus \{i\}}(u_i)}^2 \D\P\leq m\delta^2 \norm{T}^2,$$
-  于是存在 $\omega_0\in \Omega\setminus D_{c\delta m}$ 满足
-  $$\sum_{i\in \sigma_0} \norm{P_{\sigma_0 \setminus \{i\}}(u_i)}^2 \leq \frac{1}{1-\P(D_{c\delta m})} m\delta^2 \norm{T}^2\leq ... \cssId{0-sum}{\tag{2}}$$
-  并且 
-  $$|\sigma_0|\geq ...\delta m. \cssId{0-bound}{\tag{3}}$$
+  于是存在 $\omega_0\in \Omega\setminus D_{\delta m/2}$ 满足
+  $$\sum_{i\in \sigma_0} \norm{P_{\sigma_0 \setminus \{i\}}(u_i)}^2 \leq \delta m \frac{\delta \norm{T}^2}{1-p_0}, \cssId{0-sum}{\tag{2}}$$
+  $$|\sigma_0|\geq \frac{1}{2}\delta m. \cssId{0-bound}{\tag{3}}$$
 </p>
 <p>
   根据 $(\text{2})$ , 进一步可以选取
-  $$\sigma_1:=\{i\in\sigma_0: \norm{P_{\sigma_0 \setminus \{i\}}(u_i)} \leq 2\delta^{1/2} \norm{T}\}.$$
+  $$\sigma_1:=\{i\in\sigma_0: \norm{P_{\sigma_0 \setminus \{i\}}(u_i)} \leq \sqrt{\frac{\delta}{1-p_0}}\norm{T}\}.$$
   于是类似于一阶矩估计，
-  $$4\delta\norm{T}^2 |\sigma_0\setminus \sigma_1|\leq ... m\delta^2\norm{T}^2 \leq ... \delta \norm{T}^2 |\sigma_0|,$$
+  $$4\frac{\delta \norm{T}^2}{1-p_0} |\sigma_0\setminus \sigma_1|\leq m\delta^2\norm{T}^2 \leq ... \delta \norm{T}^2 |\sigma_0|,$$
   i.e. $|\sigma_1| \geq ... |\sigma_0|$ . 再令 $2\delta^{1/2} \norm{T}= \frac{1}{\sqrt{2}}$ , i.e. $\delta=\frac{1}{8\norm{T}^2}$，我们得到
 </p>
 <p class="thm">
@@ -95,7 +94,7 @@
   $$\norm{P_{\sigma_1 \setminus \{i\}}(u_i)} \leq \frac{1}{\sqrt{2}},\quad \forall i\in \sigma_1. \cssId{1-invert}{\tag{4}}$$
 </p>
 
-<h2>交叉数与 $\ell^1$-下界</h2>
+<h2>Shatter集与 $\ell^1$-下界</h2>
 <p>
   我们已经通过一阶矩估计随机地选取出 $\sigma_1$ , 但一阶矩实在过于粗糙，我们只能得到最弱的 $\ell^\infty$-下界. B-T基于一些组合的想法再用一次确定性的选取，获得了以下更强的
 </p>
