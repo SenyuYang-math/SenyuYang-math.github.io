@@ -6,21 +6,21 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-本文的主题来自Bourgain-Brezis的工作[1]，以一个toy model呈现：考虑 $f$ 是 $0$-形式 i.e. 函数，以及div方程
+本文的主题来自Bourgain-Brezis的工作[1]，以一个toy model呈现：考虑 $f$ 是 $0$-形式（即函数），以及散度方程
 $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
 </p>
 <p style="color:grey">
   &emsp;[1] J. Bourgain and H. Brezis, New estimates for elliptic equations and Hodge type systems. JEMS, 2007(9).
 </p>
 <p>
-如果 $X$ 是一个梯度场 i.e. $X=\nabla u$ , 则Poisson方程 $\Delta u = f$ 的解 $u \in \dot{W}^{2,n}$ 诱导了所谓的canonical solution $X\in \dot{W}^{1,n }$ . 但 $X$ 不一定是 $L^{\infty}$ 的，我们会在后面证明这一点. 这本质是因为Sobolev嵌入会在 $\dot{W}^{1,n}\hookrightarrow L^{\infty}$ 情形下 <i>失效</i> ！不过方程 $(1)$ 是未定的，所以可以问：$(1)$ 是否有 $L^{\infty}$-解？结论是肯定的.
+如果 $X$ 是一个梯度场 i.e. $X=\nabla u$ , 则Poisson方程 $\Delta u = f$ 的解 $u \in \dot{W}^{2,n}$ 诱导了所谓的canonical solution $X\in \dot{W}^{1,n }$ . 但[1]证明了 $X$ 不一定是 $L^{\infty}$ 的，这本质是因为Sobolev嵌入会在 $\dot{W}^{1,n}\hookrightarrow L^{\infty}$ 情形下 <i>失效</i> ！不过方程 $(1)$ 是未定的，所以可以问：$(1)$ 是否有 $L^{\infty}$-解？结论是肯定的.
 </p>
 <p class="thm">
   <b>命题1.</b> 对于 $f\in L^n(\mathbb{R}^n)$ , 存在向量场 $\tilde{X}$ (在分布意义下) 是方程 $(1)$ 的 $L^{\infty}$-解, 并满足Sobolev型估计
   $$\| \tilde{X}\|_{L^{\infty}} \lesssim \| f\|_{L^n} \ .$$
 </p>
 <p>
-  Bourgain-Brezis的观察是做一次对偶：
+  Bourgain-Brezis的观察是做一次 <i>对偶</i> ：
 </p>
 <p class="thm">
   <b>命题2</b> (Bourgain-Brezis)<b>.</b> 命题1等价于经典的Gaglinardo-Nirenberg不等式，i.e. 对所有 $u\in C_{0}^{\infty}(\mathbb{R}^n)$ 有Sobolev嵌入
@@ -40,7 +40,7 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
   对所有 $L^1$-向量场 $Y$ 成立. $\tilde{X}$ 即为命题1所求.&emsp;$\Box$
 </p>
 <p>
-  因此命题2和G-N不等式给出了命题1相对初等的证明，并且从证明能看到div方程与Sobolev嵌入的关系. 下一节我们将这些结果推广到一般的 $k$-forms.
+  因此命题2和G-N不等式给出了命题1相对初等的证明，并且从证明能看到div方程与Sobolev嵌入的关系. 而[1]将类似地结果推广至一般的外微分和 $k$-形式，当然关于证明所需的更多技巧和知识，这篇短文就力有不逮了（实则笔者又懒又学不会qwq）.
 </p>
 <!-- <h2>高维情形：Hodge系统</h2>
   我们考虑 $\mathbb{R}^n$ 的（实）Hodge-de-Rham理论：对 $\mathbb{R}^n$ 上的外形式丛 $(\Lambda(\mathbb{R}^n), d)$ , 令 $\mathrm{d}^*$ 为外微分算子 $d$ 的对偶，Hodge-Laplace算子为 $\Delta = d d^* + d^* d$ . 注意对于 $1$-形式 $Y$ , $d^* Y = \operatorname{div} Y$ . 因此我们将第一节的方程推广为
