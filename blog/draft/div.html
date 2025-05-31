@@ -1,18 +1,18 @@
 <html>
-<head>  
-<title>div-curl系统 (Ⅰ) : L^∞-解与Sobolev嵌入</title>
+<head> Blog is loading...</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  在2002-2007年间从Ginzburg-Landau方程出发，Bourgain-Brezis等学者们在div-curl系统做出了许多漂亮的工作. 因此笔者开启本系列博客，尽可能展示其中一些结果和思想.
-</p>
-<h2>引子：div方程的$L^{\infty}$-解</h2>
-<p>
-首先是最简单的情形：考虑 $f$ 是 $0$-形式 i.e. 函数，以及div方程
+本文的主题来自Bourgain-Brezis的工作[1]，以一个toy model呈现：考虑 $f$ 是 $0$-形式 i.e. 函数，以及div方程
 $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
+</p>
+<p style="color:grey">
+  &emsp;[1] J. Bourgain and H. Brezis, New estimates for elliptic equations and Hodge type systems. JEMS, 2007(9).
+</p>
+<p>
 如果 $X$ 是一个梯度场 i.e. $X=\nabla u$ , 则Poisson方程 $\Delta u = f$ 的解 $u \in \dot{W}^{2,n}$ 诱导了所谓的canonical solution $X\in \dot{W}^{1,n }$ . 但 $X$ 不一定是 $L^{\infty}$ 的，我们会在后面证明这一点. 这本质是因为Sobolev嵌入会在 $\dot{W}^{1,n}\hookrightarrow L^{\infty}$ 情形下 <i>失效</i> ！不过方程 $(1)$ 是未定的，所以可以问：$(1)$ 是否有 $L^{\infty}$-解？结论是肯定的.
 </p>
 <p class="thm">
@@ -20,10 +20,10 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
   $$\| \tilde{X}\|_{L^{\infty}} \lesssim \| f\|_{L^n} \ .$$
 </p>
 <p>
-  Bourgain-Brezis的观察是考虑duality argument
+  Bourgain-Brezis的观察是做一次对偶：
 </p>
 <p class="thm">
-  <b>命题2.</b> 命题1等价于经典的Gaglinardo-Nirenberg不等式，i.e. 对所有 $u\in C_{0}^{\infty}(\mathbb{R}^n)$ 有Sobolev嵌入
+  <b>命题2</b> (Bourgain-Brezis)<b>.</b> 命题1等价于经典的Gaglinardo-Nirenberg不等式，i.e. 对所有 $u\in C_{0}^{\infty}(\mathbb{R}^n)$ 有Sobolev嵌入
   $$\|u\|_{L^{n/(n-1)}}\lesssim \|\nabla u\|_{L^1} \ .$$
 </p>
 <p>
@@ -42,13 +42,11 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\mathbb{R}^n) \ . \tag{1}$$
 <p>
   因此命题2和G-N不等式给出了命题1相对初等的证明，并且从证明能看到div方程与Sobolev嵌入的关系. 下一节我们将这些结果推广到一般的 $k$-forms.
 </p>
-<h2>高维情形：Hodge系统</h2>
+<!-- <h2>高维情形：Hodge系统</h2>
   我们考虑 $\mathbb{R}^n$ 的（实）Hodge-de-Rham理论：对 $\mathbb{R}^n$ 上的外形式丛 $(\Lambda(\mathbb{R}^n), d)$ , 令 $\mathrm{d}^*$ 为外微分算子 $d$ 的对偶，Hodge-Laplace算子为 $\Delta = d d^* + d^* d$ . 注意对于 $1$-形式 $Y$ , $d^* Y = \operatorname{div} Y$ . 因此我们将第一节的方程推广为
   $$d^*Y=f \ , f\in L^n , \tag{2}$$
   其中 $f$ 是 $k$-形式（$0\leq k\leq n-1$）. 我们想问：是否存在 $Y\in L^\infty(\Lambda^{k+1})$ 为 $(2)$ 的一个弱解？因为 $d^*\circ d^* = 0$ , 所以方程有解需要相容性条件 $d^* f =0$ . 于是根据 $\mathbb{R}^n$ 上的Hodge理论同样可以得到：存在 $k+1$-形式 $X \in \dot{W}^{1,n}$ s.t. $d^*X = f$ . 因此我们的问题可以归结为
-  <p class="thm">
-    <b>定理3</b> (Bourgain-Brezis)<b>.</b> 
-  </p>
+ -->
 </div>
 
 <!-- js脚本 -->
