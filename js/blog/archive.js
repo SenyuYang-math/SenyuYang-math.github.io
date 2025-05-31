@@ -17,11 +17,6 @@ var urllength = urltxt.length;
   card.type = 'text/css';
   card.href = '../../css/card.css';
   document.head.appendChild(card);
-// 配置Mathjax
-var mathjax = document.createElement('script');
-mathjax.src = '../../js/math-config.js';
-mathjax.async = true;
-document.body.appendChild(mathjax);
 // 导航栏，页脚
   var headfoot = document.createElement('script');
   headfoot.src = '../../js/head-foot.js';
@@ -35,3 +30,8 @@ document.body.appendChild(mathjax);
   archive.src = '../../js/blog/list/' + archYear + '.js';
   archive.async = true;
   document.body.appendChild(archive);
+// 配置Mathjax
+var mathjax = document.createElement('script');
+mathjax.src = '../../js/math-config.js';
+mathjax.async = true;
+document.body.appendChild(mathjax);
