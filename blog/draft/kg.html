@@ -122,7 +122,7 @@ Write the summand of $Q_j$ as some projections and commutators that
          & \lesssim \norm{2^k x \jbra{x}^{\sigma-1} \check{\varphi}(2^kx)}_{L^1} \norm{f}_{L^2}\\
          & \lesssim 2^{- k} \norm{\jbra{x}^{\sigma} \check{\varphi}(x)}_{L^1}\norm{f}_{L^2}.
      \end{align*}$$
-     Thus, we finish the proof since $\check{\varphi}$ is Schwartz.
+     Thus, we finish the proof since $\check{\varphi}$ is Schwartz.&emsp;$\Box$
  </p>
 <p>
  By the lemma, we see that the remainder of $Q_j$ is summable over $j$ and thus, is negligible.
@@ -178,7 +178,7 @@ Recall that the proof of $\eqref{eq:decay-ptw}$ the only non-stationary region i
     The non-degeneration of $\p_\xi^2 \phi_{\ell,j}$ implies that the stationary region would be small even though it may be not empty. We now distinguish the cases
 </p>
 <p>
-    &emsp;<b>(a)</b> $\min \vb{\p_\xi \phi_{\ell,j}(\xi,v)}\gtrsim s^{-\frac{1}{2}}$ on $[2^{-1},2]$ . Then we conclude from $\p_\xi^2 \phi_{\ell,j}\sim 1$ that 
+    &emsp;<b>(a) $\min \vb{\p_\xi \phi_{\ell,j}(\xi,v)}\gtrsim s^{-\frac{1}{2}}$ on $[2^{-1},2]$ .</b> Then we conclude from $\p_\xi^2 \phi_{\ell,j}\sim 1$ that 
     $$\vb{\p_\xi\phi_{\ell,j}(\xi,v)}\gtrsim s^{-\frac{1}{2}}+ \min \left\{\vb{\xi-2^{-1}}, \vb{\xi-2}\right\}, \forall \xi\in[2^{-1}, 2].$$
     Integrating by parts once then gives
     $$\begin{align*}
@@ -189,7 +189,7 @@ Recall that the proof of $\eqref{eq:decay-ptw}$ the only non-stationary region i
     \end{align*}$$
 </p>
 <p>
-    &emsp;<b>(b)</b> $\min \vb{\p_\xi \phi_{\ell,j}(\xi,v)}\ll s^{-\frac{1}{2}}$ on $[2^{-1},2]$ . Supposed the stationary point is $\xi_*\in[2^{-1}, 2]$ , then we have non-degenerated bound
+    &emsp;<b>(b) $\min \vb{\p_\xi \phi_{\ell,j}(\xi,v)}\ll s^{-\frac{1}{2}}$ on $[2^{-1},2]$ .</b> Supposed the stationary point is $\xi_*\in[2^{-1}, 2]$ , then we have non-degenerated bound
     $$\vb{\p_\xi \phi_{\ell,j}(\xi,v)}\gtrsim \vb{\xi-\xi_*}, \ \forall \vb{\xi-\xi*}\gtrsim s^{-\frac{1}{2}}.$$
     Then cutting off by $\psi_s(\xi):=\psi\pb{s^{\frac{1}{2}}(\xi-\xi_*)}$ , we obtain that
     $$\begin{align*}
@@ -211,7 +211,7 @@ Recall that the proof of $\eqref{eq:decay-ptw}$ the only non-stationary region i
     \end{equation}$$
 </p>
 <p>
-    <i>证明.</i> Integrating by parts once with time phase function $\jbra{\xi}_\ell$ , we see that $\vb{p_\xi^{\leq 1}\pb{\p_\xi\phi_{\ell}}^{-1}}$ $\lesssim \pb{\frac{\xi_\ell}{\jbra{\xi}}}^{-2}$ will be absorb by the integrand, and $\p_\xi e^{ix\xi}=O(x)$ will be absorb by the local weight as the proof of \eqref{eq:local-1} . Now we gain decay of $t^{-1}$ . Since the rest term is similar to $K_j(t,x)$ , we simply apply the results in $\eqref{eq:kernel-decay-1}$ to gain another decay of $t^{-\frac{1}{2}}$ .
+    <i>证明.</i> Integrating by parts once with time phase function $\jbra{\xi}_\ell$ , we see that $\vb{p_\xi^{\leq 1}\pb{\p_\xi\phi_{\ell}}^{-1}}$ $\lesssim \pb{\frac{\xi_\ell}{\jbra{\xi}}}^{-2}$ will be absorb by the integrand, and $\p_\xi e^{ix\xi}=O(x)$ will be absorb by the local weight as the proof of \eqref{eq:local-1} . Now we gain decay of $t^{-1}$ . Since the rest term is similar to $K_j(t,x)$ , we simply apply the results in $\eqref{eq:kernel-decay-1}$ to gain another decay of $t^{-\frac{1}{2}}$ .&emsp;$\Box$
 </p>
 
 <h2>完成证明</h2>
@@ -231,7 +231,7 @@ We first derive the key bound of $I_j^M(F,G)$ .
 </p>
 
 <p>
-<i>证明.</i> The key idea of the proof is \emph{exchanging spatial localization for time decay}. Write with $b=b(t,x):=\theta(t)-\theta(s)$ that
+<i>证明.</i> The key idea of the proof is <i>exchanging spatial localization for time decay</i>. Write with $b=b(t,x):=\theta(t)-\theta(s)$ that
     $$I_j^M(F,G)=\iint \int_{s=0}^\infty \int_{t=s+M}^\infty K_j(t-s, x-y-b)wF(s,y) w\bar{G}(t,x) \D t \D s \D x \D y.$$
     It suffices to prove for $J_j^M(F,G):= \iint_{|y|\geq |x|} \int_{s=0}^\infty \int_{t=s+M}^\infty \cdots$ due to symmetry. Set
     $$u:=t-s, \ z:= x-y-b, \ h:=y+b \ \Rightarrow  \ y =h-b, \ x=h+z.$$
@@ -271,7 +271,7 @@ We first derive the key bound of $I_j^M(F,G)$ .
          & \lesssim \int_{u=M}^\infty 2^{\frac{3}{2}j}u^{-\frac{1}{2}}\norm{\jbra{x}^{-\sigma}}_{L_{x\gtrsim u}^2} \D u \cdot \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}\\
          &\lesssim 2^{\frac{3}{2}j}M^{1-\sigma}\norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}.
     \end{align*}$$
-    The asserted estimate $\eqref{eq:Strich-j}$ then follows.
+    The asserted estimate $\eqref{eq:Strich-j}$ then follows.&emsp;$\Box$
 </p>
 <p>
 Combining above results, we achieve the proof of Strichartz estimate $\eqref{eq:Strich-4}$ , and thus, of $\eqref{eq:Strich-1}$ .
@@ -289,11 +289,15 @@ Combining above results, we achieve the proof of Strichartz estimate $\eqref{eq:
     $$\vb{I_j^M(Q_jF,Q_jG)}\lesssim 2^{\frac{3}{2}j+ (1-\sigma)\nu j} \norm{Q_jF}_{L_t^2L_x^2} \norm{Q_jG}_{L_t^2L_x^2}\lesssim 2^{\nu j} \norm{Q_jF}_{L_t^2L_x^2} \norm{Q_jG}_{L_t^2L_x^2}.$$
     Since $\nu<1$ and $|k-j|\leq 5$, we can bound the commutator form $Q_j$ by $2^{(\nu-1)j}$ which is summable, and view $Q_j$ as $P_j$ . Thus, we obtain the desired bound that
     $$\vb{I^0(F,G)}\lesssim \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}+ \sum_{j=j_0}^{\infty} 2^{\nu j}\norm{P_jF}_{L_t^2L_x^2} \norm{P_jG}_{L_t^2L_x^2}\lesssim_\ell \norm{F}_{L_t^2 H_x^\nu} \norm{G}_{L_t^2L_x^2}.$$
-    Combining above results, we finish the proof.
+    Combining above results, we finish the proof.&emsp;$\Box$
 </p>
 <p>
-At the end, we highlight the roles of spatial localized factor $w=\jbra{x}^{-\sigma}$ : (1) yield improved local decay for oscillatory integrals; (2) Around the light cone, where the stationary region lies usually, we can exchange $x^{-\alpha}$ for additional time decay $t^{-\alpha}$ since $|x|\sim t$ . Readers who are familiar with wave equations can recall the proof of Klainerman-Sobolev inequality around the light cone.
+At the end, we highlight the roles of spatial localized factor $w=\jbra{x}^{-\sigma}$ :
 </p>
+<ol>
+    <li>Yields improved local decay for oscillatory integrals; </li>
+    <li>Around the light cone where the stationary region lies usually, we can exchange $x^{-\alpha}$ for additional time decay $t^{-\alpha}$ since $|x|\sim t$ . Readers who are familiar with wave equations can recall the proof of Klainerman-Sobolev inequality around the light cone.</li>
+</ol>
 </div>
 
 <!-- js脚本 -->
