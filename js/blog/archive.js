@@ -28,7 +28,7 @@ var urllength = urltxt.length;
   var archive = document.createElement('script');
   archive.id = 'blog-list';
   archive.src = '../../js/blog/list/' + archYear + '.js';
-  archive.async = true;
+  // archive.async = true;
   document.body.appendChild(archive);
 // 配置Mathjax
 archive.onload = function () {
