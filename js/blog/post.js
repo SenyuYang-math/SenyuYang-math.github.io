@@ -20,11 +20,6 @@ var number = Number(urltxt.substring(11,urllength-5));
   headfoot.src = '../../js/head-foot.js';
   headfoot.async = true;
   document.body.appendChild(headfoot);
-// 配置Mathjax
-var mathjax = document.createElement('script');
-mathjax.src = '../../js/math-config.js';
-mathjax.async = true;
-document.body.appendChild(mathjax);
 // 导入文章信息
 function infoinput() {
     var bloginfo = document.createElement('script');
@@ -42,6 +37,11 @@ const titleblock = document.getElementById('container');
 infoinput();
 }
 titleload();
+// 配置Mathjax
+var mathjax = document.createElement('script');
+mathjax.src = '../../js/math-config.js';
+mathjax.async = true;
+document.body.appendChild(mathjax);
 //创建文末功能区
 const bottom = document.getElementById('container');
 bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');  
