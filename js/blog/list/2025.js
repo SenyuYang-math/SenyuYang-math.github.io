@@ -7,6 +7,7 @@ btitle[3] = "Erdös方法与Hausdorff-Young不等式的反例"; bdate[3] = "01/2
 btitle[4] = "解析Fredholm理论 (Ⅰ) : 主要结论"; bdate[4] = "02/22"; bintro[4] = "复分析对Fredholm算子的精细刻画.";
 btitle[5] = "解析Fredholm理论 (Ⅱ) : 应用"; bdate[5] = "03/14"; bintro[5] = "在紧算子谱理论的进一步应用.";
 btitle[6] = 'Fubini的梦魇: 一个奇异的例子'; bdate[6] = "04/10"; bintro[6] = "从一个圆周动力系统出发的巧妙构造.";
+btitle[7] = "散度方程的 $L^\infty$ 解"; bdate[7] = "05/31"; bintro[7] = "Bourgain和Brezis的洞察：通过对偶与Sobolev嵌入联系起来.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 
