@@ -10,7 +10,7 @@
 本文的取材来自Bourgain-Brezis的工作（感谢一位不愿公开身份的朋友提供:-）：
 </p>
 <p style="color:grey">
-  &emsp;[1] J. Bourgain and H. Brezis, New estimates for elliptic equations and Hodge type systems. JEMS, 2007(9).
+  [1] J. Bourgain and H. Brezis, New estimates for elliptic equations and Hodge type systems. JEMS, 2007(9).
 </p>
 <p>  
 这篇短文仅考虑一个toy model，权且作为引子供读者们讨论：考虑 $f$ 是 $0$-形式（函数），以及 $1$-形式（向量场）满足的散度方程
@@ -32,7 +32,7 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\R^n) \ . \tag{1}$$
 </p>
 <p>
   <i>证明</i>. 证明的关键在于将 $\operatorname{div}$ 转移到test function上就是梯度 $\nabla$ . 如果设命题1成立，则对任意 $u\in C_0^{\infty}$ , 对全体 $f\in L^{n}$ 做test
-  $$\int_{\mathbb{R}^n} uf = \int_{\mathbb{R}^n} u \operatorname{div} \tilde{X} \ dx = -\int_{\mathbb{R}^n} \nabla u\cdot \tilde{X}\ ,$$
+  $$\int_{\mathbb{R}^n} uf = \int_{\mathbb{R}^n} u \operatorname{div} X \ dx = -\int_{\mathbb{R}^n} \nabla u\cdot X\ ,$$
   其中右式可以被 $\|\nabla u\|_{L^1} \|f\|_{L^n}$ 控制，再用对偶即得到G-N不等式；另一方面，设G-N不等式成立，考虑工作空间
   $$S:= \{\nabla u : u\in C_0^\infty\} \subset L^1 \ .$$
   于是按部就班构造弱解：考虑 $S$ 上的线性泛函
@@ -44,7 +44,7 @@ $$\operatorname{div} X = f \ , \ f \in L^n(\R^n) \ . \tag{1}$$
   对所有 $L^1$-向量场 $Y$ 成立. $\tilde{X}$ 即为命题1所求.&emsp;$\Box$
 </p>
 <p>
-  因此命题2和G-N不等式给出了命题1相对初等的证明，并且挖掘出散度方程与Sobolev嵌入的关系. 而[1]将类似的结果推广至一般的外微分和 $k$-形式所满足的 <i>div-curl系统</i>；而关于证明所需的更多技巧和知识，这篇短文就力有不逮了（实则笔者又懒又学不会qwq，日后有机会再更吧咕咕）. 欢迎相关领域的读者多多评论指教~
+  因此命题2和G-N不等式给出了命题1的简洁证明，并且挖掘出散度方程与Sobolev嵌入的关系. 而[1]将类似的结果推广至一般的外微分和 $k$-形式所满足的 <i>div-curl系统</i>；而关于证明所需的更多技巧和知识，这篇短文就力有不逮了（实则笔者又懒又学不会qwq，日后有机会再更吧咕咕）. 欢迎相关领域的读者多多评论指教~
 </p>
 </div>
 
