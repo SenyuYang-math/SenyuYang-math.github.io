@@ -31,7 +31,9 @@ var urllength = urltxt.length;
   archive.async = true;
   document.body.appendChild(archive);
 // 配置Mathjax
+archive.onload = function () {
 var mathjax = document.createElement('script');
 mathjax.src = '../../js/math-config.js';
 mathjax.async = true;
 document.body.appendChild(mathjax);
+}
