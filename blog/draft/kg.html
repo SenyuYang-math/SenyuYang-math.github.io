@@ -2,11 +2,298 @@
 <head>  
 <title id="pagetitle">Blog is loading...</title>
 </head>
-
+<div style="display: none">
+$\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{\partial}
+\newcommand{\D}{\, \mathrm{d}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\pb}[1]{\left( #1 \right)}
+\newcommand{\cb}[1]{\left[ #1 \right]}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\vb}[1]{\left| #1 \right|}
+\newcommand{\jbra}[1]{\left\langle #1 \right\rangle}$
+</div>
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
+<p>
+The nonlinear terms is of formula that
+$$\int_0^t e^{-is\jbra{\xi}_\ell}\frac{\xi_\ell}{\jbra{\xi}}e^{-i\xi\theta(s)} \widetilde{F}(s,\xi) \D s,$$
+where $\theta: [0,\infty)\to \R$ is the path of moving center s.t.
+$$\theta(0)=0, \quad \theta'(s)\lesssim \epsilon \jbra{s}^{-1+\delta}$$
+for some $0<\epsilon, \delta\ll 1$ , and the distorted Fourier transform
+$$\widetilde{F}(s, \xi):=\int_R e^{-ix\xi} {\frak a}(x){\frak b}(\xi) F(s, x)\D x,$$
+where $\mathfrak{a}\in C^{\infty}$ with $\norm{\p^k\mathfrak{a}}_{L^\infty}\lesssim_k 1$ and $\mathfrak{b}\in L^\infty$ .
+It fails to control its $L_\xi^2$-norm simply by Minkowski inequality, since the slow decay rate $\jbra{t}^{-1/2}$ . Hence, we should utilize more about the oscillation in time $\int_0^t e^{-is\jbra{\xi}_\ell}\cdots \D s $ (In the context of harmonic analysis, there is a similar view called "local smoothing effect"). Moreover, local weight helps improve the decay of energy.
+</p>
+<p class="thm">
+    <b>定理1.</b> We have for $t\geq 0$ that
+    $$\begin{equation}\label{eq:Strich-1}
+        \begin{aligned}
+            & \norm{\int_0^t e^{-is\jbra{\xi}_\ell}\frac{\xi_\ell}{\jbra{\xi}}e^{-i\xi\theta(s)} \widetilde{F}(s,\xi) \D s}_{L_\xi^2} \lesssim \norm{\jbra{x}^2 F(s,x)}_{L_s^2([0,t], H^1)}.
+        \end{aligned}
+    \end{equation}$$
+</p>
 
+<p>
+Define the translation along the path $\theta(\cdot)$ in above proposition as
+    $$\cb{T(t,s)f}(x):=f(x+\theta(t)-\theta(s)),\quad t,s\geq 0.$$
+We can drop $\mathfrak{b}(\xi)$ and transfer by Plancherel theorem to the physical version
+$$\begin{equation}\label{eq:Strich-2}
+    \norm{\int_0^t e^{-is\jbra{D_x}_\ell}D_{x,\ell} \jbra{D_x}^{-1}\cb{T_\theta(0,s)F(s)} \D s}_{L_x^2}\lesssim \norm{\jbra{x}^{\sigma}F}_{L_s^2\pb{[0,t], H_x^{\frac{\nu}{2}}}}.
+\end{equation}$$
+Its dual estimates (then equivalent, since the function spaces here are both Hilbert) is included in the following local Strichartz-type estimate.
+</p>
+
+<p class="thm">
+    <b>命题2.</b> Fix $\ell\in(-1,1)$ . Let smoothness index $\nu\in(0,1)$ and localization index $\sigma \geq \frac{3}{2\nu}$ . Then we have
+    $$\begin{equation}\label{eq:Strich-3}
+        \norm{\jbra{x}^{-\sigma} e^{it\jbra{D_x}_\ell}D_{x,\ell}\jbra{D_x}^{-1}\cb{T(t,0)f}}_{L_t^2\pb{[0,\infty), L_x^2}} \lesssim \norm{f}_{H_x^{\frac{\nu}{2}}}.
+    \end{equation}$$
+</p>
+
+<p>
+The ingredients for proof is classical: 1) Littlewood-Paley decomposition; 2)  $TT^*$ argument; 3) decay of the "convolution" kernel for $TT^*$ over the space-time. However in fact, $f$ will be translated by $\theta(t)$ , then, the kernel is not of convolution type (on space) as standard case like $\text{Sch\"odinger}$ and wave operator. Therefore, we prove in a bilinear scenario by dual argument, in order to represent the kernel <i>linearly</i>, rather than in a $L^2$ norm as usual treatment (Recall that the classical proof of Strichartz estimates for wave equations needs Hardy-Littlewood-Sobolev inequality for convolution, which fails to apply to our case). More specifically, our aim is to show that
+</p>
+  
+<p class="thm">
+    <b>定理3.</b> Set $w(x):=\jbra{x}^{-\sigma}$ . For any $F\in L_t^2\pb{[0,\infty), H_x^\nu}$ and any $G\in L_t^2\pb{[0,\infty), L_x^2}$ , it holds that
+    $$\begin{equation}\label{eq:Strich-4}
+    \begin{aligned}
+        & \vb{\int_0^{\infty} \int_0^\infty \jbra{e^{i(t-s)\jbra{D_x}_\ell}\pb{\frac{D_{x,\ell}}{\jbra{D_x}}}^2 \cb{T(t,s)wF(s)}, wG(t)}_{L_x^2} \D s \D t}\\
+        &\quad \quad \lesssim \norm{F}_{L_t^2\pb{[0,\infty), H_x^\nu}} \norm{G}_{L_t^2\pb{[0,\infty), L_x^2}}.
+    \end{aligned}
+    \end{equation}$$   
+</p>
+<p>
+To see LHS of $\eqref{eq:Strich-4}$ , note that $\eqref{eq:Strich-3}$ is equivalent to the boundedness of linear operator $\mathcal{K}: L_x^2\to L_t^2\pb{[0,\infty), L_x^2}$ , where
+$$\mathcal{K}f(t,x):=\jbra{x}^{-\sigma} e^{it\jbra{D_x}_\ell}D_{x,\ell}\jbra{D_x}^{-1}\cb{T(t,0)\jbra{D_x}^{-\frac{\nu}{2}}f}(x),$$
+Then its adjoint $\mathcal{K}^*: L_t^2\pb{[0,\infty), L_x^2}\to L_x^2$ is given by
+$$\mathcal{K}^*F(x):=\pb{\int_0^\infty e^{-is\jbra{D_x}_\ell}D_{x,\ell}\jbra{D_x}^{-1}\cb{T(0,s)\jbra{D}^{-\frac{\nu}{2}}wF(s, \cdot)} \D s}(x).$$
+Write $\mathcal{K}\mathcal{K}^*: L_t^2\pb{[0,\infty), L_x^2}\to L_t^2\pb{[0,\infty), L_x^2}$ , then LHS of $\eqref{eq:Strich-4}$ follows by dual argument. Thus, $\eqref{eq:Strich-4}$ $\Rightarrow$ $\eqref{eq:Strich-3}$ . \\
+</p>
+<p>
+We first observe that when $t=s$ the integrand of $L_x^2$ inner product does not oscillate , and thus, is the worst case. Thus, we decompose the LHS of \eqref{eq:Strich-4} into
+$$\int_0^\infty \D t \int_t^\infty \D s \ + \int_0^\infty \D t \int_0^t \D s \ \cdots,$$
+and we will only prove for the latter term (denoted by $I(F,G)$); the former one is similar. Moreover, we introduce a time-truncation version for some $M\geq 0$:
+$$\begin{equation*}
+    I^M(F,G)= \int_0^\infty \D t \int_0^{\max \{t-M, 0\}} \D s \cdots.
+\end{equation*}$$
+Particularly, $I^0(F,G)$ is what we will bound at the end. We will treat $I^M(F,G)$ and $I(F,G)-I^M(F,G)$ separately, and choose a suitable $M$ at the end of the proof.
+</p>
+  
+<h2>频率局部化</h2>
+
+<p>
+Let $\psi$ be a bump function over $|\xi|\leq 2$ , $\varphi(\xi):=\psi(\xi)-\psi(2\xi)$ . We denote the (inhomogeneous) Littlewood-Paley decomposition by $\sum_{j=0}^\infty P_j =\text{ id }$ with
+$$P_ju:= \cF^{-1}\cb{\varphi(2^{-j}\xi)\widehat{u}(\xi)}, \ j\geq 1,$$
+$$P_0 u:= \cF^{-1} \cb{\psi(\xi)\widehat{u}(\xi)}.$$
+Then we decompose $I^M(F,G)= \sum_{j=0}^\infty I_j^M(F,G)$ where
+$$\begin{equation*}
+    I_j^M(F,G) := \int_0^\infty \int_0^{\max \{t-M, 0\}} \jbra{e^{i(t-s)\jbra{D_x}_\ell}\pb{\frac{D_{x,\ell}}{\jbra{D_x}}}^2 \cb{T(t,s){\color{red} P_j}(wF(s))}, wG(t)}_{L_x^2} \D s \D t.
+\end{equation*}$$
+ Note that the frequency of LHS in the product is localized in $|k-j|\leq 5$ , then so is for the RHS since Plancherel theorem. Let the localized operator with weight $Q_jf:= w^{-1} \sum_{|k-j|\leq 5} P_k(wf)$ , we can further localize the product elements
+ $$I_j^M(F,G)=I_j^M(Q_jF, Q_j G).$$ 
+Write the summand of $Q_j$ as some projections and commutators that
+ $$Q_j = \sum_{|k-j|\leq 5} P_k + w^{-1}\cb{P_k,w}.$$
+</p>
+
+<p class="thm">
+     <b>引理4.</b> The commutator estimates hold for any $\sigma\geq 1$ that
+     $$\norm{w^{-1}\cb{P_k, w}f}_{L^2} \lesssim 2^{-k}\norm{f}_{L^2}, \ k\geq 0.$$
+</p>
+<p>
+<i>证明.</i> It suffices to consider $k\geq 1$ . Let $\check{\psi}:=\cF^{-1}[\psi]$ , and similarly for $\check{\varphi}$ . For $k\geq 1$ ,
+     $$\begin{equation*}
+         w^{-1}\cb{P_k, w}f(x) =\int_\R 2^k\check{\varphi}(2^k(x-y)) \frac{\jbra{x}^\sigma - \jbra{y}^\sigma}{\jbra{y}^\sigma} f(y) \D y.
+     \end{equation*}$$
+     Note that
+     $$\begin{equation*}
+         \frac{\vb{\jbra{x}^\sigma - \jbra{y}^\sigma}}{\jbra{y}^\sigma} \lesssim \begin{cases}
+             |x-y|\lesssim \jbra{x-y}^{\sigma-1}|x-y|, \ |x|\leq 2|y|,\\
+             \jbra{x}^{\sigma-1}|x-y|\lesssim \jbra{x-y}^{\sigma-1}|x-y|, \ |x|>2|y|.
+         \end{cases}
+     \end{equation*}$$
+     Then applying Young's inequality,
+     $$\begin{align*}
+         \norm{w^{-1}\cb{P_k, w}f}_{L^2} & \lesssim \norm{\int_\R \vb{2^k|x-y|\jbra{x-y}^{\sigma-1} \check{\varphi}(2^k(x-y))}  \cdot |f(y)| \D y}_{L^2}\\
+         & \lesssim \norm{2^k x \jbra{x}^{\sigma-1} \check{\varphi}(2^kx)}_{L^1} \norm{f}_{L^2}\\
+         & \lesssim 2^{- k} \norm{\jbra{x}^{\sigma} \check{\varphi}(x)}_{L^1}\norm{f}_{L^2}.
+     \end{align*}$$
+     Thus, we finish the proof since $\check{\varphi}$ is Schwartz.
+ </p>
+<p>
+ By the lemma, we see that the remainder of $Q_j$ is summable over $j$ and thus, is negligible.
+</p>
+
+<h2>乘子核的衰减</h2>
+
+<p>
+After commuting $T(s,t)$ and $P_j$ in $\eqref{eq:Strich-4}$ , it is natural to consider the following kernels of Fourier multipliers
+$$\begin{align*}
+    & K_j(t,x):=\int_\R e^{ix\xi}e^{it\jbra{\xi}_\ell}\pb{\frac{\xi_\ell}{\jbra{\xi}}}^2\varphi(2^{-j}\xi) \D\xi, \ j\geq 0,\\
+    & K_0(t,x):=\int_\R e^{ix\xi}e^{it\jbra{\xi}_\ell}\pb{\frac{\xi_\ell}{\jbra{\xi}}}^2\psi(\xi) \D\xi.
+\end{align*}$$
+For given $\ell\in(-1,1)$ we denote by $j_0\geq 1$ the smallest integer that
+$$\frac{2^{j_0-1}}{\jbra{2^{j_0-1}}}\geq 1-\frac{1}{4}(1-|\ell|).$$
+We also defined the region $\Lambda_\ell$ near the tilted light cone as
+$$\Lambda_\ell=\Lambda_\ell(v):=\left\{ (t,x)\in \R_+\times \R: 1-\frac{3}{4}(1-|\ell|)\leq \vb{v+\ell}\leq 1+\frac{3}{4}(1-|\ell|)\right\}.$$
+</p>
+<p>
+Recall that the proof of $\eqref{eq:decay-ptw}$ the only non-stationary region is $|v+\ell|\geq 1$ far away form the light cone. We now establish a finer pointwise decay of $K_j$ with high frequency by also taking into account the region $|v+\ell|\leq 1-\frac{3}{4}(1-|\ell|)$ inside the light cone .
+</p>
+
+<p class="thm">
+    <b>引理5.</b> For $j\geq j_0$ and $t\geq 1$ , we have for any $N\geq 1$ the dispersive estimates
+    \begin{equation}\label{eq:kernel-decay-1}
+        \vb{K_j(t,x)}\lesssim_{\ell,N} \begin{cases}
+            2^j\pb{2^j t}^{-N}, \ (t,x) \notin \Lambda_\ell, \\
+            2^{\frac{3}{2}j}t^{-\frac{1}{2}}, \ (t,x) \in \Lambda_\ell.
+        \end{cases}
+    \end{equation}
+</p>
+
+<p>
+<i>证明.</i> Recall that the space-time phase function is $\phi_\ell(\xi, v):= \jbra{\xi}+(v+\ell)\xi$ , $\p_\xi \phi_\ell(\xi,v)=\frac{\xi}{\jbra{\xi}}+ (v+\ell)$ , $\p_\xi^2\phi_\ell(\xi,v)=\jbra{\xi}^{-3}$ .
+</p>
+<p>
+    <b>Case 1: $(x,t)\notin \Lambda_\ell$ :</b> Since $j\geq j_0$ and $|\xi|\sim 2^j$ , we have non-stationary condition
+    $$|\p_\xi\phi(\xi,v)| \geq \frac{1}{2}(1-|\ell|), \ \forall \xi \in \R.$$
+    Integrating by parts in $\xi$ for $N$ times, we obtain that
+    $$K_j(t,x)=\int_{|\xi|\sim 2^j} e^{it\phi_\ell} L^N\pb{ \pb{\frac{\xi_\ell}{\jbra{\xi}}}^2 \varphi(2^{-j}\xi)} \D \xi, \ L:= -t^{-1}\p_\xi\pb{\frac{1}{i\p_\xi \phi_\ell}\ \cdot }.$$
+    The desired estimates follows.
+</p>
+<p>
+    <b>Case 2: $(x,t)\in \Lambda_\ell$ :</b> Now there may have a stationary point $\xi_*$ on the support of $\varphi(2^{-j}\xi)$ . For $t\leq 2^j$ , we have trivial bound $|K_j|\lesssim 2^j \lesssim 2^{\frac{3}{2}j}t^{-\frac{1}{2}}$ . Now consider $t\geq 2^j$ . Rewrite $K_j$ by scaling that
+    $$K_j(t,x) = 2^j\int_\R e^{is\phi_{\ell.j}} \pb{\frac{(2^j\xi)_\ell}{\jbra{2^j\xi}}}^2\varphi(\xi) \D\xi$$
+    with
+    $$s:=2^{-j} t\leq 1, \ \phi_{\ell,j}(\xi,v):=2^{2j}(2^{-j}\jbra{2^j\xi}+(v+\ell)\xi).$$
+    Compute on $\operatorname{supp} \varphi \subset [2^{-1},2]$ that
+    $$\begin{align*}
+        & \p_\xi \phi_{\ell,j}(\xi,v)= 2^{2j}\pb{\frac{2^j \xi}{\jbra{2^j\xi}}+(v+\ell)}, \\
+        & \p_\xi^2\phi_{\ell,j}(\xi,v)= \frac{2^{3j}}{\jbra{2^j\xi}^3} \sim 1.
+    \end{align*}$$
+    The non-degeneration of $\p_\xi^2 \phi_{\ell,j}$ implies that the stationary region would be small even though it may be not empty. We now distinguish the cases
+</p>
+<p>
+    &emsp;<b>(a)</b> $\min \vb{\p_\xi \phi_{\ell,j}(\xi,v)}\gtrsim s^{-\frac{1}{2}}$ on $[2^{-1},2]$ . Then we conclude from $\p_\xi^2 \phi_{\ell,j}\sim 1$ that 
+    $$\vb{\p_\xi\phi_{\ell,j}(\xi,v)}\gtrsim s^{-\frac{1}{2}}+ \min \left\{\vb{\xi-2^{-1}}, \vb{\xi-2}\right\}, \forall \xi\in[2^{-1}, 2].$$
+    Integrating by parts once then gives
+    $$\begin{align*}
+        \vb{K_j(t,x)} &\lesssim 2^j s^{-1} \int_{2^{-1}}^2 \pb{\frac{\vb{\p_\xi^2\phi_{\ell,j}}}{\pb{\p_\xi \phi_{\ell,j}}^{\color{red} 2}}+ \frac{1}{\vb{\p_\xi\phi_{\ell,j}}}} \D\xi\\
+        & \lesssim 2^js^{-1} \pb{ \int_{\min \left\{\vb{\xi-2^{-1}}, \vb{\xi-2}\right\}\gtrsim s^{-\frac{1}{2}}} + \int_{\cdots\lesssim s^{-\frac{1}{2}}} \cdots \D \xi}\\
+        & \lesssim 2^js^{-1} \pb{ \int_{s^{-\frac{1}{2}}}^1 \frac{1}{x^2} \D x \ + s^{-\frac{1}{2}}\cdot \frac{1}{\pb{s^{-\frac{1}{2}}}^2} }\\
+        & \lesssim 2^js^{-\frac{1}{2}}\sim 2^{\frac{3}{2}j} t^{-\frac{1}{2}}.
+    \end{align*}$$
+</p>
+<p>
+    &emsp;<b>(b)</b> $\min \vb{\p_\xi \phi_{\ell,j}(\xi,v)}\ll s^{-\frac{1}{2}}$ on $[2^{-1},2]$ . Supposed the stationary point is $\xi_*\in[2^{-1}, 2]$ , then we have non-degenerated bound
+    $$\vb{\p_\xi \phi_{\ell,j}(\xi,v)}\gtrsim \vb{\xi-\xi_*}, \ \forall \vb{\xi-\xi*}\gtrsim s^{-\frac{1}{2}}.$$
+    Then cutting off by $\psi_s(\xi):=\psi\pb{s^{\frac{1}{2}}(\xi-\xi_*)}$ , we obtain that
+    $$\begin{align*}
+        \vb{K_j(t,x)} &\lesssim 2^j \vb{\int_{2^{-1}}^2 \psi_s(\xi) \cdots \D\xi } \\
+        & \quad +2^js^{-1} \int_{|\xi-\xi_*|\gtrsim s^{-\frac{1}{2}}} \pb{\frac{\vb{\p_\xi^2\phi_{\ell,j}}}{\vb{\p_\xi\phi_{\ell,j}}^2}\pb{1-\psi_s(\xi)}+ \frac{1}{\vb{\p_\xi\phi_{\ell,j}}}\pb{s^{\frac{1}{2}} \vb{ \p_\xi\psi_s(\xi)}+\vb{\varphi(\xi)}}} \D\xi\\
+        &\lesssim 2^js^{-\frac{1}{2}} + 2^js^{-1}\pb{\int_{s^{-\frac{1}{2}}}^2\frac{1}{x^2} \D x+ s^{\frac{1}{2}}\cdot \pb{\norm{s^{\frac{1}{2}}\p\psi(s^{\frac{1}{2}}\cdot)}_{L^1}+1}}\\
+        &\lesssim 2^j s^{-\frac{1}{2}}\lesssim 2^{\frac{3}{2}j} t^{-\frac{1}{2}}.    
+        \end{align*}$$
+    This concludes the proof.&emsp;$\Box$
+</p>
+<p>
+  Moreover, we have improved local decay for all frequency $j\geq 0$ .
+</p>
+
+<p class="thm">
+    <b>引理6.</b> It holds for $j\geq 0$ that
+    $$\begin{equation}\label{eq:kernel-decay-2}
+        \vb{\jbra{x}^{-1}K_j(t,x)}\lesssim 2^{\frac{3}{2}j}\jbra{t}^{-\frac{3}{2}}, \ t\geq 0.
+    \end{equation}$$
+</p>
+<p>
+    <i>证明.</i> Integrating by parts once with time phase function $\jbra{\xi}_\ell$ , we see that $\vb{p_\xi^{\leq 1}\pb{\p_\xi\phi_{\ell}}^{-1}}$ $\lesssim \pb{\frac{\xi_\ell}{\jbra{\xi}}}^{-2}$ will be absorb by the integrand, and $\p_\xi e^{ix\xi}=O(x)$ will be absorb by the local weight as the proof of \eqref{eq:local-1} . Now we gain decay of $t^{-1}$ . Since the rest term is similar to $K_j(t,x)$ , we simply apply the results in $\eqref{eq:kernel-decay-1}$ to gain another decay of $t^{-\frac{1}{2}}$ .
+</p>
+
+<h2>完成证明</h2>
+
+<p>
+We first derive the key bound of $I_j^M(F,G)$ .
+</p>
+  
+<p class="thm">
+    <b>引理7.</b> Let $\sigma > \frac{3}{2}$ and $M\geq 1$ . Then we have
+    $$\begin{equation}\label{eq:Strich-j}
+        \vb{I_j^M(F,G)}\lesssim_\sigma \begin{cases}
+            2^{\frac{3}{2}j} M^{1-\sigma} \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}, \ j\geq j_0\\
+            2^{\frac{3}{2}j} M^{-\frac{1}{2}+\delta} \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}, \ 0\leq j \leq j_0.
+        \end{cases} 
+    \end{equation}$$
+</p>
+
+<p>
+<i>证明.</i> The key idea of the proof is \emph{exchanging spatial localization for time decay}. Write with $b=b(t,x):=\theta(t)-\theta(s)$ that
+    $$I_j^M(F,G)=\iint \int_{s=0}^\infty \int_{t=s+M}^\infty K_j(t-s, x-y-b)wF(s,y) w\bar{G}(t,x) \D t \D s \D x \D y.$$
+    It suffices to prove for $J_j^M(F,G):= \iint_{|y|\geq |x|} \int_{s=0}^\infty \int_{t=s+M}^\infty \cdots$ due to symmetry. Set
+    $$u:=t-s, \ z:= x-y-b, \ h:=y+b \ \Rightarrow  \ y =h-b, \ x=h+z.$$
+    Then the integral reads
+    $$J_j^M(F,G)=\iint_{|h-b|>|h+z|} \int_{s=0}^\infty\int_{u=M}^\infty K_j(u,z)wF(s,h-b)wG(s+u, h+z) \D u \D s \D h \D z.$$
+</p>
+<p>
+    <b>Low frequency $0\leq j\leq j_0$ :</b> Using improved local decay \eqref{eq:kernel-decay-2} and $\jbra{z}\lesssim \jbra{h-b}+\jbra{h+z}+\jbra{b}$ , we have
+    $$\begin{equation*}
+        \begin{aligned}
+            \vb{J_j^M(F,G)} & \lesssim \iint_{|h-b|>|h+z|} \int_{s=0}^\infty\int_{u=M}^\infty \jbra{u}^{-{\color{red}\frac{3}{2}}} \vb{{\color{red} \jbra{z}} \cdot wF(s,h-b)wG(s+u, h+z)} \D u \D s \D h \D z\\
+            & \lesssim \int_{u=M}^\infty\jbra{u}^{-\frac{3}{2}} \int_{s=0}^\infty  \iint_{|h-b|>|h+z|}  \vb{\jbra{h-b}^{1-\sigma}F(s,h-b)\cdot wG(s+u, h+z)}\\
+            &\qquad \qquad \qquad \qquad\qquad+ \vb{wF(s,h-b)\cdot \jbra{h-b}^{1-\sigma}G(s+u, h+z)}\\
+            &\qquad \qquad \qquad \qquad\qquad+ \jbra{b}\vb{wF(s,h-b)wG(s+u, h+z)} \D z \D h \D s \D u .
+        \end{aligned}
+    \end{equation*}$$
+    For each term, we first apply Cauchy-Schwarz inequality on $z$ to get $\norm{G(s+u)}_{L_x^2}$ and again on $h$ to get $\norm{F(s)}_{L_x^2}$ , where we use $\norm{\jbra{x}^{\leq 1-\sigma}}_{L_x^2}<\infty$ if $\sigma >\frac{3}{2}$ . Next we apply Cauchy-Schwarz inequality on $s$ and obtain
+    $$\begin{align*}
+        \vb{J_j^M} & \lesssim \int_{u=M}^\infty \jbra{u}^{-\frac{3}{2}+\delta} \D u \ \cdot  \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}\\
+        & \lesssim M^{-\frac{1}{2}+\delta} \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}.
+    \end{align*}$$
+    Here we use $|\jbra{b}(t,s)|\lesssim \epsilon |t-s|^\delta$ with $t-s=u\geq M\geq 1$ . The low frequency case is done.
+  </p>
+  <p>
+    <b>High frequency $j\geq j_0$ :</b> We divide the domain of integration into two region ${\bf I}:=\Lambda_\ell(\frac{z}{u})$ and ${\bf II}:= \pb{\R_{\geq M}\times\R} \setminus {\bf I}$ . We use smooth cut-off functions $\chi_{\bf I}(u,z)$ and $\chi_{\bf II}(u,z)$ to remember these regions in integrals. The counterpart in $J_j^M$ is denoted by $J_j^{M,1}$ and $J_j^{M,2}$ respectively.<br/>
+    &emsp;<b>1) Region II :</b> Using the non-stationary rapid decay in \eqref{eq:kernel-decay-1} , we bound $J_j^{M,2}(F,G)$ by
+    $$\begin{align*}
+        & \lesssim \int_{u=M}^\infty 2^j\pb{2^j\jbra{u}}^{N+1} \int_{s=0}^\infty\iint_{|h-b|>|h+z|}  \vb{wF(s,h-b)\cdot wG(s+u, h+z)} \D z \D h \D s \D u\\
+        & \lesssim 2^{-Nj}M^{-N} \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}.
+    \end{align*}$$
+    &emsp;<b>2) Region I :</b> Direct computation shows that if $(u,z)\in {\bf I}$ , then ${\color{red} |z|\sim u}\geq 1$ . It follows that
+    $$|b(t,x)|\ll u \sim |z| \lesssim |h-b|+|h+z|+|b|.$$
+    Since $|h-b|>|h+z|$ and $|b|\lesssim u$ , we see that ${\color{red} u\lesssim |h-b|}$ . Thus we can bound $J_j^{M,1}(F,G)$ by
+    $$\begin{align*}
+         & \lesssim \int_{u=M}^\infty 2^{\frac{3}{2}j}u^{-\frac{1}{2}}\int_{s=0}^\infty\iint_{|h-b|>|h+z|} \chi_{\bf II}(u,z)\chi_{u\lesssim |h-b|} \vb{wF(s,h-b)\cdot wG(s+u, h+z)} \D z \D h \D s \D u \\
+         & \lesssim \int_{u=M}^\infty 2^{\frac{3}{2}j}u^{-\frac{1}{2}} \int_{s=0}^\infty \norm{\jbra{h-b}^{-\sigma}\jbra{h+z}^{-\sigma}}_{L_{|h-b|\gtrsim u}^2 L_{|z|\sim u}^2} \cdot \norm{F(s)}_{L_x^2}\norm{G(s+u)}_{L_x^2} \D s \D u\\
+         & \lesssim \int_{u=M}^\infty 2^{\frac{3}{2}j}u^{-\frac{1}{2}}\norm{\jbra{x}^{-\sigma}}_{L_{x\gtrsim u}^2} \D u \cdot \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}\\
+         &\lesssim 2^{\frac{3}{2}j}M^{1-\sigma}\norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}.
+    \end{align*}$$
+    The asserted estimate $\eqref{eq:Strich-j}$ then follows.
+</p>
+<p>
+Combining above results, we achieve the proof of Strichartz estimate $\eqref{eq:Strich-4}$ , and thus, of $\eqref{eq:Strich-1}$ .
+</p>
+<p>
+  <i>$\eqref{eq:Strich-4}$ 的证明</i>. As indicated ealier, it suffices to bound $I^0(F,G)$ . Inserting Littlewood-Paley decomposition, we have
+    $$\vb{I^0(F,G)}\leq \sum_{j=0}^\infty\vb{I_j^0(F,G)}=\sum_{j=0}^\infty\vb{I_j^0(Q_j F,Q_j G)}.$$
+    Moreover, for each $j\geq 0$ we can choose a suitable $M\geq 1$ s.t.
+    $$\vb{I_j^0(Q_jF, Q_jG)} \leq \vb{I_j^M(Q_jF, Q_jG)}+ \vb{I_j^0(Q_jF, Q_jG)-I_j^M(Q_jF, Q_jG)}.$$
+    For the second term on RHS, we bound it trivially by Plancherel theorem on the $L^2$ inner product that
+    $$\vb{I_j^0(Q_jF, Q_jG)-I_j^M(Q_jF, Q_jG)}\lesssim \int_{u=0}^M \pb{\int_{s=0}^{\infty}}\jbra{\cdots}_{L_x^2}\D u \lesssim M \norm{Q_jF}_{L_t^2L_x^2} \norm{Q_jG}_{L_t^2L_x^2}.$$
+    <b>Low frequency $0\leq j\leq j_0$ :</b> Since now there are only finite $j$ , we have by \eqref{eq:Strich-j} with the trivial choice $M=1$ that
+    $$\sum_{j=0}^{j_0}\vb{I_j^0(Q_jF, Q_jG)} \lesssim_{\ell} \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}.$$
+    <b>High frequency $j\geq j_0$ :</b> Now let $\nu\in(0,1)$ s.t. $\sigma > \frac{3}{2\nu}$ . We choose $M= 2^{\nu j}$ . Since $\sigma > \frac{3}{2\nu}$ , it follows that
+    $$\vb{I_j^M(Q_jF,Q_jG)}\lesssim 2^{\frac{3}{2}j+ (1-\sigma)\nu j} \norm{Q_jF}_{L_t^2L_x^2} \norm{Q_jG}_{L_t^2L_x^2}\lesssim 2^{\nu j} \norm{Q_jF}_{L_t^2L_x^2} \norm{Q_jG}_{L_t^2L_x^2}.$$
+    Since $\nu<1$ and $|k-j|\leq 5$, we can bound the commutator form $Q_j$ by $2^{(\nu-1)j}$ which is summable, and view $Q_j$ as $P_j$ . Thus, we obtain the desired bound that
+    $$\vb{I^0(F,G)}\lesssim \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}+ \sum_{j=j_0}^{\infty} 2^{\nu j}\norm{P_jF}_{L_t^2L_x^2} \norm{P_jG}_{L_t^2L_x^2}\lesssim_\ell \norm{F}_{L_t^2 H_x^\nu} \norm{G}_{L_t^2L_x^2}.$$
+    Combining above results, we finish the proof.
+</p>
+<p>
+At the end, we highlight the roles of spatial localized factor $w=\jbra{x}^{-\sigma}$ : (1) yield improved local decay for oscillatory integrals; (2) Around the light cone, where the stationary region lies usually, we can exchange $x^{-\alpha}$ for additional time decay $t^{-\alpha}$ since $|x|\sim t$ . Readers who are familiar with wave equations can recall the proof of Klainerman-Sobolev inequality around the light cone.
+</p>
 </div>
 
 <!-- js脚本 -->
