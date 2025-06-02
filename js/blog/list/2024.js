@@ -6,8 +6,8 @@ btitle[2] = "多项式方法与有限域Kakeya猜想"; bdate[2] = "02/19"; bintr
 btitle[3] = "Gronwall不等式的bootstrap式证明"; bdate[3] = "03/08"; bintro[3] = "Bootstrap method的一个简单而普遍的应用范例.";
 btitle[4] = "Cauchy积分定理的几何风证明"; bdate[4] = "03/14"; bintro[4] = "用微分流形的语言自然地将定理与Stokes公式联系起来.";
 btitle[5] = "Littlewood-Paley定理的随机化证明"; bdate[5] = "05/12"; bintro[5] = "将分析对象随机化的一个美妙范例.";
-btitle[6] = "Bourgain的魔法：一道2024年丘赛题与bilinear Strichartz"; bdate[6] = "06/28"; bintro[6] = "令人惊喜的试题，深刻的研究背景.";
-btitle[7] = "Bourgain的魔法：一个Szemerédi型定理的调和分析证明"; bdate[7] = "07/03"; bintro[7] = "Bourgain的两个好工具：定量化和抽屉原理.";
+btitle[6] = "Bourgain的魔法：2024年丘赛题与bilinear Strichartz"; bdate[6] = "06/28"; bintro[6] = "令人惊喜的试题，深刻的研究背景.";
+btitle[7] = "Bourgain的魔法：Szemerédi型定理的调和分析证明"; bdate[7] = "07/03"; bintro[7] = "Bourgain的两个好工具：定量化和抽屉原理.";
 btitle[8] = "Brezis-Lieb引理与一个变分问题"; bdate[8] = "07/17"; bintro[8] = "纪念H. Brezis，介绍一道实分析经典习题的背景.";
 btitle[9] = "Van der Corput不等式"; bdate[9] = "07/18"; bintro[9] = "记录一个内积不等式.";
 btitle[10] = "线代作业题：1维Ising模型的配分函数"; bdate[10] = "08/01"; bintro[10] = "来自统计物理的计算题，一个漂亮的观察.";
