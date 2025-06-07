@@ -13,9 +13,9 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-  这期博客参考了T. Elgindi的<a href="https://sites.google.com/view/tarekelgindi/home/teaching-mentoring/mixing-and-enhanced-dissipation-notes" target="_blank">讲义</a>. 我们考虑二维有界连通区域 $\Omega\subset \R^2$上的一个输运方程
+  这期博客参考了T. Elgindi的<a href="https://sites.google.com/view/tarekelgindi/home/teaching-mentoring/mixing-and-enhanced-dissipation-notes" target="_blank">讲义</a>. 我们考虑二维有界连通区域 $\Omega\subset \R^2$（或二维环面 $\vT^2$ ）上的一个输运方程
   $$\p_t f + u\cdot \nabla f =0, \tag{1}$$
-  其中与时间无关的稳态向量场 $u$ 满足不可压条件 $\nabla\cdot u =0$ 和边界条件 $u\cdot {\bf n} =0$ on $\p\Omega$（如果在二维环面 $\bT^2$ 上，则需要周期边值条件 $\int_{\bT^2} \omega =0$ 来避免低频部分的爆破）. 本文将证明对于“一般”（generic）的 $u\in C^1$ ，都存在某个初值 $f_0\in C^1$ s.t. $f$ 的 $C^1$ 范数随时间线性增长，即长时间下发生正则性的爆破（blow-up）. 我们将从例子和尝试中一步步达到目标.
+  其中与时间无关的稳态向量场 $u$ 满足不可压条件 $\nabla\cdot u =0$ 和边界条件 $u\cdot {\bf n} =0$ on $\p\Omega$（ $\bT^2$ 则需要周期边值条件 $\int_{\bT^2} \omega =0$ 来避免低频部分的爆破）. 本文将证明对于“一般”（generic）的 $u\in C^1$ ，都存在某个初值 $f_0\in C^1$ s.t. $f$ 的 $C^1$ 范数随时间线性增长，即长时间下发生正则性的爆破（blow-up）. 我们将从例子和尝试中一步步达到目标.
 </p>
 <h2>背景：Euler稳态解的扰动</h2>
 <p>
