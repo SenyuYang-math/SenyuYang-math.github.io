@@ -25,7 +25,7 @@
 <p>
   首先说明 $(1)$ 的背景. 设 $\Omega$ 上的速度场 $u$ 满足不可压Euler方程
   $$\p_t u + u\cdot \nabla u=-\nabla P, \ \nabla\cdot u =0, \ u\cdot {\bf n} =0 \text{ on } \p\Omega.\tag{2}$$
-  考虑涡度 $\omega:=p_2 u_1 - p_1 u_2\in C^0$（二维时是标量场），则Laplace方程 $\Delta \psi= \omega$ 的Dirichlet边值问题或周期边值问题存在（相差常数意义下的）唯一解 $\psi\in C^2$，进而可以表示 $u=(\p_2 \psi, -\p_1\psi)=: \nabla^{\perp} \psi$（$\psi$ 称作 $u$ 的stream function）. 于是 $(2)$ 等价于涡度形式
+  考虑涡度 $\omega:=\p_2 u_1 - \p_1 u_2\in C^0$（二维时是标量场），则Laplace方程 $\Delta \psi= \omega$ 的Dirichlet边值问题或周期边值问题存在（相差常数意义下的）唯一解 $\psi\in C^2$，进而可以表示 $u=(\p_2 \psi, -\p_1\psi)=: \nabla^{\perp} \psi$（$\psi$ 称作 $u$ 的stream function）. 于是 $(2)$ 等价于涡度形式
   $$\p_t \omega + \nabla^\perp \psi \cdot \nabla \omega = 0, \ \Delta \psi = \omega. \tag{3}$$
   现在考虑 $(3)$ 的一个稳态解 $(\psi_*, \omega_*)$ , 我们自然可以考察它的稳定性. 设扰动后的 $(\psi_*+\psi, \omega_*+\omega)$ 仍满足 $(3)$ , 则扰动项 $(\psi, \omega)$ 满足
   $$\p_t \omega + u_* \cdot \nabla \omega + \nabla \omega_* \cdot \nabla^\perp \psi + \nabla^\perp \psi\cdot \nabla \omega=0, \tag{4}$$
@@ -36,7 +36,7 @@
 <h2>例子：Couette流</h2>
 <p>
   我们从一个例子开始. 设 $\Omega=\bT \times [2^{-1},2]$ , 现在探究 $(4)$ 的稳态解和 $C^1$ 扰动的行为. 给定 $\bT\times [2^{-1}, 2]$ 上的周期坐标 $(x,y)$ , 一类非平凡稳态解是 <i>剪切流</i>（shear flow）：
-  $$\psi_* (x,y)= \Psi(y),\ \Rightarrow \nabla^\perp\psi = (-\Psi', 0), \ \nabla \omega_*= (0, \Psi''').$$
+  $$\psi_* (x,y)= \Psi(y) \ \Rightarrow \nabla^\perp\psi = (-\Psi', 0), \ \nabla \omega_*= (0, \Psi''').$$
   因此正交性给出 $\nabla^\perp \psi_* \cdot \nabla \omega =0$ , i.e. $(\psi_*, \omega_*)$ 是Euler稳态解. 
 </p>
 <p>
@@ -80,6 +80,11 @@
 </p>
 <p>
   <i>证明.</i>
+</p>
+<p class="thm">
+  <b>定义.</b> 设 $x\in R$ . <br/>
+  &emsp;(1) 称 $\psi\in C^2$ 在 $x$ 处局部等时（locally isochronal），如果存在 $x$ 的一个邻域 $U$ s.t. 对任意 $y\in U$ 都有 $T_y=T_x$ .<br/>
+  &emsp;(2) 称 $\psi\in C^2$ 无处等时（nowhere isochronal），如果 $\psi$ 在任意 $x\in R$ 处都不局部等时，并且 $\Omega\setminus R$ 零测. 
 </p>
 
 <h2>梯度的增长</h2>
