@@ -24,7 +24,7 @@
 <h2>Euler稳态解的扰动</h2>
 <p>
   首先说明 $(1)$ 的背景. 设 $\Omega$ 上的速度场 $u$ 满足不可压Euler方程
-  $$\p_t u + u\cdot u=-\nabla P, \ \nabla\cdot u =0, \ u\cdot {\bf n} =0 \text{ on } \p\Omega.\tag{2}$$
+  $$\p_t u + u\cdot \nabla u=-\nabla P, \ \nabla\cdot u =0, \ u\cdot {\bf n} =0 \text{ on } \p\Omega.\tag{2}$$
   考虑涡度 $\omega:=p_2 u_1 - p_1 u_2\in C^0$（二维时是标量场），则Laplace方程 $\Delta \psi= \omega$ 的Dirichlet边值问题或周期边值问题存在（相差常数意义下的）唯一解 $\psi\in C^2$，进而可以表示 $u=(\p_2 \psi, -\p_1\psi)=: \nabla^{\perp} \psi$（$\psi$ 称作 $u$ 的stream function）. 于是 $(2)$ 等价于涡度形式
   $$\p_t \omega + \nabla^\perp \psi \cdot \nabla \omega = 0, \ \Delta \psi = \omega. \tag{3}$$
   现在考虑 $(3)$ 的一个稳态解 $(\psi_*, \omega_*)$ , 我们自然可以考察它的稳定性. 设扰动后的 $(\psi_*+\psi, \omega_*+\omega)$ 仍满足 $(3)$ , 则扰动项 $(\psi, \omega)$ 满足
@@ -60,7 +60,7 @@
 </p>
 <ul>
   <li>在某一点 $v\in \Omega$ 的邻域 $U$ 内，物质 $f_0(w)$ 沿着某条闭的特征线 $\Gamma_w$ 以周期 $T_w$ 运动.</li>
-  <li>输运速度在 $U$ 上是分离的，i.e.（形式上）$\nabla T_w(v) \neq 0$ .</li>
+  <li>输运速度在 $U$ 上是分离的，i.e.（在正则性前提下）$\nabla T_w(v) \neq 0$ .</li>
 </ul>
 <p>
   因此上述的 $C^1$ 爆破现象存在于更普遍的情形.
