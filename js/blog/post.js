@@ -18,7 +18,7 @@ var number = Number(urltxt.substring(11,urllength-5));
 // 导航栏，页脚
   var headfoot = document.createElement('script');
   headfoot.src = '../../js/head-foot.js';
-  // headfoot.async = true;
+  headfoot.async = false;
   document.body.appendChild(headfoot);
 // 导入文章信息
 function infoinput() {
