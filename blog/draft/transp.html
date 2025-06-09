@@ -25,9 +25,9 @@
 <p>
   首先说明 $(1)$ 的背景. 设 $\Omega$ 上的速度场 $u$ 满足不可压Euler方程
   $$\begin{align*}
-  \p_t u + u\cdot \nabla u=-\nabla P, \\
-  \nabla\cdot u =0, \tag{2}\\
-  u\cdot {\bf n} =0 \text{ on } \p\Omega.
+  & \p_t u + u\cdot \nabla u=-\nabla P, \\
+  & \nabla\cdot u =0, \tag{2}\\
+  & u\cdot {\bf n} =0 \text{ on } \p\Omega.
   \end{align*}$$
   考虑涡度 $\omega:=\p_2 u_1 - \p_1 u_2\in C^0$（二维时是标量场），则Laplace方程 $\Delta \psi= \omega$ 的Dirichlet边值问题或周期边值问题存在（相差常数意义下的）唯一解 $\psi\in C^2$，进而可以表示 $u=(\p_2 \psi, -\p_1\psi)=: \nabla^{\perp} \psi$（$\psi$ 称作 $u$ 的stream function）. 于是 $(2)$ 等价于涡度形式
   $$\p_t \omega + \nabla^\perp \psi \cdot \nabla \omega = 0, \ \Delta \psi = \omega. \tag{3}$$
@@ -45,7 +45,7 @@
 </p>
 <p>
   现在考虑最简单的剪切流 <i>Couette流</i>：令 $\Psi(y)=\frac{1}{2}y^2$ , 则 $\omega_*(v)\equiv 1$ . 其扰动 $\omega$ 的线性化方程即为
-  $$\p_t f + y\p_x f = 0, \ f(v,0):= f_0(v). \tag{5}$$
+  $$\p_t f + y\p_x f = 0, \ \ f(v,0):= f_0(v). \tag{5}$$
   于是考虑 $(0,y)$ 处物质的输运 $f((0,y),t)= f_0((-ty, y))$ , i.e. 沿特征方向 ${\bf e}_x$ 以速度 $y$ 沿 <i>闭曲线</i> $\bT\times\{y\}$ 做周期运动；特别地，不同位置的速度是 <i>分离</i> 的. WLOG, 我们考虑任意时间节点 $n\in \N_+(n\gg 1)$ 和初始坐标 $(0,1)$ , 令 $y':=1+(2n)^{-1}$ , 则
   $$f((0,1),n)=f_0((0,1)), \ f((0,y'), n)=f_0((-2^{-1}, y')).$$ 
   因此只需令初值 $f_0$ 支撑于 $B_{(0,1)}(4^{-1})$ 且 
@@ -77,9 +77,9 @@
 <h2>特征线的几何</h2>
 <p>
   在Couette流这个例子的支持下，现在我们讨论更一般的框架. 我们不区分 $u$ 和 $\nabla^\perp \psi$（$\psi\in C^2$）. 引入 $\nabla^\perp$ 诱导的 <i>流映射</i>（flow map）：对基点 $v\in \Omega$ , 定义 $C^1$ 路径 $\gamma_v(t): \R\to \Omega$ 为以下ODE的Cauchy问题
-  $$\frac{\rm d}{{\rm d} t}\gamma_v(t)=\nabla^\perp \psi(\gamma_v(t)), \ \gamma_v(0)=v$$
-  由 $u$ 的边界条件，我们可以将 $\psi$ 的 $C^1$ 正则性，进而 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$，延拓到 $\overline{\Omega}=\Omega\cup\p\Omega$ 上. 为保证特征线非退化，我们需要避开临界点 $C:=\{v:\nabla\psi(v)=0\}$ . 定义流函数 $\psi$ 的全体 <i>正则点</i>（regular points）
-  $$R\subset \overline{\Omega}:= \{v\in \Omega: \psi(v) \notin \psi(C)\}.$$
+  $$\frac{\rm d}{{\rm d} t}\gamma_v(t)=\nabla^\perp \psi(\gamma_v(t)), \ \gamma_v(0)=v \tag{6}$$
+  的解. 由 $u$ 的边界条件，我们可以将 $\psi$ 的 $C^1$ 正则性，进而 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$，延拓到 $\overline{\Omega}=\Omega\cup\p\Omega$ 上. 为保证特征线非退化，我们需要避开临界点 $C:=\{v:\nabla\psi(v)=0\}$ . 定义流函数 $\psi$ 的全体 <i>正则点</i>（regular points）
+  $$R\subset \overline{\Omega}:= \{v\in \Omega: \psi(v) \notin \psi(C)\}.\tag{7}$$
   现在固定基点 $v\in R$ . 由于 $\nabla^\perp\psi$ 在 $\overline{\Omega}$ 上 $C^1$ 一致有界，$\gamma_v$ 在整个 $t\geq 0$ 上全局存在；$\nabla^\perp\psi(x)\neq 0$ , 因此 $\gamma_v$ 局部唯一. 由于 
   $$\p_t(\psi(\gamma_v(t)))=\nabla \psi \cdot  \gamma_v'(t)\equiv 0,$$
   $\gamma_v$ 保持 $\psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一. 注意到 $R$ 是一个开集，因此下面的引理保证了闭特征线在正则点附近唯一存在.
@@ -105,9 +105,7 @@
 </p>
 <p class="thm">
   <b>引理3</b> (最小正周期)<b>.</b> 设 $v\in R$ , 则 $T_v$ 有曲线积分表示
-  $$\begin{equation}
-  T_v=\int_{\Gamma_v} \frac{1}{|\nabla \psi|} .
-  \end{equation}$$
+  $$T_v=\int_{\Gamma_v} \frac{1}{|\nabla \psi|}. \tag{8}$$
 </p>
 <p>
   <i>证明.</i> 首先，因为 $\Gamma_v\subset \Omega$ , $\inf_{\Gamma_v} |\nabla \psi|> 0$ , 积分是良定义的. 由于 $T_v$ 是最小正周期，我们做变量代换
