@@ -15,7 +15,7 @@
 <p>
   这期博客参考了T. Elgindi的<a href="https://sites.google.com/view/tarekelgindi/home/teaching-mentoring/mixing-and-enhanced-dissipation-notes" target="_blank">讲义</a>. 我们考虑二维有界连通区域 $\Omega\subset \R^2$（或二维环面 $\bT^2$）上的一个输运方程
   $$\p_t f + u\cdot \nabla f =0, \tag{1}$$
-  其中与时间无关的稳态向量场 $u$ 满足不可压条件 $\nabla\cdot u =0$ 和边界条件 $u\cdot {\bf n} =0$ on $\p\Omega$（ $\bT^2$ 则需要周期边值条件 $\int_{\bT^2} \omega =0$ 来避免低频部分的爆破）. 
+  其中与时间无关的稳态向量场 $u$ 满足不可压条件 $\nabla\cdot u =0$ 和边界条件 $u\cdot {\bf n} =0$ on $\p\Omega$（ $\bT^2$ 则需要周期边值条件 $\int_{\bT^2} \omega =0$ 来避免低频部分的爆破）. 此时我们假设 $\p\Omega$ 是简单 $C^1$ 的. 
 </p>
 <p>
   本文将证明对于“一般”（generic）的 $u\in C^1$ ，都存在某个初值 $f_0\in C^1$ s.t. $f$ 的 $C^1$ 范数随时间线性增长，即长时间下发生正则性的爆破（blow-up）. 我们将从例子和尝试中一步步达到目标.
@@ -54,6 +54,10 @@
   $$\operatorname{dist} \left((y'(t-n),y'), ((t-n),1)\right) \lesssim n^{-1} \lesssim t^{-1}.$$ 
   因此仍存在类似的 $v_t$ s.t. $|\nabla f(v_t, t)| \gtrsim t$ . 总之，$f$ 的 $C^1$ 范数有线性增长
   $$|f(\cdot,t)|_{C^1} \gtrsim t^1, \ \forall t\geq 0.$$
+  我们得到：
+</p>
+<p class="thm">
+  <b>命题1.</b> Couette流是 $C^1$ 线性不稳定的.
 </p>
 <p>
   我们可以总结出 $(5)$ 不稳定的要点：
@@ -68,18 +72,49 @@
   
 <h2>特征线的几何</h2>
 <p>
-  在Couette流这个例子的支持下，现在我们讨论更一般的框架. 我们不区分 $u$ 和 $\nabla^\perp \psi$（$\psi\in C^2$）. 引入流映射（flow map）...
+  在Couette流这个例子的支持下，现在我们讨论更一般的框架. 我们不区分 $u$ 和 $\nabla^\perp \psi$（$\psi\in C^2$）. 引入流映射（flow map）
 </p>
 <p>
-  为保证特征线非退化，我们需要避开临界点 $C:=\{v:\nabla\psi(v)=0\}$ . 定义 <i>正则点</i>（regular point）
-  $$R\subset \Omega:= \{v\in \Omega: \psi(v) \notin \psi(C)\}.$$
+  由 $u$ 的边界条件，我们可以将 $\psi$ 的 $C^1$ 正则性延拓到 $\overline{\Omega}=\Omega\cup\p\Omega$ 上. 为保证特征线非退化，我们需要避开临界点 $C:=\{v:\nabla\psi(v)=0\}$ . 定义流函数 $\psi$ 的全体 <i>正则点</i>（regular points）
+  $$R\subset \overline{\Omega}:= \{v\in \Omega: \psi(v) \notin \psi(C)\}.$$
   $R$ 是一个开集，因此下面的引理保证了闭特征线在正则点附近唯一存在.
 </p>
 <p class="thm">
-  <b>引理1.</b> 设 $v\in R$ , 则存在一条唯一的 $C^1$ 简单闭曲线 $\Gamma_x$ s.t. $x\in \Gamma_x$ , 并且对于 $w\in \Gamma_x$ 有 $\psi(x)=\psi(y)$ , i.e. $u\mid_{\Gamma_x}$ 是 $\Gamma_x$ 的切向量场 . 
+  <b>引理2</b> (特征线)<b>.</b> 设 $v\in R$ , 则存在一条唯一的 $C^1$ 简单闭曲线 $\Gamma_v$ s.t. $v\in \Gamma_v$ , 并且对于 $w\in \Gamma_v$ 有 $\psi(w)=\psi(v)$ , i.e. $u\mid_{\Gamma_v}$ 是 $\Gamma_v$ 的切向量场 . 
 </p>
 <p>
-  <i>证明.</i>
+  <i>证明.</i> 固定基点 $v\in R$ . 定义 C^1 路径 $\gamma_v(t): \R\to \Omega$ 为以下ODE的Cauchy问题
+  $$\frac{\rm d}{{\rm d} t}\gamma_v(t)=\nabla^\perp \psi(\gamma_v(t)), \ \gamma_v(0)=v$$
+  的解. 由于 $\nabla\perp\psi$ 在 $\overline{\Omega}$ 上 $C^1$ 一致有界，$\gamma_v$ 在整个 $t\geq 0$ 上全局存在；$\nabla^\perp\psi(x)\neq 0$ , 因此 $\gamma_v$ 局部唯一. 由于 
+  $$\p_t(\psi(\gamma_v(t)))=\nabla \psi \cdot  \gamma_v'(t)\equiv 0,$$
+  $\gamma_v$ 保持 $\psi$ 的值不变，保持 $psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一.
+</p>
+<p>
+  下面我们证明 $\gamma_v$ 的周期性. 考虑点列 $\{\gamma_v(n)\}_{n\in\N}$ . $\overline{\Omega}$ 紧致，我们选出收敛子列 $\gamma_v(t_n) \to w\in \overline{\Omega}$ . 于是 $\psi(v)=\psi(w)$ , i.e. $v\in R$ . 与前面同理，存在 $0<\epsilon\ll 1$ 和唯一的 $C^1$ 路径 $\gamma_w(t)$（$t\in(-\epsilon,\epsilon)$）s.t. $\psi(\gamma_w(t))=\psi(w)=\psi(v)$，并且对任意充分大的 $n$ 都有 $\gamma_v(t_n)\in \gamma_w$ . 于是存在 $\epsilon_n\in (-\epsilon, \epsilon)$ s.t.
+  $$\gamma_v(t_n)=\gamma_w(\epsilon_n), \ \forall n\gg 1.$$
+  注意 $\gamma_v(t)$ 有参数群结构：
+  $$\gamma_{\gamma_v(s)}(t)= \gamma_v(t+s), \ \forall s,t\in\R.$$
+  因此对任意充分大的 $n$ ,
+  $$\gamma_v(t_n-\epsilon_n)=\gamma_{\gamma_v(t_n)}(-\epsilon_n)=\gamma_{\gamma_w(\epsilon_n)}(-\epsilon_n)=\gamma_w(0)=w,$$
+  i.e. 
+  $$\gamma_v(t_n-\epsilon_n)\euqiv \gamma_v(t_{n-1}-\epsilon_{n-1}), \ \forall n\gg 1.$$
+  而 $t_n-t_{n-1}+\epsilon_{n-1}-\epsilon_n >1 -2\epsilon>0$，因此 $\gamma_v$ 是周期的；进一步由 $C^1$ 正则性，存在最小正周期 $T_v$ . 因此 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$ 为所求唯一的 $C^1$ 简单闭曲线. &emsp;$\Box$
+</p>
+<p>
+  物质沿 $\gamma_v$ 输运的最小正周期 $T_v$ 有如下的公式.
+</p>
+<p class="thm">
+  <b>引理3</b> (周期)<b>.</b> 设 $v\in R$ , 则 $T_v$ 有曲线积分表示
+  $$\begin{equation}
+  T_v=\int_{\Gamma_v} \frac{1}{|\nabla \psi|} .
+  \end{equation}$$
+</p>
+<p>
+  <i>证明.</i> 首先，因为 $\Gamma_v\subset \Omega$ , $\inf_{\Gamma_v} |\nabla \psi|> 0$ , 积分是良定义的. 由于 $T_x$ 是最小正周期，我们做变量代换
+  $$\begin{align*}
+  \int_{\Gamma_v} \frac{1}{|\nabla \psi|} & = \int_0^{T_v} \frac{|\gamma_v'(t)|}{|\nabla(\gamma_v(t))|} \ {rm d} t\\ 
+  & = \int_0^{T_x} 1 \ {rm d} t= T_x,$$
+  其中第二行来自 $\gamma_v(\cdot)$ 的定义.&emsp;$\Box$
 </p>
 <p class="thm">
   <b>定义.</b> 设 $x\in R$ . <br/>
