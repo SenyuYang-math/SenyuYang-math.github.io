@@ -80,14 +80,14 @@
   $R$ 是一个开集，因此下面的引理保证了闭特征线在正则点附近唯一存在.
 </p>
 <p class="thm">
-  <b>引理2</b> (特征线)<b>.</b> 设 $v\in R$ , 则存在一条唯一的 $C^1$ 简单闭曲线 $\Gamma_v$ s.t. $v\in \Gamma_v$ , 并且对于 $w\in \Gamma_v$ 有 $\psi(w)=\psi(v)$ , i.e. $u\mid_{\Gamma_v}$ 是 $\Gamma_v$ 的切向量场 . 
+  <b>引理2</b> (闭特征线)<b>.</b> 设 $v\in R$ , 则存在一条唯一的 $C^1$ 简单闭曲线 $\Gamma_v$ s.t. $v\in \Gamma_v$ , 并且对于 $w\in \Gamma_v$ 有 $\psi(w)=\psi(v)$ , i.e. $u\mid_{\Gamma_v}$ 是 $\Gamma_v$ 的切向量场 . 
 </p>
 <p>
-  <i>证明.</i> 固定基点 $v\in R$ . 定义 C^1 路径 $\gamma_v(t): \R\to \Omega$ 为以下ODE的Cauchy问题
+  <i>证明.</i> 固定基点 $v\in R$ . 定义 $C^1$ 路径 $\gamma_v(t): \R\to \Omega$ 为以下ODE的Cauchy问题
   $$\frac{\rm d}{{\rm d} t}\gamma_v(t)=\nabla^\perp \psi(\gamma_v(t)), \ \gamma_v(0)=v$$
   的解. 由于 $\nabla\perp\psi$ 在 $\overline{\Omega}$ 上 $C^1$ 一致有界，$\gamma_v$ 在整个 $t\geq 0$ 上全局存在；$\nabla^\perp\psi(x)\neq 0$ , 因此 $\gamma_v$ 局部唯一. 由于 
   $$\p_t(\psi(\gamma_v(t)))=\nabla \psi \cdot  \gamma_v'(t)\equiv 0,$$
-  $\gamma_v$ 保持 $\psi$ 的值不变，保持 $psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一.
+  $\gamma_v$ 保持 $\psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一.
 </p>
 <p>
   下面我们证明 $\gamma_v$ 的周期性. 考虑点列 $\{\gamma_v(n)\}_{n\in\N}$ . $\overline{\Omega}$ 紧致，我们选出收敛子列 $\gamma_v(t_n) \to w\in \overline{\Omega}$ . 于是 $\psi(v)=\psi(w)$ , i.e. $v\in R$ . 与前面同理，存在 $0<\epsilon\ll 1$ 和唯一的 $C^1$ 路径 $\gamma_w(t)$（$t\in(-\epsilon,\epsilon)$）s.t. $\psi(\gamma_w(t))=\psi(w)=\psi(v)$，并且对任意充分大的 $n$ 都有 $\gamma_v(t_n)\in \gamma_w$ . 于是存在 $\epsilon_n\in (-\epsilon, \epsilon)$ s.t.
@@ -97,7 +97,7 @@
   因此对任意充分大的 $n$ ,
   $$\gamma_v(t_n-\epsilon_n)=\gamma_{\gamma_v(t_n)}(-\epsilon_n)=\gamma_{\gamma_w(\epsilon_n)}(-\epsilon_n)=\gamma_w(0)=w,$$
   i.e. 
-  $$\gamma_v(t_n-\epsilon_n)\euqiv \gamma_v(t_{n-1}-\epsilon_{n-1}), \ \forall n\gg 1.$$
+  $$\gamma_v(t_n-\epsilon_n)\equiv \gamma_v(t_{n-1}-\epsilon_{n-1}), \ \forall n\gg 1.$$
   而 $t_n-t_{n-1}+\epsilon_{n-1}-\epsilon_n >1 -2\epsilon>0$，因此 $\gamma_v$ 是周期的；进一步由 $C^1$ 正则性，存在最小正周期 $T_v$ . 因此 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$ 为所求唯一的 $C^1$ 简单闭曲线. &emsp;$\Box$
 </p>
 <p>
@@ -113,7 +113,8 @@
   <i>证明.</i> 首先，因为 $\Gamma_v\subset \Omega$ , $\inf_{\Gamma_v} |\nabla \psi|> 0$ , 积分是良定义的. 由于 $T_x$ 是最小正周期，我们做变量代换
   $$\begin{align*}
   \int_{\Gamma_v} \frac{1}{|\nabla \psi|} & = \int_0^{T_v} \frac{|\gamma_v'(t)|}{|\nabla(\gamma_v(t))|} \ {rm d} t\\ 
-  & = \int_0^{T_x} 1 \ {rm d} t= T_x,$$
+  & = \int_0^{T_x} 1 \ {rm d} t= T_x,
+  \end{align*}$$
   其中第二行来自 $\gamma_v(\cdot)$ 的定义.&emsp;$\Box$
 </p>
 <p class="thm">
