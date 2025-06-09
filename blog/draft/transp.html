@@ -72,25 +72,19 @@
   
 <h2>特征线的几何</h2>
 <p>
-  在Couette流这个例子的支持下，现在我们讨论更一般的框架. 我们不区分 $u$ 和 $\nabla^\perp \psi$（$\psi\in C^2$）. 引入流映射（flow map）
-</p>
-<p>
-  由 $u$ 的边界条件，我们可以将 $\psi$ 的 $C^1$ 正则性延拓到 $\overline{\Omega}=\Omega\cup\p\Omega$ 上. 为保证特征线非退化，我们需要避开临界点 $C:=\{v:\nabla\psi(v)=0\}$ . 定义流函数 $\psi$ 的全体 <i>正则点</i>（regular points）
+  在Couette流这个例子的支持下，现在我们讨论更一般的框架. 我们不区分 $u$ 和 $\nabla^\perp \psi$（$\psi\in C^2$）. 引入 $\nabla^\perp$ 诱导的 <i>流映射</i>（flow map）：对基点 $v\in \Omega$ , 定义 $C^1$ 路径 $\gamma_v(t): \R\to \Omega$ 为以下ODE的Cauchy问题
+  $$\frac{\rm d}{{\rm d} t}\gamma_v(t)=\nabla^\perp \psi(\gamma_v(t)), \ \gamma_v(0)=v$$
+  由 $u$ 的边界条件，我们可以将 $\psi$ 的 $C^1$ 正则性，进而 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$，延拓到 $\overline{\Omega}=\Omega\cup\p\Omega$ 上. 为保证特征线非退化，我们需要避开临界点 $C:=\{v:\nabla\psi(v)=0\}$ . 定义流函数 $\psi$ 的全体 <i>正则点</i>（regular points）
   $$R\subset \overline{\Omega}:= \{v\in \Omega: \psi(v) \notin \psi(C)\}.$$
-  $R$ 是一个开集，因此下面的引理保证了闭特征线在正则点附近唯一存在.
+  现在固定基点 $v\in R$ . 由于 $\nabla^\perp\psi$ 在 $\overline{\Omega}$ 上 $C^1$ 一致有界，$\gamma_v$ 在整个 $t\geq 0$ 上全局存在；$\nabla^\perp\psi(x)\neq 0$ , 因此 $\gamma_v$ 局部唯一. 由于 
+  $$\p_t(\psi(\gamma_v(t)))=\nabla \psi \cdot  \gamma_v'(t)\equiv 0,$$
+  $\gamma_v$ 保持 $\psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一. 注意到 $R$ 是一个开集，因此下面的引理保证了闭特征线在正则点附近唯一存在.
 </p>
 <p class="thm">
   <b>引理2</b> (闭特征线)<b>.</b> 设 $v\in R$ , 则存在一条唯一的 $C^1$ 简单闭曲线 $\Gamma_v$ s.t. $v\in \Gamma_v$ , 并且对于 $w\in \Gamma_v$ 有 $\psi(w)=\psi(v)$ , i.e. $u\mid_{\Gamma_v}$ 是 $\Gamma_v$ 的切向量场 . 
 </p>
 <p>
-  <i>证明.</i> 固定基点 $v\in R$ . 定义 $C^1$ 路径 $\gamma_v(t): \R\to \Omega$ 为以下ODE的Cauchy问题
-  $$\frac{\rm d}{{\rm d} t}\gamma_v(t)=\nabla^\perp \psi(\gamma_v(t)), \ \gamma_v(0)=v$$
-  的解. 由于 $\nabla^\perp\psi$ 在 $\overline{\Omega}$ 上 $C^1$ 一致有界，$\gamma_v$ 在整个 $t\geq 0$ 上全局存在；$\nabla^\perp\psi(x)\neq 0$ , 因此 $\gamma_v$ 局部唯一. 由于 
-  $$\p_t(\psi(\gamma_v(t)))=\nabla \psi \cdot  \gamma_v'(t)\equiv 0,$$
-  $\gamma_v$ 保持 $\psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一.
-</p>
-<p>
-  下面我们证明 $\gamma_v$ 的周期性. 考虑点列 $\{\gamma_v(n)\}_{n\in\N}$ . $\overline{\Omega}$ 紧致，我们选出收敛子列 
+  <i>证明.</i> 上文证明了 $C^1$ 存在性与唯一性. 现在我们证明 $\gamma_v$ 的周期性. 考虑点列 $\{\gamma_v(n)\}_{n\in\N}$ . $\overline{\Omega}$ 紧致，我们选出收敛子列 
   $$\gamma_v(t_n) \to w\in \overline{\Omega}. \ \Rightarrow \psi(v)=\psi(w) ,$$
   i.e. $w\in R$ . 与前面同理，存在 $0<\epsilon\ll 1$ 和唯一的 $C^1$ 路径 $\gamma_w(t)$（$t\in(-\epsilon,\epsilon)$）s.t. $\psi(\gamma_w(t))=\psi(w)=\psi(v)$，并且对任意充分大的 $n$ 都有 $\gamma_v(t_n)\in \gamma_w$ . 于是存在 $\epsilon_n\in (-\epsilon, \epsilon)$ s.t.
   $$\gamma_v(t_n)=\gamma_w(\epsilon_n), \ \forall n\gg 1.$$
@@ -100,7 +94,7 @@
   $$\gamma_v(t_n-\epsilon_n)=\gamma_{\gamma_v(t_n)}(-\epsilon_n)=\gamma_{\gamma_w(\epsilon_n)}(-\epsilon_n)=\gamma_w(0)=w,$$
   i.e. 
   $$\gamma_v(t_n-\epsilon_n)\equiv \gamma_v(t_{n-1}-\epsilon_{n-1}), \ \forall n\gg 1.$$
-  而 $t_n-t_{n-1}+\epsilon_{n-1}-\epsilon_n >1 -2\epsilon>0$，因此 $\gamma_v$ 是周期的；进一步由 $C^1$ 正则性，存在最小正周期 $T_v$ . 因此 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$ 为所求唯一的 $C^1$ 简单闭曲线. &emsp;$\Box$
+  而 $t_n-t_{n-1}+\epsilon_{n-1}-\epsilon_n >1 -2\epsilon>0$，因此 $\gamma_v$ 是周期的；进一步由 $C^1$ 正则性，存在最小正周期 $T_v$ . 因此 $\Gamma_v$ 为所求唯一的 $C^1$ 简单闭曲线. &emsp;$\Box$
 </p>
 <p>
   物质沿 $\gamma_v$ 输运的最小正周期 $T_v$ 有如下的公式.
