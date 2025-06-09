@@ -90,7 +90,9 @@
   $\gamma_v$ 保持 $\psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一.
 </p>
 <p>
-  下面我们证明 $\gamma_v$ 的周期性. 考虑点列 $\{\gamma_v(n)\}_{n\in\N}$ . $\overline{\Omega}$ 紧致，我们选出收敛子列 $\gamma_v(t_n) \to w\in \overline{\Omega}$ . 于是 $\psi(v)=\psi(w)$ , i.e. $v\in R$ . 与前面同理，存在 $0<\epsilon\ll 1$ 和唯一的 $C^1$ 路径 $\gamma_w(t)$（$t\in(-\epsilon,\epsilon)$）s.t. $\psi(\gamma_w(t))=\psi(w)=\psi(v)$，并且对任意充分大的 $n$ 都有 $\gamma_v(t_n)\in \gamma_w$ . 于是存在 $\epsilon_n\in (-\epsilon, \epsilon)$ s.t.
+  下面我们证明 $\gamma_v$ 的周期性. 考虑点列 $\{\gamma_v(n)\}_{n\in\N}$ . $\overline{\Omega}$ 紧致，我们选出收敛子列 
+  $$\gamma_v(t_n) \to w\in \overline{\Omega}. \ \Rightarrow \psi(v)=\psi(w) ,$$
+  i.e. $w\in R$ . 与前面同理，存在 $0<\epsilon\ll 1$ 和唯一的 $C^1$ 路径 $\gamma_w(t)$（$t\in(-\epsilon,\epsilon)$）s.t. $\psi(\gamma_w(t))=\psi(w)=\psi(v)$，并且对任意充分大的 $n$ 都有 $\gamma_v(t_n)\in \gamma_w$ . 于是存在 $\epsilon_n\in (-\epsilon, \epsilon)$ s.t.
   $$\gamma_v(t_n)=\gamma_w(\epsilon_n), \ \forall n\gg 1.$$
   注意 $\gamma_v(t)$ 有参数群结构：
   $$\gamma_{\gamma_v(s)}(t)= \gamma_v(t+s), \ \forall s,t\in\R.$$
@@ -113,7 +115,7 @@
   <i>证明.</i> 首先，因为 $\Gamma_v\subset \Omega$ , $\inf_{\Gamma_v} |\nabla \psi|> 0$ , 积分是良定义的. 由于 $T_v$ 是最小正周期，我们做变量代换
   $$\begin{align*}
   \int_{\Gamma_v} \frac{1}{|\nabla \psi|} & = \int_0^{T_v} \frac{|\gamma_v'(t)|}{|\nabla(\gamma_v(t))|} \ {\rm d} t\\ 
-  & = \int_0^{T_v} 1 \ {\rm d} t= T_x,
+  & = \int_0^{T_v} 1 \ {\rm d} t= T_v,
   \end{align*}$$
   其中第二行来自 $\gamma_v(\cdot)$ 的定义.&emsp;$\Box$
 </p>
