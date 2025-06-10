@@ -146,7 +146,7 @@
   还是从Couette流的例子出发：我们观察到当物质从起点 $v$ 开始经过 $n$ 个周期 $T_v$ 后返回，而与 $v$ 距离 $\gtrsim 1$ 处的物质经过相同时间后被输运至仅与 $v$ 距离 $\lesssim n^{-1}$ 的位置，从而导致 $C^1$ 爆破. 因此 $\nabla_v \gamma_v(t)$ 是自然的：起点的变化在固定的时间 $t$ 后的物质分布有多大的影响？ 
 </p>
 <p class="thm">
-  <b>引理5</b> (梯度的增长)<b>.</b> 对于 $v\in R$ , $\nabla T_v\neq 0$ , 我们有
+  <b>引理5</b> ($\nabla_v \gamma_v$ 的增长)<b>.</b> 对于 $v\in R$ , $\nabla T_v\neq 0$ , 我们有
   $$|\nabla_v \gamma_v(t)| \gtrsim t, \quad \forall t\geq 0.$$
 </p>
 <p>
@@ -157,7 +157,7 @@
   & = \p_i\gamma_v(nT_v) + n \nabla^\perp\psi(v)\p_iT_v
   \end{align*}$$
   对 $i=1,2$ 成立. 因此当 $n$ 充分大时，
-  $$|\nabla_v\gamma_v(nT_v)|\geq n |\nabla_v T_v| |u(v)| -1 \gtrsim n.$$
+  $$|\nabla_v\gamma_v(nT_v)|\geq n |\nabla_v T_v| |\nabla\psi(v)| -1 \gtrsim n.$$
   对于任意 $n\leq t\leq n+1$ , 与Couette流一节的论证类似.&emsp;$\Box$
 </p>
 <br/>
@@ -165,7 +165,7 @@
   现在可以给出本文的主定理.
 </p>
 <p class="thm">
-  <b>定理6.</b> 设流函数 $\psi$ 无处等时，$f_0\in C^1$ 且 $\nabla^\perp \psi \cdot f_0\neq 0$ . 则 $\tag{1}$ 的解 $f(\cdot ,t)$ 有 $C^1$ 爆破
+  <b>定理6.</b> 设流函数 $\psi$ 无处等时，$f_0\in C^1$ 且 $\nabla^\perp \psi \cdot f_0\neq 0$ . 则 $\tag{1}$ 的解 $f(\cdot ,t)$ 有 $C^1$ 不稳定性：
   $$|f(\cdot, t)|_{C^1} \gtrsim_{f_0, \psi} \ t, \quad \forall t\geq 0.$$
 </p>
 <p>
