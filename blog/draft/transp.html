@@ -144,10 +144,7 @@
   有了以上准备，我们可以着手 $C^1$ 不稳定性的构造.
 </p>
 <p>
-  还是从Couette流的例子出发：我们观察到当物质从起点 $v$ 开始经过 $n$ 个周期 $T_v$ 后返回，而与 $v$ 距离 $\gtrsim 1$ 处的物质经过相同时间后被输运至仅与 $v$ 距离 $\lesssim n^{-1}$ 的位置，从而导致 $C^1$ 不稳定. 因此考虑 $\nabla_v \gamma_v(t)$ 是自然的：起点的变化在固定的时间 $t$ 后的物质分布有多大的影响？ 
-</p>
-<p>
-  <b>注.</b> 熟悉Riemann几何的读者可能会联想到描述流形上测地线分离程度的测地变分和Jacobi场. 这里也是一样的想法.
+  还是从Couette流的例子出发：我们观察到当物质从起点 $v$ 开始经过 $n$ 个周期 $T_v$ 后返回，而与 $v$ 距离 $\gtrsim 1$ 处的物质经过相同时间后被输运至仅与 $v$ 距离 $\lesssim n^{-1}$ 的位置，从而导致 $C^1$ 不稳定. 因此考虑 $\nabla_v \gamma_v(t)$ 是自然的：起点的变化在固定的时间 $t$ 后的物质分布有多大的影响？（熟悉Riemann几何的读者可能会联想到描述流形上测地线分离程度的测地变分和Jacobi场. 这里也是一样的想法）
 </p>
 <p class="thm">
   <b>引理5</b> ($\nabla_v \gamma_v$ 的增长)<b>.</b> 对于 $v\in R$ , $\nabla T_v\neq 0$ , 我们有（矩阵范数估计）
@@ -166,12 +163,12 @@
 </p>
 <br/>
 <p>
-  然而粗糙地考虑矩阵范数会丢失相当多的几何信息. 与本节开头的图景相对地，初始位置距离 $\approx n^{-1}$ 的两个粒子经长时间输运后 <i>沿特征线的切向</i> $\nabla^\perp\psi$ 被分开了 $\gtrsim 1$ . 因此，在不等时的条件下如果两个粒子的初始位置 <i>沿特征线的法向</i> $\nabla\psi$ 分离（如此保证 $\nabla_v T_v\neq 0$ , 即输运速度分离），那么我们可以期待以下的几何量
-  $$\left\langle \nabla_v\gamma_v \nabla \psi, \nabla^\perp \psi\right\angle$$
-  有 $\gtrsim t$ 的增长. 事实上，注意到 $T_w$ 在每条 $\gamma_v$ 上都是常值函数，因此非零向量 $\nabla_v T_v$ 与 $\nabla \psi(v)$ 平行（注意我们一直保持在 $R$ 上）. 通过将沿 $\nabla \psi$ 延伸的路径参数化，我们得到一个在 $\psi(v)$ 处非退化的 $C^1$ 函数 $F$ s.t. 
+  然而粗糙地考虑矩阵范数会丢失相当多的几何信息. 与本节开头的图景相对地，初始位置距离 $\approx n^{-1}$ 的两个粒子经长时间输运后 <i>沿特征线的切向</i> $\nabla^\perp\psi$ 被分开了 $\gtrsim 1$ . 因此，在 $v$ 不局部等时的条件下如果两个粒子的初始位置 <i>沿特征线的法向</i> $\nabla\psi$ 分离（i.e. 保证 $\nabla_v T_v\neq 0$ , 输运速度分离），那么我们可以期待以下的几何量
+  $$\left\langle \nabla_v\gamma_v \nabla \psi, \nabla^\perp \psi\right\rangle$$
+  有 $\gtrsim t$ 的增长. 事实上，注意到 $T_w$ 在每条 $\gamma_v$ 上都是常值函数，因此非零向量 $\nabla_v T_v$ 与 $\nabla \psi(v)$ 平行（注意我们一直保持在 $R_\psi$ 上）. 通过将沿 $\nabla \psi$ 延伸的路径参数化，我们得到一个在 $\psi(v)$ 处非退化的 $C^1$ 函数 $F$ s.t. 
   $$T_v = F(\psi(v)), \quad F'(\psi(v))\neq 0.$$
   于是代入引理5的证明过程可知
-  $$\p_i\gamma_v(v,nT_v)= -nF'(\psi(v))\p_i\psi \nabla^\perp\psi.+{\bf e}_i.$$
+  $$\p_i\gamma_v(v,nT_v)= -nF'(\psi(v))\p_i\psi \nabla^\perp\psi+{\bf e}_i.$$
   计算得到
   $$\begin{align*}
   \nabla_v\gamma_v(v,nT_v)\nabla \psi & = \sum_i \p_i\psi\p_i\gamma_v(v,nT_v)\\
@@ -180,9 +177,9 @@
   我们立即得到在几何层面更加精细的估计：
 </p>
 <p class="thm">
-  <b>引理6</b> (切向vs法向)<b>.</b> 设 $v\in R$ , $\nabla_v T_v \neq 0$ . 则对任意 $n\in \Z$ 有
-  $$\mathcal{T}(v,nT_v):=\left\langle \nabla_v\gamma_v \nabla \psi, \nabla^\perp \psi\right\angle= n|\nabla\psi|^4 F'(\psi(v)), \tag{10}$$
-  $$\mathcal{N}(v,nT_v):= \left\langle\nabla_v\gamma_v \nabla \psi, \nabla \psi\right\angle = |\nabla\psi|.$$
+  <b>引理6</b> (切向vs法向)<b>.</b> 设 $v\in R_\psi$ , $\nabla_v T_v \neq 0$ . 则对任意 $n\in \Z$ 有
+  $$\mathcal{T}(v,nT_v):=\left\langle \nabla_v\gamma_v \nabla \psi, \nabla^\perp \psi\right\rangle= n|\nabla\psi|^4 F'(\psi(v)), \tag{10}$$
+  $$\mathcal{N}(v,nT_v):= \left\langle\nabla_v\gamma_v \nabla \psi, \nabla \psi\right\rangle = |\nabla\psi|.$$
   特别地，$|\mathcal{T}(v,nT_v)| \gtrsim n$ , $|\mathcal{N}(v, nT_v)|\lesssim 1$ .
 </p>
 <p>
@@ -193,18 +190,18 @@
   $$|f(\cdot, t)|_{C^1} \gtrsim_{f_0, \psi} \ t, \quad \forall t\geq 0.$$
 </p>
 <p>
-  <i>证明.</i> 由于 $\psi$ 无处等时，$R$ 在 $\Omega$ 中稠密. 令 $\bar{R}:= R\cap \{v: \nabla_vT_v\neq 0\}$ , 于是 $\bar{R}$ 仍然开且稠密. 因此一定存在 $v\in\Omega$ s.t. $\nabla^\perp \psi\cdot \nabla f_0(v)\neq 0$ . 现在，
+  <i>证明.</i> 由于 $\psi$ 无处等时，$R_\psi$ 在 $\Omega$ 中稠密. 令 $\bar{R}_\psi:= R_\psi\cap \{v: \nabla_vT_v\neq 0\}$ , 于是 $\bar{R}_\psi$ 仍然开且稠密. 因此一定存在 $v\in\Omega$ s.t. $\nabla^\perp \psi\cdot \nabla f_0(v)\neq 0$ . 现在，
   $$f(v,t)=f_0(\gamma_v(-t)), \ \Rightarrow \ \nabla f(v,t) = \nabla_v\gamma_v(-t) \nabla f_0(\gamma_v(-t)).$$
   取 $t=nT_v$ , $\nabla f_0(\gamma_v(-t))=\nabla f_0(v)$ . 将 $\nabla f_0(v)$ 正交分解
   $$\nabla f_0(v)= a_{\mathcal{T}} \nabla^\perp \phi(v)+ a_{\mathcal{N}} \nabla\psi(v),$$
   其中 $a_{\mathcal{T}}\neq 0$ . 于是有 
   $$\begin{align*}
-  \nabla\psi \cdot \nabla f_0(v, n) = \mathcal{T}(v, -nT_v) a_{\mathcal{T}} + \mathcal{N}(v,-nT_v) a_{\mathcal{N}}.
+  \nabla\psi \cdot \nabla f_0(v, n) = a_{\mathcal{T}}\mathcal{T}(v, -nT_v) + a_{\mathcal{N}}\mathcal{N}(v,-nT_v).
   \end{align*}$$
   定理即为引理6的推论（$nT_v\leq t \leq (n+1)T_v$ 的情形依然类似）.&emsp;$\Box$
 </p>
 <p>
-  <b>注.</b> 这里的generic有两层含义：(1) $f_0$ 非稳态；(2) $\psi$ 无处等时. 这在“大部分”情形下是成立的.
+  <b>注.</b> 这里的generic有两层含义：$f_0$ 非稳态以及 $\psi$ 无处等时. 这在“大部分”情形下是成立的.
 </p>
 </div>
 
