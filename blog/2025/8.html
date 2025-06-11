@@ -16,7 +16,7 @@
 <p>
   这期博客参考了T. Elgindi的 <a href="https://sites.google.com/view/tarekelgindi/home/teaching-mentoring/mixing-and-enhanced-dissipation-notes" target="_blank">讲义</a>. 我们考虑二维有界连通区域 $\Omega\subset \R^2$（或二维环面 $\bT^2$）上的一个输运方程
   $$\p_t f + u\cdot \nabla f =0, \ \ f(v, 0):=f_0(v), \ v\in \Omega.\tag{1}$$
-  其中与时间无关的稳态向量场 $u$ 满足不可压条件 $\nabla\cdot u =0$ 和边界条件 $u\cdot {\bf n} =0$ on $\p\Omega$（ $\bT^2$ 则需要周期边值条件 $\int_{\bT^2} \omega =0$ 来避免低频部分的爆破）. 此时我们假设 $\p\Omega$ 是简单 $C^1$ 的. 
+  其中与时间无关的稳态向量场 $u$ 满足不可压条件 $\nabla\cdot u =0$ 和边界条件 $u\cdot {\bf n} =0$ on $\p\Omega$（ $\bT^2$ 则需要周期边值条件 $\int_{\bT^2} \omega =0$ 来避免低频部分的奇性）. 此时我们假设 $\p\Omega$ 是简单 $C^1$ 的. 
 </p>
 <p>
   本文将证明对于“一般”（generic）的 $u\in C^1$ ，都存在某个初值 $f_0\in C^1$ s.t. $(1)$ 的解 $f(v,t)$ 的梯度随时间 $t$ 线性增长，i.e. 长时间下发生 $C^1$ <i>不稳定性</i>. 我们将从例子出发分若干步达到目标.
@@ -83,7 +83,7 @@
 <p>
   在Couette流这个例子的支持下，现在我们讨论更一般的框架. 我们不区分 $u$ 和 $\nabla^\perp \psi$（$\psi\in C^2$）. 引入 $\nabla^\perp\psi$ 诱导的 <i>流映射</i>（flow map）：对基点 $v\in \Omega$ , 定义 $C^1$ 的 <i>粒子路径</i> $\gamma_v(t): \R\to \Omega$ 为以下ODE的Cauchy问题
   $$\frac{\rm d}{{\rm d} t}\gamma_v(t)=\nabla^\perp \psi(\gamma_v(t)), \ \gamma_v(0)=v \tag{6}$$
-  的解. 由 $u$ 的边界条件，我们可以将 $\psi$ 的 $C^1$ 正则性，进而 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$（<i>特征线</i>），延拓到 $\overline{\Omega}=\Omega\cup\p\Omega$ 上.
+  的解. 由 $u$ 的边界条件，我们可以将 $\psi$ 的 $C^1$ 正则性，进而 $\gamma_v(\cdot)$ 的像集 $\Gamma_v$（<i>特征线</i>），延拓到 $\overline{\Omega}=\Omega\cup\p\Omega$ 上. 如果固定时间 $t$ , $\gamma_{(\cdot)}(t): \overline{\Omega}\to \overline{\Omega}$ 即为所谓的流映射.
 </p>
 <p>
   为保证 $\gamma_v$ 非退化，我们需要避开临界点 $C:=\{v:\nabla\psi(v)=0\}$ . 定义流函数 $\psi$ 的全体 <i>正则点</i>（regular points）
@@ -92,7 +92,6 @@
   $$\p_t(\psi(\gamma_v(t)))=\nabla \psi \cdot  \gamma_v'(t)\equiv 0,$$
   $\gamma_v$ 保持 $\psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R_\psi$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一. 现在可以将 $(1)$ 的解表示为
   $$f(v,t)=f_0(\gamma_v(-t)), \ \ \forall t\geq 0. \tag{8}$$
-  因此，如果固定时间 $t$ , $\gamma_{(\cdot)(t)}: \overline{\Omega}\to \overline{\Omega}$ 即为所谓的流映射.
 </p>  
 <p>
   注意到 $R_\psi$ 是一个开集，因此下面的引理保证了闭特征线在正则点附近唯一存在.
