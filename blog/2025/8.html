@@ -15,7 +15,7 @@
 <div id="container" class="container">
 <p>
   这期博客参考了T. Elgindi的 <a href="https://sites.google.com/view/tarekelgindi/home/teaching-mentoring/mixing-and-enhanced-dissipation-notes" target="_blank">讲义</a>. 我们考虑二维有界连通区域 $\Omega\subset \R^2$（或二维环面 $\bT^2$）上的一个输运方程
-  $$\p_t f + u\cdot \nabla f =0, \ \ f(v, 0):=f_0(v), \ v\in \Omega.\tag{1}$$
+  $$\p_t f + u\cdot \nabla f =0, \quad f(v, 0):=f_0(v), \ v\in \Omega.\tag{1}$$
   其中与时间无关的稳态向量场 $u$ 满足不可压条件 $\nabla\cdot u =0$ 和边界条件 $u\cdot {\bf n} =0$ on $\p\Omega$（ $\bT^2$ 需要周期边值条件 $\int_{\bT^2} \omega =0$ 避免低频部分的奇性）. 此时我们假设 $\p\Omega$ 是简单 $C^1$ 的. 
 </p>
 <p>
@@ -31,7 +31,7 @@
   & u\cdot {\bf n} =0 \text{ on } \p\Omega.
   \end{align*}$$
   考虑涡度 $\omega:=\p_2 u_1 - \p_1 u_2\in C^0$（二维时是标量场），则Laplace方程 $\Delta \psi= \omega$ 的Dirichlet边值问题或周期边值问题存在（相差常数意义下的）唯一解 $\psi\in C^2$，进而可以表示 $u=(\p_2 \psi, -\p_1\psi)=: \nabla^{\perp} \psi$（$\psi$ 称作 $u$ 的stream function）. 于是 $(2)$ 等价于涡度形式
-  $$\p_t \omega + \nabla^\perp \psi \cdot \nabla \omega = 0, \ \ \Delta \psi = \omega. \tag{3}$$
+  $$\p_t \omega + \nabla^\perp \psi \cdot \nabla \omega = 0, \quad \Delta \psi = \omega. \tag{3}$$
   现在考虑 $(3)$ 的一个稳态解 $(\psi_*, \omega_*)$ , 我们自然可以考察它的稳定性. 设扰动后的 $(\psi_*+\psi, \omega_*+\omega)$ 仍满足 $(3)$ , 则扰动项 $(\psi, \omega)$ 满足
   $$\p_t \omega + u_* \cdot \nabla \omega + \nabla \omega_* \cdot \nabla^\perp \psi + \nabla^\perp \psi\cdot \nabla \omega=0, \tag{4}$$
   $$\Delta \psi =\omega.$$
@@ -46,7 +46,7 @@
 </p>
 <p>
   现在考虑最简单的剪切流 <i>Couette流</i>：令 $\Psi(y)=\frac{1}{2}y^2$ , 则 $\omega_*(v)\equiv 1$ . 其扰动 $\omega$ 的线性化方程即为
-  $$\p_t f + y\p_x f = 0, \ \ f(v,0):= f_0(v). \tag{5}$$
+  $$\p_t f + y\p_x f = 0, \quad f(v,0):= f_0(v). \tag{5}$$
   于是考虑 $(0,y)$ 处物质的输运 $f((0,y),t)= f_0((-ty, y))$ , i.e. 沿特征方向 ${\bf e}_x$ 以速度 $y$ 沿 <i>闭曲线</i> $\bT\times\{y\}$ 做周期运动；特别地，不同位置的速度是 <i>分离</i> 的. WLOG, 我们考虑任意时间节点 $n\in \Z(|n|\gg 1)$ 和初始坐标 $(0,1)$ , 令 $y':=1+(2n)^{-1}$ , 则
   $$f((0,1),n)=f_0((0,1)),$$ 
   $$f((0,y'), n)=f_0((-2^{-1}, y')).$$ 
@@ -57,12 +57,12 @@
   $$|f_0((0,1))|=|f_0((0,1))-f_0((-2^{-1}, y'))|\gtrsim 1 , $$
   则根据中值定理有
   $$\exists v_n \in B_{(0,1)}(4^{-1}) : \ |\nabla f(v_n, n)|\geq \frac{|f((0,y'),n)-f((0,1),n)|}{|y'-1|} \gtrsim |n|.$$
-  因此对于集中在 $(0,1)$ 邻域的 $f_0$ , 其输运 $f(\cdot, t)$ 满足
-  $$|f(\cdot, n)|_{C^0} \lesssim 1  \ , \ |f(\cdot, n)|_{C^1} \gtrsim |n|, \ \forall n\in \Z.$$
+  因此对于集中在 $(0,1)$ 邻域的 $f_0$ , 其输运解 $f(\cdot, t)$ 满足
+  $$|f(\cdot, n)|_{C^0} \lesssim 1  \ , \ |f(\cdot, n)|_{C^1} \gtrsim |n|, \quad \forall n\in \Z.$$
   而在任意 $n\leq t\leq n+1$ 的时刻，
   $$\operatorname{dist} \left((y'(t-n),y'), ((t-n),1)\right) \lesssim |n|^{-1} \lesssim t^{-1}.$$ 
   因此仍存在类似的 $v_t$ s.t. $|\nabla f(v_t, t)| \gtrsim t$ . 总之，$f$ 的 $C^1$ 范数有线性增长
-  $$|f(\cdot,t)|_{C^1} \gtrsim t^1, \ \ \forall t\geq 0.$$
+  $$|f(\cdot,t)|_{C^1} \gtrsim t^1, \quad \forall t\geq 0.$$
   我们得到：
 </p>
 <p class="thm">
@@ -91,7 +91,7 @@
   现在固定基点 $v\in R_\psi$ . 由于 $\nabla^\perp\psi$ 在 $\overline{\Omega}$ 上 $C^1$ 一致有界，$\gamma_v$ 在整个 $t\geq 0$ 上全局存在；$\nabla^\perp\psi(x)\neq 0$ , 因此 $\gamma_v$ 局部唯一. 由于 
   $$\p_t(\psi(\gamma_v(t)))=\nabla \psi \cdot  \gamma_v'(t)\equiv 0,$$
   $\gamma_v$ 保持 $\psi\equiv \psi(x)$ . 于是 $\gamma_v\subset R_\psi$ , $\nabla^\perp\psi$ 在 $\gamma_v$ 的非退化性说明了 $\gamma_v$ 全局唯一. 现在可以将 $(1)$ 的解表示为
-  $$f(v,t)=f_0(\gamma_v(-t)), \ \ \forall t\geq 0. \tag{8}$$
+  $$f(v,t)=f_0(\gamma_v(-t)), \quad \forall t\geq 0. \tag{8}$$
 </p>  
 <p>
   注意到 $R_\psi$ 是一个开集，因此下面的引理保证了闭特征线在正则点附近唯一存在.
@@ -178,15 +178,15 @@
 <p class="thm">
   <b>引理6</b> (切向vs法向)<b>.</b> 设 $v\in R_\psi$ , $\nabla_v T_v \neq 0$ . 则对任意 $n\in \Z$ 有
   $$\mathcal{T}(v,nT_v):=\left\langle \nabla_v\gamma_v \nabla \psi, \nabla^\perp \psi\right\rangle= n|\nabla\psi|^4 F'(\psi(v)), \tag{10}$$
-  $$\mathcal{N}(v,nT_v):= \left\langle\nabla_v\gamma_v \nabla \psi, \nabla \psi\right\rangle = |\nabla\psi|.$$
+  $$\mathcal{N}(v,nT_v):= \left\langle\nabla_v\gamma_v \nabla \psi, \nabla \psi\right\rangle = |\nabla\psi|. \tag{11}$$
   特别地，$|\mathcal{T}(v,nT_v)| \gtrsim n$ , $|\mathcal{N}(v, nT_v)|\lesssim 1$ .
 </p>
 <p>
   现在可以给出本文的主定理：
 </p>
 <p class="thm">
-  <b>定理7</b> (generic $C^1$ 不稳定)<b>.</b> 令 $f_0\in C^1$ 且 $\nabla^\perp \psi \cdot f_0\neq 0$（i.e. $f_0$ 不是稳态解）. 设 $\psi$ 无处等时，则 $(1)$ 的解 $f$ 的梯度有线性增长的下界：
-  $$|f(\cdot, t)|_{C^1} \gtrsim_{f_0, \psi} \ t, \quad \forall t\geq 0.$$
+  <b>定理7</b> (generic $C^1$ 不稳定Ⅰ)<b>.</b> 给定任意 $f_0\in C^1$ 满足 $\nabla^\perp \psi \cdot f_0\neq 0$（i.e. $f_0$ 不是稳态解）. 设 $\psi$ 无处等时，则 $(1)$ 的解 $f$ 的梯度有线性增长的下界：
+  $$|f(\cdot, t)|_{C^1} \gtrsim_{f_0, \psi} \ t, \quad \forall t\geq 0.\tag{12}$$
 </p>
 <p>
   <i>证明.</i> 由于 $\psi$ 无处等时，$R_\psi$ 在 $\Omega$ 中稠密. 令 $\bar{R}_\psi:= R_\psi\cap \{v: \nabla_vT_v\neq 0\}$ , 于是 $\bar{R}_\psi$ 仍然开且稠密. 因此一定存在 $v\in\Omega$ s.t. $\nabla^\perp \psi\cdot \nabla f_0(v)\neq 0$ . 现在，
@@ -200,7 +200,10 @@
   定理即为引理6的推论（$nT_v\leq t \leq (n+1)T_v$ 的情形依然类似）.&emsp;$\Box$
 </p>
 <p>
-  <b>注.</b> 这里的generic有两层含义：$f_0$ 非稳态以及 $\psi$ 无处等时. 这在“大部分”情形下是成立的.
+  <b>注.</b> 这里的generic有两层含义：$f_0$ 非稳态以及 $\psi$ 无处等时. 这在“大部分”情形下是成立的. 事实上，同样的论证可以得到
+</p>
+<p class="thm">
+  <b>推论8</b> (generic $C^1$ 不稳定 Ⅱ)<b>.</b> 设 $R$ 在 $\Omega$ 中稠密，$\psi\in C^2$ 满足 $\nabla_vT_v\neq 0$ 在某个 $v\in \Omega$ 处成立，则存在一个支撑在 $v$ 的小邻域上的 $C^1$ 初值 $f_0$ s.t. 其输运解 $f$ 满足 $C^1$ 不稳定性 $(12)$ .
 </p>
 </div>
 
