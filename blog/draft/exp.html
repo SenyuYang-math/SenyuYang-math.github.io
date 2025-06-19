@@ -1,0 +1,249 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+这期博客的主角是 $\mathbb{T}:=\mathbb{R}/2\pi\mathbb{Z}$ 上的指数和
+$$\begin{equation*}
+f(\theta) = e^{i a_1 \theta} + e^{i a_2 \theta} + \cdots + e^{i a_n \theta},\tag{1}
+\end{equation*}$$
+其中 $a_1 \lt a_2 \lt \cdots \lt a_n$ 是任意不同的整数. 显然 $\|f\|_\infty=n$，$\|f\|_2=\sqrt{n}$ . Littlewood曾猜想 $f$ 的 $L^1$ 范数有对数下界估计：
+</p>
+$\quad$
+<p>  
+<b>定理1</b> (Littlewood猜想)<b>.</b> 存在万有常数 $C$ s.t. 对任意形如 $(1)$ 的指数和 $f$ 有
+$$\begin{equation*}
+\frac{1}{2\pi} \int_0^{2\pi} |f(\theta)| \, d\theta \geq C \log n.
+\end{equation*}$$
+</p>
+$\quad$
+<p>
+对数下界是最优的，比如Dirichlet核（$a_k=k$）. 因此猜想的证实说明了指数和的震荡相消的水平不会超过频率“均匀分布”的情形. 事实上，所谓的强Littlewood猜想更进一步地猜测最优情形正是算术等差数列的形式：
+$$\min_{A; |A|=n} \int_{0}^1 \left| \sum_{a \in A} e^{2\pi i a x} \right|dx =  \int_{0}^1 \left| \sum_{k=1}^{n} e^{2\pi i k x} \right|dx \ ?$$
+目前强Littlewood猜想仍然公开.
+</p>
+<p>
+最终McGehee-Pigno-Smith在1981年的论文 {\it Hardy's inequality and the $L^1$ norm of exponential sums, Annals of Mathematics, 113 (1981)} 解决了这一猜想. 本文就来展示他们的证明.
+</p>
+<p>
+   <b>注</b>. 值得一提的是，无处不在的分析之神J. Bourgain在他1997年的论文中通过调和分析将加性组合著名的“无和集猜想”（sum free set）同指数和的 $L^1$ 范数联系起来. 文中，Bourgain正是借由Littlewood猜想的结果首次将无和集下界突破了最初Erdos得到的 $\frac{n}{3}$（这是概率方法的组合学首秀）. 而在今年2月，牛津大学的B. Bedert在他的论文预印本（arxiv:2502.08624）宣布证明了无和集猜想，而思路正是源自Bourgain的观察和M-P-S的证明思路，并且得到了相当接近强Littlewood猜想的结果（文章的标题就叫 Large sum-free subsets of sets of integers via $L^1$\emph{-estimates for trigonometric series}）. 科普可见@机器之心 的文章https://zhuanlan.zhihu.com/p/1909694525485586083.
+</p>
+
+<h2>$L^2$ 测试函数</h2>
+<p>
+  对 $\phi \in L^2(\mathbb{T})$，我们回忆它的Fourier变换
+  $$\begin{equation*}
+  \widehat{\phi}(k) = \frac{1}{2\pi} \int_0^{2\pi} \phi(\theta) e^{-i k \theta} \, d\theta, \quad k \in \mathbb{Z}.
+  \end{equation*}$$
+  于是 $\left\{\widehat{\phi}(k)\right\}\in \ell^2$，且Fourier级数 $\sum_{k\in\mathbb{Z}} \widehat{\phi}(k)e^{ik\theta}$ 依 $L^2$ 范数收敛于 $\phi$ . 
+</p>
+<p>
+  进一步定义 $L^2(\mathbb{T})$ 上的（复）内积为
+  $$\begin{equation*}
+  \langle \phi, \rho \rangle = \frac{1}{2\pi} \int_0^{2\pi} \phi(\theta) \overline{\rho(\theta)} \, d\theta,
+  \end{equation*}$$
+  并诱导 $L^2$ 范数 $\|\cdot \|_2$ . 最重要的自然是Plancherel定理：
+  $$\begin{equation*}
+  \langle \phi, \rho \rangle = \sum_{-\infty}^\infty c_k \overline{d_k}, \quad \|\phi\|_2 = \left( \sum_{-\infty}^\infty |c_k|^2 \right)^{1/2}.
+  \end{equation*}$$
+</p>
+<p>
+  M-P-S做了如下尝试：为了使用Plancherel定理，考虑让 $f$ 和某个试验函数 $\phi$ 内积. 如果 $\|\phi\|_\infty\lesssim 1$，则
+  $$\begin{equation*}
+   \begin{aligned}
+      \frac{1}{2\pi}\int_0^{2\pi} |f(\theta)| \, d\theta & \gtrsim \frac{1}{2\pi}\int_0^{2\pi} |\phi(\theta)||f(\theta)| \, d\theta\\
+      &\gtrsim \left|\frac{1}{2\pi}\int_0^{2\pi} \phi(\theta)\overline{f(\theta)} \, d\theta\right|\\
+      & \approx \left|\sum_{k\in\mathbb{Z}} \widehat{\phi}(k)\widehat{f}(k)\right|\approx \left|\sum_{k=1}^n \widehat{\phi}(a_k)\right|.
+    \end{aligned}
+  \end{equation*}$$
+  因此M-P-S的证明归结于构造 $L^2$ 函数 $\phi$ s.t.
+</p>
+  <ul>
+      <li>物理空间上 $\|\phi\|_\infty \lesssim 1$ ;</li>
+      <li>频率空间上 $\left|\sum_{k=1}^n \widehat{\phi}(a_k)\right|\gtrsim \log(n)$ .</li>
+  </ul>
+
+<h2>初步尝试：波包分解</h2>
+<p>
+最直接的想法是类似二进分解去构造若干波包之和. 选取 $m$ 满足 
+$$\begin{equation*}
+\sum_{j=1}^m 4^j \leq n < \sum_{j=1}^{m+1} 4^j,
+\end{equation*}$$
+进而 $m\approx \log(n)$ . 我们归纳地定义四进分解子集（使用 $4$ 仅为计算方便）：设 $S_0 = \{a_1\}$，并对于任意 $j\leq m$ 递归地构造
+$$\begin{align*}
+ S_{j-1} =\{a_k,\cdots a_\ell\} \ \Rightarrow \ S_{j}:=\{a_{\ell+1}, \cdots a_{\ell+4^j}\}.
+\end{align*}$$
+于是，$|S_j|=4^j$ . 再令余下的尾部子集 $\mathcal{R} := \{a_1, \dots, a_n\} \setminus \cup_{j=0}^m S_j$ . 
+</p>
+<p>
+现在我们相应地构造（在高频衰减的）波包：
+$$\begin{align*}
+W_j(\theta) &= 4^{-j} \sum_{k \in S_j} e^{i k \theta}, \quad j \leq m,
+\end{align*}$$
+显然 $\|W_j\|_\infty \leq 1$，且 $\|W_j\|_2 = 2^{-j}$ . 将这些波包叠加得到
+$$\rho:= W_0+ W_1+\cdots + W_m.$$
+经过计算得到：
+$$\sum_{k=1}^n \widehat{\rho}(a_k)= m \approx \log(n),$$
+$$\|\rho\|_\infty \geq |\rho(0)| = m \gg 1.$$
+第二个条件无法满足！因此我们需要将 $\rho$ 做调整：既能缩小其物理空间的 $L^\infty$ 范数，又不会改变太多其 $\{a_k\}$-频率的性质. 这一步自然是不平凡的.
+</p>
+
+<h2>$L^\infty$ 范数</h2>
+<p>
+我们先证明一个关键的技术性结果.
+</p>
+$\quad$
+<p>
+<b>定义2.</b> 我们称 $\phi \in L^2(\mathbb{T})$ 有 {\it 非正支撑}，如果对所有正整数 $k$ 有 $\widehat{\phi}(k) = 0$.  
+</p>
+$\quad$
+<p>
+注意到，若 $\phi, \psi$ 具有非正支撑，则 $\phi\pm\psi, \phi\psi, e^{\pm\phi}$ 均具有非正支撑. 
+</p>
+$\quad$
+<p>
+<b>引理3</b> (调整的因子)<b>.</b> 设 $g \in L^2(\mathbb{T})$ 为实值非负函数，则存在 $h \in L^2(\mathbb{T})$ 满足：<br/>
+$\quad$(1) $\Re(h) = g$，<br/>
+$\quad$(2) $h, e^{-h}$ 具有非正支撑，且 $|e^{-h}| \leq 1$，<br/>
+$\quad$(3) $\|h\|_2 \leq \sqrt{2} \|g\|_2$ . 
+</p>
+$\quad$
+<p>
+<i>证明.</i> 设 $g(\theta) = \sum_{k\in\mathbb{Z}} c_k e^{ik\theta}$，因 $g$ 实值，故 $c_k = \overline{c_{-k}}$，可写为
+$$\begin{equation*}
+g(\theta) = c_0 + 2c_1 \cos\theta + 2c_2 \cos2\theta + \cdots.
+\end{equation*}$$
+于是，我们取 
+$$h(\theta) := c_0 + 2c_1 e^{-i\theta} + 2c_2 e^{-i2\theta} + \cdots,$$
+则 $\Re(h) = g$ 且 $h$ 非正支撑. 由 $|e^{-h}| = e^{-\Re(h)} \leq 1$，且
+$$\begin{equation*}
+\begin{aligned}
+\|h\|_2^2 & = |c_0|^2 + 4|c_1|^2 + 4|c_2|^2 + \cdots \\
+& \leq 2 \left( |c_0|^2 + 2|c_1|^2 + 2|c_2|^2 + \cdots \right) \\
+& = 2\|g\|_2^2,
+\end{aligned}
+\end{equation*}$$
+引理得证.$\quad$$\Box$
+</p>
+$\quad$
+<p>
+以下命题是初等的，这里略去证明. 注意，不等式的常数系数是重要的.
+</p>
+$\quad$
+<p>
+<b>引理4.</b> 若复数 $w$ 满足 $\Re(w) \geq 0$，则 $|e^{-w} - 1| \leq 1\cdot |w|$ . 
+</p>
+<p>
+<b>推论5.</b> 若 $h \in L^2(\mathbb{T})$ 满足 $\Re(h) \geq 0$，则 $\|e^{-h} - 1\|_2 \leq \|h\|_2$ . 
+</p>
+$\quad$
+<p>
+现在我们可以递归地定义 $\phi$：令 $\phi_0 := \frac{1}{5} W_0$；对 $j \in \{1, \dots, m\}$，定义
+$$\begin{equation*}
+\phi_j := \phi_{j-1} \cdot e^{-h_j} + \frac{1}{5} W_j,
+\end{equation*}$$
+其中 $h_j$ 由引理2对 $g = \frac{1}{4}|W_j|$ 构造，于是满足<br/>
+$\quad$(1) $\Re(h_j) = \frac{1}{4}|W_j|$，<br/>
+$\quad$(2) $h_j$ 非正支撑，<br/> 
+$\quad$(3) $|e^{-h_j}| \leq 1$ , <br/>
+$\quad$(4) $\|h_j\|_2 \leq \sqrt{2} \cdot \frac{1}{4} \|W_j\|_2 = \frac{\sqrt{2}}{2^{j+2}}$ .
+</p>
+<p>
+根据上述性质，我们可以归纳地控制 $L^\infty$ 范数.
+</p>
+$\quad$
+<p>
+   <b>引理6</b> ($L^\infty$ 范数)<b>.</b> $\|\phi_j\|_\infty \leq 1$ 对任意 $1\leq j\leq m$ 一致成立.
+</p>
+$\quad$
+<p>
+<i>证明.</i> 首先，$|\phi_0| = \frac{1}{5}|W_0| = \frac{1}{5} \leq 1$ . 现在假设 $|\phi_{j-1}| \leq 1$，则
+  $$\begin{equation*}
+  \begin{aligned}
+  |\phi_j| &\leq |\phi_{j-1}| \cdot |e^{-h_j}| + \frac{1}{5}|W_j| \\
+  &\leq |e^{-h_j}| + \frac{1}{5}|W_j| \\
+  &= e^{-\Re(h_j)} + \frac{1}{5}|W_j| \\
+  &= e^{-|W_j|/4} + \frac{1}{5}|W_j| \leq 1,
+  \end{aligned}
+  \end{equation*}$$
+  归纳成立.$\quad$$\Box$
+</p>
+$\quad$
+<p>
+最终我们令 $\phi = \phi_m$，其展开式为
+$$\begin{equation*}
+\phi = \frac{1}{5} \left( W_0 \, e^{-h_1 - \cdots - h_m} + W_1 \, e^{-h_2 - \cdots - h_m} + \cdots + W_{m-1} \, e^{-h_m} + W_m \right).
+\end{equation*}$$
+注意到 $e^{-h_j - \cdots - h_m}$ 具有非正支撑，因此当 $a \in \mathcal{R}$ 时 $\widehat{\phi}(a) = 0$ . 关于非正支撑因子在频率空间上的行为，还需移步下一节.
+</p>
+
+<h2>Fourier系数</h2>
+<p>
+根据 $\phi$ 的展开式，我们希望它在 $\{a_1,\cdots,a_n\}$ 的Fourier系数与 $\frac{1}{5}\rho$ 的相近. 现在做一些更精细的观察. 
+</p>
+<p>
+对于每个波包 $W_{j}\,e^{-h_{j+1}-\cdots -h_m}$（$0\leq j\leq m$，令 $h_{m+1}=0$）, 由于指数项的频率是非正支撑的，因此新的波包不会向高频移动：
+$$\operatorname{supp} \left(W_{j}\, e^{-h_{j+1}-\cdots -h_m}\right)^{\widehat{\ }} \cap \left(S_{j+1}\cup\cdots \cup S_m \cup \mathcal{R}\right) = \emptyset.$$
+特别地，每个 $W_{j}\, e^{-h_{j+1}-\cdots -h_m}$ 的频率都不会落在 $\mathcal{R}$ 中.
+</p>
+<p>
+现在对于任意 $a\in\{a_1,...,a_n\}$ , 不妨设存在某个 $S_j$ s.t. $a\in S_j$；否则 $a\in \mathcal{R}$ , 则 $\widehat{\phi}(a)=\widehat{\rho}(a)= 0$，符合我们的要求. 于是根据前面的观察，无论是 $\phi$ 还是 $\rho$ 都只有后 $m-j+1$ 个波包对频率 $a$ 有贡献. 因此只需考虑高频部分
+$$\varphi_j:= \frac{1}{5}\left(W_j \, e^{-h_{j+1} - \cdots - h_m} + \cdots + W_{m-1} \, e^{-h_m} + W_m \right),$$
+$$\varrho_j:=\frac{1}{5}\left(W_j+W_{j+1}+\cdots W_m\right).$$
+这里为了与 $\varphi_j$ 对应，$\varrho_j$ 仍保留了后 $m-j$ 个波包. 
+</p>
+<p>
+现在可以实现我们的期待了.
+</p>
+$\quad$
+<p>
+   <b>引理7</b> (Fourier系数)<b>.</b> 对于 $a \in S_j$，$\widehat{\phi}(a)$ 有如下展开：
+$$\begin{equation*}
+\widehat{\phi}(a) = \frac{1}{5} 4^{-j} + \varepsilon_a, \quad |\varepsilon_a| < \frac{\sqrt{2}}{15} \cdot 4^{-j}.
+\end{equation*}$$
+</p>
+$\quad$
+<p>
+<i>证明.</i> 由表达式可知 $\widehat{\rho}(a)=\widehat{\varrho_j}(a)=\frac{1}{5}4^{-j}$ . 现在，根据上一节的计算结果可以估计
+$$\begin{align*}
+    \left|\widehat{\varphi_j}(a)-\widehat{\varrho_j}(a)\right| & \leq  \frac{1}{5}\sum_{\ell=j}^m \left|\left[W_\ell (e^{-h_{\ell+1}-\cdots -h_m}-1)\right]^{\widehat{\ }}(a)\right|\\
+    &\leq \frac{1}{5}\sum_{\ell=j}^m \|W_\ell\|_2\|h_{\ell+1}+\cdots +h_m\|_2\\
+    &\leq \frac{1}{5}\cdot \frac{\sqrt{2}}{4}\sum_{\ell=j}^m 2^{-\ell}  \left(2^{-\ell-1} +\cdots + 2^{-m}\right)\\
+    & \lt \frac{\sqrt{2}}{20} \left(4^{-j}+\cdots +4^{-m}\right)\lt \frac{\sqrt{2}}{15} 4^{-j}.
+\end{align*}$$
+而 $\widehat{\phi}(a)=\widehat{\varphi_j}(a)$ 对 $a\in S_j$ 成立，引理得证.$\quad$$\Box$
+</p>
+$\quad$
+<p>
+应用上述引理，我们得到了新波包的Fourier系数:
+$$\begin{equation*}
+\sum_{a \in S_j} \widehat{\phi}(a) = \sum_{a \in S_j} \left( \frac{1}{5} 4^{-j} + \varepsilon_a \right) = \frac{1}{5} + \Delta_j,
+\end{equation*}$$
+其中 $\Delta_j := \sum_{a \in S_j} \delta_a$，则 $|\Delta_j| \leq 4^j \cdot \frac{\sqrt{2}}{15} 4^{-j} = \frac{\sqrt{2}}{15}$ . 
+</p>
+$\quad$
+<p>
+<i>定理1的证明.</i> 代入新波包的Fourier系数可知
+$$\begin{align*}
+\left|\sum_{k=1}^n\widehat{\phi}(a_k)\right| & = \left|\sum_{j=0}^m \sum_{a \in S_j} \widehat{\phi}(a)\right|\\
+& = \left|\frac{1}{5}(m + 1) + \sum_{j=0}^m \Delta_j\right|\\
+& \geq \frac{1}{5}(m+1) - \left|\sum_{j=0}^m \frac{\sqrt{2}}{15}\right|\\
+& = \frac{3-\sqrt{2}}{15}(m+2)>0.
+\end{align*}$$
+根据第一节的讨论与 $m$ 的定义，
+$$\begin{equation*}
+\frac{1}{2\pi} \int_0^{2\pi} |f(\theta)| \, d\theta \gtrsim m + 1 \gtrsim \log n,
+\end{equation*}$$
+Littlewood猜想得证.$\quad$$\Box$
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
