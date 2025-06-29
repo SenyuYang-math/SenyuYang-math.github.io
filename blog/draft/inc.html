@@ -16,7 +16,7 @@
 回答是否定的. 
 </p>
 <p class="thm">
-  <b>定理2</b> (Fuglede, 1974)<b>.</b> 单位圆盘 $D\subset \mathbb{R}^2$ 不是谱区域. 
+  <b>定理2</b> (Fuglede 1974)<b>.</b> 单位圆盘 $D\subset \mathbb{R}^2$ 不是谱区域. 
 </p>
 <p>
 美妙的是，这个调和分析的事实可以通过关联几何（incidence geometry）——点与线相交的组合性质——得到解释. 这套论证同样适用于高维情形.
@@ -34,7 +34,9 @@ $$ \widehat{\mathbf{1}_D}(\xi) = 2\pi |\xi|^{-1} J(2\pi |\xi|)\ ,$$
 其中 $ J(r)=J_1(r) $（$r\geq 0$）是一阶Bessel函数. 已知 $J$ 有以下性质：
 </p>
 <ol>
-    <li>其零点集 $\{j_k\}_{k\in\mathbb{N}}$ 是离散的，且满足 $ j_k \sim k\pi $ , $k \to \infty $ . 并且对任意不同的 $a,a'\in A$ , $2\pi|a-a'|$ 都是 $J$ 的零点.</li>
+    <li>其零点集 $\{z_k\}_{k\in\mathbb{N}}$ 是离散的，且满足 
+      $$ z_k \sim k\pi -\frac{\pi}{4}$ , \quad $k \to \infty. $$
+      并且对任意不同的 $a,a'\in A$ , $2\pi|a-a'|$ 都是 $J$ 的零点.</li>
     <li> $ J(r) $ 具有渐近展开式：
     $$J(r) = \sqrt{\frac{2}{\pi}} \cos\left(r - \frac{3\pi}{4}\right) \cdot r^{-\frac{1}{2}} + O\left(r^{-\frac{3}{2}}\right), \quad r\to +\infty.$$
     特别地，$|\widehat{\mathbf{1_D}}(\xi)|\lesssim |\xi|^{-\frac{3}{2}}$ .</li>
@@ -44,7 +46,7 @@ $$ \widehat{\mathbf{1}_D}(\xi) = 2\pi |\xi|^{-1} J(2\pi |\xi|)\ ,$$
     性质1本质是Strum-Liouville理论应用于 $J$ 满足的ODE，也可以由性质2推出；性质2则是振荡积分理论的标准结果. 因此，上述性质在高维情形仍然有类似的对应.
 </p>
 <p>
-下面的两个引理说明谱集 $A$ 应当 {\it 离散且均匀地分布} 在 $\mathbb{R}^2$ 中. 
+下面的两个引理说明谱集 $A$ 应当 <i>离散且均匀地分布</i> 在 $\mathbb{R}^2$ 中. 
 </p>
 <p class="thm">
 <b>引理3.</b> 存在常数 $ \delta > 0 $，s.t. 对任意 $ a \neq a' \in A $，有 $ |a - a'| > \delta $ . 特别地，$A$ 是可数离散集.
@@ -81,18 +83,18 @@ $$ \widehat{\mathbf{1}_D}(\xi) = 2\pi |\xi|^{-1} J(2\pi |\xi|)\ ,$$
 现在考虑任意一个大圆盘 $ D_R(0) $（$R\gg s>0$），设 $A_R:= A \cap D_R(0) $ . 于是根据引理3-4，$|A_R|\approx R^2$；另一方面，根据 $J$ 的零点分布可以得到
 </p>
 <p class="thm">
-<b>命题5.</b> 对任意 $R\gg 1$ , $A_R$ 的 {\it 距离集} 有上界估计
+<b>命题5.</b> 对任意 $R\gg 1$ , $A_R$ 的 <i>距离集</i> 有上界估计
     $$\# \{|a-a'|:\ a,a'\in A_R\} \lesssim R.$$
 </p>
 <p>
-我们从分析出发，最终却来到了组合学的秘境：能否恰当地安置 $n\gg 1$ 个点，s.t. 它们两两之间的距离不超过 $O(n^{\frac{1}{2}})$ 种？而下面的定理否决了这种可能性. 
+我们从分析出发，最终却来到了组合学的秘境：能否恰当地安置 $n\gg 1$ 个点，s.t. 它们两两之间的距离不超过 $O(n^{\frac{1}{2}})$ 种？而下面的命题否决了这种可能性. 
 </p>
 <p class="thm">
 <b>命题6.</b> 设有限集 $ E \subset\mathbb{R}^{2} $ , $|E|=n$ . 则 $E$ 的距离集有下界估计
  $$ \#\{|x-y|: x,y\in E\} \gtrsim n^{\frac{3}{2}}. $$
 </p>
 <p>
-<b>注.</b> Erdos曾猜想最优下界为 $\Omega(n)$ . 目前最好的结果是Guth-Katz\cite{3}通过多项式方法得到的 $\Omega(n/\log n)$ , 这几乎解决了Erdos猜想.
+<b>注.</b> Erds曾猜想最优下界为 $\Omega(n)$ . 目前最好的结果是[Guth-Katz 2015]通过多项式方法得到的 $\Omega(n/\log n)$ , 这几乎解决了Erdos猜想.
 </p>
 <p>
 我们从关联几何的视角观察这个问题. 对于每个固定的距离 $r$ , 我们将 $|x-y|=r$ 这个模式等效为 $y$ 与以 $x$ 为圆心，半径为 $r$ 的圆周 $C_r(x)$ 相交. 因此问题归结为一个计数问题：对于每个 $r$ ，$E$ 和 $C_r(E):=\{C_r(x)\}_{x\in E}$ 至多有多少个相交对？
@@ -107,10 +109,7 @@ $$I=I(P,L):= \# \{(p,l)\in P\times L: p\in l\}\ .$$
 <p class="thm">
 <i>命题6的证明.</i> 只需证明 
 $$I(E,C_r(E)) \lesssim n^{\frac{4}{3}}\ ;$$
-事实上，$|E\times E|= N^2$，于是每个距离对应的关联数上界推出全体距离至少有 $\gtrsim n^2/n^{\frac{4}{3}}=n^{\frac{3}{2}}$ 种.
-</p>
-<p>
-而在关联几何这一侧，Szémeredi-Trotter首先证明了直线情形指标最优的上界估计：
+事实上，$|E\times E|= N^2$，于是每个距离对应的关联数上界推出全体距离至少有 $\gtrsim n^2/n^{\frac{4}{3}}=n^{\frac{3}{2}}$ 种. 而在关联几何这一侧，Szémeredi-Trotter首先证明了直线情形指标最优的上界估计：
 </p>
 <p class="thm">
 <b>定理8</b> (Szémeredi-Trotter 1983)<b>.</b> 给定 $P$ 和一族直线 $L$ , 则
@@ -127,7 +126,7 @@ $\quad$(2) 任意两个不同的点最多同时位于 $ \beta $ 条曲线上.<br
 $$I\lesssim (\alpha \beta)^{\frac{1}{3}}|P|^{\frac{2}{3}}|L|^{\frac{2}{3}}+|L|+\beta |P| .$$
 </p>
 <p>
-wST定理和ST定理的证明大同小异，读者可以参考Tao-Vu或者Yufei Zhao的加性组合教材通过证明图的交叉数估计得到ST，并推广至wST. 对于 $(E, C_r(E))$ , 可以取 $\alpha=\beta=2$ . 定理6即是wST定理的推论.$\quad$$\Box$
+wST定理和ST定理的证明大同小异；读者可以参考Tao-Vu的 <i>Additive Combinatorics</i>，通过证明图的交叉数估计得到ST，并推广至wST. 对于 $(E, C_r(E))$ , 可以取 $\alpha=\beta=2$ . 定理6即是wST定理的推论.$\quad$$\Box$
 </p>
 <p class="thm">
 <i>定理2的证明.</i> 命题5与命题6构成矛盾，这说明符合要求的 $A$ 不存在.$\quad$$\Box$
