@@ -97,10 +97,10 @@ $$ \widehat{\mathbf{1}_D}(\xi) = 2\pi |\xi|^{-1} J(2\pi |\xi|)\ ,$$
 </p>
 <p class="thm">
 <b>命题6.</b> 设有限集 $ E \subset\mathbb{R}^{2} $ , $|E|=n$ . 则 $E$ 的距离集有下界估计
- $$ \#\{|x-y|: x,y\in E\} \gtrsim n^{\frac{3}{2}}. $$
+ $$ \#\{|x-y|: x,y\in E\} \gtrsim n^{\frac{2}{3}}. $$
 </p>
 <p>
-<b>注.</b> Erdös曾猜想最优下界为 $\Omega(n)$ . 目前最好的结果是[Guth-Katz 2015]通过多项式方法得到的 $\Omega(n/\log n)$ , 这几乎解决了Erdös猜想.
+<b>注.</b> Erdös曾猜想最优下界为 $\Omega(n/\sqrt{\log n})$ . 目前最好的结果是[Guth-Katz 2015]通过多项式方法得到的 $\Omega(n/\log n)$ , 这几乎解决了Erdös猜想.
 </p>
 <p>
 我们从关联几何的视角观察这个问题. 对于每个固定的距离 $r$ , 我们将 $|x-y|=r$ 这个模式等效为 $y$ 与以 $x$ 为圆心，半径为 $r$ 的圆周 $C_r(x)$ 相交. 因此问题归结为一个计数问题：对于每个 $r$ ，$E$ 和 $C_r(E):=\{C_r(x)\}_{x\in E}$ 至多有多少个相交对？
@@ -115,7 +115,7 @@ $$I=I(P,L):= \# \{(p,l)\in P\times L: p\in l\}\ .$$
 <p class="thm">
 <i>命题6的证明.</i> 只需证明 
 $$I(E,C_r(E)) \lesssim n^{\frac{4}{3}}\ ;$$
-事实上，$|E\times E|= N^2$，于是每个距离对应的关联数上界推出全体距离至少有 $\gtrsim n^2/n^{\frac{4}{3}}=n^{\frac{3}{2}}$ 种. 而在关联几何这一侧，Szémeredi-Trotter首先证明了直线情形指标最优的上界估计：
+事实上，$|E\times E|= N^2$，于是每个距离对应的关联数上界推出全体距离至少有 $\gtrsim n^2/n^{\frac{4}{3}}=n^{\frac{2}{3}}$ 种. 而在关联几何这一侧，Szémeredi-Trotter首先证明了直线情形指标最优的上界估计：
 </p>
 <p class="thm">
 <b>定理8</b> (Szémeredi-Trotter 1983)<b>.</b> 给定 $P$ 和一族直线 $L$ , 则
