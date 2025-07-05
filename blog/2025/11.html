@@ -9,18 +9,18 @@
 <p>
   考虑Cauchy函数方程
 $$f(x+y)=f(x)+f(y), \quad f:\mathbb{R}\to\mathbb{R}.\tag{1}$$
-显然 $\mathcal{L}:=\{L_A(x):=Ax\}_{A\in \mathbb{R}}$ 是方程的一类解. 自然可以问：这是方程的所有解吗？熟知当 $f$ 在 $x=0$ 处连续时一定有 $f\in \mathcal{L}$ ; 而笔者在阅读 <a href="https://www.zhihu.com/people/jasonchen0325" target="_blank">费事发财</a> 的 <a href="https://www.zhihu.com/question/54046698/answer/129992063047" target="_blank">回答</a> 知晓了以下结论：
+显然 $\mathcal{L}:=\{L_A(x):=Ax\}_{A\in \mathbb{R}}$ 是方程的一类解. 自然可以问：这是方程的所有解吗？熟知当 $f$ 在某一点处连续可以推出 $f\in \mathcal{L}$ ; 而笔者在阅读 <a href="https://www.zhihu.com/people/jasonchen0325" target="_blank">费事发财</a> 的 <a href="https://www.zhihu.com/question/54046698/answer/129992063047" target="_blank">回答</a> 知晓了以下结论：
 </p>
-<p class="thm"><b>定理</b> (Banach-Sierpinski)<b>.</b>
+<p class="thm"><b>定理1</b> (Banach-Sierpinski)<b>.</b>
     设可测函数 $f$ 是方程 $(1)$ 的解. 则 $f\in \mathcal{L}$ .
 </p>
 <p ><b>注.</b>
     定理说明了非 $\mathcal{L}$ 解一定不可测. 因此非 $\mathcal{L}$ 解的构造一定依赖于选择公理.
 </p>
 <p>
-我们先展示S. Banach的证明（来自论文 <i>Sur l'équation fonctionnelle</i> $f(x+y)=f(x)+f(y)$）.
+我们先展示S. Banach的证明（来自论文 <i>Sur l'équation fonctionnelle</i> $f(x+y)$$=f(x)$$+f(y)$）.
 </p>
-<p class="thm"><i>证明.</i>[证明(Banach 1920)]
+<p class="thm"><i>证明 (Banach 1920).</i>
     我们只需证明 $f$ 在某一点处连续即可. 任意给定一个闭区间 $I$ , 根据Lusin定理和Tietze扩张定理，对充分小的 $\sigma>0$ 都存在可测闭集 $E\subset I$ 和 连续函数 $F\in C(I)$ s.t. 
     $$|E|\leq \sigma , \quad f=F \text{ on } I\setminus E.$$
     因此对任意 $\epsilon >0$ , 存在 $\delta=\delta(\epsilon)>0$ s.t. 
@@ -38,14 +38,20 @@ $$f(x+y)=f(x)+f(y), \quad f:\mathbb{R}\to\mathbb{R}.\tag{1}$$
 最后是笔者自己尝试的证明，用了一个笔者钟爱的小结论.
 </p>
 <p class="thm"><i>另一个证明.</i>
-    只需证 $f$ 在 $x=0$ 处连续，进一步只需证明：对于任意 $\epsilon>0$ , 都存在 $\delta=\delta(\epsilon)>0$ s.t. 以 $0$ 为中心的开球
+    只需证 $f$ 在 $x=0$ 处连续，i.e. 对于任意 $\epsilon>0$ , 都存在 $\delta=\delta(\epsilon)>0$ s.t. 以 $0$ 为中心的开球
     $$B_\delta (0) \subset f^{-1}(I_\epsilon), \quad I_\epsilon:=[-\epsilon,\epsilon].$$
-    另一方面，对任意长度为 $\epsilon$ 的闭区间 $I$ 都有 $I-I=I_\epsilon$ . 而根据方程 $(1)$ , 
+    观察到，对任意长度为 $\epsilon$ 的闭区间 $I$ 都有 $I-I=I_\epsilon$ . 而根据方程 $(1)$ , 
     $$f^{-1}(I)-f^{-1}(I)\subset f^{-1}(I-I).$$
-    我们只需证明存在长度为 $\epsilon$ 的 $I$ s.t. $f^{-1}(I)-f^{-1}(I)$ 包含一个开球 $B_\delta(0)$ . 而根据熟知的Steinhauss引理，我们只需 $f^{-1}(I)$ 是正测集即可. 这样的 $I$ 显然存在，于是 $f$ 在 $0$ 处连续.$\quad$$\Box$
+    现在只需说明存在长度为 $\epsilon$ 的 $I$ s.t. $f^{-1}(I)-f^{-1}(I)$ 包含一个开球 $B_\delta(0)$ . 而根据熟知的
+</p>
+<p class="thm">
+  <b>引理2</b> (Steinhauss)<b>.</b> 设 $E\subset \mathbb{R}$ 有正测度. 则 $E-E$ 包含 $0$ 的一个开邻域.
 </p>
 <p>
-  <b>注.</b> Steinhauss引理的形式和 <a href="https://www.zhihu.com/question/54046698/answer/129992063047" target="_blank">回答</a> 中提到的Pettis定理几乎一致，了解拓扑群的读者可以评论补充一下（≧▽≦*）
+  我们只需 $f^{-1}(I)$ 是正测集即可. 这样的 $I$ 显然存在，于是 $f$ 在 $0$ 处连续.$\quad$$\Box$
+</p>
+<p>
+  <b>注.</b> 引理的形式和 <a href="https://www.zhihu.com/question/54046698/answer/129992063047" target="_blank">回答</a> 中提到的Pettis定理几乎一致，了解拓扑群的读者可以评论补充一下（≧▽≦*）
 </p>
 </div>
 
