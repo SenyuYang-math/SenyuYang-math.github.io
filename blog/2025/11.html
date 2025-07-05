@@ -1,0 +1,56 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  考虑Cauchy函数方程
+$$f(x+y)=f(x)+f(y), \quad f:\mathbb{R}\to\mathbb{R}.\tag{1}$$
+显然 $\mathcal{L}:=\{L_A(x):=Ax\}_{A\in \mathbb{R}}$ 是方程的一类解. 自然可以问：这是方程的所有解吗？熟知当 $f$ 在 $x=0$ 处连续时一定有 $f\in \mathcal{L}$ ; 而笔者在阅读 <a href="https://www.zhihu.com/people/jasonchen0325" target="_blank">费事发财</a> 的 <a href="https://www.zhihu.com/question/54046698/answer/129992063047" target="_blank">回答</a> 知晓了以下结论：
+</p>
+<p class="thm"><b>定理</b> (Banach-Sierpinski)<b>.</b>
+    设可测函数 $f$ 是方程 $(1)$ 的解. 则 $f\in \mathcal{L}$ .
+</p>
+<p ><b>注.</b>
+    定理说明了非 $\mathcal{L}$ 解一定不可测. 因此非 $\mathcal{L}$ 解的构造一定依赖于选择公理.
+</p>
+<p>
+我们先展示S. Banach的证明（来自论文 <i>Sur l'équation fonctionnelle</i> $f(x+y)=f(x)+f(y)$）.
+</p>
+<p class="thm"><i>证明.</i>[证明(Banach 1920)]
+    我们只需证明 $f$ 在某一点处连续即可. 任意给定一个闭区间 $I$ , 根据Lusin定理和Tietze扩张定理，对充分小的 $\sigma>0$ 都存在可测闭集 $E\subset I$ 和 连续函数 $F\in C(I)$ s.t. 
+    $$|E|\leq \sigma , \quad f=F \text{ on } I\setminus E.$$
+    因此对任意 $\epsilon >0$ , 存在 $\delta=\delta(\epsilon)>0$ s.t. 
+    $$|F(x+h)-F(x)|< \epsilon , \quad |h|\leq \delta ,\ x\in I\setminus E.$$
+    我们还需要说明存在 $x_0\in I\setminus E$ s.t. 
+    $$x_0+h\in I\setminus E, \quad |h|\leq \delta.$$
+    事实上，这只需要求
+    $$x_0\in I\cap (I+[-\delta,\delta]),$$
+    $$x_0\notin E\cup(E+[-\delta,\delta]).$$
+    取遍充分小的 $\epsilon>0$ ，以上条件确定的点集是非空的. 因此存在 $x_0\in I$ s.t. 对充分小的 $\epsilon >0$ 都有
+    $$|f(x_0+h)-f(x_0)|\leq \epsilon, \quad |h|\leq \delta.$$
+    我们完成了证明.$\quad$$\Box$
+</p>
+<p>
+最后是笔者自己尝试的证明，用了一个笔者钟爱的小结论.
+</p>
+<p class="thm"><i>另一个证明.</i>
+    只需证 $f$ 在 $x=0$ 处连续，进一步只需证明：对于任意 $\epsilon>0$ , 都存在 $\delta=\delta(\epsilon)>0$ s.t. 以 $0$ 为中心的开球
+    $$B_\delta (0) \subset f^{-1}(I_\epsilon), \quad I_\epsilon:=[-\epsilon,\epsilon].$$
+    另一方面，对任意长度为 $\epsilon$ 的闭区间 $I$ 都有 $I-I=I_\epsilon$ . 而根据方程 $(1)$ , 
+    $$f^{-1}(I)-f^{-1}(I)\subset f^{-1}(I-I).$$
+    我们只需证明存在长度为 $\epsilon$ 的 $I$ s.t. $f^{-1}(I)-f^{-1}(I)$ 包含一个开球 $B_\delta(0)$ . 而根据熟知的Steinhauss引理，我们只需 $f^{-1}(I)$ 是正测集即可. 这样的 $I$ 显然存在，于是 $f$ 在 $0$ 处连续.$\quad$$\Box$
+</p>
+<p>
+  <b>注.</b> Steinhauss引理的形式和 <a href="https://www.zhihu.com/question/54046698/answer/129992063047" target="_blank">回答</a> 中提到的Pettis定理几乎一致，了解拓扑群的读者可以评论补充一下（≧▽≦*）
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
