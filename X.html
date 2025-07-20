@@ -1,35 +1,32 @@
 <html>
-<head>  
-<title>燕石志 | Math Blog</title>
-<!--卡片链接样式  -->
-<link rel="stylesheet" type="text/css" href="./css/card.css">
-<!--折叠组件样式  -->
-<link rel="stylesheet" type="text/css" href="../../css/folder.css">
+<head>
+  <title>PDF.js Example</title>
+
+  <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 </head>
+<body>
+  <canvas id="pdf" style="width:500px; height:600px;"></canvas>
 
-<body id="body">
-</div>
-<!--正文区块-->
-<div class="container">
-<h1 style="margin-bottom: 5px; margin-top: 18px">燕石志 | Math Blog</h1>
-<p>
-把Ysy所看到的数学整理起来做成一个博物志，就是Math Blog的主题了.
-</p>
-<h2>点击、开始探索 ♡</h2>
+  <script>
+    var url = 'https://senyuyang-math.github.io/record/file/Hodge-note.pdf';
 
-<button type="button" class="collapsible">2025</button>
-<div class="content">
-lala
-</div>
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+      pdf.getPage(1).then(function(page) {
+        var scale = 1.5;
+        var viewport = page.getViewport({scale: scale});
 
-<button type="button" class="collapsible">2024</button>
-<div class="content">
-lala
-</div>
-  
-</div>
+        var canvas = document.getElementById('pdf');
+        var context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
 
-<script src="./js/home.js"></script>
-<script src="./js/folder.js"></script>
+        var renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        page.render(renderContext);
+      });
+    });
+  </script>
 </body>
 </html>
