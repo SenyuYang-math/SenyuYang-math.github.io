@@ -1,0 +1,90 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+笔者学习凸积分方法时得知了一个将弱收敛提升为强收敛的想法. 鉴于自己的软分析水平实际mortal，有必要记录一下. （可以据此命制一道泛函的法式习题说是:P
+</p>
+<p>
+首先介绍基本设定. 设 $1\lt p\lt \infty$ , $d\geq 1$ . 设 $\Omega\subset \R^d$ 为一个 <i>有界</i> 开集. 我们考虑 <i>有界</i> 子集 $X\subset L^p(\Omega)$ 以及它的弱闭包 $\overline{X}$（同样 $L^p$-有界）. 由于对偶空间 $L^{p'}(\Omega)$ 可分，因此 $X$ 的弱拓扑可以被度量化，该度量记为 $d_w$ . 因此由自反性可知 $(\overline{X},d_w)$ 是紧度量空间. 
+</p>
+<p>
+  <b>注.</b> 可度量化依赖于 $\overline{X} \subset L^p(\Omega)$ 有界. 证明可见[Brezis泛函，定理3.29].
+</p>
+<p>
+现在叙述本文的主要结论.
+</p>
+<p class="thm">
+  <b>定理1.</b> 存在一个 <i>稠密</i> 集 $S\subset (\overline{X}, d_w)$ , s.t. 对于任意 $u\in S$ , 我们可以提升 $L^p$ 收敛性：
+  $$u_k\in \overline{X}, \ u_k\rightharpoonup u \ \text{ in } L^p(\Omega)\quad \Rightarrow\quad u_k\to u \ \text{ in } L^p(\Omega).$$
+  $S$ 称为 <i>稳定集</i>（set of stable element）.
+</p>
+<p>$\quad$</p>
+<p>
+  <i>证明</i> 证明的出发点是以下结论：
+</p>
+<p class="thm">
+    <b>引理2.</b> 设 $1\lt p\lt \infty$ , $f_n, f\in L^p(\Omega)$ 满足<br/>
+    $\quad$· $f_n \rightharpoonup f$ in $L^p(\Omega)$ ;<br/>
+    $\quad$· $\|f_n\|_{L^p}\to \|f\|_{L^p}$ .<br/>
+    则有 $L^p(\Omega)$-强收敛 $f_n\to f$ .
+</p>
+<p>
+  直接由 $L^p$ 范数（$q\lt p\lt \infty$）的一致凸性即可证明引理2，本质是Clarkson不等式；详见[Brezis，命题3.32]. 
+</p>
+<p>
+  因此引入泛函
+  $$J:\overline{X}\to \R_{\geq 0},\quad J[u]:=\int_\Omega |u|^p \, \mathrm{d}x.$$
+  于是定理1归结为刻画 $J$ 在 $(\overline{X},d_w)$ 的全体连续点 $C_J(\overline{X})$ . 根据引理2以及弱收敛与强收敛的不等价性，$C_J(\overline{X})\neq \overline{X}$ . 但Baire纲定理的一个经典应用给予我们退而求其次的期待.
+</p>  
+<p class="thm">
+  <b>引理3.</b> 设 $f:E\to \R$ 是完备度量空间 $E$ 上的Baire第一类函数（i.e. 是某一列连续函数的逐点极限），则 $C_f(E)\hookrightarrow E$ 稠密.
+</p>
+<p>
+  于是我们只需构造一列在 $(\overline{X},d_w)$ 上逐点收敛于 $J$ 的连续泛函 $\{J_n\}$ . 引理3的证明可见于任何一本实分析教材.
+</p>
+<p>
+  一个构造的思路是将 $J$ 磨光：首先所有 $u\in \overline{X}$ 都可以零延拓到 $L^p(\R^d)$ 上（i.e. $u\mid_{\R^d\setminus\Omega}\equiv 0$），仍记为 $u$ . 因此
+  $$J: \overline{X}\to \R_{\geq 0}, \quad , J[u]=\int_{\R^d} |u|^p \, \mathrm{d}x.$$
+  现在，选择一个磨光子 $\rho\in C_c^\infty(\R^d)$ , 令 $\rho_n(x):=n^d\rho(nx)\in C_c^\infty(\R^d)$ . 于是根据卷积的Young不等式，对任意 $\infty > q\geq p$ , $\rho_n * :L^p\to L^q$ 是有界线性算子. 定义
+  $$J_n: \overline{X}\to \R_{\geq 0}, \quad J_n[u]= \int_{\R^d} |\rho_n*u(x)|^p \, \mathrm{d}x.$$
+  于是以下（具有独立价值的）引理说明了磨光构造 $J_n$ 是 $(X,d_w)$-连续的.
+</p>
+<p class="thm">
+  <b>引理4.</b> 设 $\rho\in C_c^\infty(\R^d)$ , $u,u_n\in L^p(\Omega)$ . 如果 $u_n\rightharpoonup u$ $\text{ in } L^p(\Omega)$ , 则其零延拓的磨光有强收敛 
+      $$\rho*u_n\to \rho*u \ \text{ in } L^p(\R^d).$$ 
+</p>
+<p>
+  根据弱收敛的定义，$\rho*u_n$ 逐点收敛于 $\rho*u$；因此，联合 $\|\rho*u_n\|_{L^q}$（$q>p$）的有界性，引理4又是以下引理的推论（注意 $\rho*u_n$ , $\rho*u$ 都一致支撑在 $\Omega$ 的某个有界邻域上. 这里我们使用了 $\Omega$ 的有界性）：
+</p>  
+<p class="thm">
+  <b>引理5.</b> 设 $1\lt q \lt \infty$ , $D\subset \R^d$ 为有界开集. 如果 $f_n,f\in L^q(D)$ 满足<br/>
+      $\quad$· $\{f_n\}$ 在 $L^q(D)$ 中有界；<br/>
+      $\quad$· 在 $\Omega$ 上 $f_n\to f$ a.e.<br/>
+      则有 $L^p(\Omega)$-强收敛 $f_n\to f$ 对任意 $1\leq p\lt q$ 成立.
+  </p>
+ <p>
+  可以通过Egorov定理并在小的例外集上使用H\"older不等式来证明引理5；详见[Brezis, 练习4.16(3)]. 
+ </p>
+<p>
+  现在，因为有熟知的 $L^p$-强收敛 $\rho_n* u\to u$ , $J_n$ 逐点收敛于 $J$ , 所以 $J$ 是Baire第一类函数. 取 $S=C_J(\overline{X})$ , 定理1得证.$\quad$$\Box$</p>
+</p>
+<p>$\quad$</p>
+<p>
+  最后简单叙述一下定理1的应用. 一些PDE的 $L^2$-弱解（比如流形的Lipschitz欧氏嵌入）都可以归结于某个连续非线性泛函 $I$ 的零点，弱解存在性则常常归结为零（子）序列的强收敛性. 现在，如果 $I$ 在初始的 $X$（通常有较好的正则性）具有以下 $L^2$-弱逼近性质：
+  $$\forall f\in X, \ \exists f_n\in X \ \text{ s.t. } f_n\rightharpoonup f \text{ and } I[f_n]\to 0,$$
+  那么对于 $u\in C_J(\overline{X})$ , $X$ 在 $(\overline{X},d_w)$ 中稠密，于是可以用对角线方法和弱逼近性质构造出零序列 $\widetilde{u}_n\rightharpoonup u$ , 进而 $\widetilde{u}_n\to u$ . 于是由定理1可知
+  $$\{u\in X: \ I(u)=0\}\hookrightarrow (\overline{X},d_w)$$
+  是稠密的. 这喻示方程在 $\overline{X}$ 中有“非常多”的弱解！
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
