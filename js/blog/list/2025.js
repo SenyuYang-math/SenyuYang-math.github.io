@@ -11,7 +11,7 @@ btitle[7] = "散度方程的 $L^{\\infty}$ 解"; bdate[7] = "05/31"; bintro[7] =
 btitle[8] = "输运方程的 $C^1$ 不稳定性"; bdate[8] = "06/12"; bintro[8] = "核心在于对粒子路径和流映射直观而精妙的几何刻画.";
 btitle[9] = "指数和的Littlewood猜想"; bdate[9] = "06/22"; bintro[9] = "频率的分布对指数和的影响，关键是将问题对偶为如何构造合适的波包."
 btitle[10] = "圆盘有Fourier正交基吗？"; bdate[10] = "06/30"; bintro[10] = "一段振荡积分-距离集问题-关联几何的奇幻旅程.";
-btitle[11] = "提升弱收敛的Baire纲方法"; bdate[11] = "07/29"; bintro[11] = "具有凸积分背景的一个实用想法，与PDE弱解的非唯一性有密切的联系.";
+btitle[11] = "提升弱收敛性的Baire纲方法"; bdate[11] = "07/29"; bintro[11] = "具有凸积分背景的一个实用想法，与PDE弱解的非唯一性有密切的联系.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 
