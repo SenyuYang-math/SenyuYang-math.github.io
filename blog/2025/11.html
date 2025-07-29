@@ -19,7 +19,7 @@
 现在叙述本文的主要结论.
 </p>
 <p class="thm">
-  <b>定理1.</b> 存在一个 <i>稠密</i> 集 $S\subset (\overline{X}, d_w)$ , s.t. 对于任意 $u\in S$ , 我们可以提升 $L^p$ 收敛性：
+  <b>定理1.</b> 存在一个 <i>稠密</i> 集 $S\subset (\overline{X}, d_w)$ , s.t. 对于任意 $u\in S$ , 我们可以提升收敛性：
   $$u_k\in \overline{X}, \ u_k\rightharpoonup u \ \text{ in } L^p(\Omega)\quad \Rightarrow\quad u_k\to u \ \text{ in } L^p(\Omega).$$
   $S$ 称为 <i>稳定集</i>（set of stable element）.
 </p>
@@ -31,10 +31,10 @@
     <b>引理2.</b> 设 $1\lt p\lt \infty$ , $f_n, f\in L^p(\Omega)$ 满足<br/>
     $\quad$<b>·</b> $f_n \rightharpoonup f$ in $L^p(\Omega)$ ;<br/>
     $\quad$<b>·</b> $\|f_n\|_{L^p}\to \|f\|_{L^p}$ .<br/>
-    则有 $L^p(\Omega)$-强收敛 $f_n\to f$ .
+    则有 $L^p$-强收敛 $f_n\to f$ .
 </p>
 <p>
-  直接由 $L^p$ 范数（$q\lt p\lt \infty$）的一致凸性即可证明引理2，本质是Clarkson不等式；详见[Brezis，命题3.32]. 
+  直接由 $L^p$ 范数（$1\lt p\lt \infty$）的一致凸性即可证明引理2，本质是Clarkson不等式；详见[Brezis，命题3.32]. 
 </p>
 <p>
   因此引入泛函
@@ -65,7 +65,7 @@
   <b>引理5.</b> 设 $1\lt q \lt \infty$ , $D\subset \R^d$ 为有界开集. 如果 $f_n,f\in L^q(D)$ 满足<br/>
       $\quad$<b>·</b> $\{f_n\}$ 在 $L^q(D)$ 中有界；<br/>
       $\quad$<b>·</b> 在 $\Omega$ 上 $f_n\to f$ a.e.<br/>
-      则有 $L^p(\Omega)$-强收敛 $f_n\to f$ 对任意 $1\leq p\lt q$ 成立.
+      则有 $L^p$-强收敛 $f_n\to f$ 对任意 $1\leq p\lt q$ 成立.
   </p>
  <p>
   可以通过Egorov定理并在小的例外集上使用Hölder不等式来证明引理5；详见[Brezis, 练习4.16(3)]. 
@@ -75,14 +75,14 @@
 </p>
 <p>$\quad$</p>
 <p>
-  最后简单叙述一下定理1的应用. 一些PDE的 $L^p$-弱解（比如流形的欧氏等距嵌入）都可以归结于某个连续非线性泛函 $I$ 的零点，弱解存在性则常常归结为零（子）序列的强收敛性. 现在，如果 $I$ 在初始的 $X$（通常有较好的正则性）具有以下 $L^p$-弱逼近性质：
+  最后简单叙述一下定理1的应用. 一些PDE的 $L^p$-弱解（比如流形的欧氏等距嵌入）可以实现为某个连续非线性泛函 $I$ 的零点，弱解存在性则常常归结为零（子）序列的强收敛性. 现在，如果 $I$ 在初始的 $X$（通常有较好的正则性）具有以下 $L^p$-弱逼近性质：
   $$\forall f\in X, \ \exists f_n\in X \ \text{ s.t. } f_n\rightharpoonup f \text{ and } I[f_n]\to 0,$$
   那么对于 $u\in C_J(\overline{X})$ , $X$ 在 $(\overline{X},d_w)$ 中稠密，于是可以用对角线方法和弱逼近性质构造出零序列 $\widetilde{u}_n\rightharpoonup u$ , 进而 $\widetilde{u}_n\to u$ . 于是由定理1可知
   $$\{u\in X: \ I(u)=0\}\hookrightarrow (\overline{X},d_w)$$
   是稠密的. 这喻示了方程在 $\overline{X}$ 中有“非常多”的弱解，并且可以逼近非方程解的函数！
 </p>
 <p>
-  <b>注.</b> 值得一提的是，上述这类逼近的性质/过程最早出现在J. Nash的名作 $C^1$ <i>isometric embedding</i> 中（不过是在 $C^1$-强收敛的框架下），Nash称其为“stage”；在这篇文章中Nash证明了令人惊诧的Nash-Kuiper定理：黎曼流形的每一个short嵌入（i.e. 将路径缩短）都可以被 $C^1$-等距嵌入任意地逼近. 其中的想法在多年后经M. Gromov挖掘发展为所谓的凸积分理论，进而在2010年前后被DeLellis-Székelyhidi引入流体PDE领域，成为构造非唯一弱解、解决Onsager猜想（次临界情形）的基石.
+  <b>注.</b> 值得一提的是，上述这类逼近的性质/过程最早出现在J. Nash的名作 $C^1$ <i>isometric embeddings</i> 中（不过是在 $C^1$-强收敛的框架下），Nash称其为“stage”；在这篇文章中Nash证明了令人惊诧的Nash-Kuiper定理：黎曼流形的每一个short嵌入（i.e. 将路径缩短）都可以被 $C^1$-等距嵌入任意地逼近. 其中的想法在多年后经M. Gromov挖掘发展为所谓的凸积分理论，进而在2010年前后被DeLellis-Székelyhidi引入流体PDE领域，成为构造非唯一弱解、解决Onsager猜想（次临界情形）的基石.
 </p>
 </div>
 
