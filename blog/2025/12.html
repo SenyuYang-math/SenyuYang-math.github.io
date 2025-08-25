@@ -1,0 +1,121 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+设 $X$ 是一个在 有限集 $A$ 中取值的随机变量/向量. 记 $p_x=\mathbb{P}(X=x)$ , $x \in A$. 我们可以定义 $X$ 的 Shannon熵
+$$H(X):=\sum_{x\in A} -p_x \log p_x\geq 0,$$
+其中约定 $0\log 0=0$ , $\log$ 统一以 $2$ 为底. 从信息论的角度，$H(X)$ 代表了区分 $X$ 不同状态所需的平均信息量；换言之，$H(X)$ 越大意味着 $X$ 的分布越随机/混沌. 令人吃惊的是，这个信息论的概念还是能将整体投影到局部的计数君（雾）. 本文就给出两个简单的应用.
+</p>
+<h2>预备</h2>
+<p>
+进一步可以定义两个随机变量 $X,Y$ 的 <i>条件Shannon熵</i>
+$$H(X\mid Y):= \sum_{a\in A} \mathbb{P}(Y=a) H(X| Y=a).$$
+下面列举熵的基本性质；这些性质可以直接由表达式验证，同时也是Khinchin熵公理的内容/推论.
+</p>
+<ul>
+<li>可加性：$H(X,Y)=H(X)+H(X|Y)$ .</li>
+<li>次可加性：$H(X|Y)\leq H(X)$ , i.e. $H(X,Y)\leq H(X)+H(Y)$ .</li>
+<li>独立性：$X, Y$ 相互独立 $\Rightarrow$ $H(X,Y)=H(X)+H(Y)$ .</li>
+<li>次依赖性：设有随机变量 $X,Y,Z$ , 则 $H(X | Y, Z)\leq H(X | Y)$ .</li>
+<li>不变性：设随机变量 $X, Y$ 的值域之间存在双射 $f: f(X)=Y$ , 则 $H(X)=H(Y)$ .</li>
+</ul>
+<p>
+次可加性和次依赖性是符合直观的：增加相关条件会降低初始变量的随机性；双射不会改变变量的随机程度. 
+</p>
+<p>
+用熵计数的核心工具为以下两条引理： 
+</p>
+<p class="thm">
+<b>引理1</b> (最大性)<b>.</b> 设 $Y$ 在 $A$ 上一致分布，记为 $Y\sim A$ . 则对任意在 $A$ 中取值的随机变量 $X$ , $H(X)\leq H(Y)=\log |A|$ .
+</p>
+<p>
+<i>证明.</i> 直接计算，并利用 $\log$ 的凸性. $\quad$$\Box$
+</p> 
+<p>$\quad$</p>
+<p>
+最大性反映熵应用于组合的基本思路：如果满足某个限制的极端情形倾向于使对象一致分布，那么随机取样的概率方法很可能会帮助我们. 而当取样是一致的，系统状态是最难区分的，i.e. 熵最大. 此时熵正好对应对象的大小. 因此对熵的控制立刻转化为组合对象的控制.
+</p>
+<p>
+现在令指标集 $[n]:=\{1,..., n\}$ . 第二条性质为
+</p>
+<p class="thm"> 
+<b>引理2</b> (Shearer)<b>.</b> 设 $\mathcal{F}$ 是 $[n]$ 的子集族（可能带有重复）s.t. 每个 $i \in [n]$ 包含在 $\mathcal{F}$ 的至少 $k$ 个元素中. 则对于随机向量 $(X_1, ..., X_n)$ ，
+$$H(X_1, ..., X_n)\leq \frac{1}{k}\sum_{F\in\mathcal{F}} H(X_F) ,$$
+其中 $X_F$ 是随机向量  $(X_i : i \in F)$ .
+</p>
+<p>
+<i>证明.</i> 对任意 $F\in \mathcal{F}$ , 设 $F=\{i_1,... , i_k\}$ , $i_1\lt ...\lt i_k$ . 引入随机向量 $X_{\lt i}:=(X_1,..., X_{i-1})$ . 由可加性，
+$$\begin{align*} H(X_F) & = H(X_{i_1})+H(X_{i_2} | X_{i_1}) + ... + H(X_{i_k} | X_{i_1}, ..., X_{i_{k-1}})\\ & \geq H(X_{i_1})+ H(X_{i_2} | X_{\lt i_2}) + ... + H(X_{i_k} | X_{\lt i_k})\\ & = \sum_{i\in F} H(X_i | X_{\lt i}).\end{align*}$$
+注意此时求和式中的各项都不与 $F$ 显式相关，
+$$\begin{align*} \sum_{F\in \mathcal{F}} H(X_F) & \geq \sum_{F\in \mathcal{F}}\sum_{i\in F} H(X_i | X_{\lt i}) \\ & = \sum_{i\in [n]} H(X_i | X_{\lt i}) \left(\sum_{F\in \mathcal{F}: i\in F} 1 \right) \\ & = \mu \sum_{i\in [n]} H(X_i | X_{\lt i}) \\ & =\mu H(X_1,..., X_n). \end{align*}$$
+最后一行来自于可加性. 引理得证.$\quad$$\Box$
+</p>
+<p>$\quad$</p>
+<p>
+Shearer引理的意义在于对所有局部的 $X_F$ 的控制可以收集为对整体的 $X$ 的控制. 
+</p>
+<p>
+<b>注.</b> 同理可以得到应用更广的 <i>随机Shearer引理</i> ：
+</p>
+<p>
+设 $F$ 为 $[n]$ 的一个随机子集 s.t. $\mathbb{P}[i\in F]\geq \mu$ 对任意 $i\in [n]$ 成立. 则对于随机向量 $(X_1, ..., X_n)$ ，
+$$H(X_1, ..., X_n)\leq \frac{1}{\mu}\mathbb{E}_F H(X_F) ,$$
+其中 $\mathbb{E}_F$ 是关于 $F$ 的期望, $X_F$ 是随机向量  $(X_i : i \in F)$ .
+</p>
+  
+<h2>图中的三角形</h2>
+<p>
+现在给出第一个应用：
+</p>
+<p class="thm">
+<b>定理3.</b> 设图 $G$ 有 $k$ 条边. 则 $G$ 中至多含有 $\frac{(2k)^{3/2}}{6}$ 个三角形.
+</p>
+<p>
+<i>证明.</i> 设 $G$ 中的全体有向三角形为 $\mathcal{T}$ , 用顶点构成的随机向量 $(X_1, X_2, X_3)$ 标记每个有向三角形. 现在令 $(X_1,X_2, X_3)\sim \mathcal{T}$ , 于是由不变性 $H(X_1, X_2 , X_3)=\log |\mathcal{T}|$ . 现在Shearer引理将每个有向三角形都投影至它的三条边：
+$$\begin{align*} H(X_1, X_2, X_3) & \leq \frac{1}{2} \left( H(X_1,X_2)+H(X_2,X_3)+H(X_1,X_3) \right)\\ & \leq \frac{3}{2}\log (2k).\end{align*}$$
+第二行来自最大性（并不需要知道每条有向边 $(X_i, X_j)$ 的概率分布！），因子 $2$ 自然来自于有向性. 于是
+$$\# \{G \text{ 中的三角形}\} \leq \frac{1}{3!}|\mathcal{T}|\leq \frac{(2k)^{3/2}}{6}.$$
+定理得证.$\quad$$\Box$
+</p>
+<p>$\quad$</p>
+<p>
+定理3的上界是最优的；它是 $n\to\infty$ 时n-完全图满足的渐进上界.
+</p>
+
+<h2>Loomis-Whitney不等式</h2>
+<p>
+定理3证明的关键在于将三条边的信息拼接为三角形. 这与几何中的等周问题有相同的想法：点集的边缘多大程度上影响了点集的行为（e.g. 体积）？这里我们考虑一个应用广泛的结论——<i>Loomis-Whitney不等式</i> . 对于 $\mathbb{R}^n$ 中的Lebesgue可测集 $E$ , 它的体积记为 $Vol_n[E]$ . 设沿第 $i$ 个坐标轴的投影算子为 $\pi_i$ :
+$$\pi_i: \mathbb{R}^n\to \mathbb{R}^{n-1}, \ (x_1,..., x_n)\mapsto (x_1,..., x_{i-1}, x_{i+1}, ..., x_n).$$
+</p>
+<p class="thm">
+<b>定理4</b> (Loomis-Whitney)<b>.</b> 设 $E$ 为 $\mathbb{R}^n$ 中的可测集，则
+$$Vol[E]\leq \left(\prod_{i=1}^n Vol[\pi_i(E)]\right)^{1/(n-1)}.$$
+</p>
+<p>
+证明. WLOG, 设 $E$ 是有限个 单位格点方体 的并；其他情形可以通过格点方体逼近和scaling完成. 于是体积估计转化一个计数问题：$Vol[E]= \# \{E \text{ 中的方体}\}$ . 现在设随机方体 $X$ 在所有方体上一致分布，则 $H(X)=\log Vol[E]$ . 由于每个方体和它的中心一一对应，因此有不变性 $H(X)=H(X_1, ..., X_n)$ , 其中 $(X_i)$ 为中心的坐标. 
+现在考虑 $[n]$ 的子集族 $\mathcal{F}:=\{[n]\setminus \{i\}: \ i\in[n]\}$ , 其诱导了相应的投影
+$$\pi=\pi_i \ \leftrightarrow \ F=[n]\setminus \{i\}.$$
+每个 $i$ 都被 $n-1$ 个子集覆盖，Shearer引理给出
+$$\begin{align*} H(X) & \leq \frac{1}{n-1} H(X_1,..., X_{i-1}, X_{i+1}, ..., X_n).\end{align*}$$
+注意到有一一对应关系
+$$(X_1,..., X_{i-1}, X_{i+1}, ..., X_n) \ \leftrightarrow \ \pi_i(X)\in \{\pi_{i} E \text{ 中的 } n-1 { 维单位格点方体}\}.$$
+因此由最大性
+$$H(X_1,..., X_{i-1}, X_{i+1}, ..., X_n)\leq \log \# \{\pi_{i} E \text{ 中的 } n-1 { 维单位格点方体}\}= Vol_{n-1}[\pi_i(E)].$$
+综合上述估计即得到L-W不等式.$\quad$$\Box$
+</p>
+<p>$\quad$</p>
+<p>
+读者可以对 $\mathbb{Z}^n$ 的有限子集定义各个方向的投影算子并证明离散版本的L-W不等式.
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
