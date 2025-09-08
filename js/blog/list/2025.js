@@ -13,6 +13,7 @@ btitle[9] = "指数和的Littlewood猜想"; bdate[9] = "06/22"; bintro[9] = "频
 btitle[10] = "圆盘有Fourier正交基吗？"; bdate[10] = "06/30"; bintro[10] = "一段振荡积分-距离集问题-关联几何的奇幻旅程.";
 btitle[11] = "提升弱收敛性的Baire纲方法"; bdate[11] = "07/29"; bintro[11] = "具有凸积分背景的一个实用想法，与PDE弱解的非唯一性有密切的联系.";
 btitle[12] = "用熵计数"; bdate[12] = "08/25"; bintro[12] = "计数问题转化为熵的估计，Shearer引理将整体投影为局部.";
+btitle[13] = "Erdös的子集和问题"; bdate[13] = "09/08"; bintro[13] = "数学分析在极值组合的巧妙应用.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 
