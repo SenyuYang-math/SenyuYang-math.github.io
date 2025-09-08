@@ -1,0 +1,61 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+Erdös考虑过以下的极值组合问题：
+</p>
+<p>
+<i>设 $S$ 是一个由 $n$ 个不同的正整数组成的集合（$n \geq 1$）. 现在令 $S$ 的每个非空子集的元素之和（简称 <i>子集和</i>）都不相等，那么 $S$ 的元素的分布情况如何？</i>
+</p>
+<p>
+而本期博客的主角是以下的定理：
+</p>
+<p class="thm">
+<b>定理</b> (Benkoski-Erdös, 1974)<b>.</b> $S$ 的全体元素的倒数和严格小于 $2$ .
+</p>
+<p>
+为方便叙述，我们记 $S=\{a_k\}_{k=1}^n$ , 其中 $1\leq a_1\lt \cdots \lt a_n$ . 定理的结论说明 $a_k$ 的分布应当很分散. 最直接并且sharp的例子是 
+$$S_n:=\{1, 2, ... , 2^{n-1}\}.$$
+事实上，Erdös猜测
+</p>
+<p>
+<i>存在绝对常数 $0\lt c\leq 1$ , s.t. $a_k\geq c 2^{n}$ .</i>
+</p>
+<p>
+Erdös给这个猜想设立的奖金是300美元，这对四海为家的他来说绝对是一笔巨款. 
+</p>
+<hr height=1>
+<p>
+现在给出B-E对定理的神秘证明.
+</p>
+<p>
+<i>证明.</i> 构造生成多项式
+$$f_S(x):= \prod_{k=1}^n (1+x^{a_k}), \quad x\in (0,1).$$
+将上式乘积展开，全体单项式的次数遍历了 $S$ 的全部子集和. 子集和互不相同，于是有
+$$f_S(x)\lt \sum_{j=0}^\infty x^j = \frac{1}{1-x} .$$
+取对数得到
+$$\sum_{k=1}^n \log (1+x^{a_k}) \leq - \log(1-x).$$
+奇妙的操作开始了：考虑在 $(0,1)$ 做以下积分
+$$\sum_{k=1}^n \int_0^1 \frac{\log (1+x^{a_k} )}{x} \, \mathrm{d} x \lt - \int_0^1 \frac{\log(1-x)}{x} \, \mathrm{d} x.$$
+左式做变量代换 $x \mapsto y:=x^{a_k}$ 就得到倒数和
+$$\left(\sum_{k=1}^n \frac{1}{a_k} \right)\cdot \int_0^1 \frac{\log (1+y)}{y} \, \mathrm{d} y < -\int_0^1 \frac{\log (1-y)}{y} \, \mathrm{d} y.$$
+令反常积分 $A:= \int_0^1 \frac{\log (1+y)}{y} \, \mathrm{d} y$ , $B:= -\int_0^1 \frac{\log (1-y)}{y} \, \mathrm{d} y$ . 显然 $A$ 和 $B$ 都是良定义的. 注意到：
+$$\begin{align*}B-A & = -\int_0^1 \frac{\log (1-y^2)}{y} \, \mathrm{d} y=-\int_0^1 \frac{1}{2}\frac{\log (1-z)}{z} \, \mathrm{d} z= \frac{1}{2}B.\end{align*},$$
+其中第二个等号使用了变量代换 $y\mapsto z:=y^{2}$ . 因此 $B=2A$ , 定理得证.$\quad$$\Box$
+</p>
+<p>$\quad$</p>
+<p>
+这种proof from the Book对于Erdös就像呼吸一样自然233
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
