@@ -64,6 +64,11 @@ p a:link, a:visited{
   color:#0000EE;
   text-decoration: none;
   }
+.seperate{
+  width: 80%; 
+  height: 1px;
+  margin: 40px auto
+}
 /* 数学定理区块样式 */
 .thm {
   padding: 30px 0;
