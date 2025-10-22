@@ -49,8 +49,9 @@ $$\begin{align*}
 $$\begin{equation*}\begin{aligned}
   & \quad \left| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right| \\
   & \lesssim t^{-\frac{1}{4}}\|z\chi(z)\|_{L^2} \cdot t^{-\frac{1}{2}} \left\| [J(t)u](t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
-  & \lesssim t^{-\frac{3}{4}} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2}. 
+  & \lesssim t^{-\frac{3}{4}} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2},
 \end{aligned}\end{equation*}$$
+以及
 $$\begin{equation*}\begin{aligned}
   & \quad \left\| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right\|_{L_v^2} \\
   & \lesssim t^{-\frac{1}{2}}\|z\chi(z)\|_{L^1} \cdot t^{-\frac{1}{2}} \left\| [J(t)u](t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
@@ -74,13 +75,13 @@ $$\begin{equation}\begin{aligned}
 <p>
 接下来，我们通过 $u$ 满足的cubic NLS研究 $\psi(t,v)$ 随时间的演化行为. 直接计算可得
 $$\begin{equation}\begin{aligned}
-  \partial_t \psi(t,v) & = \mp i \int_{\mathbb{R}} |u|^2u(t,x) \overline{\Psi_v(t,x)} \, dx + \int_{\mathbb{R}} u(x,t) \overline{(\partial_t+i\Delta)\Psi_v(t,x)} \, dx \\ 
+  \partial_t \psi(t,v) & = \mp i \int_{\mathbb{R}} |u|^2u(t,x) \overline{\Psi_v(t,x)} \, dx + \int_{\mathbb{R}} u(x,t) \overline{(\partial_t+i\partial_x^2)\Psi_v(t,x)} \, dx \\ 
   & =: I_1+I_2.
 \end{aligned}\end{equation}$$
 下一个命题给出上述方程的非线性项的精细刻画.
 </p>
 <p class="thm">
-<b>命题2.</b> 方程 $\tag{?}$ 可写作以下形式
+<b>命题2.</b> 方程 $\text{(?)}$ 可写作以下形式
 $$\begin{equation} \partial_t \psi(t,v) = \mp it^{-1}\cdot |\psi|^2\psi(t,v) + R(t,v), \end{equation}$$
 其中余项 $R(t,v)$ 满足以下的衰减估计
 $$\begin{equation}\begin{aligned} 
@@ -91,7 +92,7 @@ $$\begin{equation}\begin{aligned}
 <p>
 <i>证明.</i> 对于 $I_2$，我们有以下等式
 $$\begin{align*}
-  &\quad (i\partial_t-\Delta)\Psi_v(t,x)\\
+  &\quad (i\partial_t-\partial_x^2)\Psi_v(t,x)\\
   & = \frac{1}{2t} e^{-i\frac{x^2}{4t}} \partial_x \left[ t^{\frac{1}{2}} \cdot \left( \chi'(\frac{x-vt}{\sqrt{t}}) + i\frac{x-vt)}{\sqrt{t}}\chi(\frac{x-vt}{\sqrt{t}}) \right) \right]\\ 
   & =: \frac{1}{2t} e^{-i\frac{x^2}{4t}} \partial_x\tilde{\chi}_v. 
 \end{align*}$$
