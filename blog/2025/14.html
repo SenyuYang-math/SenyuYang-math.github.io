@@ -15,7 +15,7 @@ $$i\partial_t u -\partial_x^2 u = \mu |u|^2 u,\quad \mu=\pm 1, \ u(t=0,x)=u_0(x)
 <p>
 约定（群）速度的记号 $v:=x/t$. 线性NLS的相函数 $\phi(\xi)= v\xi+\xi^2$, 唯一的驻相频率是 $\xi_v:=-v/2$. 因此振荡积分理论中标准的驻相原理给出线性NLS解 $u_L$ 的渐进行为：
 $$\begin{align*}u_L(t,vt)& =Ct^{\frac{1}{2}}\widehat{u_0}(\xi_v)e^{i\frac{\pi}{4}} e^{it\phi(\xi_v)}+ O(t^{-1})\\ & = Ct^{\frac{1}{2}}\widehat{u_0}(\xi_v) e^{-i\frac{x^2}{4t}}+ O(t^{-1}).\end{align*}$$
-上式说明 $u_L(t, vt)$ 的主项由 $u_0$ 在驻相频率 $\xi_v$ 的振幅控制，并有标准的色散估计 $|u_L(t)|_{L^\infty}\lesssim_u t^{-\frac{1}{2}}$. 但对于NLS，解的渐进行为因受到非线性项的相互作用而变得不明朗.
+上式说明 $u_L(t, vt)$ 的主部由 $u_0$ 在驻相频率 $\xi_v$ 的振幅控制，并有标准的色散估计 $|u_L(t)|_{L^\infty}\lesssim_u t^{-\frac{1}{2}}$. 但对于NLS，解的渐进行为因受到非线性项的相互作用而变得不明朗.
 </p>
 <p>
 根据线性结果，Ifrim-Tataru引入“波包测试”来研究非线性问题：固定速度参数 $v$, 构造不同速度的波包
@@ -30,28 +30,29 @@ $$\begin{align*}
 \end{align*}$$
 于是
 $$\begin{align*}
-  & \qquad e^{i\frac{v^2t}{4}} u(t,vt)-t^{-\frac{1}{2}}\psi(t,v)\\
+  & \quad e^{i\frac{v^2t}{4}} u(t,vt)-t^{-\frac{1}{2}}\psi(t,v)\\
   & = \int_{\mathbb{R}} \frac{1}{\sqrt{t}}\chi(\frac{x-vt}{\sqrt{t}}) \left(e^{i\frac{v^2 t}{4}}u(t, vt)-e^{i\frac{x^2}{4t}} u(t,x)\right) \, dx\\ 
   & = \int_{\mathbb{R}} t^{\frac{1}{2}}\chi(t^{\frac{1}{2}}(z)) \left( e^{i\frac{v^2 t}{4}}u(t, vt)- e^{i\frac{(v-z)^2t}{4}}u((v-z)t,t) \right) \, dz. 
 \end{align*}$$
 由于 
-$$\begin{align*}& \qquad e^{i\frac{v^2 t}{4}}u(t, vt)- e^{i\frac{(v-z)^2t}{4}}u((v-z)t,t)\\
+$$\begin{align*}
+  & \quad e^{i\frac{v^2 t}{4}}u(t, vt)- e^{i\frac{(v-z)^2t}{4}}u((v-z)t,t)\\
   & = z\int_0^1 t \partial_x\left[ e^{i\frac{\cdot^2}{4t}}u(t, \cdot)\right] (t, (v-hz)t) \, dh,\end{align*}$$ 
 并且
 $$-2it\partial_x\left[e^{i\frac{x^2}{4t}}u(t, x)\right]= e^{i\frac{x^2}{4t}} J(t)u(t,x),$$
 其中向量场 $J(t):= x-2it\partial_x$, 我们得到
 $$\begin{align*}
-  & \qquad e^{i\frac{v^2t}{4}} u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \\ 
+  & \quad e^{i\frac{v^2t}{4}} u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \\ 
   & \sim \int_0^1\int_{\mathbb{R}} zt^{\frac{1}{2}}\chi(zt^{\frac{1}{2}})e^{i\frac{(v-z)^2t}{4}}[J(t)u](t, (v-hz)t) \, dzdh.
 \end{align*}$$
 进而由Young不等式 $L^2\times L^2 \to L^\infty$（$L^1\times L^2\to L^2$）和scaling变换得到更精细的驻相原理
 $$\begin{equation*}\begin{aligned}
-  & \qquad \left| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right| 
+  & \quad \left| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right| \\
   & \lesssim t^{-\frac{1}{4}}\|z\chi(z)\|_{L^2} \cdot t^{-\frac{1}{2}} \left\| [J(t)u](t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
   & \lesssim t^{-\frac{3}{4}} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2}. 
 \end{aligned}\end{equation*}$$
 $$\begin{equation*}\begin{aligned}
-  & \qquad \left\| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right\|_{L_v^2} 
+  & \quad \left\| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right\|_{L_v^2} \\
   & \lesssim t^{-\frac{1}{2}}\|z\chi(z)\|_{L^1} \cdot t^{-\frac{1}{2}} \left\| [J(t)u](t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
   & \lesssim t^{-1} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2}. 
 \end{aligned}\end{equation*}$$
@@ -90,7 +91,7 @@ $$\begin{equation}\begin{aligned}
 <p>
 <i>证明.</i> 对于 $I_2$，我们有以下等式
 $$\begin{align*}
-  &\qquad (i\partial_t-\Delta)\Psi_v(t,x)\\
+  &\quad (i\partial_t-\Delta)\Psi_v(t,x)\\
   & = \frac{1}{2t} e^{-i\frac{x^2}{4t}} \partial_x \left[ t^{\frac{1}{2}} \cdot \left( \chi'(\frac{x-vt}{\sqrt{t}}) + i\frac{x-vt)}{\sqrt{t}}\chi(\frac{x-vt}{\sqrt{t}}) \right) \right]\\ 
   & =: \frac{1}{2t} e^{-i\frac{x^2}{4t}} \partial_x\tilde{\chi}_v. 
 \end{align*}$$
