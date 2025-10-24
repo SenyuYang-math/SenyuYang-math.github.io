@@ -8,7 +8,7 @@
 <div id="container" class="container">
 <p>
 本期博客取材自Ifrim-Tataru在一维非线性色散方程长时间动力学的若干工作. 为了清晰和简单起见，我们只考虑一个具体的例子 —— 一维cubic非线性Schrödinger方程(NLS)
-$$i\partial_t u -\partial_x^2 u = \mu |u|^2 u,\quad \mu=\pm 1, \ u(t=0,x)=u_0(x)\in \mathcal{S}(\mathbb{R}).$$
+$$i\partial_t u -\partial_x^2 u = \mu |u|^2 u,\quad \mu=\pm 1, \ u(t=0,x)=u_0(x).$$
 方程在 $L^2$ 和 $H^1$ 的局部/整体适定性是经典的. 我们希望研究小初值整体解的渐进行为. 
 </p>
 <h2>驻相原理，波包分解</h2>
@@ -198,7 +198,7 @@ $R_2$ 得证，我们完成了命题2的证明.$\quad$$\Box$
   <b>定理4</b> (定量modified散射)<b>.</b> 存在 $\epsilon_0, \delta>0$, s.t. $\forall u_0\in \langle x\rangle L^2 \cap H^1(\mathbb{R})$ , $\epsilon:=\|u_0\|_{\langle x\rangle L^2}$$+\|u_0\|_{H^1}$$\lt \epsilon_0$, 都存在唯一的整体解 $u\in C([0,\infty), H^1)$. 并且 $u$ 满足    
   $$\|u(t)\|_{L_x^\infty}\lesssim \epsilon t^{-\frac{1}{2}}, \quad \|J^{\leq 1}u(t)\|_{L_x^2} \lesssim \epsilon t^{\delta}.$$
   进一步地，存在 $\psi_\infty(v)\in L^\infty\cap L^2$ 和 $\Phi_\infty (v) \in L^\infty$, s.t. $u(t,x)$ 在 $t\to \infty$ 时有渐进行为
-  $$u(t,x)-\color{red}{ t^{-\frac{1}{2}} e^{-i\frac{x^2}{4t}-i\mu \psi_\infty(\frac{x}{t})\log(t) - i\mu \Phi_{\infty}(\frac{x}{t})  } \psi_\infty(\frac{x}{t}) }\to 0$$
+  $$u(t,x)-{\color{red} t^{-\frac{1}{2}} e^{-i\frac{x^2}{4t}-i\mu \psi_\infty(\frac{x}{t})\log(t) - i\mu \Phi_{\infty}(\frac{x}{t})  } \psi_\infty(\frac{x}{t}) }\to 0$$
   在 $L^\infty\cap L^2(\mathbb{R})$ 成立.
 </p>
 <p>  
