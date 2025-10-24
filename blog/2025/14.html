@@ -7,20 +7,23 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-本文内容来自Ifrim-Tataru在一维非线性色散方程的长时间动力学行为的若干工作. 为了清晰和简单起见，我们只考虑一个具体的例子 —— 一维cubic非线性Schrödinger方程(NLS)
-$$i\partial_t u -\partial_x^2 u = \mu |u|^2 u,\quad \mu=\pm 1, \ u(t=0,x)=u_0(x).$$
-我们希望研究小初值经演化后的渐进行为.
+本期博客取材自Ifrim-Tataru在一维非线性色散方程长时间动力学的若干工作. 为了清晰和简单起见，我们只考虑一个具体的例子 —— 一维cubic非线性Schrödinger方程(NLS)
+$$i\partial_t u -\partial_x^2 u = \mu |u|^2 u,\quad \mu=\pm 1, \ u(t=0,x)=u_0(x)\in \mathcal{S}(\mathbb{R}).$$
+方程在 $L^2$ 和 $H^1$ 的局部/整体适定性是经典的. 我们希望研究小初值整体解的渐进行为. 
 </p>
-<h2>驻相原理</h2>
+<h2>驻相原理，波包分解</h2>
 <p>
-约定（群）速度的记号 $v:=x/t$. 线性Schrödinger方程(LS)的相函数是 $\phi(\xi)=$$v\xi+\xi^2$, 唯一的驻相频率是 $\xi_v:=-v/2$. 因此振荡积分理论中标准的驻相原理给出LS解 $u_L$ 的渐进行为
+给定时间区间 $[0,T)$, 这一节我们建立 $u(t,\cdot)\in \left\langle x\right\rangle L^2 \cap H^1 (\mathbb{R})$ 的先验渐进估计. 约定（群）速度的记号 $v:=x/t$. 
+</p>
+<p>
+线性Schrödinger方程(LS)的相函数是 $\phi(\xi)=$$v\xi+\xi^2$, 唯一的驻相频率是 $\xi_v:=-v/2$. 因此振荡积分理论中标准的驻相原理给出LS解 $u_L$ 的渐进行为
 $$\begin{align*}u_L(t,vt)& =Ct^{\frac{1}{2}}\widehat{u_0}(\xi_v)e^{i\frac{\pi}{4}} e^{it\phi(\xi_v)}+ O(t^{-1})\\ & = Ct^{\frac{1}{2}}\widehat{u_0}(\xi_v) e^{-i\frac{x^2}{4t}}+ O(t^{-1}).\end{align*}$$
 上式说明 $u_L(t, vt)$ 的主部由 $u_0$ 在驻相频率 $\xi_v$ 的振幅控制，并有标准的色散估计 $|u_L(t)|_{L^\infty}\lesssim_u t^{-\frac{1}{2}}$. 但对于NLS，解的渐进行为因受到非线性项的相互作用而变得不明朗.
 </p>
 <p>
-根据线性结果，Ifrim-Tataru引入“波包测试”来研究非线性问题：固定速度参数 $v$, 构造不同速度的波包
+根据线性结果，Ifrim-Tataru引入“波包分解”来研究非线性问题：固定速度参数 $v$, 构造不同速度的波包
 $$\Psi_v(x,t):= \chi(\frac{x-vt}{\sqrt{t}})e^{-i\frac{x^2}{4t}}, \quad t\geq 1,$$
-其中 $\chi\in C_0^\infty: \int_{\mathbb{R}} \chi \, dx=1$. 注意到，物理局部化因子 $\chi$ 的scaling和平移联合衰减因子 $t^{-\frac{1}{2}}$ 就获得了一族模去速度 $v$ 运动的恒等逼近.
+其中 $\chi\in C_0^\infty: \int_{\mathbb{R}} \chi \, dx=1$. 局部化因子 $\chi$ 乘以衰减 $t^{-\frac{1}{2}}$ 就得到一族模去速度 $v$ 的恒等逼近.
 </p>
 <p>
 现在用上述波包做内积来测试 $u$ 不同速度部分的渐进行为：
@@ -39,55 +42,60 @@ $$\begin{align*}
   & \quad e^{i\frac{v^2 t}{4}}u(t, vt)- e^{i\frac{(v-z)^2t}{4}}u((v-z)t,t)\\
   & = z\int_0^1 t \partial_x\left[ e^{i\frac{\cdot^2}{4t}}u(t, \cdot)\right] (t, (v-hz)t) \, dh,\end{align*}$$ 
 并且
-$$-2it\partial_x\left[e^{i\frac{x^2}{4t}}u(t, x)\right]= e^{i\frac{x^2}{4t}} J(t)u(t,x),$$
-其中向量场 $J(t):= x-2it\partial_x$, 我们得到
+$$-2it\partial_x\left[e^{i\frac{x^2}{4t}}u(t, x)\right]= e^{i\frac{x^2}{4t}} Ju(t,x),$$
+其中向量场 $J:= x-2it\partial_x$. 我们得到
 $$\begin{align*}
   & \quad e^{i\frac{v^2t}{4}} u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \\ 
-  & \sim \int_0^1\int_{\mathbb{R}} zt^{\frac{1}{2}}\chi(zt^{\frac{1}{2}})e^{i\frac{(v-z)^2t}{4}}[J(t)u](t, (v-hz)t) \, dzdh.
+  & \sim \int_0^1\int_{\mathbb{R}} zt^{\frac{1}{2}}\chi(zt^{\frac{1}{2}})e^{i\frac{(v-z)^2t}{4}}Ju(t, (v-hz)t) \, dzdh.
 \end{align*}$$
 进而由Young不等式 $L^2\times L^2 \to L^\infty$（$L^1\times L^2\to L^2$）和scaling变换得到更精细的驻相原理
 $$\begin{equation*}\begin{aligned}
   & \quad \left| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right| \\
-  & \lesssim t^{-\frac{1}{4}}\|z\chi(z)\|_{L^2} \cdot t^{-\frac{1}{2}} \left\| [J(t)u](t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
-  & \lesssim t^{-\frac{3}{4}} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2},
+  & \lesssim t^{-\frac{1}{4}}\|z\chi(z)\|_{L^2} \cdot t^{-\frac{1}{2}} \left\| Ju(t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
+  & \lesssim t^{-\frac{3}{4}} \left\| J^{\leq 1}u(t) \right\|_{L_x^2},
 \end{aligned}\end{equation*}$$
 以及
 $$\begin{equation*}\begin{aligned}
   & \quad \left\| e^{i\frac{v^2t}{4}}u(t,vt)-t^{-\frac{1}{2}}\psi(t,v) \right\|_{L_v^2} \\
-  & \lesssim t^{-\frac{1}{2}}\|z\chi(z)\|_{L^1} \cdot t^{-\frac{1}{2}} \left\| [J(t)u](t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
-  & \lesssim t^{-1} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2}. 
+  & \lesssim t^{-\frac{1}{2}}\|z\chi(z)\|_{L^1} \cdot t^{-\frac{1}{2}} \left\| Ju(t,x) \right\|_{L_x^2} \cdot \int_0^1 h^{-\frac{1}{2}} \, dh\\
+  & \lesssim t^{-1} \left\| J^{\leq 1}u(t) \right\|_{L_x^2}. 
 \end{aligned}\end{equation*}$$
 我们总结上述论证得到：
 </p>
 <p class="thm">
-<b>命题1</b> (驻相原理)<b>.</b> 对于<i>波包测试函数</i> $\psi(t,v)$, 我们有上界估计
+<b>命题1</b> (驻相原理)<b>.</b> 令 $t\in[0,T)$. 对于<i>波包分解</i> $\psi(t,v)$, 我们有上界估计
 $$\|\alpha(t,v)\|_{L_v^\infty}\leq t^{\frac{1}{2}}\|u(t,x)\|_{L^\infty},\quad \|\psi(t,v)\|_{L_v^2} \leq \|u(t,x)\|_{L_v^2}.$$
 并且有关于不同群速度的渐进刻画
 $$\begin{equation}\begin{aligned}
-  \left\| u(t,vt)-t^{-\frac{1}{2}}e^{-i\frac{v^2t}{4}}\psi(t,v) \right\|_{L_v^\infty} & \lesssim t^{-1} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2} \\
-  \left\| u(t,vt)-t^{-\frac{1}{2}}e^{-i\frac{v^2t}{4}}\psi(t,v) \right\|_{L_v^2} & \lesssim t^{-1} \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2}. 
+  \left\| u(t,vt)-t^{-\frac{1}{2}}e^{-i\frac{v^2t}{4}}\psi(t,v) \right\|_{L_v^\infty} & \lesssim t^{-1} \left\| J^{\leq 1}u(t) \right\|_{L_x^2} \\
+  \left\| u(t,vt)-t^{-\frac{1}{2}}e^{-i\frac{v^2t}{4}}\psi(t,v) \right\|_{L_v^2} & \lesssim t^{-1} \left\| J^{\leq 1}u(t) \right\|_{L_x^2}. 
 \end{aligned}\end{equation}$$
 </p>
 <p>
-命题1指出，$u(t, \cdot t)$ 的渐进主部完全由波包测试函数 $\psi(t, \cdot)$ 决定，并具有和 $u_L$ 同样的衰减速度.
+命题1指出，$u(t, \cdot t)$ 的渐进主部完全由波包测试函数 $\psi(t, \cdot)$ 决定，并具有和 $u_L$ 同样的衰减速度. 注意这里的向量场 $J$ 并非空穴来风——它是一维Galilean群的无穷小生成元，并满足以下良好的性质：
+$$[i\partial_t-\Delta, J]=0, \quad e^{\frac{it}{2}\partial_x^2}\circ (x\cdot) = J \circ e^{\frac{it}{2}\partial_x^2}.$$
+与Schrödinger半群交换立即导出 $\langle x \rangle L^2 \cap H^1$ 解的适定性.
 </p>
 <h2>波包的演化</h2>
 <p>
-接下来，我们通过 $u$ 满足的cubic NLS研究 $\psi(t,v)$ 随时间的演化行为. 直接计算可得
+先验地假设 $u$ 在 $[0,T)$ 上满足cubic NLS，这一节我们研究 $\psi(t,v)$ 的演化行为. 
+</p>
+<p>
+$\psi(t,v)$ 满足的方程可以直接计算得到：
 $$\begin{equation}\begin{aligned}
-  \partial_t \psi(t,v) & = \mp i \int_{\mathbb{R}} |u|^2u(t,x) \overline{\Psi_v(t,x)} \, dx \\
+  \partial_t \psi(t,v) & = - i\mu \int_{\mathbb{R}} |u|^2u(t,x) \overline{\Psi_v(t,x)} \, dx \\
   &\quad + \int_{\mathbb{R}} u(x,t) \overline{(\partial_t+i\partial_x^2)\Psi_v(t,x)} \, dx \\ 
-  & =: \mp I_1+I_2.
+  & =: -\mu I_1+I_2.
 \end{aligned}\end{equation}$$
 下一个命题给出上述方程的非线性项的精细刻画.
 </p>
 <p class="thm">
 <b>命题2</b> (波包方程)<b>.</b> $\psi(t,v)$ 的方程可写作以下形式
-$$\begin{equation} \partial_t \psi(t,v) = \mp it^{-1}\cdot |\psi|^2\psi(t,v) + R(t,v), \end{equation}$$
+$$\begin{equation} \partial_t \psi(t,v) = - i\mu t^{-1}\cdot |\psi|^2\psi(t,v) + R(t,v), \quad t\in[0,T).\end{equation}$$
 其中余项 $R(t,v)$ 满足更优的衰减估计
 $$\begin{equation}\begin{aligned} 
-  \|R(t)\|_{L_v^\infty} & \lesssim t^{-\frac{5}{4}} \cdot \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2} \left( 1+ \left\|t^{\frac{1}{2}}u(t)\right\|_{L_x^\infty}^2 \right),\\
-  \|R(t)\|_{L_v^2} & \lesssim t^{-\frac{3}{2}} \cdot \left\| J^{\leq 1}(t)u(t) \right\|_{L_x^2} \left( 1+ \left\|t^{\frac{1}{2}}u(t)\right\|_{L_x^\infty}^2 \right). 
+  \|R(t)\|_{L_v^\infty} & \lesssim t^{-\frac{5}{4}} \cdot \left\| J^{\leq 1}u(t) \right\|_{L_x^2} \left( 1+ \left\|t^{\frac{1}{2}}u(t)\right\|_{L_x^\infty}^2 \right),\\
+  \|R(t)\|_{L_v^2} & \lesssim t^{-\frac{3}{2}} \cdot \left\| J^{\leq 1}u(t) \right\|_{L_x^2} \left( 1+ \left\|t^{\frac{1}{2}}u(t)\right\|_{L_x^\infty}^2 \right). 
 \end{aligned}\end{equation}$$
 </p>
 <p>
@@ -101,12 +109,12 @@ $$\begin{align*}
 于是做分部积分
 $$\begin{align*}
   I_2 & = -\frac{i}{2t} \int_{\mathbb{R}} \partial_x(e^{i\frac{x^2}{4t}}u) \tilde{\chi} \, dx\\
-  & = \frac{1}{4t} \int_{\mathbb{R}} e^{i\frac{x^2}{4t}} [J(t)u](t) \cdot \tilde{\chi} \, dx. 
+  & = \frac{1}{4t} \int_{\mathbb{R}} e^{i\frac{x^2}{4t}} Ju(t) \cdot \tilde{\chi} \, dx. 
 \end{align*}$$
 计算可得 $\|\tilde{\chi}\|_{L^2}\lesssim t^{3/4}$, $\|\tilde{\chi}\|_{L^1}\lesssim t$. 因此由Cauchy-Schwarz不等式，
-$$\|I_2\|_{L_v^\infty} \lesssim |t|^{-\frac{5}{4}} \left\| [J(t)u](t) \right\|_{L_x^2},$$
+$$\|I_2\|_{L_v^\infty} \lesssim |t|^{-\frac{5}{4}} \left\| Ju(t) \right\|_{L_x^2},$$
 以及由Young不等式，
-$$\|I_2\|_{L_v^2} \lesssim |t|^{-\frac{3}{2}} \left\| [J(t)u](t) \right\|_{L_x^2}.$$
+$$\|I_2\|_{L_v^2} \lesssim |t|^{-\frac{3}{2}} \left\| Ju(t) \right\|_{L_x^2}.$$
 </p>
 <p>
 <i>(2)</i> $I_1$<i>的估计.</i> 根据命题1的渐进公式，我们做以下分解
@@ -127,13 +135,13 @@ $$\begin{align*}
 $$\begin{align*}
   |R_1(t,v)| & \lesssim |\psi(t,v)|\cdot |u(t,vt)-t^{-\frac{1}{2}}e^{-i\frac{x^2}{4t}}\psi(t,v)|\\
   & \quad \cdot t^{-\frac{1}{2}} \left( t^{\frac{1}{2}}|u(t,vt)|+ |\psi(t,v)|\right)\\
-  &\lesssim t^{-\frac{5}{4}} \left\| [J^{\leq 1}(t)u](t) \right\|_{L_x^2} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2,
+  &\lesssim t^{-\frac{5}{4}} \left\| J^{\leq 1}u(t) \right\|_{L_x^2} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2,
 \end{align*}$$
 以及
 $$\begin{align*}
   \left\|R_1(t)\right\|_{L_v^2} & \lesssim \|\psi(t)\|_{L_v^\infty} \cdot \left\|u(t,vt)-t^{-\frac{1}{2}}e^{-i\frac{x^2}{4t}}\psi(t,v)\right\|_{L_v^2}\\
   & \quad \cdot t^{-\frac{1}{2}} \left( t^{\frac{1}{2}}\|u(t)\|_{L_x^\infty}+ \|\psi(t)\|_{L_v^\infty}\right)\\
-  &\lesssim t^{-\frac{3}{2}} \left\| [J^{\leq 1}(t)u](t) \right\|_{L_x^2} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2.
+  &\lesssim t^{-\frac{3}{2}} \left\| J^{\leq 1}u(t) \right\|_{L_x^2} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2.
 \end{align*}$$
 $R_1$ 得证.
 </p>
@@ -144,11 +152,57 @@ $$\begin{align*}
   & \lesssim t^{-1}\left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2 \cdot \left| e^{i\frac{x^2}{4t}}u(t,x)- e^{i\frac{v^2t}{4}}u(t,vt)\right|.
 \end{align*}$$
 于是类似于命题1的证明，我们得到
-$$\|R_2(t)\|_{L_v^\infty} \lesssim t^{-\frac{5}{4}} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2 \left\| [J^{\leq 1}(t)u](t) \right\|_{L_x^2},$$
-$$\|R_2(t)\|_{L_v^2} \lesssim t^{-\frac{3}{2}} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2 \left\| [J^{\leq 1}(t)u](t) \right\|_{L_x^2},$$
+$$\|R_2(t)\|_{L_v^\infty} \lesssim t^{-\frac{5}{4}} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2 \left\| J^{\leq 1}u(t) \right\|_{L_x^2},$$
+$$\|R_2(t)\|_{L_v^2} \lesssim t^{-\frac{3}{2}} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}^2 \left\| J^{\leq 1}u(t) \right\|_{L_x^2},$$
 $R_2$ 得证，我们完成了命题2的证明.$\quad$$\Box$
 </p>
 <h2>Modified散射</h2>
+<p>
+  最后一节我们给出整体解的散射行为. 首先我们稍微偏个题来证明 $L^\infty$ 衰减的bootstrap，这是小初值整体解存在性的关键.
+</p>
+<p class="thm">
+  <b>命题3</b> ($L^\infty$ bootstrap)<b>.</b> 设 $u(t,x)$ 是cubic NLS在 $[0,T)$ 上的 $H^1\cap \left\langle x\right\rangle L^2$ 解，并对给定的 $0<\delta\ll 1$ 满足以下估计
+  $$D(T):= \sup_{t\in[1,T)} \left\| t^{\frac{1}{2}}u(t) \right\|_{L_x^\infty}, \ E(T):= \sup_{t\in [1,T)} t^{-\delta}\left\| J^{\leq 1}u(t) \right\|_{L_x^2} \lt \infty.$$
+  则我们有bootstrap估计
+  $$D(T) \lesssim E(1)(1+D(T)^2).$$
+</p>
+<p>
+  <i>证明.</i> 根据命题1的 $L^\infty$ 渐进估计，只需控制 $\sup_{t\in[0,T)}\|\psi(t)\|_{L_v^\infty}$. 根据命题2，模去波包方程的线性部分
+  $$\partial_t \left( e^{ i\mu \int_1^t s^{-1} |\psi(s)|^2 \, ds} \psi(t) \right) = e^{\pm i \int_1^t s^{-1} |\psi(s)|^2 \, ds}R(t).$$
+  于是
+  $$\begin{align*}
+  \|\psi(t)\|_{L_v^\infty} & \leq \| \psi(1)\|_{L_v^\infty}+ \int_1^t \|R(s)\|_{L_v^\infty} \, ds \\
+  & \lesssim \| \psi(1)\|_{L_v^\infty} + \int_1^t t^{-\frac{5}{4}+\delta} E(s)(1+D(s)^2) \, ds.
+  \end{align*}$$
+  用Gronwall不等式，命题得证.$\quad$$\Box$
+</p>
+<p>
+  另一方面，直接计算即可得到 $E(T)$ 的bootstrap估计
+  $$\begin{align*}
+  \|J^{\leq 1}u(t)\|_{L_x^2} & \lesssim E(1) + D(T)^2 \int_1^t s^{-1+\delta} E(s) \, ds.
+  & \lesssim E(1)+ D(T)^2E(T) .
+  \end{align*}$$
+  联合局部适定性的结果，我们就在 $\langle x\rangle\cap H^1$ 证明了<b>小初值整体解的存在(唯一)性</b>，并且满足
+  $$D(\infty), E(\infty) \lesssim E(1)+D(1)\ll 1.$$
+</p>
+<p>
+  命题3的证明引入了一个新的函数
+  $$\tilde{\psi}(t,v):=e^{i\mu \int_1^t s^{-1} |\psi(s,v)|^2 \, ds} \psi(t,v).$$
+  $$\partial_t\tilde{\psi}(t,v)= e^{i\mu \int_1^t s^{-1} |\psi(s,v)|^2 \, ds}R(t,v), \quad t\in[0,T).$$
+  由于 $R(t)$ 是小量，我们看到波包方程的非线性项主部影响了 $\psi(t,v)$ 的相位，这种与线性情形的偏离现象就是所谓<b>modified散射</b>的原因！更定量地讲，命题2中的余项估计说明 $\{\tilde{\psi}(t)\}_{t\geq 1}$ 是 $L_v^\infty\cap L_v^2(\mathbb{R})$ 的Cauchy列，进而有极限函数 
+  $$\lim_{t\to\infty}\tilde{\psi}(t,v)=\psi_{\infty}(v) \in L^\infty\cap L^2.$$ 
+  另外，相位部分 $\{\int_1^t s^{-1} |\psi(s)|^2 \, ds- \log(t) \|\psi(t)\|^2\}_{t\geq 1}$ 是 $L_v^\infty$ 的Cauchy列. 注意 $|\psi(t,v)|=|\tilde{\psi}(t,v)|$，因此我们证明了主要结果：
+</p>
+<p class="thm">
+  <b>定理4</b> (定量modified散射)<b>.</b> 存在 $\epsilon_0, \delta>0$, s.t. $\forall u_0\in \langle x\rangle L^2 \cap H^1(\mathbb{R})$ , $\epsilon:=\|u_0\|_{\langle x\rangle L^2}$+\|u_0\|_{H^1}$$\lt \epsilom_0$, 都存在唯一的整体解 $u\in C([0,\infty), H^1)$. 并且 $u$ 满足    
+  $$\|u(t)\|_{L_x^\infty}\lesssim \epsilon t^{-\frac{1}{2}}, \quad \|J^{\leq 1}u(t)\|_{L_x^2} \lesssim \epsilon t^{\delta}.$$
+  进一步地，存在 $\psi_\infty(v)\in L^\infty\cap L^2$ 和 $\Phi_\infty(v) \in L_^\infty$, s.t. $u(t,x)$ 在 $t\to \infty$ 时有渐进行为
+  $$u(t,x)-\color{red} ｛t^{-\frac{1}{2}} e^{-i\frac{x^2}{4t}-i\mu \psi_\infty(\frac{x}{t})\log(t) - i\mu \Phi_{\infty}(\frac{x}{t})  } \psi_\infty(\frac{x}{t})｝\to 0$$
+  在 $L^\infty\cap L^2(\mathbb{R})$ 成立.
+</p>
+<p>  
+  我们看到相位以 $O(t^{-1})$ 的速度偏离线性情形. 并且在bootstrap假设下，还可以分别计算出 $L^\infty$ 和 $L^2$ 范数的渐进速率.
+</p>
 </div>
 
 <!-- js脚本 -->
