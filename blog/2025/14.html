@@ -16,7 +16,7 @@ $$i\partial_t u -\partial_x^2 u = \mu |u|^2 u,\quad \mu=\pm 1, \ u(t=0,x)=u_0(x)
 给定时间区间 $[0,T)$, 这一节我们建立 $u(t,\cdot)\in \left\langle x\right\rangle L^2 \cap H^1 (\mathbb{R})$ 的先验渐进估计. 约定（群）速度的记号 $v:=x/t$. 
 </p>
 <p>
-线性Schrödinger方程(LS)的相函数是 $\phi(\xi)=$$v\xi+\xi^2$, 唯一的驻相频率是 $\xi_v:=-v/2$. 因此振荡积分理论中标准的驻相原理给出LS解 $u_L$ 的渐进行为
+线性Schrödinger方程(LS)的相函数是 $\phi(\xi)=$$v\xi+\xi^2$, 唯一的驻相频率是 $\xi_v:=-\frac{1}{2}$. 因此振荡积分理论中标准的驻相原理给出LS解 $u_L$ 的渐进行为
 $$\begin{align*}u_L(t,vt)& =Ct^{\frac{1}{2}}\widehat{u_0}(\xi_v)e^{i\frac{\pi}{4}} e^{it\phi(\xi_v)}+ O(t^{-1})\\ & = Ct^{\frac{1}{2}}\widehat{u_0}(\xi_v) e^{-i\frac{x^2}{4t}}+ O(t^{-1}).\end{align*}$$
 上式说明 $u_L(t, vt)$ 的主部由 $u_0$ 在驻相频率 $\xi_v$ 的振幅控制，并有标准的色散估计 $|u_L(t)|_{L^\infty}\lesssim_u t^{-\frac{1}{2}}$. 但对于NLS，解的渐进行为因受到非线性项的相互作用而变得不明朗.
 </p>
@@ -197,7 +197,7 @@ $R_2$ 得证，我们完成了命题2的证明.$\quad$$\Box$
 <p class="thm">
   <b>定理4</b> (定量modified散射)<b>.</b> 存在 $\epsilon_0, \delta>0$, s.t. $\forall u_0\in \langle x\rangle L^2 \cap H^1(\mathbb{R})$ , $\epsilon:=\|u_0\|_{\langle x\rangle L^2}$$+\|u_0\|_{H^1}$$\lt \epsilon_0$, 都存在唯一的整体解 $u\in C([0,\infty), H^1)$. 并且 $u$ 满足    
   $$\|u(t)\|_{L_x^\infty}\lesssim \epsilon t^{-\frac{1}{2}}, \quad \|J^{\leq 1}u(t)\|_{L_x^2} \lesssim \epsilon t^{\delta}.$$
-  进一步地，存在 $\psi_\infty(v)\in L^\infty\cap L^2$ 和 $\Phi_\infty(v) \in L^\infty$, s.t. $u(t,x)$ 在 $t\to \infty$ 时有渐进行为
+  进一步地，存在 $\psi_\infty(v)\in L^\infty\cap L^2$ 和 $\Phi_\infty (v) \in L^\infty$, s.t. $u(t,x)$ 在 $t\to \infty$ 时有渐进行为
   $$u(t,x)-\color{red} ｛t^{-\frac{1}{2}} e^{-i\frac{x^2}{4t}-i\mu \psi_\infty(\frac{x}{t})\log(t) - i\mu \Phi_{\infty}(\frac{x}{t})  } \psi_\infty(\frac{x}{t})｝\to 0$$
   在 $L^\infty\cap L^2(\mathbb{R})$ 成立.
 </p>
