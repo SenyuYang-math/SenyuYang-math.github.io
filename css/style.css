@@ -25,7 +25,8 @@
 .headlink{
   display: block;
   float: right;
-  padding: 17px 1%;
+  padding: 15px 0.8%;
+  font-size: 12px;
   }
 /* 页脚样式 */
 .foot{
