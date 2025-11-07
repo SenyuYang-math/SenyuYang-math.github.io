@@ -19,13 +19,13 @@
   font-weight: bold;
   display: block;
   float: left;
-  padding: 15px 0.8%;
+  padding: 15px 0.6%;
   }
 .headlink{
   display: block;
   float: right;
-  padding: 15px 0.8%;
-  font-size: 12px;
+  padding: 15px 0.6%;
+  font-size: 15px;
   }
 /* 页脚样式 */
 .foot{
