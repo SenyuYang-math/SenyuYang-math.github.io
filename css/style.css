@@ -16,11 +16,10 @@
   text-decoration: none;
 }
 .headhome{
-  font-size: large;
   font-weight: bold;
   display: block;
   float: left;
-  padding: 17px 1%;     
+  padding: 15px 0.8%;
   }
 .headlink{
   display: block;
