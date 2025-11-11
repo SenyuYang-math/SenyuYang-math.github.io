@@ -70,6 +70,10 @@ p a:link, a:visited{
   height: 1px;
   margin: 40px auto
 }
+/* 标准斜体 */
+i {
+  font-style: italic;
+}
 /* 数学定理区块样式 */
 .thm {
   padding: 30px 0;
