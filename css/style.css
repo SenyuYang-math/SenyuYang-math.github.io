@@ -44,7 +44,7 @@
    }
 /* blog标题样式 */
   #blogtitle{
-    margin-bottom: 10px;
+    margin-bottom: 10px; margin-top: 16px;
   }
   #bloginfo{
     font-size:small;
@@ -86,20 +86,9 @@ mjx-container[jax="SVG"][display="true"] {
   /*  带标签\tag{}的公式能正常显示滚动条  */
   min-width: 0 !important;
 }
-/* 跳转模块样式 */
-.nextlink {
-  padding: 30px 0px;
-}
 /* 评论区样式 */
 .comment {
   padding-top: 20px;
-}
-/* 按钮样式 */
-#print-button {
-  background-color: white;
-  border: none;
-  color: blue;
-  font-size: 17px;
 }
 .navbar, .comment, .foot, #bottom {
   margin: 0 auto;
