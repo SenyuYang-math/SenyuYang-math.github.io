@@ -56,7 +56,7 @@
 /* 正文区块样式 */
 .container{
   margin: 0 auto;
-  margin-top: 52px;/* 顶端防止导航栏遮挡 */
+  margin-top: 50px;/* 顶端防止导航栏遮挡 */
   flex:1;
 }
 /* 链接颜色 */
