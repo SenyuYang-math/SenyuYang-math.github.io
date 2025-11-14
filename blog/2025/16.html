@@ -60,7 +60,7 @@ $$|\overline{\partial} F| \geq |F|(n-\log |F|).$$
 <i>DFX下界的证明.</i> 设向量 $a:= (a_1, \cdots, a_n)\subset \mathbb{Z}_+^n$. 第一个观察是，根据子集和互不相同的性质有
 $$a\cdot \xi \neq 0, \qquad \forall \xi\in \{-\frac{1}{2}, \frac{1}{2}\}^n.$$
 考虑 $\{-\frac{1}{2}, \frac{1}{2}\}^n$ 的子集 
-$$F:= \big\{\xi\in \{-\frac{1}{2}, \frac{1}{2}\}^n\colon a\cdot \xi <0\big\}.$$ 
+$$F:= \big\{\xi\in \{-\frac{1}{2}, \frac{1}{2}\}^n\colon a\cdot \xi \lt 0\big\}.$$ 
 由对称性可知 $|F|=2^{n-1}$. 于是Harper引理立即给出 $|\partial F| \geq \binom{n}{\lfloor \frac{n}{2} \rfloor}$.
 </p>
 <p>
@@ -70,9 +70,12 @@ $$a\cdot \xi = a\cdot (\xi- e_k)+ a_k\lt a_k\leq a_n.$$
 $$|a\cdot (\xi-\eta)|\leq \frac{1}{|\partial F|} \cdot a_n;$$
 否则再由 $a\cdot \xi >0$ 导致 $\max\{a\cdot \xi\}_{\xi\in \partial F} \geq a_n$, 矛盾.
 </p>
+<p>
 最后注意到, $\xi-\eta\in \{-1,1\}^n$. 于是再根据子集和互不相同的性质，$a\cdot (\xi-\eta)\neq 0$, 并由取值整数可知 $|a\cdot (\xi-\eta)|\geq 1$. 因此组合数渐进公式给出
 $$a_n \geq \binom{n}{\lfloor \frac{n}{2}\rfloor} =\left(\sqrt{\frac{2}{\pi}}-o(1)\right)\ \frac{2^n}{\sqrt{n}}.$$
 下界估计得证. $\quad$$\Box$
+</p>
+<p>好神奇...</p>
 </div>
 
 <!-- js脚本 -->
