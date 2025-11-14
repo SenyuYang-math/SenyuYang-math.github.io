@@ -1,0 +1,82 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+在此前的博客<a href="./14.html" target="_blank">Erdős的子集和问题</a>中，我们引入了以下问题：
+</p>
+<p style="font-color:grey">
+<i>设 $S$ 是一个由有限个正整数 $0\lt a_1\lt \cdots \lt a_n$ 组成的集合. 现在令 $S$ 的每个非空子集的元素之和（简称子集和）都不相等，那么 
+$S$ 的元素的分布情况如何？</i>
+</p>
+<p>
+并介绍了
+</p>
+<p class="thm">
+<b>定理</b> (Benkoski-Erdős, 1974)<b>.</b> $S$ 的全体元素的倒数和严格小于 $2$.
+</p>
+<p>
+<b>猜想</b> (Erdős, open)<b>.</b> 存在绝对常数 $0\lt c\leq 1$, s.t. $a_n\geq c2^{n-1}$.
+</p>
+<p>
+在这篇博客，我们将证明Erdős猜想目前的最优结果
+</p>
+<p class="thm">
+<b>定理</b> (Dubroff-Fox-Xu, 2020)<b>.</b> 无和集的第 $n$ 个元素满足下界估计
+$$a_n\geq \left(\sqrt{\frac{2}{\pi}}-o(1)\right)\ \frac{2^n}{\sqrt{n}}.$$
+</p>
+<hr class="seperate">
+<p>
+Dubroff-Fox-Xu在证明中巧妙地引入了hypercube的等周不等式. 一个 $n$ 维hypercube $Q_n:=\{0,1\}^n$ 按hypercube的边自然地成为一个图 $(Q_n, E(Q_n))$. 对于 $Q_n$ 的一个顶点集 $F$, 定义它的边缘点集 
+$$\partial F:= \{v\in Q_n: v\notin F; \ \exists w\in Q_n, \ \text{s.t.}\ vw\in E(Q_n)\}.$$
+</p>
+<p class="thm">
+<b>引理</b> (Harper, 1967)<b>.</b> 设 $|F|=\sum_{j=0}^k \binom{n}{j}$, 则有顶点等周不等式
+$$|\partial F| \geq \binom{n}{k+1}.$$
+特别地，当 $|F|=2^{n-1}$ 时有 $|\partial F | \geq \binom{n}{\lfloor \frac{n}{2} \rfloor}$.
+</p>
+<p>
+我们略去Harper引理冗长的证明, 有兴趣的读者可以参考Bollobas的教材
+</p>
+<p style="font-color:grey">
+<i>Combinatorics: Set systems, hypergraphs, families of vectors and probabilistic combinatorics</i>, Chapter 16, Theorem 5. 
+</p>
+<p>
+值得一提的是，hypercube上还有（相对更简单的）边等周不等式：定义 $F$ 的边缘边集
+$$\overline{\partial} F := \{vw\in E(Q_n): v\notin F,\ w\in F\}.$$
+则有（可以用熵方法中的Shearer引理证明！）
+$$|\overline{\partial} F| \geq |F|(n-\log |F|).$$
+倘若粗糙地模去顶点的度数，当 $|F|=2^{n-1}$ 时边等周不等式给出一个更弱的顶点下界 $|\partial F|\geq 2^{n-1}/n$$\ll 2^n/\sqrt{n} \sim \binom{n}{\lfloor \frac{n}{2} \rfloor}$.
+</p>
+<hr class="seperate">
+<p>
+回到DFX的结果. 
+</p>
+<p>
+<i>DFX下界的证明.</i> 设向量 $a:= (a_1, \cdots, a_n)\subset \mathbb{Z}_+^n$. 第一个观察是，根据子集和互不相同的性质有
+$$a\cdot \xi \neq 0, \qquad \forall \xi\in \{-\frac{1}{2}, \frac{1}{2}\}^n.$$
+考虑 $\{-\frac{1}{2}, \frac{1}{2}\}^n$ 的子集 
+$$F:= \big\{\xi\in \{-\frac{1}{2}, \frac{1}{2}\}^n\colon a\cdot \xi <0\big\}.$$ 
+由对称性可知 $|F|=2^{n-1}$. 于是Harper引理立即给出 $|\partial F| \geq \binom{n}{\lfloor \frac{n}{2} \rfloor}$.
+</p>
+<p>
+第二个观察是，任意 $\xi\in \partial F$ 都满足 $a\cdot \xi> 0$, 并且存在 $\mathbb{Z}^n$ 的一个单位基向量 $e_k$, s.t. $a\cdot (\xi-e_k) <0$. 于是
+$$a\cdot \xi = a\cdot (\xi- e_k)+ a_k\lt a_k\leq a_n.$$
+因此存在一对 $\xi,\eta$: $\xi, \eta\in \partial F$, s.t.
+$$|a\cdot (\xi-\eta)|\leq \frac{1}{|\partial F|} \cdot a_n;$$
+否则再由 $a\cdot \xi >0$ 导致 $\max\{a\cdot \xi\}_{\xi\in \partial F} \geq a_n$, 矛盾.
+</p>
+最后注意到, $\xi-\eta\in \{-1,1\}^n$. 于是再根据子集和互不相同的性质，$a\cdot (\xi-\eta)\neq 0$, 并由取值整数可知 $|a\cdot (\xi-\eta)|\geq 1$. 因此组合数渐进公式给出
+$$a_n \geq \binom{n}{\lfloor \frac{n}{2}\rfloor} =\left(\sqrt{\frac{2}{\pi}}-o(1)\right)\ \frac{2^n}{\sqrt{n}}.$$
+下界估计得证. $\quad$$\Box$
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
