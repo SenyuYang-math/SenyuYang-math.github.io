@@ -11,7 +11,7 @@
 $$i\partial_t u -\partial_x^2 u = \mu |u|^2 u,\quad \mu=\pm 1, \ u(t=0,x)=u_0(x).$$
 方程在 $L^2$ 和 $H^1$ 的局部/整体适定性是经典的. 我们希望研究小初值整体解的渐进行为. 
 </p>
-<h2>驻相原理，波包分解</h2>
+<h2>驻相原理，波包测试</h2>
 <p>
 给定时间区间 $[0,T)$, 这一节我们建立 $u(t,\cdot)\in \left\langle x\right\rangle L^2 \cap H^1 (\mathbb{R})$ 的先验渐进估计. 约定（群）速度的记号 $v:=x/t$. 
 </p>
@@ -21,7 +21,7 @@ $$\begin{align*}u_L(t,vt)& =Ct^{\frac{1}{2}}\widehat{u_0}(\xi_v)e^{i\frac{\pi}{4
 上式说明 $u_L(t, vt)$ 的主部由 $u_0$ 在驻相频率 $\xi_v$ 的振幅控制，并有标准的色散估计 $|u_L(t)|_{L^\infty}\lesssim_u t^{-\frac{1}{2}}$. 但对于NLS，解的渐进行为因受到非线性项的相互作用而变得不明朗.
 </p>
 <p>
-根据线性结果，Ifrim-Tataru引入“波包分解”来研究非线性问题：固定速度参数 $v$, 构造不同速度的波包
+根据线性结果，Ifrim-Tataru引入“波包测试”来研究非线性问题：固定速度参数 $v$, 构造不同速度的波包
 $$\Psi_v(x,t):= \chi(\frac{x-vt}{\sqrt{t}})e^{-i\frac{x^2}{4t}}, \quad t\geq 1,$$
 其中 $\chi\in C_0^\infty: \int_{\mathbb{R}} \chi \, dx=1$. 局部化因子 $\chi$ 乘以衰减 $t^{-\frac{1}{2}}$ 就得到一族模去速度 $v$ 的恒等逼近.
 </p>
@@ -63,7 +63,7 @@ $$\begin{equation*}\begin{aligned}
 我们总结上述论证得到：
 </p>
 <p class="thm">
-<b>命题1</b> (驻相原理)<b>.</b> 令 $t\in[0,T)$. 对于<i>波包分解</i> $\psi(t,v)$, 我们有上界估计
+<b>命题1</b> (驻相原理)<b>.</b> 令 $t\in[0,T)$. 对于<i>波包测试函数</i> $\psi(t,v)$, 我们有上界估计
 $$\|\alpha(t,v)\|_{L_v^\infty}\leq t^{\frac{1}{2}}\|u(t,x)\|_{L^\infty},\quad \|\psi(t,v)\|_{L_v^2} \leq \|u(t,x)\|_{L_v^2}.$$
 并且有关于不同群速度的渐进刻画
 $$\begin{equation}\begin{aligned}
