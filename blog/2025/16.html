@@ -9,24 +9,24 @@
 <p>
 Wang-Zahl完成三维Kakeya猜想证明的文章
 </p>
-<p color="grey" style="font-size: small">
+<p style="font-size:small; font-color:grey">
  Volume estimates for unions of convex sets, and the Kakeya set conjecture in three dimensions, arxiv:2502.17655 
 </p>
 <p>
-引入了一个凸几何的结论(Lemma 4.9). 这期博客就据此水一下吧. 首先叙述引理的内容：
+引入了一个凸几何的结论(Lemma 4.9), 这期博客就据此水一下吧. 首先叙述引理的内容：
 </p>
 <p class="thm" style="padding-bottom: 0">
 <b>引理</b> (Wang-Zahl)<b>.</b> 设 $U\subset \mathbb{R}^n$ 是有界凸集，$H$ 为 $\mathbb{R}^n$ 中的一个（仿射）超平面，并且有 $R>0$ 和 $t\in[0,1]$, s.t. 
 $$|U\cap \mathcal{N}_R(H)|=t|U|,$$
 其中 $\mathcal{N}_{R}(H)$ 代表 $H$ 宽度为 $R$ 的带状邻域. 则可以控制 $U$ 的位置
-$$U\subset \mathcal{N}_{C \frac{R}{t}}(H),$$ 
+$$U\subset \mathcal{N}_{C R/t}(H),$$ 
 其中 $C$ 是绝对常数.
 </p>
 <p class="thm" style="padding-top: 0">
-注. 在[1]原文中 $C$ 与维数 $n$ 有关，但从证明过程看并不需要.
+注. 在 [1] 原文中 $C$ 与维数 $n$ 有关，但从证明过程看并不需要.
 </p>
 <p>
-引理的内容就是：如果凸体的“大部分”体积都包含在某个超平面截取的带状邻域内，那么整个凸体就落在超平面稍大些的邻域内，即我们可以确定该凸体关于超平面的相对位置和法方向的直径. 直观上，这是因为凸体的边界比较“平稳”，不会在局部有大的振荡. 读者可以轻松地举出非凸体的反例，进而更定性地理解引理的意义. 而引理的不平凡之处在于从体积这个比较粗糙的整体量出发获得更精确的几何性质；这将通过所谓“凹性原理”来定量地实现.
+引理的内容就是：如果凸体的“大部分”体积都包含在某个截面的带状邻域内，那么整个凸体就落在截面稍大些的邻域内，即我们可以控制该凸体关于截面的相对位置和法方向的直径. 直观上，这是因为凸体的边界比较“平稳”，不会在局部有大的振荡；读者可以轻松地举出非凸体的反例，进而更定性地理解引理的意义. 而引理的不平凡之处在于从体积这个比较粗糙的整体量出发获得更精确的几何性质；这将通过所谓“凹性原理”来定量地实现.
 </p>
 <p>
 我们先从几何测度论的一个著名结果出发.（以下的 $+$ 和 $\lambda \cdot$ 按通常的Minkowski sum以及scaling定义）
