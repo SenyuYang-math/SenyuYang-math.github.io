@@ -1,0 +1,75 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+Wang-Zahl完成三维Kakeya猜想证明的文章
+</p>
+<p color="grey" style="font-size: small">
+ Volume estimates for unions of convex sets, and the Kakeya set conjecture in three dimensions, arxiv:2502.17655 
+</p>
+<p>
+引入了一个凸几何的结论(Lemma 4.9). 这期博客就据此水一下吧. 首先叙述引理的内容：
+</p>
+<p class="thm" style="padding-bottom: 0">
+<b>引理</b> (Wang-Zahl)<b>.</b> 设 $U\subset \mathbb{R}^n$ 是有界凸集，$H$ 为 $\mathbb{R}^n$ 中的一个（仿射）超平面，并且有 $R>0$ 和 $t\in[0,1]$, s.t. 
+$$|U\cap \mathcal{N}_R(H)|=t|U|,$$
+其中 $\mathcal{N}_{R}(H)$ 代表 $H$ 宽度为 $R$ 的带状邻域. 则可以控制 $U$ 的位置
+$$U\subset \mathcal{N}_{C \frac{R}{t}}(H),$$ 
+其中 $C$ 是绝对常数.
+</p>
+<p class="thm" style="padding-top: 0">
+注. 在[1]原文中 $C$ 与维数 $n$ 有关，但从证明过程看并不需要.
+</p>
+<p>
+引理的内容就是：如果凸体的“大部分”体积都包含在某个超平面截取的带状邻域内，那么整个凸体就落在超平面稍大些的邻域内，即我们可以确定该凸体关于超平面的相对位置和法方向的直径. 直观上，这是因为凸体的边界比较“平稳”，不会在局部有大的振荡. 读者可以轻松地举出非凸体的反例，进而更定性地理解引理的意义. 而引理的不平凡之处在于从体积这个比较粗糙的整体量出发获得更精确的几何性质；这将通过所谓“凹性原理”来定量地实现.
+</p>
+<p>
+我们先从几何测度论的一个著名结果出发.（以下的 $+$ 和 $\lambda \cdot$ 按通常的Minkowski sum以及scaling定义）
+</p>
+<p class="thm">
+<b>定理1</b> (Brunn-Minkowski不等式)<b>.</b> 设 $K, L$ 是 $\mathbb{R}^n$ 中的Borel可测集. 则
+$$|K+L|^{\frac{1}{n}}\geq |K|^{\frac{1}{n}}+|L|^{\frac{1}{n}}.$$
+特别地，对 $\lambda\in (0,1)$ 有凹性关系
+$$|\lambda K+ (1-\lambda)L|^{\frac{1}{n}} \geq \lambda |K|^{\frac{1}{n}}+ (1-\lambda) |L|^{\frac{1}{n}}.$$
+</p>
+<p>
+B-M不等式有各种各样的证明，所采取的观点不一而足；一个较初等的证明可以参考 @金鱼马 的<a href="https://zhuanlan.zhihu.com/p/1956859054631683380" target="_blank">知乎文章</a>. 我们所需要的推论是凸体截面体积的凹性原理：
+</p>
+<p class="thm" style="padding-bottom: 0">
+<b>定理2</b> (Brunn's concavity principle)<b>.</b> 设 $U\subset \mathbb{R}^n$ 是有界凸集，$F$ 是 $\mathbb{R}^n$ 的一个 $k$ 维仿射子空间，并记 $F$ 的正交补空间为 $F^{\perp}$. 则截面体积函数
+$$f_F \colon F^{\perp} \to \mathbb{R}_{\geq 0}, \ f_F(\mathbf{v}):=|U\cap (F+\mathbf{v})|^{\frac{1}{k}}$$
+在 $\operatorname{supp} f$ 上是凹函数. 此处的 $|\cdot|$ 是 $k$ 维Lebesgue测度.
+</p>
+<p class="thm" style="padding-top: 0">
+<em>定理2的证明.</em> 目标是对任意 $\mathbf{v},\mathbf{w}\in F^{\perp}$ 证明
+$$f_F(\lambda \mathbf{v} +(1-\lambda)\mathbf{w}) \geq \lambda f_F(\mathbf{v})+(1-\lambda)f_F(\mathbf{w}).$$
+注意到对任意 $\mathbf{x}, \mathbf{y}\in U$,
+$$\lambda\mathbf{x}+(1-\lambda)\mathbf{y}-(\lambda \mathbf{v} + (1-\lambda) \mathbf{w})=\lambda(\mathbf{x}-\mathbf{v})+(1-\lambda)(\mathbf{y}-\mathbf{w}).$$
+由 $U$ 的凸性可知
+$$\lambda (U\cap (F+\mathbf{v}))+(1-\lambda)(U\cap(F+\mathbf{w})) \subset U\cap (F+(\lambda \mathbf{v} + (1-\lambda)\mathbf{w}) ).$$
+再用定理1即完成证明.$\quad$$\Box$
+</p>
+<p>
+现在可以证明引理了.
+</p>
+<p>
+<em>引理的证明.</em> 此时 $H$ 维数为 $k=n-1$, 单位法向量记为 $\mathbf{n}$. 由 $K$ 的凸性可知 $\operatorname{supp}(f_H)$ 是一个有界区间，记为 $I$. 于是只需证明
+$$|I|\leq C_n R/t.$$
+$f_H$ 在 $I$ 上连续，$\sup f_H$ 存在. 一方面，由Fubini定理和条件有上界估计
+$$t|U|=|U\cap \mathcal{N}_{R}H| \leq 2R\ (\sup f_H)^{n-1}.$$
+另一方面，Fubini定理和 $f_H$ 的凹性给出体积下界
+$$|U| = \int_I |U\cap (H+x\mathbf{n}) | \, dx\geq \frac{1}{2} |I| \ (\sup f_H)^{n-1}.$$
+联立上述估计即证明了引理.$\quad$$\Box$
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
