@@ -40,7 +40,7 @@
      min-height: 100%;
      display: flex;
      flex-direction: column;
-     font-family: 'Comic Sans MS', 'Microsoft YaHei', cursive;
+     font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;
    }
 /* blog标题样式 */
   #blogtitle{
