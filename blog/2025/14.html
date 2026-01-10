@@ -194,13 +194,13 @@ $R_2$ 得证，我们完成了命题2的证明.$\quad$$\Box$
   $$\partial_t\tilde{\psi}(t,v)= e^{i\mu \int_1^t s^{-1} |\psi(s,v)|^2 \, ds}R(t,v), \quad t\in[0,T).$$
   由于 $R(t)$ 是小量，我们看到波包方程的非线性项主部影响了 $\psi(t,v)$ 的相位，这种与线性情形的偏离现象就是所谓<b>modified散射</b>的原因！更定量地讲，命题2中的余项估计说明 $\{\tilde{\psi}(t)\}_{t\geq 1}$ 是 $L_v^\infty\cap L_v^2(\mathbb{R})$ 的Cauchy列，进而有极限函数 
   $$\lim_{t\to\infty}\tilde{\psi}(t,v)=\psi_{\infty}(v) \in L^\infty\cap L^2.$$ 
-  另外，相位部分 $\{\int_1^t s^{-1} |\psi(s)|^2 \, ds- \log(t) \|\psi(t)\|^2\}_{t\geq 1}$ 是 $L_v^\infty$ 的Cauchy列. 注意 $|\psi(t,v)|=|\tilde{\psi}(t,v)|$，因此我们证明了主要结果：
+  另外，相位部分 $\{\int_1^t s^{-1} |\psi(s)|^2 \, ds- \log(t) |\psi(t)|^2\}_{t\geq 1}$ 是 $L_v^\infty$ 的Cauchy列. 注意 $|\psi(t,v)|=|\tilde{\psi}(t,v)|$，因此我们证明了主要结果：
 </p>
 <p class="thm">
   <b>定理4</b> (定量modified散射)<b>.</b> 存在 $\epsilon_0, \delta>0$, s.t. $\forall u_0\in \langle x\rangle L^2 \cap H^1(\mathbb{R})$ , $\epsilon:=\|u_0\|_{\langle x\rangle L^2}$$+\|u_0\|_{H^1}$$\lt \epsilon_0$, 都存在唯一的整体解 $u\in C([0,\infty), H^1)$. 并且 $u$ 满足    
   $$\|u(t)\|_{L_x^\infty}\lesssim \epsilon t^{-\frac{1}{2}}, \quad \|J^{\leq 1}u(t)\|_{L_x^2} \lesssim \epsilon t^{\delta}.$$
   进一步地，存在 $\psi_\infty(v)\in L^\infty\cap L^2$ 和 $\Phi_\infty (v) \in L^\infty$, s.t. $u(t,x)$ 在 $t\to \infty$ 时有渐进行为
-  $$u(t,x)-{\color{red} t^{-\frac{1}{2}} e^{-i\frac{x^2}{4t}-i\mu \psi_\infty(\frac{x}{t})\log(t) - i\mu \Phi_{\infty}(\frac{x}{t})  } \psi_\infty(\frac{x}{t}) }\to 0$$
+  $$u(t,x)-{\color{red} t^{-\frac{1}{2}} e^{-i\frac{x^2}{4t}-i\mu |\psi_\infty(\frac{x}{t})|^2\log(t) - i\mu \Phi_{\infty}(\frac{x}{t})  } \psi_\infty(\frac{x}{t}) }\to 0$$
   在 $L^\infty\cap L^2(\mathbb{R})$ 成立.
 </p>
 <p>  
