@@ -1,0 +1,95 @@
+<p>
+你好2026！这篇博客介绍Gromov如何从一个深刻的几何不等式出发证明组合的结论. 内容来自Larry Guth的一篇survey.
+</p>
+<p>
+给定 $\mathbb{R}^d$ 中的 $N$ 个点，那么其中任意 $d+1$ 个点都构成一个 $d$-单形. 将这些单形收集起来记为集合 $S_{N, d}$, 则 $|S_{N,d}|=\binom{N}{d+1}$. 组合学家自然想理解这些单形之间如何互相重叠. 其中就有如下的交点选择的结果：
+</p>
+<p class="thm">
+<b>定理1</b> (point selection定理, Barany)<b>.</b> 存在只与 $d$ 有关的常数 $c(d)\leq 1$, s.t. 对 $\mathbb{R}^d$ 中的任意 $N$ 个点，一定存在 $\mathbb{R}^d$ 中的某个点，它至少包含在 $c(q) \binom{N}{d+1}$ 个 $S_{N,d}$的元素中.
+</p>
+<p>
+后来Gromov结合他在度量几何的工作——waist不等式给出了定理1一个巧妙的几何$\times$拓扑证明.
+</p>
+<h2>waist不等式</h2>
+<p>
+按Gromov的视角，我们可以用 $N$ 个点张成一个 $N-1$-单形 $\Delta^{N-1}$，并通过顶点对应诱导了自然的线性单纯映射 $L:~ \Delta^{N-1} \to \mathbb{R}^d$ . 则对于 $y\in L(\Delta^{N-1})$, 纤维 $L^{-1}(y)$ 是 $\Delta^{N-1}$ 的子集. 
+</p>
+<p>
+<b>定义.</b> 对每条纤维 $L^{-1}(y)$, 定义它的 $d$ 维相交数
+$$|L^{-1}(y)|_d :=\# \Delta^{N-1} ~ \text{与} ~ L^{-1}(y) ~ \text{相交的} ~ d \text{-子单形}.$$
+</p>
+<p>
+于是point selection就是以下更一般结果的推论.
+</p>
+<p class="thm">
+<b>定理2</b> (单形waist不等式, Gromov)<b>.</b> 设 $F: \Delta^{N-1}\to \mathbb{R}^d$ 是连续映射（$d$），则存在 $y\in \mathbb{R}^d$, s.t. $|F^{-1}(y)|_d \geq c(q) \binom{N}{d+1}$.
+</p>
+<p>
+在开始Gromov的证明前，我们先绕个远路看看最初的waist不等式.
+</p>
+<p>
+<b>定理3</b> (waist不等式, sharp版本)<b>.</b> 设 $F: S^{n}\to \mathbb{R}^d$ 是连续映射，其中 $S^n$ 是单位球面. 则存在 $y\in \mathbb{R}^d$, s.t. 纤维 $F^{-1}(y)$ 有（最优）体积下界
+$$\operatorname{Vol}_{n-d} F^{-1}(y) \geq \operatorname{Vol}_{n-d} S^{n-d}.$$
+</p>
+<p>
+<b>注.</b> $S^{n-d}\subset S^n$ 是一条 $n-d$ 维赤道，因此得名waist(腰部).
+</p>
+<p>
+需要提到一点历史：waist不等式最早由Almgren用他的min-max方法在几何测度论一侧证明（需要一定正则性）；而后Gromov用Borsuk-Ulam定理等拓扑工具和Brunn-Minkowski不等式给出了新的非变分法证明. 这些证明都篇幅不小，但在这条时间线中间，Gromov通过等周不等式和一点点代数拓扑给出一个短小精悍的新证明，虽然损失了常系数（约为 $2^d/d!$），但方法更加灵活，而最优版本的证明都依赖于球面的特殊性质（比如Borsuk-Ulam定理）. Gromov正是从他的短证明出发证明了point selection.
+</p>
+<h2>构造同伦映射</h2>
+<p>
+现在开始单形waist不等式的Gromov证明. 注意到所有的 $d$-子单形都落在 $\partial \Delta^{N-1}$ 中，因此只需考虑限制在边界的连续映射 $F: \partial \Delta^{N-1} \to \mathbb{R}^d$. 出发点是假设每个纤维的相交数都充分小，由于 $\partial \Delta^{N-1}$ 同胚于 $S^{N-2}$, 根据Brouwer不动点定理（的证明过程）我们希望构造一个同伦映射 $H: \partial\Delta^{N-1} \times [0,1] \to \partial\Delta^{N-1}$, 其中 $H(0)$ 为恒等映射而 $H(1)$ 为常值映射. 这就导出了矛盾.
+</p>
+<p>
+现在对 $\mathbb{R}^d$ 做充分细的三角剖分 $\tilde{\Delta}$，同伦映射 $H$ 的构造分为以下 $d+1$ 步：
+</p>
+<ul>
+<li>对每个顶点 $\tilde{\Delta}^0$ 构造 $H: F^{-1}(\tilde{\Delta}^{0})\times [0,1] \to F^{-1}(\tilde{\Delta}^{0})$;</li>
+<li>对每条边 $\tilde{\Delta}^1$ 构造 $H: F^{-1}(\tilde{\Delta}^{1})\times [0,1] \to F^{-1}(\tilde{\Delta}^{1})$;</li>
+<li>$\cdots\cdots$</li>
+<li>对每个 $d$-子单形 $\tilde{\Delta}^{d}$ 构造 $H: F^{-1}(\tilde{\Delta}^{d})\times [0,1] \to F^{-1}(\tilde{\Delta}^{d})$.</li>
+</ul>
+<p>
+注意每一步我们都会用上一步的同伦关系将此时各个子单形的同伦关系在边界上相容地粘贴起来，最终全体 $F^{-1}(\tilde{\Delta}^d)$ 覆盖了 $\partial \Delta^{N-1}$. 
+</p>
+<p>
+为了递归地构造 $H$，对任意 $0\leq j \leq d$ 我们考察柱体 $C^j := F^{-1}(\tilde{\Delta}^j)\times [0,1]$ 的边界：底部 $F^{-1}(\tilde{\Delta}^j)\times \{0\}$，顶部 $F^{-1}(\tilde{\Delta}^j)\times \{1\}$，和侧面 $F^{-1}(\tilde{\Delta}^{j−1})\times [0,1]$，其中$\tilde{\Delta}^{j−1}$ 是 $\partial \tilde{\Delta}^j$ 中的 $(j-1)$-子单形，一共有 $j+1$ 个. 现在对于柱体 $C^j$, $H$ 在它的底部定义为恒等映射，在顶部为常值映射，而在侧面由上一步的 $H$ 定义. 因此我们需要将定义在 $\partial C^j$ 的 $H$ 延拓至内部以完成归纳. 
+</p>
+<p>
+现在关键一步是注意到 $H(\partial C^j)$ 道路连通（顶部被映为单点），所以如果 $H(\partial C^j)$ 不覆盖整个 $\partial \Delta^{N-1}\cong S^{N-2}$, 则它是可缩的，这直接诱导了 $H$ 在 $C^j$ 上的一种构造. 因此问题转化为一个更定量的版本：在每一步归纳中控制 $H(\partial C^j)$ 的大小. 我们手头上没有任何关于体积的信息，不过相交数的前提假设启发我们据此构造合适的几何量以代替体积，这是下一节的内容.
+</p>
+<h2>相交范数</h2>
+<p>
+从上一节结尾的动机出发，Gromov定义了如下的相交范数：
+</p>
+<p class="thm">
+<b>定义.</b> 对于子集 $X\subset \partial \Delta^{N-1}$，定义 $j$ 维相交范数 $\|X\|_j$ ​为 $X$ 与由 $\Delta^{N-1}$ 中独立随机选取的 $j+1$ 个顶点 $v_0​, \cdot , v_j$ ​张成的子单形相交的概率.
+</p>
+<p>
+注意可能出现顶点 $v_0, \cdots, v_j$ 有重合的情形，此时子单形维数小于 $j$；但对于我们的问题，考虑 $N\gg d\geq j$ 才有意义，因此子单形退化的概率 $\ll 1$, 所以 $\|X\|_j$ 本质上是与 $X$ 相交的 $j$-子单形的比例. 
+</p>
+<p>
+现在可以给出真正的定量的反证假设：
+</p>
+<p class="thm">
+<b>假设.</b> 给定一个充分小的 $\beta$，每个纤维都满足 $\|F^{-1}(y)\|_d \leq\beta$.
+</p>
+<p>
+我们将构造同伦映射 $H$，s.t. $\mathbb{R}^d$ 三角剖分中的每个 $j$-子单形 $\tilde{\Delta}^j$ 满足以下估计： 
+</p>
+<ul>
+<li>$\|H(\partial C^j)\|_j \lesssim_j \beta$;</li>    
+<li>$\|H(C^j)\|_{j+1} \lesssim_j \beta$.</li>
+</ul>
+<p>
+我们希望对每一步做如此的归纳估计，最终使得 $\|H(\partial C^d)\|_d \lt 1$, 从而导出第二节的矛盾.
+</p>
+<p>
+由假设可知 $\partial C^j$ 顶部和底部的像均较小. 由于 $H$ 在时刻 $0$ 为恒等映射，底部的像恰好为 $F^{-1}(\tilde{\Delta}^j) \subset\partial\Delta^N$. 当我们的三角剖分足够细，底部的像就位于 $F^{-1}(y)$（$y$ 为 $\tilde{\Delta}^j$ 的中心）的一个小邻域内，于是 $d$ 维相交范数仍然 $\leq\beta$；进一步由单形 $\Delta^{N-1}$ 的结构可知对所有 $k\lt d$，$F^{-1}(\tilde{\Delta}^j)$ 的 $k$ 维相交范数都 $\lesssim \beta$（与 $k, j$ 无关）. 而顶部的像始终为单个点，这就证明了 $j=0$ 时的第一个估计. 此外，第 $j+1$ 中 $\partial C^j$ 侧面的估计由第 $j$ 步的第二个估计控制. 为使归纳进行，只需证明以下估计.  
+</p>
+<p class="thm">
+<b>命题4.</b> 设上文的同伦映射 $H$ 已在 $C^j$ 的边界上定义，且 $\|H(\partial C^j)\|_j\lt 1$（这意味着 $\partial C^j$ 可缩），则可将 $H$ 延拓至 $C^j$，使得其像的 $(j+1)$维相交体积满足： 
+$$\left\| H(C^j) \right\|_{j+1} \leq \left\| H(\partial C^j) \right\|_j.$$
+</p>
+<h2>等周不等式</h2>
