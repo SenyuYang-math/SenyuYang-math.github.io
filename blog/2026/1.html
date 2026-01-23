@@ -47,7 +47,9 @@ $$\operatorname{Vol}_{n-d} F^{-1}(y) \geq \operatorname{Vol}_{n-d} S^{n-d}.$$
 </p>
 <h2>构造同伦映射</h2>
 <p>
-现在开始单形waist不等式的Gromov证明. 注意到所有的 $d$-子单形都落在 $\partial \Delta^{N-1}$ 中，因此只需考虑限制在边界的连续映射 $F: \partial \Delta^{N-1} \to \mathbb{R}^d$. 出发点是假设每个纤维的相交数都充分小，由于 $\partial \Delta^{N-1}$ 同胚于 $S^{N-2}$, 根据Brouwer不动点定理（的证明过程）我们希望构造一个同伦映射 $H: \partial\Delta^{N-1} \times [0,1] \to \partial\Delta^{N-1}$, 其中 $H(0)$ 为恒等映射而 $H(1)$ 为常值映射. 这就导出了矛盾.
+现在开始单形waist不等式的Gromov证明. 注意到所有的 $d$-子单形都落在 $\partial \Delta^{N-1}$ 中，因此只需考虑限制在边界的连续映射 $F: \partial \Delta^{N-1} \to \mathbb{R}^d$. 出发点是假设每个纤维的相交数都充分小，由于 $\partial \Delta^{N-1}$ 同胚于 $S^{N-2}$, 根据Brouwer不动点定理（的证明过程）我们希望构造一个同伦映射 
+$$H: \partial\Delta^{N-1} \times [0,1] \to \partial\Delta^{N-1},$$
+其中 $H(0)$ 为恒等映射而 $H(1)$ 为常值映射. 这就导出了矛盾.
 </p>
 <p>
 现在对 $\mathbb{R}^d$ 做充分细的三角剖分 $\tilde{\Delta}$，同伦映射 $H$ 的构造分为以下 $d+1$ 步：
@@ -88,20 +90,48 @@ $$\operatorname{Vol}_{n-d} F^{-1}(y) \geq \operatorname{Vol}_{n-d} S^{n-d}.$$
 </p>
 <ul>
 <li>$\|H(\partial C^j)\|_j \lesssim_j \beta$;</li>    
-<li>$\|H(C^j)\|_{j+1} \lesssim_j \beta$.</li>
+<li>$\|H(C^j)\|_{j-1} \lesssim_j \beta$.</li>
 </ul>
 <p>
 我们希望对每一步做如此的归纳估计，最终使得 $\|H(\partial C^d)\|_d \lt 1$, 从而导出第二节的矛盾.
 </p>
 <p>
-由假设可知 $\partial C^j$ 顶部和底部的像均较小. 由于 $H$ 在时刻 $0$ 为恒等映射，底部的像恰好为 $F^{-1}(\tilde{\Delta}^j) \subset\partial\Delta^N$. 当我们的三角剖分足够细，底部的像就位于 $F^{-1}(y)$（$y$ 为 $\tilde{\Delta}^j$ 的中心）的一个小邻域内，于是 $d$ 维相交范数仍然 $\leq\beta$；进一步由单形 $\Delta^{N-1}$ 的结构可知对所有 $k\lt d$，$F^{-1}(\tilde{\Delta}^j)$ 的 $k$ 维相交范数都 $\lesssim \beta$（与 $k, j$ 无关）. 而顶部的像始终为单个点，这就证明了 $j=0$ 时的第一个估计. 此外，第 $j+1$ 中 $\partial C^j$ 侧面的估计由第 $j$ 步的第二个估计控制. 为使归纳进行，只需证明以下估计.  
+由假设可知 $\partial C^j$ 顶部和底部的像均较小. 由于 $H$ 在时刻 $0$ 为恒等映射，底部的像恰好为 $F^{-1}(\tilde{\Delta}^j) \subset\partial\Delta^N$. 当我们的三角剖分足够细，底部的像就位于 $F^{-1}(y)$（$y$ 为 $\tilde{\Delta}^j$ 的中心）的一个小邻域内，于是 $d$ 维相交范数仍然 $\leq\beta$；进一步由单形 $\Delta^{N-1}$ 的结构可知对所有 $k\lt d$，$F^{-1}(\tilde{\Delta}^j)$ 的 $k$ 维相交范数都 $\lesssim \beta$（与 $k, j$ 无关）. 而顶部的像始终为单个点，这就证明了 $j=0$ 时的第一个估计. 此外，第 $j+1$ 步中 $\partial C^{j+1}$ 侧面的第一个估计由第 $j$ 步的第二个估计控制. 为使归纳进行，只需证明以下估计.  
 </p>
 <p class="thm">
-<b>命题4.</b> 设上文的同伦映射 $H$ 已在 $C^j$ 的边界上定义，且 $\|H(\partial C^j)\|_j\lt 1$（这意味着 $\partial C^j$ 可缩），则可将 $H$ 延拓至 $C^j$，使得其像的 $(j+1)$维相交体积满足： 
-$$\left\| H(C^j) \right\|_{j+1} \leq \left\| H(\partial C^j) \right\|_j.$$
+<b>命题4.</b> 设上文的同伦映射 $H$ 已在 $C^j$ 的边界上定义，且 $\|H(\partial C^j)\|_j\lt 1$（这意味着 $\partial C^j$ 可缩），则可将 $H$ 延拓至 $C^j$，使得其像的 $(j-1)$ 维相交范数满足： 
+$$\left\| H(C^j) \right\|_{j-1} \leq \left\| H(\partial C^j) \right\|_j.$$
 </p>
 <h2>等周不等式</h2>
-
+<p>
+上一节的命题4是以下的等周不等式的推论.
+</p>
+<p class="thm">
+<b>命题5.</b> 设 $X \subset\partial\Delta^{N-1}$ 且 $\|X\|_j \lt 1$，则存在可缩集 $Y \subset\partial\Delta^{N-1}$ 包含 $X$，并且满足 
+$$\|Y\|_{j-1} \leq\|X\|_j.$$
+</p>
+<p>
+证明依赖于Federer-Fleming的“随机锥论证”. 我们首先给出一些铺垫.
+</p>
+<p class="thm">
+<b>定义.</b> 设 $p$ 为 $\partial\Delta^k$ 的某个 $(k-1)$-子单形的中心，$\bar{p}$ 为其对顶点. 对于 $\partial\Delta^k$ 中任意非 $\bar{p}$ 的点 $x$，按如下方式定义从 $x$ 到 $p$ 的射线： 
+<ul>
+<li>若 $x$ 与 $p$ 位于同一个 $(k-1)$-子单形内，则作从 $x$ 到 $p$ 的标准欧氏射线； </li>
+<li>否则，从 $\bar{p}$ 经过 $x$ 的直线，直至与 $p$ 所在的 $(k-1)$-子单形相交于点 $x'$，则从 $x$ 到 $p$ 的射线由线段 $xx'$ 和 $x'p$ 组成. </li>
+</ul>
+现在，若 $\bar{p} \notin X$，则锥 $C_p(X)$ 定义为所有从 $x \in X$ 到 $p$ 的射线的并集；若 $\bar{p} \in X$，则定义 $C_p(X) := \partial\Delta^N$. 
+</p>
+<p>
+注意到，如果 $\bar{p} \notin X$，$C_p(X)$ 就是 $\partial\Delta^N$ 的可缩子集.
+</p>
+<p>
+<i>命题5的证明.</i> 令随机锥 $Y_p := C_p(X)$，其中 $p$ 是随机选取的 $(N-2)$-子单形的中心. 接下来估计 $Y_p$ 的 $(j-1)$ 维相交范数. 注意到，顶点 $v_0, \cdots, v_{j-1}$ 张成的子单形与 $Y_p$ 相交，当且仅当顶点 $v_0, \dots, v_{j-1}, p$ 张成的单形与 $X$ 相交（i.e. 交换锥的底面）. 因此可以关于 $p$ 计算期望
+$$\mathbb{E}_p \left\| Y \right\|_{j-1} = \|X\|_j,$$
+于是存在一个中心点 $p$, s.t. $Y = C_p(X)$ 满足 $\|Y\|_{j-1} \leq\|X\|_j \lt 1$. 自然，$Y$ 不是整个 $\partial\Delta^N$，因此 $Y$ 可缩. $\quad$$\Box$ 
+</p>
+<p>
+最后，只需选取足够小的 $\beta$，s.t. 每个步骤中都有 $\|X\|_j <1$ . 注意 $\partial C_j$ 的侧面会贡献 $(j+1)$ 个子单形 $\tilde{\Delta}_{j-1}$，因此令 $\beta\ll \frac{1}{q!}$ 即得出矛盾！point selection定理得证. $\quad$$\Box$
+</p>
 </div>
 
 <!-- js脚本 -->
