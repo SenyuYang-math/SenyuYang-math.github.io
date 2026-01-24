@@ -1,0 +1,69 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+你好2026！这篇博客将介绍Lovász和Szegedy给出的解析版Szemerédi正则性引理.
+</p>
+弗里泽与坎南[FrK]证明了一个相关结论，其阈值更为合理，但他们采用了不同的非正则性度量方式。对于\(V\)的划分\(P = \{V_{1}, ..., V_{k}\}\)，定义\(d_{ij} = \frac{e_{G}(V_{i}, V_{j})}{|V_{i}| \cdot |V_{j}|}\)。对于任意两个子集\(S, T \subseteq V(G)\)，我们期望\(G\)中连接\(S\)和\(T\)的边数约为 
+\[e_{\mathcal{P}}(S, T) = \sum_{i=1}^{k} \sum_{j=1}^{k} d_{ij} \left| V_{i} \cap S \right| \cdot\left| V_{j} \cap T \right| .\]
+因此，可通过\(\max_{S, T} \left| e_{G}(S, T) - e_{P}(S, T) \right|\)度量划分的非正则性。弱正则引理[FrK]表述如下：  
+[弱正则引理] 对于任意\(\varepsilon > 0\)和任意图\(G=(V, E)\)，\(V\)存在一个划分\(P\)，将其划分为\(k \leq 2^{2/\varepsilon^{2}}\)个子集\(V_{1}, ..., V_{k}\)，且满足对所有\(S, T \subseteq V\)，都有 
+\[\left| e_{G}(S, T) - e_{\mathcal{P}}(S, T) \right| \leq\varepsilon|V|^{2} .\]
+注：此处不要求\(P\)是等划分；不难证明，该版本可推导出存在等划分满足上述条件，代价是将\(k\)的上界增大为\(2^{c/\varepsilon^{2}}\)（其中\(c\)是更大的绝对常数）。
+
+若二元函数\(W:[0,1]^{2} \to\mathbb{R}\)满足对所有\(0 \leq x, y \leq 1\)，都有\(W(x, y) = W(y, x)\)，则称其为对称函数。令\(W\)表示所有有界对称可测函数\(W:[0,1]^{2} \to\mathbb{R}\)的集合，\(W_{0}\)表示所有对称可测函数\(W:[0,1]^{2} \to [0,1]\)的集合。若存在\([0,1]\)的划分\(\{S_{1}, ..., S_{m}\}\)，使得\(U\)在每个\(S_{i} \times S_{j}\)上为常数，则称函数\(U \in W\)为至多\(m\)步的阶梯函数。从分析学角度看，我们可将图视为\(W_{0}\)中的0-1值阶梯函数，且其步长\(S_{i}\)具有相等的测度。显然，每个这样的函数都对应一个以\(\{S_{i}\}\)为顶点集的图，且每个图都可通过这种方式表示。  每个\(W \in W\)都可视为希尔伯特空间\(L_{2}([0,1])\)上的核算子，定义为 
+\[(W f)(x) = \int_{0}^{1} W(x, y) f(y) dy .\]  
+除了标准的\(L_{2}\)范数和\(L_{1}\)范数外，我们还需要在\(W\)上定义以下范数： 
+\[\| W \|_{\square} = \sup_{S, T \subseteq [0,1]} \left| \int_{S \times T} W(x, y) dx dy \right| .\] 
+对于矩阵而言，该范数（经缩放后）称为割范数；阿龙与纳奥尔[AN]、阿龙、费尔南德斯·德拉维加、坎南与卡普inski[AFKK]证明了该范数的诸多重要性质。这些性质中的大部分可直接推广到无限情形。特别地，\( \|W\|_{\square} \) 与核算子\(W\)的\(L_{1} \to L_{\infty}\)范数相差一个绝对常数因子。此外，以下有用的等式和不等式易于验证： 
+\[ \begin{aligned} \| W \|_{\square} &= \sup_{f,g:[0,1] \to [0,1]} |\langle f, W g \rangle| \geq\sup_{f:[0,1] \to [0,1]} |\langle f, W f \rangle| \\ &\geq\sup_{S \subseteq [0,1]} \left| \int_{S \times S} W(x,y) dx dy \right| \geq\frac{1}{2} \| W \|_{\square} . \end{aligned} \]  
+弱正则引理用上述术语可表述为： 
+[弱正则引理，分析学形式] 对于任意函数\(W \in W_{0}\)和\(\varepsilon > 0\)，存在一个至多\(\lceil 2^{2/\varepsilon^{2}} \rceil\)步的阶梯函数\(W' \in W_{0}\)，使得\(\| W - W' \|_{\square} \leq\varepsilon\)。 
+
+  \begin{lemma}[希尔伯特空间中的正则引理]
+设\(\kappa_{1}, \kappa_{2}, ...\)是希尔伯特空间\(H\)的任意非空子集。则对于任意\(\varepsilon > 0\)和\(f \in H\)，存在\(m \leq \lceil 1/\varepsilon^{2} \rceil\)，以及\(f_{i} \in K_{i}\)（\(1 \leq i \leq m\)）和\(\gamma_{1}, \gamma_{2}, ..., \gamma_{m} \in \mathbb{R}\)，使得对于任意\(g \in K_{m+1}\)，都有
+\[\left| \left\langle g, f - \left( \gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m} \right) \right\rangle \right| \leq \varepsilon \cdot \| g \| \cdot \| f \| .\]
+\end{lemma}
+
+在证明该引理之前，先进行一些讨论。假设集合\(K_{n}\)是子空间，则\(\gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m}\)的一个自然选择是\(f\)在子空间\(K_{1} + \cdots + K_{m}\)中的最佳逼近（或近似最佳逼近，若最佳逼近不存在），此时误差\(f - (\gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m})\)与每个\(g \in K_{1} + \cdots + K_{m}\)正交（或近似正交）。该引理的核心在于，该误差与下一个集合\(K_{m+1}\)也近似正交。
+
+\textbf{证明}：令
+\[\eta_{k} = \inf_{\{\gamma_{i}\}, \{f_{i}\}} \left\| f - \sum_{i=1}^{k} \gamma_{i} f_{i} \right\|^{2} ,\]
+其中下确界取遍所有\(\gamma_{1}, ..., \gamma_{k} \in \mathbb{R}\)和\(f_{i} \in K_{i}\)。显然有\(\|f\|^{2} \geq \eta_{1} \geq \eta_{2} \geq \cdots \geq 0\)。因此，存在\(m \leq \lceil 1/\varepsilon^{2} \rceil\)，使得\(\eta_{m} < \eta_{m+1} + \varepsilon^{2} \|f\|^{2}\)。因此，存在\(\gamma_{1}, ..., \gamma_{m} \in \mathbb{R}\)和\(f_{i} \in K_{i}\)，使得
+\[\left\| f - \sum_{i=1}^{m} \gamma_{i} f_{i} \right\|^{2} \leq \eta_{m+1} + \varepsilon^{2} \|f\|^{2} .\]
+
+令\(f^{*} = \sum_{i} \gamma_{i} f_{i}\)，考虑任意\(g \in K_{m+1}\)。根据\(\eta_{m+1}\)的定义，对于任意实数\(t\)，有
+\[\left\| f - \left( f^{*} + t g \right) \right\|^{2} \geq \eta_{m+1} \geq \left\| f - f^{*} \right\|^{2} - \varepsilon^{2} \|f\|^{2} ,\]
+展开可得
+\[\| g \|^{2} t^{2} - 2 \left\langle g, f - f^{*} \right\rangle t + \varepsilon^{2} \|f\|^{2} \geq 0 .\]
+
+该二次多项式的判别式必须非正，由此可证明引理。\(\square\)
+
+下面推导该引理的一些推论。首先，考虑希尔伯特空间为\(L^{2}([0,1]^{2})\)的情形，其中每个\(K_{n}\)是乘积集\(S \times S\)的指示函数集合（\(S\)是\([0,1]\)的可测子集）。设\(f \in W_{0}\)，则\(f^{*} = \sum_{i=1}^{k} \gamma_{i} f_{i}\)是一个至多\(2^{k}\)步的阶梯函数，因此可得到一个至多\(2^{\lceil 1/\varepsilon^{2} \rceil}\)步的阶梯函数\(W^{*} \in W\)，使得对于任意可测集\(S \subseteq [0,1]\)，都有
+\[\left| \int_{S \times S} \left( W - W^{*} \right) \right| \leq \varepsilon .\]
+
+不难看出，该结论可推导出对于任意两个可测集\(S, T \subseteq [0,1]\)，有
+\[\left| \int_{S \times T} \left( W - W^{*} \right) \right| \leq 2\varepsilon ,\]
+这（至多相差一个因子2）可推导出引理3.1。
+
+若对于任意子集\(S \subseteq [0,1]\)，都有
+\[\left| \int_{S \times S} \left( W - W_{\mathcal{P}} \right) \right| \leq \varepsilon ,\]
+则称划分\(P\)是\(W\)的误差为\(\varepsilon\)的弱塞迈雷迪划分。因此，每个函数都存在误差为\(\varepsilon\)的弱塞迈雷迪划分，且划分的子集数至多为\(2^{2/\varepsilon^{2}}\)。
+
+要从引理4.1推导出（弱）正则引理的图论形式，我们可通过阶梯函数\(W_{G}\)表示\(n\)个顶点的图\(G\)：考虑\(G\)的邻接矩阵\(A = (a_{ij})\)，将每个元素\(a_{ij}\)替换为一个大小为\((1/n) \times (1/n)\)的正方形，且该正方形上的常数函数为\(a_{ij}\)。令\(A\)为由与\(G\)的顶点对应的区间生成的\([0,1]\)的子集代数。令\(K_{n}\)为乘积集\(S \times S\)（\(S \in A\)）的指示函数集合。类似于引理3.1的证明，可得到\([0,1]\)的划分\(P = \{S_{1}, ..., S_{m}\}\)（子集均属于\(A\)），使得对于所有\(S, T \in A\)，都有
+\[\left| \int_{S \times T} \left( W_{G}(x, y) - (W_{G})_{\mathcal{P}}(x, y) \right) dx dy \right| \leq 2\varepsilon .\]
+这与引理2.4的结论一致。
+
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>
