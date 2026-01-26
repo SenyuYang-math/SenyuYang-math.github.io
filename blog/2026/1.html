@@ -20,9 +20,9 @@ $$\mathcal{W}_{0}:= \{W \in \mathcal{W}:~ W([0,1]^2) \subseteq [0,1]\}.$$
 如果存在 $[0,1]$ 的划分 $\mathcal{P}:=\{S_{1}, ..., S_{m}\}$，s.t. $W\in \mathcal{W}$ 在每个 $S_{i} \times S_{j}$ 上为常数，则称函数 $U$ 为至多 $m$ 步的阶梯函数. 于是从分析的角度，我们可以自然地将图视为 $W_{0}$ 中的 $0$-$1$ 值阶梯函数，且其步长 $S_{i}$ 具有相等的测度。显然，每个这样的函数都对应一个以 $\{S_{i}\}$ 为顶点集的图，且每个图都可通过这种方式表示.  
 </p>
 <p>
-值得一提的是，每个 $W \in \mathcal{W}$ 都可视为Hilbert空间 $L_{2}([0,1])$ 上的核算子，定义为 
+值得一提的是，每个 $W \in \mathcal{W}$ 都可视为Hilbert空间 $L^{2}([0,1])$ 上的核算子，定义为 
 $$W[f](x) := \int_{0}^{1} W(x, y) f(y) dy .$$  
-除了标准的 $L_{2}$ 和 $L_{1}$ 范数外，我们还会在 $\mathcal{W}$ 上定义 
+除了标准的 $L^{2}$ 和 $L^{1}$ 范数外，我们还会在 $\mathcal{W}$ 上定义 
 $$\| W \|_{\square} = \sup_{S, T \subseteq [0,1]} \left| \int_{S \times T} W(x, y) dx dy \right| ,$$ 
 其中 $S,T$ 取遍 $[0,1]$ 中的可测集. 于是有对偶刻画
 $$\begin{aligned} \| W \|_{\square} &= \sup_{f,g:[0,1] \to [0,1]} |\langle f, W g \rangle| \geq\sup_{f:[0,1] \to [0,1]} |\langle f, W f \rangle| \\ &\geq\sup_{S \subseteq [0,1]} \left| \int_{S \times S} W(x,y) dx dy \right| \geq\frac{1}{2} \| W \|_{\square} . \end{aligned}$$
@@ -36,10 +36,10 @@ $$\begin{aligned} \| W \|_{\square} &= \sup_{f,g:[0,1] \to [0,1]} |\langle f, W 
 </p>
 <p class="thm">
 <b>引理1</b> (Hilbert空间的正则引理)<b>.</b> 设 $K_{1}, K_{2}, \cdots$ 是Hilbert空间 $H$ 的任意非空子集。则对于任意 $\varepsilon > 0$ 和 $f \in H$，存在 $m \leq\lceil 1/\varepsilon^{2} \rceil$，以及 $f_{i} \in K_{i}$（$1 \leq i \leq m$）和 $\gamma_{1}, \gamma_{2}, \cdots, \gamma_{m} \in\mathbb{R}$，s.t 对于任意 $g \in K_{m+1}$ 都有 
-$$\left| \left\langle g, f - \left( \gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m} \right) \right\rangle\right| \leq\varepsilon\cdot\| g \|\cdot\| f \| .$$
+$$\left| \left\langle g, f - \left( \gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m} \right) \right\rangle\right| \leq\varepsilon\| g \|\| f \| .$$
 </p>
 <p>
-  如果令集合 $K_{n}$ 是子空间，则 $\gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m}$ 的一个自然选择是 $f$ 在子空间 $K_{1} + \cdots + K_{m}$ 中的最佳逼近（或近似最佳逼近，若最佳逼近不存在），此时误差 $f - (\gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m})$ 与每个 $g \in K_{1} + \cdots + K_{m}$ 正交. 所以上述引理的核心在于误差与下一个集合 $K_{m+1}$ 也几乎正交.  
+  如果令集合 $K_{n}$ 是子空间，则 $\gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m}$ 的一个自然选择是 $f$ 在子空间 $K_{1} + \cdots + K_{m}$ 中的最佳逼近，此时误差 $f - (\gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m})$ 与每个 $g \in K_{1} + \cdots + K_{m}$ 正交. 所以上述引理的核心在于误差与下一个集合 $K_{m+1}$ 也几乎正交.  
 </p>
 <p>
 <i>证明.</i> 令 
@@ -72,7 +72,7 @@ $$\left| \int_{S \times T} \left( W - W^{*} \right) \right| \leq 2\varepsilon.$$
 引理2得证. $\quad$$\square$
 </p>
 <p>
-<b>注.</b> 回忆正则引理的各种证明，都是基于非正则性 $\Rightarrow$ 能量增量这套思路. 读者可以尝试从另一方向证明弱正则引理：如果 $\|W-W_{\mathcal{P}}\|_{\square} \geq \varepsilon$, 则可以对 $\mathcal{P}$ 作一次细分 $\mathcal{P}'$, s.t. $\|W_{\mathcal{P}'}\|_{L^2}^2 \geq \|W_{\mathcal{P}}\| + \varepsilon^2$, 并控制划分数量的增长.
+<b>注.</b> 回忆正则引理的各种证明，都是基于非正则性 $\Rightarrow$ 能量增量这套思路. 读者可以尝试从另一方向证明弱正则引理：如果 $\|W-W_{\mathcal{P}}\|_{\square} \geq \varepsilon$, 则可以对 $\mathcal{P}$ 作一次细分 $\mathcal{P}'$, s.t. $\|W_{\mathcal{P}'}\|_{L^2}^2 \geq \|W_{\mathcal{P}}\|_{L^2}^2 + \varepsilon^2$, 并控制划分数量的增长.
 </p>
 <p>
 现在可以回到图论的场景了. 考虑一个图 $G=G(V,E)$, 对于 $V$ 的划分 $\mathcal{P} = \{V_{1}, ..., V_{k}\}$, 定义边密度 $d_{ij} := \frac{e_{G}(V_{i}, V_{j})}{|V_{i}| \cdot |V_{j}|}$, 其中 $e_G(S,T)$ 表示 $S,T\subset V$ 之间连接的边的数量. 对于任意两个子集 $S, T \subseteq V(G)$, 我们期望 $G$ 中连接 $S$ 和 $T$ 的边数约为 
