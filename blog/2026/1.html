@@ -87,7 +87,7 @@ $$\max_{i,j}\max_{S\subset V_i,\ T\subset V_j}|e_G(S)-d_{ij}(T)|S||T||,$$
 现在我们来叙述并证明图的弱正则引理.
 </p>
 <p class="thm">
-<b>引理3</b> (弱正则引理)<b>.</b> 对于任意 $\varepsilon > 0$ 和任意的图 $G=(V, E)$, 存在划分 $\mathcal{P}$, s.t. 将 $V$ 划分为 $k \leq 2^{2/\varepsilon^{2}}$ 个子集 $V_{1}, ..., V_{k}$，并且对任意 $S, T \subseteq V$ 有 
+<b>引理3</b> (弱正则引理，Frieze-Kannan1999)<b>.</b> 对于任意 $\varepsilon > 0$ 和任意的图 $G=(V, E)$, 存在划分 $\mathcal{P}$, s.t. 将 $V$ 划分为 $k \leq 2^{2/\varepsilon^{2}}$ 个子集 $V_{1}, ..., V_{k}$，并且对任意 $S, T \subseteq V$ 有 
 $$\left| e_{G}(S, T) - e_{\mathcal{P}}(S, T) \right| \leq\varepsilon|V|^{2} .$$
 此时我们称 $\mathcal{P}$ 是 $G$ 的一个 $\varepsilon$-弱正则划分.
 </p>
@@ -95,7 +95,7 @@ $$\left| e_{G}(S, T) - e_{\mathcal{P}}(S, T) \right| \leq\varepsilon|V|^{2} .$$
 <b>注.</b> 此处不要求 $\mathcal{P}$ 是等划分. 可以用弱正则引理推出等划分的版本，代价是将 $k$ 的上界增大为 $2^{c/\varepsilon^{2}}$, 其中 $c$ 是更大的绝对常数）. 但这也远优于Szemeredi正则定理的划分数量（长度 $\varepsilon^{-2}$ 的指数塔，by Gowers）.
 </p>
 <p>
-<i>证明.</i> 从引理1出发，我们可通过阶梯函数 $W_{G}$ 表示 $n$ 个顶点的图 $G$: 考虑 $G$ 的邻接矩阵 $A = (a_{ij})$, 将每个元素 $a_{ij}$ 替换为一个大小为 $\frac{1}{n} \times \frac{1}{n}$ 的正方形，并令 $W_{G}$ 在该正方形上恒等于 $a_{ij}$. 这自然给出了 $[0,1]$ 和 $[0,1]^2$ 的（对称）划分. 令 $\mathcal{A}$ 为这些划分得到的区间生成的子集代数, 这自然地诱导了 $[0,1]$ 上的一个测度 $\mu$.令 $K_{n}$ 为全体乘积集 $S \times S$ 的示性函数集，其中 $S$ 取遍 $\mathcal{A}$. 考虑Hilbert空间 $H=L_{d\mu}^2([0,1]^2)$, 类似于引理3.1的证明即可得到 $[0,1]$ 的弱Szemerédi划分 $\mathcal{P} = \{S_{1}, ..., S_{m}\}\subseteq \mathcal{A}$, s.t. 对任意 $S, T \in A$ 都有
+<i>证明.</i> 从引理2出发，我们可通过阶梯函数 $W_{G}$ 表示 $n$ 个顶点的图 $G$: 考虑 $G$ 的邻接矩阵 $A = (a_{ij})$, 将每个元素 $a_{ij}$ 替换为一个大小为 $\frac{1}{n} \times \frac{1}{n}$ 的正方形，并令 $W_{G}$ 在该正方形上恒等于 $a_{ij}$. 这自然给出了 $[0,1]$ 和 $[0,1]^2$ 的（对称）划分. 令 $\mathcal{A}$ 为这些划分得到的区间生成的子集代数, 这自然地诱导了 $[0,1]$ 上的一个测度 $\mu$.令 $K_{n}$ 为全体乘积集 $S \times S$ 的示性函数集，其中 $S$ 取遍 $\mathcal{A}$. 考虑Hilbert空间 $H=L_{d\mu}^2([0,1]^2)$, 类似于引理2的证明即可得到 $[0,1]$ 的弱Szemerédi划分 $\mathcal{P} = \{S_{1}, ..., S_{m}\}\subseteq \mathcal{A}$, s.t. 对任意 $S, T \in A$ 都有
 $$\left| \int_{S \times T} \left( W_{G}(x, y) - W_{\mathcal{P}}(x, y) \right) dx dy \right| \leq 2\varepsilon .$$
 现在只需注意到 $\mathcal{P}$ 自然地对应了 $V$ 的一个划分，并且
 $$\int_{S\times T} W_G = \frac{e_G(S,T)}{|V|^2},$$
