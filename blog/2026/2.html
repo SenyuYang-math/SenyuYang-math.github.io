@@ -1,0 +1,72 @@
+<html>
+<head> 
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+<i>按：上学期听了不少关于自相似爆破解的报告，可惜浮光掠影，不能登堂. 于是决定从最简单的Burgers方程开始，自己动手记些笔记.</i>
+</p>
+<p>
+本系列博客的主角是无粘Burgers方程
+$$\partial_t u + u \partial_x u =0, \qquad u: [0,T) \times \mathbb{R} \to \mathbb{R}. \tag{1.1}$$
+其中最大发展时间 $T\in (0,\infty]$. 给定一个光滑初值 $u_0 \in C^\infty(\mathbb{R})$, 我们可以解出特征线方程
+$$\ell_{X} := \{(x,t): x=X+u_0(X) t,~ t\in[0,T)\},\qquad X\in \mathbb{R}.$$
+i.e. $u$ 在每一条 $\ell_X$ 上取常值. 于是当 $T$ 充分小时，这些特征线不会相交，这保证了光滑解 $u$ 的局部适定性. 但经过长时间，特征线相交导致了激波解（shock）普遍存在，此时 $\partial_x u$ 爆破. 特别地，如果 $u_0$ 在某段区间内单调递减，则特征线一定会相交. 我们总结为以下的定量结果.
+</p>
+<p class="thm">
+<b>命题1.1.</b> 设 $u:[0, T)\times \mathbb{R} \to \mathbb{R}$ 是 $(1.1)$ 的光滑解，初值为 $u_0$. 如果存在 $x_0\in \mathbb{R}$, s.t. $u_0'(x_0)<0$, 则 
+$$T \leq \frac{1}{-u_0'(x_0)}.$$
+</p>
+<p>
+<i>证明.</i> $\partial_x u$ 满足以下的发展方程
+$$\partial_t (\partial_t u) + u \partial_x^2 u + (\partial_x u)^2=0.$$
+考察其沿特征线 $\ell_X$ 的输运 $v(t, X):= \partial_x u(t, X+u_0(X)t)$, 于是 $v$ 满足
+$$\partial_t v(t,X) +v^2(t,X)=0, \qquad v(0,x_0)=u_0'(x_0)<0.$$
+这是Ricatti型方程, 直接求解得 $v(t,X)=\frac{1}{x+v(0,X)^{-1}}$. 于是上界得证.$\quad$$\Box$
+</p>
+<p>
+上述讨论说明Burgers方程的爆破现象是普遍的（generic），例如任何紧支撑的非零光滑初值都会爆破. 我们希望对此有更加精确的描述.
+</p>
+
+<h2>自相似profile</h2>
+<p class="thm">
+<b>定义.</b> 给定爆破时间 $T$, 定义 $(1.1)$ 的（光滑）自相似解为
+$$u(t,x)= \nu(t) Q(\frac{x-X}{\lambda(t)}),$$
+其中 <i>profile</i> $Q\in C^\infty(\mathbb{R})$, <i>locus</i> $X\in \mathbb{R}$, <i>scale</i> $\nu(t), \lambda(t)>0$, s.t. $\lim_{t\to T} \lambda(t)=0$.
+</p>
+<p>
+现在求解符合条件的profile. 由 $(1.1)$ 的平移不变性，不妨设 $X=0$. 做坐标变换 $x=\lambda(t) y$, $(1,1)$ 可以分离变量为
+$$-\frac{\lambda'}{\lambda} \nu y Q_y+\nu'Q+\frac{\nu^2}{\lambda}Q Q_y=0.$$
+进一步可以设 $\lambda(t)=(T-t)^b$, $b>0$. 此时 $\nu$ 必须为 $(T-t)^{b-1}$ 以保证齐次. 于是 $Q$ 满足非线性ODE
+$$by\frac{dQ}{dy}- (b-1)Q+Q\frac{dQ}{dy}=0.\tag{1.2}$$
+假设 $Q$ 单调，我们可以使用 <i>hodograph变换</i> 求解：视 $y$ 为关于 $Q$ 的函数，则 $(1.2)$ 转化为一个一阶线性ODE
+$$-(b-1)Q\frac{dy}{dQ}+by+Q=0.\tag{1.3}$$
+当 $b=1$ 时解得 $Q(y)=-y$；当 $b\neq 1$ 时 $(1.3)$ 是Bernoulli型方程，
+$$\frac{d}{dQ}\left( Q^{-\frac{b}{b-1}} y \right)= \frac{1}{b-1}Q^{-\frac{b}{b-1}}.$$
+$$\Rightarrow y=-Q-aQ^{\frac{b}{b-1}},$$
+其中 $a \in \mathbb{R}\setminus \{0\}$ 是积分常数. 为了使映射 $Q \mapsto y$ 单调且光滑（特别是在 $Q=0$），我们进一步设
+ $$a>0, \quad \frac{b}{b-1} =2k+1, \qquad k\in \mathbb{Z}_{+}.$$
+因此 $b=\frac{2k+1}{2k}\in (1, \frac{3}{2}]$. 注意到 $(1.2)$ 关于奇变换 $Q(y) \mapsto -Q(-y)$ 不变，因此对 $b$ 的限制是自然的. 现在可以把这些解整理为
+$$y=-Q_{k,a}-aQ_{k,a}^{2k+1},\qquad b:=\frac{2k+1}{2k}. \tag{1.4}$$
+显然 $Q_{k,a}$ 严格单调递减，满足命题1.1的奇性形成机制. 进一步地，我们希望从 $(1.4)$ 出发得到 $Q_{k,a}$ 的渐进行为.
+</p>
+<p class="thm">
+<b>命题1.2.</b> 对任意 $k\in \mathbb{Z}_{+}$ 和 $a>0$, $Q_{k,a}$ 是严格单调递减的光滑奇函数，并且满足
+$$-1 \leq \partial_y Q \lt 0, \qquad -1 \leq \frac{Q}{y}\leq 0.$$
+进一步地，$Q_{k,a}$ 有渐进展开
+$$Q_{k,a}(y)=-y-ay^{2k+1}+O(|y|^{2k+2}), \quad y\to 0;$$
+$$Q_{k,a}(y)= \mp \left( \frac{y}{a} \right)^{\frac{1}{2k+1}}+ O\left( |y|^{-\frac{2k-1}{2k+1}} \right),\quad y\to \pm \infty.$$
+</p>
+<p>
+<i>证明.</i>
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
