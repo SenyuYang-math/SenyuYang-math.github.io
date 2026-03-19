@@ -16,14 +16,13 @@ btitle[12] = "集中紧性原理 (Ⅰ) : 动机，主要结果"; bdate[12] = "08
 btitle[13] = "集中紧性原理 (Ⅱ) : 大bubble的尺度和位置"; bdate[13] = "09/06"; bintro[13] = "用频率精细化的Sobolev不等式确定大bubble, 并建立迭代格式.";
 btitle[14] = "Schroeder-Bernstein定理的不动点证明"; bdate[14] = "09/26"; bintro[14] = "以格论的语言叙述了一个清爽、直观的证明.";
 btitle[15] = "Schroeder-Bernstein定理：构造不动点"; bdate[15] = "10/20"; bintro[15] = "基于上一篇的不动点证明给出直接构造双射的算法.";
-btitle[16] = "近期随想 (1)"; bdate[16] = "10/24"; bintro[16] = "球面的测地线；正交性的应用；重整化(baby ver) ."; 
-btitle[17] = "Bourgain的魔法：环面Schrödinger方程与格点计数"; bdate[17] = "10/26"; bintro[17] = "PDE, 调和分析与数论的美妙联系，Fourier decoupling的先声.";
-btitle[18] = "Bourgain的魔法：有限度量空间的Euclidean嵌入"; bdate[18] = "11/17"; bintro[18] = "软几何的硬分析：随机化的思想和尺度分离-平均的技巧.";
-btitle[19] = "null form的Strichartz估计 (Ⅰ) : 引子, tube分解"; bdate[19] = "11/26"; bintro[19] = "介绍了主要结果，以及核心工具：tube分解.";
-btitle[20] = "(20th纪念) Sylvester-Gallai定理的拓扑证明"; bdate[20] = "11/28"; bintro[20] = "对偶，图论与Euler示性数合奏的乐章."
-btitle[21] = "null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射项的几何"; bdate[21] = "12/07"; bintro[21] = "引入透射/共振两类作用项，对透射项完成尺度归纳的证明.";
-btitle[22] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化与色散"; bdate[22] = "12/15"; bintro[22] = "发轫于Klainerman的几何杰作，并与Fourier视角相结合."
-btitle[23] = "null form的Strichartz估计 (Ⅳ) : 控制共振项，局部拼接整体"; bdate[23] = "12/27"; bintro[23] = "系列的正篇内容完结，证明了主要结果.";
+btitle[16] = "Bourgain的魔法：环面Schrödinger方程与格点计数"; bdate[17] = "10/26"; bintro[17] = "PDE, 调和分析与数论的美妙联系，Fourier decoupling的先声.";
+btitle[17] = "Bourgain的魔法：有限度量空间的Euclidean嵌入"; bdate[18] = "11/17"; bintro[18] = "软几何的硬分析：随机化的思想和尺度分离-平均的技巧.";
+btitle[18] = "null form的Strichartz估计 (Ⅰ) : 引子, tube分解"; bdate[19] = "11/26"; bintro[19] = "介绍了主要结果，以及核心工具：tube分解.";
+btitle[19] = "Sylvester-Gallai定理的拓扑证明"; bdate[20] = "11/28"; bintro[20] = "对偶，图论与Euler示性数合奏的乐章."
+btitle[20] = "null form的Strichartz估计 (Ⅱ) : 尺度归纳，透射项的几何"; bdate[21] = "12/07"; bintro[21] = "引入透射/共振两类作用项，对透射项完成尺度归纳的证明.";
+btitle[21] = "null form的Strichartz估计 (Ⅲ) : 向量场方法，局部化与色散"; bdate[22] = "12/15"; bintro[22] = "发轫于Klainerman的几何杰作，并与Fourier视角相结合."
+btitle[22] = "null form的Strichartz估计 (Ⅳ) : 控制共振项，局部拼接整体"; bdate[23] = "12/27"; bintro[23] = "系列的正篇内容完结，证明了主要结果.";
 // btitle[] = ""; bdate[] = "";
 var amount = btitle.length;
 
