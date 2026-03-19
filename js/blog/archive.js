@@ -22,6 +22,11 @@ var urllength = urltxt.length;
   headfoot.src = '../../js/head-foot.js';
   headfoot.async = true;
   document.body.appendChild(headfoot);
+//网页图标
+var favicon = document.createElement('link');
+  favicon.rel = 'shortcut icon';
+  favicon.href = '../../temp/favicon.ico';
+  document.head.appendChild(favicon);
 //导入博客列表
   // var archYear = Number(urltxt.substring(6, 10));
   var archYear = sessionStorage.getItem('year');
