@@ -23,7 +23,7 @@ document.body.appendChild(mathjax);
 //网页图标
 var favicon = document.createElement('link');
   favicon.rel = 'shortcut icon';
-  favicon.href = './temp/favicon.ico';
+  favicon.href = '../temp/favicon.ico';
   document.head.appendChild(favicon);
 // 导航栏，页脚
 (function () {
