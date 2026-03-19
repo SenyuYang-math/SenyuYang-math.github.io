@@ -20,6 +20,11 @@ var number = Number(urltxt.substring(11,urllength-5));
   headfoot.src = '../../js/head-foot.js';
   headfoot.async = false;
   document.body.appendChild(headfoot);
+//网页图标
+var favicon = document.createElement('link');
+  favicon.rel = 'shortcut icon';
+  favicon.href = '../../temp/favicon.ico';
+  document.head.appendChild(favicon);
 // 导入文章信息
 function infoinput() {
     var bloginfo = document.createElement('script');
