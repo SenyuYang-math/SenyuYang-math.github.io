@@ -20,6 +20,11 @@ var mathjax = document.createElement('script');
 mathjax.src = '../js/math-config.js';
 mathjax.async = true;
 document.body.appendChild(mathjax);
+//网页图标
+var favicon = document.createElement('link');
+  favicon.rel = 'shortcut icon';
+  favicon.href = './temp/favicon.ico';
+  document.head.appendChild(favicon);
 // 导航栏，页脚
 (function () {
   var headfoot = document.createElement('script');
