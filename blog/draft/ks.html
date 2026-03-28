@@ -17,17 +17,17 @@ $$u=\nabla^{\perp}\Delta^{-1} \omega.$$
 $x\in (2\mathbb{T})^2$ 的对称点有记号 $\tilde{x}=(-x_1,x_2)$, $\bar{x}=(x_1,-x_2)$. 定义积分区域 $Q(x)=[x_1,1]\times[x_2,1]$.
 </p>
 <p class="thm">
-<b>引理1</b> (Kiselev-Sverak, Zlatos)<b>.</b> 设 $\omega(t,\cdot)\in L^\infty((2\T)^2)$ 关于 $x_1,x_2$ 均为奇函数. 若 $x_1,x_2\in[0,\frac{1}{2}]$，则对 $j=1,2$ 有
-$$u_j(t,x) = (-1)^j \left( \frac4\pi\int_{Q(2x)}\frac{y_1y_2}{|y|^4}\omega(t,y)\dy + B_j(t,x) \right) x_j,$$
+<b>引理1</b> (Kiselev-Sverak, Zlatos)<b>.</b> 设 $\omega(t,\cdot)\in L^\infty((2\mathbb{T})^2)$ 关于 $x_1,x_2$ 均为奇函数. 若 $x_1,x_2\in[0,\frac{1}{2}]$，则对 $j=1,2$ 有
+$$u_j(t,x) = (-1)^j \left( \frac4\pi\int_{Q(2x)}\frac{y_1y_2}{|y|^4}\omega(t,y)\, dy + B_j(t,x) \right) x_j,$$
 其中误差项 $B_j$ 满足
 $$|B_1(t,x)| \le C\norm{\omega}_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_2}{x_1}\right),\ x_2\frac{\norm{\nabla\omega}_{L^\infty([0,2x_2]^2)}}{\norm{\omega}_{L^\infty}} \right\}\right),$$
 $$|B_2(t,x)| \le C\norm{\omega}_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_1}{x_2}\right),\ x_1\frac{\norm{\nabla\omega}_{L^\infty([0,2x_1]^2)}}{\norm{\omega}_{L^\infty}} \right\}\right).$$
 </p>
 <p>
 <i>证明.</i> $u$ 满足环面上的Biot-Savart定律：
-$$u(t,x) = \frac{1}{2\pi}\sum_{n\in\mathbb{Z}^2} \int_{[-1,1]^2} \frac{(x_2-y_2-2n_2,-x_1+y_1+2n_1)}{|x-y-2n|^2}\omega(t,y)\dy.$$
+$$u(t,x) = \frac{1}{2\pi}\sum_{n\in\mathbb{Z}^2} \int_{[-1,1]^2} \frac{(x_2-y_2-2n_2,-x_1+y_1+2n_1)}{|x-y-2n|^2}\omega(t,y)\, dy.$$
 $\omega$ 是奇函数，于是进一步合并奇异项得到
-$$u_1(t,x) = \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} \left[ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} - \frac{y_1(x_1-2n_1)(x_2+y_2-2n_2)}{|x-(\bar{y}+2n)|^2|x-(-y+2n)|^2} \right] \omega\dy.$$
+$$u_1(t,x) = \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} \left[ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} - \frac{y_1(x_1-2n_1)(x_2+y_2-2n_2)}{|x-(\bar{y}+2n)|^2|x-(-y+2n)|^2} \right] \omega\, dy.$$
 </p>
 <p>
 对于 $n\neq(0,0)$，将项与 $\tilde{n}=(-n_1,n_2)$ 配对可得 
@@ -35,12 +35,12 @@ $$ \left| \frac{2}{\pi}\sum_{n\neq 0}\int_{[0,1]^2}[\cdots]\omega\dy\right| \leq
 </p>
 <p>
 现在只需估计主项 $n=(0,0)$:
-$$\frac2\pi\int_{[0,1]^2} \left[ \frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2} - \frac{y_1(x_2+y_2)}{|x-\bar{y}|^2|x+y|^2} \right] \omega\dy.$$
+$$\frac2\pi\int_{[0,1]^2} \left[ \frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2} - \frac{y_1(x_2+y_2)}{|x-\bar{y}|^2|x+y|^2} \right] \omega\, dy.$$
 对 $x_1\geq x_2$（3 区域）与 $x_1\lt x_2$（4 区域）分别讨论：
 </p>
 <p>
 在 $Q(2x)$ 上，先证明有界性     
-$$\int_{Q(2x)}\frac{y_1x_2}{|x-y|^2|x-\tilde{y}|^2}\dy\le C,$$
+$$\int_{Q(2x)}\frac{y_1x_2}{|x-y|^2|x-\tilde{y}|^2}\, dy\leq C,$$
 再做核函数逼近     
 $$\frac{y_1y_2}{|x-y|^2|x-\tilde{y}|^2}-\frac{y_1y_2}{|y|^4}=O\big(|x||y|^{-3}\big),$$
 积分后该区域给出主项.
@@ -56,7 +56,7 @@ $$\int_{2x_1}^1\int_0^{2x_2}[\cdots]\dy\leq C\log\left(1+\frac{x_2}{x_1}\right),
 在 $[2x_1,2x_2]\times[0,2x_2]$（仅 $x_1\lt x_2$）上，令 $M:=\norm{\nabla\omega}_{L^\infty([0,2x_2]^2)}$，分解     
 $$\omega(t,y) = \omega(t,y_1,x_2) + \big(\omega(t,y_1,y_2)-\omega(t,y_1,x_2)\big),$$
 第一项积分抵消为0，第二项满足 $|w|\le M|x_2-y_2|$，积分得     
-$$\left| \int_{2x_1}^{2x_2}\int_0^{2x_2}[\cdots]w\dy\right|  \leq C M x_2.$$
+$$\left| \int_{2x_1}^{2x_2}\int_0^{2x_2}[\cdots]w\, dy\right|  \leq C M x_2.$$
 综上，我们得到误差项 $B_1$ 的控制.$\quad$$\Box$
 </p>
 </div>
