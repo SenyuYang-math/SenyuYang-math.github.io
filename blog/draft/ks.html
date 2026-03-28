@@ -14,7 +14,7 @@ $$u=\nabla^{\perp}\Delta^{-1} \omega.$$
 若初始涡度 $\omega_0$ 为奇函数，则对所有 $t\geq 0$，$\omega(t,\cdot)$ 都是奇函数.
 </p>
 <p>
-$x\in (2\mathbb{T})^2$ 的对称点有记号 $\tilde{x}=(-x_1,x_2)$, $\bar{x}=(x_1,-x_2)$. 定义积分区域 $Q(x)=[x_1,1]\times[x_2,1]$.
+关于 $x\in (2\mathbb{T})^2$ 的对称点，我们引入记号 $\tilde{x}:=(-x_1,x_2)$, $\bar{x}:=(x_1,-x_2)$.  定义积分区域 $Q(x):=[x_1,1]\times[x_2,1]$.
 </p>
 <p class="thm">
 <b>引理1</b> (Kiselev-Sverak, Zlatos)<b>.</b> 设 $\omega(t,\cdot)\in L^\infty((2\mathbb{T})^2)$ 关于 $x_1,x_2$ 均为奇函数. 若 $x_1,x_2\in[0,\frac{1}{2}]$，则对 $j=1,2$ 有
@@ -27,7 +27,7 @@ $$|B_2(t,x)| \le C\norm{\omega}_{L^\infty} \left( 1 + \min\left\{\log\left(1+\fr
 <i>证明.</i> $u$ 满足环面上的Biot-Savart定律：
 $$u(t,x) = \frac{1}{2\pi}\sum_{n\in\mathbb{Z}^2} \int_{[-1,1]^2} \frac{(x_2-y_2-2n_2,-x_1+y_1+2n_1)}{|x-y-2n|^2}\omega(t,y)\, dy.$$
 $\omega$ 是奇函数，于是进一步合并奇异项得到
-$$u_1(t,x) = \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} \left[ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} - \frac{y_1(x_1-2n_1)(x_2+y_2-2n_2)}{|x-(\bar{y}+2n)|^2|x-(-y+2n)|^2} \right] \omega\, dy.$$
+$$\begin{align*}u_1(t,x) &= \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} \left[ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2}\right. \\ &\qquad\qquad\qquad \left.- \frac{y_1(x_1-2n_1)(x_2+y_2-2n_2)}{|x-(\bar{y}+2n)|^2|x-(-y+2n)|^2} \right] \omega\, dy\end{align*}$$
 </p>
 <p>
 对于 $n\neq(0,0)$，将项与 $\tilde{n}=(-n_1,n_2)$ 配对可得 
