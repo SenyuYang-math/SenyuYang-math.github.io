@@ -20,8 +20,8 @@ $$u=\nabla^{\perp}\Delta^{-1} \omega.$$
 <b>引理1</b> (Kiselev-Sverak, Zlatos)<b>.</b> 设 $\omega(t,\cdot)\in L^\infty((2\mathbb{T})^2)$ 关于 $x_1,x_2$ 均为奇函数. 若 $x_1,x_2\in[0,\frac{1}{2}]$，则对 $j=1,2$ 有
 $$u_j(t,x) = (-1)^j \left( \frac4\pi\int_{Q(2x)}\frac{y_1y_2}{|y|^4}\omega(t,y)\, dy + B_j(t,x) \right) x_j,$$
 其中误差项 $B_j$ 满足
-$$|B_1(t,x)| \le C\norm{\omega}_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_2}{x_1}\right),\ x_2\frac{\norm{\nabla\omega}_{L^\infty([0,2x_2]^2)}}{\norm{\omega}_{L^\infty}} \right\}\right),$$
-$$|B_2(t,x)| \le C\norm{\omega}_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_1}{x_2}\right),\ x_1\frac{\norm{\nabla\omega}_{L^\infty([0,2x_1]^2)}}{\norm{\omega}_{L^\infty}} \right\}\right).$$
+$$|B_1(t,x)| \le C\|\omega\|_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_2}{x_1}\right),\ x_2\frac{\norm{\nabla\omega}_{L^\infty([0,2x_2]^2)}}{\|\omega\|_{L^\infty}} \right\}\right),$$
+$$|B_2(t,x)| \le C\|\omega\|_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_1}{x_2}\right),\ x_1\frac{\norm{\nabla\omega}_{L^\infty([0,2x_1]^2)}}{\|\omega\|_{L^\infty}} \right\}\right).$$
 </p>
 <p>
 <i>证明.</i> $u$ 满足环面上的Biot-Savart定律：
@@ -31,7 +31,7 @@ $$\begin{align*}u_1(t,x) &= \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} 
 </p>
 <p>
 对于 $n\neq(0,0)$，将项与 $\tilde{n}=(-n_1,n_2)$ 配对可得 
-$$ \left| \frac{2}{\pi}\sum_{n\neq 0}\int_{[0,1]^2}[\cdots]\omega\dy\right| \leq C x_1 \norm{\omega}_{L^\infty}.$$
+$$ \left| \frac{2}{\pi}\sum_{n\neq 0}\int_{[0,1]^2}[\cdots]\omega\dy\right| \leq C x_1 \|\omega\|_{L^\infty}.$$
 </p>
 <p>
 现在只需估计主项 $n=(0,0)$:
