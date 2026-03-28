@@ -6,27 +6,58 @@
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<p class="thm">
-<b>引理</b> (Kiselev-Sverak)<b>.</b> 设涡度函数 $\omega \in H^{\frac{d}{2}}(\mathbb{R}^d) \cup (L^2 \cap L^\infty) (\mathbb{R}^d)$ 满足
-<ul>
-<li>$\omega$ 是关于最后一个坐标的奇函数，i.e. $\omega(x_1, -x_2)= -\omega(x_1,x_2)$.</li>
-<li>存在 $\{|x_1|=0\}\cup \{x_2=0\}$ 的一个邻域 $\mathcal{N}_0$, s.t. $\omega\mid_{\mathcal{N_0}}\equiv 0$.</li>
-</ul>
-则存在绝对常数 $C>0$, s.t. 对于任意 $x=(x_1,x_2) \in \mathbb{R}^2$ 满足 $|x_1|>|x_2|$, 速度场 $u=(u_1,u_2)$ 有以下展开
-$$\left| \frac{u_2(x)}{x_2} +  \frac{4}{\pi} \int_{|y_1|>2|x_1|} \frac{y_1y_2}{|y|^4} \omega(y) \, dy\right|\leq C \left( 1+\log \left|\frac{x_1}{x_2}\right| \right) \|\omega\|_{L^\infty}.$$
+<p>
+设区域为二维环面 $(2\mathbb{T})^2 = [-1,1)^2$，考虑二维欧拉方程（涡度形式）
+$$\omega_t + u\cdot\nabla\omega = 0,\quad \omega(0,\cdot)=\omega_0,$$
+其中流体速度场
+$$u=\nabla^{\perp}\Delta^{-1} \omega.$$
+若初始涡度 $\omega_0$ 为奇函数，则对所有 $t\geq 0$，$\omega(t,\cdot)$ 都是奇函数.
 </p>
 <p>
-<i>证明.</i> $u_2$ 有Biot-Savart表示
-$$\begin{align*}u_2(x)& =\frac{1}{2\pi} \int_{\mathbb{R}^2} \frac{(x_1-y_1)y_1}{|y_1||x-y|^2} \omega \, dy\\ & = \frac{1}{2\pi}\int_{\mathbb{H}_+} \frac{(x_1-y_1)y_1}{|y_1|} \left( \frac{1}{|x-y|^2}-\frac{1}{|x-\bar{y}|^2}\right) \, dy,\tag{1}\end{align*}$$
-其中 $\bar{y}:= (y_1,-y_2)$ 将 $\mathbb{R}^2$ 划分为以下三个区域
-$$\begin{align*}&Q(x):= \{y: |y_1|> 4|x_1|\},\\ &R(x):= \{y: |y_1|\leq 4|x_1|, |y_2|>4|x_2|\}, \\ &S(x):= \{y: |y_1|\leq 4|x_1|, |y_2|\leq 4|x_2|\}.\end{align*}$$
-这些区域关于 $y_2=0$ 对称，可添加下标 $+$ 表示该区域与 $\mathbb{H}_+$ 的交集. 于是按上述划分自然地将 $u_2$ 的表示 $(1)$ 分解为 $2\pi u_2(x)=J_{Q_+}(x)+J_{R_+}(x)+J_{S_+}(x)$.
-对于 $J_{Q_+}$, 合并奇性项有
-$$J_{Q_+}=\int_{Q_+} \frac{(x_1-y_1)y_1}{|y_1|} \frac{4x_2y_2}{|x-y|^2|x-\bar{y}|^2} \omega(y) \, dy.$$
-在 $Q_+(x)$ 中 $(x_1-y_1)y_1=x_1y_1-|y_1|^2$ 由第二项主导，于是进一步做相应的分解 $J_{Q_+}=J_{Q_+}^{(1)}+ J_{Q_+}^{(2)}$. 由前提 $|x_1|\geq |x_2|$, 
-$$\frac{1}{2}|y|\leq |x-y|, |x-\bar{y}| \leq 2|y|, ~~ \forall y\in Q_+(x).$$
-于是
-$$\begin{align*} \left| J_{Q_+}^{(1)} \right| & |x_2|\lesssim \int_{Q_+} \frac{|\omega(y)|}{|y|^2} \, dy \lesssim  \end{align*}$$
+$x\in (2\mathbb{T})^2$ 的对称点有记号 $\tilde{x}=(-x_1,x_2)$, $\bar{x}=(x_1,-x_2)$. 定义积分区域 $Q(x)=[x_1,1]\times[x_2,1]$.
+</p>
+<p class="thm">
+<b>引理1</b> (Kiselev-Sverak, Zlatos)<b>.</b> 设 $\omega(t,\cdot)\in L^\infty((2\T)^2)$ 关于 $x_1,x_2$ 均为奇函数. 若 $x_1,x_2\in[0,\frac{1}{2}]$，则对 $j=1,2$ 有
+$$u_j(t,x) = (-1)^j \left( \frac4\pi\int_{Q(2x)}\frac{y_1y_2}{|y|^4}\omega(t,y)\dy + B_j(t,x) \right) x_j,$$
+其中误差项 $B_j$ 满足
+$$|B_1(t,x)| \le C\norm{\omega}_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_2}{x_1}\right),\ x_2\frac{\norm{\nabla\omega}_{L^\infty([0,2x_2]^2)}}{\norm{\omega}_{L^\infty}} \right\}\right),$$
+$$|B_2(t,x)| \le C\norm{\omega}_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_1}{x_2}\right),\ x_1\frac{\norm{\nabla\omega}_{L^\infty([0,2x_1]^2)}}{\norm{\omega}_{L^\infty}} \right\}\right).$$
+</p>
+<p>
+<i>证明.</i> $u$ 满足环面上的Biot-Savart定律：
+$$u(t,x) = \frac{1}{2\pi}\sum_{n\in\mathbb{Z}^2} \int_{[-1,1]^2} \frac{(x_2-y_2-2n_2,-x_1+y_1+2n_1)}{|x-y-2n|^2}\omega(t,y)\dy.$$
+$\omega$ 是奇函数，于是进一步合并奇异项得到
+$$u_1(t,x) = \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} \left[ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} - \frac{y_1(x_1-2n_1)(x_2+y_2-2n_2)}{|x-(\bar{y}+2n)|^2|x-(-y+2n)|^2} \right] \omega\dy.$$
+</p>
+<p>
+对于 $n\neq(0,0)$，将项与 $\tilde{n}=(-n_1,n_2)$ 配对可得 
+$$ \left| \frac{2}{\pi}\sum_{n\neq 0}\int_{[0,1]^2}[\cdots]\omega\dy\right| \leq C x_1 \norm{\omega}_{L^\infty}.$$
+</p>
+<p>
+现在只需估计主项 $n=(0,0)$:
+$$\frac2\pi\int_{[0,1]^2} \left[ \frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2} - \frac{y_1(x_2+y_2)}{|x-\bar{y}|^2|x+y|^2} \right] \omega\dy.$$
+对 $x_1\geq x_2$（3 区域）与 $x_1\lt x_2$（4 区域）分别讨论：
+</p>
+<p>
+在 $Q(2x)$ 上，先证明有界性     
+$$\int_{Q(2x)}\frac{y_1x_2}{|x-y|^2|x-\tilde{y}|^2}\dy\le C,$$
+再做核函数逼近     
+$$\frac{y_1y_2}{|x-y|^2|x-\tilde{y}|^2}-\frac{y_1y_2}{|y|^4}=O\big(|x||y|^{-3}\big),$$
+积分后该区域给出主项.
+</p>
+<p>
+在 $[0,2x_1]\times[0,1]$ 上，做变量代换 $z_j=y_j-x_j$ 后积分有界，贡献为常数阶.
+</p>
+<p>
+在 $[2x_1,1]\times[0,2x_2]$ 上，直接积分得对数界     
+$$\int_{2x_1}^1\int_0^{2x_2}[\cdots]\dy\leq C\log\left(1+\frac{x_2}{x_1}\right),$$
+</p>
+<p>
+在 $[2x_1,2x_2]\times[0,2x_2]$（仅 $x_1\lt x_2$）上，令 $M:=\norm{\nabla\omega}_{L^\infty([0,2x_2]^2)}$，分解     
+$$\omega(t,y) = \omega(t,y_1,x_2) + \big(\omega(t,y_1,y_2)-\omega(t,y_1,x_2)\big),$$
+第一项积分抵消为0，第二项满足 $|w|\le M|x_2-y_2|$，积分得     
+$$\left| \int_{2x_1}^{2x_2}\int_0^{2x_2}[\cdots]w\dy\right|  \leq C M x_2.$$
+综上，我们得到误差项 $B_1$ 的控制.$\quad$$\Box$
 </p>
 </div>
 
