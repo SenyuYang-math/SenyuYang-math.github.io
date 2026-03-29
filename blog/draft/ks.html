@@ -30,12 +30,20 @@ $\omega$ 是奇函数，于是进一步合并奇异项得到
 $$\begin{align*}u_1(t,x) &= \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} \left[ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2}\right. \\ &\qquad\qquad\qquad \left.- \frac{y_1(x_1-2n_1)(x_2+y_2-2n_2)}{|x-(\bar{y}+2n)|^2|x-(-y+2n)|^2} \right] \omega\, dy\end{align*}$$
 </p>
 <p>
-对于 $n\neq(0,0)$，将项与 $\tilde{n}=(-n_1,n_2)$ 配对可得 
-$$ \left| \frac{2}{\pi}\sum_{n\neq 0}\int_{[0,1]^2}[\cdots]\omega\dy\right| \leq C x_1 \|\omega\|_{L^\infty}.$$
+对于 $n\neq(0,0)$，注意到 $x\in [0,\frac{1}{2}]^2$, 于是
+$$|x_j \pm y_j \pm 2n_j| \sim |n_j|, ~~ j =1,2.$$
+考虑积分的第一项，我们得到
+$$\begin{align*}\frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} = -\frac{2y_1n_1(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} + x_1 O(|n|^{-3}).\end{align*}$$
+而上式的第一项关于 $n_1$ 奇对称，因此在求和中与 $\tilde{n}=(-n_1,n_2)$ 项合并为
+$$\begin{align*} 2y_1n_1(x_2-y_2-2n_2)\frac{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2-|x-(y+2\tilde{n})|^2|x-(\tilde{y}+2\tilde{n})|^2}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2|x-(y+2\tilde{n})|^2|x-(\tilde{y}+2\tilde{n})|^2},~~ n\in \mathbb{Z^2},~ n_1\geq 1.\end{align*}$$
+其中平方差因子
+$$\begin{align*} & ~~~~|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2-|x-(y+2\tilde{n})|^2|x-(\tilde{y}+2\tilde{n})|^2\\&  = (x_2-y_2-2n_2)^2\big[ (x_1+y_1-2n_1)^2-(x_1-y_1+2n_1)^2+(x_1-y_1-2n_1)^2-(x_1+y_1+2n_1)^2 \big]\\ & ~~~~ + (x_1-y_1-2n_1)^2(x_1+y_1-2n_1)^2- (x_1-y_1+2n_1)^2(x_1+y_1+2n_1)^2\\ & = -(x_2-y_2-2n_2)^2 \cdot  4x_1 \cdot n_1 \\ & ~~~~ +  (x_1-y_1-2n_1)^2(x_1+y_1-2n_1)^2 - (x_1+y_1+2n_1)^2 (x_1+y_1-2n_1)^2 +  (x_1+y_1+2n_1)^2(x_1+y_1-2n_1)^2 - (x_1-y_1+2n_1)^2(x_1+y_1+2n_1)^2 \\ & = -16x_1n_1 \big[ (x_2-y_2-2n_2)^2+x_1^2-y_1^2+4n_1^2 \big] = -x_1 O(|n|^3).\end{align*}$$
+对 $n$ 求和即得到
+$$ \left| \frac{2}{\pi}\sum_{n\neq 0}\int_{[0,1]^2}\frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} \omega\, dy\right| \leq C x_1 \|\omega\|_{L^\infty}.$$
 </p>
 <p>
-现在只需估计主项 $n=(0,0)$:
-$$\frac2\pi\int_{[0,1]^2} \left[ \frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2} - \frac{y_1(x_2+y_2)}{|x-\bar{y}|^2|x+y|^2} \right] \omega\, dy.$$
+现在只需估计零频率项:
+$$\frac{2}{\pi}\int_{[0,1]^2} \left[ \frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2} - \frac{y_1(x_2+y_2)}{|x-\bar{y}|^2|x+y|^2} \right] \omega\, dy.$$
 对 $x_1\geq x_2$（3 区域）与 $x_1\lt x_2$（4 区域）分别讨论：
 </p>
 <p>
@@ -50,7 +58,7 @@ $$\frac{y_1y_2}{|x-y|^2|x-\tilde{y}|^2}-\frac{y_1y_2}{|y|^4}=O\big(|x||y|^{-3}\b
 </p>
 <p>
 在 $[2x_1,1]\times[0,2x_2]$ 上，直接积分得对数界     
-$$\int_{2x_1}^1\int_0^{2x_2}[\cdots]\dy\leq C\log\left(1+\frac{x_2}{x_1}\right),$$
+$$\int_{2x_1}^1\int_0^{2x_2}[\cdots]\, dy\leq C\log\left(1+\frac{x_2}{x_1}\right),$$
 </p>
 <p>
 在 $[2x_1,2x_2]\times[0,2x_2]$（仅 $x_1\lt x_2$）上，令 $M:=\norm{\nabla\omega}_{L^\infty([0,2x_2]^2)}$，分解     
