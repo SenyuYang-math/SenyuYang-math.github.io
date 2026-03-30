@@ -1,0 +1,108 @@
+<html>
+<head> 
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+二维环面 $(2\mathbb{T})^2 = [-1,1)^2$ 的无粘不可压流体满足Euler方程（涡度形式）
+$$\omega_t + u\cdot\nabla\omega = 0,\quad \omega(0,\cdot)=\omega_0,$$
+其中流体速度场
+$$u=\nabla^{\perp}\Delta^{-1} \omega, ~~ \nabla^{\perp}:=(\partial_{x_2}, -\partial_{x_1}).$$
+若初始涡度 $\omega_0$ 为奇函数，则对所有 $t\geq 0$，$\omega(t,\cdot)$ 都是奇函数.
+</p>
+<p>
+关于 $x\in (2\mathbb{T})^2$ 的对称点，我们引入记号 $\tilde{x}:=(-x_1,x_2)$, $\bar{x}:=(x_1,-x_2)$. 我们还定义环面中的区域 $Q(x):=[x_1,1]\times[x_2,1]$.
+</p>
+<p class="thm">
+<b>引理1</b> (Kiselev-Sverak, Zlatos)<b>.</b> 设 $\omega(t,\cdot)\in W^{1,\infty}\left((2\mathbb{T})^2\right)$ 关于 $x_1,x_2$ 均为奇函数. 若 $x_1,x_2\in[0,\frac{1}{2}]$，则对 $j=1,2$ 有
+$$u_j(t,x) = (-1)^j x_j \left( \frac4\pi\int_{Q(2x)}\frac{y_1y_2}{|y|^4}\omega(t,y)\, dy + B_j(t,x) \right),$$
+其中余项 $B_j$ 满足
+$$|B_1(t,x)| \lesssim \|\omega\|_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_2}{x_1}\right),\ x_2\frac{\|\nabla\omega\|_{L^\infty([0,2x_2]^2)}}{\|\omega\|_{L^\infty}} \right\}\right),$$
+$$|B_2(t,x)| \lesssim \|\omega\|_{L^\infty} \left( 1 + \min\left\{\log\left(1+\frac{x_1}{x_2}\right),\ x_1\frac{\|nabla\omega\|_{L^\infty([0,2x_1]^2)}}{\|\omega\|_{L^\infty}} \right\}\right).$$
+</p>
+<p>
+  注意到 $\frac{y_1y_2}{|y|^4}$ 在 $x=0$ 周围的 $L^1$ 积分奇异，因此作为主部. 引理的意义在于：如果涡块 $\omega$ 在 $x=0$ 附近的分布有奇对称性（涡块的符号代表了它的定向），那么速度场 $u$ 在 $x=0$ 附近就近似于一个双曲流，i.e. $x=0$ 是一个鞍点（注意符号 $(-1)^j$）. 此时Euler方程的输运项 $u\cdot \nabla$ 就对涡块 $\omega$ 产生拉伸效应，这在Euler方程的超指数增长，临界不适定性的构造等工作中都是核心图景. 因此Kiselev-Sverak称其为“key lemma”.
+</p>
+<p>
+  本文的后续部分是给出引理的证明. 为记号方便，我们将省略时间变量 $t$.
+</p>
+<p>
+<i>证明.</i> $u$ 满足环面上的Biot-Savart定律：
+$$u(x) = \frac{1}{2\pi}\sum_{n\in\mathbb{Z}^2} \int_{[-1,1]^2} \frac{(x_2-y_2-2n_2,-x_1+y_1+2n_1)}{|x-y-2n|^2}\omega(y)\, dy.$$
+$\omega$ 是奇函数，于是进一步合并奇异项得到
+$$\begin{align*}u_1(x) &= \frac{2}{\pi}\sum_{n\in\mathbb{Z}^2} \int_{[0,1]^2} \left[ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2}\right. \\ &\qquad\qquad\qquad \left.- \frac{y_1(x_1-2n_1)(x_2+y_2-2n_2)}{|x-(\bar{y}+2n)|^2|x-(-y+2n)|^2} \right] \omega(y) \, dy\end{align*}$$
+我们分类讨论如下：
+</p>
+<p>
+<i>Case 1.</i> 对于 $n\neq(0,0)$，注意到 $x\in [0,\frac{1}{2}]^2$, 于是
+$$|x_j \pm y_j \pm 2n_j| \sim |n_j|, ~~ j =1,2.$$
+考虑积分的第一项，我们得到
+$$\begin{align*}&~~~~ \frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2}\\ &= -\frac{2y_1n_1(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} + x_1 O(|n|^{-3}).\end{align*}$$
+而上式的第一项关于 $n_1$ 奇对称，因此在求和中与 $\tilde{n}=(-n_1,n_2)$ 项合并为
+$$\begin{align*} 2y_1n_1&(x_2-y_2 -2n_2)\\ & \cdot \frac{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2-|x-(y+2\tilde{n})|^2|x-(\tilde{y}+2\tilde{n})|^2}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2|x-(y+2\tilde{n})|^2|x-(\tilde{y}+2\tilde{n})|^2},\end{align*}$$
+其中 $n\in \mathbb{Z^2}$: $n_1\geq 1$. 平方差因子整理为
+$$\begin{align*} & ~~~~|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2-|x-(y+2\tilde{n})|^2|x-(\tilde{y}+2\tilde{n})|^2\\& = -16x_1n_1 \big[ (x_2-y_2-2n_2)^2+x_1^2-y_1^2+4n_1^2 \big] \\ &= -x_1 O(|n|^3).\end{align*}$$
+对 $n$ 求和即得到积分第一项的控制：
+$$ \left| \frac{2}{\pi}\sum_{n\neq 0}\int_{[0,1]^2}\frac{y_1(x_1-2n_1)(x_2-y_2-2n_2)}{|x-(y+2n)|^2|x-(\tilde{y}+2n)|^2} \omega\, dy\right| \leq C x_1 \|\omega\|_{L^\infty}.$$
+同理，积分的第二项也满足上述的余项估计.
+</p>
+<p>
+<i>Case 2.</i> 现在只需讨论 $n=0$ 情形，该项等于 $x_1$ 乘以 
+$$I_0(x):=\frac{2}{\pi}x_1 \int_{[0,1]^2}\left[\frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2}-\frac{y_1(x_2+y_2)}{|x-\bar{y}|^2|x+y|^2}\right] \omega(y) \, dy.$$
+现在将积分划分为 3 个区域：$Q(2x)$, $[0,2x_1]\times[0,1]$ 和 $[2x_1,1]\times[0,2x_2]$. 另外，当 $x_1\lt x_2$ 时还需要进一步的分解. 为简便起见，接下来如果无特殊指明，我们都由对称性略去 $I_0(x)$ 第二项的估计.
+</p>
+<p>
+<i>Case 2.1.</i> 首先在 $Q(2x)$ 上，注意到
+$$|x-y|^2, ~ |x-\tilde{y}|^2 = |y|^2+O(|x||y|).$$
+于是 $I_0(x)$ 的第一项有积分上界
+$$ \int_{Q(2x)}\frac{y_1x_2}{|x-y|^2|x-\tilde{y}|^2}\, dy\leq C\int_{Q(2x)}\frac{|x|}{|y|^3} \, dy\leq C\int_{|2x|}^1\frac{|x|}{r^2} \, dr\lesssim 1,$$  
+以及
+$$ \int_{Q(2x)}\left| \frac{y_1y_2}{|x-y|^2|x-\tilde{y}|^2}-\frac{y_1y_2}{|y|^4}\right| \, dy\lesssim \int_{Q(2x)} \frac{|x|}{|y|^3} \,dy\lesssim  1.$$ 
+注意此时 $I_0(x)$ 的第二项同理，因为 $y_2$ 的符号. 如此我们便得到了 $u_1$ 的主项.
+</p>
+<p>
+<i>Case 2.2.</i> 接下来在 $[0,2x_1]\times[0,1]$ 上，做变量代换 $z_j:=y_j-x_j$ 后，此时有
+$$|z_1|\leq x_1, ~~ 2x_1+z_1 \sim x_1.$$
+考虑 $I_0(x)$ 的第一项， 
+$$\begin{align*}&~~~~\left|\int_0^{2x_1} \int_0^1 \frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2} \, dy_2dy_1\right| \\ & =\left| \int_{-x_1}^{x_1} \int_{-x_2}^{1-x_2} \frac{(x_1+z_1)z_2}{\big(z_1^2+z_2^2\big)\big((2x_1+z_1)^2 +z_2^2\big)} \, dz_2dz_1 \right| \\ & \lesssim \int_{-x_1}^{x_1} \int_{-1}^{1} \frac{x_1 |z_2|}{(z_1^2+z_2^2) (x_1^2 + z_1^2)} \, dz_2dz_1, \end{align*}$$
+由对称性，上式的最后一行只需要以下估计
+$$\begin{align*} & ~~~~\int_{0}^{x_1} \int_0^1\frac{x_1 z_2}{(z_1^2+z_2^2)(x_1^2+z_2^2)} \, dz_2dz_1\\ & =\int_0^1\frac{x_1}{x_1^2+z_2^2}\arctan\frac{x_1}{z_2}\, dz_2\\ & \leq \frac{\pi}{2}\arctan\frac{1}{x_1}\\ & \leq 1. \end{align*}$$
+即可控制.
+</p>
+<p>
+<i>Case 2.3.</i> 最后在 $[2x_1,1]\times[0,2x_2]$ 上，在新变量 $z$ 下有
+$$x_1 \gt z_1, ~~|z_2|\lt x_2.$$
+于是 $I_0(x)$ 的第一项满足
+$$\begin{align*}&~~~~ \left|\int_{2x_1}^1 \int_0^{2x_2} \frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2} \, dy_2dy_1\right| \\ & =\left| \int_{x_1}^{1-x_1} \int_{-x_2}^{x_2} \frac{(x_1+z_1)z_2}{\big(z_1^2+z_2^2\big)\big((2x_1+z_1)^2 +z_2^2\big)} \, dz_2dz_1 \right| \\ & \lesssim \int_{x_1}^{1} \int_{-x_2}^{x_2} \frac{z_1 |z_2|}{(z_1^2+z_2^2) (z_1^2 + z_1^2)} \, dz_2dz_1, \end{align*}$$
+同样只需估计
+$$\begin{align*} &~~~~ \int_{x_1}^1\int_0^{x_2}\frac{z_1z_2}{(z_1^2+z_2^2)^2}\, dz_2dz_1\\ & \lesssim \int_0^{x_2}\frac{z_2}{x_1^2+z_2^2}\, dz_2 \\ & \leq \log\left(1+\frac{x_2}{x_1}\right), \end{align*}$$
+右式被引理的余项吸收；特别地，当 $x_2\lesssim x_1$ 时估计可以去掉 $\log$ 项.
+</p>
+<p>
+而 $x_1\lt x_2$ 时，我们还可以做得更精细：注意到
+$$\int_{x_2}^1\int_0^{x_2}\frac{z_1z_2}{(z_1^2+z_2^2)^2}\, dz_2dz_1 \lesssim 1,$$
+因此只需考虑剩余区域 $[2x_1,2x_2]\times[0,2x_2]$ 上的积分. 记 $M:=\|\nabla\omega(t,\cdot)\|_{L^\infty([0,2x_2]^2)}$. 以 $(y_1,x_2)$ 为基点做展开
+$$\omega(y)=v(y_1)+w(t,y)，~~~~v(y_1):=\omega(t,y_1,x_2),$$
+于是中值定理给出
+$$|w(y)|\leq M|x_2-y_2|.$$  
+对于 $y_1\in[2x_1, 2x_2]$，由关于 $z_2$ 的奇对称性，$v$ 的积分项有消去性质
+$$\begin{align*}& ~~~~\int_0^{2x_2}\frac{y_1(x_2-y_2)}{|x-y|^2|x-\tilde{y}|^2}v(y_1)\, dy_2\\ & =v(y_1)\int_{-x_2}^{x_2}\frac{-y_1z_2}{[(x_1-y_1)^2+z_2^2][(x_1+y_1)^2+z_2^2]}\, dz_2\\ & =0.\end{align*}$$
+而 $w$ 的积分项满足 
+$$\begin{align*} &~~~~ \left|\int_{2x_1}^{2x_2}\int_0^{2x_2}\frac{y_1(x_2-y_2)w(y)}{|x-y|^2|x-\tilde{y}|^2} \, dy_2dy_1\right|\\ &\lesssim M \int_{2x_1}^{2x_2}\int_0^{x_2}\frac{y_1z_2^2}{(y_1^2+z_2^2)^2}\, dz_2dy_1\\& \lesssim M\int_0^{x_2}\frac{z_2^2}{x_1^2+z_2^2}\, dz\\ & \lesssim Mx_2. \end{align*}$$  
+综合此前的 $\log$ 估计，我们得到了完整的余项估计.
+</p>
+<p>
+注意，$I_0(x)$ 的第二项总可在 $[2x_1,1]\times[0,2x_2]$ 上积分而不损失权，因为做新的变量代换 $z_1$ 和 $z_2:=y_2+x_2$ 后可以类似地归结为以下估计： 
+$$\begin{align*}&~~~~\int_{x_1}^1\int_{x_2}^{3x_2}\frac{z_1z_2}{(z_1^2+z_2'^2)^2}\, dz_2dz_1\\ &\lesssim \int_{x_2}^{3x_2}\frac{z_2}{x_1^2+z_2^2}dz_2\\ & \lesssim\log\frac{x_1^2+3x_2^2}{x_1^2+x_2^2}\\ & \lesssim 1. \end{align*}$$ 
+至此，我们完成了环面上的Kiselev-Sverak引理的证明.$\quad$$\Box$
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
