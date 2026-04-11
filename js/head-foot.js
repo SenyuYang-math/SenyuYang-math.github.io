@@ -13,7 +13,7 @@ async function footHTML() {
   await fetch('https://senyuyang-math.github.io/temp/foot.html').then(response => response.text()).then(data => {
                 document.querySelector('#footbar').innerHTML = data;
               });
-  document.getElementById('sign').innerHTML = '&copy; 2024-' + new Date().getFullYear() + ' Senyu Yang | 献身的羔羊守护强者的知识 | Powered by IBN5100 &nbsp;';
+  document.getElementById('sign').innerHTML = '&copy; 2024-' + new Date().getFullYear() + ' Senyu Yang | 献身的羔羊守护强者的知识 | Powered by IBN5100 &mbsp;';
 }
 footHTML();
 
