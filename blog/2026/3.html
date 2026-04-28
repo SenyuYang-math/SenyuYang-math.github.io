@@ -1,0 +1,33 @@
+<html>
+<head>  
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+本文取自Logunov关于nodal set和Yau猜想的著名文章（这是一个上等的論文）. 
+</p>
+<p class="thm">
+<b>引理1.</b> 给定常数 $c>0$. 设 $f$ 是区间 $[a,b]$ 上非负，单调不减的函数，并且 $f(x)\ge c$. 则存在点 $x\in [a,\frac{a+b}{2} )$ 以及常数 $N\ge c$, s.t. 以下的界
+$$N\le f(t)\le cN$$
+对任意
+$$t\in\biggl(x-\frac{b-a}{20\log^2 f(x)},\ x+\frac{b-a}{20\log^2 f(x)}\biggr)\subset [a,b]$$
+成立.
+</p>
+<p>
+<i>证明.</i> 不妨设 $a=0$, $b=1$. 定义点列 $x_i\in[0,1)$：$x_1=0$, 并且如果 $x_{i+1}\le 1/2$ 则
+$$x_{i+1}:=x_i+\frac{1}{10\log^2 f(x_i)}.$$
+该点列可能有限.若对 $x=\frac{x_i+x_{i+1}}{2}$ 与 $N=f(x_i)$ 结论不成立，则有 $f(x_{i+1})\ge e f(x_i)$. 若对所有这样的 $x$ 均成立，则 $f(x_i)\ge e^i$. 于是
+$$x_{i+1}-x_i=\frac{1}{10\log^2 f(x_i)}\le\frac{1}{10i^2}.$$
+由于 $\sum_{i=1}^\infty\frac{1}{10i^2}<1/2$，可知对所有整数 $i$ 都有 $x_i\le 1/2$，且 $f(x_i)\le f(1/2)$，但同时 $f(x_i)\to\infty$（$i\to\infty$），矛盾.$\quad$$\Box$
+</p>
+
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
