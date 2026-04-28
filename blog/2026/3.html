@@ -30,7 +30,10 @@ $$x_{i+1}-x_i=\frac{1}{10\log^2 f(x_i)}\le\frac{1}{10i^2}.$$
 由于 $\sum_{i=1}^\infty\frac{1}{10i^2}<\frac{1}{2}$，可知 $i$ 可取遍所有正整数，并且有 $x_i\le \frac{1}{2}$, 于是 $f(x_i)\le f(\frac{1}{2})$；但同时又得 $f(x_i)\to\infty$ ($i\to\infty$)，矛盾！因此符合条件的 $x$ 存在.$\quad$$\Box$
 </p>
 <p>
-设 $M$ 为黎曼流形，$O$ 是 $M$ 上一点. 取以 $O$ 为中心的法坐标系，将 $O$ 在 $M$ 上的邻域等同于欧氏空间原点的邻域. 此时存在两种度量：欧氏度量 $d(x,y)$ 与黎曼度量 $d_g(x,y)$. 记 $B(x,r)$ 为欧氏度量下以 $x$ 为球心、$r$ 为半径的球，$B_g(x,r)$ 为黎曼度量下的测地球. 半径 $r$ 总小于单射半径.
+Logunov的文章旨在研究黎曼流形上的Laplace算子和调和函数，因此我们现在引入一些几何背景. 
+</p>
+<p>
+设 $M$ 为Riemann流形，$O$ 是 $M$ 上一点. 取以 $O$ 为中心的法坐标系，将 $O$ 在 $M$ 上的邻域等同于欧氏空间原点的邻域. 此时存在两种度量：欧氏度量 $d(x,y)$ 与Riemann度量 $d_g(x,y)$. 记 $B(x,r)$ 为欧氏度量下以 $x$ 为球心、$r$ 为半径的球，$B_g(x,r)$ 为Riemann度量下的测地球. 半径 $r$ 总小于单射半径.
 由法坐标系的选取，对任意 $\varepsilon>0$, 存在充分小的 $R=R(\varepsilon,M,g,O)>0$, s.t. 对任意 $B_g(O,R)$ 中不同两点 $x,y$, 有
 $$\frac{d(x,y)}{d_g(x,y)} \in (1-\varepsilon,1+\varepsilon).$$
 下文总取 $R$ 充分小.
@@ -43,12 +46,14 @@ $$\beta(x,r) := \frac{r H'(x,r)}{2 H(x,r)}.$$
 此前椭圆pde学家们已经证明了频率函数满足如下的几乎单调性：
 </p>
 <p class="thm">
-<b>命题2.</b> 存在只与 $n$ 和 $M$ 的截面曲率有关的常数 $C>0$ 和 $R>0$, s.t. $e^{Cr^2}\beta(x,r)$ 在 $r\in(0,R)$ 上单调递增；特别地，对任意 $\varepsilon>0$，存在 $R>0$, s.t. 当 $r_1\le r_2\le R$ 且 $d_g(x,O)\le R$ 时，
+<b>命题2.</b> 存在只与 $n$ 和 $M$ 的截面曲率有关的常数 $C>0$ 和 $R>0$, s.t. 
+$$e^{Cr^2}\beta(x,r) \ \text{在} \ r\in(0,R) \ \text{上单调递增}.$$
+特别地，对任意 $\varepsilon>0$，存在 $R>0$, s.t. 当 $r_1\le r_2\le R$ 且 $d_g(x,O)\le R$ 时，
 $$\beta(x,r_1) \le \beta(x,r_2)(1+\varepsilon).$$
 </p>
 <p>
 现在，由定义我们知道
-$$\frac{H(x,r_2)}{H(x,r_1)}= \exp{left(\int_{r_1}^{r_2} \frac{2}{r}\beta(x,r) \, dr \right)}.$$
+$$\frac{H(x,r_2)}{H(x,r_1)}= \exp{\left( \int_{r_1}^{r_2} \frac{2}{r}\beta(x,r) \, dr \right) }.$$
 再结合几乎单调性可得
 $$\left( \frac{r_2}{r_1} \right)^{\frac{2\beta(x,r_1)}{1+\varepsilon}}\le \frac{H(x,r_2)}{H(x,r_1)}\le \left( \frac{r_2}{r_1} \right)^{2\beta(x,r_2)(1+\varepsilon)}.$$
 </p>
