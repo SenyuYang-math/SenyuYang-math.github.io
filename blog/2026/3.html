@@ -9,7 +9,7 @@
 <p>
 本文取材自Logunov关于调和函数的nodal set和Yau猜想的著名文章（这是一个上等的論文）. 
 </p>
-<h1>频率函数</h1>
+<h2>频率函数</h2>
 <p>
 Logunov的文章旨在研究黎曼流形上的Laplace算子和调和函数，因此我们现在引入一些几何背景. 
 </p>
@@ -21,10 +21,10 @@ $$\frac{d(x,y)}{d_g(x,y)} \in (1-\varepsilon,1+\varepsilon).$$
 </p>
 <p>
 现在，设 $u$ 为 $M$ 上的调和函数. 对测地球 $B_g(x,r)$, 定义
-$$H(x,r) = \int_{\partial B_g(x,r)} |u|^2 \,dS_r, \quad\text{and} \quad D(x,r) := \int_{B_g(x,r)} |\nabla u|^2 \, dB_r,$$
+$$H(x,r) = \int_{\partial B_g(x,r)} |u|^2 \,dS_r, \quad\text{and} \quad D(x,r) := \int_{B_g(x,r)} |\nabla u|^2 \, dB_g,$$
 其中 $S_r$ 是 $\partial B_g(x,r)$ 上的曲面测度. 最早是Almgren考虑了以下的<b>频率函数</b>：
 $$N(x,r) := \frac{rD(x,r)}{H(x,r)}.$$
-我们可以从一个例子看到“频率”的来由：考虑 $M=\mathbf{R}^n$, 将Laplace算子写作球坐标形式 $\Delta= \partial_r^2 + r^{-1} \partial_r + r^{-2}\Delta_{S^{n-1}}$. 如果分离变量 $u=r^{\alpha}Y_\ell,$ 其中 $Y_\ell$ 为 $S^{n-1}$ 上角动量为 $\ell$ 的球谐函数（比如 $n=2$ 时取 $Y_\ell(\theta)=cos(\ell \theta)$）, 那么代入 $\Delta u=0$ 即有 $N(r)\equiv \alpha=|\ell|$. 换言之，$N(x,r)$ 应当反映了 $u$ 在 $\partial B_g(x,r)$ 上的振荡频率. 这个例子也说明调和函数的 <i>角向频率</i> 与 <i>径向增长速率</i> 有密切的联系.
+我们可以从一个例子看到“频率”的来由：考虑 $M=\mathbf{R}^n$, 将Laplace算子写作球坐标形式 $\Delta= \partial_r^2 + r^{-1} \partial_r + r^{-2}\Delta_{S^{n-1}}$. 如果分离变量 $u=r^{\alpha}Y_\ell,$ 其中 $Y_\ell$ 为 $S^{n-1}$ 上角动量为 $\ell$ 的球谐函数（比如 $n=2$ 时取 $Y_\ell(\theta)=cos(\ell \theta)$）, 那么代入 $\Delta u=0$ 即有 $N(0,r)\equiv \alpha=|\ell|$. 换言之，$N(x,r)$ 应当反映了 $u$ 在 $\partial B_g(x,r)$ 上的振荡频率. 这个例子也说明调和函数的 <i>角向频率</i> 与 <i>径向增长速率</i> 有密切的联系. MO的<a href="https://mathoverflow.net/questions/296637" target="_blank">一个回答</a>有更多精彩的论述.
 <p>
 <b>注.</b> Logunov实际上使用的频率函数是
 $$\beta(x,r) := \frac{r H'(x,r)}{2 H(x,r)}= \frac{r}{2} \frac{d \log H(x,r)}{dr}.$$
@@ -42,23 +42,23 @@ $$N(x,r_1) \le N(x,r_2)(1+\varepsilon).$$
   $$\frac{dH(x,r)}{dr}(x,r)= \left(\frac{n-1}{r}+c\right)H(x,r)+2D(x,r).$$
 </p>
 <p>
-读者可以使用数分知识在欧氏空间 $M=\mathbf{R}^n$ 证明 $N(0,r)$ 是单调不减的（Almgren），命题2中的误差项（来源于 $\partial_r g$ ）也会消失. 现在，由定义我们知道
+读者可以使用数分知识在欧氏空间 $M=\mathbf{R}^n$ 证明 $N(0,r)$ 是单调不减的（Almgren, 1979），命题2中的误差项（来源于 $\partial_r g$ ）也会消失. 现在，由定义我们知道
 $$\frac{H(x,r_2)r_1^{n-1}}{H(x,r_1)r_2^{n-1}}= \exp{\left( \int_{r_1}^{r_2} O(1)+\frac{2}{r}N(x,r) \, dr \right) }.$$
 再结合几乎单调性可得
 </p>
 <p class="thm">
-<b>命题3.</b> 在定理1的条件下，我们有以下估计：
-$$e^{C(r_2-r_1)}\left( \frac{r_2}{r_1} \right)^{2N(x,r_1)(1+\varepsilon)^{-1}}\le \frac{H(x,r_2)r_1^{n-1}}{H(x,r_1)r_2^{n-1}}\le e^{C(r_2-r_1)}\left( \frac{r_2}{r_1} \right)^{2N(x,r_2)(1+\varepsilon)}.$$
+<b>命题3.</b> 在定理1的条件下，我们有比较估计：
+$$e^{-O(r_2-r_1)}\left( \frac{r_2}{r_1} \right)^{2N(x,r_1)/(1+\varepsilon)}\le \frac{H(x,r_2)r_1^{n-1}}{H(x,r_1)r_2^{n-1}}\le e^{O(r_2-r_1)}\left( \frac{r_2}{r_1} \right)^{2N(x,r_2)(1+\varepsilon)}. \tag{*}$$
 </p>
 <p>
   我们可以立即得到一个重要结论：
 </p>
 <p class="thm">
   <b>推论4</b> (doubling condition)<b>.</b> 在定理1的条件下，存在与 $u, R$ 有关但与 $r$ 无关的常数 $C>0$, s.t.
-  $$\int_{B_g(x,{2r})} |u|^2 \, dB_{2r} \leq C \int_{B_g(x,r)} |u|^2 \, dB_r, \quad \forall r\in(0,R).$$
+  $$\int_{B_g(x,{2r})} |u|^2 \, dB_g \leq C \int_{B_g(x,r)} |u|^2 \, dB_g, \quad \forall r\in(0,R/2).$$
 </p>
 <p>
-Doubling condition在积分层面反应了调和函数的某种“平稳”性质. 接下来我们会在尺度 $r$ 和 $2r$ 上做更多讨论. 
+比较估计 $(*)$ 和doubling condition说明频率 $N$ 可以控制球面平均 $r^{-(n-1)}H(r^{n-1})$ 的增长指数. 接下来我们会在频率的平稳性质上做更多讨论. 
 </p>
 <h2>单调 $\Rightarrow$ 平稳</h2>
 <p>
@@ -82,7 +82,7 @@ $$x_{i+1}-x_i=\frac{1}{10\log^2 f(x_i)}\le\frac{1}{10i^2}.$$
 由于 $\sum_{i=1}^\infty\frac{1}{10i^2}<\frac{1}{2}$，可知 $i$ 可取遍所有正整数，并且有 $x_i\le \frac{1}{2}$, 于是 $f(x_i)\le f(\frac{1}{2})$；但同时又得 $f(x_i)\to\infty$ ($i\to\infty$)，矛盾！因此符合条件的 $x$ 存在.$\quad$$\Box$
 </p>
 <p>
-  <b>注.</b> 自然，平稳区间的尺度 $\sim \frac{1}{\log^2 N}$ 可以替换为任意使级数 $\sum_{i=1}^\infty (x_{i+1}-x_{i})$ 收敛的形式
+  <b>注.</b> 自然，平稳区间的尺度 $\sim \frac{1}{\log^2 K}$ 可以替换为任意使级数 $\sum_{i=1}^\infty (x_{i+1}-x_{i})$ 收敛的形式
 </p>
 <p>
 现在，我们将频率函数 $N$ 修正为 $\tilde{N}$:
@@ -92,24 +92,58 @@ $$N(x,r) \le \tilde{N}(x,r) \le (1+\varepsilon)N(x,r).$$
 我们总假设上式对 $\varepsilon=1$ 成立.
 </p>
 <p class="thm">
-<b>引理6.</b> 在定理1的条件下，设 $2r\lt R$，$N(x,r/2)>10$. 则存在 $s\in\bigl[r,\frac{3}{2}r\bigr)$ 以及 $K\ge 5$, s.t.
+<b>引理6</b> (平稳性)<b>.</b> 在定理1的条件下，设 $2r\lt R$，$N(x,r/2)>10$. 则存在 $s\in\bigl[r,\frac{3}{2}r\bigr)$ 以及 $K\ge 5$, s.t.
 $$K\le N(x,t)\le 2eK$$
 对任意
-$$t\in\biggl(s\Bigl(1-\frac{1}{1000\log^2 K}\Bigr),\ s\Bigl(1+\frac{1}{1000\log^2 K}\Bigr)\biggr)$$
+$$t\in I_s:=\biggl(s\Bigl(1-\frac{1}{1000\log^2 K}\Bigr),\ s\Bigl(1+\frac{1}{1000\log^2 K}\Bigr)\biggr)$$
 成立.
 </p>
 <p>
-<i>证明.</i> 对 $\tilde{N}(z,t)$ 在区间 $[r,2r)$ 上应用引理5，可找到 $s$ 与 $K$, s.t.
-$$2K\lt \tilde{N}(p,t)\le 2eK$$
+<i>证明.</i> 对 $\tilde{N}(x,t)$ 在区间 $[r,2r)$ 上应用引理5，可找到 $s$ 与 $K$, s.t.
+$$2K\lt \tilde{N}(x,t)\le 2eK$$
 对任意
 $$t\in\biggl(s-\frac{r}{20\log^2(2K)},\ s+\frac{r}{20\log^2(2K)}\biggr)$$
-成立. 由前面的可比较关系，在同一区间上有 $K\lt N(z,t)\le 2eK$.
+成立. 由前面的可比较关系，在同一区间上有 $K\lt N(x,t)\le 2eK$.
 由 $N(x,r/2)>10$ 得 $2K\ge 10$. 结合 $s\in[r,2r)$，可得
-$$\biggl(s\Bigl(1-\frac{1}{1000\log^2 K}\Bigr),\ s\Bigl(1+\frac{1}{1000\log^2 K}\Bigr)\biggr)\subset\biggl(s-\frac{r}{20\log^2(2K)},\ s+\frac{r}{20\log^2(2K)}\biggr).$$
+$$I_s\subset\biggl(s-\frac{r}{20\log^2(2K)},\ s+\frac{r}{20\log^2(2K)}\biggr).$$
 因此 $s,K$ 符合要求.$\quad$$\Box$
 </p>
-<h1>振荡与增长</h1>
-
+<h2>振荡与增长</h2>
+<p>
+现在，我们来研究调和函数 $u$ 在引理6所给出的以 $x$ 为中心，半径 $s\sim r$, 宽度 $\sim \frac{s}{\log^2 K}$ 的球壳 $Sh(x,s,K)$ 内的行为. 根据引理6，在该球壳内 $N(x,r) \sim K$. 本节始终在定理1和引理6的条件下讨论；特别地，高频条件 $N(x, \frac{r}{2})>10$ 成立，这对 $|u|$ 的增长有主导作用. 
+</p>
+<p>
+由极值原理，我们总能找到一个点 $p\in\partial B_g(x,s)$，s.t. $|u|$ 在闭球 $\bar{B}_g(x,s)$ 上的最大值在 $p$ 处取到，并令 $L=|u(x)|$. 我们希望在 $p\in Sh(x,s,K)$ 附近建立 $u$ 的增长估计. 
+</p>
+<p>
+为方便起见，固定以下参数：
+$$A:=10^6,\quad \delta\in\left[\frac{1}{A\log^{100} K},\frac{1}{A\log^2 K}\right],\quad s_{\pm\delta}:=s(1\pm\delta).$$
+综合比较估计 $(*)$ 和 $N(x,s)$ 的平稳性，于是对 $I_s$ 中的任意 $t_1\lt t_2$, 我们有
+$$e^{-O(R)}\left(\frac{t_2}{t_1}\right)^{2K/(1+\varepsilon)}\le \frac{H(p,t_2)t_1^{n-1}}{H(p,t_1)t_2^{n-1}}\le e^{O(R)} \left(\frac{t_2}{t_1}\right)^{4eK(1+\varepsilon)}.\tag{**}$$
+</p>
+<p class="thm">
+<b>引理7.</b> 在引理6的条件下，存在仅依赖于 $n, g, O, R$ 的常数 $c>0$ 与 $C>0$, s.t.
+$$\sup_{y\in B_g(x,s_{-\delta})} |u(y)| \le C|u(p)| 2^{-c\delta K},\quad \text{and}$$
+$$\sup_{y\in B_g(x,s_{+\delta})} |u(y)| \le C|u(p)| 2^{C\delta K}.$$
+</p>
+<p class="thm">
+  引理7. 在引理6的条件下，存在仅依赖于 $n, g, O, R$ 的常数 $c>0$ 与 $C>0$, s.t.
+$$\sup_{y\in B_g(x,s_{-\delta})} |u(y)| \le C|u(p)| 2^{-c\delta K},\quad \text{and}$$
+$$\sup_{y\in B_g(x,s_{+\delta})} |u(y)| \le C|u(p)| 2^{C\delta K}.$$
+</p>
+<p>
+<i>证明.</i> 我们只证明第一行估计，第二行同理可得. 我们先在比 $B_g(x,s_{-\delta})$ 稍大些的 $B_g(x,s_{-\delta/2})$ 上讨论. 由 $|u(p)|$ 的最大性和比较估计 $(**)$，有
+$$|u(p)|^2\ge C \frac{H(x,s)}{s^{n-1}} \ge C \frac{H(x,s_{-\delta/2})}{s^{n-1}} (1+\delta/2)^{2K/(1+\varepsilon)}.$$
+根据调和函数的性质，我们可以把球面积分转化为球内部的积分：
+$$sH(x,s_{-\delta/2})=s\int_{\partial B_g(x,s_{-\delta/2})}|u|^2\,dS_{s_{-\delta/2}} \ge C\int_{B_g(x,s_{-\delta/2})}|u|^2\,dB_g.$$
+设 $\tilde{p}\in\partial B_g(x,s_{-\delta/2})$ 为 $|u|$ 在该球面上的最大值点. 于是，
+$$\int_{B_g(x,s_{-\delta/2})} |u|^2\,dB_g \ge \int_{B_g(\tilde{p}, \delta s/2)} |u|^2 \, dB_g = C(\delta s)^n {\int\hspace{-1.05em}-}_{B_g(\tilde{p}, \delta s/2)} |u|^2 \, dB_g.$$
+再由Cauchy-Schwarz不等式和调和函数的均值性质，
+$${\int\hspace{-1.05em}-}_{B_g(\tilde{p}, \delta s/2)} |u|^2\,dB_g \ge \left({\int\hspace{-1.05em}-}_{B_g(\tilde{p}, \delta s/2)} |u|\, dB_g\right)^2\ge C|u(\tilde{p})|^2.$$
+整理上述估计，有
+$$|u(p)|^2\ge C\delta^n (1+\delta/2)^{2K/(1+\epsilon)}|u(\tilde{p})|^2.$$
+$\delta$ 充分小, 因此容易由初等函数的估计得到 $|u(p)|^2\ge C e^{K\delta/4}|u(\tilde{p})|^2$，我们完成了第一行估计的证明.$\quad$$\Box$
+</p>
 </div>
 
 <!-- js脚本 -->
