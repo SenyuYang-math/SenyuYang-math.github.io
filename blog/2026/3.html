@@ -121,10 +121,13 @@ $$A:=10^6,\quad \delta\in\left[\frac{1}{A\log^{100} K},\frac{1}{A\log^2 K}\right
 综合比较估计 $(*)$ 和 $N(x,s)$ 的平稳性，于是对 $I_s$ 中的任意 $t_1\lt t_2$, 我们有
 $$e^{-O(R)}\left(\frac{t_2}{t_1}\right)^{2K/(1+\varepsilon)}\le \frac{H(p,t_2)t_1^{n-1}}{H(p,t_1)t_2^{n-1}}\le e^{O(R)} \left(\frac{t_2}{t_1}\right)^{4eK(1+\varepsilon)}.\tag{**}$$
 </p>
+<p>
+  现在我们可以给出主要结论了：频率较高时，频率控制了 $u$ 在最大值点处的增长速率.
+</p>
 <p class="thm">
-<b>引理7.</b> 在引理6的条件下，存在仅依赖于 $n, g, O, R$ 的常数 $c>0$ 与 $C>0$, s.t.
-$$\sup_{y\in B_g(x,s_{-\delta})} |u(y)| \le C|u(p)| 2^{-c\delta K},\quad \text{and}$$
-$$\sup_{y\in B_g(x,s_{+\delta})} |u(y)| \le C|u(p)| 2^{C\delta K}.$$
+<b>定理7.</b> 在引理6的条件下，存在仅依赖于 $n, g, O, R$ 的常数 $c>0$ 与 $C>0$, s.t.
+$$\sup_{y\in B_g(x,s_{-\delta})} |u(y)| \le C 2^{-c\delta K}|u(p)|,\quad \text{and}$$
+$$\sup_{y\in B_g(x,s_{+\delta})} |u(y)| \le C 2^{C\delta K}|u(p)|.$$
 </p>
 <p>
 <i>证明.</i> 我们只证明第一行估计，第二行同理可得. 我们先在比 $B_g(x,s_{-\delta})$ 稍大些的 $B_g(x,s_{-\delta/2})$ 上讨论. 由 $|u(p)|$ 的最大性和比较估计 $(**)$，有
@@ -137,7 +140,14 @@ $$\int_{B_g(x,s_{-\delta/2})} |u|^2\,dB_g \ge \int_{B_g(\tilde{p}, \delta s/2)} 
 $${\int\hspace{-1.05em}-}_{B_g(\tilde{p}, \delta s/2)} |u|^2\,dB_g \ge \left({\int\hspace{-1.05em}-}_{B_g(\tilde{p}, \delta s/2)} |u|\, dB_g\right)^2\ge C|u(\tilde{p})|^2.$$
 整理上述估计，有
 $$|u(p)|^2\ge C\delta^n (1+\delta/2)^{2K/(1+\epsilon)}|u(\tilde{p})|^2.$$
-$\delta$ 充分小, 因此容易由初等函数的估计得到 $|u(p)|^2\ge C e^{K\delta/4}|u(\tilde{p})|^2$，我们完成了第一行估计的证明.$\quad$$\Box$
+$\delta$ 充分小且有正下界, 因此容易由初等函数的估计得到 $|u(p)|^2\ge C e^{K\delta/4}|u(\tilde{p})|^2$，第一行估计得证.$\quad$$\Box$
+</p>
+<p>
+特别地，我们可以在高频条件下控制 $u$ 在 $B_g(p, \delta s)$ 处的振幅.
+</p>
+<p class="thm">
+  <b>推论8.</b> 在引理6的条件下，存在常数 $C>0$, s.t.
+  $$\sup_{y\in B_g(p,\delta s)} |u(y)| \le  C 2^{C\delta K} |u(p)|.$$
 </p>
 </div>
 
