@@ -7,7 +7,11 @@
 <!--正文区块-->
 <div id="container" class="container">
 <p>
-本文取材自Logunov关于调和函数的nodal set和Yau猜想的著名文章（这是一个上等的論文）. 
+本文最初取材自Logunov关于调和函数的nodal set和Yau猜想的论文（这是一个上等的論文），尽管频率函数是一个更加久远的概念. 读者可以进一步参考
+</p>
+<p style="font-size:small; font-color: grey">
+[1] A. Logunov, Nodal sets of Laplace eigenfunctions: proof of Nadirashvili's conjecture and of the lower bound in Yau's conjecture, Annals of Mathematics, 187(2018), 241–262.<br/>
+[2] N. Garofalo, & F. H. Lin, Monotonicity properties of variational integrals, A_p-weights and unique continuation, Indiana Univ. Math. J., 35(1986), 245-267. 
 </p>
 <h2>频率函数</h2>
 <p>
@@ -58,7 +62,7 @@ $$e^{-O(r_2-r_1)}\left( \frac{r_2}{r_1} \right)^{2N(x,r_1)/(1+\varepsilon)}\le \
   $$\int_{B_g(x,{2r})} |u|^2 \, dB_g \leq C \int_{B_g(x,r)} |u|^2 \, dB_g, \quad \forall r\in(0,R/2).$$
 </p>
 <p>
-比较估计 $(*)$ 和doubling condition说明频率 $N$ 可以控制球面平均 $r^{-(n-1)}H(r^{n-1})$ 的增长指数. 接下来我们会在频率的平稳性质上做更多讨论. 
+比较估计 $(*)$ 和doubling condition说明频率 $N$ 可以控制球面平均 $r^{-(n-1)}H(r^{n-1})$ 的增长指数. 接下来我们会在频率的平稳性质上做更多讨论，这将导出更精细的 $L^\infty$ 估计. 
 </p>
 <h2>单调 $\Rightarrow$ 平稳</h2>
 <p>
@@ -148,6 +152,9 @@ $\delta$ 充分小且有正下界, 因此容易由初等函数的估计得到 $|
 <p class="thm">
   <b>推论8.</b> 在引理6的条件下，存在常数 $C>0$, s.t.
   $$\sup_{y\in B_g(p,\delta s)} |u(y)| \le  C 2^{C\delta K} |u(p)|.$$
+</p>
+<p>
+  <b>PS.</b> 接下来有时间就再写写double index性质，以及Logunov-Malinnikova的simplex引理和hyperplane引理，咕咕~
 </p>
 </div>
 
