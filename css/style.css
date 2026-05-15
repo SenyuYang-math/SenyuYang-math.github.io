@@ -76,7 +76,7 @@ p a:link, a:visited{
 .seperate{
   width: 80%; 
   height: 1px;
-  margin: 40px auto
+  margin: 40px auto;
   border-width: 0.8px 0px 0px 0px;
 }
 /* 标准斜体 */
