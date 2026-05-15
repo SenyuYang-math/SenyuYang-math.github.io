@@ -24,7 +24,7 @@
 .headlink{
   display: block;
   float: right;
-  padding: 16px 1%;
+  padding: 16px 1%; padding-bottom: 15px;
   font-size: 15px;
   }
 .headline{
