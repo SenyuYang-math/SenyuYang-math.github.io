@@ -108,7 +108,7 @@ mjx-container[jax="SVG"][display="true"] {
     width: 100%;
   }
   .headlink, .headhome{
-    font-size: 13px
+    font-size: 14px /* 小屏幕下调小导航栏字体 */
   }
 }
 @media (min-width: 768px) {
