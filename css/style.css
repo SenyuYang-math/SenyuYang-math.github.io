@@ -20,13 +20,11 @@
   display: block;
   float: left;
   padding: 15px 1%;
-  font-size: 16px;
   }
 .headlink{
   display: block;
   float: right;
   padding: 15px 1%;
-  font-size: 16px;
   }
 /* .headline{
   width: 100%; 
@@ -109,6 +107,9 @@ mjx-container[jax="SVG"][display="true"] {
   .navbar {
     width: 100%;
   }
+  .headlink, .headhome{
+    font-size: 13px
+  }
 }
 @media (min-width: 768px) {
   .container, .comment, .foot, #bottom {
@@ -116,5 +117,8 @@ mjx-container[jax="SVG"][display="true"] {
   }
   .navbar {
     width: 55%;
+  }
+  .headlink, .headhome{
+    font-size: 16px
   }
 }
