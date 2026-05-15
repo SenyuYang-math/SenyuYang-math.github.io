@@ -59,6 +59,7 @@
   .titleline{
     margin-top: 5px;
     height: 1px;
+    border-width: 0.8px 0px 0px 0px;
   }
 /* 正文区块样式 */
 .container{
