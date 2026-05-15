@@ -52,14 +52,14 @@ bottom.insertAdjacentHTML('afterend','<div id="bottom"></div>');
     document.querySelector('#copyright').innerHTML = data;
   });
 // valine评论系统
-var valine = document.createElement('script');
-  valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
-  valine.async = true;
-  document.head.appendChild(valine);
-window.onload = (function () {
-  var comment = document.createElement('script');
-  comment.src = '../../js/blog/comment.js';
-  comment.async = true;
-  document.body.appendChild(comment);
-});
+// var valine = document.createElement('script');
+//   valine.src = 'https://unpkg.com/valine/dist/Valine.min.js';
+//   valine.async = true;
+//   document.head.appendChild(valine);
+// window.onload = (function () {
+//   var comment = document.createElement('script');
+//   comment.src = '../../js/blog/comment.js';
+//   comment.async = true;
+//   document.body.appendChild(comment);
+// });
 
