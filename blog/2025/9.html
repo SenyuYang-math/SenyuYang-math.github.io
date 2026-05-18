@@ -13,20 +13,14 @@ f(\theta) = e^{i a_1 \theta} + e^{i a_2 \theta} + \cdots + e^{i a_n \theta},
 \end{equation*}$$
 其中 $a_1 \lt a_2 \lt \cdots \lt a_n$ 是任意不同的整数. 显然 $\|f\|_\infty=n$，$\|f\|_2=\sqrt{n}$ . Littlewood曾猜想 $f$ 的 $L^1$ 范数有对数下界估计：
 </p>
-<p>
-$\quad$
-</p>
-<p>  
+<p class="thm">  
 <b>定理1</b> (Littlewood猜想)<b>.</b> 存在绝对常数 $C$ s.t. 对任意形如 $(1)$ 的指数和 $f$ 有
 $$\begin{equation*}
 \frac{1}{2\pi} \int_0^{2\pi} |f(\theta)| \, d\theta \geq C \log n.
 \end{equation*}$$
 </p>
 <p>
-$\quad$
-</p>
-<p>
-对数下界是最优的，比如Dirichlet核（$a_k=k$）. 因此猜想的证实说明了指数和的震荡相消的水平不会超过频率“均匀分布”的级别. 事实上，所谓的强Littlewood猜想更进一步地猜测最优情形：
+注意对数下界是最优的，例如Dirichlet核（$a_k=k$）. 因此猜想的证实说明了指数和的震荡相消的水平不会超过频率“均匀分布”的级别. 事实上，所谓的强Littlewood猜想更进一步地猜测最优情形：
 $$\min_{A; |A|=n} \int_{0}^1 \left| \sum_{a \in A} e^{2\pi i a x} \right|dx =  \int_{0}^1 \left| \sum_{k=1}^{n} e^{2\pi i k x} \right|dx \ ?$$
 目前强Littlewood猜想仍然公开.
 </p>
@@ -103,28 +97,18 @@ $$\|\rho\|_\infty \geq |\rho(0)| = m \gg 1,$$
 <p>
 我们先证明一个关键的技术性结果.
 </p>
-<p>
-$\quad$
-</p>
-<p>
+<p class="thm">
 <b>定义2.</b> 我们称 $\phi \in L^2(\mathbb{T})$ 有 <i>非正支撑</i>，如果对所有正整数 $k$ 有 $\widehat{\phi}(k) = 0$ .  
-</p>
-<p>
-$\quad$
 </p>
 <p>
 注意到，若 $\phi, \psi$ 具有非正支撑，则 $\phi\pm\psi, \phi\psi, e^{\pm\phi}$ 均具有非正支撑. 
 </p>
-<p>
-$\quad$
-</p>
-<p>
+<p class="thm">
 <b>引理3</b> (调整的因子)<b>.</b> 设 $g \in L^2(\mathbb{T})$ 为实值非负函数，则存在 $h \in L^2(\mathbb{T})$ 满足：<br/>
 $\quad$(1) $\Re(h) = g$，<br/>
 $\quad$(2) $h, e^{-h}$ 具有非正支撑，且 $|e^{-h}| \leq 1$，<br/>
 $\quad$(3) $\|h\|_2 \leq \sqrt{2} \|g\|_2$ . 
 </p>
-<p>$\quad$</p>
 <p>
 <i>证明.</i> 设 $g(\theta) = \sum_{k\in\mathbb{Z}} c_k e^{ik\theta}$，因 $g$ 实值，故 $c_k = \overline{c_{-k}}$，可写为
 $$\begin{equation*}
@@ -142,18 +126,15 @@ $$\begin{equation*}
 \end{equation*}$$
 引理得证.$\quad$$\Box$
 </p>
-<p>$\quad$</p>
 <p>
 以下命题是初等的，这里略去证明. 注意，不等式的常数系数是重要的.
 </p>
-<p>$\quad$</p>
-<p>
+<p class="thm">
 <b>引理4.</b> 若复数 $w$ 满足 $\Re(w) \geq 0$，则 $|e^{-w} - 1| \leq 1\cdot |w|$ . 
 </p>
-<p>
+<p class="thm">
 <b>推论5.</b> 若 $h \in L^2(\mathbb{T})$ 满足 $\Re(h) \geq 0$，则 $\|e^{-h} - 1\|_2 \leq \|h\|_2$ . 
 </p>
-<p>$\quad$</p>
 <p>
 现在我们可以递归地定义 $\phi$：令 $\phi_0 := \frac{1}{5} W_0$；对 $j \in \{1, \dots, m\}$，定义
 $$\begin{equation*}
@@ -168,11 +149,9 @@ $\quad$(4) $\|h_j\|_2 \leq \sqrt{2} \cdot \frac{1}{4} \|W_j\|_2 = \frac{\sqrt{2}
 <p>
 根据上述性质，我们可以归纳地控制 $L^\infty$ 范数.
 </p>
-<p>$\quad$</p>
-<p>
+<p class="thm">
    <b>引理6</b> ($L^\infty$ 范数)<b>.</b> $\|\phi_j\|_\infty \leq 1$ 对任意 $1\leq j\leq m$ 一致成立.
 </p>
-<p>$\quad$</p>
 <p>
 <i>证明.</i> 首先，$|\phi_0| = \frac{1}{5}|W_0| = \frac{1}{5} \leq 1$ . 现在假设 $|\phi_{j-1}| \leq 1$，则
   $$\begin{equation*}
@@ -212,14 +191,12 @@ $$\varrho_j:=\frac{1}{5}\left(W_j+W_{j+1}+\cdots W_m\right).$$
 <p>
 现在可以实现我们的期待了.
 </p>
-<p>$\quad$</p>
-<p>
+<p class="thm">
    <b>引理7</b> (Fourier系数)<b>.</b> 对于 $a \in S_j$，$\widehat{\phi}(a)$ 有如下展开：
 $$\begin{equation*}
 \widehat{\phi}(a) = \frac{1}{5} 4^{-j} + \varepsilon_a, \quad |\varepsilon_a| < \frac{\sqrt{2}}{15} \cdot 4^{-j}.
 \end{equation*}$$
 </p>
-<p>$\quad$</p>
 <p>
 <i>证明.</i> 由表达式可知 $\widehat{\rho}(a)=\widehat{\varrho_j}(a)=\frac{1}{5}4^{-j}$ . 现在，根据上一节的计算结果可以估计
 $$\begin{align*}
@@ -230,7 +207,6 @@ $$\begin{align*}
 \end{align*}$$
 而 $\widehat{\phi}(a)=\widehat{\varphi_j}(a)$ 对 $a\in S_j$ 成立，引理得证.$\quad$$\Box$
 </p>
-<p>$\quad$</p>
 <p>
 应用上述引理，我们得到了新波包的Fourier系数:
 $$\begin{equation*}
@@ -238,7 +214,6 @@ $$\begin{equation*}
 \end{equation*}$$
 其中 $\Delta_j := \sum_{a \in S_j} \delta_a$，则 $|\Delta_j| \leq 4^j \cdot \frac{\sqrt{2}}{15} 4^{-j} = \frac{\sqrt{2}}{15}$ . 
 </p>
-<p>$\quad$</p>
 <p>
 <i>定理1的证明.</i> 代入新波包的Fourier系数可知
 $$\begin{align*}
