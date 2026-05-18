@@ -89,6 +89,7 @@ i {
 /* 数学定理区块样式 */
 .thm {
   padding: 25px 0;
+  background-color: #e4e4ff;
 /*   font-style: italic; */
 }
 /* MathJax长公式滚动条 */
