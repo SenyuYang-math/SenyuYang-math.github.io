@@ -12,8 +12,12 @@
 <h2>共振项的小性, 证明定理1</h2>
 <p>
   回顾 <a href="./20.html" target="_blank">透射项</a> 一节的设定：我们选取了共振尺度 $\rho_0=R^c r$ , 并约定了adjacent pair $\kappa\approx\kappa'$ 作为共振条件. 现在我们还需要估计共振项 $(10)$ , i.e. 证明
-  $$\| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{(1-c)\alpha+C\epsilon} \ ,$$
-  其中标准时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ . 下面利用null condition的 $(\text{Impv-}L^2)$ , 我们能够得到更强的结果. 
+</p>
+<p class="thm">
+  $$\| \sum_{\kappa, \kappa' \in \mathbf{K}: \kappa \approx \kappa'} Q( \phi_\kappa, \psi_{\kappa'} ) \|_{L^2(\mathbf{Q}_R)} \lesssim R^{(1-c)\alpha+C\epsilon} \ .$$
+</p>
+<p>
+其中标准时空cube $\mathbf{Q}_R=\mathbf{Q}_R^{(0)}$ . 下面利用null condition的 $(\text{Impv-}L^2)$ , 我们能够得到更强的结果. 
 </p>
 <p>
   使用 $(\text{Impv-}L^2)$ 应当格外小心：首先，根据tube局部化的定义，局部化估计 $(7), (8)$ 只在 $R/2\leq t\leq 5R/2$ 上成立. 因此 $(\text{Impv-}L^2)$ 的初值曲面应当调整为 $\{t=R/2\}$ , 但因为我们在 $\mathbf{Q}_R\Rightarrow t-R/2\gtrsim R$ 上做估计，因此向量场方法——进而 $(\text{Impv-}L^2)$ 的证明依然成立.
@@ -47,7 +51,11 @@
 <h2>证明定理2：physics/frequency的拼接</h2>
 <p>
   现在着手最终目标
+</p>
+<p class="thm">
   $$\| Q(\phi, \psi)\|_{L^2([0,1]\times \mathbf{R}^n)} \lesssim E[\langle D \rangle^{\frac{n-1}{2}+\epsilon} \phi]^{1/2} E[\psi]^{1/2}\ , \tag{N}$$
+</p>
+<p>
   的证明. 我们需要将 $(\text{LN})$ 在physics和frequency两个层面都“拼贴”出全局的估计. 
 </p>
 <p>
