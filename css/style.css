@@ -70,12 +70,17 @@ p a:link, a:visited{
   color:#0000EE;
   text-decoration: none;
   }
-/* 分割线 */
+/* 版面分割线 */
+.borderline {
+  height: 1px
+  border-width: 2px 0px 0px 0px;
+}
+/* 段落分割线 */
 .seperate{
   width: 80%; 
   height: 1px;
   margin: 40px auto;
-  border-width: 0.8px 0px 0px 0px;
+  border-width: 2px 0px 0px 0px;
 }
 /* 标准斜体 */
 i {
