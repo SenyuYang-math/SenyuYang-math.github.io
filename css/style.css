@@ -117,12 +117,12 @@ mjx-container[jax="SVG"][display="true"] {
   .headlink, .headhome{
     font-size: 14px /* 小屏幕下调小导航栏字体 */
   }
+  #name-1{
+    display: none;
+  }
   .avatar{
     width: 90%;
     margin: 25% auto;
-  }
-  .language{
-    display: none;
   }
 }
 @media (min-width: 768px) {
@@ -134,6 +134,9 @@ mjx-container[jax="SVG"][display="true"] {
   }
   .headlink, .headhome{
     font-size: 16px
+  }
+  #name-2{
+    display: none
   }
   .avatar{
     width: 80%;
