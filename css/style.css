@@ -139,4 +139,7 @@ mjx-container[jax="SVG"][display="true"] {
     width: 80%;
     margin: 10% auto;
   }
+  .language{
+    padding-top: 10px
+  }
 }
