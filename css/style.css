@@ -119,7 +119,7 @@ mjx-container[jax="SVG"][display="true"] {
   }
   .avatar{
     width: 90%;
-    margin: 20% auto;
+    margin: 25% auto;
   }
 }
 @media (min-width: 768px) {
