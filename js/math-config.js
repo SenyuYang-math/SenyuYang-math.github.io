@@ -24,7 +24,7 @@
     enableMenu: false
   }, 
   tex: {
-    inlineMath: [['$', '$'], ['\(', '\)']], 
+    inlineMath: [['$', '$']], 
     displayMath: [['$$', '$$']],
     macros: {
       // 刻版体
