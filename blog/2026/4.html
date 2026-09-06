@@ -34,8 +34,8 @@ $$
 <p class="thm"><strong>命题 2（因子化解）.</strong> 若 $\phi$ 满足 cubic NLS $i\partial_t\phi=-\Delta\phi+\mu|\phi|^2\phi$，则
 $\gamma_\phi^{(k)}(t,\mathbf x_k;\mathbf x_k')=\prod_{j=1}^k\phi(t,x_j)\overline{\phi(t,x_j')}$ 形式上满足 (1).</p>
 <p><strong>证明.</strong> 对乘积逐因子作用自由算子. 每个未加撇变量产生一项 $\mu|\phi(x_j)|^2\phi(x_j)$，每个加撇变量产生其共轭项并带相反号. 另一方面，(2) 在因子化核上恰好给出这两类三次项. 对 $j$ 求和即得 (1). $\square$</p>
-<h2 id="duhamel-collapsing-map">2. Duhamel 展开与 collapsing map</h2>
-<p>记自由传播子 $U^{(k)}(t)=e^{it(\Delta_{\mathbf x_k}-\Delta_{\mathbf x_k'})}$.</p>
+<h2 id="duhamel-collapsing-map-board">2. Duhamel 展开、collapsing map 与棋盘</h2>
+<p>记自由传播子 $U^{(k)}(t)=e^{it(\Delta_{\mathbf x_k}-\Delta_{\mathbf x_k'})}$，并简写 $U^{(m)}_{a,b}=U^{(m)}(t_a-t_b)$.</p>
 <p class="thm"><strong>命题 3（迭代 Duhamel 公式）.</strong> 对零初值解，从第一层开始迭代 $n$ 次可得</p>
 $$
 \gamma^{(1)}(t_1)
@@ -43,12 +43,12 @@ $$
 \int_{0\le t_{n+1}\le\cdots\le t_2\le t_1}
 U^{(1)}_{1,2}B_2U^{(2)}_{2,3}B_3\cdots
 U^{(n)}_{n,n+1}B_{n+1}\gamma^{(n+1)}(t_{n+1})
-\,d\mathbf t ,
+\,dt_2\cdots dt_{n+1}.
 \tag{3}
 $$
-<p>其中 $U^{(m)}_{a,b}=U^{(m)}(t_a-t_b)$、$d\mathbf t=dt_2\cdots dt_{n+1}$. 完全展开碰撞和后共有 $n!$ 个碰撞历史.</p>
-<p><strong>证明.</strong> Duhamel 公式给出从第 $m$ 层到第 $m+1$ 层的一次积分. 逐次代入产生有序时间单纯形. 第 $r$ 次加入的新粒子编号为 $r+1$，它可与已有的 $1,\ldots,r$ 中任一粒子碰撞，所以选择数依次为 $1,2,\ldots,n$. 因而总数为 $1\cdot2\cdots n=n!$. $\square$</p>
-<p class="thm"><strong>定义 4（collapsing map）.</strong> 一个深度为 $n$ 的 collapsing map 是映射 $\rho:\{2,\ldots,n+1\}\to\mathbb N$，满足 $\rho(2)=1$ 及 $\rho(\ell)&lt;\ell$. 它记录新粒子 $\ell$ 与旧粒子 $\rho(\ell)$ 的碰撞. 对应算子链记为</p>
+<p>完全展开 $B_\ell=\sum_{r=1}^{\ell-1}B_{r;\ell}$ 后，(3) 恰有 $n!$ 个碰撞历史.</p>
+<p><strong>证明.</strong> 一次 Duhamel 代入把第 $m$ 层提升到第 $m+1$ 层，并增加时间变量 $t_{m+1}$ 及限制 $0\le t_{m+1}\le t_m$. 迭代给出 (3) 中的时间单纯形. 当新粒子 $\ell$ 出现时，它可以与已经存在的 $1,\ldots,\ell-1$ 中任一粒子碰撞，所以第 $\ell$ 列有 $\ell-1$ 种选择. 各列的选择彼此独立，故总数为 $\prod_{\ell=2}^{n+1}(\ell-1)=n!$. $\square$</p>
+<p class="thm"><strong>定义 4（collapsing map）.</strong> 记 $[a,b]=\{a,a+1,\ldots,b\}$. 深度为 $n$ 的 collapsing map 是映射 $\rho:[2,n+1]\to[1,n]$，满足 $\rho(2)=1$ 及 $\rho(\ell)&lt;\ell$. 集合中所有这类映射记为 $\mathcal C_n$. 与 $\rho$ 对应的算子链是</p>
 $$
 J(\mathbf t;\rho)
 =U^{(1)}_{1,2}B_{\rho(2);2}
@@ -57,40 +57,59 @@ U^{(n)}_{n,n+1}B_{\rho(n+1);n+1}
 \gamma^{(n+1)}(t_{n+1}).
 \tag{4}
 $$
-<p>若从第 $k$ 层开始，则得到以 $1,\ldots,k$ 为根的 collapsing forest. 本文先证明单根情形；固定 $k$ 的一般情形可逐根处理，或添加一个虚拟总根化成单树问题.</p>
-<p class="thm"><strong>命题 5（碰撞历史的精确编码）.</strong> (3) 的 $n!$ 个展开项与深度为 $n$ 的 collapsing maps 一一对应.</p>
-<p><strong>证明.</strong> 第 $\ell$ 个新粒子只能选择 $\rho(\ell)\in\{1,\ldots,\ell-1\}$. 反过来，每个满足该条件的 $\rho$ 唯一指定 (4) 中每一列的碰撞算子. 因此映射为双射，而映射数为 $\prod_{\ell=2}^{n+1}(\ell-1)=n!$. $\square$</p>
-<h2 id="km">3. 带时间次序的 KM 可接受交换</h2>
-<p class="thm"><strong>定义 6（有序 Duhamel 积分）.</strong> 对 $\{2,\ldots,n+1\}$ 的置换 $\sigma$，令
-$\Delta_\sigma(t_1)=\{0\le t_{\sigma(n+1)}\le\cdots\le t_{\sigma(2)}\le t_1\}$，并定义 $I(\rho,\sigma)=\int_{\Delta_\sigma(t_1)}J(\mathbf t;\rho)\,d\mathbf t$. 恒等置换对应原始 Duhamel 单纯形.</p>
-<p class="thm"><strong>定义 7（现代形式的可接受交换）.</strong> 令 $s_j=(j,j+1)$，并约定 $s_j(1)=1$. 当
-$\rho(j)\ne\rho(j+1)$ 且 $\rho(j+1)&lt;j$ 时，定义
-$\rho'=s_j\circ\rho\circ s_j$ 与 $\sigma'=s_j\circ\sigma$，称
-$(\rho',\sigma')=\operatorname{KM}(j,j+1)(\rho,\sigma)$ 为一次 KM 可接受交换.</p>
-<p>这个条件比只检查棋盘上的“逆序”更本质：它恰好保证交换后仍有 $\rho'(\ell)&lt;\ell$，并且两个连续标号可以在保持层级因果关系的前提下互换.</p>
-<p class="thm"><strong>命题 8（可接受交换保持积分）.</strong> 若 $(\rho',\sigma')=\operatorname{KM}(j,j+1)(\rho,\sigma)$，且末端密度核对粒子对的同步置换对称，则</p>
+<p>这里 $\rho(\ell)$ 是粒子 $\ell$ 的碰撞父指标. 条件 $\rho(\ell)&lt;\ell$ 是层级中的因果条件：第 $\ell$ 个粒子出现时只能撞击已经存在的粒子.</p>
+<p class="thm"><strong>定义 5（board）.</strong> 第 $\ell$ 列列出 $B_{1;\ell},\ldots,B_{\ell-1;\ell}$，并把唯一被选中的 $B_{\rho(\ell);\ell}$ 标亮. 例如 $\rho(2),\ldots,\rho(6)=(1,1,1,2,3)$ 对应</p>
 $$
-I(\rho',\sigma')=I(\rho,\sigma).
+\begin{array}{c|ccccc}
+ &amp;2&amp;3&amp;4&amp;5&amp;6\\ \hline
+1&amp;\boxed{B_{1;2}}&amp;\boxed{B_{1;3}}&amp;\boxed{B_{1;4}}&amp;B_{1;5}&amp;B_{1;6}\\
+2&amp;0&amp;B_{2;3}&amp;B_{2;4}&amp;\boxed{B_{2;5}}&amp;B_{2;6}\\
+3&amp;0&amp;0&amp;B_{3;4}&amp;B_{3;5}&amp;\boxed{B_{3;6}}\\
+4&amp;0&amp;0&amp;0&amp;B_{4;5}&amp;B_{4;6}\\
+5&amp;0&amp;0&amp;0&amp;0&amp;B_{5;6}
+\end{array}.
 \tag{5}
 $$
-<p><strong>证明.</strong> 只需考察包含第 $j,j+1$ 次碰撞的局部算子链. 交换粒子对 $(x_j,x_j')$ 与 $(x_{j+1},x_{j+1}')$ 后，末端核不变. 自由 Laplacian 是各粒子 Laplacian 之和，所以相应两项也随标签交换，其余项与本次重标号相容. 将 $B_{\rho(j);j}$、$B_{\rho(j+1);j+1}$ 写成 delta 核，可直接把该粒子交换传过碰撞算子. 最后交换积分变量 $t_j$ 与 $t_{j+1}$；积分域 $\Delta_\sigma$ 正好变为 $\Delta_{s_j\circ\sigma}$. 因而变换前后的完整积分相等.</p>
-<p>这里保持不变的是“算子链、粒子重标号与时间单纯形”的整体，而不是两个裸碰撞算子的对易关系. $\square$</p>
-<p class="thm"><strong>定义 9（KM 等价）.</strong> 若 $\rho'$ 可由 $\rho$ 经有限次可接受交换得到，则称二者 KM 等价，记作 $\rho'\sim_{\mathrm{KM}}\rho$.</p>
-<p class="thm"><strong>命题 10.</strong> KM 等价是 collapsing maps 集合上的等价关系.</p>
-<p><strong>证明.</strong> 恒等操作给出自反性. 每个相邻换位满足 $s_j^{-1}=s_j$，所以可接受交换可逆，给出对称性. 两串有限可接受交换的复合仍是一串有限可接受交换，给出传递性. $\square$</p>
-<h2 id="collapsing-map">4. 从 collapsing map 到平面二叉树</h2>
-<p>经典棋盘把第 $\ell$ 列的 $B_{\rho(\ell);\ell}$ 标亮. 现代树编码进一步揭示了等价类的真实组合对象.</p>
-<p class="thm"><strong>定义 11（二叉碰撞树）.</strong> 给定 $\rho$，先画固定外部边 $1\to2$，并把 $2$ 视为活动树的根. 对每个 $j=2,\ldots,n+1$：</p>
+<p>棋盘只是 $\rho$ 的矩阵表示. 列表示新粒子及其时间，行表示父指标，标亮格子表示该碰撞历史实际选择的算子. 条件 $\rho(\ell)&lt;\ell$ 解释了棋盘的上三角形状.</p>
+<p class="thm"><strong>命题 6（碰撞历史的精确编码）.</strong> (3) 完全展开后的项与 $\mathcal C_n$ 一一对应. 特别地，$|\mathcal C_n|=n!$.</p>
+<p><strong>证明.</strong> 给定展开项，读取第 $\ell$ 个碰撞算子 $B_{r;\ell}$ 的第一指标并置 $\rho(\ell)=r$，便得到唯一的 $\rho\in\mathcal C_n$. 反过来，(4) 从 $\rho$ 唯一恢复每一列所选的碰撞算子. 两个构造互逆. 计数公式也可直接写成 $|\mathcal C_n|=\prod_{\ell=2}^{n+1}|[1,\ell-1]|=n!$. $\square$</p>
+<p>若从第 $k$ 层开始，定义域改成 $[k+1,k+n]$，且 $\rho(\ell)\in[1,\ell-1]$. 此时得到以 $1,\ldots,k$ 为根的 collapsing forest. 以下先处理单根情形；固定 $k$ 的森林版本逐根完全相同.</p>
+<h2 id="km">3. KM 可接受交换</h2>
+<p>Collapsing map 记录算子选择，时间置换记录积分单纯形. 两者必须同时变换.</p>
+<p class="thm"><strong>定义 7（带时间次序的积分）.</strong> 对 $[2,n+1]$ 的置换 $\sigma$，令 $\sigma(1)=1$，并定义 $\Delta_\sigma(t_1)=\{0\le t_{\sigma(n+1)}\le\cdots\le t_{\sigma(2)}\le t_1\}$ 及
+$I(\rho,\sigma)=\int_{\Delta_\sigma(t_1)}J(\mathbf t;\rho)\,d\mathbf t$. 原始 Duhamel 单纯形对应 $\sigma=\mathrm{id}$.</p>
+<p class="thm"><strong>定义 8（KM 可接受交换）.</strong> 令 $s_j=(j,j+1)$，其中 $2\le j\le n$. 如果
+$\rho(j)\ne\rho(j+1)$ 且 $\rho(j+1)&lt;j$，则定义
+$\rho'=s_j\circ\rho\circ s_j$、$\sigma'=s_j\circ\sigma$，并记
+$(\rho',\sigma')=\operatorname{KM}(j,j+1)(\rho,\sigma)$.</p>
+<p class="thm"><strong>引理 9（交换后的 collapsing map 仍合法）.</strong> 定义 8 中的 $\rho'$ 属于 $\mathcal C_n$. 此外，对同一对指标再次施行 KM 交换便回到 $(\rho,\sigma)$.</p>
+<p><strong>证明.</strong> 对 $\ell\notin\{j,j+1\}$，有 $\rho'(\ell)=s_j(\rho(\ell))$. 若 $\ell&lt;j$，则 $\rho(\ell)&lt;\ell&lt;j$，所以 $s_j$ 不改变它；若 $\ell&gt;j+1$，则 $s_j$ 至多交换两个仍小于 $\ell$ 的值. 对两个关键指标，
+$\rho'(j)=s_j(\rho(j+1))=\rho(j+1)&lt;j$，这里用了 $\rho(j+1)&lt;j$；同时
+$\rho'(j+1)=s_j(\rho(j))=\rho(j)&lt;j&lt;j+1$. 因此 $\rho'(\ell)&lt;\ell$ 对所有 $\ell$ 成立. 两个不等条件在交换后仍成立，而 $s_j^2=\mathrm{id}$，故交换可逆. $\square$</p>
+<p class="thm"><strong>命题 10（可接受交换保持完整积分）.</strong> 设末端核 $\gamma^{(n+1)}$ 在粒子对 $(x_r,x_r')$ 的同步置换下不变. 若 $(\rho',\sigma')=\operatorname{KM}(j,j+1)(\rho,\sigma)$，则 $I(\rho',\sigma')=I(\rho,\sigma)$.</p>
+<p><strong>证明.</strong> 先把每个 $B_{a;b}$ 展开成 $B_{a;b}^+-B_{a;b}^-$. 对任意固定的正负号选择，在核表示中同时交换粒子对 $(x_j,x_j')$、$(x_{j+1},x_{j+1}')$ 以及时间变量 $t_j,t_{j+1}$. 末端核因对称性不变. 自由生成元 $\sum_r(\Delta_{x_r}-\Delta_{x_r'})$ 在粒子置换下不变，所以所有自由传播子按相同方式重标号. 碰撞核中的 delta 分布也只表达“子粒子等于父粒子”或“子粒子等于加撇父粒子”，故重标号把 $B_{\rho(\ell);\ell}$ 精确变成 $B_{\rho'(\ell);\ell}$.</p>
+<p>唯一需要检查的是第 $j$、$j+1$ 两步仍构成合法的层级链. 条件 $\rho(j+1)&lt;j$ 排除了 $j+1$ 直接撞击 $j$，条件 $\rho(j)\ne\rho(j+1)$ 排除了两步属于同一条按先后排列的兄弟链. 因此两次碰撞发生在两个独立分支，可以连同中间自由传播一起换序. 这也可由把 delta 核逐项代入直接验证.</p>
+<p>最后，变量代换 $t_j\leftrightarrow t_{j+1}$ 把 $\Delta_\sigma(t_1)$ 双射且保测度地映到 $\Delta_{s_j\circ\sigma}(t_1)$. 对全部正负号选择求和便得到所述等式. 这里相等的是算子链、粒子重标号与时间域组成的整体；一般并不存在裸算子恒等式 $B_{\rho(j);j}B_{\rho(j+1);j+1}=B_{\rho(j+1);j+1}B_{\rho(j);j}$. $\square$</p>
+<p class="thm"><strong>定义 11（KM 等价）.</strong> 若 $\rho'$ 可由 $\rho$ 经有限次可接受交换得到，则称 $\rho$ 与 $\rho'$ KM 等价，记为 $\rho\sim_{\mathrm{KM}}\rho'$.</p>
+<p class="thm"><strong>命题 12.</strong> KM 等价是 $\mathcal C_n$ 上的等价关系.</p>
+<p><strong>证明.</strong> 空交换序列给出自反性. 引理 9 表明每一步都可逆，所以有限交换序列可以逆序撤销，给出对称性. 两个有限交换序列首尾相接仍是有限交换序列，给出传递性. $\square$</p>
+<h2 id="collapsing-map-binary-tree">4. 从 collapsing map 到平面二叉树</h2>
+<p>普通碰撞图以粒子 $1$ 为根，并从父节点 $r$ 向所有满足 $\rho(\ell)=r$ 的子节点 $\ell$ 连边. 一个节点可以有任意多个孩子. 为使组合结构递归化，我们采用有序树的 left-child/right-sibling 二叉编码.</p>
+<p class="thm"><strong>定义 13（二叉碰撞树）.</strong> 固定 $\rho\in\mathcal C_n$. 把 $2$ 作为活动根，并保留外部边 $1\to2$. 对每个活动节点 $j\in[2,n+1]$：</p>
 <ol>
-<li>若集合 $\{\ell&gt;j:\rho(\ell)=\rho(j)\}$ 非空，把其中最小者作为 $j$ 的左孩子；</li>
-<li>若集合 $\{\ell&gt;j:\rho(\ell)=j\}$ 非空，把其中最小者作为 $j$ 的右孩子；</li>
-<li>若相应集合为空，则对应孩子缺失.</li>
+<li>若存在 $\ell&gt;j$ 使 $\rho(\ell)=\rho(j)$，则把其中最小的 $\ell$ 定义为 $j$ 的左孩子；</li>
+<li>若存在 $\ell&gt;j$ 使 $\rho(\ell)=j$，则把其中最小的 $\ell$ 定义为 $j$ 的右孩子；</li>
+<li>若相应集合为空，则相应孩子缺失.</li>
 </ol>
-<p>删除所有标号、保留左右次序后得到的平面二叉树称为 $\rho$ 的 skeleton.</p>
-<p>左边链把“拥有同一原始父节点的后续碰撞”串联起来，右边链则记录“当前碰撞产生的粒子以后首次成为父节点”. 这是通常 rooted collision tree 的 left-child/right-sibling 二叉编码.</p>
-<p class="thm"><strong>命题 12（树编码可逆）.</strong> Collapsing maps 与节点标号可容许的平面二叉树一一对应. 这里可容许是指每个孩子的标号严格大于父节点标号.</p>
-<p><strong>证明.</strong> 由定义，左右孩子的标号都大于 $j$，所以 $\rho$ 只产生可容许树. 反过来，从一棵可容许树恢复 $\rho$：先置 $\rho(2)=1$；若 $b$ 是 $j$ 的右孩子，置 $\rho(b)=j$；若 $a$ 是 $j$ 的左孩子，置 $\rho(a)=\rho(j)$. 每个非根活动节点恰为某个节点的左孩子或右孩子，因此规则给出全部 $\rho(\ell)$，且没有冲突. 两个构造显然互逆. $\square$</p>
-<p>例如 $\rho(2),\ldots,\rho(6)=(1,1,1,2,3)$ 的通常碰撞关系是根 $1$ 有孩子 $2,3,4$，而 $2$ 有孩子 $5$、$3$ 有孩子 $6$. 其二叉编码为</p>
+<p>删去标号但保留左右孩子的区别，所得平面二叉树记为 $S(\rho)$，称为 $\rho$ 的 skeleton. 左边连接同一普通父节点的相邻孩子，右边连接某个粒子与它的第一个孩子.</p>
+<p class="thm"><strong>命题 14（二叉编码是双射）.</strong> 映射 $\rho\mapsto T(\rho)$ 给出如下两个集合之间的双射：</p>
+<ol>
+<li>Collapsing maps $\rho\in\mathcal C_n$；</li>
+<li>含 $n$ 个活动节点、标号为 $2,\ldots,n+1$ 的平面二叉树，并且每个孩子的标号严格大于父节点的标号.</li>
+</ol>
+<p><strong>证明.</strong> 先证定义 13 确实产生一棵包含所有活动节点的二叉树. 对任意 $r\in[1,n]$，把纤维 $\rho^{-1}(r)$ 递增排列为 $c_1&lt;\cdots&lt;c_m$. 若 $r=1$，则 $c_1=2$，而定义 13 把 $c_{q+1}$ 依次置为 $c_q$ 的左孩子. 若 $r\ge2$ 且纤维非空，则 $c_1$ 是 $r$ 的右孩子，$c_{q+1}$ 仍是 $c_q$ 的左孩子. 因而每个 $\ell\ge3$ 恰好出现一次：它若是所在纤维的首元，就是右孩子；否则就是同一纤维中前一元素的左孩子. 它不可能同时以两种方式出现，因为右孩子满足 $\rho(\ell)=j$，左孩子满足 $\rho(\ell)=\rho(j)&lt;j$. 所有边都从较小标号指向较大标号，因此无环；每个非根节点有且仅有一个父节点，所以所得图是一棵树. 每个节点至多有一个左孩子和一个右孩子，因此它是平面二叉树.</p>
+<p>反过来，给定一棵满足标号递增条件的平面二叉树，先置 $\rho(2)=1$. 然后递归定义：若 $b$ 是 $j$ 的右孩子，置 $\rho(b)=j$；若 $a$ 是 $j$ 的左孩子，置 $\rho(a)=\rho(j)$. 因为每个非根节点恰有一个树父节点，这些规则无冲突地定义全部 $\rho(\ell)$. 沿右边有 $\rho(b)=j&lt;b$，沿左边有 $\rho(a)=\rho(j)&lt;j&lt;a$，故恢复出的映射属于 $\mathcal C_n$. 对每个纤维按递增次序检查可知，先构树再恢复映射以及先恢复映射再构树都回到原对象. $\square$</p>
+<p>对 (5) 中的例子，普通碰撞树中 $1$ 的孩子是 $2,3,4$，$2$ 的孩子是 $5$，$3$ 的孩子是 $6$. 二叉编码为</p>
 <pre><code>1
 └── 2
     ├── 3
@@ -98,51 +117,55 @@ $$
     │   └── 6
     └── 5
 </code></pre>
-<p>在这张图中，左斜边表示定义 11 的左孩子，右斜边表示右孩子；外部节点 $1$ 不计入 Catalan 计数.</p>
-<p class="thm"><strong>命题 13（骨架刻画 KM 等价类）.</strong> 两个 collapsing maps KM 等价，当且仅当它们的二叉树具有相同 skeleton.</p>
-<p><strong>证明.</strong> 一次可接受交换在树上正是交换两个连续标号 $j,j+1$，前提是交换后孩子标号仍严格大于父标号. 因此它只改变可容许标号，不改变左右边结构，故 KM 等价推出 skeleton 相同.</p>
-<p>反过来，固定 skeleton. 所有可容许标号都是该树偏序的线性扩张. 任意两个线性扩张都能通过交换相邻的不可比较元素互相到达；这样的相邻交换正满足定义 7 的可接受条件. 因此同一 skeleton 的任意两个 collapsing maps 均 KM 等价. $\square$</p>
+<p>这里左分支 $2\to3\to4$ 串起 $\rho^{-1}(1)$，右边 $2\to5$ 与 $3\to6$ 记录两个非空子纤维. 外部节点 $1$ 不计入二叉树节点数.</p>
+<p>令 $P_S$ 是 skeleton $S$ 上由祖先关系生成的偏序，即 $u&lt;_S v$ 当且仅当 $u$ 是 $v$ 的严格祖先. 一个递增标号等价于把节点排成 $P_S$ 的一个线性扩张.</p>
+<p class="thm"><strong>引理 15（可接受交换就是交换相邻不可比节点）.</strong> 在 $T(\rho)$ 中，连续标号 $j,j+1$ 可作 KM 可接受交换，当且仅当这两个节点在 $P_{S(\rho)}$ 中不可比. 交换后只互换两个节点的标号，skeleton 不变.</p>
+<p><strong>证明.</strong> 因为所有树边上的标号严格增加，如果 $j$ 与 $j+1$ 可比，则两者之间不可能还有第三个节点，所以它们必由一条树边直接相连. 若 $j+1$ 是 $j$ 的左孩子，则二者位于同一纤维的相邻位置，故 $\rho(j+1)=\rho(j)$. 若 $j+1$ 是 $j$ 的右孩子，则 $\rho(j+1)=j$. 这两种情形分别违反定义 8 的第一个与第二个条件.</p>
+<p>反过来，若 KM 条件失败，则或有 $\rho(j)=\rho(j+1)$，此时连续性表明 $j+1$ 是 $j$ 的左孩子；或有 $\rho(j+1)=j$，此时 $j+1$ 是 $j$ 的右孩子. 因而条件成立恰好意味着两节点不可比. 在线性扩张中交换相邻不可比元素仍是线性扩张，所以交换后的标号仍沿每条边递增. 命题 14 的逆构造给出的 map 正是 $s_j\circ\rho\circ s_j$. $\square$</p>
+<p class="thm"><strong>引理 16（线性扩张图的连通性）.</strong> 有限偏序集的任意两个线性扩张，都可以通过有限次交换相邻不可比元素彼此到达.</p>
+<p><strong>证明.</strong> 对元素数归纳. 设目标线性扩张的首元为 $v$. 在当前线性扩张中，把 $v$ 逐位向左移动. 位于 $v$ 左边而需要跨过的每个元素 $u$ 都与 $v$ 不可比：若 $u&lt;v$，则目标扩张不可能把 $v$ 放在 $u$ 前；若 $v&lt;u$，则当前扩张不可能把 $u$ 放在 $v$ 前. 因此每次相邻交换都合法. 把 $v$ 移到首位后，删去 $v$，对剩余偏序集应用归纳假设. $\square$</p>
+<p class="thm"><strong>命题 17（skeleton 精确刻画 KM 等价类）.</strong> 对 $\rho,\widetilde\rho\in\mathcal C_n$，有 $\rho\sim_{\mathrm{KM}}\widetilde\rho$ 当且仅当 $S(\rho)=S(\widetilde\rho)$.</p>
+<p><strong>证明.</strong> 若两者 KM 等价，则每一步由引理 15 只交换同一 skeleton 上的两个标号，故 skeleton 不变. 反过来，若 skeleton 相同，则 $T(\rho)$ 与 $T(\widetilde\rho)$ 的标号分别给出同一树偏序的两个线性扩张. 引理 16 把这两个扩张用相邻不可比交换连接起来，再由引理 15 把每一步翻译成 KM 可接受交换. $\square$</p>
 <h2 id="upper-echelon-catalan">5. Upper echelon 代表与 Catalan 计数</h2>
-<p class="thm"><strong>定义 14（canonical upper echelon labeling）.</strong> 固定一个含 $n$ 个活动节点的 skeleton. 按下列算法赋予标号 $2,\ldots,n+1$：</p>
-<ol>
-<li>活动根标为 $2$；</li>
-<li>若刚标为 $j$ 的节点有未标号左孩子，则将该左孩子标为 $j+1$；</li>
-<li>否则，在已有标号且有未标号右孩子的节点中，选择标号最小者，把其右孩子标为 $j+1$；</li>
-<li>重复至所有节点均被标号.</li>
-</ol>
-<p>由命题 12 恢复出的 collapsing map 记为 $\rho_\ast$. 它满足
-$\rho_\ast(2)\le\rho_\ast(3)\le\cdots\le\rho_\ast(n+1)$，称为该 skeleton 的 upper echelon 代表.</p>
-<p class="thm"><strong>命题 15（唯一代表与指数计数）.</strong> 每个 KM 等价类恰有一个 canonical upper echelon 代表，且深度 $n$ 的等价类数不超过 $4^n$.</p>
-<p><strong>证明.</strong> 定义 14 只依赖 skeleton，因此每个 skeleton 产生唯一代表；命题 13 又说明一个等价类恰好对应一个 skeleton. 含 $n$ 个节点的平面二叉树数为 Catalan 数
-$\mathrm{Cat}_n=\frac1{n+1}\binom{2n}{n}$，故 $\mathrm{Cat}_n&lt;4^n$. $\square$</p>
-<p>这一证明比“把标记冒泡到高行”更精确：指数界来自平面二叉树的 Catalan 计数，而 upper echelon form 是每个树骨架上的规范标号.</p>
-<h2 id="section">6. 树偏序给出的显式时间域</h2>
-<p class="thm"><strong>定义 16（tree order polytope）.</strong> 设 $\alpha$ 是 canonical upper echelon tree，包含外部边 $1\to2$. 定义</p>
+<p class="thm"><strong>定义 18（canonical upper echelon 标号）.</strong> 固定含 $n$ 个节点的 skeleton $S$. 按下列确定性算法赋予标号 $2,\ldots,n+1$：先把根标为 $2$. 标出 $j$ 后，如果节点 $j$ 有尚未标号的左孩子，就把该左孩子标为 $j+1$；否则在已有标号且右孩子尚未标号的节点中，选择标号最小者，把它的右孩子标为 $j+1$. 重复至所有节点均被标号. 由命题 14 恢复的 collapsing map 记为 $\rho_S^\ast$.</p>
+<p class="thm"><strong>命题 19（规范代表存在且唯一）.</strong> 上述算法标出 $S$ 的全部节点，并且 $\rho_S^\ast(2)\le\cdots\le\rho_S^\ast(n+1)$. 反过来，同一 skeleton 上满足此单调性的可容许标号只有一个. 因而每个 KM 等价类恰有一个 upper echelon 代表.</p>
+<p><strong>证明.</strong> 已标节点集合在每一步都是包含根的连通子树. 若仍有未标节点，则从已标区域到未标区域必有一条边. 当前节点的未标左边在算法第三步立即处理；其余边中必有某个已标节点带未标右孩子，所以算法不会提前停止.</p>
+<p>考察将要标为 $j+1$ 的节点. 如果它是 $j$ 的左孩子，则逆构造给出 $\rho_S^\ast(j+1)=\rho_S^\ast(j)$. 如果它是某个已标节点 $r$ 的右孩子，则 $\rho_S^\ast(j+1)=r$，而算法选择最小的这种 $r$. 在此前已经完成的纤维之后，这个最小待处理父指标不小于 $\rho_S^\ast(j)$. 因而 $\rho_S^\ast$ 非递减.</p>
+<p>再证唯一性. 假设标号 $2,\ldots,j$ 已被唯一确定. 若节点 $j$ 有左孩子，同一纤维必须保持连续；若先标某个不同节点，其父指标将严格大于 $\rho(j)$，以后再回到该左孩子便破坏 $\rho$ 的非递减性，所以左孩子被迫标为 $j+1$. 若节点 $j$ 无左孩子，则下一个新纤维必须从已有节点的右孩子开始；为保持父指标非递减，只能选择父标号最小的未处理右孩子. 这正是定义 18 的规则. 归纳得到唯一标号. 最后用命题 17 即得每个等价类恰有一个规范代表. $\square$</p>
+<p class="thm"><strong>命题 20（Catalan 计数）.</strong> 深度为 $n$ 的 KM 等价类数等于第 $n$ 个 Catalan 数
+$C_n=\frac1{n+1}\binom{2n}{n}$，从而 $C_n&lt;4^n$.</p>
+<p><strong>证明.</strong> 命题 17 把等价类与含 $n$ 个节点的平面二叉树 skeleton 一一对应. 反之，任意这样的 skeleton 经定义 18 标号，再用命题 14 恢复出 collapsing map，所以没有 skeleton 被遗漏.</p>
+<p>设 $C_0=1$. 按根的左子树含 $r$ 个节点分类，右子树便含 $n-1-r$ 个节点，因此 $C_n=\sum_{r=0}^{n-1}C_rC_{n-1-r}$. 生成函数 $C(z)=\sum_{n\ge0}C_nz^n$ 满足 $C(z)=1+zC(z)^2$. 取在 $z=0$ 解析的分支得到 $C(z)=(1-\sqrt{1-4z})/(2z)$，展开即得 $C_n=\frac1{n+1}\binom{2n}{n}$. 最后 $\binom{2n}{n}&lt;\sum_{r=0}^{2n}\binom{2n}{r}=4^n$. $\square$</p>
+<p>这一步说明指数界并非粗略的棋盘估计. 阶乘多个标号树按 skeleton 分组后，类的数目恰好是 Catalan 数；upper echelon form 则是每个 skeleton 上唯一的规范标号.</p>
+<h2 id="tree-order-polytope">6. 树偏序与显式时间域</h2>
+<p class="thm"><strong>定义 21（tree order polytope）.</strong> 对 canonical tree $S$，记 $a\lessdot_S b$ 表示 $b$ 是 $a$ 的孩子，并令</p>
 $$
-\mathcal T(\alpha)
-=\left\{\mathbf t\in[0,t_1]^n:
-t_a\ge t_b\ \text{whenever node }b\text{ is a child of node }a\right\}.
+\mathcal T(S)=\left\{\mathbf t\in[0,t_1]^n:
+t_a\ge t_b\ \text{ whenever }a\lessdot_S b\right\}.
 \tag{6}
 $$
-<p>传递闭包自动给出所有祖先与后代间的时间不等式. 不同分支上的时间不作比较.</p>
-<p class="thm"><strong>命题 17（显式时间域重组）.</strong> 设 $\rho_\ast$ 是 skeleton $\alpha$ 的 canonical upper echelon 代表. 则</p>
+<p>只写父子边已经足够；传递性自动给出所有祖先与后代之间的不等式，不同分支的时间则无需比较.</p>
+<p class="thm"><strong>引理 22（等价类与线性扩张一一对应）.</strong> 固定 skeleton $S$. 它的 KM 等价类中的 collapsing maps，与树偏序 $P_S$ 的线性扩张一一对应.</p>
+<p><strong>证明.</strong> 命题 14 把一个 map 变成 $S$ 的递增标号. 按标号从小到大读取节点，恰得到一个线性扩张. 反过来，给定线性扩张，按出现次序赋予 $2,\ldots,n+1$，所得标号沿祖先关系严格增加，再由命题 14 唯一恢复 collapsing map. 两个过程互逆. $\square$</p>
+<p class="thm"><strong>引理 23（order polytope 的单纯形剖分）.</strong> 对 $P_S$ 的每个线性扩张 $L=(v_2,\ldots,v_{n+1})$，令 $\Delta_L=\{t_1\ge t_{v_2}\ge\cdots\ge t_{v_{n+1}}\ge0\}$. 则
+$\mathcal T(S)=\bigcup_L\Delta_L$，而不同 $\Delta_L$ 的内部互不相交.</p>
+<p><strong>证明.</strong> 每个 $\Delta_L$ 满足所有父时间不小于子时间的约束，所以包含于 $\mathcal T(S)$. 反过来，取 $\mathbf t\in\mathcal T(S)$ 且各时间两两不同，按时间从大到小排列节点. 父节点的时间大于子节点的时间，因此该排列是 $P_S$ 的线性扩张，并且 $\mathbf t$ 属于相应的 $\Delta_L$. 时间相等的点落在有限个超平面上，构成零测边界. 当所有时间严格不同时，排序唯一，所以各单纯形内部不交. $\square$</p>
+<p class="thm"><strong>命题 24（一个等价类的精确重组）.</strong> 设 $\rho_S^\ast$ 是 $S$ 的 canonical upper echelon map. 则</p>
 $$
-\sum_{\rho\sim_{\mathrm{KM}}\rho_\ast}
+\sum_{\rho\sim_{\mathrm{KM}}\rho_S^\ast}
 \int_{\Delta_{\mathrm{id}}(t_1)}J(\mathbf t;\rho)\,d\mathbf t
-=
-\int_{\mathcal T(\alpha)}J(\mathbf t;\rho_\ast)\,d\mathbf t .
+=\int_{\mathcal T(S)}J(\mathbf t;\rho_S^\ast)\,d\mathbf t.
 \tag{7}
 $$
-<p><strong>证明.</strong> 对等价类中的每个 $\rho$，选择一串可接受交换将 $(\rho,\mathrm{id})$ 化到 $(\rho_\ast,\sigma)$. 由命题 8，相应积分等于 $I(\rho_\ast,\sigma)$.</p>
-<p>同一 skeleton 的可容许标号等价于树偏序的线性扩张. 每个线性扩张 $\sigma$ 决定一个全序单纯形 $\Delta_\sigma(t_1)$. 反过来，$\mathcal T(\alpha)$ 中除去时间相等的零测边界后，每一点都按时间大小唯一决定一个线性扩张. 因此
-$\mathcal T(\alpha)$ 是这些 $\Delta_\sigma(t_1)$ 的几乎处处不交并. 对所有 $\rho$ 求和，就是把同一个规范被积式在这些单纯形上的积分合并为它在 $\mathcal T(\alpha)$ 上的积分. $\square$</p>
-<p class="thm"><strong>推论 18（现代 KM board game）.</strong> (3) 可精确写成少于 $4^n$ 个积分之和，每个积分由一个平面二叉树 skeleton 索引，被积式采用其 canonical upper echelon map，积分域由 (6) 显式给出.</p>
-<p><strong>证明.</strong> 按 KM 等价类分组，逐类应用命题 17，再用命题 15 计数. $\square$</p>
-<p><strong>注 19（与经典表述的关系）.</strong> 经典证明说某个区域 $D_{\rho_\ast}\subset[0,t_1]^n$ 是若干时间单纯形之并. 命题 17 将它识别为明确的 order polytope $\mathcal T(\alpha)$. 因而积分域不再是证明末尾被动出现的集合，而可直接从 canonical tree 的每条父子边读出.</p>
+<p><strong>证明.</strong> 由引理 22，每个 $\rho$ 唯一对应 $P_S$ 的一个线性扩张. 用引理 16 的相邻交换把该扩张变到 canonical 扩张，并同步对 $(\rho,\mathrm{id})$ 作定义 8 的 KM 交换. 命题 10 表明积分值不变，最终得到同一个规范被积式 $J(\mathbf t;\rho_S^\ast)$ 在与原线性扩张对应的单纯形 $\Delta_L$ 上的积分.</p>
+<p>这个对应没有重数：节点在共同 skeleton 中的身份固定，所以把某一递增标号变成 canonical 标号的置换唯一；不同 maps 给出不同线性扩张. 对等价类求和后，引理 23 恰把这些单纯形拼成 $\mathcal T(S)$，零测公共边界不影响积分. $\square$</p>
+<p class="thm"><strong>推论 25（现代 KM board game）.</strong> (3) 可以精确重写成 $C_n&lt;4^n$ 个积分之和. 每项由一个平面二叉树 skeleton $S$ 索引，被积式是其 canonical upper echelon map $\rho_S^\ast$，积分域是显式的 tree order polytope $\mathcal T(S)$.</p>
+<p><strong>证明.</strong> 先按命题 17 将 $\mathcal C_n$ 分成 skeleton 等价类，再逐类应用命题 24，最后使用命题 20. $\square$</p>
+<p class="thm"><strong>注 26（与经典棋盘表述的关系）.</strong> 经典 board game 把标亮格子经可接受移动整理成 upper echelon form，并把同类时间单纯形的并记成某个区域 $D_{\rho^\ast}$. 上面的二叉树论证说明，这个区域并不含额外选择：它就是由 skeleton 的父子偏序唯一决定的 order polytope $\mathcal T(S)$. 因而 collapsing map、棋盘与二叉树分别是同一对象的函数表示、矩阵表示和递归组合表示.</p>
 <h2 id="collapsing-estimate">7. 三维 collapsing estimate</h2>
 <p>组合压缩之后，还需逐层控制碰撞算子. 定义
 $R^{(k)}=\prod_{j=1}^k|\nabla_{x_j}|\,|\nabla_{x_j'}|$.</p>
-<p class="thm"><strong>命题 20（三维 collapsing estimate）.</strong> 设
+<p class="thm"><strong>命题 27（三维 collapsing estimate）.</strong> 设
 $u^{(k+1)}(t)=U^{(k+1)}(t)u_0^{(k+1)}$. 则存在与 $j,k$ 无关的常数 $C$，使</p>
 $$
 \left\|R^{(k)}B_{j;k+1}u^{(k+1)}\right\|_{L^2(\mathbb R_t\times\mathbb R^{3k}\times\mathbb R^{3k})}
@@ -157,8 +180,8 @@ $$
 \widehat{u_0}(p-q-q',\ldots,q;\ldots,q')\,dq\,dq',
 \tag{9}
 $$
-<p>其中 $\Omega$ 只依赖固定输出频率，可吸收到 $\tau$ 中. 将输入端的 $R^{(k+1)}$ 权重移入函数后应用带 delta 测度的 Cauchy–Schwarz，不依赖 $p$ 的其余权重全部抵消，问题归结为命题 22 的核一致有界性. 该界代回 Cauchy–Schwarz，再对输出频率与 $\tau$ 使用 Plancherel，便得到 (8). $\square$</p>
-<p class="thm"><strong>引理 21（平面或球面上的卷积界）.</strong> 设 $P\subset\mathbb R^3$ 是二维平面或球面. 若 $0&lt;a&lt;2$、$0&lt;b&lt;2$ 且 $a+b&gt;2$，则</p>
+<p>其中 $\Omega$ 只依赖固定输出频率，可吸收到 $\tau$ 中. 将输入端的 $R^{(k+1)}$ 权重移入函数后应用带 delta 测度的 Cauchy–Schwarz，不依赖 $p$ 的其余权重全部抵消，问题归结为命题 29 的核一致有界性. 该界代回 Cauchy–Schwarz，再对输出频率与 $\tau$ 使用 Plancherel，便得到 (8). $\square$</p>
+<p class="thm"><strong>引理 28（平面或球面上的卷积界）.</strong> 设 $P\subset\mathbb R^3$ 是二维平面或球面. 若 $0&lt;a&lt;2$、$0&lt;b&lt;2$ 且 $a+b&gt;2$，则</p>
 $$
 \int_P\frac{dS(\eta)}{|\xi-\eta|^a|\eta|^b}
 \le \frac{C}{|\xi|^{a+b-2}},
@@ -166,7 +189,7 @@ $$
 $$
 <p>其中 $C$ 对 $\xi$ 与 $P$ 一致.</p>
 <p><strong>证明.</strong> 把 $P$ 分成三个重叠区域. 在 $|\eta|\gtrsim|\xi|$ 的近区，固定 $|\eta|^{-b}$，围绕 $\xi$ 对另一个奇点作二维 dyadic 分解；$a&lt;2$ 保证局部级数收敛. 在 $|\xi-\eta|\gtrsim|\xi|$ 的近区同理使用 $b&lt;2$. 在两者都大的远区，两个分母由 $|\eta|^{-a-b}$ 控制，而半径为 $r$ 的二维 dyadic 环带面积是 $O(r^2)$；$a+b&gt;2$ 保证远区级数收敛. 三部分均具有齐次次数 $2-a-b$. $\square$</p>
-<p class="thm"><strong>命题 22（关键 Fourier 核）.</strong> 对</p>
+<p class="thm"><strong>命题 29（关键 Fourier 核）.</strong> 对</p>
 $$
 K(\tau,p)=
 \int_{\mathbb R^3\times\mathbb R^3}
@@ -176,7 +199,7 @@ K(\tau,p)=
 $$
 <p>有 $\sup_{\tau,p}K(\tau,p)&lt;\infty$.</p>
 <p><strong>证明.</strong> 由 $p-q-q'$ 与 $q$ 的对称性，可先限制到 $|p-q-q'|&gt;|q|$. 再分成 $|q'|&gt;|q|$ 与 $|q'|&lt;|q|$ 两区.</p>
-<p>第一种情形先积 $q'$. 固定 $p,q,\tau$ 后，相位关于 $q'$ 是线性的，delta 分布把 $q'$ 限制在法向量平行于 $p-q$ 的平面上，并给出 Jacobian $(2|p-q|)^{-1}$. 取小的 $\varepsilon&gt;0$，在该区域转移一个 $|q|^{2\varepsilon}$ 权重，再用引理 21，得到</p>
+<p>第一种情形先积 $q'$. 固定 $p,q,\tau$ 后，相位关于 $q'$ 是线性的，delta 分布把 $q'$ 限制在法向量平行于 $p-q$ 的平面上，并给出 Jacobian $(2|p-q|)^{-1}$. 取小的 $\varepsilon&gt;0$，在该区域转移一个 $|q|^{2\varepsilon}$ 权重，再用引理 28，得到</p>
 $$
 K_1(\tau,p)\lesssim
 |p|^2\int_{\mathbb R^3}
@@ -184,11 +207,11 @@ K_1(\tau,p)\lesssim
 \lesssim1.
 \tag{12}
 $$
-<p>第二种情形先积 $q$. 对相位配方后，delta 分布把 $q$ 限制在一个球面上，Jacobian 等价于到球心距离的倒数. 对球面上的三个奇点应用引理 21 的三因子推论
+<p>第二种情形先积 $q$. 对相位配方后，delta 分布把 $q$ 限制在一个球面上，Jacobian 等价于到球心距离的倒数. 对球面上的三个奇点应用引理 28 的三因子推论
 $\int_P|\xi-\eta|^{-2+\varepsilon}|\xi/2-\eta|^{-1}|\eta|^{-2+\varepsilon}\,dS(\eta)\lesssim|\xi|^{-3+2\varepsilon}$，再作一次三维 Riesz 核卷积，得到 $K_2(\tau,p)\lesssim1$. 两区相加即证. $\square$</p>
-<p><strong>注 23.</strong> 不能把上述证明简化成“无权积分 $\int\delta(\tau-\Phi)\,d\eta$ 在三维有限”. 无权曲面积分一般发散. 真正受控制的是 (11) 中由 $R^{(k+1)}$ 产生的加权核.</p>
-<h2 id="section-1">8. 唯一性闭合</h2>
-<p class="thm"><strong>定理 24（KM 条件下的唯一性）.</strong> 设 GP hierarchy 的零初值解满足：存在 $C_0&gt;0$，使所有 $k$ 及 $1\le j\le k$ 都有</p>
+<p class="thm"><strong>注 30.</strong> 不能把上述证明简化成“无权积分 $\int\delta(\tau-\Phi)\,d\eta$ 在三维有限”. 无权曲面积分一般发散. 真正受控制的是 (11) 中由 $R^{(k+1)}$ 产生的加权核.</p>
+<h2 id="uniqueness">8. 唯一性闭合</h2>
+<p class="thm"><strong>定理 31（KM 条件下的唯一性）.</strong> 设 GP hierarchy 的零初值解满足：存在 $C_0&gt;0$，使所有 $k$ 及 $1\le j\le k$ 都有</p>
 $$
 \int_0^T
 \left\|R^{(k)}B_{j;k+1}\gamma^{(k+1)}(t)\right\|_{L^2}
@@ -196,21 +219,20 @@ $$
 \tag{13}
 $$
 <p>则该解在 $[0,T]$ 上恒为零. 因而满足同一条件且具有相同初值的两个解必相同.</p>
-<p><strong>证明.</strong> 对 $\gamma^{(1)}(t_1)$ 迭代 $n$ 次. 由推论 18，所得 $n!$ 个项可重组为少于 $4^n$ 个 tree order polytope 上的积分. 对每项把积分域扩大到 $[0,t_1]^n$，并从树叶向根依次使用 Minkowski、$\|f\|_{L_t^1([0,T])}\le T^{1/2}\|f\|_{L_t^2([0,T])}$ 及命题 20. 前 $n-1$ 次碰撞各给出一个 $C\sqrt T$，最后一次由 (13) 控制. 因此</p>
+<p><strong>证明.</strong> 对 $\gamma^{(1)}(t_1)$ 迭代 $n$ 次. 由推论 25，所得 $n!$ 个项可重组为少于 $4^n$ 个 tree order polytope 上的积分. 对每项把积分域扩大到 $[0,t_1]^n$，并从树叶向根依次使用 Minkowski、$\|f\|_{L_t^1([0,T])}\le T^{1/2}\|f\|_{L_t^2([0,T])}$ 及命题 27. 前 $n-1$ 次碰撞各给出一个 $C\sqrt T$，最后一次由 (13) 控制. 因此</p>
 $$
 \|R^{(1)}\gamma^{(1)}(t_1)\|_{L^2}
 \le C_0\bigl(4C\sqrt T\bigr)^{n-1}.
 \tag{14}
 $$
 <p>先取 $T$ 足够小使 $4C\sqrt T&lt;1$，再令 $n\to\infty$，右端趋于零，所以 $\gamma^{(1)}=0$. 从任意第 $k$ 层开始重复同一森林论证，得到每个 $\gamma^{(k)}=0$. 最后把时间区间逐段延拓到原给定区间. 对两个同初值解取差，即得唯一性. $\square$</p>
-<p class="thm"><strong>推论 25（组合与分析的分工）.</strong> 唯一性迭代收敛来自两个独立机制：Catalan 计数给出组合因子 $4^n$，collapsing estimate 与时间 Cauchy–Schwarz 给出分析因子 $(C\sqrt T)^{n-1}$.</p>
+<p class="thm"><strong>推论 32（组合与分析的分工）.</strong> 唯一性迭代收敛来自两个独立机制：Catalan 计数给出组合因子 $4^n$，collapsing estimate 与时间 Cauchy–Schwarz 给出分析因子 $(C\sqrt T)^{n-1}$.</p>
 <p><strong>证明.</strong> 这正是 (14) 的两个乘法来源. 若没有树骨架分组，$n!$ 无法被任意固定的小时间幂吸收；若没有 collapsing estimate，指数个规范项也没有可迭代的统一界. $\square$</p>
-<h2 id="section-2">9. 参考文献</h2>
+<h2 id="references">9. 参考文献</h2>
 <p>[1] S. Klainerman and M. Machedon, <em>On the uniqueness of solutions to the Gross–Pitaevskii hierarchy</em>, Communications in Mathematical Physics <strong>279</strong> (2008), 169–185. <a href="https://arxiv.org/abs/math-ph/0701006">arXiv:math-ph/0701006</a>.</p>
 <p>[2] X. Chen and J. Holmer, <em>The derivation of the Boltzmann equation from quantum many-body dynamics</em>, arXiv:2312.08239v2, 尤其是 Lemma 6.5 及 §6.1. <a href="https://arxiv.org/abs/2312.08239">arXiv:2312.08239</a>.</p>
 <p>[3] W. Beckner, <em>Convolution estimates and the Gross–Pitaevskii hierarchy</em>, Proceedings of the American Mathematical Society <strong>141</strong> (2013), 279–291. <a href="https://arxiv.org/abs/1111.3857">arXiv:1111.3857</a>.</p>
-<p>[4] L. Erdős, B. Schlein and H.-T. Yau, <em>Derivation of the cubic non-linear Schrödinger equation from quantum dynamics of many-body systems</em>, Inventiones Mathematicae <strong>167</strong> (2007), 515–614.</p>
-</div>
+<p>[4] L. Erdős, B. Schlein and H.-T. Yau, <em>Derivation of the cubic non-linear Schrödinger equation from quantum dynamics of many-body systems</em>, Inventiones Mathematicae <strong>167</strong> (2007), 515–614.</p></div>
 
 <!-- js脚本 -->
 <script src="../../js/blog/post.js"></script>
