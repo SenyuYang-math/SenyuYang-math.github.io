@@ -10,36 +10,18 @@
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<div id="titleblock">
-<h1 id="blogtitle">直线如何铺满欧氏空间？</h1>
-<span id="bloginfo">
-<span id="blogauthor">東雲不会PDE</span> &emsp; <span id="blogdate">09/14</span>
-</span>
-<hr class="titleline">
-</div>
 
-<h2>问题</h2>
+这是在UyHiP考古时发现的趣题，现在记录如下
 
-<p>设 $n\ge 1$. 我们想把欧氏空间 $\mathbb R^n$ 写成若干条仿射直线的<strong>不交并</strong>，并且要求其中任意两条不同的直线既不相交，也不平行. 哪些维数 $n$ 允许这样的分拆？</p>
+<p class="thm">
+  <b>问题.</b> 请求出所有正整数 $n$ 使得欧氏空间 $\mathbb R^n$ 可以被若干条既不相交也不平行的仿射直线所覆盖.
+</p>
+<p>
+容易看出 $n=1$ 成立，而 $n=2$ 不符合.
+</p>
+<br/><br/>
 
-<p>分别考虑两个版本：</p>
-
-<ol>
-<li>允许使用选择公理；</li>
-<li>额外要求：存在非空开集 $N\subset\mathbb R^n$，使“点 $x$ 所在直线的方向”关于 $x$ 连续. </li>
-</ol>
-
-<p>这里直线的方向不分正负，因此自然取值于实射影空间 $\mathbb {RP}^{n-1}$. 我们约定 $n$ 为正整数. </p>
-
-<h2>答案</h2>
-
-<p class="thm"><strong>定理. </strong><br><br>
-1. 在选择公理下，除 $n=2$ 外，每个 $n\ge1$ 都存在这样的直线分拆. <br>
-2. 若方向映射在某个非空开集上连续，则这样的分拆存在当且仅当 $n$ 是奇数. </p>
-
-<p>证明分成三步：先显式构造所有奇数维例子，再用毛球定理排除偶数维的局部连续例子，最后用选择公理构造所有 $n\ge3$ 的不连续例子. </p>
-
-<h2>一、奇数维的显式构造</h2>
+<h2>奇数维：线性代数</h2>
 
 <p>先把 $\mathbb R^{m+1}$ 写成 $\mathbb R^m\times\mathbb R$，并以</p>
 
@@ -94,9 +76,7 @@ $$
 
 <p>这个构造的要点也可以说成：$J$ 没有实特征值，所以 $J(a-b)$ 永远不会与 $a-b$ 共线. 偶数阶实矩阵可以做到这一点；奇数阶实矩阵却一定有实特征值. 这已经暗示了奇偶维之间的差别，但只靠线性代数还不能排除所有非线性构造. </p>
 
-<h2>二、局部连续方向场为何排除偶数维</h2>
-
-<p>下面把线性代数中的奇偶障碍提升为拓扑障碍. </p>
+<h2>偶数维：拓扑障碍</h2>
 
 <p class="thm"><strong>命题 2. </strong> 若 $n$ 为偶数，则不存在方向映射在某个非空开集上连续的所求分拆. </p>
 
@@ -148,7 +128,7 @@ $$
 
 <p>结合命题 1，局部连续版本已经完全解决：恰好奇数维可行. 注意这里仅仅假设方向场在<strong>某一小块开集</strong>上连续，拓扑矛盾就已经出现；不需要全局连续性. </p>
 
-<h2>三、选择公理下的逐点构造</h2>
+<h2>选择公理的构造</h2>
 
 <p>最后去掉连续性. 原始想法常常是先给水平超平面上的每一点指定一个方向，并保证所得直线两两不交. 不过，这一步本身只给出每个高度切片上的单射，未必给出满射，因而不能自动保证所有直线覆盖整个空间. 下面改用逐点的超限递归，把“覆盖”直接写入构造. </p>
 
@@ -211,37 +191,17 @@ $$
 
 <p>这个构造通常极不连续. 它的作用正是说明：偶数维的障碍并非纯粹的集合论或线性代数障碍，而是来自哪怕很微弱的局部连续性. </p>
 
-<h2>四、二维为何是唯一的绝对例外</h2>
-
-<p class="thm"><strong>命题 5. </strong> $\mathbb R^2$ 不可能被两两不平行、两两不相交的直线分拆. </p>
-
-<p><strong>证明. </strong> 平面内任意两条不平行直线必相交. 因此，一个两两不相交的直线族只能由互相平行的直线组成；若同时要求任意两条不平行，这个族至多含一条直线，而一条直线不可能覆盖整个平面. 证毕.  $\square$</p>
-
 <h2>结论</h2>
 
-<p>因此，对正整数 $n$：</p>
-
-<ul>
-<li><strong>允许选择公理：</strong>可行维数为 $n=1$ 以及所有 $n\ge3$，唯一例外是 $n=2$；</li>
-<li><strong>某个开集上的方向映射连续：</strong>可行维数恰为所有奇数 $n$. </li>
-</ul>
+<p class="thm"><strong>定理. </strong> 我们有：
+1. 在选择公理下，除 $n=2$ 外，每个 $n\ge1$ 都存在这样的直线分拆. <br>
+2. 若方向映射在某个非空开集上连续，则这样的分拆存在当且仅当 $n$ 是奇数. </p>
 
 <p>同一个问题在“任意集合论构造”和“带一点点局部正则性”之间给出两种不同答案. 奇数维的复结构提供显式直线纤维化，偶数维的毛球定理制造局部拓扑障碍，而选择公理则允许我们绕开连续性，逐点完成整个空间的分拆. </p>
 </div>
 
-<div id="bottom">
-<div id="copyright">
-<div style="background-color:rgba(128,128,128,0.2); margin:30px auto; margin-bottom:0px; width:100%">
-<p style="padding:16px 8px; text-align:left" xmlns:cc="http://creativecommons.org/ns#">
-<b>声明：</b>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="license noopener noreferrer" style="display:inline-block; color:black; text-decoration:underline">CC BY-NC-SA 4.0协议</a> 进行知识共享许可.
-</p>
-</div>
-</div>
-</div>
-
 <!-- 导航栏与页脚 -->
 <script src="../../js/math-config.js"></script>
-<script src="../../js/head-foot.js"></script>
 
 </body>
 </html>
