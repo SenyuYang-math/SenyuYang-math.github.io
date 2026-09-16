@@ -40,7 +40,7 @@ $$(I+tJ)(I-tJ)=(1+t^2)I,$$
 
 <p>$n$ 为偶数时，$\mathbb R^{n-1} \to \mathbb R^{n-1}$ 的线性映射有实特征值, 因此映射 $F$ 不可能线性. 进一步，拓扑障碍导致方向映射甚至不能在在某处局部连续.</p>
 
-<p class="thm"><b>命题 2.</b> 若 $n$ 为偶数，则不存在方向映射 $F$ 在某个非空开集上连续的所求分拆. </p>
+<p class="thm"><b>命题 2.</b> 若 $n$ 为偶数，则不存在方向映射 $F$ 在某个非空开集上连续的直线族分拆. </p>
 
 <p><b>证明.</b> $n=2$ 已经排除，以下设 $n\ge4$. 反设存在这样的分拆，且方向映射 $d$ 在非空开集 $N\subset \mathbb R^n$ 上连续. 取 $x_0\in N$. 平移并旋转坐标后，可以设 $x_0=0$，且过 $0$ 的直线为第 $n$ 个坐标轴. 不妨缩小 $N$，s.t. 内部各点的方向都落在第 $n$ 个坐标非零的射影坐标卡（同胚于 $\mathbb R^{n-1}$）. 取小球 $B\subset\mathbb R^{n-1}$ 使 $B\times\{0\}\subset N$，将每个方向的第 $n$ 个坐标归一化为 $1$，我们就如奇数维情形一般将方向映射转化为水平超平面上的连续映射
 $$F:B\longrightarrow\mathbb R^{n-1},$$
@@ -52,19 +52,19 @@ $$F:B\longrightarrow\mathbb R^{n-1},$$
 
 <p>但如果不考虑连续性，我们用（力大砖飞的）选择公理可以对所有 $n\ge3$ 构造出直线族分拆，主要想法时用超限递归直接逐点覆盖空间. </p>
 
-<p>设 $n=m+1\ge3$，并写 $\mathbb R^n=\mathbb R^m\times\mathbb R$. 只考虑方向为 $(v,1)$ 的直线，其中 $v\in S^{m-1}$. 因为 $m\ge2$，方向集合 $S^{m-1}$ 的基数为连续统 $\mathfrak c$. </p>
+<p>设 $n\ge3$，并写 $\mathbb R^n=\mathbb R^m\times\mathbb R$. 只考虑方向为 $(v,1)$ 的直线，其中 $v\in S^{n-2}$. 因为 $m\ge2$，方向集合 $S^{n-2}$ 的基数为连续统 $\mathfrak c$. </p>
 
-<p class="thm"><b>引理 3.</b> 设 $P=(x,s)$ 不在直线
-$$L=\{(b,0)+u(w,1):u\in\mathbb R\},\qquad w\in S^{m-1},$$
-上. 在所有经过 $P$、方向为 $(v,1)$ 的直线中，至多有两个 $v\in S^{m-1}$ 会使新直线与 $L$ 平行或相交. </p>
+<p class="thm"><b>引理 3.</b> 设点 $P$ 不在直线
+$$L=\{(b,0)+u(w,1):u\in\mathbb R\},\qquad b\in \mathbb R^{n-1}, w\in S^{n-2},$$
+上. 在所有经过 $P$、方向为 $(v,1)$ 的直线中，至多有两个 $v\in S^{n-2}$ 会使新直线与 $L$ 平行或相交. </p>
 
-<p><b>证明.</b> 平行只排除 $v=w$. 若新直线在高度 $u$ 与 $L$ 相交，则 $u\ne s$，并且</p>
+<p><b>证明.</b> 令 $P=(x,s)$. 平行情形为 $v=w$. 现在设新直线在高度 $u$ 与 $L$ 相交，则 $u\ne s$，并且</p>
 $$x+(u-s)v=b+uw,\qquad
-v=\frac{b+uw-x}{u-s}.$$
+v=\frac{1}{u-s}(b+uw-x).$$
 条件 $\lVert v\rVert=1$ 等价于
 $$\lVert x-b\rVert^2-s^2
 +2u\bigl(s-\langle x-b,w\rangle\bigr)=0.$$
-这是关于 $u$ 的一次方程. 若它恒等成立，则 $\lVert x-b\rVert=|s|$ 且 $\langle x-b,w\rangle=s$. 由 Cauchy–Schwarz 等号条件可得 $x-b=sw$，即 $P\in L$，矛盾. 因此方程至多有一个解，i.e. 相交至多排除一个方向.$\quad$$\Box$</p>
+左式是关于 $u$ 的一次式，并且方程关于 $u$ 恒成立. 这说明 $\lVert x-b\rVert=|s|$ 且 $\langle x-b,w\rangle=s$. 于是 $x-b=sw$，i.e. $P\in L$，矛盾. 因此方程至多有一个解，i.e. 相交至多排除一个方向.$\quad$$\Box$</p>
 
 <p class="thm"><b>命题 4.</b> 允许使用选择公理时，每个 $n\ge3$ 都存在所求分拆. </p>
 
