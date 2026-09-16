@@ -23,7 +23,7 @@
 
 <p>将 $\mathbb R^{m+1}$ 写成 $\mathbb R^m\times\mathbb R$，并记水平超平面为 $H=\mathbb R^m\times\{0\}$. 给定映射 $F:\mathbb R^m\to\mathbb R^m$，对每个 $a\in\mathbb R^m$ 定义直线
 $$L_a=\bigl\{(a,0)+t(F(a),1):t\in\mathbb R\bigr\}.$$
-在高度 $t$ 上，$L_a$ 经过 $(a+tF(a),t)$. 因此，若对每个 $t\in\mathbb R$，映射 $I+tF$ 都是双射，则 $\{L_a\}$ 构成 $\mathbb R^{m+1}$ 的所求分拆.</p>
+在高度 $t$ 上，$L_a$ 经过 $(a+tF(a),t)$.</p>
 
 <p class="thm"><b>命题 1.</b> 对每个奇数 $n=2k+1$，$\mathbb{R}^n$ 存在所求的直线族分拆，且直线族的方向映射连续. </p>
 
@@ -34,7 +34,7 @@ J: J(x_1,x_2,\ldots,x_{2k-1},x_{2k})
 $$
 注意 $J^2=-I$，特别地，$J$ 没有实特征值. 而 $L_a$ 与 $L_b$ 平行或相交当且仅当 $J(a)-J(b)=J(a-b)$ 与 $a-b$ 平行，只可能是 $a=b$. 另外，对任意 $t\in\mathbb R$，</p>
 $$(I+tJ)(I-tJ)=(1+t^2)I,$$
-所以 $T_t=I+tJ$ 可逆. 因此 $F=J$ 诱导了所求的直线族. 连续性显然.$\quad$$\Box$</p>
+所以 $I+tJ: H \to \mathbb{R}^{2k}\times {t}$ 是满射. 因此 $F=J$ 诱导了所求的直线族. 连续性显然.$\quad$$\Box$</p>
 
 <h2>偶数维：拓扑障碍</h2>
 
@@ -46,9 +46,7 @@ $$(I+tJ)(I-tJ)=(1+t^2)I,$$
 $$F:B\longrightarrow\mathbb R^{n-1},$$
 并且对每个 $a\in B$ 过 $(a,0)$ 的直线方向为 $(F(a),1)$. 按此前的分析，$F(a)-F(b)$ 与 $a-b$ 从不共线. </p>
 
-<p>现在在 $B$ 内取小球面 $S_r^{n-2}$. 对 $y\in S_r^{n-2}$ 定义</p>
-$$V(y)=F(y)-F(0)-\frac{\langle F(y)-F(0),y\rangle}{r^2}\,y.$$
-$V(y)$ 是 $F(y)-F(0)$ 在球面切空间 $y^\perp$ 上的投影，所以 $V$ 是连续切向量场. 它处处非零，否则 $F(y)-F(0)$ 将与 $y$ 共线. 但球面维数为偶数，著名的毛球定理说明偶数维球面上的连续切向量场必有零点，矛盾！因此不存在所求分拆.$\square$</p>
+<p>现在在 $B$ 内取偶数维小球面 $S_r^{n-2}$. 对每个 $y\in S_r^{n-2}$ 可以定义向量场 $V(y)$ 为 $F(y)-F(0)$ 在 $y$ 的切空间的投影，所以 $V$ 是连续切向量场. 它处处非零，否则 $F(y)-F(0)$ 将与 $y$ 共线. 但著名的毛球定理说明偶数维球面上的连续切向量场必有零点，矛盾！因此不存在所求分拆.$\quad$$\Box$</p>
 
 <h2>选择公理的构造</h2>
 
@@ -56,52 +54,23 @@ $V(y)$ 是 $F(y)-F(0)$ 在球面切空间 $y^\perp$ 上的投影，所以 $V$ �
 
 <p>设 $n=m+1\ge3$，并写 $\mathbb R^n=\mathbb R^m\times\mathbb R$. 只考虑方向为 $(v,1)$ 的直线，其中 $v\in S^{m-1}$. 因为 $m\ge2$，方向集合 $S^{m-1}$ 的基数为连续统 $\mathfrak c$. </p>
 
-<p class="thm"><b>引理 3.</b> 设 $P=(x,s)$ 不在直线</p>
-
-$$
-L=\{(b,0)+u(w,1):u\in\mathbb R\},\qquad w\in S^{m-1},
-$$
-
-<p class="thm">上. 在所有经过 $P$、方向为 $(v,1)$ 的直线中，至多有两个 $v\in S^{m-1}$ 会使新直线与 $L$ 平行或相交. </p>
+<p class="thm"><b>引理 3.</b> 设 $P=(x,s)$ 不在直线
+$$L=\{(b,0)+u(w,1):u\in\mathbb R\},\qquad w\in S^{m-1},$$
+上. 在所有经过 $P$、方向为 $(v,1)$ 的直线中，至多有两个 $v\in S^{m-1}$ 会使新直线与 $L$ 平行或相交. </p>
 
 <p><b>证明.</b> 平行只排除 $v=w$. 若新直线在高度 $u$ 与 $L$ 相交，则 $u\ne s$，并且</p>
-
-$$
-x+(u-s)v=b+uw,\qquad
-v=\frac{b+uw-x}{u-s}.
-$$
-
-<p>条件 $\lVert v\rVert=1$ 等价于</p>
-
-$$
-\lVert x-b\rVert^2-s^2
-+2u\bigl(s-\langle x-b,w\rangle\bigr)=0.
-\tag{4}
-$$
-
-<p>这是关于 $u$ 的一次方程. 若它恒等成立，则 $\lVert x-b\rVert=|s|$ 且 $\langle x-b,w\rangle=s$. 由 Cauchy–Schwarz 等号条件可得 $x-b=sw$，即 $P\in L$，矛盾. 因此 (4) 至多有一个解，相交至多排除一个方向. $\square$</p>
+$$x+(u-s)v=b+uw,\qquad
+v=\frac{b+uw-x}{u-s}.$$
+条件 $\lVert v\rVert=1$ 等价于
+$$\lVert x-b\rVert^2-s^2
++2u\bigl(s-\langle x-b,w\rangle\bigr)=0.$$
+这是关于 $u$ 的一次方程. 若它恒等成立，则 $\lVert x-b\rVert=|s|$ 且 $\langle x-b,w\rangle=s$. 由 Cauchy–Schwarz 等号条件可得 $x-b=sw$，即 $P\in L$，矛盾. 因此方程至多有一个解，i.e. 相交至多排除一个方向.$\quad$$\Box$</p>
 
 <p class="thm"><b>命题 4.</b> 允许使用选择公理时，每个 $n\ge3$ 都存在所求分拆. </p>
 
-<p><b>证明.</b> 由良序定理，将 $\mathbb R^n$ 写成</p>
-
-$$
-\{P_\alpha:\alpha\lt\mathfrak c\}.
-$$
-
-<p>沿此良序递归. 在第 $\alpha$ 步，若 $P_\alpha$ 已被覆盖，则跳过；否则选一条经过 $P_\alpha$、方向为 $(v,1)$ 的直线，使它与所有旧直线既不相交也不平行. </p>
-
-<p>第 $\alpha$ 步之前只有少于 $\mathfrak c$ 条旧直线. 由引理 3，每条旧直线至多排除两个方向，因此总共排除少于 $\mathfrak c$ 个方向. 而 $S^{m-1}$ 有 $\mathfrak c$ 个点，所以总能选到所需的 $v$. </p>
-
-<p>递归结束后，每个点都被覆盖；构造又保证直线两两不相交且不平行. $\square$</p>
-
-<h2>结论</h2>
-
-<p class="thm"><b>定理.</b><br>
-1. 允许选择公理时，除 $n=2$ 外，每个正整数 $n$ 都可行. <br>
-2. 若方向映射在某个非空开集上连续，则可行维数恰为奇数. </p>
-
-<p>两种答案的差别来自连续性. 奇数维有显式线性构造；毛球定理排除了偶数维的局部连续构造；不要求连续时，选择公理给出除二维外的全部构造. </p>
+<p><b>证明.</b> 由良序定理，将 $\mathbb R^n$ 写成
+$$\{P_\alpha:\alpha\lt\mathfrak c\}.$$
+沿此良序递归. 在第 $\alpha$ 步，若 $P_\alpha$ 已被覆盖，则跳过；否则选一条经过 $P_\alpha$、方向为 $(v,1)$ 的直线，使它与所有旧直线既不相交也不平行. 第 $\alpha$ 步之前只有少于 $\mathfrak c$ 条旧直线. 由引理 3，每条旧直线至多排除两个方向，因此总共排除少于 $\mathfrak c$ 个方向. 而 $S^{m-1}$ 有 $\mathfrak c$ 个点，所以总能选到所需的 $v$. 递归结束后，每个点都被覆盖，构造也保证直线两两不相交且不平行.$\quad$$\Box$</p>
 </div>
 
 <!-- 导航栏与页脚 -->
