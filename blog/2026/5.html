@@ -1,0 +1,573 @@
+<html>
+<head>
+<title>Bourgain的魔法：单调布尔函数的尖锐阈值</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  <i><b>按：</b> Jean Bourgain（1954–2018）绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触 Bourgain 的工作或思想. 这是一个（不定期）连载系列，记录 Bourgain 的数学魔法.</i>
+</p>
+<h2>背景与定理</h2>
+<p>
+  随机结构常常表现出所谓的<b>阈值现象</b>：参数一个相对微小的变化，就可能使整个系统的结构迅速改变. 在随机图 $G(n,p)$——即由 $n$ 个顶点及边概率 $p$ 构成的概率空间——中，这种现象是一个核心研究对象. Friedgut 在 1999 年的论文 <i>Sharp Thresholds of graph properties and the k-SAT Problem</i> 中，对具有粗阈值的单调图性质给出了一个简洁的刻画. 与此前的结果不同，这一结果在 $p=p(n)\to0$，例如 $n^{-\Theta(1)}$ 时仍然成立，而许多阈值恰好出现在这一范围内，因此它非常重要. 在该论文的附录中，Bourgain 刻画了具有粗阈值的一般单调性质（而不只是图性质）. 本文将更详细地解释这一结果的证明.
+</p>
+<p>
+  设 $(\Omega,\pi)$ 是一个有限概率空间；对 $n\in\mathbb N$，令 $(\Omega^n,\pi^{\otimes n})$ 为 $n$ 维乘积概率空间. 我们用 $x\sim\pi^{\otimes n}$ 表示 $x$ 按照分布 $\pi^{\otimes n}$ 从 $\Omega^n$ 中抽取. Bourgain 的结果涉及特殊的乘积空间 $(\{0,1\}^n,\mu_p^{\otimes n})$，其中 $\mu_p$ 是 $\{0,1\}$ 上的 $p$-偏置分布：
+</p>
+<p>
+$$
+\mu_p(1)=p,\qquad \mu_p(0)=q:=1-p.
+$$
+</p>
+<p>
+  我们用 $\{0,1\}_p^n$ 表示 $(\{0,1\}^n,\mu_p^{\otimes n})$.
+</p>
+<p>
+  除非另作说明，全文用 $\mathbb P[\cdot]$ 表示 $\mathbb P_{x\sim\pi^{\otimes n}}[\cdot]$，用 $\mathbb E[\cdot]$ 表示 $\mathbb E_{x\sim\pi^{\otimes n}}[\cdot]$. 如果所处语境是 $\{0,1\}_p^n$，那么概率与期望均相对于 $\mu_p^{\otimes n}$ 而言.
+</p>
+<p>
+  本文考虑函数 $f:\Omega^n\to\{-1,1\}$. Bourgain 的原证明取值于 $\{0,1\}$，改用上述值域会使其中一些计算更简洁. 若对按分量比较的 $x\le y$ 总有 $f(x)\le f(y)$，则称 $f:\{0,1\}^n\to\{-1,1\}$ 是单调（递增）的. 对任意子集 $S\subseteq[n]$，用 $x_S$ 表示 $x$ 中属于 $S$ 的那些坐标. 稍微滥用一下记号：有时它表示长度为 $|S|$ 的向量，有时我们又把 $x_S$ 看成长度为 $n$ 的向量. 对 $S\subseteq[n]$，还用 $\mathbf 1_S$ 表示长度为 $n$ 的向量：$S$ 所对应的位置为 $1$，其他位置为 $0$. 
+</p>
+<p>
+  设 $f:\Omega^n\to\{-1,1\}$. 把第 $i$ 个期望算子 $E_i$ 作用于 $f$，就是对变量 $x_i$ 取期望. 因此
+</p>
+<p>
+$$
+E_i f(x)=\mathbb E_{x_i\sim\pi}\bigl[f(x_1,\ldots,x_{i-1},x_i,x_{i+1},\ldots,x_n)\bigr],
+$$
+</p>
+<p>
+  它是 $x_1,\ldots,x_{i-1},x_{i+1},\ldots,x_n$ 的函数. 我们还定义第 $i$ 个方向 Laplace 算子 $L_i$：
+</p>
+<p>
+$$
+L_i f=f-E_i f.
+$$
+</p>
+<p>
+  坐标 $i$ 对 $f$ 的影响度定义为
+</p>
+<p>
+$$
+\operatorname{Inf}_i[f]=\langle f,L_i f\rangle=\langle L_i f,L_i f\rangle,
+$$
+</p>
+<p>
+  其中内积定义为
+</p>
+<p>
+$$
+\langle f,g\rangle=\mathbb E_{x\sim\pi^{\otimes n}}[f(x)g(x)].
+$$
+</p>
+<p>
+  $f$ 的总影响度为
+</p>
+<p>
+$$
+\mathbb I[f]=\sum_{i=1}^n\operatorname{Inf}_i[f].
+$$
+</p>
+<p>
+  令
+</p>
+<p>
+$$
+f=\sum_{S\subseteq[n]}f^{=S}
+$$
+</p>
+<p>
+  为 $f$ 的广义 Walsh 展开或正交分解. 回忆，$f$ 的正交分解是满足下列两个性质的唯一分解：
+</p>
+<p>
+  1. 对每个 $S\subseteq[n]$，$f^{=S}(x)=f^{=S}(x_1,\ldots,x_n)$ 只依赖于满足 $i\in S$ 的坐标 $x_i$； 2. 对每个 $S\subseteq[n]$ 及所有 $i\in S$，都有 $E_i f^{=S}(x)=0$. 
+</p>
+<p>
+  在 $\{0,1\}_p^n$ 的情形，对任意 $S\subseteq[n]$，有
+</p>
+<p>
+$$
+f^{=S}(x)=\widehat f(S)\prod_{i\in S}r(x_i),
+$$
+</p>
+<p>
+  其中
+</p>
+<p>
+$$
+r(0)=-\sqrt{\frac p{1-p}},\qquad r(1)=\sqrt{\frac{1-p}{p}}.
+$$
+</p>
+<p>
+  此外还有
+</p>
+<p>
+$$
+\widehat f(S)=\mathbb E_{x\sim\mu_p^{\otimes n}}\left[f(x)\prod_{i\in S}r(x_i)\right].
+$$
+</p>
+<p>
+  若 $S\subseteq[n]$ 且 $\overline S=[n]\setminus S$，用 $f^{\subseteq S}$ 表示这样一个依赖于 $S$ 中坐标的函数：对 $\overline S$ 中的变量取 $f$ 的期望. 也就是说，把 $x$ 写成 $(x_S,x_{\overline S})$，则
+</p>
+<p>
+$$
+f^{\subseteq S}(x)=f^{\subseteq S}(x_S)
+=\mathbb E_{x_{\overline S}\sim\pi^{\otimes\overline S}}
+\bigl[f(x_S,x_{\overline S})\bigr].
+$$
+</p>
+<p>
+  $f^{=S}$ 与 $f^{\subseteq S}$ 由以下两个公式联系起来：
+</p>
+<p>
+$$
+f^{=S}=\sum_{J\subseteq S}(-1)^{|S|-|J|}f^{\subseteq J},
+\tag{1.1}
+$$
+</p>
+<p>
+  以及
+</p>
+<p>
+$$
+f^{\subseteq S}=\sum_{J\subseteq S}f^{=J}.
+\tag{1.2}
+$$
+</p>
+<p>
+  适用于正交分解的基本 Fourier 公式给出
+</p>
+<p>
+$$
+L_i f=\sum_{S\ni i}f^{=S},\qquad
+\operatorname{Inf}_i[f]
+=\sum_{S\ni i}\|f^{=S}\|_2^2
+=\sum_{S\ni i}\widehat f(S)^2,
+\tag{1.3}
+$$
+</p>
+<p>
+  以及
+</p>
+<p>
+$$
+\mathbb I[f]
+=\sum_{i=1}^n\|L_i f\|_2^2
+=\sum_{S\subseteq[n]}|S|\,\|f^{=S}\|_2^2,
+\tag{1.4}
+$$
+</p>
+<p>
+  其中 (1.3) 最后一个等号适用于 $\{0,1\}_p^n$.
+</p>
+<p class="thm">
+  <b>定理 1.</b> 对有限概率空间的任意乘积，若 $f:\Omega^n\to\{-1,1\}$ 满足 $\mathbb E[f(x)]=0$ 且 $\mathbb I[f]&lt;C$，则
+</p>
+<p>
+$$
+\mathbb E\left[\max_{0&lt;|S|\le10C} \left|f^{\subseteq S}(x)\right|\right]&gt;\delta,
+\tag{1.5}
+$$
+</p>
+<p>
+  其中 $\delta=2^{-O(C^2)}$. 
+</p>
+<p>
+  这个结果是 Bourgain 证明中的主要成分. 它不依赖于底空间是 $p$-偏置比特，因此我们将在不作这一假设的情形下证明它.
+</p>
+<p>
+  对于单调 Boolean 函数 $f:\{0,1\}^n\to\{-1,1\}$，Margulis [4] 和 Russo [6] 证明了总影响度与阈值锐度之间的如下关系：
+</p>
+<p>
+$$
+p(1-p)\frac d{dp}\mathbb P[f(x)=1]=\mathbb I[f],
+\tag{1.6}
+$$
+</p>
+<p>
+  其中 $\mathbb P$ 与 $\mathbb I$ 都是相对于 $\mu_p^{\otimes n}$ 而言. 换言之，当 $p$ 增大时，$f$ 从 $-1$ 转变为 $1$ 的速率由总影响度决定. 因此，总影响度大的函数应当具有“锐”阈值，而总影响度小的函数应当具有“粗”阈值.
+</p>
+<p>
+  现在叙述 [2] 中 Bourgain 的结果. 它大意如下：设 $f:\{0,1\}^n\to\{-1,1\}$ 是单调 Boolean 函数，$p$ 是使 $f$ 取 $-1$ 与 $1$ 等可能的临界概率（允许它随 $n$ 很快地趋于 $0$）. 如果 $f$ 的总影响度有界，那么或者：（1）在所有满足 $f(x)=1$ 的 $x$ 中，有不可忽略的一部分（按 $\mu_p^{\otimes n}$ 衡量）拥有小见证；或者（2）存在一个小坐标集，使这些坐标取值为 $1$ 的条件能将 $f$ 的期望提升一个不可忽略的量. 请注意，在下面的陈述中，$\mathbb E$、$\mathbb P$ 和 $\mathbb I$ 都是相对于 $\mu_p^{\otimes n}$ 而言.
+</p>
+<p class="thm">
+  <b>推论 1.</b> 设 $f:\{0,1\}^n\to\{-1,1\}$ 单调（递增），且 $p=p(n)$ 满足 $\mathbb E[f]=0$ 与 $\mathbb I[f]&lt;C$. 那么存在某个 $\delta'=2^{-O(C^2)}$，使得当
+</p>
+<p>
+$$
+p&lt;\frac{\delta'}{20C}
+$$
+</p>
+<p>
+  时，下列两种情形至少有一种成立：
+</p>
+<p>
+  &emsp;1.
+</p>
+<p>
+$$
+   \mathbb P\bigl[\exists S\subset[n],\ |S|\le10C,\ \mathbf1_S\le x,\ f(\mathbf1_S)=1\bigr]&gt;\delta'.
+   \tag{1.7}
+$$
+</p>
+<p>
+  &emsp;2. 存在 $S'\subseteq[n]$，满足 $|S'|\le10C$ 与 $f(\mathbf1_{S'})=0$，并且
+</p>
+<p>
+$$
+   f^{\subseteq S'}(\mathbf1_{S'})&gt;\delta'.
+   \tag{1.8}
+$$
+</p>
+<p class="thm">
+  <b>推论 1 的证明.</b> 令 $\delta'=\delta/2$，其中 $\delta$ 由定理 1 给出. 假设定理的第一种情形 (1.7) 不成立，即
+</p>
+<p>
+$$
+\mathbb P\bigl[\exists S\subset[n],\ |S|\le10C,\ \mathbf1_S\le x,\ f(\mathbf1_S)=1\bigr]\le\delta'.
+\tag{1.9}
+$$
+</p>
+<p>
+  那么应用定理 1 可知，当 $n$ 充分大时，必存在 $\overline x\in\{0,1\}^n$ 和 $S\subseteq[n]$，$|S|\le10C$，使得对每个至多含 $10C$ 个 $1$ 且满足 $x'\le\overline x$ 的 $x'$，都有 $f(x')=0$，并且
+</p>
+<p>
+$$
+\left|f^{\subseteq S}(\overline x)\right|&gt;\delta'.
+\tag{1.10}
+$$
+</p>
+<p>
+  由 $f$ 的单调性，对所有 $S,x_S$ 都有
+</p>
+<p>
+$$
+\begin{aligned}
+f^{\subseteq S}(x_S)
+&amp;=\mathbb E_{x_{\overline S}\sim\mu_p^{\overline S}}
+  \bigl[f(x_S,x_{\overline S})\bigr]\\
+&amp;\ge \mathbb E_{x_{\overline S}\sim\mu_p^{\overline S}}
+  \bigl[f(\vec0_S,x_{\overline S})\bigr]\\
+&amp;\ge \mathbb E\left[f(x)-\sum_{i\in S}\mathbf1_{\{x_i=1\}}\right]\\
+&amp;=-p|S|&gt;-\frac{\delta'}2.
+\end{aligned}
+$$
+</p>
+<p>
+  因此，(1.10) 蕴含
+</p>
+<p>
+$$
+f^{\subseteq S}(\overline x)&gt;\delta'.
+$$
+</p>
+<p>
+  取
+</p>
+<p>
+$$
+S'=S\cap\{i:\overline x_i=1\},
+$$
+</p>
+<p>
+  便得到定理的第二种情形 (1.8). $\square$
+</p>
+<p>
+  下面这个直接推论可能是一个实用的表述.
+</p>
+<p class="thm">
+  <b>推论 2.</b> 设 $f:\{0,1\}^n\to\{-1,1\}$ 单调（递增），且
+</p>
+<p>
+$$
+p=p(n)&lt;\frac{\delta}{100C}
+$$
+</p>
+<p>
+  满足 $\mathbb E[f]=0$，其中 $\delta=2^{-O(C^2)}$. 进一步假设 $\mathbb I[f]&lt;C$. 那么存在 $S\subseteq[n]$，$|S|\le10C$，使得
+</p>
+<p>
+$$
+\mathbb E\bigl[f(x)\mid x_S=(1,\ldots,1)\bigr]&gt;\delta.
+\tag{1.11}
+$$
+</p>
+<p>
+  要由推论 1 导出它，只需注意：如果第一种情形成立，那么存在一个小集合 $S$，使 (1.11) 中的条件期望等于 $1$；如果第二种情形成立，则 (1.8) 与 (1.11) 等价.
+</p>
+<p>
+  作为 Hatami 的一个非常一般的定理的推论，[3] 证明了事实上可以使 (1.11) 中的期望任意接近 $1$. 所保证的 $S$ 的大小可能关于 $C^2$ 呈指数增长，但仍然与 $n$ 无关.
+</p>
+<h2>2. 证明</h2>
+<p class="thm">
+  <b>定理 1 的证明.</b> 首先注意到 $\|f^{=\varnothing}\|_2^2=0$、$\sum_{S\subseteq[n]}\|f^{=S}\|_2^2=1$，以及假设
+</p>
+<p>
+$$
+\sum_{S\subseteq[n]}|S|\,\|f^{=S}\|_2^2&lt;C
+$$
+</p>
+<p>
+  蕴含
+</p>
+<p>
+$$
+\frac9{10}\le\sum_{0&lt;|S|\le10C}\|f^{=S}\|_2^2,
+\tag{2.1}
+$$
+</p>
+<p>
+  这是因为
+</p>
+<p>
+$$
+\sum_{|S|&gt;10C}\|f^{=S}\|_2^2
+\le\sum_{S\subseteq[n]}\frac{|S|}{10C}\|f^{=S}\|_2^2
+&lt;\frac C{10C}=\frac1{10}.
+$$
+</p>
+<p>
+  现在考虑函数
+</p>
+<p>
+$$
+h_i(x):=
+\left(\sum_{\substack{S\ni i\\|S|\le10C}}|f^{=S}(x)|^2\right)^{1/2}
+$$
+</p>
+<p>
+  以及
+</p>
+<p>
+$$
+h(x):=
+\left(\sum_{|S|\le10C}|f^{=S}(x)|^2\right)^{1/2}.
+$$
+</p>
+<p>
+  由 [1] 的命题 6，对固定的 $1&lt;q\le2$，有
+</p>
+<p>
+$$
+\begin{aligned}
+\|h_i(x)\|_q^q
+&amp;\le c_1\|L_i f\|_q^q\\
+&amp;=c_1\mathbb E[|L_i f|^q]\\
+&amp;\le c_2\mathbb E[|L_i f|]\\
+&amp;\le C_1\mathbb E[(L_i f)^2]\\
+&amp;=C_1\operatorname{Inf}_i[f].
+\end{aligned}
+\tag{2.2}
+$$
+</p>
+<p>
+  这里 $C_1=C_1(q)=2^{O(C)}$，而 $c_1,c_2$ 是同样只依赖于 $q$ 的常数. 读者应当注意，在下面的证明中，我们只会在 $q=4/3$ 时应用 [1] 的结果. 若 $q'=q/(q-1)$，则还有
+</p>
+<p>
+$$
+\|h(x)\|_{q'}\le C_1\|f\|_{q'}=C_1.
+\tag{2.3}
+$$
+</p>
+<p>
+  因此
+</p>
+<p>
+$$
+\sum_{i=1}^n\|h_i(x)\|_q^q
+\le C_1\sum_{i=1}^n\operatorname{Inf}_i[f]
+\le C\,C_1.
+\tag{2.4}
+$$
+</p>
+<p>
+  令 $0&lt;\varepsilon&lt;M&lt;\infty$ 为常数，取 $\varepsilon=2^{-O(C)}$、$M=O(1/\varepsilon)$，并令
+</p>
+<p>
+$$
+\eta_i(x)=\mathbf1_{\{h_i(x)&gt;\varepsilon\}},
+\tag{2.5}
+$$
+</p>
+<p>
+$$
+\xi(x)=\mathbf1_{\{\sum_i\eta_i(x)&lt;M\}}.
+\tag{2.6}
+$$
+</p>
+<p>
+  通过分析下文中的不等式，可以用 $C$ 和 $C_1$ 具体确定 $M$ 与 $\varepsilon$ 的值.
+</p>
+<p>
+  现在，$1-\xi(x)$ 是如下事件的示性函数：满足 $h_i(x)&gt;\varepsilon$ 的坐标 $i$ 超过 $M$ 个. 由关系 (1.4) 以及总影响度有界的假设，我们应当预期这一事件的概率很小. 因此，两次使用 Markov 不等式，有
+</p>
+<p>
+$$
+\begin{aligned}
+\mathbb E[1-\xi(x)]
+&amp;\le\frac1M\mathbb E\left[\sum_{i=1}^n\eta_i(x)\right]\\
+&amp;\le\frac1{M\varepsilon^2}\mathbb E\left[\sum_{i=1}^nh_i(x)^2\right]\\
+&amp;\le\frac1{M\varepsilon^2}\mathbb E\left[\sum_{i=1}^n\sum_{S\ni i}f^{=S}(x)^2\right]\\
+&amp;\le\frac C{M\varepsilon^2}.
+\end{aligned}
+$$
+</p>
+<p>
+  另一方面，不等式 (2.1) 告诉我们
+</p>
+<p>
+$$
+\frac9{10}&lt;\mathbb E\left[\sum_{0&lt;|S|\le10C}f^{=S}(x)^2\right].
+$$
+</p>
+<p>
+  注意，对任意 $x$，或者存在至少 $M$ 个满足 $h_i(x)&gt;\varepsilon$ 的 $i$，或者这样的 $i$ 少于 $M$ 个. 在后一种情形，满足 $0&lt;|S|\le10C$ 的 $S\subseteq[n]$ 可分为两类：一类含有某个满足 $h_i(x)\le\varepsilon$ 的 $i$，另一类只含满足 $h_i(x)&gt;\varepsilon$ 的 $i$.
+</p>
+<p>
+  因此，利用示性函数 $\xi,\eta_i$，并回忆 $h(x)$ 与 $h_i(x)$ 的定义，我们可以把下面的期望分解为
+</p>
+<p>
+$$
+\begin{aligned}
+\mathbb E\left[\sum_{0&lt;|S|\le10C}f^{=S}(x)^2\right]
+&amp;\le\mathbb E\bigl[h(x)^2(1-\xi(x))\bigr] \tag{2.7}\\
+&amp;\quad+\mathbb E\left[\sum_{i=1}^nh_i(x)^2(1-\eta_i(x))\right] \tag{2.8}\\
+&amp;\quad+\mathbb E\left[\sum_{0&lt;|S|\le10C}f^{=S}(x)^2
+\left(\prod_{i\in S}\eta_i(x)\right)\xi(x)\right]. \tag{2.9}
+\end{aligned}
+$$
+</p>
+<p>
+  下面依次估计这三项.
+</p>
+<p>
+  对于 (2.7)，使用 Cauchy–Schwarz 不等式可得
+</p>
+<p>
+$$
+\begin{aligned}
+\mathbb E\bigl[h(x)^2(1-\xi(x))\bigr]
+&amp;\le\mathbb E[h(x)^4]^{1/2}\,\mathbb E[(1-\xi(x))^2]^{1/2} \tag{2.10}\\
+&amp;\le\|h(x)\|_4^2\,\mathbb E[1-\xi(x)]^{1/2} \tag{2.11}\\
+&amp;\le C_1^2\sqrt{\frac C{M\varepsilon^2}}, \tag{2.12}
+\end{aligned}
+$$
+</p>
+<p>
+  其中，从 (2.11) 到 (2.12) 使用了取 $q'=4$（从而 $q=4/3$）的 (2.3).
+</p>
+<p>
+  对于 (2.8)，注意在这个期望中，只要 $\eta_i(x)=0$，就有 $h_i(x)\le\varepsilon$. 此外，由于每个 $h_i$ 都是非负函数，可以写成 $h_i^2=h_i^{2/3}h_i^{4/3}$. 因此
+</p>
+<p>
+$$
+\begin{aligned}
+\mathbb E\left[\sum_{i=1}^nh_i(x)^2(1-\eta_i(x))\right]
+&amp;=\sum_{i=1}^n\mathbb E\bigl[h_i(x)^{2/3}h_i(x)^{4/3}(1-\eta_i(x))\bigr]\\
+&amp;\le\varepsilon^{2/3}\sum_{i=1}^n\mathbb E[|h_i(x)|^{4/3}]\\
+&amp;=\varepsilon^{2/3}\sum_{i=1}^n\|h_i(x)\|_{4/3}^{4/3}\\
+&amp;\le\varepsilon^{2/3}C\,C_1,
+\end{aligned}
+$$
+</p>
+<p>
+  其中最后一行使用了取 $q=4/3$ 的 (2.4).
+</p>
+<p>
+  最后，对于 (2.9)，首先注意到对任意 $x$，有
+</p>
+<p>
+$$
+\sum_{0&lt;|S|\le10C}\left(\prod_{i\in S}\eta_i(x)\right)\xi(x)&lt;M^{10C},
+$$
+</p>
+<p>
+  因为如果 $\xi(x)=1$，则
+</p>
+<p>
+$$
+\mathcal M_x=\{i:\eta_i(x)=1\}
+$$
+</p>
+<p>
+  满足 $|\mathcal M_x|&lt;M$. 因此，求和中的非零项对应于 $S\subseteq\mathcal M_x$ 且 $0&lt;|S|\le10C$. 由此得到
+</p>
+<p>
+$$
+\begin{aligned}
+&amp;\mathbb E\left[\sum_{0&lt;|S|\le10C}f^{=S}(x)^2
+\left(\prod_{i\in S}\eta_i(x)\right)\xi(x)\right]\\
+&amp;\qquad\le\mathbb E\left[
+\max_{0&lt;|S|\le10C}f^{=S}(x)^2
+\sum_{0&lt;|S|\le10C}\left(\prod_{i\in S}\eta_i(x)\right)\xi(x)
+\right]\\
+&amp;\qquad\le M^{10C}\mathbb E\left[\max_{0&lt;|S|\le10C}f^{=S}(x)^2\right].
+\end{aligned}
+$$
+</p>
+<p>
+  把这三个估计相加，得到
+</p>
+<p>
+$$
+\frac9{10}
+&lt;C_1^2\sqrt{\frac C{M\varepsilon^2}}
++\varepsilon^{2/3}C C_1
++M^{10C}\mathbb E\left[\max_{0&lt;|S|\le10C}f^{=S}(x)^2\right].
+\tag{2.13}
+$$
+</p>
+<p>
+  现在，取 $\varepsilon=2^{-O(C)}$ 与 $M=O(1/\varepsilon)$，便容易得到
+</p>
+<p>
+$$
+\mathbb E\left[\max_{0&lt;|S|\le10C}f^{=S}(x)^2\right]&gt;2^{-O(C^2)}.
+$$
+</p>
+<p>
+  接着注意，对任意 $S\subseteq[n]$，由 (1.1)，
+</p>
+<p>
+$$
+\begin{aligned}
+|f^{=S}|
+&amp;=\left|\sum_{J\subseteq S}(-1)^{|S|-|J|}f^{\subseteq J}\right|\\
+&amp;\le\sum_{J\subseteq S}|f^{\subseteq J}|
+\le2^{|S|}\max_{J\subseteq S}\{|f^{\subseteq J}|\} \tag{2.14}\\
+&amp;\le2^{|S|}, \tag{2.15}
+\end{aligned}
+$$
+</p>
+<p>
+  因为 $|f^{\subseteq S}|\le1$. 再使用 (2.14)、(2.15) 以及 $f^{\subseteq\varnothing}=\mathbb E[f]=0$，便有
+</p>
+<p>
+$$
+\begin{aligned}
+2^{-O(C^2)}
+&amp;&lt;\mathbb E\left[\max_{0&lt;|S|\le10C}f^{=S}(x)^2\right]\\
+&amp;=\mathbb E\left[\max_{0&lt;|S|\le10C}|f^{=S}(x)|\,|f^{=S}(x)|\right]\\
+&amp;\le2^{10C}\mathbb E\left[\max_{0&lt;|S|\le10C}|f^{=S}(x)|\right]\\
+&amp;\le2^{20C}\mathbb E\left[\max_{0&lt;|S|\le10C}\max_{J\subseteq S}|f^{\subseteq J}(x)|\right]\\
+&amp;=2^{20C}\mathbb E\left[\max_{0&lt;|S|\le10C}|f^{\subseteq S}(x)|\right],
+\end{aligned}
+$$
+</p>
+<p>
+  证毕. $\square$
+</p>
+<h2>参考文献</h2>
+<p>
+  1. J. Bourgain, “Walsh subspaces of $L^p$-product spaces.” <i>Séminaire Analyse fonctionnelle (dit “Maurey-Schwartz”)</i> (1979–1980): 1–14. <a href="http://eudml.org/doc/109239" target="_blank">http://eudml.org/doc/109239</a>. 2. E. Friedgut, J. Bourgain, “Sharp Thresholds of Graph Properties, and the k-SAT Problem.” <i>Journal of the American Mathematical Society</i> (1999): Vol. 12, No. 4, 1017–1054. 3. H. Hatami, “A structure theorem for Boolean functions with small total influences.” <i>Annals of Mathematics</i>, to appear. 4. G. A. Margulis, “Probabilistic characteristics of graphs with large connectivity.” <i>Problemy Perdaci Informacii</i> (1974): Vol. 10, No. 2, 101–108. 5. R. O'Donnell, “Analysis of Boolean Functions.” <a href="http://www.analysisofbooleanfunctions.org" target="_blank">http://www.analysisofbooleanfunctions.org</a>. 6. L. Russo, “An approximate zero-one law.” <i>Z. Wahrsch. Verw. Gabiete</i> (1981): Vol. 61, No. 1, 129–139.
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>
