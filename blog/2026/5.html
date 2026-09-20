@@ -33,7 +33,7 @@
   <i>引理2的证明.</i> 证明巧妙的地方在于构造以下的有理亚纯函数
   $$F_n(z)= \frac{n!f(z)}  {z(z-1)\cdots(z-n)}.$$
   计算发现它在 $z=k$（$0\le k\le n$）处的留数为
-  $$\begin{aligned} \operatorname*{Res}_{z=k}F_n(z) &= \frac{n!f(k)}  {k!(k-1)\cdots1\;(-1)(-2)\cdots(k-n)}\\ &=(-1)^{n-k}\binom nk f(k). \end{aligned}$$
+  $$\begin{aligned} \operatorname*{Res}_{z=k}F_n(z) &= \frac{n!f(k)}  {k(k-1)\cdots1\;(-1)(-2)\cdots(k-n)}\\ &=(-1)^{n-k}\binom nk f(k). \end{aligned}$$
   因此，在圆 $|z|=2n$ 上应用留数定理，得到
   $$a_n  = \frac{n!}{2\pi i} \int_{|z|=2n} \frac{f(z)}  {z(z-1)\cdots(z-n)}\,dz.$$
   当 $|z|=2n$ 时，
