@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Blog is loading...</title>
+<title id="pagetitle">Blog is loading...</title>
 </head>
 
 <body id="body">
@@ -9,14 +9,14 @@
 <p>
   这里介绍G. Pólya的一个复分析定理，和超越数论也有联系. 每次看到复分析里的结论都会感慨全纯函数的刚性实在太漂亮了...
 </p>
-<p class="thm">
-  <b>定理1</b> (Pólya)<b>.</b> 设 $f$ 是 $\mathbb C$ 上的整函数. 令 $M_f(r) := \max\limits_{|z|\leq r} |f(z)|$. 若
+<div class="thm">
+  <p><b>定理1</b> (Pólya)<b>.</b> 设 $f$ 是 $\mathbb C$ 上的整函数. 令 $M_f(r) := \max\limits_{|z|\leq r} |f(z)|$. 若</p>
   <ol>
-    <li>$f(\mathbb N)\subset\mathbb Z$，并且</li>
-    <li>$\lim\limits_{r\to\infty}\frac{\sqrt r\,M_f(r)}{2^r}=0$，</li>
+  <li>1. $f(\mathbb N)\subset\mathbb Z$，并且</li>
+  <li>2. $\lim\limits_{r\to\infty}\frac{\sqrt r\,M_f(r)}{2^r}=0$，</li>
   </ol>
-  则 $f$ 是多项式.
-</p>
+  <p>则 $f$ 是多项式.</p>
+</div>
 <p>
   我们将给出Pólya在1915年的原证明，以及Hardy在1917年去掉因子 $\sqrt{r}$ 的改进.
 </p>
