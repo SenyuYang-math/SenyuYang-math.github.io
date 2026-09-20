@@ -68,10 +68,58 @@
 <p>
   因此 $f=P$，i.e. $f$ 是多项式，Pólya定理证毕. $\quad \Box$
 </p>
+<h2>Hardy 的改进</h2>
+<p>
+  Hardy 在 1917 年把上述定理的增长条件改进为
+  $$M_f(r)=o(2^r).$$
+  上面关于有限差分 $a_n$、留数公式、Newton 插值及 Jensen 公式的论证都不变. 唯一需要改进的是对 $a_n$ 的轮廓积分估计. 令
+  $$\varepsilon_n:=\frac{M_f(2n)}{4^n},$$
+  则 $\varepsilon_n\to0$. 在上文的留数公式中令 $z=2ne^{i\theta}$，得到
+  $$|a_n|\leq \frac{\varepsilon_n}{2\pi}
+  \int_{-\pi}^{\pi}B_n(\theta)\,d\theta,
+  \qquad
+  B_n(\theta):=
+  \frac{4^n n!}{\prod_{s=1}^n|2ne^{i\theta}-s|}.$$
+  因此只需证明 $\int_{-\pi}^{\pi}B_n(\theta)\,d\theta=O(1)$. 对 $1\leq s\leq n$，有
+  $$|2ne^{i\theta}-s|^2
+  =(2n-s)^2+8ns\sin^2\frac\theta2.$$
+  故
+  $$\frac{B_n(\theta)}{B_n(0)}
+  =\prod_{s=1}^n
+  \left(1+\alpha_s\sin^2\frac\theta2\right)^{-1/2},
+  \qquad
+  \alpha_s:=\frac{8ns}{(2n-s)^2}.$$
+  显然 $0\leq\alpha_s\leq8$. 当 $n/2\leq s\leq n$ 时，$\alpha_s\geq16/9$，因而
+  $$\sum_{s=1}^n\alpha_s\geq\frac89n.$$
+  对 $0\leq u\leq8$，不等式 $\log(1+u)\geq u/9$ 给出
+  $$\frac{B_n(\theta)}{B_n(0)}
+  \leq
+  \exp\!\left(-\frac4{81}n\sin^2\frac\theta2\right).$$
+  另一方面，中心二项式估计给出
+  $$B_n(0)
+  =\frac{4^n n!(n-1)!}{(2n-1)!}
+  =\frac{2\cdot4^n}{\binom{2n}{n}}
+  \leq C\sqrt n.$$
+  由于当 $|\theta|\leq\pi$ 时 $\sin(|\theta|/2)\geq|\theta|/\pi$，所以
+  $$B_n(\theta)\leq C\sqrt n\,e^{-c n\theta^2}.$$
+  于是
+  $$\int_{-\pi}^{\pi}B_n(\theta)\,d\theta
+  \leq C\sqrt n\int_{-\infty}^{\infty}e^{-c n\theta^2}\,d\theta
+  =O(1).$$
+  这样 $a_n=o(1)$. 由于 $a_n\in\mathbb Z$，它们从某项起全部为零. 此后仍按上文定义 $P$，并令 $g=f-P$. 引理3中的 Jensen 论证仍然适用：若 $g\not\equiv0$，则沿 $r=n+\frac12$ 有
+  $$M_g(r)\geq C e^r r^{s-\frac12},$$
+  从而
+  $$\frac{M_g(r)}{2^r}
+  \geq C r^{s-\frac12}\left(\frac e2\right)^r\longrightarrow\infty,$$
+  与 $M_g(r)=o(2^r)$ 矛盾. 因此 $f=P$ 是多项式. $\quad\Box$
+</p>
+<p>
+  这个估计也解释了 Hardy 改进的本质：$B_n(0)$ 的大小是 $O(\sqrt n)$，但它只在宽度为 $O(n^{-1/2})$ 的角区间中显著，二者恰好抵消. 这也避免了在无界参数范围内对 Gamma 函数比值使用一致的 Stirling 展开.
+</p>
 <p>
   Pólya 1920 年证明的则是更强的边界结论
   $$\limsup_{r\to\infty}\frac{M_f(r)}{2^r}<1 \Longrightarrow f\text{ 为多项式},$$
-  其证明需要比上面的中心二项式估计更精细的分析。
+  其证明需要比上面的估计更精细的分析。
 </p>
 </div>
 
