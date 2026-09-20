@@ -9,14 +9,14 @@
 <p>
   这里介绍G. Pólya的一个复分析定理，和超越数论也有联系. 每次看到复分析里的结论都会感慨全纯函数的刚性实在太漂亮了...
 </p>
-<div class="thm">
-  <p><b>定理1</b> (Pólya)<b>.</b> <i>设 $f$ 是 $\mathbb C$ 上的整函数. 令 $M_f(r) := \max\limits_{|z|\leq r} |f(z)|$. 若</i></p>
+<p class="thm">
+  <b>定理1</b> (Pólya)<b>.</b> 设 $f$ 是 $\mathbb C$ 上的整函数. 令 $M_f(r) := \max\limits_{|z|\leq r} |f(z)|$. 若
   <ol>
-    <li><i>$f(\mathbb N)\subset\mathbb Z$，并且</i></li>
-    <li><i>$\lim\limits_{r\to\infty}\frac{\sqrt r\,M_f(r)}{2^r}=0$，</i></li>
+    <li>$f(\mathbb N)\subset\mathbb Z$，并且</li>
+    <li>$\lim\limits_{r\to\infty}\frac{\sqrt r\,M_f(r)}{2^r}=0$，</li>
   </ol>
-  <p><i>则 $f$ 是多项式.</i></p>
-</div>
+  则 $f$ 是多项式.
+</p>
 <p>
   我们将给出Pólya在1915年的原证明，以及Hardy在1917年去掉因子 $\sqrt{r}$ 的改进.
 </p>
@@ -26,7 +26,7 @@
   因为每个 $f(k)\in\mathbb Z$，所以 $a_n\in\mathbb Z$.
 </p>
 <p class="thm">
-  <b>引理2.</b> <i>当 $n$ 充分大时 $a_n=0$.</i>
+  <b>引理2.</b> 当 $n$ 充分大时 $a_n=0$.
 </p>
 <p>
   <i>引理2的证明.</i> 证明巧妙的地方在于构造以下的有理亚纯函数
@@ -73,11 +73,11 @@
 <p>
   Hardy 在 1917 年把上述定理的增长条件改进为
 </p>
-<div class="thm">
-  <p><b>定理4</b> (Hardy)<b>.</b> <i>将定理1中的条件 2 减弱为
+<p class="thm">
+  <b>定理4</b> (Hardy)<b>.</b> 将定理1中的条件 2 减弱为
   $$M_f(r)=o(2^r).$$
-  后， $f$ 仍为多项式.</i></p>
-</div>
+  后， $f$ 仍为多项式.
+</p>
 <p>
   上文关于有限差分 $a_n$、留数公式、Newton 插值及 Jensen 公式的论证都不变. 唯一需要改进的是对 $a_n$ 的估计，我们需要积分项在圆周更精细的分布信息.
 </p>
@@ -126,7 +126,7 @@
   $$\limsup_{r\to\infty}\frac{M_f(r)}{2^r}\lt 1,$$
   继续改进了定理，证明在这里且按下不表. 直观来讲，这表明在自然数上取整数值的“最小”非多项式整函数是 $2^z$.
 </p>
-<h2>彩蛋：Gelfond定理<h2>
+<h2>彩蛋：Gelfond定理</h2>
 <p>
 整数值的Pólya定理在1929年由Gelfand推广至Gauss整数环 $\mathbb Z[i]$ 上.
 </p>
@@ -135,9 +135,10 @@
 <ol>
 <li>$f(\mathbb Z[i])\subset \mathbb Z[i]$, 并且</li>
 <li>$f$ 不是多项式.</li>
+</ol>
 则存在常数 $\gamma>0$, s.t.
 $$\limsup_{r\to \infty} \frac{1}{r^2} \log |M_f(r)| \geq \gamma.$$
-</ol>
+</p>
 <p>
 如果考虑整函数 $e^{\pi z}$，定理5立即给出一个著名结论：
 </p>
