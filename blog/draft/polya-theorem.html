@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Pólya的一个复分析定理</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  这里介绍G. Pólya的一个复分析定理，和超越数论也有联系. 证明来自<a href="https://doi.org/10.1007/BF03014836" target="_blank">Pólya 1915</a>.
+</p>
+<div class="thm">
+  <p><b>定理1</b> (Pólya)<b>.</b> <i>设 $f$ 是 $\mathbb C$ 上的整函数. 令 $M_f(r) := \max\limits_{|z|\leq r} |f(z)|$. 若</i></p>
+  <ol>
+    <li><i>$f(\mathbb N)\subset\mathbb Z$，并且</i></li>
+    <li><i>$\lim\limits_{r\to\infty}\frac{\sqrt r\,M_f(r)}{2^r}=0$，</i></li>
+  </ol>
+  <p><i>则 $f$ 是多项式.</i></p>
+</div>
+<p>
+  <i>证明.</i> Pólya的出发点是考虑 $n$ 阶有限差分
+  $$a_n:=\Delta^n f(0)    =\sum_{k=0}^n(-1)^{\,n-k}\binom nk f(k).$$
+  因为每个 $f(k)\in\mathbb Z$，所以 $a_n\in\mathbb Z$.
+</p>
+<p class="thm">
+  <b>引理2.</b> <i>当 $n$ 充分大时 $a_n=0$.</i>
+</p>
+<p>
+  <i>引理2的证明.</i> 证明巧妙的地方在于构造以下的有理亚纯函数
+  $$F_n(z)= \frac{n!f(z)}  {z(z-1)\cdots(z-n)}.$$
+  计算发现它在 $z=k$（$0\le k\le n$）处的留数为
+  $$\begin{aligned} \operatorname*{Res}_{z=k}F_n(z) &= \frac{n!f(k)}  {k!(k-1)\cdots1\;(-1)(-2)\cdots(k-n)}\\ &=(-1)^{n-k}\binom nk f(k). \end{aligned}$$
+  因此，在圆 $|z|=2n$ 上应用留数定理，得到
+  $$a_n  = \frac{n!}{2\pi i} \int_{|z|=2n} \frac{f(z)}  {z(z-1)\cdots(z-n)}\,dz.$$
+  当 $|z|=2n$ 时，
+  $$|z-k|\ge 2n-k,\qquad 0\le k\le n.$$
+  所以
+  $$\prod_{k=0}^n|z-k| \ge \prod_{k=0}^n(2n-k) =\frac{(2n)!}{(n-1)!}.$$
+  于是
+  $$\begin{align*} |a_n|&\le n!M_f(2n)\, \frac{2n}{(2n)!/(n-1)!}=\frac{2M_f(2n)}{\binom{2n}{n}}. \end{align*}$$
+  由 Stirling 公式，$\binom{2n}{n} \sim \frac{4^n}{\sqrt{\pi n}}$. 另一方面，增长条件给出
+  $$M_f(2n) =o\!\left(\frac{2^{2n}}{\sqrt{2n}}\right) =o\!\left(\frac{4^n}{\sqrt n}\right).$$
+  代入得 $|a_n|=o(1)$. 但 $a_n\in\mathbb Z$，所以必存在 $N$，s.t. $a_n=0$，$\forall n\geq N$.$\quad \Box$
+</p>
+<p>
+  下一步是构造插值多项式. 有限差分的 Newton 反演公式给出
+  $$f(m)=\sum_{n=0}^{m}\binom mn a_n, \qquad m\in\mathbb N.$$
+  根据 (4)，定义多项式
+  $$P(z):=\sum_{n=0}^{N-1}a_n\binom zn.$$
+  对每个 $m\in \mathbb N$ 有 $P(m)=f(m)$，所以整函数 $g(z):=f(z)-P(z)$ 满足
+  $$g(0)=g(1)=g(2)=\cdots=0.$$
+  同时，$M_g(r)=o\!\left(\frac{2^r}{\sqrt r}\right)$. 现在只需证明
+</p>
+<p class="thm">
+  <b>引理3.</b> 设 $g$ 满足上述条件，则 $g\equiv0$.
+</p>
+<p>
+  <i>引理3的证明.</i> 反设 $g\not\equiv0$. 设 $g$ 在原点的零点阶数为 $s$，写成
+  $$g(z)=z^s h(z),\qquad h(0)\ne0.$$
+  则 $h$ 在 $1,2,3,\ldots$ 处均有零点. 取 $r=n+\frac12$, Jensen 公式给出
+  $$\log M_h(r) \ge \log|h(0)| +\sum_{k=1}^{n}\log\frac r{k}.$$
+  因此由 Stirling 公式 $n!\sim \sqrt{2\pi n}\left(\frac ne\right)^n$ 以及 $r=n+\frac12$，存在常数 $C>0$，s.t.
+  $$M_h(r) \ge |h(0)|\frac{r^n}{n!}\ge |h(0)|\frac{e^n}{\sqrt n}\ge C\frac{e^r}{\sqrt r}.$$
+  而在圆周 $|z|=r$ 上，$|g(z)|=r^s|h(z)|$，故
+  $$M_g(r)=r^sM_h(r) \ge C e^r r^{s-\frac12}.$$
+  这与此前 $M_g(r)$ 的增长条件矛盾！所以 $g\equiv0$.$\quad\Box$
+</p>
+<p>
+  因此 $f=P$，i.e. $f$ 是多项式，Pólya定理证毕. $\quad \Box$
+</p>
+<p>
+  Pólya 1920 年证明的则是更强的边界结论
+  $$\limsup_{r\to\infty}\frac{M_f(r)}{2^r}<1 \Longrightarrow f\text{ 为多项式},$$
+  其证明需要比上面的中心二项式估计更精细的分析。
+</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>
