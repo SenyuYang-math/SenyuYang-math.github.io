@@ -12,14 +12,15 @@
 <div class="thm">
   <p><b>定理1</b> (Pólya)<b>.</b> 设 $f$ 是 $\mathbb C$ 上的整函数. 令 $M_f(r) := \max\limits_{|z|\leq r} |f(z)|$. 若</p>
   <ol>
-  <li>1. $f(\mathbb N)\subset\mathbb Z$，并且</li>
-  <li>2. $\lim\limits_{r\to\infty}\frac{\sqrt r\,M_f(r)}{2^r}=0$，</li>
+  <li>$f(\mathbb N)\subset\mathbb Z$，并且</li>
+  <li>$\lim\limits_{r\to\infty}\frac{\sqrt r\,M_f(r)}{2^r}=0$，</li>
   </ol>
   <p>则 $f$ 是多项式.</p>
 </div>
 <p>
   我们将给出Pólya在1915年的原证明，以及Hardy在1917年去掉因子 $\sqrt{r}$ 的改进.
 </p>
+<h2>Pólya的证明</h2>
 <p>
   Pólya的出发点是考虑 $z=0$ 处的 $n$ 阶有限差分
   $$a_n:=\Delta^n f(0)    =\sum_{k=0}^n(-1)^{\,n-k}\binom nk f(k).$$
