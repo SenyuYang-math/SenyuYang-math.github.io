@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="title desc">
+  <title id="title">快速分离点集的三种类型</title>
+  <desc id="desc">以 q 的横纵坐标为分界，点分为左侧的 P0、右下的 P1 和右上的 P2.</desc>
+  <rect width="760" height="440" fill="#fff"/>
+  <rect x="70" y="45" width="270" height="340" fill="#eaf2fb"/>
+  <rect x="340" y="225" width="350" height="160" fill="#f7efe1"/>
+  <rect x="340" y="45" width="350" height="180" fill="#e9f5ec"/>
+  <line x1="340" y1="35" x2="340" y2="400" stroke="#475569" stroke-width="2" stroke-dasharray="8 7"/>
+  <line x1="55" y1="225" x2="705" y2="225" stroke="#475569" stroke-width="2" stroke-dasharray="8 7"/>
+  <line x1="70" y1="385" x2="710" y2="385" stroke="#111827" stroke-width="2"/>
+  <line x1="70" y1="385" x2="70" y2="35" stroke="#111827" stroke-width="2"/>
+  <g fill="#2563a6" stroke="#fff" stroke-width="3">
+    <circle cx="125" cy="345" r="9"/>
+    <circle cx="195" cy="315" r="9"/>
+    <circle cx="280" cy="275" r="9"/>
+  </g>
+  <g fill="#c06b19" stroke="#fff" stroke-width="3">
+    <circle cx="395" cy="345" r="9"/>
+    <circle cx="470" cy="305" r="9"/>
+    <circle cx="545" cy="260" r="9"/>
+  </g>
+  <g fill="#26834a" stroke="#fff" stroke-width="3">
+    <circle cx="575" cy="185" r="9"/>
+    <circle cx="620" cy="125" r="9"/>
+    <circle cx="655" cy="75" r="9"/>
+  </g>
+  <circle cx="340" cy="225" r="7" fill="#111827"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="25" font-style="italic" fill="#1f2937">
+    <text x="354" y="215">q</text>
+    <text x="320" y="420">q₁</text>
+    <text x="28" y="233">q₂</text>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="24" font-weight="600">
+    <text x="170" y="105" fill="#2563a6">P₀(q)</text>
+    <text x="495" y="350" fill="#a9550c">P₁(q)</text>
+    <text x="465" y="105" fill="#19713b">P₂(q)</text>
+  </g>
+</svg>

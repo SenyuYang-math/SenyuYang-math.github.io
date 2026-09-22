@@ -1,0 +1,217 @@
+<html>
+<head>
+<title>一个点能落在多少个三角形中？</title>
+<style>
+.triangle-figure { margin: 1.5rem auto; max-width: 760px; text-align: center; }
+.triangle-figure img { display: block; width: 100%; height: auto; }
+.triangle-figure figcaption { color: #666; font-size: 0.92rem; margin-top: 0.5rem; }
+</style>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+
+<p>给定平面上的 $n$ 个点，它们决定了 $\binom n3$ 个三角形. 是否总能找到一个点，被尽可能多的三角形同时覆盖？Boros--Füredi 证明了比例 $2/9$ 的下界. 本文介绍 B. Bukh 给出的简化证明，并在附录中说明与之匹配的上界构造.</p>
+
+<h2>1. 问题与结论</h2>
+
+<p>设 $P\subset\mathbb R^2$ 是一般位置的 $n$-点集，即任意三点不共线. 对 $p\in\mathbb R^2$，记
+$$
+C(P,p)=\#\bigl\{\{x,y,z\}\subset P:p\in\operatorname{conv}\{x,y,z\}\bigr\},
+$$
+即覆盖 $p$ 的三角形个数；允许 $p$ 落在三角形的边界上. 问题是估计 $\max_{p\in\mathbb R^2}C(P,p)$.</p>
+
+<p class="thm"><b>定理 1 (Boros--Füredi).</b> 对任意一般位置的 $n$-点集 $P\subset\mathbb R^2$，存在一点 $p$，使
+$$
+C(P,p)\ge \frac29\binom n3-O(n^2).
+\tag{1}
+$$</p>
+
+<p>常数 $2/9$ 在渐近意义下是最优的：存在点集 $P$，使任意点 $p$ 至多被 $\frac29\binom n3+O(n^2)$ 个由 $P$ 决定的三角形覆盖. 以下只证明下界.</p>
+
+<p>证明分为三步：以一点 $p$ 为中心，用三条共点直线把平面分成六个点数近似相等的扇区；证明从每个扇区各取一点所得的六边形至少有 $8$ 个顶点三角形包含 $p$；最后对所有这类六点组作双计数.</p>
+
+<h2>2. 三条共点直线的六等分</h2>
+
+<p>证明首先使用 Ceder 对 Buck--Buck 等分定理的推广.</p>
+
+<p class="thm"><b>命题 2 (六等分定理).</b> 设 $\mu$ 是 $\mathbb R^2$ 上相对于 Lebesgue 测度绝对连续的有限测度. 存在三条共点直线，把平面分成六个扇区，使每个扇区的测度均为 $\mu(\mathbb R^2)/6$.</p>
+
+<p class="thm"><b>推论 3.</b> 对任意一般位置的 $n$-点集 $P$，存在三条共点直线，使六个开扇区中的每一个都至少含有 $\frac n6-1$ 个点.</p>
+
+<p><b>证明.</b> 以 $P$ 中各点为圆心作半径相同的圆盘，并令 $\mu$ 为这些圆盘上的面积测度. 由于 $P$ 位于一般位置，圆盘可以取得充分小，使任意直线至多与其中两个相交；否则令半径趋于 $0$ 并取相应直线的收敛子列，将得到一条经过 $P$ 中三个点的直线. 对 $\mu$ 应用命题 2. 每个扇区的测度等于一个圆盘面积的 $n/6$ 倍，而边界直线至多穿过两个圆盘. 因而每个开扇区至少包含 $n/6-1$ 个圆心，即至少包含 $P$ 中的 $n/6-1$ 个点. $\square$</p>
+
+<p>记三条直线的交点为 $p$，并按逆时针顺序把六个开扇区记为 $S_A,S_B,S_C,S_D,S_E,S_F$. 对面的扇区成对出现：$S_A$ 与 $S_D$、$S_B$ 与 $S_E$、$S_C$ 与 $S_F$ 关于 $p$ 对顶.</p>
+
+<figure class="triangle-figure">
+<img src="../../record/img/triangle-six-sectors.svg" alt="三条共点直线把平面分成六个扇区，点 A 到 F 分别位于六个连续扇区中">
+<figcaption>图 1. 三条共点直线、六个扇区与一个横截六元组.</figcaption>
+</figure>
+
+<p>以下由推论 3 导出定理 1.</p>
+
+<h2>3. 六边形中的覆盖三角形</h2>
+
+<p>从 $S_A,S_B,S_C,S_D,S_E,S_F$ 中各取一点，仍分别记为 $A,B,C,D,E,F$. 它们绕 $p$ 的方向保持这个循环次序.</p>
+
+<p class="thm"><b>引理 4.</b> 由 $A,B,C,D,E,F$ 决定的 $\binom63=20$ 个三角形中，至少有 $8$ 个包含 $p$.</p>
+
+<p><b>证明.</b> 对 $p$ 以外的三点 $X,Y,Z$，有 $p\in\triangle XYZ$ 当且仅当从 $p$ 指向 $X,Y,Z$ 的三个方向不包含在任一开半圆中. 三个交错扇区 $S_A,S_C,S_E$ 不包含在任一开半圆中，故 $p\in\triangle ACE$. 同理，$p\in\triangle BDF$.</p>
+
+<p>再考虑 $A,B,C,E$ 的方向. 由六个扇区的循环次序及对顶关系，$A,B,E$ 与 $B,C,E$ 不可能同时包含在开半圆中；因此 $\triangle ABE$ 与 $\triangle BCE$ 中至少有一个包含 $p$.</p>
+
+<p>把字母循环移动，得到六对三角形：
+$$
+\begin{array}{lll}
+(ABE,BCE),&(BCF,CDF),&(ACD,ADE),\\
+(BDE,BEF),&(CEF,ACF),&(ADF,ABD).
+\end{array}
+\tag{2}
+$$
+每一对至少有一个三角形包含 $p$. (2) 中的十二个三角形彼此不同，且均不同于 $ACE$ 与 $BDF$，故至少有 $6+2=8$ 个三角形包含 $p$. $\square$</p>
+
+<p>引理 4 只依赖六个点所在的扇区，与各点到 $p$ 的距离无关.</p>
+
+<h2>4. 双计数与常数 $2/9$</h2>
+
+<p>由推论 3，可从每个扇区保留同样多的点. 令这个数为整数 $m$，其中
+$$
+m\ge \frac n6-1.
+$$
+从六个扇区各选一点，共有 $m^6$ 个按扇区标记的六元组. 由引理 4，每个六元组至少产生 $8$ 个包含 $p$ 的三角形，因此六元组与覆盖 $p$ 的三角形之间的关联数至少为 $8m^6$.</p>
+
+<p>反之，固定一个覆盖 $p$ 的三角形. 若其三个顶点来自三个不同扇区，则从其余三个扇区各选一点，可将它扩充为 $m^3$ 个六元组；若三个顶点不来自三个不同扇区，则它不出现在上述关联中. 因此
+$$
+C(P,p)m^3\ge 8m^6,
+$$
+从而
+$$
+\begin{aligned}
+C(P,p)&\ge 8m^3\\
+&\ge 8\left(\frac n6-1\right)^3\\
+&=\frac{n^3}{27}-O(n^2)\\
+&=\frac29\binom n3-O(n^2).
+\end{aligned}
+\tag{3}
+$$
+这就证明了定理 1. 常数 $2/9$ 来自
+$$
+\frac{8(n/6)^3}{n^3/6}=\frac29.
+$$</p>
+
+<p>局部比例 $8/20=2/5$ 与全局比例 $2/9$ 不同，因为双计数只涉及顶点分别来自六个扇区的六元组，而不是所有六点子集.</p>
+
+<h2>5. 六等分定理的证明</h2>
+
+<p><b>命题 2 的证明.</b> 将总质量归一化为 $1$. 对测度作任意小的扰动后，可以假设每个非空开集都有正测度. 一般情形由紧致性得到.</p>
+
+<p>给定单位向量 $u\in S^1$，存在唯一一条方向为 $u$ 的有向直线 $L(u)$，把平面分成质量各为 $1/2$ 的两部分. 对 $L(u)$ 上的任意一点 $P$，从方向 $u$ 的射线 $A(u,P)$ 开始顺时针旋转，依次取六条射线
+$$
+A(u,P),B(u,P),C(u,P),D(u,P),E(u,P),F(u,P),
+$$
+使每两条相邻射线之间的扇区都有质量 $1/6$. 因为 $L(u)$ 本身平分测度，所以 $A(u,P)$ 与 $D(u,P)$ 是同一直线上的两条反向射线.</p>
+
+<p>令 $P$ 沿 $L(u)$ 向 $u$ 的方向移动. 射线 $B(u,P)$ 连续地逆时针转动，射线 $E(u,P)$ 连续地顺时针转动. 因而存在唯一一点 $P^*(u)\in L(u)$，使 $B(u,P^*(u))$ 与 $E(u,P^*(u))$ 构成一条直线.</p>
+
+<p>此时 $A,D$ 与 $B,E$ 分别构成两条直线. 定义 $\varphi(u)$ 为将 $C(u,P^*(u))$ 逆时针转到 $F(u,P^*(u))$ 的反向延长线所需的有向角. 上述构造连续依赖于 $u$，故 $\varphi$ 连续. 将方向反向时，六条射线的角色互换，并且
+$$
+\varphi(-u)=-\varphi(u).
+\tag{4}
+$$
+若 $\varphi(u)=0$，三对射线构成三条直线. 否则 $\varphi(u)$ 与 $\varphi(-u)$ 异号，由介值定理，连接 $u$ 与 $-u$ 的半圆上存在 $v$ 使 $\varphi(v)=0$. 对此 $v$，$C$ 与 $F$ 也构成一条直线，所得三条共点直线将测度六等分. $\square$</p>
+
+<p>这里使用的是一维 Borsuk--Ulam 定理的基本形式：连续奇函数必有零点.</p>
+
+<h2>6. 证明的结构</h2>
+
+<p>Bukh 的证明可分为三个相互独立的部分.</p>
+
+<ol>
+<li><b>连续几何：</b> 用三条共点直线构造六个质量相等的扇区.</li>
+<li><b>有限几何：</b> 从每个扇区各取一点，所得六边形至少有八个顶点三角形覆盖中心.</li>
+<li><b>组合计数：</b> 对所有这类六点组作双计数，得到比例 $2/9$.</li>
+</ol>
+
+<p>等分定理用于选取中心，引理 4 只使用六个点相对于中心的方向次序，最后的双计数不再使用几何信息.</p>
+
+<p>论文最后讨论了高维情形. 对 $P\subset\mathbb R^d$，记 $C(P,p)$ 为包含 $p$ 的 $d$ 维单纯形数. Bárány 的选择引理给出某个 $p$ 满足
+$$
+C(P,p)\ge (d+1)^{-d}\binom n{d+1}-O(n^d).
+$$
+在二维情形，最佳渐近常数为 $2/9$. 上述证明依赖于二维特有的结构：三条共点直线给出六个循环排列的扇区，而相应六边形满足引理 4.</p>
+
+<h2>附录. 与下界匹配的构造</h2>
+
+<p>Boros--Füredi 曾提出一个由圆周上三个点簇组成的上界构造，并声称它给出 $n^3/27+O(n^2)$；Bukh 的论文沿用了这一结论. 后来 Bukh--Matoušek--Nivasch 指出，该三簇构造实际只能给出
+$$
+\left(\frac1{27}+\frac1{729}\right)n^3+O(n^2).
+$$
+他们同时给出了如下正确的匹配构造.</p>
+
+<p>取点
+$$
+p_i=(x_i,y_i)\in(1,\infty)^2,\qquad 1\le i\le n,
+$$
+使所有坐标依次满足
+$$
+x_1\ll x_2\ll\cdots\ll x_n\ll y_1\ll y_2\ll\cdots\ll y_n.
+\tag{5}
+$$
+这里 $a\ll b$ 表示 $b$ 相对于 $a$ 足够大；例如可以逐项要求 $b>6a^3$. 对点作任意小的一般位置扰动，不影响以下组合性质.</p>
+
+<p>固定 $q=(q_1,q_2)\in\mathbb R^2$. 按照相对于 $q$ 的位置把 $P=\{p_1,\ldots,p_n\}$ 分成三类：
+$$
+\begin{aligned}
+P_0(q)&=\{p_i:x_i\le q_1\},\\
+P_1(q)&=\{p_i:x_i>q_1, y_i\le q_2\},\\
+P_2(q)&=\{p_i:x_i>q_1, y_i>q_2\}.
+\end{aligned}
+\tag{6}
+$$</p>
+
+<figure class="triangle-figure">
+<img src="../../record/img/triangle-upper-construction.svg" alt="快速分离点集相对于 q 的三种类型">
+<figcaption>图 2. 点集相对于 $q$ 的三种类型.</figcaption>
+</figure>
+
+<p>构造的关键性质如下.</p>
+
+<p class="thm"><b>引理 5 (Bukh--Matoušek--Nivasch).</b> 若 $i<j<k$ 且 $q\in\triangle p_ip_jp_k$，则 $p_i\in P_0(q)$、$p_j\in P_1(q)$ 且 $p_k\in P_2(q)$.</p>
+
+<p>(5) 中的快速分离保证，涉及这些点的仿射行列式的符号由最后出现的最大坐标决定. 对三条边分别使用这一观察，即得引理 5；这是 [6, Lemma 2.2] 在 $d=2$ 时的情形. 几何上，它把通常的凸包关系退化为图中所示的三阶阶梯关系.</p>
+
+<p>令 $n_r=|P_r(q)|$，其中 $r=0,1,2$. 引理 5 表明，每个包含 $q$ 的三角形必须从三类中各取一个顶点. 因此
+$$
+C(P,q)\le n_0n_1n_2
+\le\left(\frac{n_0+n_1+n_2}{3}\right)^3
+=\frac{n^3}{27},
+\tag{7}
+$$
+其中第二个不等式是算术--几何平均值不等式. 由于
+$$
+\frac{n^3}{27}=\frac29\binom n3+O(n^2),
+$$
+这个点集中的任意点至多被 $\frac29\binom n3+O(n^2)$ 个三角形覆盖. 结合定理 1，常数 $2/9$ 在渐近意义下最优.</p>
+
+<h2>参考文献</h2>
+
+<p>[1] B. Bukh, <i>A Point in Many Triangles</i>. <a href="https://www.borisbukh.org/buckbuck.pdf">原文 PDF</a>.</p>
+
+<p>[2] E. Boros and Z. Füredi, <i>The Number of Triangles Covering the Center of an $n$-Set</i>, Geometriae Dedicata <b>17</b> (1984), 69--77.</p>
+
+<p>[3] R. C. Buck and E. F. Buck, <i>Equipartition of Convex Sets</i>, Mathematics Magazine <b>22</b> (1949), 195--198.</p>
+
+<p>[4] J. G. Ceder, <i>Generalized Sixpartite Problems</i>, Boletín de la Sociedad Matemática Mexicana (2) <b>9</b> (1964), 28--32.</p>
+
+<p>[5] I. Bárány, <i>A Generalization of Carathéodory's Theorem</i>, Discrete Mathematics <b>40</b> (1982), 141--152.</p>
+
+<p>[6] B. Bukh, J. Matoušek and G. Nivasch, <i>Stabbing Simplices by Points and Flats</i>, Discrete &amp; Computational Geometry <b>43</b> (2010), 321--338. <a href="https://arxiv.org/abs/0804.4464">arXiv:0804.4464</a>.</p>
+
+</div>
+
+<!-- 导航栏与页脚 -->
+<script src="../../js/blog/post.js"></script>
+
+</body>
+</html>
