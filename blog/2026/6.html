@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 
-<p>给定平面上的 $n$ 个点，它们决定了 $\binom n3$ 个三角形. 是否总能找到一个点，被尽可能多的三角形同时覆盖？Boros--Füredi 证明了比例 $2/9$ 的渐进下界. 本文介绍 B. Bukh 给出的简化证明，并在附录中说明与之对应的上界构造. 这说明常数 $2/9$ 是最优的.</p>
+<p>给定平面上一般位置的 $n$ 个点，它们决定了 $\binom n3$ 个三角形. 是否总能找到一个点，被尽可能多的三角形同时覆盖？Boros--Füredi 证明了比例 $2/9$ 的渐进下界. 本文介绍 B. Bukh 给出的简化证明，并在附录中说明与之对应的上界构造. 这说明常数 $2/9$ 是最优的.</p>
 
 <p>我们先阐述问题. 设 $P\subset\mathbb R^2$ 是一般位置的 $n$-点集，即任意三点不共线. 对 $p\in\mathbb R^2$，记
 $$
@@ -96,8 +96,8 @@ $$
 <p>令 $p$ 沿 $L(u)$ 向 $u$ 的方向移动. 射线 $R_2(u,p)$ 连续地逆时针转动，射线 $R_5(u,p)$ 连续地顺时针转动. 因而由介值定理存在唯一一点 $p^*(u)\in L(u)$, s.t. $R_2(u,p^*(u))$ 与 $R_5(u,p^*(u))$ 构成一条直线. 此时 $R_1,R_4$ 与 $R_2,R_5$ 分别构成两条直线. 定义 $\varphi(u)$ 为将 $R_3(u,p^*(u))$ 逆时针转到 $R_6(u,p^*(u))$ 的反向延长线所需的有向角. 上述构造连续依赖于 $u$，故 $\varphi$ 连续.</p>
 
 <figure class="triangle-figure">
-<img src="../../record/img/2026/triangle-six-rays.svg" alt="六条等测度射线；R1 与 R4、R2 与 R5 分别组成直线，角度 φ 标在 R3 与 R6 反向延长线之间">
-<figcaption class="picture_label">图 3. 六条等测度射线与角度 $\varphi$.</figcaption>
+<img src="../../record/img/2026/triangle-six-rays.svg" alt="六等分射线；R1 与 R4、R2 与 R5 分别组成直线，角度 φ 标在 R3 与 R6 反向延长线之间">
+<figcaption class="picture_label">图 3. 六等分射线与角度 $\varphi$.</figcaption>
 </figure>
 
 <p>将 $u$ 变化至 $-u$ 时，每一对射线的地位互换，于是
