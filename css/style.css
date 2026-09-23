@@ -86,6 +86,13 @@ p a:link, a:visited{
 i {
   font-style: italic;
 }
+/* 图片标签 */
+.picture_label {
+  color: #777;
+  font-size: 0.85em;
+  margin-top: 0.5em;
+  text-align: center;
+}
 /* 数学定理区块样式 */
 .thm {
   padding: 25px 12px;
