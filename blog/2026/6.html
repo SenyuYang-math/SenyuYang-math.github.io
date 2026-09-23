@@ -1,11 +1,6 @@
 <html>
 <head>
-<title>一个点能落在多少个三角形中？</title>
-<style>
-.triangle-figure { margin: 1.5rem auto; max-width: 760px; text-align: center; }
-.triangle-figure img { display: block; width: 100%; height: auto; }
-.triangle-figure figcaption { color: #666; font-size: 0.92rem; margin-top: 0.5rem; }
-</style>
+<title id="pagetitle">Blog is loading...</title>
 </head>
 
 <body id="body">
@@ -14,7 +9,7 @@
 
 <p>给定平面上的 $n$ 个点，它们决定了 $\binom n3$ 个三角形. 是否总能找到一个点，被尽可能多的三角形同时覆盖？Boros--Füredi 证明了比例 $2/9$ 的下界. 本文介绍 B. Bukh 给出的简化证明，并在附录中说明与之匹配的上界构造.</p>
 
-<h2>1. 问题与结论</h2>
+<h2>问题与结论</h2>
 
 <p>设 $P\subset\mathbb R^2$ 是一般位置的 $n$-点集，即任意三点不共线. 对 $p\in\mathbb R^2$，记
 $$
@@ -32,7 +27,7 @@ $$</p>
 
 <p>证明分为三步：以一点 $p$ 为中心，用三条共点直线把平面分成六个点数近似相等的扇区；证明从每个扇区各取一点所得的六边形至少有 $8$ 个顶点三角形包含 $p$；最后对所有这类六点组作双计数.</p>
 
-<h2>2. 三条共点直线的六等分</h2>
+<h2>三条共点直线的六等分</h2>
 
 <p>证明首先使用 Ceder 对 Buck--Buck 等分定理的推广.</p>
 
@@ -45,13 +40,13 @@ $$</p>
 <p>记三条直线的交点为 $p$，并按逆时针顺序把六个开扇区记为 $S_A,S_B,S_C,S_D,S_E,S_F$. 对面的扇区成对出现：$S_A$ 与 $S_D$、$S_B$ 与 $S_E$、$S_C$ 与 $S_F$ 关于 $p$ 对顶.</p>
 
 <figure class="triangle-figure">
-<img src="../../record/img/triangle-six-sectors.svg" alt="三条共点直线把平面分成六个扇区，点 A 到 F 分别位于六个连续扇区中">
+<img src="record/img/triangle-six-sectors.svg" alt="三条共点直线把平面分成六个扇区，点 A 到 F 分别位于六个连续扇区中">
 <figcaption>图 1. 三条共点直线、六个扇区与一个横截六元组.</figcaption>
 </figure>
 
 <p>以下由推论 3 导出定理 1.</p>
 
-<h2>3. 六边形中的覆盖三角形</h2>
+<h2>六边形中的覆盖三角形</h2>
 
 <p>从 $S_A,S_B,S_C,S_D,S_E,S_F$ 中各取一点，仍分别记为 $A,B,C,D,E,F$. 它们绕 $p$ 的方向保持这个循环次序.</p>
 
@@ -73,7 +68,7 @@ $$
 
 <p>引理 4 只依赖六个点所在的扇区，与各点到 $p$ 的距离无关.</p>
 
-<h2>4. 双计数与常数 $2/9$</h2>
+<h2>双计数与常数 $2/9$</h2>
 
 <p>由推论 3，可从每个扇区保留同样多的点. 令这个数为整数 $m$，其中
 $$
@@ -102,7 +97,7 @@ $$</p>
 
 <p>局部比例 $8/20=2/5$ 与全局比例 $2/9$ 不同，因为双计数只涉及顶点分别来自六个扇区的六元组，而不是所有六点子集.</p>
 
-<h2>5. 六等分定理的证明</h2>
+<h2>六等分定理的证明</h2>
 
 <p><b>命题 2 的证明.</b> 将总质量归一化为 $1$. 对测度作任意小的扰动后，可以假设每个非空开集都有正测度. 一般情形由紧致性得到.</p>
 
@@ -123,7 +118,7 @@ $$
 
 <p>这里使用的是一维 Borsuk--Ulam 定理的基本形式：连续奇函数必有零点.</p>
 
-<h2>6. 证明的结构</h2>
+<h2>证明的结构</h2>
 
 <p>Bukh 的证明可分为三个相互独立的部分.</p>
 
@@ -141,7 +136,7 @@ C(P,p)\ge (d+1)^{-d}\binom n{d+1}-O(n^d).
 $$
 在二维情形，最佳渐近常数为 $2/9$. 上述证明依赖于二维特有的结构：三条共点直线给出六个循环排列的扇区，而相应六边形满足引理 4.</p>
 
-<h2>附录. 与下界匹配的构造</h2>
+<h2>附录. 下界的构造</h2>
 
 <p>Boros--Füredi 曾提出一个由圆周上三个点簇组成的上界构造，并声称它给出 $n^3/27+O(n^2)$；Bukh 的论文沿用了这一结论. 后来 Bukh--Matoušek--Nivasch 指出，该三簇构造实际只能给出
 $$
@@ -171,7 +166,7 @@ P_2(q)&=\{p_i:x_i>q_1, y_i>q_2\}.
 $$</p>
 
 <figure class="triangle-figure">
-<img src="../../record/img/triangle-upper-construction.svg" alt="快速分离点集相对于 q 的三种类型">
+<img src="record/img/triangle-upper-construction.svg" alt="快速分离点集相对于 q 的三种类型">
 <figcaption>图 2. 点集相对于 $q$ 的三种类型.</figcaption>
 </figure>
 
