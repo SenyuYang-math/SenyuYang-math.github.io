@@ -6,7 +6,7 @@ btitle[2] = "环面上的Kiselev-Sverak引理"; bdate[2] = "03/30"; bintro[2] = 
 btitle[3] = "调和函数的频率"; bdate[3] = "05/02"; bintro[3] = "调和函数在球面上的振荡频率控制了径向的增长.";
 btitle[4] = "非平凡铺满欧氏空间的直线族"; bdate[4] = "09/17"; bintro[4] = "考古UyHiP上的一道趣题.";
 btitle[5] = "一个Pólya定理(与Hardy的改进)"; bdate[5] = "09/20"; bintro[5] = "整函数在算术集上的取值给出了增长行为的分类.";
-// btitle[6] = "一个点能落在多少个三角形中？"; bdate[6] = "09/23"; bintro[6] = "平面点集的三角形覆盖问题，以及最佳渐近常数2/9.";
+btitle[6] = "一个点能落在多少三角形中"; bdate[6] = "09/23"; bintro[6] = "一个基于六等分构型的多项式剖分的特例.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 
