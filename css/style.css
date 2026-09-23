@@ -107,6 +107,10 @@ mjx-container[jax="SVG"][display="true"] {
   /*  带标签\tag{}的公式能正常显示滚动条  */
   min-width: 0 !important;
 }
+/* 证明终止符 */
+.proof-box {
+  text-align: right
+}
 /* 评论区样式 */
 .comment {
   padding-top: 20px;
