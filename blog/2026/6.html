@@ -22,7 +22,7 @@ C(P,p)\ge \frac29\binom n3-O(n^2).
 \tag{1}
 $$</p>
 
-<p>直观上，为了更多三角形覆盖 $p$，我们希望 $P$ 是尽可能“均匀”地分布在 $p$ 的周围；一个极端例子是 $P$ 落在一条 $p$ 出发的射线周围，这样几乎没有三角形可以覆盖 $p$. 于是我们考虑以下的基础构型：</p>
+<p>现在着手定理1的证明. 直观上，为了更多三角形覆盖 $p$，我们希望 $P$ 是尽可能“均匀”地分布在 $p$ 的周围；一个极端例子是 $P$ 落在一条 $p$ 出发的射线周围，这样几乎没有三角形可以覆盖 $p$. 于是我们考虑以下的基础构型：</p>
 
 <p>过点 $p$ 作任意三条不同的直线，并按逆时针顺序把六个开扇区记为 $S_1,\ldots,S_6$. 现在从每个 $S_i$ 中任意取一点 $x_i$. 对 $1\le i\lt j\lt k\le 6$，简记三角形区域 $\Delta_{ijk}:=\operatorname{conv}\{x_i,x_j,x_k\}$. 如下图所示.</p>
 
@@ -105,21 +105,15 @@ $$
 
 <h2>附录：下界的构造</h2>
 
-<p>Boros--Füredi 曾提出一个由圆周上三个点簇组成的上界构造，并声称它给出 $n^3/27+O(n^2)$；Bukh 的论文沿用了这一结论. 后来 Bukh--Matoušek--Nivasch 指出，该三簇构造实际只能给出
+<p>下面给出常数 $\frac 29$ 的上界构造. 我们构造点集
 $$
-\left(\frac1{27}+\frac1{729}\right)n^3+O(n^2).
+P=\{p_i\}_{1\leq i\leq n},\quad p_i=(x_i,y_i)\in(1,\infty)^2,\qquad 1\le i\le n,
 $$
-他们同时给出了如下正确的匹配构造.</p>
-
-<p>取点
-$$
-p_i=(x_i,y_i)\in(1,\infty)^2,\qquad 1\le i\le n,
-$$
-使所有坐标依次满足
+并且所有坐标依次满足
 $$
 x_1\ll x_2\ll\cdots\ll x_n\ll y_1\ll y_2\ll\cdots\ll y_n.
 $$
-固定 $q=(q_1,q_2)\in\mathbb R^2$. 按照相对于 $q$ 的位置把 $P=\{p_1,\ldots,p_n\}$ 分成三类：
+对给定的 $q=(q_1,q_2)\in\mathbb R^2$. 按相对于 $q$ 的位置把 $P$ 分成三类：
 $$
 \begin{aligned}
 P_0(q)&=\{p_i:x_i\le q_1\},\\
@@ -129,13 +123,13 @@ P_2(q)&=\{p_i:x_i>q_1, y_i>q_2\}.
 $$</p>
 
 <figure class="triangle-figure">
-<img src="../../record/img/2026/triangle-upper-construction.svg" alt="快速分离点集相对于 q 的三种类型">
+<img src="../../record/img/2026/triangle-upper-construction.svg" alt="相对于 q 的三种类型">
 <figcaption class="picture_label">图 2. 相对于 $q$ 的三类点.</figcaption>
 </figure>
 
-<p>构造的关键性质如下.</p>
+<p>构造的关键性质是：</p>
 
-<p class="thm"><b>引理5</b> (Bukh-Matoušek-Nivasch)<b>.</b> 若 $i\lt j\lt k$ 且 $q\in\triangle p_ip_jp_k$，则 $p_i\in P_0(q)$、$p_j\in P_1(q)$ 且 $p_k\in P_2(q)$.</p>
+<p class="thm"><b>引理5</b> (Bukh-Matoušek-Nivasch)<b>.</b> 若 $i\lt j\lt k$ 且 $q\in\triangle p_ip_jp_k$，则三个顶点必然属于三个不同的类.</p>
 
 <p>$\{x_i\}$ 和 $\{y_i\}$的分离性保证了引理5成立；证明留给读者思考. 令 $n_r=|P_r(q)|$，其中 $r=0,1,2$. 引理 5 表明
 $$
