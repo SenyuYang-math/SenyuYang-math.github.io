@@ -118,18 +118,14 @@ $$
 使所有坐标依次满足
 $$
 x_1\ll x_2\ll\cdots\ll x_n\ll y_1\ll y_2\ll\cdots\ll y_n.
-\tag{5}
 $$
-这里 $a\ll b$ 表示 $b$ 相对于 $a$ 足够大；例如可以逐项要求 $b>6a^3$. 对点作任意小的一般位置扰动，不影响以下组合性质.</p>
-
-<p>固定 $q=(q_1,q_2)\in\mathbb R^2$. 按照相对于 $q$ 的位置把 $P=\{p_1,\ldots,p_n\}$ 分成三类：
+固定 $q=(q_1,q_2)\in\mathbb R^2$. 按照相对于 $q$ 的位置把 $P=\{p_1,\ldots,p_n\}$ 分成三类：
 $$
 \begin{aligned}
 P_0(q)&=\{p_i:x_i\le q_1\},\\
 P_1(q)&=\{p_i:x_i>q_1, y_i\le q_2\},\\
 P_2(q)&=\{p_i:x_i>q_1, y_i>q_2\}.
 \end{aligned}
-\tag{6}
 $$</p>
 
 <figure class="triangle-figure">
@@ -139,36 +135,15 @@ $$</p>
 
 <p>构造的关键性质如下.</p>
 
-<p class="thm"><b>引理 5 (Bukh--Matoušek--Nivasch).</b> 若 $i\lt j\lt k$ 且 $q\in\triangle p_ip_jp_k$，则 $p_i\in P_0(q)$、$p_j\in P_1(q)$ 且 $p_k\in P_2(q)$.</p>
+<p class="thm"><b>引理5</b> (Bukh-Matoušek-Nivasch)<b>.</b> 若 $i\lt j\lt k$ 且 $q\in\triangle p_ip_jp_k$，则 $p_i\in P_0(q)$、$p_j\in P_1(q)$ 且 $p_k\in P_2(q)$.</p>
 
-<p>(5) 中的快速分离保证，涉及这些点的仿射行列式的符号由最后出现的最大坐标决定. 对三条边分别使用这一观察，即得引理 5；这是 [6, Lemma 2.2] 在 $d=2$ 时的情形. 几何上，它把通常的凸包关系退化为图中所示的三阶阶梯关系.</p>
-
-<p>令 $n_r=|P_r(q)|$，其中 $r=0,1,2$. 引理 5 表明，每个包含 $q$ 的三角形必须从三类中各取一个顶点. 因此
+<p>$\{x_i\}$ 和 $\{y_i\}$的分离性保证了引理5成立；证明留给读者思考. 令 $n_r=|P_r(q)|$，其中 $r=0,1,2$. 引理 5 表明
 $$
 C(P,q)\le n_0n_1n_2
 \le\left(\frac{n_0+n_1+n_2}{3}\right)^3
-=\frac{n^3}{27},
-\tag{7}
+=\frac{n^3}{27}=\frac29\binom n3+O(n^2).
 $$
-其中第二个不等式是算术--几何平均值不等式. 由于
-$$
-\frac{n^3}{27}=\frac29\binom n3+O(n^2),
-$$
-这个点集中的任意点至多被 $\frac29\binom n3+O(n^2)$ 个三角形覆盖. 结合定理 1，常数 $2/9$ 在渐近意义下最优.</p>
-
-<h2>参考文献</h2>
-
-<p>[1] B. Bukh, <i>A Point in Many Triangles</i>. <a href="https://www.borisbukh.org/buckbuck.pdf">原文 PDF</a>.</p>
-
-<p>[2] E. Boros and Z. Füredi, <i>The Number of Triangles Covering the Center of an $n$-Set</i>, Geometriae Dedicata <b>17</b> (1984), 69--77.</p>
-
-<p>[3] R. C. Buck and E. F. Buck, <i>Equipartition of Convex Sets</i>, Mathematics Magazine <b>22</b> (1949), 195--198.</p>
-
-<p>[4] J. G. Ceder, <i>Generalized Sixpartite Problems</i>, Boletín de la Sociedad Matemática Mexicana (2) <b>9</b> (1964), 28--32.</p>
-
-<p>[5] I. Bárány, <i>A Generalization of Carathéodory's Theorem</i>, Discrete Mathematics <b>40</b> (1982), 141--152.</p>
-
-<p>[6] B. Bukh, J. Matoušek and G. Nivasch, <i>Stabbing Simplices by Points and Flats</i>, Discrete &amp; Computational Geometry <b>43</b> (2010), 321--338. <a href="https://arxiv.org/abs/0804.4464">arXiv:0804.4464</a>.</p>
+所以任意点至多被 $\frac29\binom n3+O(n^2)$ 个三角形覆盖. 结合定理 1，常数 $2/9$ 在渐近意义下最优.</p>
 
 </div>
 
