@@ -94,15 +94,16 @@ i {
   text-align: center;
 }
 /* 博客插图 */
-.triangle-figure {
+.blog-figure {
   margin: 1.5rem auto;
   max-width: 760px;
   text-align: center;
 }
-.triangle-figure img {
+.blog-figure img {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0 auto
 }
 /* 数学定理区块样式 */
 .thm {
