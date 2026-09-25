@@ -7,6 +7,7 @@ btitle[3] = "调和函数的频率"; bdate[3] = "05/02"; bintro[3] = "调和函�
 btitle[4] = "非平凡铺满欧氏空间的直线族"; bdate[4] = "09/17"; bintro[4] = "考古UyHiP上的一道趣题.";
 btitle[5] = "一个Pólya定理(与Hardy的改进)"; bdate[5] = "09/20"; bintro[5] = "整函数在算术集上的取值给出了增长行为的分类.";
 btitle[6] = "一个点能落在多少三角形中"; bdate[6] = "09/23"; bintro[6] = "多项式剖分的一个平面特例.";
+btitle[7] = "Bourgain的魔法：逐点遍历定理"; bdate[7] = "09/25"; bintro[7] = "多项式遍历平均的逐点收敛，以及圆法、转移原理与多频率熵估计.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 
