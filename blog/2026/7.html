@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 
-<p><i><b>按：</b> Jean Bourgain（1954--2018）在调和分析、数论、遍历论和非线性偏微分方程中留下了许多彼此相通的方法. 这个不定期系列记录其中一些论证. 本文讨论的对象是多项式时间上的遍历平均；证明的重点不在最后的抽象转移，而在整数格上的离散 Fourier 分析.</i></p>
+<p><i>按：Jean Bourgain(1954-2018)绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触Bourgain的工作或思想. 这是一个(不定期)连载系列，记录Bourgain的数学魔法.</i></p>
 
 <h2>定理</h2>
 
@@ -53,14 +53,13 @@ $$</p>
 
 <p>均方收敛本身不能推出逐点收敛. 所缺少的是对振荡次数的统一控制. 对算子族 $B_N$ 和整数
 $$
-1\le N_1<N_2<\cdots<N_{J+1},
-$$</p>
-
-<p>定义
+1\le N_1\lt N_2<\cdots\lt N_{J+1},
+$$
+定义
 $$
 \mathcal O_{\mathbf N,J}(B_Nf)(x)
 =\left(\sum_{j=1}^J
-\sup_{N_j\le N<N_{j+1}}
+\sup_{N_j\le N\lt N_{j+1}}
 |B_Nf(x)-B_{N_j}f(x)|^2\right)^{1/2}.
 \tag{4}
 $$</p>
@@ -88,7 +87,7 @@ $$</p>
 <p>任选 $N_1$. 已选定 $N_j$ 后，集合
 $$
 E_{j,L}=\left\{x\in E:
-\sup_{N_j\le N<L}|B_Nf(x)-B_{N_j}f(x)|>\varepsilon\right\}
+\sup_{N_j\le N\lt L}|B_Nf(x)-B_{N_j}f(x)|>\varepsilon\right\}
 $$</p>
 
 <p>随 $L\to\infty$ 单调增至 $E$. 因此可取 $N_{j+1}\ge2N_j$，使
@@ -371,7 +370,7 @@ $$</p>
 <p>对任意数列 $(a_k)$ 和 $r\ge1$，记
 $$
 V^r(a_k:k\in I)
-=\sup_{k_0<\cdots<k_m\atop k_i\in I}
+=\sup_{k_0\lt\cdots\lt k_m\atop k_i\in I}
 \left(\sum_{i=1}^m|a_{k_i}-a_{k_{i-1}}|^r\right)^{1/r}.
 $$</p>
 
@@ -529,7 +528,7 @@ $$</p>
 
 <p>因 $\log^2(2+R)\le C_\varepsilon R^\varepsilon$，即得 (21).</p>
 
-<p>还需把最后一句写成可直接使用的变差估计. 给定任意有限递增序列 $k_0<\cdots<k_m$，对每个增量 $F_{k_i}-F_{k_{i-1}}$ 建立与 (24) 相同的父节点链. 由于 $r>2$，先对 $i$ 求 $\ell^r$ 范数，再对父节点层求和，Minkowski 不等式给出
+<p>还需把最后一句写成可直接使用的变差估计. 给定任意有限递增序列 $k_0\lt \cdots\lt k_m$，对每个增量 $F_{k_i}-F_{k_{i-1}}$ 建立与 (24) 相同的父节点链. 由于 $r>2$，先对 $i$ 求 $\ell^r$ 范数，再对父节点层求和，Minkowski 不等式给出
 $$
 \left\|\left(\sum_{i=1}^m
 |\Xi_{k_i}f-\Xi_{k_{i-1}}f|^r\right)^{1/r}\right\|_2
@@ -572,7 +571,7 @@ $$</p>
 <p>还需控制两个二进尺度之间的全部整数参数. 对一族数值 $a_N$，记
 $$
 V^2_{[2^k,2^{k+1}]}(a_N)
-=\sup_{2^k\le M_0<\cdots<M_r<2^{k+1}}
+=\sup_{2^k\le M_0<\cdots\lt M_r\lt 2^{k+1}}
 \left(\sum_{i=1}^r|a_{M_i}-a_{M_{i-1}}|^2\right)^{1/2}.
 $$</p>
 
@@ -590,23 +589,20 @@ $$
 |N\partial_N\Phi_N(\beta)|
 \le C\min\{N^d|\beta|,(N^d|\beta|)^{-1/d}\}.
 \tag{29}
-$$</p>
-
-<p>对任意可微函数 $a(N)$，Cauchy--Schwarz 不等式给出
+$$
+对任意可微函数 $a(N)$，Cauchy--Schwarz 不等式给出
 $$
 V^2_{[2^k,2^{k+1}]}(a)^2
 \le (\log2)\int_{2^k}^{2^{k+1}}
 |N\partial_Na(N)|^2\frac{dN}{N}.
-$$</p>
-
-<p>因此对每个 $\beta\ne0$，
+$$
+因此对每个 $\beta\ne0$，
 $$
 \sum_kV^2_{[2^k,2^{k+1}]}(\Phi_N(\beta))^2
 \le C\int_0^\infty
-\min\{t,t^{-1/d}\}^2\frac{dt}{t}<\infty.
-$$</p>
-
-<p>主弧截断 $\eta(N^d2^{-cs}(\xi-a/q))$ 的导数只支撑在 $N^d|\xi-a/q|\simeq2^{cs}$ 的环带上，关于 $k$ 仍然有有界重叠. 对固定 $s$，不同 $a/q$ 的支集互不相交. 所以对乘子使用 Plancherel 定理，再对有限个 $s\le S$ 求和，即得结论. 硬截断平均由 Abel 求和从平滑平均得到；端点项满足同一导数估计.</p>
+\min\{t,t^{-1/d}\}^2\frac{dt}{t}\lt\infty.
+$$
+主弧截断 $\eta(N^d2^{-cs}(\xi-a/q))$ 的导数只支撑在 $N^d|\xi-a/q|\simeq2^{cs}$ 的环带上，关于 $k$ 仍然有有界重叠. 对固定 $s$，不同 $a/q$ 的支集互不相交. 所以对乘子使用 Plancherel 定理，再对有限个 $s\le S$ 求和，即得结论. 硬截断平均由 Abel 求和从平滑平均得到；端点项满足同一导数估计.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -663,7 +659,7 @@ $$</p>
 <p>取 $r=2+1/\log(2+J)$. 此时 $J^{1/2-1/r}\le e^{1/4}$，而 $r/(r-2)\le C\log(2+J)$. 两种变差合并给出
 $$
 \sum_{j=1}^J
-\left\|\sup_{N_j\le N<N_{j+1}}
+\left\|\sup_{N_j\le N\lt N_{j+1}}
 |L_{N,\le S}g-L_{N_j,\le S}g|\right\|_2^2
 \le C_{P,S}\log^2(2+J)\|g\|_2^2,
 \tag{31}
@@ -676,55 +672,46 @@ $$
 \left\|\sup_N|L_{N,>S}g|\right\|_2
 \le C_P2^{-\delta S/2}\|g\|_2.
 \tag{32}
-$$</p>
-
-<p>所以尾部对 (8) 左端平方的贡献至多为
+$$
+所以尾部对 (8) 左端平方的贡献至多为
 $$
 C_PJ2^{-\delta S}\|g\|_2^2.
 \tag{33}
-$$</p>
-
-<p>误差项由 (19) 给出 $O(1)\|g\|_2^2$. 综上，
+$$
+误差项由 (19) 给出 $O(1)\|g\|_2^2$. 综上，
 $$
 \|\mathcal O_{\mathbf N,J}(\mathcal A_N^Pg)\|_2^2
 \le C_P\bigl(C_{P,S}\log^2(2+J)+J2^{-\delta S}+1\bigr)\|g\|_2^2.
 \tag{34}
-$$</p>
-
-<p>让 $S=S(J)$ 趋于无穷但足够慢，使 $C_{P,S(J)}\log^2(2+J)=o(J)$；同时 $2^{-\delta S(J)}\to0$. 这样的选择可递归作出：先令 $J$ 足够大，使固定的 $C_{P,S}\log^2(2+J)/J$ 很小，再把 $S$ 增加一层. 于是 (34) 右端括号中的量是 $o(J)$，得到 (8).</p>
+$$
+让 $S=S(J)$ 趋于无穷但足够慢，使 $C_{P,S(J)}\log^2(2+J)=o(J)$；同时 $2^{-\delta S(J)}\to0$. 这样的选择可递归作出：先令 $J$ 足够大，使固定的 $C_{P,S}\log^2(2+J)/J$ 很小，再把 $S$ 增加一层. 于是 (34) 右端括号中的量是 $o(J)$，得到 (8).</p>
 
 <p>一般的 $P(n)=c_dn^d+\cdots+c_0$ 也由同一证明得到. 在引理6中把 (10) 与 (11) 分别换成
 $$
 G_P(a/q)=\frac1q\sum_{r=1}^qe(-aP(r)/q),
 \qquad
 \Phi_{P,k}(\beta)=\int2^{-k}\phi(2^{-k}t)e(-\beta P(t))\,dt.
-$$</p>
-
-<p>逐项检查如下. 第一，$d-1$ 次 Weyl 差分把最高次项变为
+$$
+逐项检查如下. 第一，$d-1$ 次 Weyl 差分把最高次项变为
 $$
 d!c_d\xi h_1\cdots h_{d-1}m.
-$$</p>
-
-<p>若 $\xi$ 距离 $a/q$ 很近，则 $c_d\xi$ 距离 $c_da/q$ 很近；约分后分母至多缩小固定因子 $|c_d|$. 因而 (17) 仍成立，只是常数依赖于 $P$.</p>
+$$
+若 $\xi$ 距离 $a/q$ 很近，则 $c_d\xi$ 距离 $c_da/q$ 很近；约分后分母至多缩小固定因子 $|c_d|$. 因而 (17) 仍成立，只是常数依赖于 $P$.</p>
 
 <p>第二，在主弧上写 $m=u q+r$. 因为 $P$ 的系数都是整数，
 $$
 P(uq+r)\equiv P(r)\pmod q,
-$$</p>
-
-<p>而 Taylor 公式给出
+$$
+而 Taylor 公式给出
 $$
 P(uq+r)=P(uq)+O_P(2^{(d-1)k}q)
-$$</p>
-
-<p>对 $m\sim2^k$ 一致成立. 所以剩余类求和产生 $G_P(a/q)$，其余部分仍是步长为 $q$ 的 Riemann 和，极限正是 $\Phi_{P,k}$.</p>
-
+$$
+对 $m\sim2^k$ 一致成立. 所以剩余类求和产生 $G_P(a/q)$，其余部分仍是步长为 $q$ 的 Riemann 和，极限正是 $\Phi_{P,k}$.</p>
 <p>第三，把一般多项式代入上面完整和的 Weyl 差分证明，得到
 $$
 |G_P(a/q)|\le C_{P,\varepsilon}q^{-\delta_P+\varepsilon}.
-$$</p>
-
-<p>第四，当 $N$ 充分大时，$P(Nt)=c_dN^dt^d+O_P(N^{d-1})$. 对 $\Phi_{P,N}$ 作 Taylor 展开、分部积分以及 $N\partial_N$ 微分，分别得到与引理9相同的低频、高频和导数界. 有限多个小尺度吸收到常数中. 常数项 $c_0$ 只产生一个模为 $1$ 的因子. 因而前面的主弧、最大函数和振荡论证全部适用于一般 $P$. 这证明 (7)、(8)，命题证毕.</p>
+$$
+第四，当 $N$ 充分大时，$P(Nt)=c_dN^dt^d+O_P(N^{d-1})$. 对 $\Phi_{P,N}$ 作 Taylor 展开、分部积分以及 $N\partial_N$ 微分，分别得到与引理9相同的低频、高频和导数界. 有限多个小尺度吸收到常数中. 常数项 $c_0$ 只产生一个模为 $1$ 的因子. 因而前面的主弧、最大函数和振荡论证全部适用于一般 $P$. 这证明 (7)、(8)，命题证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
