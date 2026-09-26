@@ -41,9 +41,8 @@ $$</p>
 $$
 m_N(\xi)=\frac1N\sum_{n=1}^Ne\bigl(P(n)\xi\bigr).
 \tag{3}
-$$</p>
-
-<p>若 $\xi\in\mathbb Q/\mathbb Z$，则 $e(P(n)\xi)$ 是周期序列，故 $m_N(\xi)$ 收敛. 若 $\xi$ 是无理数，Weyl 等分布定理给出 $m_N(\xi)\to0$. 又有 $|m_N|\le1$. 因而由 (2) 和控制收敛定理，
+$$
+若 $\xi\in\mathbb Q/\mathbb Z$，则 $e(P(n)\xi)$ 是周期序列，故 $m_N(\xi)$ 收敛. 若 $\xi$ 是无理数，Weyl 等分布定理给出 $m_N(\xi)\to0$. 又有 $|m_N|\le1$. 因而由 (2) 和控制收敛定理，
 $$
 \|A_N^Pf-A_M^Pf\|_2^2
 =\int_{\mathbb T}|m_N-m_M|^2d\nu_f\longrightarrow0.
@@ -76,33 +75,28 @@ $$</p>
 <p><i>证明.</i> 若结论不成立，则存在 $\varepsilon>0$ 和正测度集 $E$，使
 $$
 \limsup_NB_Nf(x)-\liminf_NB_Nf(x)>2\varepsilon
-$$</p>
-
-<p>对每个 $x\in E$ 成立；对复值函数分别考察实部或虚部即可. 因而对每个固定的 $M$，
+$$
+对每个 $x\in E$ 成立；对复值函数分别考察实部或虚部即可. 因而对每个固定的 $M$，
 $$
 \sup_{N\ge M}|B_Nf(x)-B_Mf(x)|>\varepsilon,
 \qquad x\in E.
-$$</p>
-
-<p>任选 $N_1$. 已选定 $N_j$ 后，集合
+$$
+任选 $N_1$. 已选定 $N_j$ 后，集合
 $$
 E_{j,L}=\left\{x\in E:
 \sup_{N_j\le N\lt L}|B_Nf(x)-B_{N_j}f(x)|>\varepsilon\right\}
-$$</p>
-
-<p>随 $L\to\infty$ 单调增至 $E$. 因此可取 $N_{j+1}\ge2N_j$，使
+$$
+随 $L\to\infty$ 单调增至 $E$. 因此可取 $N_{j+1}\ge2N_j$，使
 $$
 \mu(E\setminus E_{j,N_{j+1}})<2^{-j-1}\mu(E).
-$$</p>
-
-<p>于是 $E'=\bigcap_{j=1}^JE_{j,N_{j+1}}$ 满足 $\mu(E')\ge\mu(E)/2$，并且 (4) 在 $E'$ 上的平方不小于 $J\varepsilon^2$. 因此
+$$
+于是 $E'=\bigcap_{j=1}^JE_{j,N_{j+1}}$ 满足 $\mu(E')\ge\mu(E)/2$，并且 (4) 在 $E'$ 上的平方不小于 $J\varepsilon^2$. 因此
 $$
 \frac12J\varepsilon^2\mu(E)
 \le\|\mathcal O_{\mathbf N,J}(B_Nf)\|_2^2
 \le C\omega(J)\|f\|_2^2.
-$$</p>
-
-<p>令 $J\to\infty$，这与 $\omega(J)/J\to0$ 矛盾.</p>
+$$
+令 $J\to\infty$，这与 $\omega(J)/J\to0$ 矛盾.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -116,18 +110,16 @@ K_N^P=\frac1N\sum_{n=1}^N\delta_{P(n)},
 \qquad
 \mathcal A_N^Pg=K_N^P*g.
 \tag{6}
-$$</p>
-
-<p>卷积号的正负方向不重要；把 $P$ 换成 $-P$ 即可互换. 所需的离散命题如下.</p>
+$$
+卷积号的正负方向不重要；把 $P$ 换成 $-P$ 即可互换. 所需的离散命题如下.</p>
 
 <p class="thm"><b>命题4</b> (离散最大与振荡估计)<b>.</b> 对每个非常数 $P\in\mathbb Z[t]$，存在常数 $C_P$ 与函数 $\omega_P(J)=o(J)$，使
 $$
 \left\|\sup_{N\ge1}|\mathcal A_N^Pg|\right\|_{\ell^2(\mathbb Z)}
 \le C_P\|g\|_{\ell^2(\mathbb Z)},
 \tag{7}
-$$</p>
-
-<p>并且对所有 $N_{j+1}\ge2N_j$ 都有
+$$
+并且对所有 $N_{j+1}\ge2N_j$ 都有
 $$
 \|\mathcal O_{\mathbf N,J}(\mathcal A_N^Pg)\|_{\ell^2(\mathbb Z)}^2
 \le C_P\omega_P(J)\|g\|_{\ell^2(\mathbb Z)}^2.
@@ -139,20 +131,17 @@ $$</p>
 <p><i>证明.</i> 先把 $N$ 限制在 $N\le N_{J+1}$，并令
 $$
 R=\max_{1\le n\le N_{J+1}}|P(n)|.
-$$</p>
-
-<p>对 $L>R$ 和固定的 $x\in X$，在 $\mathbb Z$ 上置
+$$
+对 $L>R$ 和固定的 $x\in X$，在 $\mathbb Z$ 上置
 $$
 g_x(k)=f(T^kx)\mathbf1_{[-L-R,L+R]}(k).
-$$</p>
-
-<p>当 $|k|\le L$ 时，$\mathcal A_N^Pg_x(k)$ 正是 $A_N^Pf(T^kx)$，至多相差把 $P$ 换成 $-P$ 的记号. 对 $g_x$ 应用离散估计，对 $x$ 积分，再利用 $T$ 保测，得到
+$$
+当 $|k|\le L$ 时，$\mathcal A_N^Pg_x(k)$ 正是 $A_N^Pf(T^kx)$，至多相差把 $P$ 换成 $-P$ 的记号. 对 $g_x$ 应用离散估计，对 $x$ 积分，再利用 $T$ 保测，得到
 $$
 (2L+1)\|\mathcal O_{\mathbf N,J}(A_N^Pf)\|_2^2
 \le C_P\omega_P(J)(2L+2R+1)\|f\|_2^2.
-$$</p>
-
-<p>令 $L\to\infty$ 即得 (8). 最大估计完全相同. 最后令截断上界趋于无穷，并用单调收敛定理.</p>
+$$
+令 $L\to\infty$ 即得 (8). 最大估计完全相同. 最后令截断上界趋于无穷，并用单调收敛定理.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -164,72 +153,61 @@ $$</p>
 $$
 \varphi_{Q,H}(x)=\mathbf1_{Q\mathbb Z}(x)\varphi(x/H),
 \qquad Q\le H^{1/2}.
-$$</p>
-
-<p>恒等式
+$$
+恒等式
 $$
 \mathbf1_{Q\mathbb Z}(x)=\frac1Q\sum_{A=1}^Qe(Ax/Q)
-$$</p>
-
-<p>与 Poisson 求和给出
+$$
+与 Poisson 求和给出
 $$
 \widehat{\varphi_{Q,H}}(\beta)
 =\frac HQ\sum_{A=1}^Q\sum_{\ell\in\mathbb Z}
 \widehat\varphi\bigl(H(\beta-A/Q-\ell)\bigr).
-$$</p>
-
-<p>因此它的 Fourier 质量集中在 $A/Q$ 的 $O(H^{-1})$ 邻域. 若 $\beta=A/Q+\eta$ 且 $|\eta|\ll H^{-1}$，把 $m$ 写成 $m=uQ+r$，则
+$$
+因此它的 Fourier 质量集中在 $A/Q$ 的 $O(H^{-1})$ 邻域. 若 $\beta=A/Q+\eta$ 且 $|\eta|\ll H^{-1}$，把 $m$ 写成 $m=uQ+r$，则
 $$
 \beta m^d\equiv \frac AQr^d+\eta(uQ)^d
 +O\bigl(|\eta|2^{(d-1)k}Q\bigr)\pmod1
-$$</p>
-
-<p>对 $m\sim2^k$ 成立. 只要误差项小，关于 $r$ 的和给出完全 Weyl 和，关于 $u$ 的和给出连续振荡积分. 这不是一个特殊例子的巧合，而是下面主弧分解的来源.</p>
+$$
+对 $m\sim2^k$ 成立. 只要误差项小，关于 $r$ 的和给出完全 Weyl 和，关于 $u$ 的和给出连续振荡积分. 这不是一个特殊例子的巧合，而是下面主弧分解的来源.</p>
 
 <p>取非负光滑函数 $\phi$，满足
 $$
 \mathbf1_{[1,2]}\le\phi\le\mathbf1_{[1/2,4]},
-$$</p>
-
-<p>并考虑平滑核
+$$
+并考虑平滑核
 $$
 K_k=2^{-k}\sum_{m\ge1}\phi(2^{-k}m)\delta_{m^d}.
-$$</p>
-
-<p>原来的 Cesàro 平均可分成若干这类二进平滑块，归一化系数的绝对值之和一致有界；相邻尺度之间的差也可作同样分解. 因此先估计 $K_k*g$. 其 Fourier 乘子为
+$$
+原来的 Cesàro 平均可分成若干这类二进平滑块，归一化系数的绝对值之和一致有界；相邻尺度之间的差也可作同样分解. 因此先估计 $K_k*g$. 其 Fourier 乘子为
 $$
 \widehat K_k(\xi)=2^{-k}\sum_m\phi(2^{-k}m)e(-\xi m^d),
 \qquad \xi\in\mathbb T.
 \tag{9}
-$$</p>
-
-<p>对互素整数 $a,q$ 定义完全 Weyl 和
+$$
+对互素整数 $a,q$ 定义完全 Weyl 和
 $$
 G(a/q)=\frac1q\sum_{r=1}^qe(-ar^d/q),
 \tag{10}
-$$</p>
-
-<p>以及连续振荡积分
+$$
+以及连续振荡积分
 $$
 \Phi_k(\beta)=\int_{\mathbb R}2^{-k}\phi(2^{-k}t)e(-\beta t^d)\,dt.
 \tag{11}
-$$</p>
-
-<p>Taylor 展开和 van der Corput 振荡积分估计分别给出
+$$
+Taylor 展开和 van der Corput 振荡积分估计分别给出
 $$
 |\Phi_k(\beta)-\Phi_k(0)|\le C2^{dk}|\beta|,
 \qquad
 |\Phi_k(\beta)|\le C(2^{dk}|\beta|)^{-1/d}.
-$$</p>
-
-<p>这两个界保证 $\Phi_k$ 可以分解为绝对可和的光滑频率块. 事实上，对变量 $u=2^{dk}\beta$ 作二进单位分解；正、负尺度上的系数分别由 $2^{-j/d}$ 与 $2^j$ 控制，二者都可和. 后面会用到这一点.</p>
+$$
+这两个界保证 $\Phi_k$ 可以分解为绝对可和的光滑频率块. 事实上，对变量 $u=2^{dk}\beta$ 作二进单位分解；正、负尺度上的系数分别由 $2^{-j/d}$ 与 $2^j$ 控制，二者都可和. 后面会用到这一点.</p>
 
 <p>取光滑截断 $\eta$，满足 $\mathbf1_{[-1/4,1/4]}\le\eta\le\mathbf1_{[-1/2,1/2]}$. 记
 $$
 \mathcal R_s=\{a/q\in\mathbb T:(a,q)=1, 2^{s-1}\le q<2^s\}.
-$$</p>
-
-<p>选择只依赖于 $d$ 的充分小常数 $c>0$，并令
+$$
+选择只依赖于 $d$ 的充分小常数 $c>0$，并令
 $$
 L_{k,s}(\xi)=
 \sum_{a/q\in\mathcal R_s}
@@ -244,16 +222,14 @@ $$
 \qquad
 \|E_k\|_{L^\infty(\mathbb T)}\le C_d2^{-\delta k}.
 \tag{13}
-$$</p>
-
-<p>把 $2^k$ 换成连续参数 $N\in[2^k,2^{k+1}]$ 时，同一构造还满足
+$$
+把 $2^k$ 换成连续参数 $N\in[2^k,2^{k+1}]$ 时，同一构造还满足
 $$
 \|(N\partial_N)^jE_N\|_{L^\infty(\mathbb T)}
 \le C_d2^{-\delta k},
 \qquad j=0,1.
-$$</p>
-
-<p>此外，对每个 $\varepsilon>0$，
+$$
+此外，对每个 $\varepsilon>0$，
 $$
 |G(a/q)|\le C_{d,\varepsilon}q^{-\delta+\varepsilon}.
 \tag{14}
@@ -265,24 +241,21 @@ $$
 \qquad
 |\xi-a/q|\le q^{-1}2^{-(d-c)k}.
 \tag{15}
-$$</p>
-
-<p>若 $q\ge2^{ck}$，Weyl 差分 $d-1$ 次给出
+$$
+若 $q\ge2^{ck}$，Weyl 差分 $d-1$ 次给出
 $$
 \left|2^{-k}\sum_m\phi(2^{-k}m)e(-\xi m^d)\right|
 \le C_d2^{-\delta k}.
 \tag{16}
-$$</p>
-
-<p>这里每次差分都把次数降低一次；最后得到一个几何级数. 具体地，未平滑和满足 Weyl 不等式
+$$
+这里每次差分都把次数降低一次；最后得到一个几何级数. 具体地，未平滑和满足 Weyl 不等式
 $$
 \left|\frac1M\sum_{m\le M}e(\xi m^d)\right|^{2^{d-1}}
 \le C_{d,\varepsilon}M^\varepsilon
 \left(q^{-1}+M^{-1}+qM^{-d}\right),
 \tag{17}
-$$</p>
-
-<p>再由分部求和得到 (16). 这就是次弧估计.</p>
+$$
+再由分部求和得到 (16). 这就是次弧估计.</p>
 
 <p>为完整起见，说明 (17) 的来源. 对任意 $|z_m|\le1$ 和 $1\le H\le M$，van der Corput 差分恒等式给出
 $$
@@ -290,53 +263,45 @@ $$
 \le\frac{M+H}{H}
 \left(M+2\sum_{h=1}^H
 \left|\sum_{m\le M-h}z_{m+h}\overline{z_m}\right|\right).
-$$</p>
-
-<p>取 $z_m=e(\xi m^d)$，每作一次差分，相位次数降低一次，最高次系数多出一个整数因子. 重复 $d-1$ 次后，只剩线性指数和
+$$
+取 $z_m=e(\xi m^d)$，每作一次差分，相位次数降低一次，最高次系数多出一个整数因子. 重复 $d-1$ 次后，只剩线性指数和
 $$
 \left|\sum_{m\le M'}e(\alpha m)\right|
 \le\min\{M',\,(2\|\alpha\|_{\mathbb T})^{-1}\}.
-$$</p>
-
-<p>此时 $\alpha=d!\xi h_1\cdots h_{d-1}$. 把 $h_1\cdots h_{d-1}$ 按模 $q$ 的剩余类分组，并使用
+$$
+此时 $\alpha=d!\xi h_1\cdots h_{d-1}$. 把 $h_1\cdots h_{d-1}$ 按模 $q$ 的剩余类分组，并使用
 $$
 \left\|\frac aq r\right\|_{\mathbb T}
 \ge q^{-1}\min\{r\bmod q,\ q-(r\bmod q)\}
-$$</p>
-
-<p>以及乘法分拆数的界 $\tau_{d-1}(r)\le C_{d,\varepsilon}r^\varepsilon$，便得到
+$$
+以及乘法分拆数的界 $\tau_{d-1}(r)\le C_{d,\varepsilon}r^\varepsilon$，便得到
 $$
 \sum_{h_1,\ldots,h_{d-1}\le M}
 \min\{M,\|d!\xi h_1\cdots h_{d-1}\|_{\mathbb T}^{-1}\}
 \le C_{d,\varepsilon}M^{d+\varepsilon}
 \left(q^{-1}+M^{-1}+qM^{-d}\right).
-$$</p>
-
-<p>代回逐次差分不等式并除以 $M^{2^{d-1}}$，正好得到 (17). 这也说明了其中 $M^\varepsilon$ 的来源.</p>
+$$
+代回逐次差分不等式并除以 $M^{2^{d-1}}$，正好得到 (17). 这也说明了其中 $M^\varepsilon$ 的来源.</p>
 
 <p>若 $q<2^{ck}$，写 $m=uq+r, 1\le r\le q$. 在
 $$
 |\beta|=|\xi-a/q|\le2^{-dk+cs}
-$$</p>
-
-<p>的主弧内，对每个剩余类分别作 Riemann 求和，得到
+$$
+的主弧内，对每个剩余类分别作 Riemann 求和，得到
 $$
 2^{-k}\sum_m\phi(2^{-k}m)e(-\xi m^d)
 =G(a/q)\Phi_k(\beta)+O(2^{-\delta k}).
 \tag{18}
-$$</p>
-
-<p>误差来自把步长为 $q$ 的和换成积分；对被积函数求导后，误差由
+$$
+误差来自把步长为 $q$ 的和换成积分；对被积函数求导后，误差由
 $$
 q2^{-k}\bigl(1+2^{dk}|\beta|\bigr)
-$$</p>
-
-<p>控制. 把 $c$ 取得充分小即可把它吸收到 $2^{-\delta k}$ 中. 对尺度参数作一次 $N\partial_N$ 微分，只会在光滑截断或振荡积分前插入一个一致有界的因子；上述估计因而也给出 $j=1$ 的误差界. 不同既约分数满足
+$$
+控制. 把 $c$ 取得充分小即可把它吸收到 $2^{-\delta k}$ 中. 对尺度参数作一次 $N\partial_N$ 微分，只会在光滑截断或振荡积分前插入一个一致有界的因子；上述估计因而也给出 $j=1$ 的误差界. 不同既约分数满足
 $$
 |a/q-a'/q'|\ge(qq')^{-1},
-$$</p>
-
-<p>所以 (12) 中同一尺度的弧互不相交. 将主弧按 $q\sim2^s$ 分组便得到 (13).</p>
+$$
+所以 (12) 中同一尺度的弧互不相交. 将主弧按 $q\sim2^s$ 分组便得到 (13).</p>
 
 <p>最后，对 (10) 作 Weyl 差分，或把 (17) 用在长度 $q$ 的完整和上，便得某个只依赖于 $d$ 的 $\delta>0$ 以及 (14). 对一般 $q$ 的 $q^\varepsilon$ 损失来自素幂分解；稍后只需取 $\varepsilon<\delta/4$.</p>
 
@@ -348,16 +313,14 @@ $$
 \le\left(\sum_k\|E_k\widehat g\|_2^2\right)^{1/2}
 \le C_d\|g\|_2.
 \tag{19}
-$$</p>
-
-<p>对连续参数的误差应用一维 Sobolev 不等式，再用引理6中的导数界，可得
+$$
+对连续参数的误差应用一维 Sobolev 不等式，再用引理6中的导数界，可得
 $$
 \left\|\sup_{2^k\le N<2^{k+1}}
 |(E_N\widehat g)^\vee|\right\|_2
 \le C_d2^{-\delta k}\|g\|_2.
-$$</p>
-
-<p>所以误差项的最大函数与振荡平方和都由关于 $k$ 的可和级数控制. 真正的问题因此变成：同时控制 (12) 中许多有理频率附近的连续平均.</p>
+$$
+所以误差项的最大函数与振荡平方和都由关于 $k$ 的可和级数控制. 真正的问题因此变成：同时控制 (12) 中许多有理频率附近的连续平均.</p>
 
 <h2>多频率引理</h2>
 
@@ -365,9 +328,8 @@ $$</p>
 $$
 \Xi_kf(x)=\sum_{\theta\in\Theta}e(\theta x)(\chi_k*f_\theta)(x).
 \tag{20}
-$$</p>
-
-<p>对任意数列 $(a_k)$ 和 $r\ge1$，记
+$$
+对任意数列 $(a_k)$ 和 $r\ge1$，记
 $$
 V^r(a_k:k\in I)
 =\sup_{k_0\lt\cdots\lt k_m\atop k_i\in I}
@@ -380,9 +342,8 @@ $$
 \le C_\varepsilon R^\varepsilon
 \left(\sum_{\theta\in\Theta}\|f_\theta\|_2^2\right)^{1/2}.
 \tag{21}
-$$</p>
-
-<p>而且对每个 $r>2$，
+$$
+而且对每个 $r>2$，
 $$
 \left\|V^r(\Xi_kf:k\ge C\log R)\right\|_2
 \le C_\varepsilon R^\varepsilon\frac r{r-2}
@@ -395,138 +356,119 @@ $$
 +O\left(R^{-100}M_{\rm HL}
 \bigl(\|(f_\theta)_\theta\|_{\ell^2}\bigr)(x)\right).
 \tag{22}
-$$</p>
-
-<p>事实上，
+$$
+事实上，
 $$
 |\partial_x(\chi_k*f_\theta)(x)|
 \le C2^{-k}M_{\rm HL}(f_\theta)(x).
-$$</p>
-
-<p>先对 $\theta$ 求和，再用 Cauchy--Schwarz 不等式以及 $2^k\ge R^C$，便得到 (22) 的误差项.</p>
+$$
+先对 $\theta$ 求和，再用 Cauchy--Schwarz 不等式以及 $2^k\ge R^C$，便得到 (22) 的误差项.</p>
 
 <p>由于频率 $1$-分离，指数函数在 $I$ 上几乎正交. 因而对任意向量 $v=(v_\theta)$，
 $$
 \left\|\sum_{\theta\in\Theta}e(\theta x)v_\theta\right\|_{L^2(I)}
 \le C|I|^{1/2}\|v\|_{\ell^2(\Theta)}.
 \tag{23}
-$$</p>
-
-<p>为验证 (23)，取 $\psi_I$ 满足 $\mathbf1_I\le|\psi_I|$，且 $\widehat\psi_I$ 支持在长度小于 $1/2$ 的区间内. 展开平方后，
+$$
+为验证 (23)，取 $\psi_I$ 满足 $\mathbf1_I\le|\psi_I|$，且 $\widehat\psi_I$ 支持在长度小于 $1/2$ 的区间内. 展开平方后，
 $$
 \int_I\left|\sum_\theta e(\theta x)v_\theta\right|^2dx
 \le\sum_{\theta,\theta'}v_\theta\overline{v_{\theta'}}
 \widehat{|\psi_I|^2}(\theta'-\theta).
-$$</p>
-
-<p>当 $\theta\ne\theta'$ 时，右端相应项因支集条件而为零；对角项的和就是 $C|I|\sum_\theta|v_\theta|^2$.</p>
+$$
+当 $\theta\ne\theta'$ 时，右端相应项因支集条件而为零；对角项的和就是 $C|I|\sum_\theta|v_\theta|^2$.</p>
 
 <p>考虑 $\ell^2(\Theta)$ 中的有限集合
 $$
 \mathcal X(x_I)=\{F_k(x_I):k\ge C\log R\},
 \qquad
 F_k=(\chi_k*f_\theta)_{\theta\in\Theta}.
-$$</p>
-
-<p>用半径 $2^{-v}$ 的最少数目小球覆盖 $\mathcal X(x_I)$，记覆盖数为 $N_v(x_I)$. 在相邻两层覆盖之间选取父节点并作伸缩求和；由 (23)，
+$$
+用半径 $2^{-v}$ 的最少数目小球覆盖 $\mathcal X(x_I)$，记覆盖数为 $N_v(x_I)$. 在相邻两层覆盖之间选取父节点并作伸缩求和；由 (23)，
 $$
 \left\|\sup_k\left|\sum_\theta e(\theta x)F_{k,\theta}(x_I)\right|\right\|_{L^2(I)}
 \le C|I|^{1/2}
 \left(F(x_I)+\sum_v2^{-v}\min\{N_v(x_I)^{1/2},R^{1/2}\}\right),
 \tag{24}
-$$</p>
-
-<p>其中 $F(x)=\sup_k\|F_k(x)\|_{\ell^2}$. 第二个上界 $R^{1/2}$ 只是 Cauchy--Schwarz 不等式；它是避免极细尺度上覆盖数失控的关键.</p>
+$$
+其中 $F(x)=\sup_k\|F_k(x)\|_{\ell^2}$. 第二个上界 $R^{1/2}$ 只是 Cauchy--Schwarz 不等式；它是避免极细尺度上覆盖数失控的关键.</p>
 
 <p>取
 $$
 r=2+\frac1{\log(2+R)}.
-$$</p>
-
-<p>若 $V^r(F_k:k)$ 表示 $r$-变差，则
+$$
+若 $V^r(F_k:k)$ 表示 $r$-变差，则
 $$
 2^{-v}N_v^{1/r}\le V^r(F_k:k),
 \qquad
 R^{1/2-1/r}\le C.
-$$</p>
-
-<p>把 (24) 的求和区间在 $2^{-v}=F/R^{1/2}$ 处分开，得到
+$$
+把 (24) 的求和区间在 $2^{-v}=F/R^{1/2}$ 处分开，得到
 $$
 \sum_v2^{-v}\min\{N_v^{1/2},R^{1/2}\}
 \le C\bigl(F+\log(2+R)V^r(F_k:k)\bigr).
 \tag{25}
-$$</p>
-
-<p>还需要两个标准的向量值估计：
+$$
+还需要两个标准的向量值估计：
 $$
 \|F\|_{L^2}
 \le C\left(\sum_\theta\|f_\theta\|_2^2\right)^{1/2},
 \tag{26}
-$$</p>
-
-<p>以及
+$$
+以及
 $$
 \|V^r(F_k:k)\|_{L^2}
 \le C\frac r{r-2}
 \left(\sum_\theta\|f_\theta\|_2^2\right)^{1/2}.
 \tag{27}
-$$</p>
-
-<p>(26) 是 Hardy--Littlewood 最大定理后对 $\theta$ 求平方和. 为证明 (27)，令 $\mathbb E_k$ 是二进条件期望. 鞅的 Lépingle 不等式给出
+$$
+(26) 是 Hardy--Littlewood 最大定理后对 $\theta$ 求平方和. 为证明 (27)，令 $\mathbb E_k$ 是二进条件期望. 鞅的 Lépingle 不等式给出
 $$
 \|V^r(\mathbb E_kh:k)\|_2\le C\frac r{r-2}\|h\|_2.
 \tag{28}
-$$</p>
-
-<p>这里回忆 (28) 的停时证明. 记
+$$
+这里回忆 (28) 的停时证明. 记
 $$
 M^*h=\sup_k|\mathbb E_kh|,
 \qquad
 Sh=\left(\sum_k|\mathbb E_kh-\mathbb E_{k-1}h|^2\right)^{1/2}.
-$$</p>
-
-<p>从 $V^r$ 第一次超过 $\lambda$ 的时刻开始重新计数，并按增量落入的二进区间分层. 在事件 $M^*h\le\gamma\lambda$ 上，单个增量至多为 $2\gamma\lambda$；若重新开始后的变差仍超过 $2\lambda$，则这些层的平方函数总量至少为 $c(r-2)\lambda/r$. 对互不相交的停时区间使用鞅增量正交性和 Chebyshev 不等式，得到 good-$\lambda$ 估计
+$$
+从 $V^r$ 第一次超过 $\lambda$ 的时刻开始重新计数，并按增量落入的二进区间分层. 在事件 $M^*h\le\gamma\lambda$ 上，单个增量至多为 $2\gamma\lambda$；若重新开始后的变差仍超过 $2\lambda$，则这些层的平方函数总量至少为 $c(r-2)\lambda/r$. 对互不相交的停时区间使用鞅增量正交性和 Chebyshev 不等式，得到 good-$\lambda$ 估计
 $$
 \mu\left\{V^r>3\lambda, M^*h\le\gamma\lambda, Sh\le\gamma\lambda\right\}
 \le C\gamma^2\left(\frac r{r-2}\right)^2
 \mu\{V^r>\lambda\}.
-$$</p>
-
-<p>这一步只对有限鞅使用有限个停时；一般情形由截断和单调收敛得到. 取 $\gamma=c(r-2)/r$ 使右端系数小于 $1/2$，再对 $\lambda$ 使用层析公式
+$$
+这一步只对有限鞅使用有限个停时；一般情形由截断和单调收敛得到. 取 $\gamma=c(r-2)/r$ 使右端系数小于 $1/2$，再对 $\lambda$ 使用层析公式
 $$
 \|V^r\|_2^2=2\int_0^\infty
 \lambda\mu\{V^r>\lambda\}\,d\lambda.
-$$</p>
-
-<p>Doob 最大不等式与鞅平方函数恒等式分别控制 $M^*h$ 与 $Sh$，于是
+$$
+Doob 最大不等式与鞅平方函数恒等式分别控制 $M^*h$ 与 $Sh$，于是
 $$
 \|V^r(\mathbb E_kh:k)\|_2
 \le C\frac r{r-2}\|h\|_2.
-$$</p>
-
-<p>这就是 (28). 另一方面，
+$$
+这就是 (28). 另一方面，
 $$
 V^r(\chi_k*h:k)
 \le V^r(\mathbb E_kh:k)
 +2\left(\sum_k|\chi_k*h-\mathbb E_kh|^2\right)^{1/2}.
-$$</p>
-
-<p>最后一个平方函数由几乎正交性控制，因为对频率块 $\Delta_jh$ 有
+$$
+最后一个平方函数由几乎正交性控制，因为对频率块 $\Delta_jh$ 有
 $$
 \|(\chi_k-\mathbb E_k)\Delta_jh\|_2
 \le C2^{-|k-j|/2}\|\Delta_jh\|_2.
-$$</p>
-
-<p>这证明标量的 (27). 由于 $r>2$，Minkowski 不等式允许先对 $\theta$ 求 $\ell^2$ 范数，从而得到向量值版本.</p>
+$$
+这证明标量的 (27). 由于 $r>2$，Minkowski 不等式允许先对 $\theta$ 求 $\ell^2$ 范数，从而得到向量值版本.</p>
 
 <p>把 (25)--(27) 代回 (24)，对所有 $I$ 求平方和，并吸收 (22) 的误差，便得
 $$
 \left\|\sup_k|\Xi_kf|\right\|_2
 \le C\bigl(1+\log^2(2+R)\bigr)
 \left(\sum_\theta\|f_\theta\|_2^2\right)^{1/2}.
-$$</p>
-
-<p>因 $\log^2(2+R)\le C_\varepsilon R^\varepsilon$，即得 (21).</p>
+$$
+因 $\log^2(2+R)\le C_\varepsilon R^\varepsilon$，即得 (21).</p>
 
 <p>还需把最后一句写成可直接使用的变差估计. 给定任意有限递增序列 $k_0\lt \cdots\lt k_m$，对每个增量 $F_{k_i}-F_{k_{i-1}}$ 建立与 (24) 相同的父节点链. 由于 $r>2$，先对 $i$ 求 $\ell^r$ 范数，再对父节点层求和，Minkowski 不等式给出
 $$
@@ -534,9 +476,8 @@ $$
 |\Xi_{k_i}f-\Xi_{k_{i-1}}f|^r\right)^{1/r}\right\|_2
 \le C\bigl(1+\log(2+R)\bigr)
 \left\|V^r(F_k:k)\right\|_2.
-$$</p>
-
-<p>右端由 (27) 控制. 对所有有限递增序列取上确界，再用 $1+\log(2+R)\le C_\varepsilon R^\varepsilon$，即得引理中的变差不等式. 这里没有交换一个不可数上确界与积分：尺度 $k$ 为整数，先取前 $M$ 个尺度，所得常数与 $M$ 无关，再令 $M\to\infty$. 最大估计也可由这个变差估计与任取的一个基准尺度推出.</p>
+$$
+右端由 (27) 控制. 对所有有限递增序列取上确界，再用 $1+\log(2+R)\le C_\varepsilon R^\varepsilon$，即得引理中的变差不等式. 这里没有交换一个不可数上确界与积分：尺度 $k$ 为整数，先取前 $M$ 个尺度，所得常数与 $M$ 无关，再令 $M\to\infty$. 最大估计也可由这个变差估计与任取的一个基准尺度推出.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -547,24 +488,21 @@ $$</p>
 <p><i>证明.</i> 先设 $g$ 有限支撑. 把 $\widehat g$ 看成 $[-1/2,1/2]$ 上的函数，并作 Shannon 延拓
 $$
 F(x)=\int_{-1/2}^{1/2}\widehat g(\xi)e(x\xi)\,d\xi.
-$$</p>
-
-<p>则 $F(n)=g(n)$，且 Plancherel 定理给出 $\|F\|_{L^2(\mathbb R)}=\|g\|_{\ell^2(\mathbb Z)}$. 对每个乘子 $\sigma$，连续输出
+$$
+则 $F(n)=g(n)$，且 Plancherel 定理给出 $\|F\|_{L^2(\mathbb R)}=\|g\|_{\ell^2(\mathbb Z)}$. 对每个乘子 $\sigma$，连续输出
 $$
 H_\sigma(x)=\int_{-1/2}^{1/2}
 \sigma(\xi)\widehat g(\xi)e(x\xi)\,d\xi
-$$</p>
-
-<p>在整数点恰好等于离散乘子作用于 $g$ 的结果. 对带限函数族 $(H_\sigma)_\sigma$，单位区间上的 Sobolev 不等式给出
+$$
+在整数点恰好等于离散乘子作用于 $g$ 的结果. 对带限函数族 $(H_\sigma)_\sigma$，单位区间上的 Sobolev 不等式给出
 $$
 \sum_{n\in\mathbb Z}\sup_\sigma|H_\sigma(n)|^2
 \le C\int_{\mathbb R}
 \sup_\sigma|H_\sigma(x)|^2dx
 +C\int_{\mathbb R}
 \sup_\sigma|\partial_xH_\sigma(x)|^2dx.
-$$</p>
-
-<p>第二项仍是同一个多频率问题，因为频率限制在 $[-1/2,1/2]$，微分只把乘子乘以有界函数 $2\pi i\xi$. 对振荡平方函数逐分量使用同一不等式，结论不变. 最后以有限支撑函数逼近一般的 $g\in\ell^2$. 若原来的弧间距是 $\rho$，作变量替换 $x\mapsto\rho x$ 即归结为 $1$-分离情形.</p>
+$$
+第二项仍是同一个多频率问题，因为频率限制在 $[-1/2,1/2]$，微分只把乘子乘以有界函数 $2\pi i\xi$. 对振荡平方函数逐分量使用同一不等式，结论不变. 最后以有限支撑函数逼近一般的 $g\in\ell^2$. 若原来的弧间距是 $\rho$，作变量替换 $x\mapsto\rho x$ 即归结为 $1$-分离情形.</p>
 
 <p class="proof-box">$\Box$</p>
 
