@@ -52,7 +52,7 @@ $$</p>
 
 <p>均方收敛本身不能推出逐点收敛. 所缺少的是对振荡次数的统一控制. 对算子族 $B_N$ 和整数
 $$
-1\le N_1\lt N_2<\cdots\lt N_{J+1},
+1\le N_1\lt N_2\lt \cdots\lt N_{J+1},
 $$
 定义
 $$
@@ -88,7 +88,7 @@ E_{j,L}=\left\{x\in E:
 $$
 随 $L\to\infty$ 单调增至 $E$. 因此可取 $N_{j+1}\ge2N_j$，使
 $$
-\mu(E\setminus E_{j,N_{j+1}})<2^{-j-1}\mu(E).
+\mu(E\setminus E_{j,N_{j+1}})\lt 2^{-j-1}\mu(E).
 $$
 于是 $E'=\bigcap_{j=1}^JE_{j,N_{j+1}}$ 满足 $\mu(E')\ge\mu(E)/2$，并且 (4) 在 $E'$ 上的平方不小于 $J\varepsilon^2$. 因此
 $$
@@ -205,7 +205,7 @@ $$
 
 <p>取光滑截断 $\eta$，满足 $\mathbf1_{[-1/4,1/4]}\le\eta\le\mathbf1_{[-1/2,1/2]}$. 记
 $$
-\mathcal R_s=\{a/q\in\mathbb T:(a,q)=1, 2^{s-1}\le q<2^s\}.
+\mathcal R_s=\{a/q\in\mathbb T:(a,q)=1, 2^{s-1}\le q\lt 2^s\}.
 $$
 选择只依赖于 $d$ 的充分小常数 $c>0$，并令
 $$
@@ -283,7 +283,7 @@ $$
 $$
 代回逐次差分不等式并除以 $M^{2^{d-1}}$，正好得到 (17). 这也说明了其中 $M^\varepsilon$ 的来源.</p>
 
-<p>若 $q<2^{ck}$，写 $m=uq+r, 1\le r\le q$. 在
+<p>若 $q\lt 2^{ck}$，写 $m=uq+r, 1\le r\le q$. 在
 $$
 |\beta|=|\xi-a/q|\le2^{-dk+cs}
 $$
@@ -303,7 +303,7 @@ $$
 $$
 所以 (12) 中同一尺度的弧互不相交. 将主弧按 $q\sim2^s$ 分组便得到 (13).</p>
 
-<p>最后，对 (10) 作 Weyl 差分，或把 (17) 用在长度 $q$ 的完整和上，便得某个只依赖于 $d$ 的 $\delta>0$ 以及 (14). 对一般 $q$ 的 $q^\varepsilon$ 损失来自素幂分解；稍后只需取 $\varepsilon<\delta/4$.</p>
+<p>最后，对 (10) 作 Weyl 差分，或把 (17) 用在长度 $q$ 的完整和上，便得某个只依赖于 $d$ 的 $\delta>0$ 以及 (14). 对一般 $q$ 的 $q^\varepsilon$ 损失来自素幂分解；稍后只需取 $\varepsilon\lt \delta/4$.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -509,7 +509,7 @@ $$
 <p>还需控制两个二进尺度之间的全部整数参数. 对一族数值 $a_N$，记
 $$
 V^2_{[2^k,2^{k+1}]}(a_N)
-=\sup_{2^k\le M_0<\cdots\lt M_r\lt 2^{k+1}}
+=\sup_{2^k\le M_0\lt \cdots\lt M_r\lt 2^{k+1}}
 \left(\sum_{i=1}^r|a_{M_i}-a_{M_{i-1}}|^2\right)^{1/2}.
 $$</p>
 
@@ -572,7 +572,7 @@ $$
 \le C_{P,\varepsilon}2^{-(\delta-\varepsilon)s}.
 $$</p>
 
-<p>取 $3\varepsilon<\delta/2$，并使用上述正交平方和，可得
+<p>取 $3\varepsilon\lt \delta/2$，并使用上述正交平方和，可得
 $$
 \left\|\sup_{k\ge Cs}|(L_{k,s}\widehat g)^\vee|\right\|_2
 \le C_P2^{-\delta s/2}\|g\|_2.
