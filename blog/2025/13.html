@@ -43,7 +43,7 @@ $$\sum_{k=1}^n \log (1+x^{a_k}) \leq - \log(1-x).$$
 奇妙的操作开始了：考虑在 $(0,1)$ 做以下积分
 $$\sum_{k=1}^n \int_0^1 \frac{\log (1+x^{a_k} )}{x} \, \mathrm{d} x \lt - \int_0^1 \frac{\log(1-x)}{x} \, \mathrm{d} x.$$
 左式做变量代换 $x \mapsto y:=x^{a_k}$ 就得到倒数和
-$$\left(\sum_{k=1}^n \frac{1}{a_k} \right)\cdot \int_0^1 \frac{\log (1+y)}{y} \, \mathrm{d} y < -\int_0^1 \frac{\log (1-y)}{y} \, \mathrm{d} y.$$
+$$\left(\sum_{k=1}^n \frac{1}{a_k} \right)\cdot \int_0^1 \frac{\log (1+y)}{y} \, \mathrm{d} y \lt -\int_0^1 \frac{\log (1-y)}{y} \, \mathrm{d} y.$$
 令反常积分 $A:= \int_0^1 \frac{\log (1+y)}{y} \, \mathrm{d} y$ , $B:= -\int_0^1 \frac{\log (1-y)}{y} \, \mathrm{d} y$ . 显然 $A$ 和 $B$ 都是良定义的. 注意到：
 $$\begin{align*}B-A & = -\int_0^1 \frac{\log (1-y^2)}{y} \, \mathrm{d} y=-\int_0^1 \frac{1}{2}\frac{\log (1-z)}{z} \, \mathrm{d} z= \frac{1}{2}B ,\end{align*}$$
 其中第二个等号使用了变量代换 $y\mapsto z:=y^{2}$ . 因此 $B=2A$ , 定理得证.$\quad$$\Box$

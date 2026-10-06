@@ -23,7 +23,7 @@ The nonlinear terms is of formula that
 $$\int_0^t e^{-is\jbra{\xi}_\ell}\frac{\xi_\ell}{\jbra{\xi}}e^{-i\xi\theta(s)} \widetilde{F}(s,\xi) \D s,$$
 where $\theta: [0,\infty)\to \R$ is the path of moving center s.t.
 $$\theta(0)=0, \quad \theta'(s)\lesssim \epsilon \jbra{s}^{-1+\delta}$$
-for some $0<\epsilon, \delta\ll 1$ , and the distorted Fourier transform
+for some $0\lt\epsilon, \delta\ll 1$ , and the distorted Fourier transform
 $$\widetilde{F}(s, \xi):=\int_R e^{-ix\xi} {\frak a}(x){\frak b}(\xi) F(s, x)\D x,$$
 where $\mathfrak{a}\in C^{\infty}$ with $\norm{\p^k\mathfrak{a}}_{L^\infty}\lesssim_k 1$ and $\mathfrak{b}\in L^\infty$ .
 It fails to control its $L_\xi^2$-norm simply by Minkowski inequality, since the slow decay rate $\jbra{t}^{-1/2}$ . Hence, we should utilize more about the oscillation in time $\int_0^t e^{-is\jbra{\xi}_\ell}\cdots \D s $ (In the context of harmonic analysis, there is a similar view called "local smoothing effect"). Moreover, local weight helps improve the decay of energy.
@@ -248,7 +248,7 @@ We first derive the key bound of $I_j^M(F,G)$ .
             &\qquad \qquad \qquad \qquad\qquad+ \jbra{b}\vb{wF(s,h-b)wG(s+u, h+z)} \D z \D h \D s \D u .
         \end{aligned}
     \end{equation*}$$
-    For each term, we first apply Cauchy-Schwarz inequality on $z$ to get $\norm{G(s+u)}_{L_x^2}$ and again on $h$ to get $\norm{F(s)}_{L_x^2}$ , where we use $\norm{\jbra{x}^{\leq 1-\sigma}}_{L_x^2}<\infty$ if $\sigma >\frac{3}{2}$ . Next we apply Cauchy-Schwarz inequality on $s$ and obtain
+    For each term, we first apply Cauchy-Schwarz inequality on $z$ to get $\norm{G(s+u)}_{L_x^2}$ and again on $h$ to get $\norm{F(s)}_{L_x^2}$ , where we use $\norm{\jbra{x}^{\leq 1-\sigma}}_{L_x^2}\lt\infty$ if $\sigma >\frac{3}{2}$ . Next we apply Cauchy-Schwarz inequality on $s$ and obtain
     $$\begin{align*}
         \vb{J_j^M} & \lesssim \int_{u=M}^\infty \jbra{u}^{-\frac{3}{2}+\delta} \D u \ \cdot  \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}\\
         & \lesssim M^{-\frac{1}{2}+\delta} \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}.
@@ -287,7 +287,7 @@ Combining above results, we achieve the proof of Strichartz estimate $\eqref{eq:
     $$\sum_{j=0}^{j_0}\vb{I_j^0(Q_jF, Q_jG)} \lesssim_{\ell} \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}.$$
     <b>High frequency $j\geq j_0$ :</b> Now let $\nu\in(0,1)$ s.t. $\sigma > \frac{3}{2\nu}$ . We choose $M= 2^{\nu j}$ . Since $\sigma > \frac{3}{2\nu}$ , it follows that
     $$\vb{I_j^M(Q_jF,Q_jG)}\lesssim 2^{\frac{3}{2}j+ (1-\sigma)\nu j} \norm{Q_jF}_{L_t^2L_x^2} \norm{Q_jG}_{L_t^2L_x^2}\lesssim 2^{\nu j} \norm{Q_jF}_{L_t^2L_x^2} \norm{Q_jG}_{L_t^2L_x^2}.$$
-    Since $\nu<1$ and $|k-j|\leq 5$, we can bound the commutator form $Q_j$ by $2^{(\nu-1)j}$ which is summable, and view $Q_j$ as $P_j$ . Thus, we obtain the desired bound that
+    Since $\nu\lt1$ and $|k-j|\leq 5$, we can bound the commutator form $Q_j$ by $2^{(\nu-1)j}$ which is summable, and view $Q_j$ as $P_j$ . Thus, we obtain the desired bound that
     $$\vb{I^0(F,G)}\lesssim \norm{F}_{L_t^2L_x^2} \norm{G}_{L_t^2L_x^2}+ \sum_{j=j_0}^{\infty} 2^{\nu j}\norm{P_jF}_{L_t^2L_x^2} \norm{P_jG}_{L_t^2L_x^2}\lesssim_\ell \norm{F}_{L_t^2 H_x^\nu} \norm{G}_{L_t^2L_x^2}.$$
     Combining above results, we finish the proof.&emsp;$\Box$
 </p>
