@@ -80,8 +80,8 @@ $$x_{i+1}:=x_i+\frac{1}{10\log^2 f(x_i)},$$
 <p>
 假设对所有 $i$ 结论都不成立，则有 $f(x_{i+1})\ge e f(x_i)$, 进而 $f(x_i)\ge e^i$. 于是
 $$x_{i+1}-x_i=\frac{1}{10\log^2 f(x_i)}\le\frac{1}{10i^2}.$$
-由于 $\sum_{i=1}^\infty\frac{1}{10i^2}\lt\frac{1}{2}$，可知 $i$ 可取遍所有正整数，并且有 $x_i\le \frac{1}{2}$, 于是 $f(x_i)\le f(\frac{1}{2})$；但同时又得 $f(x_i)\to\infty$ ($i\to\infty$)，矛盾！因此符合条件的 $x$ 存在.$\quad$$\Box$
-</p>
+由于 $\sum_{i=1}^\infty\frac{1}{10i^2}\lt\frac{1}{2}$，可知 $i$ 可取遍所有正整数，并且有 $x_i\le \frac{1}{2}$, 于是 $f(x_i)\le f(\frac{1}{2})$；但同时又得 $f(x_i)\to\infty$ ($i\to\infty$)，矛盾！因此符合条件的 $x$ 存在.</p>
+<p class="proof-box">$\Box$</p>
 <p>
   <b>注.</b> 自然，平稳区间的尺度 $\sim \frac{1}{\log^2 K}$ 可以替换为任意使级数 $\sum_{i=1}^\infty (x_{i+1}-x_{i})$ 收敛的形式
 </p>
@@ -107,8 +107,8 @@ $$t\in\biggl(s-\frac{r}{20\log^2(2K)},\ s+\frac{r}{20\log^2(2K)}\biggr)$$
 成立. 由前面的可比较关系，在同一区间上有 $K\lt N(x,t)\le 2eK$.
 由 $N(x,r/2)>10$ 得 $2K\ge 10$. 结合 $s\in[r,2r)$，可得
 $$I_s\subset\biggl(s-\frac{r}{20\log^2(2K)},\ s+\frac{r}{20\log^2(2K)}\biggr).$$
-因此 $s,K$ 符合要求.$\quad$$\Box$
-</p>
+因此 $s,K$ 符合要求.</p>
+<p class="proof-box">$\Box$</p>
 <h2>频率与增长</h2>
 <p>
 现在，我们来研究调和函数 $u$ 在引理6所给出的以 $x$ 为中心，半径 $s\sim r$, 宽度 $\sim \frac{s}{\log^2 K}$ 的球壳内的行为. 根据引理6，在该球壳内 $N(x,r) \sim K$. 本节始终在定理1和引理6的条件下讨论；特别地，高频条件 $N(x, \frac{r}{2})>10$ 成立，这对 $|u|$ 的增长有主导作用. 
@@ -141,8 +141,8 @@ $$\int_{B_g(x,s_{-\delta/2})} |u|^2\,dB_g \ge \int_{B_g(\tilde{p}, \delta s/2)} 
 $${\int\hspace{-1.05em}-}_{B_g(\tilde{p}, \delta s/2)} |u|^2\,dB_g \ge \left({\int\hspace{-1.05em}-}_{B_g(\tilde{p}, \delta s/2)} |u|\, dB_g\right)^2\ge C|u(\tilde{p})|^2.$$
 整理上述估计，有
 $$|u(p)|^2\ge C\delta^n (1+\delta/2)^{2K/(1+\epsilon)}|u(\tilde{p})|^2.$$
-$\delta$ 充分小且有正下界, 因此容易由初等函数的估计得到 $|u(p)|^2\ge C e^{K\delta/4}|u(\tilde{p})|^2$，第一行估计得证.$\quad$$\Box$
-</p>
+$\delta$ 充分小且有正下界, 因此容易由初等函数的估计得到 $|u(p)|^2\ge C e^{K\delta/4}|u(\tilde{p})|^2$，第一行估计得证.</p>
+<p class="proof-box">$\Box$</p>
 <p>
 特别地，我们可以在高频条件下控制 $u$ 在 $B_g(p, \delta s)$ 处的振幅.
 </p>

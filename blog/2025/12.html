@@ -34,8 +34,8 @@ $$H(X\mid Y):= \sum_{a\in A} \mathbb{P}(Y=a) H(X| Y=a).$$
 <b>引理1</b> (最大性)<b>.</b> 设 $Y$ 在 $A$ 上一致分布，记为 $Y\sim A$ . 则对任意在 $A$ 中取值的随机变量 $X$ , $H(X)\leq H(Y)=\log |A|$ .
 </p>
 <p>
-<i>证明.</i> 直接计算，并利用 $\log$ 的凸性. $\quad$$\Box$
-</p> 
+<i>证明.</i> 直接计算，并利用 $\log$ 的凸性.</p>
+<p class="proof-box">$\Box$</p>
 <p>$\quad$</p>
 <p>
 最大性反映熵应用于组合的基本思路：如果满足某个限制的极端情形倾向于使对象一致分布，那么随机取样的概率方法很可能会帮助我们. 而当取样是一致的，系统状态是最难区分的，i.e. 熵最大. 此时熵正好对应对象的大小. 因此对熵的控制立刻转化为组合对象的控制.
@@ -53,8 +53,8 @@ $$H(X_1, ..., X_n)\leq \frac{1}{k}\sum_{F\in\mathcal{F}} H(X_F) ,$$
 $$\begin{align*} H(X_F) & = H(X_{i_1})+H(X_{i_2} | X_{i_1}) + ... + H(X_{i_k} | X_{i_1}, ..., X_{i_{k-1}})\\ & \geq H(X_{i_1})+ H(X_{i_2} | X_{\lt i_2}) + ... + H(X_{i_k} | X_{\lt i_k})\\ & = \sum_{i\in F} H(X_i | X_{\lt i}).\end{align*}$$
 注意此时求和式中的各项都不与 $F$ 显式相关，
 $$\begin{align*} \sum_{F\in \mathcal{F}} H(X_F) & \geq \sum_{F\in \mathcal{F}}\sum_{i\in F} H(X_i | X_{\lt i}) \\ & = \sum_{i\in [n]} H(X_i | X_{\lt i}) \left(\sum_{F\in \mathcal{F}: i\in F} 1 \right) \\ & = \mu \sum_{i\in [n]} H(X_i | X_{\lt i}) \\ & =\mu H(X_1,..., X_n). \end{align*}$$
-最后一行来自于可加性. 引理得证.$\quad$$\Box$
-</p>
+最后一行来自于可加性. 引理得证.</p>
+<p class="proof-box">$\Box$</p>
 <p>$\quad$</p>
 <p>
 Shearer引理的意义在于对所有局部的 $X_F$ 的控制可以收集为对整体的 $X$ 的控制. 
@@ -80,8 +80,8 @@ $$H(X_1, ..., X_n)\leq \frac{1}{\mu}\mathbb{E}_F H(X_F) ,$$
 $$\begin{align*} H(X_1, X_2, X_3) & \leq \frac{1}{2} \left( H(X_1,X_2)+H(X_2,X_3)+H(X_1,X_3) \right)\\ & \leq \frac{3}{2}\log (2k).\end{align*}$$
 第二行来自最大性（并不需要知道每条有向边 $(X_i, X_j)$ 的概率分布！），因子 $2$ 自然来自于有向性. 于是
 $$\# \{G \text{ 中的三角形}\} \leq \frac{1}{3!}|\mathcal{T}|\leq \frac{(2k)^{3/2}}{6}.$$
-定理得证.$\quad$$\Box$
-</p>
+定理得证.</p>
+<p class="proof-box">$\Box$</p>
 <p>$\quad$</p>
 <p>
 定理3的上界是最优的；它是 $n\to\infty$ 时 $n$-完全图满足的渐进上界.
@@ -106,8 +106,8 @@ $$\begin{align*} H(X) & \leq \frac{1}{n-1} H(X_1,..., X_{i-1}, X_{i+1}, ..., X_n
 $$(X_1,..., X_{i-1}, X_{i+1}, ..., X_n) \ \leftrightarrow \ \pi_i(X)\in \{\pi_{i} E \text{ 中的 } n-1 { 维单位格点方体}\}.$$
 因此由最大性
 $$H(X_1,..., X_{i-1}, X_{i+1}, ..., X_n)\leq \log \# \{\pi_{i} E \text{ 中的 } n-1 { 维单位格点方体}\}= Vol_{n-1}[\pi_i(E)].$$
-综合上述估计即得到L-W不等式.$\quad$$\Box$
-</p>
+综合上述估计即得到L-W不等式.</p>
+<p class="proof-box">$\Box$</p>
 <p>$\quad$</p>
 <p>
 读者可以对 $\mathbb{Z}^n$ 的有限子集定义各个方向的投影算子并证明离散版本的L-W不等式.

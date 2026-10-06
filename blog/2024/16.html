@@ -50,8 +50,8 @@
   $$r_2(M) := \# \{ (x,y)\in\mathbb{Z}^2 \colon x^2+y^2=M \} \lesssim M^{\epsilon} \ .$$
 </p>
 <p>
-  <i>引理1的证明</i>. 已知 $\mathbb{Z}[i]$ 是唯一因子分解整环(UFD)，设 $M=p_1^{e_1}...p_m^{e_m}$ , $p_1, ... , p_m$ 为某些素因子. $M=x^2+y^2=(x+iy)(x-iy)$ , 所以 $x+iy$ 是 $M$ 的一个因子，因此存在 $e_1'\leq e_1, ..., e_m'\leq e_m$ s.t. $x+iy=p^{e_1'}...p^{e_m'}$ . 而 $M$ 全体因子的个数为 $O(N^{\epsilon})$ (练习, 先对素数幂验证) , 于是引理得证.&emsp;$\Box$
-</p>
+  <i>引理1的证明</i>. 已知 $\mathbb{Z}[i]$ 是唯一因子分解整环(UFD)，设 $M=p_1^{e_1}...p_m^{e_m}$ , $p_1, ... , p_m$ 为某些素因子. $M=x^2+y^2=(x+iy)(x-iy)$ , 所以 $x+iy$ 是 $M$ 的一个因子，因此存在 $e_1'\leq e_1, ..., e_m'\leq e_m$ s.t. $x+iy=p^{e_1'}...p^{e_m'}$ . 而 $M$ 全体因子的个数为 $O(N^{\epsilon})$ (练习, 先对素数幂验证) , 于是引理得证.</p>
+<p class="proof-box">$\Box$</p>
 <p>
   基于引理1就可以得到
 </p>
@@ -64,8 +64,8 @@
   $$\# \{(m,n)\in \mathbb{Z}^2 : v(m, n)= \mathbf{v}\} = \#\{n=(n_1, n_2)\colon \vert n\vert^2+\vert v-n\vert^2=v_0\} \ . $$
   对约束方程配方得到
   $$(2n_1-v_1)^2+(2n_2-v_2)^2=2v_0-\vert v\vert^2 \ .$$
-  由引理1就完成了证明.&emsp;$\Box$
-</p>
+  由引理1就完成了证明.</p>
+<p class="proof-box">$\Box$</p>
 <p>
   回到定理1的证明. 由 $(2)$ 立刻得到
   $$\begin{align*}
@@ -73,8 +73,8 @@
   = & N^{\epsilon} \left( \sum_{n} \vert a_n\vert^2 \right)^2 \\
   = & N^{\epsilon} \Vert u_0\Vert_{L^2}^4 \ .
   \end{align*}$$
-  于是在 $d=2$ 时 $(1)$ 成立.&emsp;$\Box$
-</p>
+  于是在 $d=2$ 时 $(1)$ 成立.</p>
+<p class="proof-box">$\Box$</p>
 <p>
   在 $d=1$ 的情形由于 $p=6$ 会出现三平方和，证明起来稍微复杂一些. (可以证明三平方和情形下 $r_3(M) \gtrsim M^{1/2}$ , 因此直接证明是不可能的)
 </p>
@@ -89,8 +89,8 @@
   = & \sum_{\mathbf{v} \in \mathbb{Z}^2} \left(\sum_{l,m,n \colon \ v(l,m,n)=\mathbf{v} } a_l a_m a_n \right)^2 \\
   \leq & L_3(N)^{1/2} \sum_{l,m,n} \vert a_l\vert^2 \vert a_m\vert^2 \vert a_n\vert^2 \ .
   \end{align*}$$
-  于是由下面的 $(3)$ 即完成 $(1)$ 的证明.&emsp;$\Box$
-</p>
+  于是由下面的 $(3)$ 即完成 $(1)$ 的证明.</p>
+<p class="proof-box">$\Box$</p>
 <p class="thm">
   <b>引理3.</b> 对任意 $\epsilon > 0$ , 有
   $$L_3(N) \lesssim N^{\epsilon} \ . \tag{3}$$
@@ -104,8 +104,8 @@
   $$\frac{3}{4}(m+n)^2+\frac{1}{4}(m-n)^2-v(m+n)=\frac{v_0-v^2}{2} \ .$$
   令 $m'=m+n, n'=m-n$ , 得到
   $$(3m'-2v)^2 + 3(n')^2 = 6v_0-2v^2 \ .$$
-  考虑Diophantine方程 $x^2+3y^2=M$ , 已知 $\mathbb{Z}[e^{\frac{2\pi i}{3}}]$ 也是UFD , 所以有类似引理1的结论. 注意 $(3m'-2v, n')$ 与 $(m, n)$ 一一对应，所以 $(3)$ 成立.&emsp;$\Box$
-</p>
+  考虑Diophantine方程 $x^2+3y^2=M$ , 已知 $\mathbb{Z}[e^{\frac{2\pi i}{3}}]$ 也是UFD , 所以有类似引理1的结论. 注意 $(3m'-2v, n')$ 与 $(m, n)$ 一一对应，所以 $(3)$ 成立.</p>
+<p class="proof-box">$\Box$</p>
 <br/>
 <p>
   从定理1及其证明可以看到

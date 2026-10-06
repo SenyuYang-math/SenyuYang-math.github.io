@@ -79,8 +79,8 @@
 <p>
   <i>证明.</i> 反证法. 假设存在 $f\neq 0$ s.t. $|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \leq p$ . 我们记 $A=\operatorname{supp}(f)$ , 则由假设可知存在一个 $\tilde{A}$ s.t. 
   $$|\tilde{A}|=|A| \ \text{and} \ \tilde{A}\cap \operatorname{supp}(\widehat{f}) =\emptyset\ .$$ 
-  此时有 $Tf=0$ , 与 $T$ 是同构矛盾！因此 $p$-UCP得证.&emsp;$\Box$ 
-</p>
+  此时有 $Tf=0$ , 与 $T$ 是同构矛盾！因此 $p$-UCP得证.</p>
+<p class="proof-box">$\Box$</p>
 <p>
   事实上 $T$ 作为同构映射预示了一个表面上不可思议的联系（这一点[1]没有明说）
 </p>
@@ -92,8 +92,8 @@
   $$f(x_j)=\overline{v_j}\ \text{for} \ 1\leq j\leq n \ ; \ f(x)=0 \ , \ \text{o.w.}$$
   由 $\mathbf{v}$ 的定义，Fourier变换 $\widehat{f}(\xi_k)=0$ 对任意 $1\leq k \leq n$ 成立. 所以 
   $$|\operatorname{supp}(f)| + |\operatorname{supp}(\widehat{f})| \leq n+(p-n) =n\ ,$$
-  与 $p$-UCP矛盾！因此引理3得证.&emsp;$\Box$
-</p>
+  与 $p$-UCP矛盾！因此引理3得证.</p>
+<p class="proof-box">$\Box$</p>
 <p>
   <b>注.</b> 不少代数方向的朋友和偶谈过调和分析与表示论，数论云云的联系，e.g. Tate's thesis. 偶自然一窍不通，只好抛砖引玉留给读者探索.
 </p>
@@ -107,8 +107,8 @@
 <p>
   <i>证明.</i> 我们选取一个 $\tilde{A}\subset \mathbb{Z}/p\mathbb{Z}$ s.t. $|\tilde{A}|=|A|$ 且 $\tilde{A}\cap B$ 为单点集（记为 $\{\xi_0\}$）. $T$ 可逆，因此存在 $f$ s.t. $\operatorname{supp}(\widehat{f})\cap \tilde{A} = \{\xi_0\}$ . 又 $|\tilde{A}|+|B|=p+1$ , 所以 $\operatorname{supp}(\widehat{f})\subset B$ . 现在由 $p$-UCP可知 
   $$|\operatorname{supp}(\widehat{f})|\geq p+1-|A|=|B|\ ,$$
-  因此 $\operatorname{supp}(\widehat{f})=B$ .&emsp;$\Box$
-</p>
+  因此 $\operatorname{supp}(\widehat{f})=B$ .</p>
+<p class="proof-box">$\Box$</p>
 <p>
   借助这个sharp构造，我们终于能将组合对象实现为 $f, \widehat{f}$ 的支集.
 </p>
@@ -119,8 +119,8 @@
   $$|X\cap Y|=\max (|X|+|Y|-p, 1)\ .$$ 
   于是存在 $f\neq 0$ s.t. $\operatorname{supp}(f)=A$ , $\operatorname{supp}(\widehat{f})=X$ ; $B, Y$ 有相应的 $g\neq 0$ . $f*g$ 的 $p$-UCP即得到
   $$|A+B|\geq p+1-|X\cap Y|\geq \min (|A|+|B|-1, p) \ ,$$
-  C-D定理得证.&emsp;$\Box$
-</p>
+  C-D定理得证.</p>
+<p class="proof-box">$\Box$</p>
 <h2>附录：Chebotarëv引理的证明</h2>
 <p>
   现在着手Chebotarëv引理的一个相对初等的证明（指不依赖于Galois理论，来自Tao）. 考虑整系数多项式
@@ -135,8 +135,8 @@
   $$Q(z) := P(z^{\alpha_1}, ..., z^{\alpha_n}) \mod (z^p-1) \in \mathbb{Z}[x]\ .$$
   这里取模自然是因为 $\zeta^p-1=0$ . 于是 $\operatorname{deg} Q \leq p-1$ , 并且 $Q(\zeta)=0$ , $Q(1)=P(1, ..., 1)$ . 回忆一个经典结论——<i>分圆多项式</i>
   $$f_p(z)=1+z+...+z^{p-1} , f(\zeta)=0$$
-  在 $\mathbb{Z}$ 上不可约, i.e. $f_p$ 是 $\zeta$ 的 $\mathbb{Z}$-极小多项式. 因此 $Q$ 只能是 $f_p$ 乘以某个整系数，于是 $p\mid Q(1)$ .&emsp;$\Box$
-</p>
+  在 $\mathbb{Z}$ 上不可约, i.e. $f_p$ 是 $\zeta$ 的 $\mathbb{Z}$-极小多项式. 因此 $Q$ 只能是 $f_p$ 乘以某个整系数，于是 $p\mid Q(1)$ .</p>
+<p class="proof-box">$\Box$</p>
 <p>
   <i>Chebotarëv引理的证明.</i> 由引理7，我们似乎只需证明 $p \nmid F(1, ..., 1)$ ; 但 $F(1, ..., 1)=0$ , 所以我们要提取出 $(1, ..., 1)$ 的零因式再使用引理7. 如果有两个下标不同的 $z_j$ 相同则 $F=0$ , 因此
   $$F(z_1, ..., z_n)= P(z_1, ..., z_n) \cdot \prod_{1\leq j\lt j'\leq n} (z_{j'}-z_j) \ .$$
@@ -146,8 +146,8 @@
   $$(4) = P(1, ..., 1) \cdot \prod_{j=1}^n (j-1)! \ .$$
   另一面，$D_j$ 作用在 $\det$ 上相当于对第 $j$ 列作用，而 $D_j z_j^{\xi_k} = \xi_k z_j^{\xi_k}$ , 所以由经典的Vandermonde行列式可知
   $$(4) = \det \left(\xi_k^{j-1}\right) = \prod_{1\leq k \lt k'\leq n} (z_{k'} - z_k) \ .$$
-  但因为 $\xi_k \leq p$ 且两两不同，所以 $p \nmid (4)$ , 进而 $p \nmid P(1, ..., 1)$ .&emsp;$\Box$
-</p>
+  但因为 $\xi_k \leq p$ 且两两不同，所以 $p \nmid (4)$ , 进而 $p \nmid P(1, ..., 1)$ .</p>
+<p class="proof-box">$\Box$</p>
 <p>
   <b>注.</b> 顺便在这里请教下Chebotarëv引理和引理7在代数数论和表示论有什么具体应用呢？
 </p>
