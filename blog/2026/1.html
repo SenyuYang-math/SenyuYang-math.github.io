@@ -17,7 +17,7 @@ L. Lovász & B. Szegedy, Szemerédi's lemma for the analyst, GAFA, Vol. 17(2007)
 $$\mathcal{W}:= \{ W:[0,1]^{2} \to\mathbb{R}:~ W~ \text{对称}, ~ |W| \lt \infty\}$$
 和
 $$\mathcal{W}_{0}:= \{W \in \mathcal{W}:~ W([0,1]^2) \subseteq [0,1]\}.$$ 
-如果存在 $[0,1]$ 的划分 $\mathcal{P}:=\{S_{1}, ..., S_{m}\}$，s.t. $W\in \mathcal{W}$ 在每个 $S_{i} \times S_{j}$ 上为常数，则称函数 $U$ 为至多 $m$ 步的阶梯函数. 于是从分析的角度，我们可以自然地将图视为 $W_{0}$ 中的 $0$-$1$ 值阶梯函数，且其步长 $S_{i}$ 具有相等的测度。显然，每个这样的函数都对应一个以 $\{S_{i}\}$ 为顶点集的图，且每个图都可通过这种方式表示.  
+如果存在 $[0,1]$ 的划分 $\mathcal{P}:=\{S_{1}, ..., S_{m}\}$，s.t. $W\in \mathcal{W}$ 在每个 $S_{i} \times S_{j}$ 上为常数，则称函数 $U$ 为至多 $m$ 步的阶梯函数. 于是从分析的角度，我们可以自然地将图视为 $W_{0}$ 中的 $0$-$1$ 值阶梯函数，且其步长 $S_{i}$ 具有相等的测度. 显然，每个这样的函数都对应一个以 $\{S_{i}\}$ 为顶点集的图，且每个图都可通过这种方式表示.
 </p>
 <p>
 值得一提的是，每个 $W \in \mathcal{W}$ 都可视为Hilbert空间 $L^{2}([0,1])$ 上的核算子，定义为 
@@ -35,7 +35,7 @@ $$\begin{aligned} \| W \|_{\square} &= \sup_{f,g:[0,1] \to [0,1]} |\langle f, W 
   在探讨上述概念与正则引理的关系前，我们先引入一个关键的分析工具.
 </p>
 <p class="thm">
-<b>引理1</b> (Hilbert空间的正则引理)<b>.</b> 设 $K_{1}, K_{2}, \cdots$ 是Hilbert空间 $H$ 的任意非空子集。则对于任意 $\varepsilon > 0$ 和 $f \in H$，存在 $m \leq\lceil 1/\varepsilon^{2} \rceil$，以及 $f_{i} \in K_{i}$（$1 \leq i \leq m$）和 $\gamma_{1}, \gamma_{2}, \cdots, \gamma_{m} \in\mathbb{R}$，s.t 对于任意 $g \in K_{m+1}$ 都有 
+<b>引理1</b> (Hilbert空间的正则引理)<b>.</b> 设 $K_{1}, K_{2}, \cdots$ 是Hilbert空间 $H$ 的任意非空子集. 则对于任意 $\varepsilon > 0$ 和 $f \in H$，存在 $m \leq\lceil 1/\varepsilon^{2} \rceil$，以及 $f_{i} \in K_{i}$（$1 \leq i \leq m$）和 $\gamma_{1}, \gamma_{2}, \cdots, \gamma_{m} \in\mathbb{R}$，s.t 对于任意 $g \in K_{m+1}$ 都有
 $$\left| \left\langle g, f - \left( \gamma_{1} f_{1} + \cdots + \gamma_{m} f_{m} \right) \right\rangle\right| \leq\varepsilon\| g \|\| f \| .$$
 </p>
 <p>
@@ -62,7 +62,7 @@ $$\| g \|^{2} t^{2} - 2 \left\langle g, f - f^{*} \right\rangle t + \varepsilon^
 <b>引理2</b> (弱正则引理，分析版)<b>.</b> 对于任意函数 $W \in \mathcal{W}_{0}$ 和 $\varepsilon > 0$, 存在一个至多 $\lceil 2^{2/\varepsilon^{2}} \rceil$ 步的阶梯函数 $W^* \in \mathcal{W}_{0}$，使得 $\|W - W^*\|_{\square} \leq\varepsilon$. 
 </p>
 <p>
-考虑划分 $\mathcal{P}$ 和对应的一个阶梯函数 $W_{\mathcal{P}}$. 如果对于任意可测子集 $S \subseteq [0,1]$, 都有 $\| W - W_{\mathcal{P}} \|_\square \leq\varepsilon$, 我们就称 $\mathcal{P}$ 是 $W$ 的 $\varepsilon$-弱正则划分。因此引理2说明每个 $\mathcal{W}_0$ 函数都存在 $\varepsilon$-弱正则划分，且划分的子集数至多为 $2^{2/\varepsilon^{2}}$. 进一步地，我们可以将 $W_{\mathcal{P}}$ 调整为 $W$ 在 $\mathcal{P}$ 的每个子集上取平均值，这至多将误差放大为 $2\epsilon$. 于是从现在开始，我们就将弱正则逼近 $W_{\mathcal{P}}$ 等同于平均值修正的版本. 称为“弱”的原因留到后文解释.
+考虑划分 $\mathcal{P}$ 和对应的一个阶梯函数 $W_{\mathcal{P}}$. 如果对于任意可测子集 $S \subseteq [0,1]$, 都有 $\| W - W_{\mathcal{P}} \|_\square \leq\varepsilon$, 我们就称 $\mathcal{P}$ 是 $W$ 的 $\varepsilon$-弱正则划分. 因此引理2说明每个 $\mathcal{W}_0$ 函数都存在 $\varepsilon$-弱正则划分，且划分的子集数至多为 $2^{2/\varepsilon^{2}}$. 进一步地，我们可以将 $W_{\mathcal{P}}$ 调整为 $W$ 在 $\mathcal{P}$ 的每个子集上取平均值，这至多将误差放大为 $2\epsilon$. 于是从现在开始，我们就将弱正则逼近 $W_{\mathcal{P}}$ 等同于平均值修正的版本. 称为“弱”的原因留到后文解释.
 </p>
 <p>
 <i>证明.</i> 考虑Hilbert空间 $H=L^{2}([0,1]^{2})$，并令每个 $K_{n}\subseteq \mathcal{W}_0$ 是全体对角乘积集 $S \times S$ 的示性函数集，其中 $S$ 取遍 $[0,1]$ 的可测子集. 设 $f \in \mathcal{W}_{0}$, 则引理1中构造的 $f^{*} = \sum_{i=1}^{k} \gamma_{i} f_{i}$ 是一个至多 $2^{k}$ 步的阶梯函数. 再根据对偶刻画，我们得到一个至多 $2^{\lceil 1/\varepsilon^{2} \rceil}$ 步的阶梯函数 $W^{*} \in \mathcal{W}_0$, s.t. 对于任意可测集 $S \subseteq [0,1]$, 都有 
