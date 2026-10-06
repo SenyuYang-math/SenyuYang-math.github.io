@@ -439,15 +439,13 @@ $$
   因此，利用示性函数 $\xi,\eta_i$，并回忆 $h(x)$ 与 $h_i(x)$ 的定义，我们可以把下面的期望分解为
 </p>
 <p>
-$$
-\begin{aligned}
+\begin{align}
 \mathbb E\left[\sum_{0&lt;|S|\le10C}f^{=S}(x)^2\right]
-&amp;\le\mathbb E\bigl[h(x)^2(1-\xi(x))\bigr] \tag{2.7}\\
-&amp;\quad+\mathbb E\left[\sum_{i=1}^nh_i(x)^2(1-\eta_i(x))\right] \tag{2.8}\\
-&amp;\quad+\mathbb E\left[\sum_{0&lt;|S|\le10C}f^{=S}(x)^2
+&\le\mathbb E\bigl[h(x)^2(1-\xi(x))\bigr] \tag{2.7}\\
+&\quad+\mathbb E\left[\sum_{i=1}^nh_i(x)^2(1-\eta_i(x))\right] \tag{2.8}\\
+&\quad+\mathbb E\left[\sum_{0&lt;|S|\le10C}f^{=S}(x)^2
 \left(\prod_{i\in S}\eta_i(x)\right)\xi(x)\right]. \tag{2.9}
-\end{aligned}
-$$
+\end{align}
 </p>
 <p>
   下面依次估计这三项。
@@ -456,14 +454,12 @@ $$
   对于 (2.7)，使用 Cauchy–Schwarz 不等式可得
 </p>
 <p>
-$$
-\begin{aligned}
+\begin{align}
 \mathbb E\bigl[h(x)^2(1-\xi(x))\bigr]
-&amp;\le\mathbb E[h(x)^4]^{1/2}\,\mathbb E[(1-\xi(x))^2]^{1/2} \tag{2.10}\\
-&amp;\le\|h(x)\|_4^2\,\mathbb E[1-\xi(x)]^{1/2} \tag{2.11}\\
-&amp;\le C_1^2\sqrt{\frac C{M\varepsilon^2}}, \tag{2.12}
-\end{aligned}
-$$
+&\le\mathbb E[h(x)^4]^{1/2}\,\mathbb E[(1-\xi(x))^2]^{1/2} \tag{2.10}\\
+&\le\|h(x)\|_4^2\,\mathbb E[1-\xi(x)]^{1/2} \tag{2.11}\\
+&\le C_1^2\sqrt{\frac C{M\varepsilon^2}}, \tag{2.12}
+\end{align}
 </p>
 <p>
   其中，从 (2.11) 到 (2.12) 使用了取 $q'=4$（从而 $q=4/3$）的 (2.3)。
@@ -541,15 +537,13 @@ $$
   接着注意，对任意 $S\subseteq[n]$，由 (1.1)，
 </p>
 <p>
-$$
-\begin{aligned}
+\begin{align}
 |f^{=S}|
-&amp;=\left|\sum_{J\subseteq S}(-1)^{|S|-|J|}f^{\subseteq J}\right|\\
-&amp;\le\sum_{J\subseteq S}|f^{\subseteq J}|
+&=\left|\sum_{J\subseteq S}(-1)^{|S|-|J|}f^{\subseteq J}\right|\\
+&\le\sum_{J\subseteq S}|f^{\subseteq J}|
 \le2^{|S|}\max_{J\subseteq S}\{|f^{\subseteq J}|\} \tag{2.14}\\
-&amp;\le2^{|S|}, \tag{2.15}
-\end{aligned}
-$$
+&\le2^{|S|}, \tag{2.15}
+\end{align}
 </p>
 <p>
   因为 $|f^{\subseteq S}|\le1$。再使用 (2.14)、(2.15) 以及 $f^{\subseteq\varnothing}=\mathbb E[f]=0$，便有
