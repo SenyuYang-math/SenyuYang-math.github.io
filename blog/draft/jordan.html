@@ -7,7 +7,7 @@
 <!--正文区块-->
 <div id="container" class="container">
 
-<p>Jordan 曲线是单位圆在平面内的连续单射像. Jordan 定理断言，它的补集恰有两个连通分支. 这个结论直观上无法怀疑，但把它写成证明却需要工具：曲线的像可能处处不可微，也没有任何正则性可用. 本文介绍 J. W. Alexander 在 1920 年给出的证明，采用 Rich Schwartz 的讲稿 <i>Illustrated Proof of the Jordan Curve Theorem</i> 的版本：用方格上的圈替代一般拓扑曲线，从而把论证化为有限组合的计数. Alexander 的原文没有插图，Schwartz 补上了图，并简化了若干步骤.</p>
+<p>Jordan 曲线是单位圆在平面内的连续单射像. Jordan 定理断言，它的补集恰有两个连通分支. 这个结论直观上无法怀疑，但把它写成证明却需要工具：曲线的像可能处处不可微，也没有任何正则性可用. 本文介绍 J. W. Alexander 在 1920 年给出的证明，采用 Rich Schwartz 的讲稿 <i>Illustrated Proof of the Jordan Curve Theorem</i> 的版本：用方格上的圈替代一般拓扑曲线，从而把论证化为有限组合的计数. Alexander 的原文没有插图，Schwartz 补上了图，并简化了若干步骤. 下文插图直接取自该讲稿，记号与正文一致.</p>
 
 <h2>记号与预备事实</h2>
 
@@ -23,7 +23,7 @@
 <p>第一条是对奇偶性的计数：圈路径每次穿过 $C$ 就换一次侧，故穿过次数的奇偶性决定了端点是否同侧. 第二条是 Euler 定理对平面图的直接应用：穿过 $C$ 的内部、把 $C$ 的边配对，穿过次数为偶数的路径不能把 $C$ 的某条边单独留下，从而可以补全成回路.</p>
 
 <figure class="blog-figure">
-<img src="../../record/img/2026/jordan-cycle-sides.svg" alt="圈的两侧与模2和" style="width:80%">
+<img src="../../record/img/2026/jordan-cycle-sides.png" alt="圈的两侧与模2和" style="width:100%">
 <figcaption class="picture_label">图1. 圈的两侧与模 $2$ 和</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@
 <p>在 $J$ 上取两点 $a,b$. 取一个正方形 $\Gamma$，使 $a,b$ 位于 $\Gamma$ 的两侧，并且 $J\cap\Gamma$ 落在 $\Gamma$ 底边的内部. 这样的 $\Gamma$ 可以通过取一个足够小的圆盘、再用它的外接正方形得到. $J$ 上连接 $a$ 与 $b$ 的两段弧记为 $J_R$ 与 $J_B$.</p>
 
 <figure class="blog-figure">
-<img src="../../record/img/2026/jordan-two-arcs.svg" alt="正方形与Jordan曲线的两段弧" style="width:80%">
+<img src="../../record/img/2026/jordan-two-arcs.png" alt="正方形与Jordan曲线的两段弧" style="width:100%">
 <figcaption class="picture_label">图2. 正方形 $\Gamma$ 与两段弧 $J_R,J_B$</figcaption>
 </figure>
 
@@ -65,8 +65,8 @@ $$
 <p class="thm"><b>引理3</b> (绕行引理)<b>.</b> 设 $S,T\subset\mathbb R^2$ 紧，$a,b\in\mathbb R^2-(S\cup T)$. 设 $s,t$ 是连接 $a,b$ 的圈路径，满足 $s\cap T=t\cap S=\varnothing$，且 $C=s\cup t$ 是圈. 若 $S\cap T$ 落在 $C$ 的同一侧，则存在连接 $a,b$ 的圈路径，它避开 $S\cup T$.</p>
 
 <figure class="blog-figure">
-<img src="../../record/img/2026/jordan-detour.svg" alt="绕行引理的构造" style="width:100%">
-<figcaption class="picture_label">图3. 绕行引理中的 $S,T$ 与圈 $C^*$</figcaption>
+<img src="../../record/img/2026/jordan-detour.png" alt="绕行引理的构造" style="width:100%">
+<figcaption class="picture_label">图3. 绕行引理中的 $S,T$ 与圈 $C^*,C^{**}$</figcaption>
 </figure>
 
 <p><i>证明.</i> 引理的条件在小幅度放大 $S,T$ 之后仍然成立，故由引理1，不妨设 $S,T$ 都是有界圈侧，并且只需构造一条避开 $S\cup T^\circ$ 的圈路径.</p>
@@ -102,8 +102,8 @@ $$
 <p><i>证明.</i> 由紧性，可以把 $A$ 分成子弧 $A_0,\ldots,A_n$，使每个 $A_i$ 都含于一个与 $\{a,b\}$ 不交的圆盘 $Q_i$ 中.</p>
 
 <figure class="blog-figure">
-<img src="../../record/img/2026/jordan-arc-theorem.svg" alt="把弧A分成子弧" style="width:80%">
-<figcaption class="picture_label">图4. 把弧 $A$ 分成子弧</figcaption>
+<img src="../../record/img/2026/jordan-arc-theorem.png" alt="Jordan弧定理的构造" style="width:100%">
+<figcaption class="picture_label">图4. Jordan 弧定理中的 $s_1,s_2,s_3$ 与 $J_1,J_2,J_3$</figcaption>
 </figure>
 
 <p>我们对 $k=0,1,\ldots,n$ 归纳证明：存在连接 $a,b$ 的圈路径，它避开 $A_0\cup\cdots\cup A_k$. 当 $k=0$ 时，$Q_0$ 不交 $\{a,b\}$，故由引理1可在 $Q_0$ 内取一个有界圈侧，$a,b$ 都在其中，再用 $Q_0$ 内的一条圈路径沿径向连接 $a,b$，它避开 $A_0$. 设结论对 $k-1$ 成立，取连接 $a,b$ 的圈路径 $p$ 与 $q$，分别避开 $T=A_0\cup\cdots\cup A_{k-1}$ 与 $S=A_k$. 必要时作微小扰动，使 $p\cup q$ 是圈，且 $a,b\notin p\cup q$. 因为 $S\cap T$ 是 $A_{k-1}$ 与 $A_k$ 的公共端点，它是单点集，落在 $p\cup q$ 的某一侧. 于是引理3给出连接 $a,b$ 并避开 $S\cup T$ 的圈路径，归纳完成. 取 $k=n$ 即得所需结论.</p>
@@ -126,8 +126,8 @@ a=a_1,\quad b=a_2,\quad S=J_3,\quad s=s_3,\quad T=J_1\cup J_2,\quad t=s_1\cup s_
 $$</p>
 
 <figure class="blog-figure">
-<img src="../../record/img/2026/jordan-three-arcs.svg" alt="三段弧与三条圈路径" style="width:80%">
-<figcaption class="picture_label">图5. 三段弧 $J_1,J_2,J_3$ 与三条圈路径 $s_1,s_2,s_3$</figcaption>
+<img src="../../record/img/2026/jordan-three-arcs.png" alt="至多两个分支的构造" style="width:100%">
+<figcaption class="picture_label">图5. 至多两个分支中的 $S,T,s,t$ 与 $a,b$</figcaption>
 </figure>
 
 <p>$s_3$ 避开 $J_1\cup J_2$，故 $s\cap T=\varnothing$；$s_1$ 与 $s_2$ 都避开 $J_3$，故 $t\cap S=\varnothing$. 又有 $S\cap T=\{u_1,u_2\}$，而 $s\cup t=C$. 所以引理3给出连接 $a_1$ 与 $a_2$ 并避开 $S\cup T=J$ 的圈路径. 于是 $a_1$ 与 $a_2$ 落在 $\mathbb R^2-J$ 的同一个分支中.</p>
@@ -158,7 +158,7 @@ $$</p>
 
 <ol>
 <li>J. W. Alexander, <i>A proof of Jordan's Theorem on Simple Curves</i>, Annals of Mathematics <b>21</b> (1920), 37&ndash;42.</li>
-<li>R. E. Schwartz, <i>Illustrated Proof of the Jordan Curve Theorem</i>, 讲义.</li>
+<li>R. E. Schwartz, <i>Illustrated Proof of the Jordan Curve Theorem</i>, 讲义. 本文插图取自该讲稿.</li>
 </ol>
 
 </div>
