@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-labelledby="title desc">
+  <rect width="700" height="420" fill="#fff"/>
+  <title id="title">圈的两侧与圈路径的奇偶性</title>
+  <desc id="desc">左图为一个方格圈 C，它的有界侧填红、无界侧填蓝. 一条圈路径 c 与 C 相交两次，两个端点都落在 C 的外侧. 右图说明两个圈的模 2 和把公共边消去.</desc>
+
+  <!-- ================= left: the two sides of a cycle ================= -->
+  <g>
+    <rect x="50" y="52" width="240" height="288" fill="#c9d8f6"/>
+    <rect x="110" y="112" width="120" height="120" fill="#f6c9c9"/>
+
+    <!-- grid cycle C -->
+    <g fill="none" stroke="#111" stroke-width="2.4">
+      <path d="M 50 52 L 290 52 L 290 340 L 50 340 Z"/>
+      <path d="M 110 112 L 230 112"/>
+      <path d="M 170 52 L 170 112"/>
+      <path d="M 230 112 L 230 232"/>
+      <path d="M 110 232 L 230 232"/>
+    </g>
+    <g fill="#111">
+      <circle cx="170" cy="52" r="3.4"/>
+      <circle cx="230" cy="112" r="3.4"/>
+    </g>
+
+    <!-- cycle path c crossing C twice -->
+    <path d="M 140 60 L 140 150 L 200 150 L 200 300 L 250 300 L 250 372"
+          fill="none" stroke="#1f7a3d" stroke-width="2.6"/>
+    <g fill="#1f7a3d">
+      <circle cx="140" cy="60" r="4.5"/>
+      <circle cx="250" cy="372" r="4.5"/>
+    </g>
+    <g fill="#111">
+      <circle cx="140" cy="112" r="4.5"/>
+      <circle cx="200" cy="232" r="4.5"/>
+    </g>
+    <text x="146" y="104" font-size="14" fill="#111">+</text>
+    <text x="206" y="226" font-size="14" fill="#111">+</text>
+
+    <!-- labels -->
+    <text x="296" y="48" font-size="17" fill="#111" text-anchor="start">外侧</text>
+    <text x="170" y="192" font-size="16" fill="#c0392b" text-anchor="middle">内侧</text>
+    <text x="150" y="204" font-size="18" fill="#1f7a3d" font-style="italic">c</text>
+    <text x="264" y="92" font-size="18" fill="#111" font-style="italic">C</text>
+    <text x="60" y="392" font-size="15" fill="#111">c 与 C 相交两次，两端点同侧</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="356" y1="44" x2="356" y2="380" stroke="#ddd" stroke-width="1"/>
+
+  <!-- ================= right: mod 2 sum ================= -->
+  <g>
+    <path d="M 420 70 L 560 70 L 560 200 L 420 200 Z" fill="none" stroke="#c0392b" stroke-width="2.6"/>
+    <text x="490" y="60" font-size="18" fill="#c0392b" font-style="italic" text-anchor="middle">A</text>
+
+    <path d="M 560 70 L 680 70 L 680 200 L 560 200" fill="none" stroke="#2b4fc0" stroke-width="2.6"/>
+    <text x="640" y="60" font-size="18" fill="#2b4fc0" font-style="italic" text-anchor="middle">B</text>
+
+    <line x1="560" y1="70" x2="560" y2="200" stroke="#111" stroke-width="5"/>
+    <line x1="562" y1="130" x2="620" y2="112" stroke="#555" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="624" y="116" font-size="14" fill="#111">公共边</text>
+
+    <g fill="#111">
+      <circle cx="560" cy="70" r="4.5"/>
+      <circle cx="560" cy="200" r="4.5"/>
+    </g>
+    <text x="570" y="64" font-size="14" fill="#111">+</text>
+    <text x="570" y="220" font-size="14" fill="#111">+</text>
+
+    <!-- A + B: the shared edge is gone, the two loops still meet at those vertices -->
+    <g fill="none" stroke="#111" stroke-width="2.6">
+      <path d="M 420 280 L 560 280 L 560 340 L 420 340 Z"/>
+      <path d="M 560 280 L 680 280 L 680 340 L 560 340"/>
+    </g>
+    <g fill="#111">
+      <circle cx="560" cy="280" r="4.5"/>
+      <circle cx="560" cy="340" r="4.5"/>
+    </g>
+    <text x="492" y="272" font-size="18" fill="#111" font-style="italic" text-anchor="middle">A + B</text>
+    <text x="420" y="386" font-size="15" fill="#111">公共边 A ∩ B 在模 2 和中被消去</text>
+  </g>
+</svg>

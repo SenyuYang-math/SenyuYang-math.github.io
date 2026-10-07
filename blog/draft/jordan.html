@@ -1,0 +1,171 @@
+<html>
+<head>
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+
+<p>Jordan 曲线是单位圆在平面内的连续单射像. Jordan 定理断言，它的补集恰有两个连通分支. 这个结论直观上无法怀疑，但把它写成证明却需要工具：曲线的像可能处处不可微，也没有任何正则性可用. 本文介绍 J. W. Alexander 在 1920 年给出的证明，采用 Rich Schwartz 的讲稿 <i>Illustrated Proof of the Jordan Curve Theorem</i> 的版本：用方格上的圈替代一般拓扑曲线，从而把论证化为有限组合的计数. Alexander 的原文没有插图，Schwartz 补上了图，并简化了若干步骤.</p>
+
+<h2>记号与预备事实</h2>
+
+<p>我们用方格语言描述平面. <b>圈</b>指的是一个平面图，它的边是水平或竖直的线段，每个顶点的度数为 $2$ 或 $4$. <b>圈路径</b>指的是由水平边和竖直边组成的折线，其中不出现重复的边；若起点与终点重合，就称它为<b>圈回路</b>. 一条圈路径的端点可以取在边的内部，此时它不经过任何顶点.</p>
+
+<p>圈把平面分成两个部分，我们称为圈的两<b>侧</b>；把两侧分别看成红色和蓝色，平面就成为一个棋盘状的染色. 设圈 $C$ 与圈路径 $c$ 处于一般位置，即 $c$ 与 $C$ 的边交于内部，且这些交点互不相同. 则如下两条性质成立：</p>
+
+<ol>
+<li>$c$ 的两个端点落在 $C$ 的同一侧，当且仅当 $c\cap C$ 是偶数个点；</li>
+<li>$c$ 可以延拓为 $C$ 中的一条圈回路.</li>
+</ol>
+
+<p>第一条是对奇偶性的计数：圈路径每次穿过 $C$ 就换一次侧，故穿过次数的奇偶性决定了端点是否同侧. 第二条是 Euler 定理对平面图的直接应用：穿过 $C$ 的内部、把 $C$ 的边配对，穿过次数为偶数的路径不能把 $C$ 的某条边单独留下，从而可以补全成回路.</p>
+
+<figure class="blog-figure">
+<img src="../../record/img/2026/jordan-cycle-sides.svg" alt="圈的两侧与模2和" style="width:80%">
+<figcaption class="picture_label">图1. 圈的两侧与模 $2$ 和</figcaption>
+</figure>
+
+<p>两个圈 $A,B$ 的<b>模 $2$ 和</b> $A+B$ 的底集是 $(A\cup B)-(B\cap A)$，即在两个圈中恰出现一次的边，必要时补上新的顶点. 若 $c_1,c_2$ 是两条端点相同的圈路径，则在交点处补上顶点之后，$c_1\cup c_2$ 也可以看成一个圈，并且 $c_1+c_2$ 有意义：两条路径中重合的部分被消去.</p>
+
+<p><i>坐标矩形</i>是边长水平的实心矩形. 每个有界的圈侧都是有限个坐标矩形之并，反过来也成立. 由此得到下述逼近事实，记它为<b>圈逼近</b>：</p>
+
+<p class="thm"><b>引理1.</b> 设 $S\subset\mathbb R^2$ 紧，$\varepsilon>0$. 存在有界圈侧 $R$，使 $S\subset R^\circ$，且 $R$ 的每一点与 $S$ 的某一点的距离都小于 $\varepsilon$.</p>
+
+<p>取定 $S$ 的一个由小矩形构成的有限覆盖，再把每个小矩形放大一点即可.</p>
+
+<h2>补集至少有两个分支</h2>
+
+<p>在 $J$ 上取两点 $a,b$. 取一个正方形 $\Gamma$，使 $a,b$ 位于 $\Gamma$ 的两侧，并且 $J\cap\Gamma$ 落在 $\Gamma$ 底边的内部. 这样的 $\Gamma$ 可以通过取一个足够小的圆盘、再用它的外接正方形得到. $J$ 上连接 $a$ 与 $b$ 的两段弧记为 $J_R$ 与 $J_B$.</p>
+
+<figure class="blog-figure">
+<img src="../../record/img/2026/jordan-two-arcs.svg" alt="正方形与Jordan曲线的两段弧" style="width:80%">
+<figcaption class="picture_label">图2. 正方形 $\Gamma$ 与两段弧 $J_R,J_B$</figcaption>
+</figure>
+
+<p>$J_R\cap\Gamma$ 与 $J_B\cap\Gamma$ 是紧的，且二者不交，因此它们之间有正距离. 由引理1，可以把 $J_R$ 放在有限个红色区间的内部、把 $J_B$ 放在有限个蓝色区间的内部，并使红色与蓝色不相交. 换言之，可以把 $\Gamma$ 的底边划分为 $2n+1$ 个交替的红、蓝区间，使 $J_R$ 只与该底边的红色部分相交，$J_B$ 只与蓝色部分相交. $\Gamma$ 的其余部分可以任意染成两色；把 $\Gamma$ 中染成红色的部分记为 $\Gamma_R$，染成蓝色的部分记为 $\Gamma_B$.</p>
+
+<p class="thm"><b>定理2.</b> $\mathbb R^2-J$ 至少有两个分支.</p>
+
+<p><i>证明.</i> 反设 $\mathbb R^2-J$ 只有一个分支，即它是路径连通的. 底边的红蓝区间有 $2n$ 个分界点，我们可以用 $n$ 条绿色圈路径 $A_1,\ldots,A_n$ 把它们两两配对连接起来，这些路径都避开 $J\cup\{a,b\}$：先在 $\mathbb R^2-J$ 中任取连接这些点的路径，再把不必要的相交消去，即可做到两两不交. 记 $A=A_1\cup\cdots\cup A_n$.</p>
+
+<p>考虑两个圈 $C_R=\Gamma_R\cup A$ 与 $C_B=\Gamma_B\cup A$. 由于 $J_R$ 避开 $C_B$，点 $a$ 与 $b$ 位于 $C_B$ 的同一侧；同理，它们也位于 $C_R$ 的同一侧. 因此连接 $a,b$ 的横截圈路径 $\gamma$ 与 $C_R$ 相交偶数次，与 $C_B$ 也相交偶数次.</p>
+
+<p>另一方面，在底边的那些分界点的邻域之外，$\Gamma_R$ 与 $\Gamma_B$ 的边互不相交；在分界点处，两条边界各贡献一条边，它们在模 $2$ 和中互相抵消. 所以
+$$
+\Gamma=C_R+C_B\pmod 2.
+$$
+两条路径与 $C_R,C_B$ 的相交次数之和是偶数，故 $\gamma$ 与 $\Gamma$ 相交偶数次. 但 $a,b$ 位于 $\Gamma$ 的两侧，$\gamma$ 必须与 $\Gamma$ 相交奇数次，矛盾. 所以 $\mathbb R^2-J$ 至少有两个分支.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>绕行引理</h2>
+
+<p class="thm"><b>引理3</b> (绕行引理)<b>.</b> 设 $S,T\subset\mathbb R^2$ 紧，$a,b\in\mathbb R^2-(S\cup T)$. 设 $s,t$ 是连接 $a,b$ 的圈路径，满足 $s\cap T=t\cap S=\varnothing$，且 $C=s\cup t$ 是圈. 若 $S\cap T$ 落在 $C$ 的同一侧，则存在连接 $a,b$ 的圈路径，它避开 $S\cup T$.</p>
+
+<figure class="blog-figure">
+<img src="../../record/img/2026/jordan-detour.svg" alt="绕行引理的构造" style="width:80%">
+<figcaption class="picture_label">图3. 绕行引理中的 $S,T$ 与圈 $C^*$</figcaption>
+</figure>
+
+<p><i>证明.</i> 引理的条件在小幅度放大 $S,T$ 之后仍然成立，故由引理1，不妨设 $S,T$ 都是有界圈侧，并且只需构造一条避开 $S\cup T^\circ$ 的圈路径.</p>
+
+<p>设 $U$ 是 $C$ 的、不含 $S\cap T$ 的那一侧，令
+$$
+K=T\cap U.
+$$
+因为 $T$ 是有界圈侧，$K$ 也是有界圈侧，于是 $\partial K$ 是圈. 令
+$$
+C^*=(C+\partial K)\pmod 2.
+$$
+$C\cap T^\circ$ 的每条边都在 $K^\circ$ 中，把它们换成 $\partial K$ 上不在 $T^\circ$ 中的边，就得到 $C^*$，所以
+$$
+C^*\cap T^\circ=\varnothing.
+$$
+再由 $C\cap S=\varnothing$ 得 $C^*\cap S=\varnothing$.</p>
+
+<p>把 $s$ 延拓成 $C^*$ 中的圈回路 $s^*$，这由圈路径的延拓性质保证. 令 $C^{**}\subset C^*$ 是 $C^*-s$ 的闭包. 因为 $C^*-s\subset C^*\cap(t\cup\partial K)$，所以仍有
+$$
+C^{**}\cap(S\cup T^\circ)=\varnothing.
+$$
+于是圈路径 $t^*=s^*-s\subset C^{**}$ 连接 $a,b$，且避开 $S\cup T^\circ$. 由于 $S$ 与 $T$ 都是圈侧，$C^{**}$ 的每一点都有一个不含 $S^\circ$ 或 $T^\circ$ 的邻域，把 $t^*$ 沿这一邻域作微小扰动，就可以使它避开整个 $S\cup T$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>上面关于 $t^*$ 的描述依赖于一些选择. 另有一个直接的构造：把 $t$ 从 $a$ 到 $b$ 定向，沿 $t$ 在 $K$ 外行进，遇到 $K$ 的分支就绕行过去，直到到达 $b$. 每一步绕行之后都沿着 $t$ 更前进了一段，因此这一过程终止. 这个构造与上面的 $t^*$ 一样可用来证明引理，只是要写清楚终止性比用圈回路更费笔墨.</p>
+
+<h2>Jordan 弧定理</h2>
+
+<p class="thm"><b>定理4</b> (Jordan 弧定理)<b>.</b> 设 $A$ 是 $J$ 的一段弧，则任意 $a,b\in\mathbb R^2-A$ 都可以用 $\mathbb R^2-A$ 中的圈路径连接.</p>
+
+<p><i>证明.</i> 由紧性，可以把 $A$ 分成子弧 $A_0,\ldots,A_n$，使每个 $A_i$ 都含于一个与 $\{a,b\}$ 不交的圆盘 $Q_i$ 中.</p>
+
+<figure class="blog-figure">
+<img src="../../record/img/2026/jordan-arc-theorem.svg" alt="把弧A分成子弧" style="width:80%">
+<figcaption class="picture_label">图4. 把弧 $A$ 分成子弧</figcaption>
+</figure>
+
+<p>我们对 $k=0,1,\ldots,n$ 归纳证明：存在连接 $a,b$ 的圈路径，它避开 $A_0\cup\cdots\cup A_k$. 当 $k=0$ 时，$Q_0$ 不交 $\{a,b\}$，故由引理1可在 $Q_0$ 内取一个有界圈侧，$a,b$ 都在其中，再用 $Q_0$ 内的一条圈路径沿径向连接 $a,b$，它避开 $A_0$. 设结论对 $k-1$ 成立，取连接 $a,b$ 的圈路径 $p$ 与 $q$，分别避开 $T=A_0\cup\cdots\cup A_{k-1}$ 与 $S=A_k$. 必要时作微小扰动，使 $p\cup q$ 是圈，且 $a,b\notin p\cup q$. 因为 $S\cap T$ 是 $A_{k-1}$ 与 $A_k$ 的公共端点，它是单点集，落在 $p\cup q$ 的某一侧. 于是引理3给出连接 $a,b$ 并避开 $S\cup T$ 的圈路径，归纳完成. 取 $k=n$ 即得所需结论.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>补集至多有两个分支</h2>
+
+<p class="thm"><b>定理5.</b> $\mathbb R^2-J$ 至多有两个分支.</p>
+
+<p><i>证明.</i> 任取 $a_1,a_2,a_3\in\mathbb R^2-J$，只需证明其中两点可用 $\mathbb R^2-J$ 中的圈路径连接. 把 $J$ 分成三段弧 $J_1,J_2,J_3$，指标按模 $3$ 理解.</p>
+
+<p>对每个 $i$，由定理4，先在 $\mathbb R^2-(J_{i-1}\cup J_{i+1})$ 中取一条连接 $a_{i-1}$ 与 $a_{i+1}$ 的圈路径；再对弧 $J_{i-1}$ 与 $J_{i+1}$ 各用一次定理4，可以把这条路径换成同一条圈路径 $s_i$，它同时避开 $J_{i-1}$ 与 $J_{i+1}$. 必要时作微小扰动，使 $C=s_1\cup s_2\cup s_3$ 是圈. 令
+$$
+u_i=J_{i-1}\cap J_{i+1}.
+$$
+三个点 $u_1,u_2,u_3$ 都在 $C$ 上，其中必有两个落在 $C$ 的同一侧. 不妨设 $u_1$ 与 $u_2$ 同侧. 下面说明绕行引理的假设成立：
+$$
+a=a_1,\quad b=a_2,\quad S=J_3,\quad s=s_3,\quad T=J_1\cup J_2,\quad t=s_1\cup s_2.
+$$</p>
+
+<figure class="blog-figure">
+<img src="../../record/img/2026/jordan-three-arcs.svg" alt="三段弧与三条圈路径" style="width:80%">
+<figcaption class="picture_label">图5. 三段弧 $J_1,J_2,J_3$ 与三条圈路径 $s_1,s_2,s_3$</figcaption>
+</figure>
+
+<p>$s_3$ 避开 $J_1\cup J_2$，故 $s\cap T=\varnothing$；$s_1$ 与 $s_2$ 都避开 $J_3$，故 $t\cap S=\varnothing$. 又有 $S\cap T=\{u_1,u_2\}$，而 $s\cup t=C$. 所以引理3给出连接 $a_1$ 与 $a_2$ 并避开 $S\cup T=J$ 的圈路径. 于是 $a_1$ 与 $a_2$ 落在 $\mathbb R^2-J$ 的同一个分支中.</p>
+
+<p>由于 $a_1,a_2,a_3$ 是任取的，$\mathbb R^2-J$ 的任意三个点中有两个同属一个分支，故分支数至多 $2$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p class="thm"><b>定理6</b> (Jordan 曲线定理)<b>.</b> 设 $J\subset\mathbb R^2$ 是 Jordan 曲线，则 $\mathbb R^2-J$ 恰有两个分支.</p>
+
+<p><i>证明.</i> 由定理2与定理5即得.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>附录：关于证明的几点说明</h2>
+
+<p>上文依照 Schwartz 的讲稿展开，与他一样用圈和圈路径替代一般拓扑曲线；这是 Alexander 原文中网格论证的现代写法. 下面几点是整理过程中的补充，供读者对照原文时参考.</p>
+
+<ol>
+<li><b>关于分支的约定.</b> 本文中的分支都指路径连通分支，这也是讲稿开头的约定. 定理2的证明用到路径连通性来连接底边的分界点，定理5的结论则说明任意三点中有两点落在同一分支，因此两个方向合起来给出恰有两个路径连通分支.</li>
+<li><b>关于 $S\cap T$ 的假设.</b> 绕行引理中，若 $S\cap T=\varnothing$，则「落在 $C$ 的同一侧」无从谈起；此时可以直接取 $s$ 或 $t$ 中一条稍作扰动后的路径. 定理4与定理5中 $S\cap T$ 分别是单点集与两点集，都不会退化.</li>
+<li><b>关于定理4的归纳.</b> 归纳的关键是每一步只增加一段弧 $A_k$，并用引理3把两条分别避开 $S$ 与 $T$ 的路径合并为一条同时避开二者的路径. 若把 $A$ 的分解取得更粗，结论不受影响，因为分解只用于把 $A$ 的每段放进一个与 $\{a,b\}$ 不交的圆盘.</li>
+<li><b>关于定理5中 $s_i$ 的构造.</b> 只需 $s_i$ 避开 $J_i$，因为绕行引理要求的是 $s_3\subset\mathbb R^2-(J_1\cup J_2)$ 与 $s_1\cup s_2\subset\mathbb R^2-J_3$，这两条都已包含在 $s_i\cap J_i=\varnothing$ 之中.</li>
+<li><b>与 Alexander 对偶的关系.</b> Alexander 1920 年的这篇文章是 Alexander 对偶的前身；本文的证明不需要对偶理论，只需要方格上的奇偶计数.</li>
+</ol>
+
+<h2>参考文献</h2>
+
+<ol>
+<li>J. W. Alexander, <i>A proof of Jordan's Theorem on Simple Curves</i>, Annals of Mathematics <b>21</b> (1920), 37&ndash;42.</li>
+<li>R. E. Schwartz, <i>Illustrated Proof of the Jordan Curve Theorem</i>, 讲义.</li>
+</ol>
+
+</div>
+
+<!-- 导航栏与页脚 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-labelledby="title desc">
+  <rect width="700" height="420" fill="#fff"/>
+  <title id="title">把弧 A 分成子弧</title>
+  <desc id="desc">一段弧 A 被五个点分成四段子弧 A₀ 到 A₃，每段子弧都含在一个灰色的圆盘中，这些圆盘都不经过点 a 与 b. a 与 b 可用一条避开 A 的圈路径连接.</desc>
+
+  <!-- disks -->
+  <g fill="#f0f0f0" stroke="#888" stroke-width="1.2" stroke-dasharray="5,4">
+    <circle cx="120" cy="118" r="66"/>
+    <circle cx="243" cy="158" r="66"/>
+    <circle cx="366" cy="168" r="66"/>
+    <circle cx="489" cy="154" r="66"/>
+    <circle cx="612" cy="115" r="66"/>
+  </g>
+
+  <!-- the arc A -->
+  <path d="M 60 88 C 150 186, 240 214, 350 216 C 460 218, 560 174, 645 76"
+        fill="none" stroke="#111" stroke-width="2.6"/>
+
+  <!-- split points -->
+  <g fill="#111">
+    <circle cx="60" cy="88" r="4"/>
+    <circle cx="182" cy="144" r="4"/>
+    <circle cx="305" cy="176" r="4"/>
+    <circle cx="428" cy="178" r="4"/>
+    <circle cx="551" cy="152" r="4"/>
+    <circle cx="645" cy="76" r="4"/>
+  </g>
+
+  <!-- sub-arc labels -->
+  <g font-size="17" font-style="italic" fill="#111" text-anchor="middle">
+    <text x="114" y="106">A₀</text>
+    <text x="237" y="156">A₁</text>
+    <text x="360" y="168">A₂</text>
+    <text x="483" y="156">A₃</text>
+  </g>
+
+  <!-- disk label -->
+  <line x1="120" y1="184" x2="86" y2="236" stroke="#555" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="82" y="252" font-size="15" fill="#111" text-anchor="middle">Q₀</text>
+
+  <!-- a and b -->
+  <g fill="#c0392b">
+    <circle cx="70" cy="352" r="5"/>
+    <circle cx="636" cy="344" r="5"/>
+  </g>
+  <text x="70" y="378" font-size="18" fill="#c0392b" font-style="italic" text-anchor="middle">a</text>
+  <text x="636" y="370" font-size="18" fill="#c0392b" font-style="italic" text-anchor="middle">b</text>
+
+  <!-- suggested connecting path -->
+  <path d="M 70 352 L 70 310 L 636 310 L 636 344"
+        fill="none" stroke="#1f7a3d" stroke-width="2" stroke-dasharray="8,5"/>
+  <text x="352" y="302" font-size="15" fill="#1f7a3d" text-anchor="middle">连接 a 与 b 的圈路径</text>
+
+  <!-- note -->
+  <text x="30" y="408" font-size="15" fill="#111">每段子弧 Aᵢ 含于一个与 {a, b} 不交的圆盘 Qᵢ 中</text>
+</svg>
