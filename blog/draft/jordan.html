@@ -45,7 +45,7 @@
 
 <p><i>坐标矩形</i>是边长水平的实心矩形. 每个有界的圈侧都是有限个坐标矩形之并，反过来也成立. 由此得到下述逼近事实，记它为<b>圈逼近</b>：</p>
 
-<p class="thm"><b>引理3.</b> 设 $S\subset\mathbb R^2$ 紧，$\varepsilon>0$. 存在有界圈侧 $R$，使 $S\subset R^\circ$，且 $R$ 的每一点与 $S$ 的某一点的距离都小于 $\varepsilon$.</p>
+<p class="thm"><b>命题2.</b> 设 $S\subset\mathbb R^2$ 紧，$\varepsilon>0$. 存在有界圈侧 $R$，使 $S\subset R^\circ$，且 $R$ 的每一点与 $S$ 的某一点的距离都小于 $\varepsilon$.</p>
 
 <p>取定 $S$ 的一个由小矩形构成的有限覆盖，再把每个小矩形放大一点即可.</p>
 
@@ -58,9 +58,9 @@
 <figcaption class="picture_label">图2. 正方形 $\Gamma$ 与两段弧 $J_R,J_B$</figcaption>
 </figure>
 
-<p>$J_R\cap\Gamma$ 与 $J_B\cap\Gamma$ 是紧的，且二者不交，因此它们之间有正距离. 由引理3，可以把 $J_R$ 与 $J_B$ 分别放进有限个互不相交的区间的内部，并把这组区间分成两类，使 $J_R$ 只与第一类相交，$J_B$ 只与第二类相交. 换言之，可以把 $\Gamma$ 的底边划分为 $2n+1$ 个交替的区间，两类依次相间；把落在第一类区间上的部分记为 $\Gamma_R$，落在第二类区间上的部分记为 $\Gamma_B$，而 $\Gamma$ 的其余部分可以任意归入这两部分之一.</p>
+<p>$J_R\cap\Gamma$ 与 $J_B\cap\Gamma$ 是紧的，且二者不交，因此它们之间有正距离. 由命题2，可以把 $J_R$ 与 $J_B$ 分别放进有限个互不相交的区间的内部，并把这组区间分成两类，使 $J_R$ 只与第一类相交，$J_B$ 只与第二类相交. 换言之，可以把 $\Gamma$ 的底边划分为 $2n+1$ 个交替的区间，两类依次相间；把落在第一类区间上的部分记为 $\Gamma_R$，落在第二类区间上的部分记为 $\Gamma_B$，而 $\Gamma$ 的其余部分可以任意归入这两部分之一.</p>
 
-<p class="thm"><b>定理4.</b> $\mathbb R^2-J$ 至少有两个分支.</p>
+<p class="thm"><b>定理3.</b> $\mathbb R^2-J$ 至少有两个分支.</p>
 
 <p><i>证明.</i> 反设 $\mathbb R^2-J$ 只有一个分支，即它是路径连通的. 底边的两类区间有 $2n$ 个分界点，我们可以用 $n$ 条圈路径 $A_1,\ldots,A_n$ 把它们两两配对连接起来，这些路径都避开 $J\cup\{a,b\}$：先在 $\mathbb R^2-J$ 中任取连接这些点的路径，再把不必要的相交消去，即可做到两两不交. 记 $A=A_1\cup\cdots\cup A_n$.</p>
 
@@ -76,14 +76,14 @@ $$
 
 <h2>绕行引理</h2>
 
-<p class="thm"><b>引理2</b> (绕行引理)<b>.</b> 设 $S,T\subset\mathbb R^2$ 紧，$a,b\in\mathbb R^2-(S\cup T)$. 设 $s,t$ 是连接 $a,b$ 的圈路径，满足 $s\cap T=t\cap S=\varnothing$，且 $C=s\cup t$ 是圈. 若 $S\cap T$ 落在 $C$ 的同一侧，则存在连接 $a,b$ 的圈路径，它避开 $S\cup T$.</p>
+<p class="thm"><b>引理4</b> (绕行引理)<b>.</b> 设 $S,T\subset\mathbb R^2$ 紧，$a,b\in\mathbb R^2-(S\cup T)$. 设 $s,t$ 是连接 $a,b$ 的圈路径，满足 $s\cap T=t\cap S=\varnothing$，且 $C=s\cup t$ 是圈. 若 $S\cap T$ 落在 $C$ 的同一侧，则存在连接 $a,b$ 的圈路径，它避开 $S\cup T$.</p>
 
 <figure class="blog-figure">
 <img src="../../record/img/2026/jordan-detour.png" alt="绕行引理的构造" style="width:90%">
 <figcaption class="picture_label">图3. 绕行引理：左为 $S,T$ 与圈 $C^*$，右为 $C^{**}$ 与 $t^*$</figcaption>
 </figure>
 
-<p><i>证明.</i> 引理的条件在小幅度放大 $S,T$ 之后仍然成立，故由引理3，不妨设 $S,T$ 都是有界圈侧，并且只需构造一条避开 $S\cup T^\circ$ 的圈路径.</p>
+<p><i>证明.</i> 引理的条件在小幅度放大 $S,T$ 之后仍然成立，故由命题2，不妨设 $S,T$ 都是有界圈侧，并且只需构造一条避开 $S\cup T^\circ$ 的圈路径.</p>
 
 <p>设 $U$ 是 $C$ 的、不含 $S\cap T$ 的那一侧，令
 $$
@@ -120,13 +120,13 @@ $$
 <figcaption class="picture_label">图4. Jordan 弧定理中的 $s_1,s_2,s_3$ 与 $J_1,J_2,J_3$</figcaption>
 </figure>
 
-<p>我们对 $k=0,1,\ldots,n$ 归纳证明：存在连接 $a,b$ 的圈路径，它避开 $A_0\cup\cdots\cup A_k$. 当 $k=0$ 时，$Q_0$ 不交 $\{a,b\}$，故由引理3可在 $Q_0$ 内取一个有界圈侧，$a,b$ 都在其中，再用 $Q_0$ 内的一条圈路径沿径向连接 $a,b$，它避开 $A_0$. 设结论对 $k-1$ 成立，取连接 $a,b$ 的圈路径 $p$ 与 $q$，分别避开 $T=A_0\cup\cdots\cup A_{k-1}$ 与 $S=A_k$. 必要时作微小扰动，使 $p\cup q$ 是圈，且 $a,b\notin p\cup q$. 因为 $S\cap T$ 是 $A_{k-1}$ 与 $A_k$ 的公共端点，它是单点集，落在 $p\cup q$ 的某一侧. 于是引理2给出连接 $a,b$ 并避开 $S\cup T$ 的圈路径，归纳完成. 取 $k=n$ 即得所需结论.</p>
+<p>我们对 $k=0,1,\ldots,n$ 归纳证明：存在连接 $a,b$ 的圈路径，它避开 $A_0\cup\cdots\cup A_k$. 当 $k=0$ 时，$Q_0$ 不交 $\{a,b\}$，故由命题2可在 $Q_0$ 内取一个有界圈侧，$a,b$ 都在其中，再用 $Q_0$ 内的一条圈路径沿径向连接 $a,b$，它避开 $A_0$. 设结论对 $k-1$ 成立，取连接 $a,b$ 的圈路径 $p$ 与 $q$，分别避开 $T=A_0\cup\cdots\cup A_{k-1}$ 与 $S=A_k$. 必要时作微小扰动，使 $p\cup q$ 是圈，且 $a,b\notin p\cup q$. 因为 $S\cap T$ 是 $A_{k-1}$ 与 $A_k$ 的公共端点，它是单点集，落在 $p\cup q$ 的某一侧. 于是引理4给出连接 $a,b$ 并避开 $S\cup T$ 的圈路径，归纳完成. 取 $k=n$ 即得所需结论.</p>
 
 <p class="proof-box">$\Box$</p>
 
 <h2>补集至多有两个分支</h2>
 
-<p class="thm"><b>定理7.</b> $\mathbb R^2-J$ 至多有两个分支.</p>
+<p class="thm"><b>定理6.</b> $\mathbb R^2-J$ 至多有两个分支.</p>
 
 <p><i>证明.</i> 任取 $a_1,a_2,a_3\in\mathbb R^2-J$，只需证明其中两点可用 $\mathbb R^2-J$ 中的圈路径连接. 把 $J$ 分成三段弧 $J_1,J_2,J_3$，指标按模 $3$ 理解.</p>
 
@@ -144,15 +144,15 @@ $$</p>
 <figcaption class="picture_label">图5. 至多两个分支中的 $S,T,s,t$ 与 $a,b$</figcaption>
 </figure>
 
-<p>$s_3$ 避开 $J_1\cup J_2$，故 $s\cap T=\varnothing$；$s_1$ 与 $s_2$ 都避开 $J_3$，故 $t\cap S=\varnothing$. 又有 $S\cap T=\{u_1,u_2\}$，而 $s\cup t=C$. 所以引理2给出连接 $a_1$ 与 $a_2$ 并避开 $S\cup T=J$ 的圈路径. 于是 $a_1$ 与 $a_2$ 落在 $\mathbb R^2-J$ 的同一个分支中.</p>
+<p>$s_3$ 避开 $J_1\cup J_2$，故 $s\cap T=\varnothing$；$s_1$ 与 $s_2$ 都避开 $J_3$，故 $t\cap S=\varnothing$. 又有 $S\cap T=\{u_1,u_2\}$，而 $s\cup t=C$. 所以引理4给出连接 $a_1$ 与 $a_2$ 并避开 $S\cup T=J$ 的圈路径. 于是 $a_1$ 与 $a_2$ 落在 $\mathbb R^2-J$ 的同一个分支中.</p>
 
 <p>由于 $a_1,a_2,a_3$ 是任取的，$\mathbb R^2-J$ 的任意三个点中有两个同属一个分支，故分支数至多 $2$.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<p class="thm"><b>定理8</b> (Jordan 曲线定理)<b>.</b> 设 $J\subset\mathbb R^2$ 是 Jordan 曲线，则 $\mathbb R^2-J$ 恰有两个分支.</p>
+<p class="thm"><b>定理7</b> (Jordan 曲线定理)<b>.</b> 设 $J\subset\mathbb R^2$ 是 Jordan 曲线，则 $\mathbb R^2-J$ 恰有两个分支.</p>
 
-<p><i>证明.</i> 由定理4与定理7即得.</p>
+<p><i>证明.</i> 由定理3与定理6即得.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -161,10 +161,10 @@ $$</p>
 <p>上文依照 Schwartz 的讲稿展开，与他一样用圈和圈路径替代一般拓扑曲线；这是 Alexander 原文中网格论证的现代写法. 下面几点是整理过程中的补充，供读者对照原文时参考.</p>
 
 <ol>
-<li><b>关于分支的约定.</b> 本文中的分支都指路径连通分支，这也是讲稿开头的约定. 定理4的证明用到路径连通性来连接底边的分界点，定理4的结论则说明任意三点中有两点落在同一分支，因此两个方向合起来给出恰有两个路径连通分支.</li>
-<li><b>关于 $S\cap T$ 的假设.</b> 绕行引理中，若 $S\cap T=\varnothing$，则「落在 $C$ 的同一侧」无从谈起；此时可以直接取 $s$ 或 $t$ 中一条稍作扰动后的路径. 定理4与定理7中 $S\cap T$ 分别是单点集与两点集，都不会退化.</li>
-<li><b>关于定理4的归纳.</b> 归纳的关键是每一步只增加一段弧 $A_k$，并用引理2把两条分别避开 $S$ 与 $T$ 的路径合并为一条同时避开二者的路径. 若把 $A$ 的分解取得更粗，结论不受影响，因为分解只用于把 $A$ 的每段放进一个与 $\{a,b\}$ 不交的圆盘.</li>
-<li><b>关于定理7中 $s_i$ 的构造.</b> 只需 $s_i$ 避开 $J_i$，因为绕行引理要求的是 $s_3\subset\mathbb R^2-(J_1\cup J_2)$ 与 $s_1\cup s_2\subset\mathbb R^2-J_3$，这两条都已包含在 $s_i\cap J_i=\varnothing$ 之中.</li>
+<li><b>关于分支的约定.</b> 本文中的分支都指路径连通分支，这也是讲稿开头的约定. 定理3的证明用到路径连通性来连接底边的分界点，定理3的结论则说明任意三点中有两点落在同一分支，因此两个方向合起来给出恰有两个路径连通分支.</li>
+<li><b>关于 $S\cap T$ 的假设.</b> 绕行引理中，若 $S\cap T=\varnothing$，则「落在 $C$ 的同一侧」无从谈起；此时可以直接取 $s$ 或 $t$ 中一条稍作扰动后的路径. 定理3与定理6中 $S\cap T$ 分别是单点集与两点集，都不会退化.</li>
+<li><b>关于定理3的归纳.</b> 归纳的关键是每一步只增加一段弧 $A_k$，并用引理4把两条分别避开 $S$ 与 $T$ 的路径合并为一条同时避开二者的路径. 若把 $A$ 的分解取得更粗，结论不受影响，因为分解只用于把 $A$ 的每段放进一个与 $\{a,b\}$ 不交的圆盘.</li>
+<li><b>关于定理6中 $s_i$ 的构造.</b> 只需 $s_i$ 避开 $J_i$，因为绕行引理要求的是 $s_3\subset\mathbb R^2-(J_1\cup J_2)$ 与 $s_1\cup s_2\subset\mathbb R^2-J_3$，这两条都已包含在 $s_i\cap J_i=\varnothing$ 之中.</li>
 <li><b>与 Alexander 对偶的关系.</b> Alexander 1920 年的这篇文章是 Alexander 对偶的前身；本文的证明不需要对偶理论，只需要方格上的奇偶计数.</li>
 </ol>
 
