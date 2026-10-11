@@ -1,0 +1,498 @@
+<html>
+<head>
+<title>振荡测试函数方法</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  <i><b>按：</b>以下是 Christophe Prange 讲义 “Weak and strong convergence for PDEs” 第 1 讲的译文. 原文用带斜线的积分号表示单位环面 $\mathbb T^d$ 上的平均；译文一律写作 $\int_{\mathbb T^d}$，以区别于区域上的积分 $\int_\Omega$. 由于 $|\mathbb T^d|=1$，两者数值相同.</i>
+</p>
+<p>
+  原文：Christophe Prange, <i>Lecture 1: The Oscillating Test Function Method</i>, EDMI Bordeaux 2016, 2016 年 2 月 15 日.
+</p>
+<p>
+  作者：Christophe Prange，波尔多大学（Université de Bordeaux, 351 cours de la Libération, 33405 Talence）. 邮箱：christophe.prange@math.cnrs.fr
+</p>
+
+<p>本讲考虑散度型椭圆方程（或方程组）
+$$
+\begin{cases}
+-\nabla\cdot A(x/\varepsilon)\nabla u^\varepsilon = f, & x\in\Omega,\\
+u^\varepsilon = 0, & x\in\partial\Omega,
+\end{cases}
+\tag{1}
+$$
+其中系数是高频振荡的周期函数. 为记号简便，下面只讨论方程的情形，不过所有内容都可直接推广到方程组.</p>
+
+<p>区域 $\Omega$ 是 $\mathbb R^d$ 的紧子集，$u^\varepsilon = u^\varepsilon(x)\in\mathbb R$，$A = (A^{\alpha\beta}(y))$，$f\in L^2(\Omega)$. 假设：</p>
+
+<p>(A1) $A$ 是椭圆的，即存在 $\lambda>0$，使得对一切 $\xi\in\mathbb R^d$ 和一切 $y\in\mathbb R^d$，
+$$
+\lambda|\xi|^2\le A(y)\xi\cdot\xi\le\lambda^{-1}|\xi|^2.
+$$</p>
+
+<p>(A2) $A$ 是 $\mathbb Z^d$-周期的，即 $A = A(y)$，其中 $y\in\mathbb T^d$.</p>
+
+<h2>先验估计与一维情形</h2>
+
+<h3>先验估计</h3>
+
+<p>Dirichlet 问题 (1) 的弱形式为：对一切 $v\in H_0^1(\Omega)$，
+$$
+\int_\Omega A(x/\varepsilon)\nabla u^\varepsilon\cdot\nabla v = \int_\Omega fv.
+\tag{2}
+$$
+在弱形式中取 $v = u^\varepsilon$，Poincaré 不等式给出先验估计
+$$
+\|\nabla u^\varepsilon\|_{L^2(\Omega)}\le C\|f\|_{L^2(\Omega)},
+$$
+其中 $C = C(d,\Omega,\lambda)$.</p>
+
+<p>因此（再用一次 Poincaré 不等式）$u^\varepsilon$ 在 $H^1(\Omega)$ 中关于 $\varepsilon$ 一致有界. $H^1(\Omega)$ 到 $L^2(\Omega)$ 的紧嵌入（Rellich 定理）于是给出
+$$
+\nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ in } L^2(\Omega),\qquad
+u^{\varepsilon_k}\to u^0\ \text{ in } L^2(\Omega),\qquad
+\xi^{\varepsilon_k}:=A(x/\varepsilon_k)\nabla u^{\varepsilon_k}\rightharpoonup\xi^0\ \text{ in } L^2(\Omega),
+$$
+其中第一个和第三个是弱收敛，第二个是强收敛.</p>
+
+<p>在 (2) 中取极限，得到：对一切 $v\in H_0^1(\Omega)$，
+$$
+\int_\Omega\xi^0\cdot\nabla v = \int_\Omega fv.
+\tag{3}
+$$</p>
+
+<p><i>问题.</i> 是否存在矩阵 $A^0$，使得 $\xi^0 = A^0\nabla u^0$？</p>
+
+<p>答案并不显然. 事实上，由于 $A$ 是周期的，
+$$
+A(x/\varepsilon_k)\rightharpoonup\overline A:=\int_{\mathbb T^d}A(y)\,dy\ \text{ in } L^2(\Omega),
+$$
+且这里的收敛是弱收敛. 这一收敛不能改进为强收敛. 此外，也没有明显的关于 $\varepsilon$ 一致的先验估计可以把 $\nabla u^\varepsilon$ 的弱收敛改进为强收敛. 因此乘积
+$$
+\xi^{\varepsilon_k} = A(x/\varepsilon_k)\nabla u^{\varepsilon_k}
+$$
+是两个弱收敛序列的乘积. 先验地，
+$$
+\xi^0\ne\overline A\nabla u^0.
+$$</p>
+
+<h3>一维的特殊情形</h3>
+
+<p>在一维情形，方程给出额外的控制，从而可以把 $\xi^{\varepsilon_k}$ 的收敛从 $L^2(\Omega)$ 中的弱收敛改进为强收敛. 取 $\Omega = (0,1)$，方程成为
+$$
+\partial_x(\xi^{\varepsilon_k}) = \partial_x\bigl(A(x/\varepsilon_k)\partial_x u^{\varepsilon_k}\bigr) = f.
+\tag{4}
+$$
+与 $d\ge2$ 的情形相反，这个方程给出了 $\xi^{\varepsilon_k}$ 的整个梯度（而不只是散度）的控制：$\partial_x(\xi^{\varepsilon_k})$ 在 $L^2(\Omega)$ 中有界，结合上面的先验估计可知 $\xi^{\varepsilon_k}$ 在 $H^1(\Omega)$ 中有界. 由 Rellich 定理，我们于是推出（必要时取子列，仍记作同一记号）
+$$
+\xi^{\varepsilon_k}\to\xi^0\ \text{ in } L^2(\Omega)
+$$
+是强收敛.</p>
+
+<p>现在，由 $\xi^{\varepsilon_k}\to\xi^0$（强收敛）与 $1/A(x/\varepsilon_k)\rightharpoonup\overline{A^{-1}}$（弱收敛）的乘积得到
+$$
+\partial_x u^{\varepsilon_k} = \frac{\xi^{\varepsilon_k}}{A(x/\varepsilon_k)}\rightharpoonup\xi^0\overline{A^{-1}}.
+$$
+把这个极限与 $\partial_x u^{\varepsilon_k}\rightharpoonup\partial_x u^0$ 比较，就得到
+$$
+\xi^0 = \frac{1}{\overline{A^{-1}}}\partial_x u^0.
+$$</p>
+
+<p>我们注意到：</p>
+
+<p>(1) 极限方程与 (4) 有相同的形式，即仍是散度型椭圆方程
+$$
+-\partial_x(A^0\partial_x u^0) = f,\qquad x\in(0,1),
+$$
+其中 $A^0$ 是常数矩阵，
+$$
+A^0 := \frac{1}{\overline{A^{-1}}};
+\tag{5}
+$$</p>
+
+<p>(2) 当然，收敛的是整个序列（可能的极限只有一个），而不只是某个子列；</p>
+
+<p>(3) 即使在这个（简单的）情形，$\xi^{\varepsilon_k}$ 的极限一般也不等于两个弱极限的乘积！</p>
+
+<h2>多尺度展开与校正子的存在性</h2>
+
+<p>问题中有两个尺度：慢尺度 $x$ 和快尺度 $y = x/\varepsilon$. 假设 $u^\varepsilon$ 保持这一结构，于是猜测如下形式的展开：
+$$
+u^\varepsilon(x)\simeq u^0(x,x/\varepsilon)+\varepsilon u^1(x,x/\varepsilon)+\varepsilon^2u^2(x,x/\varepsilon)+\cdots
+$$
+其中 $u^i = u^i(x,y)$ 关于 $y$ 是 $\mathbb Z^d$-周期的. 把该展开直接代入方程 (1) 并比较 $\varepsilon$ 的各次幂，便得到一串方程：
+$$
+\begin{aligned}
+-\nabla_y\cdot A(y)\nabla_y u^0 &= 0,\\
+-\nabla_y\cdot A(y)\nabla_y u^1 &= \nabla_y\cdot A(y)\nabla_x u^0+\nabla_x\cdot A(y)\nabla_y u^0,\\
+-\nabla_y\cdot A(y)\nabla_y u^2 &= f+\nabla_y\cdot A(y)\nabla_x u^1+\nabla_x\cdot A(y)\nabla_y u^1+\nabla_x\cdot A(y)\nabla_x u^0.
+\end{aligned}
+$$</p>
+
+<p>每个方程都定义在环面 $\mathbb T^d$ 上，其中 $x$ 只是参数. 第一个方程说明 $u^0$ 是常数，即 $u^0 = u^0(x)$. 这在意料之中，因为 $u^0$ 本应表示 $u^\varepsilon$ 的平均行为. 第二个方程成为
+$$
+-\nabla_y\cdot A(y)\nabla_y u^1 = \nabla_y\cdot A(y)\nabla_x u^0 = \partial_{y_\alpha}A^{\alpha\gamma}(y)\partial_{x_\gamma}u^0.
+$$
+由线性性，可以寻找分离变量形式的 $u^1$：
+$$
+u^1(x,y) = \chi^\gamma(y)\partial_{x_\gamma}u^0(x),
+$$
+其中 $\chi = \chi^\gamma(y)\in\mathbb R$（$1\le\gamma\le d$）是如下胞元（或内部）校正子问题的解：
+$$
+-\nabla\cdot A(y)\nabla\chi^\gamma = \partial_\alpha A^{\alpha\gamma},\qquad y\in\mathbb T^d,
+\qquad\text{且}\qquad \int_{\mathbb T^d}\chi^\gamma(y)\,dy = 0.
+\tag{6}
+$$</p>
+
+<p>这个问题有唯一的弱解，唯一性来自 Poincaré–Wirtinger 不等式：对一切 $\varphi\in H^1(\mathbb T^d)$，
+$$
+\left\|\varphi-\int_{\mathbb T^d}\varphi\right\|_{L^2(\mathbb T^d)}\le C\|\nabla\varphi\|_{L^2(\mathbb T^d)}.
+$$</p>
+
+<p>注意到函数 $y_\gamma+\chi^\gamma(y)$ 满足
+$$
+-\nabla\cdot A(y)\nabla(y_\gamma+\chi^\gamma) = 0,\qquad y\in\mathbb R^d.
+$$
+我们称 $y_\gamma+\chi^\gamma$ 是 $A$-线性的函数. 作尺度变换，得到
+$$
+-\nabla\cdot A(x/\varepsilon)\nabla\bigl(x_\gamma+\varepsilon\chi^\gamma(x/\varepsilon)\bigr) = 0,\qquad x\in\mathbb R^d.
+\tag{7}
+$$</p>
+
+<p>还需考察这一系列方程中的最后一个（当然，这个过程可以无限进行下去）. 左端的 $-\nabla_y\cdot A(y)\nabla_y u^2(x,y)$ 作为 $y$ 的函数是周期的，因此
+$$
+\begin{aligned}
+0 &= -\int_{\mathbb T^d}\{\nabla_y\cdot A(y)\nabla_y u^2\}\,dy\\
+&= \int_{\mathbb T^d}\{f+\nabla_y\cdot A(y)\nabla_x u^1+\nabla_x\cdot A(y)\nabla_y u^1+\nabla_x\cdot A(y)\nabla_x u^0\}\\
+&= f(x)+\int_{\mathbb T^d}\{A^{\alpha\beta}(y)\partial_{y_\beta}\chi^\gamma(y)\partial_{x_\alpha}\partial_{x_\gamma}u^0(x)+A^{\alpha\beta}(y)\partial_{x_\alpha}\partial_{x_\beta}u^0(x)\}\,dy.
+\end{aligned}
+$$
+最终得到
+$$
+-\int_{\mathbb T^d}\{A^{\alpha\gamma}(y)\partial_{y_\gamma}\chi^\beta(y)+A^{\alpha\beta}(y)\}\,\partial_{x_\alpha}\partial_{x_\beta}u^0(x) = f(x),\qquad x\in\Omega,
+$$
+或者写成更紧凑的形式
+$$
+-\nabla\cdot A^0\nabla u^0 = f(x),\qquad x\in\Omega,
+$$
+其中
+$$
+A^0 := \int_{\mathbb T^d}\{A^{\alpha\gamma}(y)\partial_{y_\gamma}\chi^\beta(y)+A^{\alpha\beta}(y)\}\,dy
+$$
+是常值的均匀化矩阵.</p>
+
+<p><b>注1</b> ($d=1$ 时的校正子)<b>.</b> 在一维情形 $d = 1$，显然有
+$$
+\partial_y\chi(y) = \frac{C_1}{A(y)}-1.
+$$
+还需计算常数 $C_1$. 利用 $\chi$ 的周期性，有
+$$
+0 = \int_{\mathbb T^d}\partial_y\chi(y)\,dy = C_1\overline{A^{-1}}-1,
+$$
+故
+$$
+C_1 = \frac{1}{\overline{A^{-1}}}.
+$$
+把 $A(y)\partial_y\chi$ 的表达式代回，就重新得到 (5) 中的 $A^0$ 的公式.</p>
+
+<h2>振荡测试函数方法</h2>
+
+<p>如上所述，乘积 $\xi^{\varepsilon_k} = A(x/\varepsilon_k)\nabla u^{\varepsilon_k}$ 是两个弱收敛序列的乘积. 除了一维情形之外，似乎没有简单的办法把这些收敛从弱收敛改进为强收敛. 下面我们去掉下标 $k$，直接写作 $\varepsilon$.</p>
+
+<p>Tartar 在 70 年代末提出并发展了一个处理这种情形（以及许多其他情形）的基本想法（Tartar 1977 年 Cours Peccot，见 Murat 与 Tartar 的 <i>H-Convergence</i> [CK97]）. 我们在弱形式 (2) 中取特殊的测试函数，即振荡测试函数，它们的行为模仿 $u^\varepsilon$ 的行为.</p>
+
+<p>关于振荡测试函数方法（也称能量方法）的两个（众多中的）参考文献是 Cioranescu 与 Donato 的书 [CD99]，特别是其中的第 8 章，以及 Evans 的书 [Eva90]，特别是其中的第 5.A.2 节.</p>
+
+<p>(1) 设 $\chi^*$ 是伴随方程的胞元校正子
+$$
+-\nabla\cdot A^*(y)\nabla\chi^{*,\gamma} = \partial_\alpha A^{\gamma\alpha},\qquad y\in\mathbb T^d,
+\qquad\text{且}\qquad \int_{\mathbb T^d}\chi^{*,\gamma}(y)\,dy = 0.
+\tag{8}
+$$
+令 $v^\varepsilon = v^\varepsilon(x) := x_\gamma+\varepsilon\chi^{*,\gamma}(x/\varepsilon)$. 对 $\varphi\in C_c^\infty(\Omega)$，取 $v = \varphi v^\varepsilon$. 由 (7)，
+$$
+-\nabla\cdot A^*(x/\varepsilon)\nabla v^\varepsilon = 0\ \text{ in } \Omega.
+$$
+当 $A$ 对称时，可以认为 $v^\varepsilon(x)$ 的振荡模仿了 $u^\varepsilon$ 的振荡（至少在远离边界处）. 注意
+$$
+v^\varepsilon\longrightarrow x_\gamma\ \text{ in } L^2(\Omega)
+$$
+是强收敛，并且
+$$
+\begin{aligned}
+(A^*(x/\varepsilon)\nabla v^\varepsilon)_\alpha &= A^{*\alpha\gamma}(x/\varepsilon)+A^{*\alpha\beta}(x/\varepsilon)\partial_{y_\beta}\chi^{*,\gamma}(x/\varepsilon)\\
+&\rightharpoonup \overline{A^{*\alpha\gamma}}+\overline{A^{*\alpha\beta}\partial_{y_\beta}\chi^{*,\gamma}} = \int_{\mathbb T^d}A^{*\alpha\gamma}(y)+A^{*\alpha\beta}(y)\partial_{y_\beta}\chi^{*,\gamma}(y)\,dy.
+\end{aligned}
+$$</p>
+
+<p>(2) 取如上测试函数 $v = \varphi v^\varepsilon$，得到
+$$
+\int_\Omega A(x/\varepsilon)\nabla u^\varepsilon\cdot\nabla\varphi v^\varepsilon+\int_\Omega A(x/\varepsilon)\nabla u^\varepsilon\cdot\nabla v^\varepsilon\varphi = \int_\Omega f\varphi v^\varepsilon.
+\tag{9}
+$$
+上式右端的极限容易求出：
+$$
+\int_\Omega f\varphi v^\varepsilon\longrightarrow\int_\Omega f\varphi x_\gamma.
+$$
+由 $v^\varepsilon$ 的强收敛，有
+$$
+\int_\Omega A(x/\varepsilon)\nabla u^\varepsilon\cdot\nabla\varphi v^\varepsilon\longrightarrow\int_\Omega\xi^0\cdot\nabla\varphi x_\gamma.
+$$
+还需在 (9) 左端第二项中取极限. 分部积分并利用 $v^\varepsilon$ 是 $A^*$-线性的，得到
+$$
+\begin{aligned}
+\int_\Omega A(x/\varepsilon)\nabla u^\varepsilon\cdot\nabla v^\varepsilon\varphi &= -\int_\Omega u^\varepsilon A^*(x/\varepsilon)\nabla v^\varepsilon\cdot\nabla\varphi\\
+&\longrightarrow-\int_\Omega u^0\left(\overline{A^{*\alpha\gamma}}+\overline{A^{*\alpha\beta}\partial_{y_\beta}\chi^{*,\gamma}}\right)\partial_{x_\alpha}\varphi = \int_\Omega\left(\overline{A^{*\alpha\gamma}}+\overline{A^{*\alpha\beta}\partial_{y_\beta}\chi^{*,\gamma}}\right)\partial_{x_\alpha}u^0\varphi.
+\end{aligned}
+$$
+于是
+$$
+\int_\Omega\xi^0\cdot\nabla\varphi x_\gamma+\int_\Omega\left(\overline{A^{*\alpha\gamma}}+\overline{A^{*\alpha\beta}\partial_{y_\beta}\chi^{*,\gamma}}\right)\partial_{x_\alpha}u^0\varphi = \int_\Omega f\varphi x_\gamma.
+$$</p>
+
+<p>(3) 现在在弱形式 (3) 中取 $v(x) = x_\gamma\varphi$，得到
+$$
+\int_\Omega f\varphi x_\gamma = \int_\Omega\xi^0\cdot\nabla\varphi x_\gamma+\int_\Omega\xi^{0,\gamma}\varphi.
+$$</p>
+
+<p>(4) 最终得到
+$$
+\int_\Omega\left(\overline{A^{*\alpha\gamma}}+\overline{A^{*\alpha\beta}\partial_{y_\beta}\chi^{*,\gamma}}\right)\partial_{x_\alpha}u^0\varphi = \int_\Omega\xi^{0,\gamma}\varphi,
+$$
+即
+$$
+\xi^{0,\gamma} = \left(\overline{A^{*\alpha\gamma}}+\overline{A^{*\alpha\beta}\partial_{y_\beta}\chi^{*,\gamma}}\right)\partial_{x_\alpha}u^0 = A^{0,\gamma\alpha}\partial_{x_\alpha}u^0,
+$$
+证毕.</p>
+
+<p>可以证明
+$$
+\left(\overline{A^{*\alpha\gamma}}+\overline{A^{*\alpha\beta}\partial_{y_\beta}\chi^{*,\gamma}}\right) = \left(\overline{A^{\gamma\alpha}}+\overline{A^{\gamma\beta}\partial_{y_\beta}\chi^\alpha}\right),
+$$
+因此最终
+$$
+A^0 := \overline A+\overline{A\nabla\chi}.
+$$
+此外，由于
+$$
+-\int_{\mathbb T^d}\nabla\cdot A(y)\nabla\chi^\beta\chi^\alpha\,dy = -\int_{\mathbb T^d}A^{\gamma\beta}(y)\partial_{y_\gamma}\chi^\alpha,
+$$
+我们有
+$$
+\begin{aligned}
+&\int_{\mathbb T^d}A(y)\nabla(y_\beta+\chi^\beta)\cdot\nabla(y_\alpha+\chi^\alpha)\,dy\\
+&= -\int_{\mathbb T^d}\nabla\cdot A(y)\nabla\chi^\beta\chi^\alpha\,dy+\int_{\mathbb T^d}A^{\alpha\gamma}(y)\partial_{y_\gamma}\chi^\beta\,dy+\int_{\mathbb T^d}A^{\gamma\beta}(y)\partial_{y_\gamma}\chi^\alpha\,dy+\int_{\mathbb T^d}A^{\alpha\beta}(y)\,dy\\
+&= A^{0,\alpha\beta}.
+\end{aligned}
+$$
+因此 $A^0$ 是椭圆的：对一切 $\eta,\hat\eta\in\mathbb R^d$，
+$$
+A\eta\cdot\hat\eta+A\hat\eta\cdot\eta\ge\frac2\lambda\eta\cdot\hat\eta,
+$$
+于是
+$$
+\begin{aligned}
+A^{0,\alpha\beta}\xi_\alpha\xi_\beta &= \int_{\mathbb T^d}A(y)\nabla(y_\beta+\chi^\beta)\xi_\beta\cdot\nabla(y_\alpha+\chi^\alpha)\xi_\alpha\,dy\\
+&= \sum_{\alpha\le\beta}\int_{\mathbb T^d}\left\{A(y)\nabla(y_\beta+\chi^\beta)\xi_\beta\cdot\nabla(y_\alpha+\chi^\alpha)\xi_\alpha+A(y)\nabla(y_\alpha+\chi^\alpha)\xi_\alpha\cdot\nabla(y_\beta+\chi^\beta)\xi_\beta\right\}dy\\
+&\ge\frac1\lambda\sum_{\alpha,\beta}\int_{\mathbb T^d}\nabla(y_\beta+\chi^\beta)\xi_\beta\cdot\nabla(y_\alpha+\chi^\alpha)\xi_\alpha\,dy = \frac1\lambda\int_{\mathbb T^d}|\nabla(y_\alpha+\chi^\alpha)\xi_\alpha|^2\\
+&\ge\frac1\lambda\left|\int_{\mathbb T^d}\nabla(y_\alpha+\chi^\alpha)\xi_\alpha\right|^2 = \frac1\lambda|\xi|^2,
+\end{aligned}
+$$
+最后一行用到 Jensen 不等式.</p>
+
+<p>我们证明了下述定理：</p>
+
+<p class="thm"><b>定理1.</b> 方程 (1) 的解族 $u^\varepsilon$ 在 $H_0^1(\Omega)$ 中弱收敛、在 $L^2(\Omega)$ 中强收敛到如下问题的解 $u^0$：
+$$
+\begin{cases}
+-\nabla\cdot A^0\nabla u^0 = f, & x\in\Omega,\\
+u^0 = 0, & x\in\partial\Omega.
+\end{cases}
+\tag{10}
+$$</p>
+
+<p>几点评论：</p>
+
+<p>(1) 注记：振荡测试函数方法用起来十分有效，也很容易；</p>
+
+<p>(2) 收敛性问题变成：在更一般的情形（$A$ 不是周期的，而是拟周期、几乎周期或随机的；多孔介质）中，如何构造合适的振荡测试函数（特别是其中的振荡部分 $v^\varepsilon$）？</p>
+
+<p>(3) 证明的关键点是 $v^\varepsilon\to x_\gamma$ 在 $L^2(\Omega)$ 中的强收敛. 这是 $\chi^*$ 有界的推论（次线性就足够了）.</p>
+
+<h2>误差估计</h2>
+
+<p>我们的目标是估计余项
+$$
+r^\varepsilon(x) := u^\varepsilon(x)-u^0(x)-\varepsilon\chi(x/\varepsilon)\cdot\nabla u^0(x).
+$$
+我们有
+$$
+\begin{aligned}
+\nabla r^\varepsilon(x) &= \nabla u^\varepsilon(x)-\nabla u^0(x)-\nabla_y\chi(x/\varepsilon)\cdot\nabla u^0(x)-\varepsilon\chi(x/\varepsilon)\cdot\nabla^2u^0(x),\\
+A(x/\varepsilon)\nabla r^\varepsilon(x) &= A(x/\varepsilon)\nabla u^\varepsilon(x)-A(x/\varepsilon)\nabla u^0(x)\\
+&\qquad -A(x/\varepsilon)\nabla_y\chi(x/\varepsilon)\cdot\nabla u^0(x)-A(x/\varepsilon)\chi(x/\varepsilon)\cdot\nabla^2u^0(x),
+\end{aligned}
+$$
+以及
+$$
+\begin{aligned}
+-\nabla\cdot A(x/\varepsilon)\nabla r^\varepsilon(x) &= f(x)+\frac1\varepsilon(\nabla_y\cdot A(x/\varepsilon))\nabla u^0(x)+A(x/\varepsilon)\cdot\nabla^2u^0(x)\\
+&\qquad+\frac1\varepsilon\{\nabla\cdot(A(y)\nabla\chi)\}(x/\varepsilon)\nabla u^0(x)+A(x/\varepsilon)\nabla\chi(x/\varepsilon)\cdot\nabla^2u^0(x)\\
+&\qquad+\varepsilon\nabla\cdot\{A(x/\varepsilon)\chi(x/\varepsilon)\cdot\nabla^2u^0(x)\}.
+\end{aligned}
+$$</p>
+
+<p>现在，$\varepsilon^{-1}$ 阶的项消失，因为 $\chi$ 是胞元校正子方程 (6) 的解. 因此，
+$$
+\begin{aligned}
+-\nabla\cdot A(x/\varepsilon)\nabla r^\varepsilon(x) &= f(x)+\{A^{\alpha\beta}(x/\varepsilon)+A^{\alpha\gamma}(x/\varepsilon)\partial_{y_\gamma}\chi^\beta(x/\varepsilon)\}\partial_{x_\alpha}\partial_{x_\beta}u^0(x)\\
+&\qquad+\varepsilon\nabla\cdot\{A(x/\varepsilon)\chi(x/\varepsilon)\cdot\nabla^2u^0(x)\}.
+\end{aligned}
+$$</p>
+
+<p>对 $1\le\alpha,\beta\le d$，令
+$$
+\psi_{\alpha\beta}(y) := A^{\alpha\beta}(y)+A^{\alpha\gamma}(y)\partial_{y_\gamma}\chi^\beta(y).
+$$
+注意
+$$
+\int_{\mathbb T^d}\psi_{\alpha\beta}\partial_{x_\alpha}\partial_{x_\beta}u^0(x) = \nabla\cdot A^0\nabla u^0(x) = -f(x),
+$$
+于是
+$$
+\psi_{\alpha\beta}(x/\varepsilon)\partial_{x_\alpha}\partial_{x_\beta}u^0(x) = \left\{\psi_{\alpha\beta}(x/\varepsilon)-\int_{\mathbb T^d}\psi_{\alpha\beta}\right\}\partial_{x_\alpha}\partial_{x_\beta}u^0(x)-f(x).
+$$
+最终
+$$
+-\nabla\cdot A(x/\varepsilon)\nabla r^\varepsilon(x) = \left\{\psi_{\alpha\beta}(x/\varepsilon)-\int_{\mathbb T^d}\psi_{\alpha\beta}\right\}\partial_{x_\alpha}\partial_{x_\beta}u^0(x)+\varepsilon\nabla\cdot\{A(x/\varepsilon)\chi(x/\varepsilon)\cdot\nabla^2u^0(x)\}.
+\tag{11}
+$$</p>
+
+<p>我们需要处理上式右端的第一项，说明它实际上是 $\varepsilon$ 阶的.</p>
+
+<p class="thm"><b>引理2.</b> 设 $F = F(y)\in\mathbb R^d$ 是 $L^2(\mathbb T^d)$ 函数，满足
+$$
+\int_{\mathbb T^d}F = 0,\qquad \nabla\cdot F = 0.
+$$
+则存在 $W_{\alpha\beta}\in H^1(\mathbb T^d)$，使得
+$$
+W_{\alpha\beta} = -W_{\beta\alpha},\qquad F_\beta = \partial_{y_\alpha}W_{\alpha\beta}.
+$$</p>
+
+<p><i>证明.</i> 对每个 $1\le\alpha\le d$，设 $f_\alpha\in H^2(\mathbb T^d)$ 是
+$$
+\Delta f_\alpha = F_\alpha,\qquad y\in\mathbb T^d,\qquad \int_{\mathbb T^d}f_\alpha = 0
+$$
+的解. 注意 $\nabla\cdot F = 0$ 说明 $\nabla\cdot f$ 是常数. 现在令
+$$
+W = \operatorname{curl}f,\qquad\text{即对一切 } 1\le\alpha,\beta\le d,\quad W_{\alpha\beta} := \partial_{y_\alpha}f_\beta-\partial_{y_\beta}f_\alpha.
+$$
+显然 $W_{\alpha\beta} = -W_{\beta\alpha}$，且
+$$
+\partial_{y_\alpha}W_{\alpha\beta} = \partial_{y_\alpha}\partial_{y_\alpha}f_\beta-\partial_{y_\beta}\partial_{y_\alpha}f_\alpha = \Delta f_\beta = F_\beta,
+$$
+证毕.</p>
+<p class="proof-box">$\Box$</p>
+
+<p>胞元校正子方程 (6) 蕴含
+$$
+\partial_{y_\alpha}\left(\psi_{\alpha\beta}-\int_{\mathbb T^d}\psi_{\alpha\beta}\right) = 0,
+$$
+并且
+$$
+\int_{\mathbb T^d}\left(\psi_{\alpha\beta}-\int_{\mathbb T^d}\psi_{\alpha\beta}\right) = 0.
+$$
+因此，对固定的 $\beta$，可以对
+$$
+F = \psi_{\cdot\beta}-\int_{\mathbb T^d}\psi_{\cdot\beta}
+$$
+应用引理，得到 $\Psi_{\gamma\alpha\beta}(y)$ 的存在性，使得
+$$
+\psi_{\alpha\beta}-\int_{\mathbb T^d}\psi_{\alpha\beta} = \partial_{y_\gamma}\Psi_{\gamma\alpha\beta},\qquad \Psi_{\gamma\alpha\beta} = -\Psi_{\alpha\gamma\beta}.
+\tag{12}
+$$</p>
+
+<p>最后，我们用 $\Psi_{\gamma\alpha\beta}$ 改写 (11) 右端的第一项：
+$$
+\begin{aligned}
+\left\{\psi_{\alpha\beta}(x/\varepsilon)-\int_{\mathbb T^d}\psi_{\alpha\beta}\right\}\partial_{x_\alpha}\partial_{x_\beta}u^0(x) &= \partial_{y_\gamma}\Psi_{\gamma\alpha\beta}(x/\varepsilon)\partial_{x_\alpha}\partial_{x_\beta}u^0(x)\\
+&= \varepsilon\partial_{x_\gamma}\left(\Psi_{\gamma\alpha\beta}(x/\varepsilon)\partial_{x_\alpha}\partial_{x_\beta}u^0(x)\right)-\varepsilon\Psi_{\gamma\alpha\beta}(x/\varepsilon)\partial_{x_\alpha}\partial_{x_\beta}\partial_{x_\gamma}u^0(x).
+\end{aligned}
+$$
+恰好，最后一项含 $u^0$ 的三阶导数，它等于零：
+$$
+\begin{aligned}
+\Psi_{\gamma\alpha\beta}(x/\varepsilon)\partial_{x_\alpha}\partial_{x_\beta}\partial_{x_\gamma}u^0(x) &= \sum_{\alpha=1}^d\sum_{\beta=1}^d\sum_{\gamma=1}^d\Psi_{\gamma\alpha\beta}(x/\varepsilon)\partial_{x_\alpha}\partial_{x_\beta}\partial_{x_\gamma}u^0(x)\\
+&= \sum_{\beta=1}^d\left\{\sum_{\alpha\lt\gamma}+\sum_{\gamma\lt\alpha}+\sum_{\alpha=\gamma}\right\} = \sum_{\beta=1}^d\left\{\sum_{\alpha\lt\gamma}-\sum_{\alpha\lt\gamma}\right\} = 0,
+\end{aligned}
+$$
+这是由于 (12) 中的第二个性质.</p>
+
+<p>概括起来，
+$$
+-\nabla\cdot A(x/\varepsilon)\nabla r^\varepsilon(x) = \varepsilon\nabla\cdot(\Psi(x/\varepsilon)\cdot\nabla^2u^0(x))+\varepsilon\nabla\cdot\{A(x/\varepsilon)\chi(x/\varepsilon)\cdot\nabla^2u^0(x)\}.
+$$</p>
+
+<p>这两项都是散度形式，因此可以分部积分. 由线性性，$r^\varepsilon$ 是 $r^\varepsilon_{int}$ 与边界层项 $u^\varepsilon_{bl}$ 之和，其中 $r^\varepsilon_{int}$ 解
+$$
+\begin{cases}
+-\nabla\cdot A(x/\varepsilon)\nabla r^\varepsilon_{int} = \varepsilon\nabla\cdot(\Psi(x/\varepsilon)\cdot\nabla^2u^0(x))+\varepsilon\nabla\cdot\{A(x/\varepsilon)\chi(x/\varepsilon)\cdot\nabla^2u^0(x)\}, & x\in\Omega,\\
+r^\varepsilon_{int} = 0, & x\in\partial\Omega,
+\end{cases}
+$$
+而 $u^\varepsilon_{bl}$ 解
+$$
+\begin{cases}
+-\nabla\cdot A(x/\varepsilon)\nabla u^\varepsilon_{bl} = 0, & x\in\Omega,\\
+u^\varepsilon_{bl} = -\chi(x/\varepsilon)\cdot\nabla u^0(x), & x\in\partial\Omega.
+\end{cases}
+$$</p>
+
+<p class="thm"><b>定理3.</b> 假设 $u^0\in H^2(\Omega)$，并且对方程的情形 $A\in L^\infty(\mathbb R^d)$，对组的情形 $A\in C^{0,\mu}(\mathbb R^d)$，$\mu>0$. 则
+$$
+\left\|u^\varepsilon-u^0-\varepsilon\chi(x/\varepsilon)\cdot\nabla u^0-\varepsilon u^{1,\varepsilon}_{bl}\right\|_{H^1(\Omega)}\lesssim\varepsilon\|u^0\|_{H^2(\Omega)}.
+$$</p>
+
+<p><b>注2.</b> 用到的校正子阶数越高，对 $u^0$ 的正则性要求就越高.</p>
+
+<p class="thm"><b>命题4.</b> 假设：
+
+(1) $\Omega$ 是 $C^2$ 类的，从而 $u^0\in H^2(\Omega)$；
+
+(2) $A$ 是 $C^{0,\mu}$ 的，$\mu>0$，从而 $\chi\in W^{1,\infty}(\mathbb R^d)$.
+
+则
+$$
+\left\|u^\varepsilon-u^0-\varepsilon\chi(x/\varepsilon)\cdot\nabla u^0\right\|_{H^1(\Omega)}\lesssim\varepsilon^{1/2}\|f\|_{L^2(\Omega)}.
+$$</p>
+
+<p>注意若 $u\in W^{1,\infty}(\Omega)$、$v\in H^1(\Omega)$，则 $uv\in H^1(\Omega)$. 因此由前一命题的假设，$\chi(\cdot/\varepsilon)\cdot\nabla u^0\in H^1(\Omega)$. 此外，
+$$
+\|u^{1,\varepsilon}_{bl}\|_{H^1(\Omega)}\lesssim\frac{1}{\varepsilon^{1/2}}\|\nabla u^0\|_{H^{3/2}(\partial\Omega)}.
+$$
+特别地，
+$$
+\nabla u^\varepsilon(x)-\nabla u^0(x)-\nabla_y\chi(x/\varepsilon)\cdot\nabla u^0(x)\to0\ \text{ in } L^2(\Omega)
+$$
+是强收敛. 这说明必须加上校正子项 $\nabla_y\chi(x/\varepsilon)\cdot\nabla u^0(x)$，才能把梯度 $\nabla u^\varepsilon$ 的弱收敛提升为 $L^2(\Omega)$ 中的强收敛.</p>
+
+<p><b>注3.</b> 构造有界的校正子（见第四讲），或者获得校正子在空间无穷远处增长方式的信息，是一个基本（且通常困难）的问题. 这类信息直接转化为误差估计. 事实上，校正子的构造与估计是误差估计证明中的主要问题. 在本讲所考虑的周期情形中，这个问题是平凡的.</p>
+
+<h2>参考文献</h2>
+
+<p>[CD99] Doina Cioranescu and Patrizia Donato. <i>An introduction to homogenization</i>, volume 17 of Oxford Lecture Series in Mathematics and its Applications. The Clarendon Press, Oxford University Press, New York, 1999.</p>
+
+<p>[CK97] Andrej Cherkaev and Robert Kohn, editors. <i>Topics in the mathematical modelling of composite materials</i>. Progress in Nonlinear Differential Equations and their Applications, 31. Birkhäuser Boston, Inc., Boston, MA, 1997.</p>
+
+<p>[Eva90] Lawrence C. Evans. <i>Weak convergence methods for nonlinear partial differential equations</i>, volume 74 of CBMS Regional Conference Series in Mathematics. Published for the Conference Board of the Mathematical Sciences, Washington, DC; by the American Mathematical Society, Providence, RI, 1990.</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>
