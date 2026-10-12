@@ -10,6 +10,7 @@ btitle[6] = "一个点能落在多少三角形中"; bdate[6] = "09/23"; bintro[6
 // btitle[7] = "Bourgain的魔法：逐点遍历定理"; bdate[7] = "09/25"; bintro[7] = "多项式遍历平均的逐点收敛，以及圆法、转移原理与多频率熵估计.";
 // btitle[8] = "振荡测试函数方法"; bdate[8] = "10/12"; bintro[8] = "周期系数椭圆方程的均匀化，振荡测试函数方法与误差估计.";
 // btitle[9] = "一个凭空出现的奇怪项"; bdate[9] = "10/12"; bintro[9] = "多孔区域上Poisson方程的均匀化，洞的大小决定了极限方程中是否出现零阶项.";
+// btitle[10] = "Šverák的反例：秩一凸但不quasiconvex的函数"; bdate[10] = "10/12"; bintro[10] = "秩一凸性不蕴含quasiconvexity，反例把一个三线性函数沿秩一直线延拓到整个矩阵空间.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 

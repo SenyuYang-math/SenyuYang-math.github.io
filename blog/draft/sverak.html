@@ -1,0 +1,206 @@
+<html>
+<head>
+<title>Šverák的反例：秩一凸但不quasiconvex的函数</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+<p>
+  <i><b>按：</b>本文是 Spencer Frei 的报告 <i>Weak convergence methods for nonlinear partial differential equations</i>（Summer 2012）第 2.3.3 节的译文，原文标题为 “Sverak example of a rank-one but not quasiconvex function”. 该报告以 L. C. Evans 的教材 [Eva90] 为主要参考，本节的内容来自 Šverák 的论文 [Šve92].</i>
+</p>
+<p>
+  <i><b>译者按：</b>原文的编号与该报告的前几节连续（定义 3、定义 4、引理 2、引理 3、定理 6），译文按本文自身的顺序重新编号. quasiconvexity 的定义在原文中写作 $\varphi\in C_c^\infty(\tilde\Omega;\mathbb R^m)$ 而对 $\Omega$ 积分，其中的 $\tilde\Omega$ 在全文中未再出现，译文改为 $\varphi\in C_c^\infty(\Omega;\mathbb R^m)$. 以下写法与原文不同，均已在该处注明：引理3 的证明中 (3) 式与随后的极限式里的自变量，引理4 的证明中二阶导数记号的统一与不等式方向，以及「$f$ 是秩一的」「$\mathbb R^s$」这两种写法. 附录中的推广与文末的附注属译者所加.</i>
+</p>
+
+<h2>引言</h2>
+
+<p>关于 quasiconvexity 与秩一凸性是否等价，曾经是一个长期未解决的问题. 本文给出 Šverák 的反例，说明答案是否定的：存在秩一凸但不 quasiconvex 的函数. 构造分三步. 第一步在 $3\times 2$ 矩阵空间的一个三维线性子空间 $L$ 上写出一个具体的函数 $f$，它在 $L$ 内沿 $L$ 的每条秩一方向都是凸的，然而用它作被积函数的变分问题在 $L$ 中已经可以取到负值. 第二步把 $f$ 延拓到整个 $M^{3\times 2}$，延拓的办法是加上两个凸的扰动项，并利用 $f$ 在 $L$ 上的三线性结构，把秩一凸性化归为有界闭集上的一个连续性论证. 第三步注意到周期函数 $W$ 的梯度 $DW$ 取值落在 $L$ 中，于是延拓后的函数沿 $DW$ 的积分仍为负值，quasiconvexity 因此不成立.</p>
+
+<h2>记号与定义</h2>
+
+<p>设 $m\ge3$，$n\ge2$，$F:M^{m\times n}\to\mathbb R$，并固定有界区域 $\Omega\subset\mathbb R^n$. 记 $|A|$ 为矩阵 $A$ 的 Frobenius 范数，即其全部元素的平方和的开方. 称矩阵 $B$ 是秩一的，是指它可以写成 $B=\eta\otimes\xi$，即 $B_{ij}=\eta_i\xi_j$.</p>
+
+<div class="thm">
+<p><b>定义1</b> (秩一凸性)<b>.</b> 称 $F$ 是秩一凸的，是指对任意的 $A,B\in M^{m\times n}$，只要 $B$ 是秩一的，映射 $t\mapsto F(A+tB)$ 就是凸函数.</p>
+</div>
+
+<div class="thm">
+<p><b>定义2</b> (quasiconvexity)<b>.</b> 称 $F$ 是 quasiconvex 的，是指对每个 $A\in M^{m\times n}$ 和一切 $\varphi\in C_c^\infty(\Omega;\mathbb R^m)$，都有
+$$\int_\Omega F(A+D\varphi)\,dx\ge\int_\Omega F(A)\,dx. \tag{1}$$</p>
+</div>
+
+<p>由 quasiconvexity 推出秩一凸性是早已知道的事实. 反过来，当 $F$ 是二次型，即 $F(A)=c_{kl}^{ij}A_j^kA_i^l$ 时，也早已知道秩一凸性确实蕴含 quasiconvexity. 至于一般的 $F$，这个问题在 Šverák 给出本文介绍的反例 [Šve92] 之前一直没有解决. 下面给出这个反例的证明.</p>
+
+<h2>等价刻画</h2>
+
+<p>在构造反例之前，先给出 quasiconvexity 的一个等价刻画：定义 2 中的紧支光滑测试函数可以用周期光滑函数代替.</p>
+
+<div class="thm">
+<p><b>引理3.</b> 设 $f$ 在 $M^{m\times n}$ 上连续. 则 $f$ 是 quasiconvex 的当且仅当对每个关于 $\mathbb Z^n$ 周期的光滑函数 $u$，都有
+$$\int_{[0,1]^n}f(A+Du)\ge\int_{[0,1]^n}f(A),\qquad A\in M^{m\times n}. \tag{2}$$</p>
+</div>
+
+<p><i>证明.</i> 若 (2) 成立，则把紧支光滑函数零延拓为 $\mathbb R^n$ 上的周期函数，即知定义 2 成立.</p>
+
+<p>反之，固定一个这样的周期光滑函数 $u$. 对 $\varepsilon\gt0$，取截断函数 $\eta_\varepsilon$ 满足
+$$
+\begin{cases}
+\eta_\varepsilon\equiv1, & x\in[\varepsilon,1-\varepsilon]^n,\\
+\eta_\varepsilon=0, & x\in\partial([0,1]^n)\ \text{的一个邻域},\\
+|D\eta_\varepsilon|\le\dfrac2\varepsilon, &
+\end{cases}
+$$
+并令
+$$u_\varepsilon(x):=\varepsilon^2\eta_\varepsilon(x)u(x/\varepsilon^2). \tag{3}$$</p>
+
+<p><b>注.</b> (3) 式原文写作 $u(x^2/\varepsilon)$，其中自变量的分母为 $\varepsilon$. 若取 $u(x/\varepsilon)$，则
+$$Du_\varepsilon=\varepsilon\bigl(u\otimes D\eta_\varepsilon\bigr)(x/\varepsilon)+\eta_\varepsilon Du(x/\varepsilon)$$
+中的扰动项只含因子 $\varepsilon$，与记 $\hat x=kx$ 之后的算式不符；按 $u(x/\varepsilon^2)$ 理解时，$\varepsilon=1/k$ 使两处因子一致，译文因此采用这一写法. 原文在引理3 的证明中把二阶导数记号 $\frac{d^2}{dt^2}$ 与一阶导数记号 $\frac{d}{dt}$ 混用，译文统一为 $\frac{d^2}{dt^2}$.</p>
+
+<p>则 $u_\varepsilon$ 光滑且支集含于 $\Omega$ 内. 下面只对 $A=0$ 证明，但对一般的 $A$ 同样适用. 由定义 2 得
+$$f(0)\le\int_{[0,1]^n}f(Du_\varepsilon(x))\,dx.$$
+证明的想法是让 $\varepsilon$ 趋于零，把 $Du$ 从中分离出来，(3) 中的 $\varepsilon$ 会在极限中抵消. 取 $\varepsilon=1/k$，把 $[0,1]^n$ 分成边长 $1/k$ 的小立方体 $\{Q_k\}$，上式就成为
+$$
+\begin{aligned}
+f(0)&\le\sum_{Q_k}\int_{Q_k}f\bigl(\varepsilon^2u\otimes D\eta_\varepsilon(x)+\eta_\varepsilon Du(x/\varepsilon^2)\bigr)\,dx\\
+&=\lim_{k\to\infty}\frac1{k^n}\sum_{\hat x\in\mathbb Z^n}\int_{[0,1]^n}f\bigl(\varepsilon^2u\otimes D\eta_\varepsilon(x+\hat x)+\eta_\varepsilon Du(x)\bigr)\,dx\\
+&=\lim_{k\to\infty}\frac1{k^n}\sum_{\hat x\in\mathbb Z^n}\int_{[0,1]^n}f(\eta_\varepsilon Du(x))=\lim_{k\to\infty}\frac1{k^n}\sum_{\hat x\in\mathbb Z^n}\int_{[0,1]^n}f(Du(x)).
+\end{aligned}
+$$
+引理证毕.</p>
+<p class="proof-box">$\Box$</p>
+
+<h2>反例：$n=2$，$m=3$</h2>
+
+<p>下面先对 $n=2$、$m=3$ 构造所需的反例，证明完成之后再说明如何推广到一般的 $n,m$.</p>
+
+<p>定义 $W:\mathbb R^2\to\mathbb R^3$ 为
+$$W(x)=\frac1{2\pi}\begin{pmatrix}\sin2\pi x_1\\ \sin2\pi x_2\\ \sin2\pi(x_1+x_2)\end{pmatrix}. \tag{4}$$
+它是光滑的周期函数，其梯度为
+$$DW(x)=\begin{pmatrix}\cos2\pi x_1 & 0\\ 0 & \cos2\pi x_2\\ \cos2\pi(x_1+x_2) & \cos2\pi(x_1+x_2)\end{pmatrix}. \tag{5}$$
+再令
+$$L=\left\{\begin{pmatrix}r & 0\\ 0 & s\\ t & t\end{pmatrix}:r,s,t\in\mathbb R\right\}, \tag{6}$$
+并在 $L$ 上定义
+$$f(x)=-rst,\qquad x=\begin{pmatrix}r & 0\\ 0 & s\\ t & t\end{pmatrix}\in L.$$
+注意 $L$ 是一个三维线性子空间，(5) 表明 $DW$ 的取值全部落在 $L$ 中.</p>
+
+<h2>$f$ 在 $L$ 上的秩一凸性</h2>
+
+<p>$L$ 中只有三个秩一方向，即
+$$B_1=\begin{pmatrix}1 & 0\\ 0 & 0\\ 0 & 0\end{pmatrix},\qquad B_2=\begin{pmatrix}0 & 0\\ 0 & 1\\ 0 & 0\end{pmatrix},\qquad B_3=\begin{pmatrix}0 & 0\\ 0 & 0\\ 1 & 1\end{pmatrix}. \tag{7}$$
+事实上，秩一矩阵的坐标满足 $x_iy_j$ 的形式，即
+$$
+\begin{cases}
+x_1y_1=a, & x_1y_2=0,\\
+x_2y_1=0, & x_2y_2=b,\\
+x_3y_1=c, & x_3y_2=c.
+\end{cases}
+$$
+在 $L$ 内求解这组方程：由 $x_2=y_2=0$ 得 $b=0$，由 $x_1=y_1=0$ 得 $a=0$，再由 $c=x_3y_1=x_3y_2$ 得 $c=0$ 或 $y_1=y_2$，于是非零解只有 $(y_1,y_2)=(1,0)$、$(0,1)$ 与 $(1,1)$ 给出的三个方向，即 (7) 中的 $B_1,B_2,B_3$.</p>
+
+<p>对 $L$ 中任意的 $A$ 与秩一的 $B_i$，$f(A+tB_i)$ 关于 $t$ 是线性的：例如 $f(A+tB_1)=-(a_{11}+t)a_{22}a_{33}$. 线性函数既凸也凹，所以 $f$ 是 $L$ 上的秩一凸函数. 原文的说法是「$f$ 在 $L$ 上是秩一的」.</p>
+
+<p>另一方面，把 (5) 代入 $f$ 得到
+$$
+\begin{aligned}
+\int_{[0,1]^2}f(DW)\,dx&=-\int_{[0,1]^2}\cos(2\pi x_1)\cos(2\pi x_2)\cos\bigl(2\pi(x_1+x_2)\bigr)\,dx_1dx_2\\
+&=-\int_{[0,1]^2}\cos^2(2\pi x_1)\cos^2(2\pi x_2)\,dx_1dx_2\\
+&\qquad+\underbrace{\int_{[0,1]^2}\sin(2\pi x_1)\cos(2\pi x_1)\sin(2\pi x_2)\cos(2\pi x_2)\,dx_1dx_2}_{=0}\\
+&\lt0=f(0).
+\end{aligned}
+$$
+其中的第二行对 $\cos(2\pi(x_1+x_2))$ 用了和角公式. 第三行中被减去的积分为零，剩下的被积函数为正，所以第二行等于 $-\frac14$. 比较 (2)（取 $A=0$、$u=W$），$f$ 在 $L$ 上不 quasiconvex：周期测试函数 $W$ 已经使 (2) 不成立. 原文在此处写道「因此 $f$ 在 $L$ 上不是 quasiconvex 的」.</p>
+
+<h2>延拓到 $M^{3\times2}$</h2>
+
+<p>现在把 $f$ 延拓到整个 $M^{3\times2}$，同时保持秩一凸性. 延拓之前先证明一个引理.</p>
+
+<div class="thm">
+<p><b>引理4.</b> 设 $L$ 与 $f$ 如上，令
+$$F(X)=f(PX)+\varepsilon|X|^2+\varepsilon|X|^4+k|X-PX|^2, \tag{8}$$
+其中 $|\cdot|^2$ 表示 $\ell^2$ 范数，即各元素平方之和，$P$ 是 $M^{3\times2}$ 到 $L$ 的正交投影，即
+$$P\begin{pmatrix}a & b\\ c & d\\ e & f\end{pmatrix}=\begin{pmatrix}a & 0\\ 0 & d\\ e & f\end{pmatrix}.$$
+则对每个 $\varepsilon\gt0$，都存在 $k$，使 $F$ 是秩一凸的.</p>
+</div>
+
+<p><i>证明.</i> 固定 $A,Y\in M^{3\times2}$. 由乘积法则以及 $|A+tY|^2=\sum(a_i+ty_i)^2$ 得到
+$$\frac{d^2}{dt^2}F(A+tY)\Big|_{t=0}=\frac{d^2}{dt^2}f(PA+tPY)\Big|_{t=0}+2\varepsilon|Y|^2+4\varepsilon|A|^2+8\varepsilon\langle A,Y\rangle^2+2k|Y-PY|^2. \tag{9}$$
+式中除 $\frac{d^2}{dt^2}f(\cdot)$ 以外各项都严格为正，我们对这一项需要一个下界. 由
+$$f(PA+tPY)=(a_{11}+ty_{11})(a_{22}+ty_{22})(a_{33}+ty_{33})$$
+求二阶导数，得到与 $A,Y\in M^{3\times2}$ 无关的常数 $c$，使得
+$$\frac{d^2}{dt^2}f(PA+tPY)\Big|_{t=0}\le c|A|\cdot|Y|^2. \tag{10}$$</p>
+
+<p><b>注.</b> (10) 式原文记为 $\ge-c|A|\cdot|Y|^2$，译文按该式在证明中的实际用法写作 $\le c|A|\cdot|Y|^2$.</p>
+
+<p>于是
+$$\frac{d^2}{dt^2}F(A+tY)\Big|_{t=0}\ge(-c|A|+4\varepsilon|A|^2)|Y|^2\ge0,$$
+其中最后一个不等号在 $|A|\ge\frac c{4\varepsilon}$ 时成立. 这一情形下 $F$ 是秩一凸的. 为证明引理，还需要说明二阶导数处处非负. 我们有
+$$\frac{d^2}{dt^2}F(A+tY)\ge\frac{d^2}{dt^2}f(PA+tPY)\Big|_{t=0}+2\varepsilon|Y|^2+2k|Y-PY|^2=:g(A,Y,k).$$
+$g$ 是连续函数. 令
+$$K:=\left\{(A,Y)\in M^{3\times2}\times M^{3\times2}:|A|\le\frac c{4\varepsilon},\ |Y|=1,\ Y\ \text{秩一}\right\}.$$
+$K$ 是 $\mathbb R^s$ 中的有界闭集，因而紧. 这里原文写作 $\mathbb R^s$，实际上 $M^{3\times2}\times M^{3\times2}$ 同构于 $\mathbb R^{12}$.</p>
+
+<p><i>断言.</i> 存在 $k_0$，使对一切 $(A,Y)\in K$ 都有 $g(A,Y,k_0)\ge\varepsilon$.</p>
+
+<p><i>断言的证明.</i> 反设不然，则对 $k=1,2,\ldots$，存在 $(A_k,Y_k)\in K$ 使 $g(A_k,Y_k)\le\varepsilon$. 由 $K$ 的紧性，取子列后 $(A_k,Y_k)\to(\hat A,\hat Y)$，于是 $k\to\infty$ 时
+$$2\varepsilon|Y_k|^2+2k|Y_k-PY_k|^2+\frac{d^2}{dt^2}f(PA_k+tPY_k)\Big|_{t=0}\le-\varepsilon.$$
+因此 $\hat Y=P\hat Y$，并且 $\frac{d^2}{dt^2}f(P\hat A+tP\hat Y)\big|_{t=0}\le-\varepsilon$. 这与 $f$ 的秩一凸性矛盾. 断言证毕.</p>
+
+<p>于是存在 $k_0$，使得对一切 $A\in M^{3\times2}$ 与一切满足 $|Y|=1$ 的秩一矩阵 $Y$，都有
+$$\frac{d^2}{dt^2}F(A+tY)\Big|_{t=0}\ge0.$$
+事实上，若 $|A|\ge\frac c{4\varepsilon}$，此式由 (9) 与 (10) 得到；若 $|A|\le\frac c{4\varepsilon}$，则 $F$ 的二阶导数不小于 $g(A,Y,k_0)$，而断言给出 $g\ge\varepsilon\gt0$. 因此对每个 $\varepsilon\gt0$，取 $k_\varepsilon=k_0$ 即可使 $F$ 秩一凸. 引理证毕.</p>
+<p class="proof-box">$\Box$</p>
+
+<h2>主要结论</h2>
+
+<div class="thm">
+<p><b>定理5.</b> 存在 $\varepsilon$ 与 $k_\varepsilon$，使 (8) 中的 $F$ 秩一凸但不 quasiconvex.</p>
+</div>
+
+<p><i>证明.</i> 前面的计算给出 $\int_{[0,1]^2}f(DW)\,dx\lt0$. 由 (5) 知 $|DW|$ 有界，所以存在 $\varepsilon\gt0$，使得
+$$\int_{[0,1]^2}\bigl(f(DW)+\varepsilon|DW|^2+\varepsilon|DW|^4\bigr)\,dx\lt0.$$
+固定这样的 $\varepsilon\gt0$，取引理4中的 $k_\varepsilon$. 于是 $F$ 秩一凸，并且由于 $DW$ 的取值已经落在 $L$ 中，
+$$F(DW)=f(DW)+\varepsilon|DW|^2+\varepsilon|DW|^4+\underbrace{k_\varepsilon|PDW-DW|^2}_{=0}.$$
+所以
+$$\int_{[0,1]^2}F(DW)=\int_{[0,1]^2}\bigl(f(DW)+\varepsilon|DW|^2+\varepsilon|DW|^4\bigr)\lt0=F(0). \tag{11}$$
+把周期函数 $W$ 代入引理3 的 (2)（取 $A=0$），(11) 说明 (2) 不成立. 因此 $F$ 在 $n=2$、$m=3$ 的情形不是 quasiconvex 的.</p>
+<p class="proof-box">$\Box$</p>
+
+<h2>附录：向一般 $n,m$ 的推广</h2>
+
+<p>设 $n\gt2$、$m\gt3$. 定义 $T:M^{m\times n}\to M^{3\times2}$ 为截取每个矩阵的左上角 $3\times2$ 块：
+$$T\begin{pmatrix}x_{11} & \cdots\\ \cdots & \cdots\end{pmatrix}=\begin{pmatrix}x_{11} & x_{12}\\ x_{21} & x_{22}\\ x_{31} & x_{32}\end{pmatrix}.$$
+若 $Y=\eta\otimes\xi$ 是秩一矩阵，则 $TY$ 是截取 $Y$ 的前三行所得，因而同样秩一. 所以 $T$ 保持秩一直线，从而 $\tilde F:M^{m\times n}\to\mathbb R$，$\tilde F(X)=F(TX)$ 是秩一凸的. 再定义 $\tilde W:\mathbb R^n\to\mathbb R^m$ 为
+$$\tilde W(x)=\frac1{2\pi}\begin{pmatrix}\sin2\pi x_1\\ \sin2\pi x_2\\ \sin2\pi(x_1+x_2)\\ 0\\ \vdots\\ 0\end{pmatrix},$$
+即把 (5) 中的 $DW$ 放在左上角的 $3\times2$ 块、其余位置取零. 于是
+$$D\tilde W=\begin{pmatrix}DW & 0\\ 0 & 0\end{pmatrix},\qquad T\,D\tilde W=DW,$$
+定理5 中的负值积分对 $\tilde F$ 与 $\tilde W$ 同样成立，故 $\tilde F$ 秩一凸但不 quasiconvex. 这就是一般 $n\gt2$、$m\gt3$ 情形的反例.</p>
+
+<h2>附注：扰动项的作用</h2>
+
+<p>以下说明属译者所加.</p>
+
+<p>(8) 中除 $f(PX)$ 以外的三项都是凸函数，把它们加到 $f$ 上不会破坏已经得到的秩一凸性，问题在于如何用它们压住 $f$ 沿秩一直线的负曲率. 三项的分工是：</p>
+
+<ul>
+<li>$\varepsilon|X|^4$ 在 $|X|$ 大时占优. 在 (9) 中它贡献 $4\varepsilon|A|^2|Y|^2+8\varepsilon\langle A,Y\rangle^2$，当 $|A|\ge c/(4\varepsilon)$ 时足以抵消 $f$ 给出的负项；</li>
+<li>$k|X-PX|^2$ 只惩罚 $L$ 之外的分量，在 $L$ 上恒为零，所以它不影响 $f$ 在 $L$ 上的取值，也不影响 (11) 的负值；</li>
+<li>$|A|\le c/(4\varepsilon)$ 这一有界范围内的情形不能靠 $|A|$ 的大小处理，只能靠 $k$ 任意大：$g$ 中的 $2k|Y-PY|^2$ 迫使反设中的 $Y_k$ 趋于 $L$，于是在极限中得到 $f$ 沿 $L$ 内一条秩一直线的负曲率，与 $f$ 的秩一凸性矛盾.</li>
+</ul>
+
+<p>因此 (8) 的效果是：把 $f$ 在 $L$ 上的三线性结构保留下来，同时用两个与 $L$ 相容的凸扰动把秩一凸性补全到整个 $M^{3\times2}$. 由于 $DW$ 的取值完全落在 $L$ 内，(11) 中的负值被完整保留，秩一凸性与 quasiconvexity 由此分离开来.</p>
+
+<h2>参考文献</h2>
+
+<p>[Eva90] Lawrence C. Evans. <i>Weak convergence methods for nonlinear partial differential equations</i>, volume 74 of CBMS Regional Conference Series in Mathematics. Published for the Conference Board of the Mathematical Sciences, Washington, DC; by the American Mathematical Society, Providence, RI, 1990.</p>
+
+<p>[Šve92] Vladimír Šverák. Rank-one convexity does not imply quasiconvexity. <i>Proceedings of the Royal Society of Edinburgh Section A: Mathematics</i>, 120(1–2):185–189, 1992.</p>
+</div>
+
+<!-- js脚本 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>
