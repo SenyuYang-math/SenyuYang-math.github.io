@@ -6,13 +6,6 @@
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<p>
-  <i><b>按：</b>本文是 Spencer Frei 的报告 <i>Weak convergence methods for nonlinear partial differential equations</i>（Summer 2012）第 2.3.3 节的译文，原文标题为 “Sverak example of a rank-one but not quasiconvex function”. 该报告以 L. C. Evans 的教材 [Eva90] 为主要参考，本节的内容来自 Šverák 的论文 [Šve92].</i>
-</p>
-<p>
-  <i><b>译者按：</b>原文的编号与该报告的前几节连续（定义 3、定义 4、引理 2、引理 3、定理 6），译文按本文自身的顺序重新编号. quasiconvexity 的定义在原文中写作 $\varphi\in C_c^\infty(\tilde\Omega;\mathbb R^m)$ 而对 $\Omega$ 积分，其中的 $\tilde\Omega$ 在全文中未再出现，译文改为 $\varphi\in C_c^\infty(\Omega;\mathbb R^m)$. 以下写法与原文不同，均已在该处注明：引理3 的证明中 (3) 式与随后的极限式里的自变量，引理4 的证明中二阶导数记号的统一与不等式方向，以及「$f$ 是秩一的」「$\mathbb R^s$」这两种写法. 附录中的推广与文末的附注属译者所加.</i>
-</p>
-
 <h2>引言</h2>
 
 <p>关于 quasiconvexity 与秩一凸性是否等价，曾经是一个长期未解决的问题. 本文给出 Šverák 的反例，说明答案是否定的：存在秩一凸但不 quasiconvex 的函数. 构造分三步. 第一步在 $3\times 2$ 矩阵空间的一个三维线性子空间 $L$ 上写出一个具体的函数 $f$，它在 $L$ 内沿 $L$ 的每条秩一方向都是凸的，然而用它作被积函数的变分问题在 $L$ 中已经可以取到负值. 第二步把 $f$ 延拓到整个 $M^{3\times 2}$，延拓的办法是加上两个凸的扰动项，并利用 $f$ 在 $L$ 上的三线性结构，把秩一凸性化归为有界闭集上的一个连续性论证. 第三步注意到周期函数 $W$ 的梯度 $DW$ 取值落在 $L$ 中，于是延拓后的函数沿 $DW$ 的积分仍为负值，quasiconvexity 因此不成立.</p>
