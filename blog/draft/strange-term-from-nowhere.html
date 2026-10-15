@@ -18,56 +18,48 @@ u^\varepsilon = 0, & x\in\partial\Omega^\varepsilon,
 \end{cases}
 \tag{1}
 $$
-其中位势项 $f\in L^2(\Omega)$. 一个自然的问题是：当孔洞越来越小，i.e. $\epsilon\to 0$ 时，方程的解 $u^\epsilon$ 的极限行为如何？洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形：</p>
+其中位势项 $f\in L^2(\Omega)$. 我们自然会问：当孔洞越来越小，i.e. $\epsilon\to 0$ 时，方程的解 $u^\epsilon$ 的极限行为如何？洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形. 本期博客基于 Cioranescu 与 Murat 的论文 <i>A Strange Term Coming from Nowhere</i>, 来探讨这一问题.</p>
 
-<p><b>(a)</b> 假设对任意 $K\subset\subset\Omega$，当 $\varepsilon$ 充分小时都有 $K\subset\Omega^\varepsilon$. 那么容易得到 $u^\varepsilon$ 收敛到 $\Omega$ 上带 Dirichlet 边界条件的 Poisson 问题的解 $u^0$.</p>
+<h2>预备</h2>
 
-<p><b>(b)</b> 假设洞的特征函数 $\chi_{T^\varepsilon}$（在 $L^\infty(\Omega)$ 中有界）在 $L^\infty(\Omega)$ 中弱星收敛到正函数 $\chi\in L^\infty$. 那么洞填满整个 $\Omega$，从而 $u^\varepsilon$ 趋于零. 事实上，把 $u^\varepsilon$ 在洞上作零延拓，对 $\varphi\in L^1(\Omega)$ 有
-$$
-\int_\Omega u^\varepsilon\varphi = \int_{\Omega^\varepsilon}u^\varepsilon\varphi = \int_\Omega\bigl(1-\chi_{\cup_{i=1}^{n_\varepsilon}T_i^\varepsilon}\bigr)u^\varepsilon\varphi,
-$$
-于是取极限得到
-$$
-\int_\Omega u^0\varphi = \int_\Omega(1-\chi)u^0\varphi,
-$$
-即
-$$
-\int_\Omega\chi u^0\varphi = 0.
-$$
-因此 $\chi u^0 = 0$；由 $\chi$ 的非负性得 $u^0 = 0$.</p>
-
-<p><b>(c)</b> 区域 $\Omega$ 被越来越多的、规则分布的洞穿孔，洞的直径趋于零. 这是最复杂也最有物理意义的情形. 这时极限可能出现不平凡的现象，这也是博客标题的来源.</p>
-
-<p>本期博客基于 Cioranescu 与 Murat 的论文 <i>A Strange Term Coming from Nowhere</i> [CK97].</p>
-  
-<h2>振荡测试函数方法的一般框架</h2>
-
-<p>本节中 $d\ge1$.</p>
-
-<p>(1) 的变分形式为：对一切 $v\in H_0^1(\Omega^\varepsilon)$，
+<p>本节中我们设 $d\ge1$. 对固定的 $\varepsilon \gt 0$, 如往常一般将 (1) 写作变分形式：对全体测试函数 $v\in H_0^1(\Omega^\varepsilon)$，
 $$
 \int_{\Omega^\varepsilon}\nabla u^\varepsilon\cdot\nabla v = \int_{\Omega^\varepsilon}fv.
 \tag{2}
 $$
-现在把任意 $v\in H_0^1(\Omega^\varepsilon)$ 在洞上作零延拓，得到 $\tilde v\in H_0^1(\Omega)$：
-$$
-\tilde v(x) = v(x)\quad (x\in\Omega^\varepsilon),\qquad \tilde v(x) = 0\quad (x\in T_i^\varepsilon).
-$$
-在本讲余下部分，我们省去波浪号.</p>
+现在把测试函数 $v\in H_0^1(\Omega^\varepsilon)$ 在洞上作零延拓，仍记为 $v\in H_0^1(\Omega)\cap H_0^1(\Omega^\varepsilon)$. 应当注意的是，在洞的边界 $\partial T_i^\varepsilon$ 上 $u^\varepsilon$ 不满足方程 (1)；在下文我们会看到 $\Delta u^\varepsilon$ 是一个 Dirac 质量.</p>
 
-<p><b>注1.</b> (2) 中的测试函数类不能扩大到整个 $H_0^1(\Omega)$：测试函数必须在洞上为零. 关键在于，把解 $u^\varepsilon$ 在洞上作零延拓后属于 $H_0^1(\Omega)$，但它在洞附近 $\partial T_i^\varepsilon$ 不满足方程. 在 $\partial T_i^\varepsilon$ 上，$\nabla u^\varepsilon$ 有跳跃，因此 $\Delta u^\varepsilon$ 是一个 Dirac 质量（确切含义将在下文说明）.</p>
-
-<p>在变分形式 (2) 中取 $v = u^\varepsilon\in H_0^1(\Omega^\varepsilon)$ 并用 Poincaré 不等式，得到先验估计
+<p>在变分形式 (2) 中取 $v = u^\varepsilon$ 并用 Poincaré 不等式，得到先验估计
 $$
 \left(\int_\Omega|\nabla u^\varepsilon|^2\right)^{1/2}\le C\|f\|_{L^2(\Omega)}.
 $$
-因此 $\|u^\varepsilon\|_{H^1(\Omega)}$ 关于 $\varepsilon$ 一致有界，由 Rellich 定理（必要时取子列）得到
+因此 $\|u^\varepsilon\|_{H^1(\Omega)}$ 关于 $\varepsilon$ 一致有界，于是存在子列 $\epsilon_k>0$, s.t.
 $$
-\nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ weakly in } L^2(\Omega),\qquad
-u^{\varepsilon_k}\to u^0\ \text{ strongly in } L^2(\Omega).
-$$</p>
+\nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ in } L^2(\Omega),\qquad
+u^{\varepsilon_k}\rightharpoonup u^0\ \text{ in } L^2(\Omega).
+$$
+于是我们的问题就是</p>
 
-<p><i>问题.</i> 能否确定极限 $u^0$？</p>
+
+<p class="thm"><b>Q.</b> 能否确定极限 $u^0$？</p>
+
+<p>可以先考虑两个平凡的情形：</p>
+
+<p><b>(a)</b> 假设对任意 $K\subset\subset\Omega$，当 $\varepsilon$ 充分小时都有 $K\subset\Omega^\varepsilon$. 那么容易得到 $u^\varepsilon$ 收敛到 $\Omega$ 上带 Dirichlet 边界条件的 Poisson 问题的解 $u^0$.</p>
+
+<p><b>(b)</b> <i>假设洞的特征函数 $\chi_{T^\varepsilon}$（在 $L^\infty(\Omega)$ 中有界）在 $L^\infty(\Omega)$ 中弱星收敛到处处为正的函数 $\chi\in L^\infty$. 那么洞填满整个 $\Omega$，从而 $u^\varepsilon$ 趋于零. 事实上，把 $u^\varepsilon$ 在洞上作零延拓，对 $\varphi\in L^1(\Omega)$ 有</i>
+$$
+\int_\Omega u^\varepsilon\varphi = \int_{\Omega^\varepsilon}u^\varepsilon\varphi = \int_\Omega\bigl(1-\chi_{\cup_{i=1}^{n_\varepsilon}T_i^\varepsilon}\bigr)u^\varepsilon\varphi,
+$$
+<i>于是取极限得到</i>
+$$
+\int_\Omega\chi u^0\varphi = 0.
+$$
+<i>由 $\chi$ 的正性得到 $u^0 = 0$.</i></p>
+
+<p>而最复杂也最有物理意义的情形是：随着 $\epsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时极限可能出现不平凡的现象，这也是博客标题的来源. 这就是所谓的 <i>匀质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现.</p>
+
+<h2>振荡测试函数方法的一般框架</h2>
 
 <p>我们在第 1 讲中看到，振荡测试函数方法在类似情形中很有用. 因此取测试函数 $v := w^\varepsilon\varphi$，其中 $\varphi\in C_c^\infty(\Omega)$（这是极限系统的测试函数，不要求在洞上为零），$w^\varepsilon$ 是校正子. 我们分两步作启发式讨论：</p>
 
