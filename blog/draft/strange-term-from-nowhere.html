@@ -6,7 +6,11 @@
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<p>本讲考虑带齐次 Dirichlet 边界条件的 Poisson 方程
+<p>设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
+$$
+\Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d.
+$$
+参数 $\epsilon>0$ 标记了孔洞的不同尺度. 我们考虑在该多孔材料上 Poisson 方程的 Dirichlet 边值问题
 $$
 \begin{cases}
 -\Delta u^\varepsilon = f, & x\in\Omega^\varepsilon,\\
@@ -14,19 +18,11 @@ u^\varepsilon = 0, & x\in\partial\Omega^\varepsilon,
 \end{cases}
 \tag{1}
 $$
-其中的区域是多孔（或穿孔）区域
-$$
-\Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d.
-$$
-源项 $f$ 属于 $L^2(\Omega)$. 有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔. 与第 1 讲不同，这里的非均匀性不在系数中，而在区域本身. 把这两种情形联系起来的一种看法是：洞内的黏性为无穷大；不过我们不采用这一观点.</p>
+其中位势项 $f\in L^2(\Omega)$. 一个自然的问题是：当孔洞越来越小，i.e. $\epsilon\to 0$ 时，方程的解 $u^\epsilon$ 的极限行为如何？洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形：</p>
 
-<p>本讲基于 Cioranescu 与 Murat 的论文 <i>A Strange Term Coming from Nowhere</i> [CK97].</p>
+<p style="padding-left:20px">(a) 假设对任意 $K\subset\subset\Omega$，当 $\varepsilon$ 充分小时都有 $K\subset\Omega^\varepsilon$. 那么容易得到 $u^\varepsilon$ 收敛到 $\Omega$ 上带 Dirichlet 边界条件的 Poisson 问题的解 $u^0$.</p>
 
-<p>洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形：</p>
-
-<p>(1) 假设对任意 $K\subset\subset\Omega$，当 $\varepsilon$ 充分小时都有 $K\subset\Omega^\varepsilon$. 那么容易得到 $u^\varepsilon$ 收敛到 $\Omega$ 上带 Dirichlet 边界条件的 Poisson 问题的解 $u^0$.</p>
-
-<p>(2) 假设洞的特征函数 $\chi_{T^\varepsilon}$（在 $L^\infty(\Omega)$ 中有界）在 $L^\infty(\Omega)$ 中弱星收敛到正函数 $\chi\in L^\infty$. 那么洞填满整个 $\Omega$，从而 $u^\varepsilon$ 趋于零. 事实上，把 $u^\varepsilon$ 在洞上作零延拓，对 $\varphi\in L^1(\Omega)$ 有
+<p style="padding-left:20px">(b) 假设洞的特征函数 $\chi_{T^\varepsilon}$（在 $L^\infty(\Omega)$ 中有界）在 $L^\infty(\Omega)$ 中弱星收敛到正函数 $\chi\in L^\infty$. 那么洞填满整个 $\Omega$，从而 $u^\varepsilon$ 趋于零. 事实上，把 $u^\varepsilon$ 在洞上作零延拓，对 $\varphi\in L^1(\Omega)$ 有
 $$
 \int_\Omega u^\varepsilon\varphi = \int_{\Omega^\varepsilon}u^\varepsilon\varphi = \int_\Omega\bigl(1-\chi_{\cup_{i=1}^{n_\varepsilon}T_i^\varepsilon}\bigr)u^\varepsilon\varphi,
 $$
@@ -40,8 +36,10 @@ $$
 $$
 因此 $\chi u^0 = 0$；由 $\chi$ 的非负性得 $u^0 = 0$.</p>
 
-<p>(3) 区域 $\Omega$ 被越来越多的、规则分布的洞穿孔，洞的直径趋于零. 这是本讲考虑的情形. 当然，$u^\varepsilon$ 趋于 $u^0$ 与 $u^\varepsilon$ 趋于 $0$ 这两个极端情形仍然可能出现. 但还存在一个中间情形：极限中出现不平凡的现象，本讲的标题即由此而来.</p>
+<p style="padding-left:20px">(c) 区域 $\Omega$ 被越来越多的、规则分布的洞穿孔，洞的直径趋于零. 这是最复杂也最有物理意义的情形. 这时极限可能出现不平凡的现象，这也是博客标题的来源.</p>
 
+<p>本期博客基于 Cioranescu 与 Murat 的论文 <i>A Strange Term Coming from Nowhere</i> [CK97].</p>
+  
 <h2>振荡测试函数方法的一般框架</h2>
 
 <p>本节中 $d\ge1$.</p>
