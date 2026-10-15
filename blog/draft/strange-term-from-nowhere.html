@@ -10,7 +10,7 @@
 $$
 \Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d.
 $$
-参数 $\epsilon>0$ 标记了孔洞的不同尺度. 我们考虑在该多孔材料上 Poisson 方程的 Dirichlet 边值问题
+参数 $\varepsilon>0$ 标记了孔洞的不同尺度. 我们考虑在该多孔材料上 Poisson 方程的 Dirichlet 边值问题
 $$
 \begin{cases}
 -\Delta u^\varepsilon = f, & x\in\Omega^\varepsilon,\\
@@ -18,7 +18,7 @@ u^\varepsilon = 0, & x\in\partial\Omega^\varepsilon,
 \end{cases}
 \tag{1}
 $$
-其中位势项 $f\in L^2(\Omega)$. 我们自然会问：当孔洞越来越小，i.e. $\epsilon\to 0$ 时，方程的解 $u^\epsilon$ 的极限行为如何？洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形. 本期博客基于 Cioranescu 与 Murat 的论文 <i>A Strange Term Coming from Nowhere</i>, 来探讨这一问题.</p>
+其中位势项 $f\in L^2(\Omega)$. 我们自然会问：当孔洞越来越小，i.e. $\varepsilon\to 0$ 时，方程的解 $u^\varepsilon$ 的极限行为如何？洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形. 本期博客基于 Cioranescu 与 Murat 的论文 <i>A Strange Term Coming from Nowhere</i>, 来探讨这一问题.</p>
 
 <h2>预备</h2>
 
@@ -33,7 +33,7 @@ $$
 $$
 \left(\int_\Omega|\nabla u^\varepsilon|^2\right)^{1/2}\le C\|f\|_{L^2(\Omega)}.
 $$
-因此 $\|u^\varepsilon\|_{H^1(\Omega)}$ 关于 $\varepsilon$ 一致有界，于是存在子列 $\epsilon_k>0$, s.t.
+因此 $\|u^\varepsilon\|_{H^1(\Omega)}$ 关于 $\varepsilon$ 一致有界，于是存在子列 $\varepsilon_k>0$, s.t.
 $$
 \nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ in } L^2(\Omega),\qquad
 u^{\varepsilon_k}\rightharpoonup u^0\ \text{ in } L^2(\Omega).
@@ -57,7 +57,7 @@ $$
 $$
 <i>由 $\chi$ 的正性得到 $u^0 = 0$.</i></p>
 
-<p>而最复杂也最有物理意义的情形是：随着 $\epsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时极限可能出现不平凡的现象，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现.</p>
+<p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时极限可能出现不平凡的现象，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现.</p>
 
 <h2>振荡测试函数方法的一般框架</h2>
 
