@@ -60,7 +60,7 @@ $$
 
 <h2>振荡测试函数</h2>
 
-<p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试函数</i> 方法，这里是该方法一个好的试验场. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varphiepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
+<p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试函数</i> 方法，这里是该方法一个好的试验场. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
 
 <p><b>(a)</b> 先确定校正子需要满足哪些性质才能在极限中看到不平凡的现象.</p>
 
@@ -121,7 +121,7 @@ $$
 $$
 \langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H^1(\Omega)}\longrightarrow\langle\mu,\varphi u^0\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},\tag{7}
 $$
-那么我们就得到以下有条件的极限定理：</p>
+那么我们就得到以下有条件的均质化定理：</p>
 
 <p class="thm"><b>定理1.</b> 假设存在一列校正子 $w^\varepsilon$ 满足 (5) (6) (7). 则存在 $u^0\in H_0^1(\Omega)$, s.t. (1) 的解族 $u^\varepsilon$ 满足
 $$
