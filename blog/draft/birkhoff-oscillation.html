@@ -327,14 +327,16 @@ m_N-\mathbf1_{[-\pi/N,\pi/N]},
 $$
 由引理5和Plancherel定理，第一项的平方和不超过 $C_\rho\|\phi\|_2^2$；第三项同理，因为 $N_{k+1}\in S_\rho$. 因此这两部分的贡献为
 $$
+\begin{aligned}
+&\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_N^S\phi-g_N*\phi|\right\|_2^2 \\
+&\quad+
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|A_N^S\phi-g_N*\phi|\right\|_2^2
-+
-\sum_{k=1}^K
-\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi|\right\|_2^2
-\le 2C_\rho\|\phi\|_2^2.
+|g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi|\right\|_2^2 \\
+&\le 2C_\rho\|\phi\|_2^2.
+\end{aligned}
 \tag{14}
 $$</p>
 
@@ -374,22 +376,25 @@ $$
 $$
 因此
 $$
-\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|(g_N-g_{N_{k+1}})*\phi|\right\|_2
-\le C_\rho\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2.
+\begin{aligned}
+&\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|(g_N-g_{N_{k+1}})*\phi|\right\|_2 \\
+&\le C_\rho\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2.
+\end{aligned}
 \tag{16}
 $$</p>
 
 <p>最后，由Plancherel定理和区间 $[-\pi/N_k,\pi/N_k]$ 的嵌套性，
 $$
-\sum_{k=1}^K
-\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2^2
-=\int_{-\pi}^{\pi}
-\sum_{k=1}^K
-\left|\mathbf1_{[-\pi/N_k,\pi/N_k]}(\theta)
--\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}(\theta)\right|^2
-|\widehat\phi(\theta)|^2\,d\theta
-\le\|\phi\|_2^2.
+\begin{aligned}
+&\sum_{k=1}^K
+\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2^2 \\
+&=\int_{-\pi}^{\pi}\sum_{k=1}^K
+\Bigl|\mathbf1_{[-\pi/N_k,\pi/N_k]}(\theta) \\
+&\qquad\qquad-\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}(\theta)\Bigr|^2
+|\widehat\phi(\theta)|^2\,d\theta \\
+&\le\|\phi\|_2^2.
+\end{aligned}
 \tag{17}
 $$
 把 (14)、(16)、(17) 代入 (13)，并用 $(a+b+c)^2\le3(a^2+b^2+c^2)$，便得到 (6). 定理3证毕.</p>
