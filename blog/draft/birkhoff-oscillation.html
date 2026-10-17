@@ -1,0 +1,354 @@
+<html>
+<head>
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+
+<p><i>按：这是Bourgain方法系列的一篇. 本文只讨论线性Birkhoff定理，依据 El Abdalaoui 对Bourgain振荡方法的整理；双线性与多项式情形不在本文范围内.</i></p>
+
+<h2>定理</h2>
+
+<p>设 $(X,\mathcal B,\mu)$ 是概率空间，$T:X\to X$ 是可逆保测变换，$\mathcal I=\{A\in\mathcal B:\mu(A\triangle T^{-1}A)=0\}$. 对 $f\in L^1(X)$，记
+$$
+A_Nf(x)=\frac1N\sum_{n=1}^N f(T^n x).
+\tag{1}
+$$</p>
+
+<p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-几乎处处收敛到 $\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
+
+<p>均方收敛由谱定理得到：$A_Nf$ 在 $L^2(X)$ 中收敛到 $Pf=\mathbb E(f|\mathcal I)$. 下面先对 $f\in L^2(X)$ 证明几乎处处收敛，再用 Hopf 极大不等式和 $L^2$ 的稠密性过渡到 $L^1(X)$. 所用的极大不等式是
+$$
+\mu\left\{x:\sup_{N\ge1}|A_Nf(x)|>\lambda\right\}
+\le\frac{C\|f\|_1}{\lambda},
+\qquad \lambda>0.
+\tag{2}
+$$
+这是标准的 Hopf 极大不等式，本文直接引用.</p>
+
+<p>证明的主线是Bourgain的振荡方法. 它把几乎处处收敛化归为一个平方和估计，再通过Calderón转移把估计放到整数平移上，最后用Fourier乘子计算证明这个估计.</p>
+
+<h2>振荡判据</h2>
+
+<p>设 $(f_N)_{N\ge1}$ 是 $L^2(X)$ 中的序列. 对整数
+$$
+1\le N_1\lt N_2\lt\cdots\lt N_{K+1},
+$$
+置
+$$
+\mathcal O_{\mathbf N,K}(f)(x)
+=\left(\sum_{k=1}^K
+\sup_{N_k\le N\lt N_{k+1}}
+|f_N(x)-f_{N_k}(x)|^2\right)^{1/2}.
+\tag{3}
+$$</p>
+
+<p class="thm"><b>引理2</b> (振荡判据)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
+$$
+\|\mathcal O_{\mathbf N,K}(f)\|_2^2
+\le C_K\|f\|_2^2.
+\tag{4}
+$$
+则 $f_N(x)$ 几乎处处收敛.</p>
+
+<p><i>证明.</i> 若结论不成立，则存在 $\varepsilon>0$ 和正测度集 $E$，使
+$$
+\limsup_Nf_N(x)-\liminf_Nf_N(x)>2\varepsilon
+$$
+对每个 $x\in E$ 成立；对复值序列分别考察实部或虚部即可. 因而对每个固定的 $M$，
+$$
+\sup_{N\ge M}|f_N(x)-f_M(x)|>\varepsilon,
+\qquad x\in E.
+$$
+任选 $N_1$. 已选定 $N_k$ 后，集合
+$$
+E_{k,L}=\left\{x\in E:
+\sup_{N_k\le N\le L}|f_N(x)-f_{N_k}(x)|>\frac\varepsilon2\right\}
+$$
+随 $L\to\infty$ 单调增至 $E$. 因此可取 $N_{k+1}\ge2N_k$，使
+$$
+\mu(E\setminus E_{k,N_{k+1}})\lt 2^{-k-1}\mu(E).
+$$
+于是 $E'=\bigcap_{k=1}^KE_{k,N_{k+1}}$ 满足 $\mu(E')\ge\mu(E)/2$，并且 (3) 在 $E'$ 上的平方不小于 $K\varepsilon^2/4$. 因此
+$$
+\frac14K\varepsilon^2\mu(E)
+\le\|\mathcal O_{\mathbf N,K}(f)\|_2^2
+\le C_K\|f\|_2^2.
+$$
+令 $K\to\infty$，这与 $C_K/K\to0$ 矛盾.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>所以问题归结为证明 (4). 下面先在整数平移上证明对应的估计.</p>
+
+<h2>Calderón转移</h2>
+
+<p>在 $\mathbb Z$ 上定义移位算子 $S\phi(x)=\phi(x+1)$，以及
+$$
+A_N^S\phi(x)=\frac1N\sum_{n=1}^N\phi(x+n).
+\tag{5}
+$$
+对 $\rho>1$，记
+$$
+S_\rho=\{[\rho^m]:m=1,2,\ldots\}.
+$$
+这是后面用到的稀疏尺度序列.</p>
+
+<p class="thm"><b>定理3</b> (离散振荡估计)<b>.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，使对每个 $\phi\in\ell^2(\mathbb Z)$、每个递增序列 $(N_k)\subset S_\rho$ 和每个 $K$ 都有
+$$
+\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_N^S\phi-A_{N_k}^S\phi|\right\|_{\ell^2(\mathbb Z)}^2
+\le C_\rho\|\phi\|_{\ell^2(\mathbb Z)}^2.
+\tag{6}
+$$</p>
+
+<p class="thm"><b>引理4</b> (转移)<b>.</b> (6) 推出动力系统上的对应估计：对每个 $f\in L^2(X)$ 和每个递增序列 $(N_k)\subset S_\rho$，
+$$
+\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_Nf-A_{N_k}f|\right\|_2^2
+\le C_\rho\|f\|_2^2.
+\tag{7}
+$$</p>
+
+<p><i>证明.</i> 固定 $J$，并对固定的 $x\in X$ 在 $\mathbb Z$ 上置
+$$
+\phi_x(n)=f(T^nx)\mathbf1_{[-J,J]}(n).
+$$
+对 $\phi_x$ 应用 (6)，再对 $x$ 积分. 当 $|n|\le J-N_{K+1}$ 时，$A_N^S\phi_x(n)$ 等于 $A_Nf(T^nx)$，至多相差把 $T$ 换成 $T^{-1}$ 的记号. 利用 $T$ 保测，得到
+$$
+(2J-2N_{K+1}+1)
+\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_Nf-A_{N_k}f|\right\|_2^2
+\le C_\rho(2J+1)\|f\|_2^2.
+$$
+令 $J\to\infty$ 即得 (7).</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>于是定理1归结为定理3. 下面用Fourier乘子证明定理3.</p>
+
+<h2>移位算子与Fourier乘子</h2>
+
+<p>对 $\phi\in\ell^2(\mathbb Z)$，定义Fourier变换
+$$
+\widehat\phi(\theta)=\sum_{n\in\mathbb Z}\phi(n)e^{-in\theta},
+\qquad \theta\in[-\pi,\pi).
+$$
+对 $N\ge1$ 置
+$$
+m_N(\theta)=\frac1N\sum_{n=1}^N e^{in\theta}.
+\tag{8}
+$$
+则
+$$
+\widehat{A_N^S\phi}(\theta)=m_N(\theta)\widehat\phi(\theta),
+\qquad
+\widehat{S\phi}(\theta)=e^{i\theta}\widehat\phi(\theta).
+\tag{9}
+$$</p>
+
+<p>再定义频率截断核 $g_N$，使
+$$
+\widehat{g_N}(\theta)=\mathbf1_{[-\pi/N,\pi/N]}(\theta).
+\tag{10}
+$$
+显式地，
+$$
+g_N(x)=\frac1{2\pi}\int_{-\pi/N}^{\pi/N}e^{ix\theta}\,d\theta
+=\frac{\sin(\pi x/N)}{\pi x}\quad(x\ne0),
+\qquad
+g_N(0)=\frac1N.
+\tag{11}
+$$
+于是 $g_N*\phi$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}$，它是一个在尺度 $N$ 上的光滑平均.</p>
+
+<p>还需要移位算子的极大不等式. 对 $r>1$，有
+$$
+\left\|\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|\right\|_{\ell^r(\mathbb Z)}
+\le C_r\|\phi\|_{\ell^r(\mathbb Z)}.
+\tag{12}
+$$
+这是Hardy--Littlewood极大不等式在 $\mathbb Z$ 上的形式；以下只用 $r=2$ 的情形.</p>
+
+<h2>Fourier级数估计</h2>
+
+<p>这一节证明定理3所需的关键乘子估计.</p>
+
+<p class="thm"><b>引理5</b> (乘子级数)<b>.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，使对每个 $\theta\in[-\pi,\pi)$ 都有
+$$
+\sum_{N\in S_\rho}
+\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2
+\le C_\rho.
+\tag{13}
+$$</p>
+
+<p><i>证明.</i> 不妨设 $\theta\ne0$；$\theta=0$ 时每一项都为零. 把 $N\in S_\rho$ 按 $N|\theta|$ 分成三段.</p>
+
+<p>第一段：$N|\theta|\le1$. 此时 $\mathbf1_{[-\pi/N,\pi/N]}(\theta)=1$，并且
+$$
+|m_N(\theta)-1|
+=\left|\frac1N\sum_{n=1}^N(e^{in\theta}-1)\right|
+\le N|\theta|.
+$$
+所以相应的平方不超过 $N^2|\theta|^2$. 因为 $S_\rho$ 是几何序列，满足 $N|\theta|\le1$ 的项之和被最大的 $N$ 控制，至多 $C_\rho$.</p>
+
+<p>第二段：$1\le N|\theta|\le\pi$. 在这个范围内，$S_\rho$ 只有 $O_\rho(1)$ 个元素. 另一方面，
+$$
+|m_N(\theta)|\le\frac1N\frac{1}{|\sin(\theta/2)|}
+\le\frac{\pi}{N|\theta|}\le\pi,
+$$
+并且 $|m_N-1|\le1+|m_N|\le1+\pi$. 所以这一段的总和也被 $C_\rho$ 控制.</p>
+
+<p>第三段：$N|\theta|>\pi$. 此时 $|\theta|>\pi/N$，故 $\mathbf1_{[-\pi/N,\pi/N]}(\theta)=0$，而且
+$$
+|m_N(\theta)|
+\le\frac1N\frac{1}{|\sin(\theta/2)|}
+\le\frac{\pi}{N|\theta|}.
+$$
+所以相应的平方不超过 $\pi^2/(N^2|\theta|^2)$. 因为 $S_\rho$ 是几何序列，满足 $N|\theta|>\pi$ 的项之和被最小的 $N$ 控制，至多 $C_\rho$.</p>
+
+<p>三段相加即得 (13).</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>引理5的证明只用到 $|\sin(\theta/2)|\ge|\theta|/\pi$ 和几何级数的性质. 它说明：除了 $N$ 与 $1/|\theta|$ 可比的有限个尺度外，$m_N(\theta)$ 与频率截断的差别按 $N^{-2}$ 衰减.</p>
+
+<h2>离散振荡估计的证明</h2>
+
+<p>现在证明定理3.</p>
+
+<p><i>证明概要.</i> 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_k}^S\phi$ 写成三部分：
+$$
+A_N^S\phi-A_{N_k}^S\phi
+=(A_N^S\phi-g_N*\phi)
++(g_N*\phi-g_{N_k}*\phi)
++(g_{N_k}*\phi-A_{N_k}^S\phi).
+\tag{14}
+$$</p>
+
+<p>第一项和第三项的Fourier乘子分别为
+$$
+m_N-\mathbf1_{[-\pi/N,\pi/N]},
+\qquad
+m_{N_k}-\mathbf1_{[-\pi/N_k,\pi/N_k]}.
+$$
+由引理5和Plancherel定理，
+$$
+\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_N^S\phi-g_N*\phi|\right\|_2^2
+\le C_\rho\|\phi\|_2^2,
+\tag{15}
+$$
+第三项同理.</p>
+
+<p>中间项是频率投影到环带
+$$
+\pi/N\lt|\theta|\le\pi/N_k
+$$
+上的算子. 对它使用移位算子的极大不等式 (12)，得到
+$$
+\sum_{k=1}^K
+\left\|\sup_{N_k\le N\le N_{k+1}}
+|(g_N-g_{N_k})*\phi|\right\|_2^2
+\le C_\rho
+\sum_{k=1}^K
+\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2^2.
+\tag{16}
+$$
+这一步是定理3的技术核心；它是论文 (5.13) 中的极大不等式，证明只用到 (12) 和 $g_N$ 的频率支撑.</p>
+
+<p>最后，由Plancherel定理和区间 $[-\pi/N_k,\pi/N_k]$ 的嵌套性，
+$$
+\sum_{k=1}^K
+\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2^2
+=\int_{-\pi}^{\pi}
+\sum_{k=1}^K
+\left|\mathbf1_{[-\pi/N_k,\pi/N_k]}(\theta)
+-\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}(\theta)\right|^2
+|\widehat\phi(\theta)|^2\,d\theta
+\le\|\phi\|_2^2.
+\tag{17}
+$$
+把 (15)--(17) 代入 (14)，并用 $(a+b+c)^2\le3(a^2+b^2+c^2)$，便得到 (6). 定理3证毕.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>回到动力系统</h2>
+
+<p>由引理4，定理3给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$，对序列 $g_j=A_{M_j}f$ 应用引理2，便知 $A_Nf$ 沿 $N\in S_\rho$ 几乎处处收敛. 对每个 $\rho>1$ 都如此. 下面把稀疏尺度上的收敛推广到所有 $N$.</p>
+
+<p class="thm"><b>引理6</b> (稀疏尺度到全部尺度)<b>.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ 几乎处处收敛，并且 (2) 成立，则 $A_Nf$ 几乎处处收敛.</p>
+
+<p><i>证明.</i> 对每个 $N$，取 $N'\in S_\rho$ 使 $N\le N'\le\rho N$. 则
+$$
+|A_Nf-A_{N'}f|
+\le\frac{N'-N}{N'}|A_Nf|
++\frac1{N'}\sum_{n=N+1}^{N'}|f(T^nx)|
+\le2(\rho-1)Mf(x),
+$$
+其中
+$$
+Mf(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|f(T^nx)|.
+$$
+由 (2) 应用于 $|f|$，$Mf\lt\infty$ 几乎处处. 设 $L_\rho(x)$ 是 $A_Nf$ 沿 $S_\rho$ 的极限. 在上式中令 $N\to\infty$，得到
+$$
+\limsup_{N\to\infty}A_Nf(x)\le L_\rho(x)+2(\rho-1)Mf(x),
+$$
+同理
+$$
+\liminf_{N\to\infty}A_Nf(x)\ge L_\rho(x)-2(\rho-1)Mf(x).
+$$
+令 $\rho\downarrow1$，则上下极限相等，故 $A_Nf$ 几乎处处收敛.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>回到定理1的证明. 最后识别极限. 对 $f\in L^2(X)$，均方遍历定理给出 $A_Nf\to Pf$ 于 $L^2(X)$，其中 $Pf=\mathbb E(f|\mathcal I)$. 既然 $A_Nf$ 又几乎处处收敛，几乎处处的极限必等于 $Pf$. 对一般的 $f\in L^1(X)$，用 $L^2$ 函数逼近，并用 Hopf 极大不等式 (2) 控制误差；这是标准的稠密性论证. 定理1证毕.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>几点说明</h2>
+
+<p>第一，振荡判据的作用是把几乎处处收敛转成平方和估计. 这个估计不需要预先知道极限，也不需要先找一个使收敛成立的稠密类；它直接控制序列在相隔很远的尺度上的跳动.</p>
+
+<p>第二，稀疏序列 $S_\rho$ 不是定理的限制. 它只是使Fourier乘子级数 (13) 绝对可和；引理6用极大不等式把稀疏尺度上的收敛还原为所有尺度上的收敛.</p>
+
+<p>第三，引理5是整条论证中唯一使用移位算子特殊结构的地方. 移位在 $\mathbb Z$ 上的谱是Lebesgue测度，Fourier乘子因此可以显式计算；Calderón转移把这一计算送回一般的保测系统.</p>
+
+<p>第四，同样的振荡框架可以处理双线性平均
+$$
+\frac1N\sum_{n=1}^N f(T^{P(n)}x)g(T^{Q(n)}x),
+$$
+只需把线性乘子换成双线性形式，并重复本文的分解与极大估计. 这正是 El Abdalaoui 文中定理2.1的证明路线；本文只展开了线性情形.</p>
+
+<h2>参考文献</h2>
+
+<ol>
+
+<li>G. D. Birkhoff, <i>Proof of the ergodic theorem</i>, Proc. Nat. Acad. Sci. USA 17 (1931), 656--660.</li>
+
+<li>J. Bourgain, <i>An approach to pointwise ergodic theorems</i>, in <i>Geometric Aspects of Functional Analysis</i>, Lecture Notes in Math. 1317, Springer, 1988, 204--223.</li>
+
+<li>J. Bourgain, <i>On the maximal ergodic theorem for certain subsets of the integers</i>, Israel J. Math. 61 (1988), 39--72.</li>
+
+<li>E. H. El Abdalaoui, <i>Simple proof of Bourgain bilinear ergodic theorem and its extension to polynomials and polynomials in primes</i>, arXiv:1908.02281.</li>
+
+<li>A. Calderón, <i>Ergodic theory and translation-invariant operators</i>, Proc. Nat. Acad. Sci. USA 59 (1968), 349--353.</li>
+
+<li>N. Wiener, <i>The Fourier Integral and Certain of Its Applications</i>, Cambridge University Press, 1933.</li>
+
+</ol>
+
+</div>
+
+<!-- 导航栏与页脚 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>
