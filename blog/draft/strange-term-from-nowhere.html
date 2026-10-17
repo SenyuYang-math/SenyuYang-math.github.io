@@ -62,11 +62,11 @@ $$
 
 <p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试函数</i> 方法，这里是该方法一个好的试验场. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varphiepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
 
-<p><b>(a)</b> 先确定校正子 $w^\varepsilon$ 需要满足哪些性质才能在极限中看到不平凡的现象.</p>
+<p><b>(a)</b> 先确定校正子需要满足哪些性质才能在极限中看到不平凡的现象.</p>
 
-<p><b>(b)</b> 再对洞的分布加上一定的结构（例如周期性）和特定的尺度（洞的大小与间距），证明相应的校正子确实存在.</p>
+<p><b>(b)</b> 再限制洞的分布（周期性）和尺度（洞的大小与间距），证明相应的校正子确实存在.</p>
 
-<p>这一节完成第一步. 按照此前的讨论，$w^\varepsilon$ 应当被视为振荡行为与 $u^\varepsilon$ 相似的东西. 因此我们不妨考虑
+<p>本节完成第一步. 按照此前的讨论，$w^\varepsilon$ 应当被视为振荡行为与 $u^\varepsilon$ 相似的东西. 因此我们不妨考虑
 $$
 w^\varepsilon\ \text{近似满足 Poisson 方程，且在洞上为零}.
 \tag{3}
@@ -123,7 +123,7 @@ $$
 $$
 那么我们就得到以下有条件的极限定理：</p>
 
-<p class="thm"><b>定理1.</b> 假设存在一列校正子 $w^\varepsilon$ 满足 (5)、(6)、(7). 则存在 $u^0\in H_0^1(\Omega)$, s.t. (1) 的解族 $u^\varepsilon$ 满足
+<p class="thm"><b>定理1.</b> 假设存在一列校正子 $w^\varepsilon$ 满足 (5) (6) (7). 则存在 $u^0\in H_0^1(\Omega)$, s.t. (1) 的解族 $u^\varepsilon$ 满足
 $$
 \nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ in } L^2(\Omega),\qquad
 u^{\varepsilon_k}\to u^0\ \text{ in } L^2(\Omega);
@@ -160,7 +160,7 @@ $$
 
 <h2>周期情形下校正子的构造</h2>
 
-<p>我们考虑区域
+<p>现在我们来看一个具体例子：令 $d\geq 3$, 考虑区域
 $$
 \Omega^\varepsilon := \Omega\setminus\bigcup_{\xi\in2\varepsilon\mathbb Z^d}B(\xi,r^\varepsilon) = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon
 $$
