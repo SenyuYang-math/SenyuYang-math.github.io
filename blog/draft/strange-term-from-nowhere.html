@@ -46,7 +46,7 @@ $$
 
 <p><b>(a)</b> <i>假设对任意 $K\subset\subset\Omega$，当 $\varepsilon$ 充分小时都有 $K\subset\Omega^\varepsilon$. 那么容易得到 $u_0$ 是 $\Omega$ 上的Poisson 方程 Dirichlet 边值问题的解.</i></p>
 
-<p><b>(b)</b> <i>假设洞的特征函数 $\chi_{T^\varepsilon}$（在 $L^\infty(\Omega)$ 中有界）在 $L^\infty(\Omega)$ 中弱星收敛到处处为正的函数 $\chi\in L^\infty$. 那么洞填满整个 $\Omega$，从而 $u^\varepsilon$ 趋于零. 事实上，把 $u^\varepsilon$ 在洞上作零延拓，对 $\varphi\in L^1(\Omega)$ 有</i>
+<p><b>(b)</b> <i>假设洞的特征函数 $\chi_{T^\varepsilon}$（在 $L^\infty(\Omega)$ 中有界）在 $L^\infty(\Omega)$ 中弱*收敛到处处为正的函数 $\chi\in L^\infty$. 那么洞填满整个 $\Omega$，从而 $u^\varepsilon$ 趋于零. 事实上，把 $u^\varepsilon$ 在洞上作零延拓，对 $\varphi\in L^1(\Omega)$ 有</i>
 $$
 \int_\Omega u^\varepsilon\varphi = \int_{\Omega^\varepsilon}u^\varepsilon\varphi = \int_\Omega\bigl(1-\chi_{\cup_{i=1}^{n_\varepsilon}T_i^\varepsilon}\bigr)u^\varepsilon\varphi,
 $$
@@ -158,7 +158,7 @@ $$
 这里要求 $\mu\in W^{-1,\infty}$ 是因为 $u^2\in W^{1,1}(\Omega)$. 由 $\mu$ 的正性得到 $u \equiv 0$.</p>
 <p class="proof-box">$\Box$</p>
 
-<h2>周期情形下校正子的构造</h2>
+<h2>校正子的构造</h2>
 
 <p>现在我们来看一个具体例子：令 $d\geq 3$, 考虑区域
 $$
@@ -222,7 +222,7 @@ $$
 由于 $\varepsilon^{-d+2} = o((r^\varepsilon)^{-d+2})$，即得结论.</p>
 <p class="proof-box">$\Box$</p>
 
-<h3>情形 $r^\varepsilon\ll a^\varepsilon$：小洞</h3>
+<h3>情形 1: $r^\varepsilon\ll a^\varepsilon$</h3>
 
 <p>若 $r^\varepsilon\ll\varepsilon^{\frac d{d-2}}$，则由 (16) 得
 $$
@@ -230,7 +230,7 @@ $$
 $$
 于是处于注2 的情形，从而 $u^\varepsilon$ 趋于 (8) 的解 $u^0$. 换言之，奇怪项 $\mu$ 为零.</p>
 
-<h3>情形 $r^\varepsilon\gg a^\varepsilon$：大洞</h3>
+<h3>情形 2: $r^\varepsilon\gg a^\varepsilon$</h3>
 
 <p class="thm"><b>引理6</b>（$\Omega^\varepsilon$ 中的 Poincaré 不等式）<b>.</b> 存在与 $\varepsilon$ 无关的常数 $C>0$，使得对一切 $u\in H_0^1(\Omega^\varepsilon)$，
 $$
@@ -294,7 +294,7 @@ $$
 因为 $r^\varepsilon\ll\varepsilon$.</p>
 <p class="proof-box">$\Box$</p>
 
-<h3>情形 $r^\varepsilon = a^\varepsilon$：临界尺寸</h3>
+<h3>情形 3: 临界尺度 $r^\varepsilon = a^\varepsilon$</h3>
 
 <p>现在关注 $r^\varepsilon\simeq\varepsilon^{\frac d{d-2}}$ 的情形. 更确切地说，假设 $r^\varepsilon = C_0\varepsilon^{\frac d{d-2}}$. 在这一范围内，由 (16) 得到
 $$
