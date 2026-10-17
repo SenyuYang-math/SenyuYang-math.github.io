@@ -41,7 +41,7 @@ $$
 \mathcal O_{\mathbf N,K}(f)(x)
 =\left(\sum_{k=1}^K
 \sup_{N_k\le N\lt N_{k+1}}
-|f_N(x)-f_{N_k}(x)|^2\right)^{1/2}.
+|f_N(x)-f_{N_{k+1}}(x)|^2\right)^{1/2}.
 \tag{3}
 $$</p>
 
@@ -62,12 +62,12 @@ $$
 \sup_{N\ge M}|f_N(x)-f_M(x)|>\varepsilon,
 \qquad x\in E.
 $$
-任选 $N_1$. 已选定 $N_k$ 后，集合
+任选 $N_1$. 已选定 $N_k$ 后，对 $M>N_k$ 置
 $$
-E_{k,L}=\left\{x\in E:
-\sup_{N_k\le N\le L}|f_N(x)-f_{N_k}(x)|>\frac\varepsilon2\right\}
+E_{k,M}=\left\{x\in E:
+\sup_{N_k\le N\le M}|f_N(x)-f_M(x)|>\frac\varepsilon2\right\}.
 $$
-随 $L\to\infty$ 单调增至 $E$. 因此可取 $N_{k+1}\ge2N_k$，使
+对每个 $x\in E$，由非收敛性可取 $n,m>N_k$ 使 $|f_n(x)-f_m(x)|>\varepsilon$. 当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|>\varepsilon/2$ 或 $|f_m(x)-f_M(x)|>\varepsilon/2$，故 $x\in E_{k,M}$. 因此 $E\subset\liminf_{M\to\infty}E_{k,M}$，从而 $\mu(E_{k,M})\to\mu(E)$；取 $N_{k+1}\ge2N_k$ 使
 $$
 \mu(E\setminus E_{k,N_{k+1}})\lt 2^{-k-1}\mu(E).
 $$
@@ -100,7 +100,7 @@ $$
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|A_N^S\phi-A_{N_k}^S\phi|\right\|_{\ell^2(\mathbb Z)}^2
+|A_N^S\phi-A_{N_{k+1}}^S\phi|\right\|_{\ell^2(\mathbb Z)}^2
 \le C_\rho\|\phi\|_{\ell^2(\mathbb Z)}^2.
 \tag{6}
 $$</p>
@@ -109,7 +109,7 @@ $$</p>
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|A_Nf-A_{N_k}f|\right\|_2^2
+|A_Nf-A_{N_{k+1}}f|\right\|_2^2
 \le C_\rho\|f\|_2^2.
 \tag{7}
 $$</p>
@@ -123,7 +123,7 @@ $$
 (2J-2N_{K+1}+1)
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|A_Nf-A_{N_k}f|\right\|_2^2
+|A_Nf-A_{N_{k+1}}f|\right\|_2^2
 \le C_\rho(2J+1)\|f\|_2^2.
 $$
 令 $J\to\infty$ 即得 (7).</p>
@@ -214,7 +214,7 @@ $$
 
 <p>引理5的证明只用到 $|\sin(\theta/2)|\ge|\theta|/\pi$ 和几何级数的性质. 它说明：除了 $N$ 与 $1/|\theta|$ 可比的有限个尺度外，$m_N(\theta)$ 与频率截断的差别按 $N^{-2}$ 衰减.</p>
 
-<p class="thm"><b>引理6</b> (极大部分和)<b>.</b> 存在绝对常数 $C$，使对每个 $\phi\in\ell^2(\mathbb Z)$，
+<p class="thm"><b>引理6</b> (极大部分和)<b>.</b> 记 $P_N\phi=g_N*\phi$. 存在绝对常数 $C$，使对每个 $\phi\in\ell^2(\mathbb Z)$，
 $$
 \left\|\sup_{N\ge1}|P_N\phi|\right\|_{\ell^2(\mathbb Z)}
 \le C\|\phi\|_{\ell^2(\mathbb Z)}.
@@ -225,12 +225,12 @@ $$
 
 <p>现在证明定理3.</p>
 
-<p><i>证明.</i> 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_k}^S\phi$ 写成三部分：
+<p><i>证明.</i> 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_{k+1}}^S\phi$ 写成三部分：
 $$
-A_N^S\phi-A_{N_k}^S\phi
+A_N^S\phi-A_{N_{k+1}}^S\phi
 =(A_N^S\phi-g_N*\phi)
-+(g_N*\phi-g_{N_k}*\phi)
-+(g_{N_k}*\phi-A_{N_k}^S\phi).
++(g_N*\phi-g_{N_{k+1}}*\phi)
++(g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi).
 \tag{13}
 $$</p>
 
@@ -238,51 +238,64 @@ $$</p>
 $$
 m_N-\mathbf1_{[-\pi/N,\pi/N]},
 \qquad
-m_{N_k}-\mathbf1_{[-\pi/N_k,\pi/N_k]}.
+m_{N_{k+1}}-\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}.
 $$
-由引理5和Plancherel定理，
+由引理5和Plancherel定理，第一项的平方和不超过 $C_\rho\|\phi\|_2^2$；第三项同理，因为 $N_{k+1}\in S_\rho$. 因此这两部分的贡献为
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_N^S\phi-g_N*\phi|\right\|_2^2
-\le C_\rho\|\phi\|_2^2,
++
+\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi|\right\|_2^2
+\le C_\rho\|\phi\|_2^2.
 \tag{14}
-$$
-第三项同理.</p>
+$$</p>
 
-<p>中间项是频率投影到环带
+<p>中间项是 $g_N*\phi-g_{N_{k+1}}*\phi$. 由于 $N_k\le N\le N_{k+1}$，频率区间满足
 $$
-\pi/N\lt|\theta|\le\pi/N_k
+1_{[-\pi/N,\pi/N]}\subset1_{[-\pi/N_k,\pi/N_k]},
+\qquad
+1_{[-\pi/N_{k+1},\pi/N_{k+1}]}\subset1_{[-\pi/N,\pi/N]}.
 $$
-上的算子. 记 $P_N\phi=g_N*\phi$，并置
+由上面的嵌套关系，
 $$
-h_k=(P_{N_k}-P_{N_{k+1}})\phi.
+1_{[-\pi/N,\pi/N]}\bigl(1_{[-\pi/N_k,\pi/N_k]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]}\bigr)
+=1_{[-\pi/N,\pi/N]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]},
 $$
-对 $N_k\le N\le N_{k+1}$，由频率区间的嵌套性，
+两端正是 $g_N*(g_{N_k}-g_{N_{k+1}})$ 与 $g_N-g_{N_{k+1}}$ 的 Fourier 乘子. 因此
 $$
-(P_N-P_{N_k})\phi=P_Nh_k-h_k.
-$$
-因此由引理6，
-$$
-\left\|\sup_{N_k\le N\le N_{k+1}}|(P_N-P_{N_k})\phi|\right\|_2
-\le(C+1)\|h_k\|_2.
+g_N-g_{N_{k+1}}
+=g_N*(g_{N_k}-g_{N_{k+1}}).
 \tag{15}
 $$
-这一步把论文 (5.13) 的环带估计换成了一个标准的极大部分和估计.</p>
+令 $h_k=(g_{N_k}-g_{N_{k+1}})*\phi$. 当 $N\in S_\rho\cap[N_k,N_{k+1}]$ 时，中间项等于 $g_N*h_k$. 由引理6，
+$$
+\left\|\sup_{N\ge1}|g_N*h_k|\right\|_2
+\le C\|h_k\|_2.
+$$
+因此
+$$
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|(g_N-g_{N_{k+1}})*\phi|\right\|_2
+\le C\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2.
+\tag{16}
+$$</p>
 
 <p>最后，由Plancherel定理和区间 $[-\pi/N_k,\pi/N_k]$ 的嵌套性，
 $$
 \sum_{k=1}^K
-\|h_k\|_2^2
+\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2^2
 =\int_{-\pi}^{\pi}
 \sum_{k=1}^K
 \left|\mathbf1_{[-\pi/N_k,\pi/N_k]}(\theta)
 -\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}(\theta)\right|^2
 |\widehat\phi(\theta)|^2\,d\theta
 \le\|\phi\|_2^2.
-\tag{16}
+\tag{17}
 $$
-对 (13) 用 $(a+b+c)^2\le3(a^2+b^2+c^2)$ 并求和，再由 (14)--(16) 便得到 (6). 定理3证毕.</p>
+把 (14)、(16)、(17) 代入 (13)，并用 $(a+b+c)^2\le3(a^2+b^2+c^2)$，便得到 (6). 定理3证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
