@@ -118,7 +118,7 @@ $$</p>
 $$
 \phi_x(n)=f(T^nx)\mathbf1_{[-J,J]}(n).
 $$
-对 $\phi_x$ 应用 (6)，再对 $x$ 积分. 当 $|n|\le J-N_{K+1}$ 时，$A_N^S\phi_x(n)$ 等于 $A_Nf(T^nx)$，至多相差把 $T$ 换成 $T^{-1}$ 的记号. 利用 $T$ 保测，得到
+对 $\phi_x$ 应用 (6)，再对 $x$ 积分. 当 $|n|\le J-N_{K+1}$ 时，$A_N^S\phi_x(n)$ 正好等于 $A_Nf(T^nx)$. 利用 $T$ 保测，得到
 $$
 (2J-2N_{K+1}+1)
 \sum_{k=1}^K
@@ -219,7 +219,7 @@ $$
 \left\|\sup_{N\ge1}|P_N\phi|\right\|_{\ell^2(\mathbb Z)}
 \le C\|\phi\|_{\ell^2(\mathbb Z)}.
 $$
-这是 Carleson--Hunt 极大部分和定理在移位算子上的形式；它是本文唯一引用的深层调和分析结果.</p>
+这是 Carleson--Hunt 极大 Fourier 部分积分定理在移位算子上的形式；它是本文唯一引用的深层调和分析结果.</p>
 
 <h2>离散振荡估计的证明</h2>
 
@@ -238,7 +238,7 @@ $$</p>
 $$
 m_N-\mathbf1_{[-\pi/N,\pi/N]},
 \qquad
-m_{N_{k+1}}-\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}.
+\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}-m_{N_{k+1}}.
 $$
 由引理5和Plancherel定理，第一项的平方和不超过 $C_\rho\|\phi\|_2^2$；第三项同理，因为 $N_{k+1}\in S_\rho$. 因此这两部分的贡献为
 $$
@@ -249,7 +249,7 @@ $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi|\right\|_2^2
-\le C_\rho\|\phi\|_2^2.
+\le 2C_\rho\|\phi\|_2^2.
 \tag{14}
 $$</p>
 
@@ -305,12 +305,12 @@ $$
 
 <p class="thm"><b>引理7</b> (稀疏尺度到全部尺度)<b>.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ 几乎处处收敛，并且 (2) 成立，则 $A_Nf$ 几乎处处收敛.</p>
 
-<p><i>证明.</i> 对每个 $N$，取 $N'\in S_\rho$ 使 $N\le N'\le\rho N$. 则
+<p><i>证明.</i> 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 由 $S_\rho$ 的定义，$N\le N'\le\rho N+\rho$. 则
 $$
 |A_Nf-A_{N'}f|
 \le\frac{N'-N}{N'}|A_Nf|
 +\frac1{N'}\sum_{n=N+1}^{N'}|f(T^nx)|
-\le2(\rho-1)Mf(x),
+\le2\left(\rho-1+\frac{\rho}{N}\right)Mf(x),
 $$
 其中
 $$
@@ -328,7 +328,12 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>回到定理1的证明. 最后识别极限. 对 $f\in L^2(X)$，均方遍历定理给出 $A_Nf\to Pf$ 于 $L^2(X)$，其中 $Pf=\mathbb E(f|\mathcal I)$. 既然 $A_Nf$ 又几乎处处收敛，几乎处处的极限必等于 $Pf$. 对一般的 $f\in L^1(X)$，用 $L^2$ 函数逼近，并用 Hopf 极大不等式 (2) 控制误差；这是标准的稠密性论证. 定理1证毕.</p>
+<p>回到定理1的证明. 最后识别极限. 对 $f\in L^2(X)$，均方遍历定理给出 $A_Nf\to Pf$ 于 $L^2(X)$，其中 $Pf=\mathbb E(f|\mathcal I)$. 既然 $A_Nf$ 又几乎处处收敛，几乎处处的极限必等于 $Pf$. 对一般的 $f\in L^1(X)$，取 $g\in L^2(X)$ 逼近. 对几乎处处收敛，用 Hopf 极大不等式 (2) 控制 $A_N(f-g)$ 的极大函数；对 $L^1$ 收敛，用
+$$
+\|A_Nf-Pf\|_1
+\le\|A_Ng-Pg\|_1+\|A_N(f-g)\|_1+\|P(f-g)\|_1.
+$$
+由 $L^2$ 情形和 $L^2$ 在 $L^1$ 中的稠密性，右端可任意小. 定理1证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
