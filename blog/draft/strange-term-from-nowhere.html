@@ -1,14 +1,14 @@
 <html>
 <head>
-<title>一个凭空出现的奇怪项</title>
+<title>均质化问题：振荡测试函数</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<p>设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
+<p>发一些存货~ 设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
 $$
-\Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d.
+\Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d, \qqquad d\geq 2.
 $$
 参数 $\varepsilon>0$ 标记了孔洞的不同尺度. 我们考虑在该多孔材料上 Poisson 方程的 Dirichlet 边值问题
 $$
@@ -22,7 +22,7 @@ $$
 
 <h2>预备</h2>
 
-<p>本节中我们设 $d\ge1$. 对固定的 $\varepsilon \gt 0$, 如往常一般将 (1) 写作变分形式：对全体测试函数 $v\in H_0^1(\Omega^\varepsilon)$，
+<p>对固定的 $\varepsilon \gt 0$, 如往常一般将 (1) 写作变分形式：对全体测试函数 $v\in H_0^1(\Omega^\varepsilon)$，
 $$
 \int_{\Omega^\varepsilon}\nabla u^\varepsilon\cdot\nabla v = \int_{\Omega^\varepsilon}fv.
 \tag{2}
@@ -36,16 +36,15 @@ $$
 因此 $\|u^\varepsilon\|_{H^1(\Omega)}$ 关于 $\varepsilon$ 一致有界，于是存在子列 $\varepsilon_k>0$, s.t.
 $$
 \nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ in } L^2(\Omega),\qquad
-u^{\varepsilon_k}\rightharpoonup u^0\ \text{ in } L^2(\Omega).
+u^{\varepsilon_k}\to u^0\ \text{ in } L^2(\Omega).
 $$
 于是我们的问题就是</p>
-
 
 <p class="thm"><b>Q.</b> 能否确定极限 $u^0$？</p>
 
 <p>可以先考虑两个平凡的情形：</p>
 
-<p><b>(a)</b> 假设对任意 $K\subset\subset\Omega$，当 $\varepsilon$ 充分小时都有 $K\subset\Omega^\varepsilon$. 那么容易得到 $u_0$ 是 $\Omega$ 上的Poisson 方程 Dirichlet 边值问题的解.</p>
+<p><b>(a)</b> <i>假设对任意 $K\subset\subset\Omega$，当 $\varepsilon$ 充分小时都有 $K\subset\Omega^\varepsilon$. 那么容易得到 $u_0$ 是 $\Omega$ 上的Poisson 方程 Dirichlet 边值问题的解.</i></p>
 
 <p><b>(b)</b> <i>假设洞的特征函数 $\chi_{T^\varepsilon}$（在 $L^\infty(\Omega)$ 中有界）在 $L^\infty(\Omega)$ 中弱星收敛到处处为正的函数 $\chi\in L^\infty$. 那么洞填满整个 $\Omega$，从而 $u^\varepsilon$ 趋于零. 事实上，把 $u^\varepsilon$ 在洞上作零延拓，对 $\varphi\in L^1(\Omega)$ 有</i>
 $$
@@ -57,17 +56,17 @@ $$
 $$
 <i>由 $\chi$ 的正性得到 $u^0 = 0$.</i></p>
 
-<p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时极限可能出现不平凡的现象，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现.</p>
+<p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时极限可能出现不平凡的现象，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现. 我们往后都考虑这种情形.</p>
 
-<h2>振荡测试函数方法的一般框架</h2>
+<h2>振荡测试函数</h2>
 
-<p>我们在第 1 讲中看到，振荡测试函数方法在类似情形中很有用. 因此取测试函数 $v := w^\varepsilon\varphi$，其中 $\varphi\in C_c^\infty(\Omega)$（这是极限系统的测试函数，不要求在洞上为零），$w^\varepsilon$ 是校正子. 我们分两步作启发式讨论：</p>
+<p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试函数</i> 方法，这里是该方法一个好的试验场. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varphiepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
 
-<p>(1) 先确定校正子 $w^\varepsilon$ 需要满足哪些性质，才能在极限中看到不平凡的现象. 这一步是容易的：我们可以任意要求 $w^\varepsilon$ 满足什么，只要它能在极限中产生有趣的现象.</p>
+<p><b>(a)</b> 先确定校正子 $w^\varepsilon$ 需要满足哪些性质才能在极限中看到不平凡的现象.</p>
 
-<p>(2) 再对洞的分布加上一定的结构（例如周期性），并取特定的尺度（洞的大小与相邻洞距离之比），证明相应的校正子确实存在（见第 2 节）. 这一步是困难的.</p>
+<p><b>(b)</b> 再对洞的分布加上一定的结构（例如周期性）和特定的尺度（洞的大小与间距），证明相应的校正子确实存在.</p>
 
-<p>再者，$w^\varepsilon$ 应当被看作某种行为与 $u^\varepsilon$ 相似的东西，即
+<p>这一节完成第一步. 按照此前的讨论，$w^\varepsilon$ 应当被视为振荡行为与 $u^\varepsilon$ 相似的东西. 因此我们不妨考虑
 $$
 w^\varepsilon\ \text{近似满足 Poisson 方程，且在洞上为零}.
 \tag{3}
@@ -77,158 +76,90 @@ $$
 \text{在极限中，}\ \varphi w^\varepsilon\ \text{应当在某种意义下收敛到}\ \varphi,
 \tag{4}
 $$
-因为 $\varphi$ 是定义在 $\Omega$ 上的极限系统的测试函数. 正如第 1 讲所强调的，振荡测试函数方法的困难在于校正子（即 $w^\varepsilon$）的构造.</p>
+这样就可以用 $\varphi$ 对定义在 $\Omega$ 上的系统极限做测试.</p>
 
-<p>记住启发式条件 (3) 与 (4)，我们列出 $w^\varepsilon$ 需要满足的几条条件.</p>
+<p>首先，$w^\varepsilon\varphi$ 可以作为 (2) 的测试函数要求就要求 
+$$w^\varepsilon\in H^1(\Omega)$ \text{ 在 } $T_i^\varepsilon$ \text{ 上为零},\tag{5}$$
+但不需要在 $\partial \Omega$ 上限制为 $0$.</p>
 
-<p>首先，我们希望测试函数 $w^\varepsilon\varphi$ 属于 $H^1(\Omega)$. 因此取
+<p>现在做振荡测试：
 $$
-w^\varepsilon\in H^1(\Omega).
-\tag{5}
+\int_\Omega fw^\varepsilon\varphi=\int_\Omega\nabla u^\varepsilon\cdot\nabla(w^\varepsilon\varphi) = \int_\Omega\varphi\nabla u^\varepsilon\cdot\nabla w^\varepsilon+\int_\Omega w^\varepsilon\nabla u^\varepsilon\cdot\nabla\varphi.
 $$
-其次，测试函数 $w^\varepsilon\varphi$ 要在 (2) 中可用，必须在 $\partial T_i^\varepsilon$ 上为零. 因此要求
-$$
-w^\varepsilon = 0\quad\text{on } T_i^\varepsilon.
-\tag{6}
-$$
-我们没有要求 $w^\varepsilon = 0$ 在 $\partial\Omega$ 上成立，因为在 $\partial\Omega$ 上 $\varphi$ 已经为零.</p>
-
-<p>现在在 (2) 中取 $v = w^\varepsilon\varphi$. 我们有
-$$
-\int_\Omega\nabla u^\varepsilon\cdot\nabla(w^\varepsilon\varphi) = \int_\Omega\varphi\nabla u^\varepsilon\cdot\nabla w^\varepsilon+\int_\Omega w^\varepsilon\nabla u^\varepsilon\cdot\nabla\varphi = \int_\Omega fw^\varepsilon\varphi.
-$$
-只要 $w^\varepsilon$ 在 $L^2(\Omega)$ 中强收敛（必然收敛到 $1$，因为我们希望 $\varphi w^\varepsilon$ 收敛到 $\varphi$），就很容易对下列各项取极限：
+按照我们考虑的物理情形以及 (4) 的要求，约定 $w^\varepsilon$ 在 $L^2(\Omega)$ 中强收敛为 $1$ 是自然的（洞的总测度趋于 $0$）. 于是容易对下列各项取极限：
 $$
 \int_\Omega w^\varepsilon\nabla u^\varepsilon\cdot\nabla\varphi\longrightarrow\int_\Omega\nabla u^0\cdot\nabla\varphi,\qquad
 \int_\Omega fw^\varepsilon\varphi\longrightarrow\int_\Omega f\varphi.
 $$
-我们要求
+但是由于高频振荡，我们对于导数只能要求弱收敛：
 $$
 w^\varepsilon\rightharpoonup1\ \text{ weakly in } H^1(\Omega),
-\tag{7}
+\tag{6}
 $$
-这特别蕴含 $\nabla w^\varepsilon\to0$ 在 $L^2(\Omega)$ 中成立，并使我们能去掉一项（见下文）.</p>
+因此梯度乘积项 $\nabla u^\varepsilon\cdot\nabla w^\varepsilon$ 的极限就变得扑朔迷离. 另外这蕴含 $\nabla w^\varepsilon\rightharpoonup 0$ 在 $L^2(\Omega)$ 中成立.</p>
 
-<p><b>注2.</b> 如果进一步有 $w^\varepsilon\to1$ 在 $H^1(\Omega)$ 中成立，那么
-$$
-\int_\Omega\varphi\nabla u^\varepsilon\cdot\nabla w^\varepsilon\longrightarrow0,
-$$
-从而 $u^0\in H_0^1(\Omega)$ 就只是 Poisson 问题
+<p><b>注2.</b> 弱极限 $1$ 排除了洞在极限中合并的可能，因为 $w^\varepsilon$ 必须在洞上为零. 在某种意义上，它蕴含洞的直径足够快地趋于零，且洞之间的间隔足够大.</p>
+
+<p><b>注3.</b> 如果进一步有 $w^\varepsilon\to1$ 在 $H^1(\Omega)$ 中成立，那么梯度乘积项就弱收敛于 $0$, 从而 $u^0\in H_0^1(\Omega)$ 就是 Poisson 问题
 $$
 \begin{cases}
 -\Delta u^0 = f, & x\in\Omega,\\
 u^0 = 0, & x\in\partial\Omega
 \end{cases}
-\tag{8}
 $$
 的解. 这种情形下极限不会带来有趣的现象.</p>
 
-<p><b>注3.</b> 条件 (7) 排除洞在极限中并合或合并的可能，因为 $w^\varepsilon$ 必须在洞上为零. 在某种意义上，它蕴含洞的直径足够快地趋于零，且洞之间的间隔足够大.</p>
-
-<p><b>注4</b>（一维情形）<b>.</b> 取 $d = 1$，为简单起见取 $\Omega = (0,1)$. 设
-$$
-\Omega^\varepsilon := (0,1)\setminus\bigcup_{i=1}^{n_\varepsilon}B(x_i^\varepsilon,r_i^\varepsilon),\qquad x_i^\varepsilon\in(0,1).
-$$
-假设 (5)、(6)、(7) 成立. 那么点族 $\{x_i^\varepsilon\}$ 的某个子列收敛到一点 $x^0\in[0,1]$. 在一维情形，Rellich 定理蕴含 $H^1(\Omega)$ 紧嵌入到 $C^{0,\gamma}([0,1])$，其中 $0\lt\gamma\lt1/2$. 由于 $w^\varepsilon$ 在 $H^1(0,1)$ 中一致有界，取子列后 $w^\varepsilon$ 在 $C^{0,\gamma}([0,1])$ 中强收敛到 $w^0$. 由 (7) 得 $w^0 = 1$. 现在，
-$$
-|w^0(x^0)| = |w^0(x^0)-w^\varepsilon(x_i^\varepsilon)|\le|w^0(x^0)-w^0(x_i^\varepsilon)|+|w^0(x_i^\varepsilon)-w^\varepsilon(x_i^\varepsilon)|\longrightarrow0.
-$$
-因此 $w^0(x^0) = 0$，矛盾. 概括起来，不存在满足 (5)、(6)、(7) 的校正子族 $w^\varepsilon$.</p>
-
-<p>当然，如果 $\nabla u^\varepsilon$ 只是弱收敛，那么
-$$
-\int_\Omega\varphi\nabla u^\varepsilon\cdot\nabla w^\varepsilon
-$$
-是两个仅弱收敛（到 $0$）的序列之积，关于其极限先验地不能断言任何东西. 把这一项看作对偶积并分部积分，得到
+<p>现在回顾 (3) 的要求，把梯度乘积项再做分布的分部积分，得到
 $$
 \int_\Omega\varphi\nabla u^\varepsilon\cdot\nabla w^\varepsilon = -\int_\Omega u^\varepsilon\nabla\varphi\cdot\nabla w^\varepsilon-\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H_0^1(\Omega)}.
 $$
-先验地，$\Delta w^\varepsilon$ 与 $\Delta u^\varepsilon$ 一样不比一个分布更好（实际上是一个测度）. 利用梯度的弱收敛，得到
-$$
--\int_\Omega u^\varepsilon\nabla\varphi\nabla w^\varepsilon\longrightarrow0.
-$$
-剩下的是棘手的一项
+这里分部积分产生的边界项包含在 $\Delta w^\varepsilon$ 在边界的奇性中. 利用 $u^\varepsilon$ 的 $L^2$-强收敛和 $\nabla w^{\varepsilon}$ 的 $L^2$-弱收敛，得到第一个积分项的极限为 $0$. 剩下的是棘手的一项
 $$
 \langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},
 $$
-关于它先验地一无所知. 如果
+关于 $\Delta w^\varepsilon\in H^{-1}(\Omega)$ 的先验性质我们一无所知. 如果存在 $\mu\in W^{-1,\infty}(\Omega)\subset H^{-1}(\Omega)$（下文会解释加强范数的原因）, s.t.
 $$
-\text{存在}\ \mu\in W^{-1,\infty}(\Omega)
-\tag{9}
+\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H^1(\Omega)}\longrightarrow\langle\mu,\varphi u^0\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},\tag{7}
 $$
-使得
-$$
-\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H^1(\Omega)}\longrightarrow\langle\mu,\varphi u^0\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},
-$$
-那么（当然）就完成了. 事实上，我们将要证明的是：$-\Delta w^\varepsilon$ 分解为两个测度之差，其中一个 $\mu^\varepsilon$ 在 $H^{-1}(\Omega)$ 中强收敛到 $\mu$，另一个 $\gamma^\varepsilon$ 只是弱收敛到 $\mu$，但它的支集看不到测试函数 $\varphi u^\varepsilon$. 更确切地说，我们寻找这样的 $w^\varepsilon$：
-$$
-\begin{aligned}
-&\text{存在两个序列 } \mu^\varepsilon,\gamma^\varepsilon\in H^{-1}(\Omega) \text{ 使得 } -\Delta w^\varepsilon = \mu^\varepsilon-\gamma^\varepsilon,\\
-&\mu^\varepsilon\to\mu\ \text{ strongly in } H^{-1}(\Omega),\qquad \gamma^\varepsilon\rightharpoonup\mu\ \text{ weakly in } H^{-1}(\Omega),\\
-&\langle\gamma^\varepsilon,v^\varepsilon\rangle = 0\quad \text{对一切 } v^\varepsilon\in H_0^1(\Omega) \text{ 满足 } v^\varepsilon = 0 \text{ on } T_i^\varepsilon.
-\end{aligned}
-\tag{10}
+那么我们就得到以下有条件的极限定理：
 $$</p>
 
-<p>注意 (9) 蕴含
+<p class="thm"><b>定理1.</b> 假设存在一列校正子 $w^\varepsilon$ 满足 (5)、(6)、(7). 则存在 $u^0\in H_0^1(\Omega)$, s.t. (1) 的解族 $u^\varepsilon$ 满足
 $$
-\mu\in W^{-1,\infty}(\Omega) = (W_0^{1,1}(\Omega))'\subset H^{-1}(\Omega).
+\nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ in } L^2(\Omega),\qquad
+u^{\varepsilon_k}\to u^0\ \text{ in } L^2(\Omega);
 $$
-我们已经证明了下述条件性定理.</p>
-
-<p class="thm"><b>定理1.</b> 假设存在一列校正子 $w^\varepsilon$ 满足 (5)、(6)、(7)、(9) 与 (10). 那么 (1) 的解族 $u^\varepsilon$ 在 $H^1(\Omega)$ 中弱收敛、在 $L^2(\Omega)$ 中强收敛到如下修正 Poisson 方程的唯一解 $u^0$：
-$$
+$u^0$ 是如下的修正Poisson方程Dirichlet边值问题的 $H_0^1(\Omega)$ 唯一解
 \begin{cases}
 -\Delta u^0+\mu u^0 = f, & x\in\Omega,\\
 u^0 = 0, & x\in\partial\Omega.
 \end{cases}
-\tag{11}
+\tag{8}
 $$</p>
 
-<p class="thm"><b>引理2.</b> 满足 (10) 的分布 $\mu\in W^{-1,\infty}(\Omega)$ 是正的，即它是一个 Radon 测度.</p>
+<p>这个凭空出现的额外项 $\mu$ 来自洞的边界，物理上代表洞引起的一种摩擦或阻力. 下一节我们将在具体的情境中计算出 $\mu$. 另外 $\mu$ 有如下刻画：</p>
 
-<p><i>证明.</i> 取 $\varphi\in C_c^\infty(\Omega)$，$\varphi\ge0$. 先在 $\Omega^\varepsilon$ 上分部积分，再用收敛结果 (7) 与 (10)，得到
+<p class="thm"><b>引理2.</b> 满足 (7) 的分布 $\mu\in W^{-1,\infty}(\Omega)$ 是正的，i.e. $\mu$ 是一个 Radon 测度.</p>
+
+<p><i>证明.</i> 取 $\varphi\in C_c^\infty(\Omega)$，$\varphi\ge0$. 先在 $\Omega^\varepsilon$ 上分部积分，得到
 $$
 0\le\int_\Omega\varphi\nabla w^\varepsilon\cdot\nabla w^\varepsilon = \langle-\Delta w^\varepsilon,\varphi w^\varepsilon\rangle_{H^{-1},H_0^1}-\int_\Omega w^\varepsilon\nabla\varphi\cdot\nabla w^\varepsilon\longrightarrow\langle\mu,\varphi\rangle_{W^{-1,\infty},W^{1,1}}.
 $$
 因此 $\langle\mu,\varphi\rangle_{W^{-1,\infty},W^{1,1}}\ge0$.</p>
 <p class="proof-box">$\Box$</p>
 
-<p>这个奇怪项来自洞，代表洞所引起的一种摩擦或阻力. 它的具体表达式将在下一节算出.</p>
+<p>$u^0$ 的唯一性来自于 $\mu\in W^{-1,\infty}$ 这个更强的限制.</p>
 
-<p class="thm"><b>引理3.</b> (11) 的解是唯一的.</p>
+<p class="thm"><b>引理3.</b> (8) 的解是唯一的.</p>
 
 <p><i>证明.</i> 记 $u = u(x)$ 为 (11) 的两个解之差. 用 $u$ 作测试函数，得到
 $$
 \int_\Omega\nabla u\cdot\nabla u+\langle\mu,u^2\rangle_{W^{-1,\infty},W^{1,1}} = 0.
 $$
-由 $\mu$ 的正性（见引理2）得 $u = 0$.</p>
+这里要求 $\mu\in W^{-1,\infty}$ 是因为 $u^2\in W^{1,1}(\Omega)$. 由 $\mu$ 的正性得到 $u \equiv 0$.</p>
 <p class="proof-box">$\Box$</p>
 
-<p><b>注5.</b> $u^\varepsilon$ 的子列收敛到 (11) 的解 $u^0$ 的证明只要求 $\mu$ 属于 $H^{-1}(\Omega)$. 但在唯一性证明中，条件 (9) 使得对偶积
-$$
-\langle\mu,u^2\rangle_{W^{-1,\infty},W^{1,1}}
-$$
-有意义，因为 $u^2$ 只是 $W^{1,1}(\Omega)$ 中的元素.</p>
-
-<p><b>注6</b>（第 1 讲与第 2 讲的比较）<b>.</b> 下面比较两种情形中在变分形式里取极限的方式，以及振荡测试函数的使用方式. 我们关注棘手的那一项. 在第 1 讲中，对系数高频振荡的方程我们这样做：使用振荡测试函数 $\varphi(x_\gamma+\varepsilon\chi^{*,\gamma}(x/\varepsilon))$，
-$$
-\begin{aligned}
-\int_\Omega A(x/\varepsilon)\nabla u^\varepsilon\cdot\nabla(x_\gamma+\varepsilon\chi^{*,\gamma}(x/\varepsilon))\varphi &= -\langle\nabla\cdot A^*(x/\varepsilon)\nabla(x_\gamma+\varepsilon\chi^{*,\gamma}(x/\varepsilon)),u^\varepsilon\varphi\rangle\\
-&\quad-\int_\Omega u^\varepsilon A^*(x/\varepsilon)\nabla(x_\gamma+\varepsilon\chi^{*,\gamma}(x/\varepsilon))\cdot\nabla\varphi.
-\end{aligned}
-\tag{12}
-$$
-现在利用 $x_\gamma+\varepsilon\chi^{*,\gamma}(x/\varepsilon)$ 是 $A^*$-线性的这一事实，得到 (12) 右端第一项为零. 于是第二项的极限很容易求出. 本讲中多孔介质的振荡测试函数的作用在某种意义上相反. 我们在
-$$
-\int_\Omega\varphi\nabla u^\varepsilon\cdot\nabla w^\varepsilon = -\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H_0^1(\Omega)}-\int_\Omega u^\varepsilon\nabla\varphi\cdot\nabla w^\varepsilon
-\tag{13}
-$$
-中使用 $\varphi w^\varepsilon$，其中 $w^\varepsilon\rightharpoonup1$ 在 $H^1(\Omega)$ 中弱收敛，以此说明 (13) 右端第二项趋于零.</p>
-
 <h2>周期情形下校正子的构造</h2>
-
-<p>由于注4，$d = 1$ 的情形很特殊，我们不予考虑. 为使表述统一，我们限定 $d\ge3$. 不过 $d = 2$ 时的想法与技巧是相同的.</p>
 
 <p>我们考虑区域
 $$
