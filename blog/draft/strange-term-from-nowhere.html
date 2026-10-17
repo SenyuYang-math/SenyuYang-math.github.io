@@ -113,11 +113,7 @@ $$
 $$
 \int_\Omega\varphi\nabla u^\varepsilon\cdot\nabla w^\varepsilon = -\int_\Omega u^\varepsilon\nabla\varphi\cdot\nabla w^\varepsilon-\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H_0^1(\Omega)}.
 $$
-这里分部积分产生的边界项包含在 $\Delta w^\varepsilon$ 在边界的奇性中. 利用 $u^\varepsilon$ 的 $L^2$-强收敛和 $\nabla w^{\varepsilon}$ 的 $L^2$-弱收敛，得到第一个积分项的极限为 $0$. 剩下的是棘手的一项
-$$
-\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},
-$$
-关于 $\Delta w^\varepsilon\in H^{-1}(\Omega)$ 的先验性质我们一无所知. 如果存在 $\mu\in W^{-1,\infty}(\Omega)\subset H^{-1}(\Omega)$（下文会解释加强范数的原因）, s.t.
+这里分部积分产生的边界项包含在 $\Delta w^\varepsilon$ 在边界的奇性中. 利用 $u^\varepsilon$ 的 $L^2$-强收敛和 $\nabla w^{\varepsilon}$ 的 $L^2$-弱收敛，得到第一个积分项的极限为 $0$. 对于第二项中 $\Delta w^\varepsilon\in H^{-1}(\Omega)$ 的先验性质，我们一无所知. 如果存在 $\mu\in W^{-1,\infty}(\Omega)\subset H^{-1}(\Omega)$（下文会解释加强范数的原因）, s.t.
 $$
 \langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H^1(\Omega)}\longrightarrow\langle\mu,\varphi u^0\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},\tag{7}
 $$
@@ -173,14 +169,15 @@ $$
 
 <p>该问题的主要结果如下：</p>
   
-<p class="thm"><b>定理4.</b> 设 $d\ge3$，$C_0>0$，$a^\varepsilon := C_0\varepsilon^{\frac d{d-2}}$. 则
+<div class="thm"><b>定理4.</b> 设 $d\ge3$，$C_0>0$，$a^\varepsilon := C_0\varepsilon^{\frac d{d-2}}$. 则
 <p>(1) 若 $r^\varepsilon\ll a^\varepsilon$，则 $u^\varepsilon$ 在 $H^1(\Omega)$ 中弱收敛、在 $L^2(\Omega)$ 中强收敛到 Poisson 问题 (8) 的唯一解 $u^0$；</p>
 <p>(2) 若 $r^\varepsilon\gg a^\varepsilon$，则 $u^\varepsilon$ 在 $H^1(\Omega)$ 中强收敛到 $0$；</p>
 <p>(3) 若 $r^\varepsilon = a^\varepsilon$，则 $u^\varepsilon$ 在 $H^1(\Omega)$ 中弱收敛、在 $L^2(\Omega)$ 中强收敛到 (11) 的解 $u^0$，其中测度 $\mu$ 是显式常数
 $$
 \mu := \frac{S_d(d-2)}{2^d}C_0^{d-2},
 $$
-而 $S_d$ 是 $\mathbb R^d$ 中单位球面的面积.</p></p>
+而 $S_d$ 是 $\mathbb R^d$ 中单位球面的面积.</p>
+</div>
 
 <p>临界尺度 $\varepsilon^{\frac d{d-2}}$ 与 $-\Delta$ 在 $\mathbb R^d$（$d\ge3$）中基本解的衰减有关.</p>
 
