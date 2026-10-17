@@ -78,8 +78,8 @@ $$
 $$
 这样就可以用 $\varphi$ 对定义在 $\Omega$ 上的系统极限做测试.</p>
 
-<p>首先，$w^\varepsilon\varphi$ 可以作为 (2) 的测试函数要求就要求 
-$$w^\varepsilon\in H^1(\Omega)$ \text{ 在 } $T_i^\varepsilon$ \text{ 上为零},\tag{5}$$
+<p>首先，$w^\varepsilon\varphi$ 可以作为 (2) 的测试函数就要求 
+$$w^\varepsilon\in H^1(\Omega) \text{ 在 } T_i^\varepsilon \text{ 上为零},\tag{5}$$
 但不需要在 $\partial \Omega$ 上限制为 $0$.</p>
 
 <p>现在做振荡测试：
@@ -98,16 +98,16 @@ w^\varepsilon\rightharpoonup1\ \text{ weakly in } H^1(\Omega),
 $$
 因此梯度乘积项 $\nabla u^\varepsilon\cdot\nabla w^\varepsilon$ 的极限就变得扑朔迷离. 另外这蕴含 $\nabla w^\varepsilon\rightharpoonup 0$ 在 $L^2(\Omega)$ 中成立.</p>
 
-<p><b>注2.</b> 弱极限 $1$ 排除了洞在极限中合并的可能，因为 $w^\varepsilon$ 必须在洞上为零. 在某种意义上，它蕴含洞的直径足够快地趋于零，且洞之间的间隔足够大.</p>
+<p><b>注2.</b> <i>弱极限 $1$ 排除了洞在极限中合并的可能，因为 $w^\varepsilon$ 必须在洞上为零. 在某种意义上，它蕴含洞的直径足够快地趋于零，且洞之间的间隔足够大.</i></p>
 
-<p><b>注3.</b> 如果进一步有 $w^\varepsilon\to1$ 在 $H^1(\Omega)$ 中成立，那么梯度乘积项就弱收敛于 $0$, 从而 $u^0\in H_0^1(\Omega)$ 就是 Poisson 问题
+<p><b>注3.</b> <i>如果进一步有 $w^\varepsilon\to1$ 在 $H^1(\Omega)$ 中成立，那么梯度乘积项就弱收敛于 $0$, 从而 $u^0\in H_0^1(\Omega)$ 就是 Poisson 问题</i>
 $$
 \begin{cases}
 -\Delta u^0 = f, & x\in\Omega,\\
 u^0 = 0, & x\in\partial\Omega
 \end{cases}
 $$
-的解. 这种情形下极限不会带来有趣的现象.</p>
+<i>的解. 这种情形下极限不会带来有趣的现象.</i></p>
 
 <p>现在回顾 (3) 的要求，把梯度乘积项再做分布的分部积分，得到
 $$
@@ -121,16 +121,15 @@ $$
 $$
 \langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H^1(\Omega)}\longrightarrow\langle\mu,\varphi u^0\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},\tag{7}
 $$
-那么我们就得到以下有条件的极限定理：
-$$</p>
+那么我们就得到以下有条件的极限定理：</p>
 
 <p class="thm"><b>定理1.</b> 假设存在一列校正子 $w^\varepsilon$ 满足 (5)、(6)、(7). 则存在 $u^0\in H_0^1(\Omega)$, s.t. (1) 的解族 $u^\varepsilon$ 满足
 $$
 \nabla u^{\varepsilon_k}\rightharpoonup\nabla u^0\ \text{ in } L^2(\Omega),\qquad
 u^{\varepsilon_k}\to u^0\ \text{ in } L^2(\Omega);
 $$
-$u^0$ 是如下的修正Poisson方程Dirichlet边值问题的 $H_0^1(\Omega)$ 唯一解
-\begin{cases}
+$u^0$ 是如下的修正Poisson方程Dirichlet边值问题的 $H_0^1(\Omega)$ 解
+$$\begin{cases}
 -\Delta u^0+\mu u^0 = f, & x\in\Omega,\\
 u^0 = 0, & x\in\partial\Omega.
 \end{cases}
@@ -172,6 +171,8 @@ $$
 <figcaption class="picture_label">图1. 多孔介质：单位胞腔 $P_i^\varepsilon$ 的放大</figcaption>
 </figure>
 
+<p>该问题的主要结果如下：</p>
+  
 <p class="thm"><b>定理4.</b> 设 $d\ge3$，$C_0>0$，$a^\varepsilon := C_0\varepsilon^{\frac d{d-2}}$. 则
 
 1. 若 $r^\varepsilon\ll a^\varepsilon$，则 $u^\varepsilon$ 在 $H^1(\Omega)$ 中弱收敛、在 $L^2(\Omega)$ 中强收敛到 Poisson 问题 (8) 的唯一解 $u^0$；
