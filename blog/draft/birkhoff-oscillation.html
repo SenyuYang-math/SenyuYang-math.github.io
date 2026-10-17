@@ -214,12 +214,81 @@ $$
 
 <p>引理5的证明只用到 $|\sin(\theta/2)|\ge|\theta|/\pi$ 和几何级数的性质. 它说明：除了 $N$ 与 $1/|\theta|$ 可比的有限个尺度外，$m_N(\theta)$ 与频率截断的差别按 $N^{-2}$ 衰减.</p>
 
-<p class="thm"><b>引理6</b> (移位算子的极大不等式)<b>.</b> 对每个 $r>1$，存在常数 $C_r$，使对每个 $\phi\in\ell^r(\mathbb Z)$，
+<p class="thm"><b>引理6</b> (移位算子的极大不等式)<b>.</b> 记
 $$
-\left\|\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|\right\|_{\ell^r(\mathbb Z)}
+M\phi(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|.
+$$
+对每个 $r>1$，存在常数 $C_r$，使对每个 $\phi\in\ell^r(\mathbb Z)$，
+$$
+\|M\phi\|_{\ell^r(\mathbb Z)}
 \le C_r\|\phi\|_{\ell^r(\mathbb Z)}.
 $$
 这是 Hardy--Littlewood 极大不等式在 $\mathbb Z$ 上的形式；以下只用 $r=2$ 的情形.</p>
+
+<p><i>证明.</i> 先证弱型 $(1,1)$. 对 $\lambda>0$ 置
+$$
+E=\{x\in\mathbb Z:M\phi(x)>\lambda\}.
+$$
+对每个 $x\in E$，取 $N_x\ge1$ 使
+$$
+\frac1{N_x}\sum_{n=1}^{N_x}|\phi(x+n)|>\lambda.
+$$
+记 $J_x=[x,x+N_x-1]$. 由区间覆盖引理，可从 $\{J_x\}_{x\in E}$ 中选出两两不交的 $J_1,J_2,\ldots$，使
+$$
+\sum_j|J_j|\ge\frac13\left|\bigcup_{x\in E}J_x\right|\ge\frac13|E|.
+$$
+这里 $|J|$ 表示区间中的整数个数. 覆盖引理可按长度从大到小贪心选取证明：未选中的区间必与某个已选区间相交，且长度不超过后者，因而包含在后者的三倍区间中；对无限族先取有限子族再取极限. 于是
+$$
+\lambda\sum_j|J_j|
+\lt\sum_j\sum_{y\in J_j}|\phi(y+1)|
+\le\|\phi\|_1.
+$$
+所以
+$$
+|E|\le\frac{3\|\phi\|_1}{\lambda}.
+$$
+这就是弱型 $(1,1)$.</p>
+
+<p>再证强型. 对 $\phi\in\ell^r(\mathbb Z)$ 和 $\lambda>0$，写
+$$
+\phi_1=\phi\mathbf1_{\{|\phi|>\lambda\}},\qquad
+\phi_2=\phi\mathbf1_{\{|\phi|\le\lambda\}}.
+$$
+则 $M\phi\le M\phi_1+M\phi_2\le M\phi_1+\lambda$，故
+$$
+\{M\phi>2\lambda\}\subset\{M\phi_1>\lambda\}.
+$$
+由弱型估计，
+$$
+|\{M\phi>2\lambda\}|
+\le\frac3\lambda\|\phi_1\|_1
+=\frac3\lambda\sum_{|\phi(y)|>\lambda}|\phi(y)|.
+$$
+对 $r>1$ 使用层析公式
+$$
+\|M\phi\|_r^r
+=r\int_0^\infty\lambda^{r-1}|\{M\phi>\lambda\}|\,d\lambda
+$$
+（计数测度下的层析公式），得到
+$$
+\|M\phi\|_r^r
+\le r2^r3\int_0^\infty\lambda^{r-2}
+\sum_{|\phi(y)|>\lambda}|\phi(y)|\,d\lambda
+=\frac{3r2^r}{r-1}\|\phi\|_r^r.
+$$
+最后一步交换求和与积分（Fubini），并对每个 $y$ 计算
+$$
+\int_0^{|\phi(y)|}\lambda^{r-2}\,d\lambda
+=\frac{|\phi(y)|^{r-1}}{r-1}.
+$$
+因此
+$$
+\|M\phi\|_r
+\le\left(\frac{3r2^r}{r-1}\right)^{1/r}\|\phi\|_r.
+$$
+引理得证.</p>
+
+<p class="proof-box">$\Box$</p>
 
 <h2>离散振荡估计的证明</h2>
 
