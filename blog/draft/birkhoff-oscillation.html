@@ -214,12 +214,12 @@ $$
 
 <p>引理5的证明只用到 $|\sin(\theta/2)|\ge|\theta|/\pi$ 和几何级数的性质. 它说明：除了 $N$ 与 $1/|\theta|$ 可比的有限个尺度外，$m_N(\theta)$ 与频率截断的差别按 $N^{-2}$ 衰减.</p>
 
-<p class="thm"><b>引理6</b> (极大部分和)<b>.</b> 记 $P_N\phi=g_N*\phi$. 存在绝对常数 $C$，使对每个 $\phi\in\ell^2(\mathbb Z)$，
+<p class="thm"><b>引理6</b> (移位算子的极大不等式)<b>.</b> 对每个 $r>1$，存在常数 $C_r$，使对每个 $\phi\in\ell^r(\mathbb Z)$，
 $$
-\left\|\sup_{N\ge1}|P_N\phi|\right\|_{\ell^2(\mathbb Z)}
-\le C\|\phi\|_{\ell^2(\mathbb Z)}.
+\left\|\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|\right\|_{\ell^r(\mathbb Z)}
+\le C_r\|\phi\|_{\ell^r(\mathbb Z)}.
 $$
-这是 Carleson--Hunt 极大 Fourier 部分积分定理在移位算子上的形式；它是本文唯一引用的深层调和分析结果.</p>
+这是 Hardy--Littlewood 极大不等式在 $\mathbb Z$ 上的形式；以下只用 $r=2$ 的情形.</p>
 
 <h2>离散振荡估计的证明</h2>
 
@@ -270,16 +270,28 @@ g_N-g_{N_{k+1}}
 =g_N*(g_{N_k}-g_{N_{k+1}}).
 \tag{15}
 $$
-令 $h_k=(g_{N_k}-g_{N_{k+1}})*\phi$. 当 $N\in S_\rho\cap[N_k,N_{k+1}]$ 时，中间项等于 $g_N*h_k$. 由引理6，
+令 $h_k=(g_{N_k}-g_{N_{k+1}})*\phi$. 当 $N\in S_\rho\cap[N_k,N_{k+1}]$ 时，中间项等于 $g_N*h_k$. 由三角不等式，
 $$
-\left\|\sup_{N\ge1}|g_N*h_k|\right\|_2
+\sup_{N\in S_\rho}|g_N*h_k|
+\le\sup_{N\ge1}|A_N*h_k|
++\sup_{N\in S_\rho}|(g_N-A_N)*h_k|.
+$$
+第一项由引理6（取 $r=2$）控制：
+$$
+\left\|\sup_{N\ge1}|A_N*h_k|\right\|_2
 \le C\|h_k\|_2.
+$$
+第二项由引理5和Plancherel定理控制：$g_N-A_N$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以
+$$
+\left\|\sup_{N\in S_\rho}|(g_N-A_N)*h_k|\right\|_2^2
+\le\sum_{N\in S_\rho}\|(g_N-A_N)*h_k\|_2^2
+\le C_\rho\|h_k\|_2^2.
 $$
 因此
 $$
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |(g_N-g_{N_{k+1}})*\phi|\right\|_2
-\le C\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2.
+\le C_\rho\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2.
 \tag{16}
 $$</p>
 
@@ -343,7 +355,7 @@ $$
 
 <p>第二，稀疏序列 $S_\rho$ 不是定理的限制. 它只是使Fourier乘子级数 (12) 绝对可和；引理7用极大不等式把稀疏尺度上的收敛还原为所有尺度上的收敛.</p>
 
-<p>第三，引理5和引理6都使用移位算子在 $\mathbb Z$ 上的Fourier结构：引理5计算乘子级数，引理6引用极大部分和定理. Calderón转移把这两步送回一般的保测系统.</p>
+<p>第三，引理5和引理6是论证中用到的两个基本估计：引理5计算Fourier乘子级数，引理6是移位算子的 Hardy--Littlewood 极大不等式. Calderón转移把这两个估计送回一般的保测系统.</p>
 
 <p>第四，同样的振荡框架可以处理双线性平均
 $$
@@ -366,10 +378,6 @@ $$
 <li>A. Calderón, <i>Ergodic theory and translation-invariant operators</i>, Proc. Nat. Acad. Sci. USA 59 (1968), 349--353.</li>
 
 <li>N. Wiener, <i>The Fourier Integral and Certain of Its Applications</i>, Cambridge University Press, 1933.</li>
-
-<li>L. Carleson, <i>On convergence and growth of partial sums of Fourier series</i>, Acta Math. 116 (1966), 135--157.</li>
-
-<li>R. A. Hunt, <i>On the convergence of Fourier series</i>, in <i>Orthogonal Expansions and Their Continuous Analogues</i>, Southern Illinois University Press, 1968, 235--255.</li>
 
 </ol>
 
