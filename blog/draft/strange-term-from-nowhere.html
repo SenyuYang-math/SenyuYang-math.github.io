@@ -58,9 +58,9 @@ $$
 
 <p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时极限可能出现不平凡的现象，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现. 我们往后都考虑这种情形.</p>
 
-<h2>振荡测试函数</h2>
+<h2>振荡测试，极限的修正</h2>
 
-<p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试函数</i> 方法，这里是该方法一个好的试验场. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
+<p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试</i> 方法，这里是该方法一个好的试验场. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
 
 <p><b>(a)</b> <i>先确定校正子需要满足哪些性质才具有非平凡的极限.</i></p>
 
@@ -154,7 +154,7 @@ $$
 这里要求 $\mu\in W^{-1,\infty}$ 是因为 $u^2\in W^{1,1}(\Omega)$. 由 $\mu$ 的正性得到 $u \equiv 0$.</p>
 <p class="proof-box">$\Box$</p>
 
-<h2>校正子的构造</h2>
+<h2>校正子的构造，相变现象</h2>
 
 <p>现在我们来看一个具体例子：令 $d\geq 3$, 考虑区域
 $$
@@ -278,39 +278,34 @@ $$</p>
 
 <h3>临界情形：$r^\varepsilon/\varepsilon^{\frac d{d-2}} \to C_0$</h3>
 
-<p>在临界情形下，由 (16) 的证明过程得到
+<p>在临界情形，我们希望构造合适的校正子，通过定理 1 来求出修正因子 $\mu$. 由 (16) 的证明过程得到
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\xrightarrow{\varepsilon\to0}\frac{S_d(d-2)|\Omega|}{2^d}C_0^{d-2}.
 $$
-结合最大模原理 $0\le w^\varepsilon\le1$ 可知 $w^\varepsilon$ 在 $H^1(\Omega)$ 中有界，于是（抽取子列后）
+结合最大模原理 $0\le w^\varepsilon\le1$ 可知 $w^\varepsilon$ 在 $H^1(\Omega)$ 中有界，于是（再抽取一次子列后）
 $$
 w^\varepsilon\rightharpoonup w\ \text{ in } H^1(\Omega),\qquad
 w^\varepsilon\to w\ \text{ in } L^2(\Omega).
 $$
-我们的目标是证明 $w = 1$. 为此利用
+我们的目标是证明 $w = 1$. 为此注意到
 $$
-w^\varepsilon\equiv1\quad\text{on } C^\varepsilon := \bigcup_{i=1}^{n_\varepsilon}C_i^\varepsilon.
+w^\varepsilon\equiv1\quad\text{on } C^\varepsilon := \Omega\setminus \bigcup_{i=1}^{n_\varepsilon}B_i^\varepsilon.
 $$
 记 $C^\varepsilon$ 的特征函数为 $\chi_{C^\varepsilon}$. 设 $E$ 是 $\Omega$ 中的可测集，$\chi_E$ 是它的特征函数. 我们有
 $$
-\int_\Omega\chi_{C^\varepsilon}\chi_E = |C^\varepsilon\cap E|\stackrel{\varepsilon\to0}{\sim}\frac{|E|}{(2\varepsilon)^d}|C_i^\varepsilon| = \frac{|E|}{(2\varepsilon)^d}\left(\frac{\sqrt d-1}{\sqrt d}\right)^d(2\varepsilon)^d = |E|\left(\frac{\sqrt d-1}{\sqrt d}\right)^d.
+\int_\Omega\chi_{C^\varepsilon}\chi_E = |C^\varepsilon\cap E|\stackrel{\varepsilon\to0}{\sim}\frac{|E|}{(2\varepsilon)^d}|C_i^\varepsilon| = |E|\left(\frac{\sqrt d-1}{\sqrt d}\right)^d.
 $$
-因此
+因此由 $L^1(\Omega)$ 的简单函数逼近可知
 $$
 \chi_{C^\varepsilon}\overset{*}{\rightharpoonup}\left(\frac{\sqrt d-1}{\sqrt d}\right)^d\ \text{ weakly star in } L^\infty(\Omega).
-$$</p>
-
-<p>现在按引言中第 (2) 点的论证：由 $w^\varepsilon$ 的定义
 $$
-w^\varepsilon\chi_{C^\varepsilon} = \chi_{C^\varepsilon},
-$$
-于是取弱极限（利用 $w^\varepsilon$ 在 $L^2$ 中的强收敛）得到
+于是按 $w^\varepsilon$ 的定义有 $w^\varepsilon\chi_{C^\varepsilon} = \chi_{C^\varepsilon}$. 取弱 $*$ 极限得到
 $$
 \left(\frac{\sqrt d-1}{\sqrt d}\right)^d(w-1) = 0,
 $$
-即 $w = 1$，这就证明了 (7).</p>
+其中 $w^\varepsilon \chi_{C^\varepsilon}$ 的弱 $*$ 极限存在利用了 $w^\varepsilon$ 的 $L^2$-强收敛. 由极限的唯一性可知 $w = 1$，这就证明了 (6).</p>
 
-<p>我们接下来（也是最后）的目标是计算 $-\Delta w^\varepsilon$. 由于 $w^\varepsilon$ 的梯度在界面 $\partial B_i^\varepsilon\cup T_i^\varepsilon$ 上有跳跃，$-\Delta w^\varepsilon$ 是支在 $\partial B_i^\varepsilon\cup\partial T_i^\varepsilon$ 上的分布（实际上是测度）. 对一切 $\varphi\in C_c^\infty(\mathbb R^d)$，我们有
+<p>最后一步是计算 $-\Delta w^\varepsilon$. 由于 $w^\varepsilon$ 的梯度在界面 $\partial (B_i^\varepsilon\cup T_i^\varepsilon)$ 上有跳跃，$-\Delta w^\varepsilon$ 是支在 $\partial (B_i^\varepsilon\cup\partial T_i^\varepsilon)$ 上的分布. 对一切 $\varphi\in C_c^\infty(\mathbb R^d)$，我们有
 $$
 \begin{aligned}
 \langle-\Delta w^\varepsilon,\varphi\rangle_{\mathcal D',\mathcal D} &= \langle\nabla w^\varepsilon,\nabla\varphi\rangle_{\mathcal D',\mathcal D} = \int_{\mathbb R^d}\nabla w^\varepsilon\cdot\nabla\varphi = \sum_{i=1}^{n_\varepsilon}\int_{B_i^\varepsilon\setminus T_i^\varepsilon}\nabla w^\varepsilon\cdot\nabla\varphi\\
