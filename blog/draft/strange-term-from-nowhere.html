@@ -252,33 +252,28 @@ $$
 
 <p>关于Poincaré不等式，小因子 $\varepsilon^{d/2}$ 来自胞腔的小尺度. 损失因子 $\frac1{(r^\varepsilon)^{\frac{d-2}2}}$ 来自于 $u$ 取零值的部分（即洞 $T_i^\varepsilon$ 上）. 下面给出证明.</p>
 
-<p><i>引理 6 的证明.</i> 我们只需对满足 $u = 0$ 于 $T_i^\varepsilon = B(\xi_i,r^\varepsilon)$ 的函数 $u\in H^1(B(\xi_i,\sqrt d\varepsilon))$ 证明 Poincaré 不等式. WLOG, 设点 $\xi = 0$. 记 $r$ 为径向变量. 设 $u\in C^0(B(0,\sqrt d\varepsilon))\cap H^1(B(0,\sqrt d\varepsilon))$ 满足 $u(x) = 0$ 于 $r = r^\varepsilon$. 对 $x\in B(0,\sqrt d\varepsilon)$，径向向量 $e_r$ 等于 $x/|x|$. 以 $x$（而不是 $0$）为参考点，对函数
+<p><i>引理 6 的证明.</i> 我们只需对满足在 $T_i^\varepsilon = B(\xi_i,r^\varepsilon)$ 上等于 $0$ 的函数 $u\in H^1(B(\xi_i,\sqrt d\varepsilon))$ 证明 Poincaré 不等式. WLOG, 设点 $\xi = 0$. 记 $r$ 为径向变量，径向单位向量为 $e_r$. 则 $u(x_0) = 0$ 在 $r = r^\varepsilon$ 上成立. 以这样的 $x_0$ 为基点沿径向使用Newton-Leibniz公式，
 $$
-t\mapsto u(x+(t-r)e_r)
+u(x) = \int_{r^\varepsilon}^r\nabla u(x_0+(t-r)e_r)\cdot e_r\,dt \quad text{for}\ x=r\frac{x_0}{|x_0|}.
 $$
-使用微积分基本定理，得到
-$$
-u(x) = \int_{r^\varepsilon}^r\nabla u(x+(t-r)e_r)\cdot e_r\,dt.
-$$
-再对 $x = r\omega\in B(0,\sqrt d\varepsilon)$ 积分，
+再对 $x \in B(0,\sqrt d\varepsilon)$ 积分，
 $$
 \|u\|_{L^2(B(0,\sqrt d\varepsilon))}^2\le C\int_{S^{d-1}}\int_{r^\varepsilon}^{\sqrt d\varepsilon}\left(\int_{r^\varepsilon}^r\nabla u(r\omega+(t-r)\omega)\cdot\omega\,dt\right)^2r^{d-1}dr\,d\omega.
 $$
 由 Cauchy–Schwarz 不等式
 $$
 \begin{aligned}
-\left(\int_{r^\varepsilon}^r\nabla u(r\omega+(t-r)\omega)\cdot\omega\,dt\right)^2 &\le\left(\int_{r^\varepsilon}^r|\nabla u(r\omega+(t-r)\omega)\cdot\omega|^2t^{d-1}dt\right)\left(\int_{r^\varepsilon}^r\frac{dt}{t^{d-1}}\right)\\
-&\le\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(r\omega+(t-r)\omega)\cdot\omega]^2t^{d-1}dt\right)\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}\frac{dt}{t^{d-1}}\right).
+\left(\int_{r^\varepsilon}^r\nabla u(r\omega+(t-r)\omega)\cdot\omega\,dt\right)^2 &\le\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(r\omega+(t-r)\omega)\cdot\omega]^2t^{d-1}dt\right)\left(\int_{r^\varepsilon}^{\infty}\frac{dt}{t^{d-1}}\right)\\
+& \lesssim \frac{1}{(r_\varepsilon)^{d-2}} \left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(r\omega+(t-r)\omega)\cdot\omega]^2t^{d-1}dt\right).
 \end{aligned}
 $$
 因此
 $$
 \begin{aligned}
-\|u\|_{L^2(B(0,\sqrt d\varepsilon))}^2 &\le\int_{S^{d-1}}\int_{r^\varepsilon}^{\sqrt d\varepsilon}\int_{r^\varepsilon}^{\sqrt d\varepsilon}|\nabla u(r\omega+(t-r)\omega)|^2t^{d-1}dt\,r^{d-1}dr\,d\omega\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}\frac{dt}{t^{d-1}}\right)\\
-&\le C\varepsilon^d\|\nabla u\|_{L^2(B(0,\sqrt d\varepsilon))}^2\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}\frac{dt}{t^{d-1}}\right)\le C\frac{\varepsilon^d}{(r^\varepsilon)^{d-2}},
+\|u\|_{L^2(B(0,\sqrt d\varepsilon))}^2 &\le \frac{1}{(r_\varepsilon)^{d-2}} \int_{S^{d-1}}\int_{r^\varepsilon}^{\sqrt d\varepsilon}\int_{r^\varepsilon}^{\sqrt d\varepsilon}|\nabla u(r\omega+(t-r)\omega)|^2t^{d-1}dt\,r^{d-1}dr\,d\omega\\
+&\lesssim \frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\|\nabla u\|_{L^2(B(0,\sqrt d\varepsilon))}^2.
 \end{aligned}
-$$
-因为 $r^\varepsilon\ll\varepsilon$.</p>
+$$</p>
 <p class="proof-box">$\Box$</p>
 
 <h3>临界情形：$r^\varepsilon \sim a^\varepsilon$</h3>
