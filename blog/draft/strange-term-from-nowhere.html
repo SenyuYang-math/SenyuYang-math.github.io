@@ -6,7 +6,7 @@
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<p>发一个椭圆PDE的存货~ 设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
+<p>发一篇存货~ 本期博客介绍一个来自均质化（Homogenization）理论的椭圆 PDE 问题. 设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
 $$
 \Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d, \qquad d\geq 2.
 $$
@@ -40,7 +40,7 @@ u^{\varepsilon_k}\to u^0\ \text{ in } L^2(\Omega).
 $$
 于是我们的问题就是</p>
 
-<p class="thm"><b>Q.</b> 能否确定极限 $u^0$？</p>
+<p class="thm"><b>Q.</b> 能否确定微观尺度趋于 $0$ 时解族的极限 $u^0$？</p>
 
 <p>可以先考虑两个平凡的情形：</p>
 
@@ -56,7 +56,7 @@ $$
 $$
 <i>由 $\chi$ 的正性得到 $u^0 = 0$.</i></p>
 
-<p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时极限可能出现不平凡的现象，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现. 我们往后都考虑这种情形.</p>
+<p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时可能出现不平凡的极限，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现. 我们往后都考虑这种情形.</p>
 
 <h2>振荡测试，极限的修正</h2>
 
