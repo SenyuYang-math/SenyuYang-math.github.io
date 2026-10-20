@@ -340,9 +340,9 @@ $$</p>
   $$\begin{aligned}\varepsilon\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon}&  = \varepsilon^d S_d \cdot \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon}\\
    & = \frac{\varepsilon^d S_d}{(2\varepsilon)^d} \int_{P_i^\varepsilon} \varphi\\
    & \quad -\varepsilon^d S_d \left(\frac{1}{(2\varepsilon)^d} \int_{P_i^\epsilon} \varphi - \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon} \right) \\
-   & = \frac{S_d}{2^d} \int_{P_i^\varepsilon} \varphi + \varepsilon O(\|\nabla\|_{L^1(P_i^\epsilon)}). \end{aligned}$$
+   & = \frac{S_d}{2^d} \int_{P_i^\varepsilon} \varphi \, + \varepsilon\, O(\|\nabla \varphi\|_{L^1(P_i^\epsilon)}). \end{aligned}$$
    最后一步我们使用了平均版本的 Poincaré 不等式. 再求和，于是对任意 $\varphi\in C_c^\infty(\Omega)$ 满足 $\|\nabla \varphi\|_{L^1}\leq 1$, 我们有
-   $$\left\langle \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon-\frac{S_d}{2^d}, \varphi \right\rangle_{W^{-1,\infty}, W^{1,1}}| \lesssim \varepsilon.$$
+   $$\left|\Big\langle \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon-\frac{S_d}{2^d}, \varphi \Big\rangle_{W^{-1,\infty}, W^{1,1}}\right| \lesssim \varepsilon.$$
    因此 $W^{-1,\infty}$ 强收敛得证.
 <!--  另证：(1) 首先证明
 $$
