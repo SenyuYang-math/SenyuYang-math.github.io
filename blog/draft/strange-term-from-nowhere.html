@@ -1,16 +1,16 @@
 <html>
 <head>
-<title>均质化的相变：振荡测试</title>
+<title>多孔介质的相变尺度：振荡测试</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<p>发一些存货~ 设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
+<p>发一个椭圆PDE的存货~ 设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
 $$
 \Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d, \qquad d\geq 2.
 $$
-参数 $\varepsilon>0$ 标记了孔洞的不同尺度. 本文始终约定所有的边界都是光滑的. 现在考虑在该多孔材料上 Poisson 方程的 Dirichlet 边值问题
+参数 $\varepsilon>0$ 标记了孔洞的不同尺度. 本文始终约定所有的边界都是光滑的. 现在考虑在该多孔介质上 Poisson 方程的 Dirichlet 边值问题
 $$
 \begin{cases}
 -\Delta u^\varepsilon = f, & x\in\Omega^\varepsilon,\\
@@ -403,7 +403,7 @@ $$
 
 <p>由引理 7 立即推出
 $$
-\mu^\varepsilon\to\mu := \frac{(d-2)S_d}{2^d}C_0^{d-2}\ \text{ strongly in } W_{loc}^{-1,\infty}(\mathbb R^d).
+\mu^\varepsilon\to\mu := \frac{(d-2)S_d}{2^d}C_0^{d-2}\ \text{ in } W_{loc}^{-1,\infty}(\mathbb R^d).
 $$
 我们完成了定理 4 的证明.</p>
 <p class="proof-box">$\Box$</p>
