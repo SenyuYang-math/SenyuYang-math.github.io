@@ -190,7 +190,7 @@ w^\varepsilon = 1, & x\in[-\varepsilon,\varepsilon]^d\setminus B(0,\varepsilon).
 \end{cases}
 \tag{14}
 $$
-利用旋转对称性（极坐标），可以显式解出 (14)：
+利用旋转对称性可以显式解出 (14)：
 $$
 w^\varepsilon(x) = \frac{(r^\varepsilon)^{-d+2}-|x|^{-d+2}}{(r^\varepsilon)^{-d+2}-\varepsilon^{-d+2}},\qquad x\in B(0,\varepsilon)\setminus B(0,r^\varepsilon).
 \tag{15}
@@ -309,7 +309,7 @@ $$
 $$
 \begin{aligned}
 \langle-\Delta w^\varepsilon,\varphi\rangle_{\mathcal D',\mathcal D} &= \langle\nabla w^\varepsilon,\nabla\varphi\rangle_{\mathcal D',\mathcal D} = \int_{\mathbb R^d}\nabla w^\varepsilon\cdot\nabla\varphi = \sum_{i=1}^{n_\varepsilon}\int_{B_i^\varepsilon\setminus T_i^\varepsilon}\nabla w^\varepsilon\cdot\nabla\varphi\\
-&= \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} d\sigma_{\epsilon} +\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} d\sigma_{r^\epsilon},
+&= \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} d\sigma_{\epsilon} -\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} d\sigma_{r^\epsilon},
 \end{aligned}
 $$
 其中 $\mathrm{n}$ 为外法向量，$\sigma_r$ 为半径 $r$ 的球面测度. 因此通过 $w^\epsilon$ 的显式表达式计算得到 $-\Delta w^\varepsilon = \mu^\varepsilon-\gamma^\varepsilon$, 其中
@@ -318,13 +318,13 @@ $$
 $$
 以及
 $$
-\langle\gamma^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = -\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot n_{ext}\varphi.
+\langle\gamma^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = \sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} d\sigma_{r^\epsilon}.
 $$
-显然，对一切 $v^\varepsilon\in H_0^1(\Omega^\varepsilon)$（即 $v^\varepsilon$ 在洞上为零），
+现在可以回到测试 (7). 对于 $v^\varepsilon\in H_0^1(\Omega^\varepsilon)$，它在洞中恒为 $0$, 于是有
 $$
 \langle\gamma^\varepsilon,v^\varepsilon\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = 0.
 $$
-还需验证 $\mu^\varepsilon$ 在 $H^{-1}(\Omega)$ 中（甚至在 $W^{-1,\infty}(\Omega)$ 中）强收敛到 $\mu\in W^{-1,\infty}(\Omega)$. 设 $\delta_{\partial B_i^\varepsilon}$ 是由
+因此对极限有贡献的只有 $\mu^\varepsilon$. 现在证明 $\mu^\varepsilon$ 在 $W^{-1,\infty}(\Omega)$ 中强收敛到某个 $\mu\in W^{-1,\infty}(\Omega)$. 设 $\delta_i^\varepsilon$ 是由
 $$
 \langle\delta_i^\varepsilon,\varphi\rangle_{\mathcal D',\mathcal D} = \int_{\partial B_i^\varepsilon}\varphi(s)\sigma(ds),\qquad \varphi\in\mathcal D(\mathbb R^d)
 $$
@@ -335,12 +335,12 @@ $$
 \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon\to\frac{S_d}{2^d}\ \text{ strongly in } W_{loc}^{-1,\infty}(\mathbb R^d).
 $$</p>
 
-<p>由该引理推出
-$$
-\mu^\varepsilon\to\mu := \frac{(d-2)S_d}{2^d}C_0^{d-2}\ \text{ strongly in } W_{loc}^{-1,\infty}(\mathbb R^d).
-$$</p>
-
-<p><i>引理7 的证明.</i> (1) 首先证明
+ <p><i>引理7 的证明.</i> $\varphi$ 紧支撑光滑，因此随着 $\varepsilon\to 0$，可以关于 $1\leq i\leq n_\varepsilon$ 一致地有
+  $$\begin{aligned}\varepsilon\int_{\partial B_i^\varepsilon} \varphi d\sigma_{\varepsilon}&  = \varepsilon^d S_d \cdot \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi d\sigma_{\varepsilon}\\
+   & \sim \frac{\varepsilon^d S_d}{(2\varepsilon)^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi \\
+   & = \frac{S_d}{2^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi \end{aligned}$$
+   再求和即完成证明.
+<!--  另证：(1) 首先证明
 $$
 \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon = -\Delta q^\varepsilon-d\chi_{B^\varepsilon},
 \tag{18}
@@ -394,15 +394,15 @@ $$
 $$
 \chi_{B^\varepsilon}\to\overline\chi\ \text{ strongly in } W^{-1,\infty}(\Omega),
 $$
-引理得证.</p>
+引理得证.</p> -->
 <p class="proof-box">$\Box$</p>
 
-<h2>参考文献</h2>
-
-<p>[All90] Grégoire Allaire. Homogenization of the Navier-Stokes equations in open sets perforated with tiny holes. II. Noncritical sizes of the holes for a volume distribution and a surface distribution of holes. <i>Arch. Rational Mech. Anal.</i>, 113(3):261–298, 1990.</p>
-
-<p>[CK97] Andrej Cherkaev and Robert Kohn, editors. <i>Topics in the mathematical modelling of composite materials</i>. Progress in Nonlinear Differential Equations and their Applications, 31. Birkhäuser Boston, Inc., Boston, MA, 1997.</p>
-</div>
+<p>由引理 7 立即推出
+$$
+\mu^\varepsilon\to\mu := \frac{(d-2)S_d}{2^d}C_0^{d-2}\ \text{ strongly in } W_{loc}^{-1,\infty}(\mathbb R^d).
+$$
+我们完成了定理 4 的证明.</p>
+<p class="proof-box">$\Box$</p>
 
 <!-- js脚本 -->
 <script src="../../js/blog/post.js"></script>
