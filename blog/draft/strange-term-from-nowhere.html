@@ -220,7 +220,7 @@ $$
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}\longrightarrow 0,
 $$
-于是处于注2 的情形，从而 $u^\varepsilon$ 趋于普通的Poisson方程解, i.e. 修正项 $\mu$ 为零. 这对应了第一种平凡极限.</p>
+于是根据注 3, $u^\varepsilon$ 趋于普通的Poisson方程解, i.e. 修正项 $\mu$ 为零. 这对应了第一种平凡极限.</p>
 
 <h3>超临界情形: $r^\varepsilon\gg \varepsilon^{\frac d{d-2}}$</h3>
 
@@ -250,7 +250,7 @@ $$
 $$
 因此 $u^\varepsilon$ 在 $H^1(\Omega)$ 中强收敛到 $0$. 这对应了第二种平凡极限.</p>
 
-<p>关于Poincaré不等式，小因子 $\varepsilon^{d/2}$ 来自胞腔的小尺度. 损失因子 $\frac1{(r^\varepsilon)^{\frac{d-2}2}}$ 来自于 $u$ 取零值的部分（即洞 $T_i^\varepsilon$ 上）. 下面给出证明.</p>
+<p>关于Poincaré不等式，小因子 $\varepsilon^{d/2}$ 来自胞腔的小尺度. 损失因子 $\frac1{(r^\varepsilon)^{\frac{d-2}2}}$ 来自于 $u$ 取零值的部分（即洞 $T_i^\varepsilon$ ）体积不能太小. 下面给出（经典的）证明.</p>
 
 <p><i>引理 6 的证明.</i> 我们只需对满足在 $T_i^\varepsilon = B(\xi_i,r^\varepsilon)$ 上等于 $0$ 的函数 $u\in H^1(B(\xi_i,\sqrt d\varepsilon))$ 证明 Poincaré 不等式. WLOG, 设点 $\xi = 0$. 记 $r$ 为径向变量，径向单位向量为 $e_r$. 则 $u(x_0) = 0$ 在 $r = r^\varepsilon$ 上成立. 以这样的 $x_0$ 为基点沿径向使用Newton-Leibniz公式，
 $$
@@ -263,8 +263,8 @@ $$
 由 Cauchy–Schwarz 不等式
 $$
 \begin{aligned}
-\left(\int_{r^\varepsilon}^r\nabla u(t\omega)\cdot\omega\,dt\right)^2 &\le\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(t\omega)\cdot\omega]^2t^{d-1}dt\right)\left(\int_{r^\varepsilon}^{\infty}\frac{dt}{t^{d-1}}\right)\\
-& \lesssim \frac{1}{(r_\varepsilon)^{d-2}} \left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(t\omega)\cdot\omega]^2t^{d-1}dt\right).
+\left(\int_{r^\varepsilon}^r\nabla u(t\omega)\cdot\omega\,dt\right)^2 &\le\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon} |\nabla u(t\omega)|^2t^{d-1}dt\right)\left(\int_{r^\varepsilon}^{\infty}\frac{dt}{t^{d-1}}\right)\\
+& \lesssim \frac{1}{(r_\varepsilon)^{d-2}} \left(\int_{r^\varepsilon}^{\sqrt d\varepsilon} |\nabla u(t\omega)|^2t^{d-1}dt\right).
 \end{aligned}
 $$
 因此
