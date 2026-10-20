@@ -293,7 +293,7 @@ w^\varepsilon\equiv1\quad\text{on } C^\varepsilon := \Omega\setminus \bigcup_{i=
 $$
 记 $C^\varepsilon$ 的特征函数为 $\chi_{C^\varepsilon}$. 设 $E$ 是 $\Omega$ 中的可测集，$\chi_E$ 是它的特征函数. 我们有
 $$
-\int_\Omega\chi_{C^\varepsilon}\chi_E = |C^\varepsilon\cap E|\stackrel{\varepsilon\to0}{\sim}\frac{|E|}{(2\varepsilon)^d}|C_i^\varepsilon| \to |E|\left(\frac{\sqrt d-1}{\sqrt d}\right)^d.
+\int_\Omega\chi_{C^\varepsilon}\chi_E = |C^\varepsilon\cap E| \stackrel{\varepsilon\to0}{\sim}\frac{|E|}{(2\varepsilon)^d}|C_i^\varepsilon| \to |E|\left(\frac{\sqrt d-1}{\sqrt d}\right)^d.
 $$
 因此由 $L^1(\Omega)$ 的简单函数逼近可知
 $$
@@ -315,7 +315,7 @@ $$
 其中 $\mathrm{n}$ 为外法向量，$\sigma_r$ 为半径 $r$ 的球面测度. 因此通过 $w^\epsilon$ 的显式表达式计算得到 $-\Delta w^\varepsilon = \mu^\varepsilon-\gamma^\varepsilon$, 其中
 $$
 \begin{aligned}\langle\mu^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} & = \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} \, d\sigma_{\epsilon}\\
-  & \sim \frac{(d-2)C_0^{d-2}}{1-C_0^{d-2}\varepsilon^2}\sum_{i=1}^{n_\varepsilon}\varepsilon\int_{\partial B_i^\varepsilon}\varphi \, d\sigma_{\epsilon},\end{aligned}
+  & \stackrel{\varepsilon\to0}{\sim} \frac{(d-2)C_0^{d-2}}{1-C_0^{d-2}\varepsilon^2}\sum_{i=1}^{n_\varepsilon}\varepsilon\int_{\partial B_i^\varepsilon}\varphi \, d\sigma_{\epsilon},\end{aligned}
 $$
 以及
 $$
@@ -329,7 +329,7 @@ $$
 $$
 \langle\delta_i^\varepsilon,\varphi\rangle_{\mathcal D',\mathcal D} = \int_{\partial B_i^\varepsilon}\varphi(s)\sigma(ds),\qquad \varphi\in\mathcal D(\mathbb R^d)
 $$
-定义的分布.</p>
+定义的分布. 于是计算得到：</p>
 
 <p class="thm"><b>引理7.</b> 我们有
 $$
