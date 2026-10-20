@@ -205,7 +205,7 @@ $$
 
 <h3>次临界情形: $r^\varepsilon\ll \varepsilon^{\frac d{d-2}}$</h3>
 
-可以直接做曾经棘手的梯度估计：
+此时可以直接做曾经棘手的梯度估计：
 
 <p class="thm"><b>引理5.</b> 我们有
 $$
@@ -279,9 +279,11 @@ $$
 $$</p>
 <p class="proof-box">$\Box$</p>
 
-<h3>临界情形：$r^\varepsilon/\varepsilon^{\frac d{d-2}} \to C_0$</h3>
+<h3>临界情形: $r^\varepsilon/\varepsilon^{\frac d{d-2}} \to C_0$</h3>
 
-<p>在临界情形，我们希望构造合适的校正子，通过定理 1 来求出修正因子 $\mu$. 由 (9) 的证明过程得到
+<p>在临界情形，我们希望构造合适的校正子，通过定理 1 来求出修正因子 $\mu$.</p>
+  
+<p><i>Step 1.</i> 由 (9) 的证明过程得到
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\xrightarrow{\varepsilon\to0}\frac{S_d(d-2)|\Omega|}{2^d}C_0^{d-2}.
 $$
@@ -308,7 +310,7 @@ $$
 $$
 其中 $w^\varepsilon \chi_{C^\varepsilon}$ 的弱 $*$ 极限存在利用了 $w^\varepsilon$ 的 $L^2$-强收敛. 由极限的唯一性可知 $w = 1$，这就证明了 (6).</p>
 
-<p>最后一步是计算 $-\Delta w^\varepsilon$. 由于 $w^\varepsilon$ 的梯度在界面 $\partial (B_i^\varepsilon\cup T_i^\varepsilon)$ 上有跳跃，$-\Delta w^\varepsilon$ 是支在 $\partial (B_i^\varepsilon\cup\partial T_i^\varepsilon)$ 上的分布. 对任意 $\varphi\in C_c^\infty(\mathbb R^d)$，Green公式给出
+<p><i>Step 2.</i> 最后一步是计算 $-\Delta w^\varepsilon$. 由于 $w^\varepsilon$ 的梯度在界面 $\partial (B_i^\varepsilon\cup T_i^\varepsilon)$ 上有跳跃，$-\Delta w^\varepsilon$ 是支在 $\partial (B_i^\varepsilon\cup\partial T_i^\varepsilon)$ 上的分布. 对任意 $\varphi\in C_c^\infty(\mathbb R^d)$，Green公式给出
 $$
 \begin{aligned}
 \langle-\Delta w^\varepsilon,\varphi\rangle_{\mathcal D',\mathcal D} &= \langle\nabla w^\varepsilon,\nabla\varphi\rangle_{\mathcal D',\mathcal D} = \int_{\mathbb R^d}\nabla w^\varepsilon\cdot\nabla\varphi = \sum_{i=1}^{n_\varepsilon}\int_{B_i^\varepsilon\setminus T_i^\varepsilon}\nabla w^\varepsilon\cdot\nabla\varphi\\
