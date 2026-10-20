@@ -194,12 +194,10 @@ w^\varepsilon(x) = 0, & x\in B(0,r^\varepsilon),\\
 -\Delta w^\varepsilon = 0, & x\in B(0,\varepsilon)\setminus B(0,r^\varepsilon),\\
 w^\varepsilon = 1, & x\in[-\varepsilon,\varepsilon]^d\setminus B(0,\varepsilon).
 \end{cases}
-\tag{14}
 $$
-利用旋转对称性可以显式解出 (14)：
+利用旋转对称性可以显式解得
 $$
 w^\varepsilon(x) = \frac{(r^\varepsilon)^{-d+2}-|x|^{-d+2}}{(r^\varepsilon)^{-d+2}-\varepsilon^{-d+2}},\qquad x\in B(0,\varepsilon)\setminus B(0,r^\varepsilon).
-\tag{15}
 $$
 于是 $w^\varepsilon\in H^1[-\varepsilon, \varepsilon]^d$，并有最大模原理 $0\le w^\varepsilon\le1$. 接着将 $w^\varepsilon$ 周期性延拓到整个 $\mathbb R^d$，仍记作 $w^\varepsilon$. 于是 $w^\varepsilon\in H^1(\mathbb R^d)$ 且在洞 $T_i^\varepsilon$ 上为零.</p>
 
@@ -212,7 +210,7 @@ $$
 <p class="thm"><b>引理5.</b> 我们有
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\sim\frac{S_d(d-2)|\Omega|}{(2\varepsilon)^d}(r^\varepsilon)^{-d+2}.
-\tag{16}
+\tag{9}
 $$</p>
 
 <p><i>证明.</i> 只需计算单个胞腔 $[-\varepsilon, \varepsilon]^d$ 上的积分. 显式计算给出
@@ -222,7 +220,7 @@ $$
 由于 $\varepsilon = o(r^\varepsilon)$，即得结论.</p>
 <p class="proof-box">$\Box$</p>
 
-<p>根据次临界情形的条件，由 (16) 得
+<p>根据次临界情形的条件，由 (9) 得
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}\longrightarrow 0,
 $$
@@ -235,12 +233,11 @@ $$
 <p class="thm"><b>引理6.</b> 存在与 $\varepsilon$ 无关的常数 $C>0$，使得对一切 $u\in H_0^1(\Omega^\varepsilon)$，
 $$
 \|u\|_{L^2(\Omega^\varepsilon)}\le C\left(\frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\right)^{1/2}\|\nabla u\|_{L^2(\Omega^\varepsilon)}.
-\tag{17}
 $$</p>
 
 <p>这个估计在每个尺度范围都成立，但当 $r^\varepsilon\gg a^\varepsilon$ 时，注意到
 $$
-r^\varepsilon\gg\varepsilon^{\frac d{d-2}}\ \Rightarrow\ \frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\xrightarrow{\varepsilon\to0}0.
+r^\varepsilon\gg\varepsilon^{\frac d{d-2}}\ \Rightarrow\ \frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\xrightarrow{\varepsilon\to0} 0.
 $$
 于是作为引理 6 的推论，我们得到
 $$
@@ -284,7 +281,7 @@ $$</p>
 
 <h3>临界情形：$r^\varepsilon/\varepsilon^{\frac d{d-2}} \to C_0$</h3>
 
-<p>在临界情形，我们希望构造合适的校正子，通过定理 1 来求出修正因子 $\mu$. 由 (16) 的证明过程得到
+<p>在临界情形，我们希望构造合适的校正子，通过定理 1 来求出修正因子 $\mu$. 由 (9) 的证明过程得到
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\xrightarrow{\varepsilon\to0}\frac{S_d(d-2)|\Omega|}{2^d}C_0^{d-2}.
 $$
