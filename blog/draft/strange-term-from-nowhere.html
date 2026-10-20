@@ -197,6 +197,11 @@ w^\varepsilon(x) = \frac{(r^\varepsilon)^{-d+2}-|x|^{-d+2}}{(r^\varepsilon)^{-d+
 $$
 于是 $w^\varepsilon\in H^1[-\varepsilon, \varepsilon]^d$，并有最大模原理 $0\le w^\varepsilon\le1$. 接着将 $w^\varepsilon$ 周期性延拓到整个 $\mathbb R^d$，仍记作 $w^\varepsilon$. 于是 $w^\varepsilon\in H^1(\mathbb R^d)$ 且在洞 $T_i^\varepsilon$ 上为零.</p>
 
+<p>现在开始定理 4 的证明</p>
+  
+<h3>次临界情形: $r^\varepsilon\ll a^\varepsilon$</h3>
+
+可以直接做曾经棘手的梯度估计：
 
 <p class="thm"><b>引理5.</b> 我们有
 $$
@@ -211,15 +216,13 @@ $$
 由于 $\varepsilon = o(r^\varepsilon)$，即得结论.</p>
 <p class="proof-box">$\Box$</p>
 
-<h3>情形 1: $r^\varepsilon\ll a^\varepsilon$</h3>
-
-<p>若 $r^\varepsilon\ll\varepsilon^{\frac d{d-2}}$，则由 (16) 得
+<p>根据次临界情形的条件，由 (16) 得
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}\longrightarrow0,
 $$
-于是处于注2 的情形，从而 $u^\varepsilon$ 趋于 (8) 的解 $u^0$. 换言之，奇怪项 $\mu$ 为零.</p>
+于是处于注2 的情形，从而 $u^\varepsilon$ 趋于普通的Poisson方程解, i.e. 修正项 $\mu$ 为零. 这对应了第一种平凡极限.</p>
 
-<h3>情形 2: $r^\varepsilon\gg a^\varepsilon$</h3>
+<h3>超临界情形: $r^\varepsilon\gg a^\varepsilon$</h3>
 
 <p>在洞尺度较大时我们不必使用振荡测试函数. 一个胞腔版本的 Poincaré 不等式足够使用：</p>
 
@@ -245,11 +248,11 @@ $$
 $$
 \left(\int_\Omega|u^\varepsilon|^2\right)^{1/2}\le C\left(\int_{\Omega^\varepsilon}|\nabla u^\varepsilon|^2\right)^{1/2}\xrightarrow{\varepsilon\to0}0,
 $$
-因此 $u^\varepsilon$ 在 $H^1(\Omega)$ 中强收敛到 $0$.</p>
+因此 $u^\varepsilon$ 在 $H^1(\Omega)$ 中强收敛到 $0$. 这对应了第二种平凡极限.</p>
 
 <p>关于Poincaré不等式，小因子 $\varepsilon^{d/2}$ 来自胞腔的小尺度. 损失因子 $\frac1{(r^\varepsilon)^{\frac{d-2}2}}$ 来自于 $u$ 取零值的部分（即洞 $T_i^\varepsilon$ 上）. 下面给出证明.</p>
 
-<p><i>引理6 的证明.</i> 我们只需对满足 $u = 0$ 于 $T_i^\varepsilon = B(\xi_i,r^\varepsilon)$ 的函数 $u\in H^1(B(\xi_i,\sqrt d\varepsilon))$ 证明 Poincaré 不等式. WLOG, 设点 $\xi = 0$. 记 $r$ 为径向变量. 设 $u\in C^0(B(0,\sqrt d\varepsilon))\cap H^1(B(0,\sqrt d\varepsilon))$ 满足 $u(x) = 0$ 于 $r = r^\varepsilon$. 对 $x\in B(0,\sqrt d\varepsilon)$，径向向量 $e_r$ 等于 $x/|x|$. 以 $x$（而不是 $0$）为参考点，对函数
+<p><i>引理 6 的证明.</i> 我们只需对满足 $u = 0$ 于 $T_i^\varepsilon = B(\xi_i,r^\varepsilon)$ 的函数 $u\in H^1(B(\xi_i,\sqrt d\varepsilon))$ 证明 Poincaré 不等式. WLOG, 设点 $\xi = 0$. 记 $r$ 为径向变量. 设 $u\in C^0(B(0,\sqrt d\varepsilon))\cap H^1(B(0,\sqrt d\varepsilon))$ 满足 $u(x) = 0$ 于 $r = r^\varepsilon$. 对 $x\in B(0,\sqrt d\varepsilon)$，径向向量 $e_r$ 等于 $x/|x|$. 以 $x$（而不是 $0$）为参考点，对函数
 $$
 t\mapsto u(x+(t-r)e_r)
 $$
@@ -278,9 +281,9 @@ $$
 因为 $r^\varepsilon\ll\varepsilon$.</p>
 <p class="proof-box">$\Box$</p>
 
-<h3>情形 3: 临界尺度 $r^\varepsilon = a^\varepsilon$</h3>
+<h3>临界情形：$r^\varepsilon \sim a^\varepsilon$</h3>
 
-<p>现在关注 $r^\varepsilon\simeq\varepsilon^{\frac d{d-2}}$ 的情形. 更确切地说，假设 $r^\varepsilon = C_0\varepsilon^{\frac d{d-2}}$. 在这一范围内，由 (16) 得到
+<p>现在关注 $r^\varepsilon\sim \varepsilon^{\frac d{d-2}}$ 的情形. 更确切地说，假设 $r^\varepsilon = C_0\varepsilon^{\frac d{d-2}}$. 在这一范围内，由 (16) 得到
 $$
 \|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\xrightarrow{\varepsilon\to0}\frac{S_d(d-2)|\Omega|}{2^d}C_0^{d-2}.
 $$
