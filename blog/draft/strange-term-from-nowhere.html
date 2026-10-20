@@ -18,7 +18,13 @@ u^\varepsilon = 0, & x\in\partial\Omega^\varepsilon,
 \end{cases}
 \tag{1}
 $$
-其中位势项 $f\in L^2(\Omega)$. 我们自然会问：当孔洞越来越小，i.e. $\varepsilon\to 0$ 时，方程的解 $u^\varepsilon$ 的极限行为如何？洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形. 本期博客基于 Cioranescu 与 Murat 的论文 <i>A Strange Term Coming from Nowhere</i>, 来探讨这一问题.</p>
+其中位势项 $f\in L^2(\Omega)$. 我们自然会问：当孔洞越来越小，i.e. $\varepsilon\to 0$ 时，方程的解 $u^\varepsilon$ 的极限行为如何？洞的大小、密度、分布方式以及相邻洞之间的距离不同，会出现不同的情形. 本期博客参考了论文</p>
+
+<p style="font-size:small; font-color: grey">
+D. Cioranescu & F. Murat, <i>A strange term coming from nowhere</i>, Topics in the Mathematical Modelling of Composite Materials, 1997
+</p>
+  
+<p>和C. Prange在University of Bordeaux的讲义.</p>
 
 <h2>预备</h2>
 
@@ -56,7 +62,7 @@ $$
 $$
 <i>由 $\chi$ 的正性得到 $u^0 = 0$.</i></p>
 
-<p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时可能出现不平凡的极限，这也是博客标题的来源. 这就是所谓的 <i>均质化问题</i> 的核心：微观尺度的差异会如何影响宏观表现. 我们往后都考虑这种情形.</p>
+<p>而最复杂也最有物理意义的情形是：随着 $\varepsilon\to 0^+$, $\Omega$ 被越来越多的规则分布的洞穿孔，与此同时洞的直径趋于零. 这时可能出现不平凡的极限，这也是博客标题的来源. 这就是均质化的核心：微观尺度的差异会如何影响宏观表现. 我们往后都考虑这种情形.</p>
 
 <h2>振荡测试，极限的修正</h2>
 
@@ -232,11 +238,11 @@ $$
 \tag{17}
 $$</p>
 
-<p>这个估计可在 Allaire 处理 Stokes 方程均匀化的论文 [All90, 引理 3.4.1] 中找到. 当然它在每个尺度范围内都成立，但当 $r^\varepsilon\gg a^\varepsilon$ 时，它直接给出关于 $u^\varepsilon$ 极限的信息. 注意
+<p>这个估计在每个尺度范围都成立，但当 $r^\varepsilon\gg a^\varepsilon$ 时，注意到
 $$
 r^\varepsilon\gg\varepsilon^{\frac d{d-2}}\ \Rightarrow\ \frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\xrightarrow{\varepsilon\to0}0.
 $$
-作为引理6 的推论，我们得到
+于是作为引理 6 的推论，我们得到
 $$
 \int_{\Omega^\varepsilon}|\nabla u^\varepsilon|^2\le\|f\|_{L^2(\Omega)}\|u^\varepsilon\|_{L^2(\Omega)}\le C\left(\frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\right)^{1/2}\|f\|_{L^2(\Omega)}\|\nabla u^\varepsilon\|_{L^2(\Omega)},
 $$
