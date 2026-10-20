@@ -1,12 +1,12 @@
 <html>
 <head>
-<title>多孔介质的相变尺度：振荡测试</title>
+<title>多孔介质的相变尺度</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
-<p>发一篇存货~ 本期博客介绍一个来自均质化（Homogenization）理论的椭圆 PDE 问题. 设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
+<p>发一篇存货~ 本期博客介绍一个来自均质化（Homogenization）理论的椭圆 PDE 问题，以及背后使用的 <i>振荡测试</i> 方法. 设有界区域 $\Omega$ 被 $n_\varepsilon$ 个洞 $T_i^\varepsilon$ 穿孔：
 $$
 \Omega^\varepsilon = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon\subset\mathbb R^d, \qquad d\geq 2.
 $$
@@ -60,7 +60,7 @@ $$
 
 <h2>振荡测试，极限的修正</h2>
 
-<p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试</i> 方法，这里是该方法一个好的试验场. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
+<p>Tartar在研究均质化问题时发展了所谓的 <i>振荡测试</i> 方法；我们的问题是该方法的一个经典应用. 因为洞越来越多，$u^\varepsilon$ 会表现出越来越强的振荡. 为了在测试捕捉到 $u^\varepsilon$ 的行为，我们希望测试函数能与 $u^\varepsilon$ 同步地振荡（类似于波的干涉和相干性）. 因此，取测试函数 $v := w^\varepsilon\varphi$，其中光滑 profile $\varphi\in C_c^\infty(\Omega)$ 在整个 $\Omega$ 定义, 而 $w^\varepsilon\in H^1(\Omega^\varepsilon)$ 作为振荡的校正子（corrector）. 我们分两步讨论：</p>
 
 <p><b>(a)</b> <i>先确定校正子需要满足哪些性质才具有非平凡的极限.</i></p>
 
