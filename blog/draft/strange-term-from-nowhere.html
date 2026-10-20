@@ -258,19 +258,19 @@ u(x) = \int_{r^\varepsilon}^r\nabla u(x_0+(t-r_\varepsilon)e_r)\cdot e_r\,dt \qu
 $$
 再对 $x \in B(0,\sqrt d\varepsilon)$ 积分，
 $$
-\|u\|_{L^2(B(0,\sqrt d\varepsilon))}^2\le C\int_{S^{d-1}}\int_{r^\varepsilon}^{\sqrt d\varepsilon}\left(\int_{r^\varepsilon}^r\nabla u(r_\varepsilon\omega+(t-r_\varepsilon)\omega)\cdot\omega\,dt\right)^2r^{d-1}dr\,d\omega.
+\|u\|_{L^2(B(0,\sqrt d\varepsilon))}^2\le C\int_{S^{d-1}}\int_{r^\varepsilon}^{\sqrt d\varepsilon}\left(\int_{r^\varepsilon}^r\nabla u(t\omega)\cdot\omega\,dt\right)^2r^{d-1}dr\,d\omega.
 $$
 由 Cauchy–Schwarz 不等式
 $$
 \begin{aligned}
-\left(\int_{r^\varepsilon}^r\nabla u(r\omega+(t-r)\omega)\cdot\omega\,dt\right)^2 &\le\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(r_\varepsilon\omega+(t-r_\varepsilon)\omega)\cdot\omega]^2t^{d-1}dt\right)\left(\int_{r^\varepsilon}^{\infty}\frac{dt}{t^{d-1}}\right)\\
-& \lesssim \frac{1}{(r_\varepsilon)^{d-2}} \left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(r_\varepsilon\omega+(t-r_\varepsilon)\omega)\cdot\omega]^2t^{d-1}dt\right).
+\left(\int_{r^\varepsilon}^r\nabla u(r\omega+(t-r)\omega)\cdot\omega\,dt\right)^2 &\le\left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(t\omega)\cdot\omega]^2t^{d-1}dt\right)\left(\int_{r^\varepsilon}^{\infty}\frac{dt}{t^{d-1}}\right)\\
+& \lesssim \frac{1}{(r_\varepsilon)^{d-2}} \left(\int_{r^\varepsilon}^{\sqrt d\varepsilon}[\nabla u(t\omega)\cdot\omega]^2t^{d-1}dt\right).
 \end{aligned}
 $$
 因此
 $$
 \begin{aligned}
-\|u\|_{L^2(B(0,\sqrt d\varepsilon))}^2 &\le \frac{1}{(r_\varepsilon)^{d-2}} \int_{S^{d-1}}\int_{r^\varepsilon}^{\sqrt d\varepsilon}\int_{r^\varepsilon}^{\sqrt d\varepsilon}|\nabla u(r_\varepsilon\omega+(t-r_\varepsilon)\omega)|^2t^{d-1}dt\,r^{d-1}dr\,d\omega\\
+\|u\|_{L^2(B(0,\sqrt d\varepsilon))}^2 &\le \frac{1}{(r_\varepsilon)^{d-2}} \int_{S^{d-1}}\int_{r^\varepsilon}^{\sqrt d\varepsilon}\int_{r^\varepsilon}^{\sqrt d\varepsilon}|\nabla u(t\omega)|^2t^{d-1}dt\,r^{d-1}dr\,d\omega\\
 &\lesssim \frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\|\nabla u\|_{L^2(B(0,\sqrt d\varepsilon))}^2.
 \end{aligned}
 $$</p>
