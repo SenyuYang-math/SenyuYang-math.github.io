@@ -160,7 +160,7 @@ $$
 $$
 \Omega^\varepsilon := \Omega\setminus\bigcup_{\xi\in2\varepsilon\mathbb Z^d}B(\xi,r^\varepsilon) = \Omega\setminus\bigcup_{i=1}^{n_\varepsilon}T_i^\varepsilon
 $$
-中的 Poisson 问题 (1)，其中 $T_i^\varepsilon$ 是以格点 $2\varepsilon\mathbb Z^d$ 上的点 $\xi_i$ 为中心、半径为 $r^\varepsilon$ 的球（见图1）. 我们取 $0\lt r^\varepsilon\lt\varepsilon$.</p>
+中的 Poisson 问题 (1)，其中 $T_i^\varepsilon$ 是以格点 $2\varepsilon\mathbb Z^d$ 上的点 $\xi_i$ 为中心、半径为 $r^\varepsilon$ 的球，胞腔为 $P_i^\epsilon:=\xi_i+[-\varepsilon, \varepsilon]^d$, 其内切球记为 $B_i^\varepsilon$（见图1）. 我们取 $0\lt r^\varepsilon\lt\varepsilon$.</p>
 
 <figure class="blog-figure">
 <img src="../../record/img/2026/strange-term-porous-medium.png" alt="多孔介质与单位胞腔" style="width:95%">
@@ -309,16 +309,17 @@ $$
 $$
 \begin{aligned}
 \langle-\Delta w^\varepsilon,\varphi\rangle_{\mathcal D',\mathcal D} &= \langle\nabla w^\varepsilon,\nabla\varphi\rangle_{\mathcal D',\mathcal D} = \int_{\mathbb R^d}\nabla w^\varepsilon\cdot\nabla\varphi = \sum_{i=1}^{n_\varepsilon}\int_{B_i^\varepsilon\setminus T_i^\varepsilon}\nabla w^\varepsilon\cdot\nabla\varphi\\
-&= \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} d\sigma_{\epsilon} -\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} d\sigma_{r^\epsilon},
+&= \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} \, d\sigma_{\epsilon} -\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} \, d\sigma_{r^\epsilon},
 \end{aligned}
 $$
 其中 $\mathrm{n}$ 为外法向量，$\sigma_r$ 为半径 $r$ 的球面测度. 因此通过 $w^\epsilon$ 的显式表达式计算得到 $-\Delta w^\varepsilon = \mu^\varepsilon-\gamma^\varepsilon$, 其中
 $$
-\langle\mu^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} d\sigma_{\epsilon}  = \frac{(d-2)C_0^{d-2}}{1-C_0^{d-2}\varepsilon^2}\sum_{i=1}^{n_\varepsilon}\varepsilon\int_{\partial B_i^\varepsilon}\varphi d\sigma_{\epsilon},
+\begin{aligned}\langle\mu^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} & = \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} \, d\sigma_{\epsilon}\\
+  & \sim \frac{(d-2)C_0^{d-2}}{1-C_0^{d-2}\varepsilon^2}\sum_{i=1}^{n_\varepsilon}\varepsilon\int_{\partial B_i^\varepsilon}\varphi \, d\sigma_{\epsilon},\end{aligned}
 $$
 以及
 $$
-\langle\gamma^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = \sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} d\sigma_{r^\epsilon}.
+\langle\gamma^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = \sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} \, d\sigma_{r^\epsilon}.
 $$
 现在可以回到测试 (7). 对于 $v^\varepsilon\in H_0^1(\Omega^\varepsilon)$，它在洞中恒为 $0$, 于是有
 $$
@@ -332,14 +333,16 @@ $$
 
 <p class="thm"><b>引理7.</b> 我们有
 $$
-\sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon\to\frac{S_d}{2^d}\ \text{ strongly in } W_{loc}^{-1,\infty}(\mathbb R^d).
+\sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon\to\frac{S_d}{2^d}\ \text{ in } W_{loc}^{-1,\infty}(\mathbb R^d).
 $$</p>
 
- <p><i>引理7 的证明.</i> $\varphi$ 紧支撑光滑，因此随着 $\varepsilon\to 0$，可以关于 $1\leq i\leq n_\varepsilon$ 一致地有
-  $$\begin{aligned}\varepsilon\int_{\partial B_i^\varepsilon} \varphi d\sigma_{\varepsilon}&  = \varepsilon^d S_d \cdot \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi d\sigma_{\varepsilon}\\
-   & \sim \frac{\varepsilon^d S_d}{(2\varepsilon)^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi \\
-   & = \frac{S_d}{2^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi \end{aligned}$$
-   再求和即完成证明.
+ <p><i>证明.</i> $\varphi$ 紧支撑光滑，因此随着 $\varepsilon\to 0$，可以关于 $1\leq i\leq n_\varepsilon$ 一致地有
+  $$\begin{aligned}\varepsilon\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon}&  = \varepsilon^d S_d \cdot \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon}\\
+   & = \frac{\varepsilon^d S_d}{(2\varepsilon)^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi\\
+   & \quad +\varepsilon^d S_d \left( \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon} -  \frac{1}{(2\varepsilon)^d} \int_{P_i^\epsilon} \varphi\right) \\
+   & = \frac{S_d}{2^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi + \varepsilon O(\|\nabla\|_{L^1(P_i^\epsilon)}). \end{aligned}$$
+   最后一步我们使用了平均版本的 Poincaré 不等式. 再求和，于是对任意 $\varphi\in C_c^\infty(\Omega)$ 满足 $\|\nabla \varphi\|_{L^1}\leq 1$, 我们有
+   $$\langle \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon-\frac{S_d}{2^d}, \varphi\rangle_{W^{-1,\infty}, W^{1,1}}| \lesssim \varepsilon.$$
 <!--  另证：(1) 首先证明
 $$
 \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon = -\Delta q^\varepsilon-d\chi_{B^\varepsilon},
