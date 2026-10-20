@@ -181,7 +181,7 @@ $$
 
 <p><b>注4.</b> <i>临界尺度 $\varepsilon^{\frac d{d-2}}$ 与 $-\Delta$ 在 $\mathbb R^d$（$d\ge3$）中基本解的衰减有关.</i></p>
 
-<p>我们按如下方式定义一族 $2\varepsilon\mathbb Z^d$-周期的校正子 $w^\varepsilon$. 在微观胞腔 $[-\varepsilon,\varepsilon]^d$ 上，$w^\varepsilon = w^\varepsilon(x)\in H^1([-\varepsilon,\varepsilon]^d)$ 是如下问题的解：
+<p>我们按如下方式定义一族 $2\varepsilon\mathbb Z^d$-周期的校正子 $w^\varepsilon$. 在微观胞腔 $[-\varepsilon,\varepsilon]^d$ 上，$w^\varepsilon \in H^1([-\varepsilon,\varepsilon]^d)$ 是如下问题的解：
 $$
 \begin{cases}
 w^\varepsilon(x) = 0, & x\in B(0,r^\varepsilon),\\
@@ -204,11 +204,11 @@ $$
 \tag{16}
 $$</p>
 
-<p><i>证明.</i> 只需计算单个胞腔 $[-\varepsion, \varepsilon]^d$ 上的积分. 显式计算给出
+<p><i>证明.</i> 只需计算单个胞腔 $[-\varepsilon, \varepsilon]^d$ 上的积分. 显式计算给出
 $$
 \int_{[-\varepsilon,\varepsilon]^d}|\nabla w^\varepsilon|^2 = \frac{S_d(d-2)}{(r^\varepsilon)^{-d+2}-\varepsilon^{-d+2}}.
 $$
-由于 $\varepsilon^{-d+2} = o((r^\varepsilon)^{-d+2})$，即得结论.</p>
+由于 $\varepsilon = o(r^\varepsilon)$，即得结论.</p>
 <p class="proof-box">$\Box$</p>
 
 <h3>情形 1: $r^\varepsilon\ll a^\varepsilon$</h3>
@@ -221,20 +221,19 @@ $$
 
 <h3>情形 2: $r^\varepsilon\gg a^\varepsilon$</h3>
 
-<p class="thm"><b>引理6</b>（$\Omega^\varepsilon$ 中的 Poincaré 不等式）<b>.</b> 存在与 $\varepsilon$ 无关的常数 $C>0$，使得对一切 $u\in H_0^1(\Omega^\varepsilon)$，
+<p>在洞尺度较大时我们不必使用振荡测试函数. 一个胞腔版本的 Poincaré 不等式足够使用：</p>
+
+<p class="thm"><b>引理6.</b> 存在与 $\varepsilon$ 无关的常数 $C>0$，使得对一切 $u\in H_0^1(\Omega^\varepsilon)$，
 $$
 \|u\|_{L^2(\Omega^\varepsilon)}\le C\left(\frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\right)^{1/2}\|\nabla u\|_{L^2(\Omega^\varepsilon)}.
 \tag{17}
 $$</p>
 
-<p>这个 Poincaré 不等式可在 Allaire 处理 Stokes 方程均匀化的论文 [All90, 引理 3.4.1] 中找到. 当然它在每个尺度范围内都成立，但当 $r^\varepsilon\gg a^\varepsilon$ 时，它直接给出关于 $u^\varepsilon$ 极限的信息. 注意
+<p>这个估计可在 Allaire 处理 Stokes 方程均匀化的论文 [All90, 引理 3.4.1] 中找到. 当然它在每个尺度范围内都成立，但当 $r^\varepsilon\gg a^\varepsilon$ 时，它直接给出关于 $u^\varepsilon$ 极限的信息. 注意
 $$
-r^\varepsilon\gg\varepsilon^{\frac d{d-2}}\ \text{ 蕴含 }\ \frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\xrightarrow{\varepsilon\to0}0.
-$$</p>
-
-<p><b>注8.</b> 我们多出一个因子 $\varepsilon^{d/2}$，是因为洞彼此靠近. 损失因子 $\frac1{(r^\varepsilon)^{\frac{d-2}2}}$，则是因为 $u$ 取零值的部分（即洞 $T_i^\varepsilon$ 上）相对较小.</p>
-
-<p>作为引理6 的推论，我们得到
+r^\varepsilon\gg\varepsilon^{\frac d{d-2}}\ \Rightarrow\ \frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\xrightarrow{\varepsilon\to0}0.
+$$
+作为引理6 的推论，我们得到
 $$
 \int_{\Omega^\varepsilon}|\nabla u^\varepsilon|^2\le\|f\|_{L^2(\Omega)}\|u^\varepsilon\|_{L^2(\Omega)}\le C\left(\frac{\varepsilon^d}{(r^\varepsilon)^{d-2}}\right)^{1/2}\|f\|_{L^2(\Omega)}\|\nabla u^\varepsilon\|_{L^2(\Omega)},
 $$
@@ -248,13 +247,9 @@ $$
 $$
 因此 $u^\varepsilon$ 在 $H^1(\Omega)$ 中强收敛到 $0$.</p>
 
-<p><i>引理6 的证明.</i> (1) 对点 $\xi\in2\varepsilon\mathbb Z^d$，注意球 $B(\xi,\sqrt d\varepsilon)$ 外接于以 $\xi$ 为中心的胞腔 $P_\xi^\varepsilon = [\xi-\varepsilon,\xi+\varepsilon]^d$（在顶点处相切）. 给定一点 $x\in\mathbb R^d$，它恰好属于一个胞腔 $P_i^\varepsilon$，并且可能属于相邻胞腔的 $2d$ 个外接球中的若干个. 因此我们有如下 $L^2(\Omega^\varepsilon)$ 范数的估计：
-$$
-\|u\|_{L^2(\Omega^\varepsilon)}^2\le\sum_{i=1}^{n_\varepsilon}\|u\|_{L^2(B(\xi_i,\sqrt d\varepsilon))}^2\le(2d+1)\|u\|_{L^2(\Omega^\varepsilon)}^2.
-$$
-这个估计相当粗糙，但我们只关心两个范数等价. 我们的目标是对满足 $u = 0$ 于 $T_i^\varepsilon = B(\xi_i,r^\varepsilon)$ 的函数 $u\in H^1(B(\xi_i,\sqrt d\varepsilon))$ 证明 Poincaré 不等式.</p>
+<p>关于Poincaré不等式，小因子 $\varepsilon^{d/2}$ 来自胞腔的小尺度. 损失因子 $\frac1{(r^\varepsilon)^{\frac{d-2}2}}$ 来自于 $u$ 取零值的部分（即洞 $T_i^\varepsilon$ 上）. 下面给出证明.</p>
 
-<p>(2) 为简单起见（一切是平移不变的），考虑点 $\xi = 0$. 记 $r$ 为径向变量. 设 $u\in C^0(B(0,\sqrt d\varepsilon))\cap H^1(B(0,\sqrt d\varepsilon))$ 满足 $u(x) = 0$ 于 $r = r^\varepsilon$. 对 $x\in B(0,\sqrt d\varepsilon)$，径向向量 $e_r$ 等于 $x/|x|$. 以 $x$（而不是 $0$）为参考点，对函数
+<p><i>引理6 的证明.</i> 我们只需对满足 $u = 0$ 于 $T_i^\varepsilon = B(\xi_i,r^\varepsilon)$ 的函数 $u\in H^1(B(\xi_i,\sqrt d\varepsilon))$ 证明 Poincaré 不等式. WLOG, 设点 $\xi = 0$. 记 $r$ 为径向变量. 设 $u\in C^0(B(0,\sqrt d\varepsilon))\cap H^1(B(0,\sqrt d\varepsilon))$ 满足 $u(x) = 0$ 于 $r = r^\varepsilon$. 对 $x\in B(0,\sqrt d\varepsilon)$，径向向量 $e_r$ 等于 $x/|x|$. 以 $x$（而不是 $0$）为参考点，对函数
 $$
 t\mapsto u(x+(t-r)e_r)
 $$
