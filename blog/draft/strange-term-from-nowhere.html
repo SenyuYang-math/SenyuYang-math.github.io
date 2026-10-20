@@ -115,7 +115,7 @@ $$
 $$
 这里分部积分产生的边界项包含在 $\Delta w^\varepsilon$ 在边界的奇性中. 利用 $u^\varepsilon$ 的 $L^2$-强收敛和 $\nabla w^{\varepsilon}$ 的 $L^2$-弱收敛，得到第一个积分项的极限为 $0$. 对于第二项中 $\Delta w^\varepsilon\in H^{-1}(\Omega)$ 的先验性质，我们一无所知. 如果存在 $\mu\in W^{-1,\infty}(\Omega)\subset H^{-1}(\Omega)$（下文会解释加强范数的原因）, s.t.
 $$
-\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H^1(\Omega)}\longrightarrow\langle\mu,\varphi u^0\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},\tag{7}
+\langle\Delta w^\varepsilon,\varphi u^\varepsilon\rangle_{H^{-1}(\Omega),H_0^1(\Omega)}\longrightarrow\langle\mu,\varphi u^0\rangle_{H^{-1}(\Omega),H_0^1(\Omega)},\tag{7}
 $$
 那么我们就得到以下有条件的均质化定理：</p>
 
@@ -163,8 +163,8 @@ $$
 中的 Poisson 问题 (1)，其中 $T_i^\varepsilon$ 是以格点 $2\varepsilon\mathbb Z^d$ 上的点 $\xi_i$ 为中心、半径为 $r^\varepsilon$ 的球，胞腔为 $P_i^\epsilon:=\xi_i+[-\varepsilon, \varepsilon]^d$, 其内切球记为 $B_i^\varepsilon$（见图1）. 我们取 $0\lt r^\varepsilon\lt\varepsilon$.</p>
 
 <figure class="blog-figure">
-<img src="../../record/img/2026/strange-term-porous-medium.png" alt="多孔介质与单位胞腔" style="width:95%">
-<figcaption class="picture_label">图1. 多孔介质：单位胞腔 $P_i^\varepsilon$ 的放大</figcaption>
+<img src="../../record/img/2026/strange-term-porous-medium.png" alt="多孔介质与单位胞腔" style="width:80%">
+<figcaption class="picture_label">图1. 多孔介质中单位胞腔 $P_i^\varepsilon$ 的结构</figcaption>
 </figure>
 
 <p>我们将证明的主要结果是如下的相变现象：</p>
@@ -338,11 +338,12 @@ $$</p>
 
  <p><i>证明.</i> $\varphi$ 紧支撑光滑，因此随着 $\varepsilon\to 0$，可以关于 $1\leq i\leq n_\varepsilon$ 一致地有
   $$\begin{aligned}\varepsilon\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon}&  = \varepsilon^d S_d \cdot \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon}\\
-   & = \frac{\varepsilon^d S_d}{(2\varepsilon)^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi\\
-   & \quad +\varepsilon^d S_d \left( \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon} -  \frac{1}{(2\varepsilon)^d} \int_{P_i^\epsilon} \varphi\right) \\
-   & = \frac{S_d}{2^d} \int_{\xi_i+[-\varepsilon,\varepsilon]^d} \varphi + \varepsilon O(\|\nabla\|_{L^1(P_i^\epsilon)}). \end{aligned}$$
+   & = \frac{\varepsilon^d S_d}{(2\varepsilon)^d} \int_{P_i^\varepsilon} \varphi\\
+   & \quad -\varepsilon^d S_d \left(\frac{1}{(2\varepsilon)^d} \int_{P_i^\epsilon} \varphi - \frac{1}{|\partial B_i^\varepsilon|}\int_{\partial B_i^\varepsilon} \varphi \, d\sigma_{\varepsilon} \right) \\
+   & = \frac{S_d}{2^d} \int_{P_i^\varepsilon} \varphi + \varepsilon O(\|\nabla\|_{L^1(P_i^\epsilon)}). \end{aligned}$$
    最后一步我们使用了平均版本的 Poincaré 不等式. 再求和，于是对任意 $\varphi\in C_c^\infty(\Omega)$ 满足 $\|\nabla \varphi\|_{L^1}\leq 1$, 我们有
-   $$\langle \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon-\frac{S_d}{2^d}, \varphi\rangle_{W^{-1,\infty}, W^{1,1}}| \lesssim \varepsilon.$$
+   $$\left\langle \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon-\frac{S_d}{2^d}, \varphi \right\rangle_{W^{-1,\infty}, W^{1,1}}| \lesssim \varepsilon.$$
+   因此 $W^{-1,\infty}$ 强收敛得证.
 <!--  另证：(1) 首先证明
 $$
 \sum_{i=1}^{n_\varepsilon}\varepsilon\delta_i^\varepsilon = -\Delta q^\varepsilon-d\chi_{B^\varepsilon},
