@@ -293,7 +293,7 @@ w^\varepsilon\equiv1\quad\text{on } C^\varepsilon := \Omega\setminus \bigcup_{i=
 $$
 记 $C^\varepsilon$ 的特征函数为 $\chi_{C^\varepsilon}$. 设 $E$ 是 $\Omega$ 中的可测集，$\chi_E$ 是它的特征函数. 我们有
 $$
-\int_\Omega\chi_{C^\varepsilon}\chi_E = |C^\varepsilon\cap E|\stackrel{\varepsilon\to0}{\sim}\frac{|E|}{(2\varepsilon)^d}|C_i^\varepsilon| = |E|\left(\frac{\sqrt d-1}{\sqrt d}\right)^d.
+\int_\Omega\chi_{C^\varepsilon}\chi_E = |C^\varepsilon\cap E|\stackrel{\varepsilon\to0}{\sim}\frac{|E|}{(2\varepsilon)^d}|C_i^\varepsilon| \to |E|\left(\frac{\sqrt d-1}{\sqrt d}\right)^d.
 $$
 因此由 $L^1(\Omega)$ 的简单函数逼近可知
 $$
@@ -305,26 +305,18 @@ $$
 $$
 其中 $w^\varepsilon \chi_{C^\varepsilon}$ 的弱 $*$ 极限存在利用了 $w^\varepsilon$ 的 $L^2$-强收敛. 由极限的唯一性可知 $w = 1$，这就证明了 (6).</p>
 
-<p>最后一步是计算 $-\Delta w^\varepsilon$. 由于 $w^\varepsilon$ 的梯度在界面 $\partial (B_i^\varepsilon\cup T_i^\varepsilon)$ 上有跳跃，$-\Delta w^\varepsilon$ 是支在 $\partial (B_i^\varepsilon\cup\partial T_i^\varepsilon)$ 上的分布. 对一切 $\varphi\in C_c^\infty(\mathbb R^d)$，我们有
+<p>最后一步是计算 $-\Delta w^\varepsilon$. 由于 $w^\varepsilon$ 的梯度在界面 $\partial (B_i^\varepsilon\cup T_i^\varepsilon)$ 上有跳跃，$-\Delta w^\varepsilon$ 是支在 $\partial (B_i^\varepsilon\cup\partial T_i^\varepsilon)$ 上的分布. 对任意 $\varphi\in C_c^\infty(\mathbb R^d)$，Green公式给出
 $$
 \begin{aligned}
 \langle-\Delta w^\varepsilon,\varphi\rangle_{\mathcal D',\mathcal D} &= \langle\nabla w^\varepsilon,\nabla\varphi\rangle_{\mathcal D',\mathcal D} = \int_{\mathbb R^d}\nabla w^\varepsilon\cdot\nabla\varphi = \sum_{i=1}^{n_\varepsilon}\int_{B_i^\varepsilon\setminus T_i^\varepsilon}\nabla w^\varepsilon\cdot\nabla\varphi\\
-&= \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon\cdot n_{ext}\varphi+\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot n_{ext}\varphi,
+&= \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} d\sigma_{\epsilon} +\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot \varphi \mathrm{n} d\sigma_{r^\epsilon},
 \end{aligned}
 $$
-最后一步由分部积分以及
+其中 $\mathrm{n}$ 为外法向量，$\sigma_r$ 为半径 $r$ 的球面测度. 因此通过 $w^\epsilon$ 的显式表达式计算得到 $-\Delta w^\varepsilon = \mu^\varepsilon-\gamma^\varepsilon$, 其中
 $$
-\int_{B_i^\varepsilon\setminus T_i^\varepsilon}\Delta w^\varepsilon\varphi = 0
+\langle\mu^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon \cdot \varphi \mathrm{n} d\sigma_{\epsilon}  = \frac{(d-2)C_0^{d-2}}{1-C_0^{d-2}\varepsilon^2}\sum_{i=1}^{n_\varepsilon}\varepsilon\int_{\partial B_i^\varepsilon}\varphi d\sigma_{\epsilon},
 $$
-得到. 总之
-$$
--\Delta w^\varepsilon = \mu^\varepsilon-\gamma^\varepsilon,
-$$
-其中
-$$
-\langle\mu^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = \sum_{i=1}^{n_\varepsilon}\int_{\partial B_i^\varepsilon}\nabla w^\varepsilon\cdot n_{ext}\varphi = \frac{(d-2)C_0^{d-2}}{1-C_0^{d-2}\varepsilon^2}\sum_{i=1}^{n_\varepsilon}\varepsilon\int_{\partial B_i^\varepsilon}\varphi(s)\sigma(ds)
-$$
-（显式公式由 (15) 算出），并且
+以及
 $$
 \langle\gamma^\varepsilon,\varphi\rangle_{H^{-1}(\Omega),H_0^1(\Omega)} = -\sum_{i=1}^{n_\varepsilon}\int_{\partial T_i^\varepsilon}\nabla w^\varepsilon\cdot n_{ext}\varphi.
 $$
