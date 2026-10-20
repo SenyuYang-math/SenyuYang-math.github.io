@@ -179,7 +179,7 @@ $$
 而 $S_d$ 是 $\mathbb R^d$ 中单位球面的面积.</p>
 </div>
 
-<p>临界尺度 $\varepsilon^{\frac d{d-2}}$ 与 $-\Delta$ 在 $\mathbb R^d$（$d\ge3$）中基本解的衰减有关.</p>
+<p><b>注4.</b> <i>临界尺度 $\varepsilon^{\frac d{d-2}}$ 与 $-\Delta$ 在 $\mathbb R^d$（$d\ge3$）中基本解的衰减有关.</i></p>
 
 <p>我们按如下方式定义一族 $2\varepsilon\mathbb Z^d$-周期的校正子 $w^\varepsilon$. 在微观胞腔 $[-\varepsilon,\varepsilon]^d$ 上，$w^\varepsilon = w^\varepsilon(x)\in H^1([-\varepsilon,\varepsilon]^d)$ 是如下问题的解：
 $$
@@ -190,26 +190,21 @@ w^\varepsilon = 1, & x\in[-\varepsilon,\varepsilon]^d\setminus B(0,\varepsilon).
 \end{cases}
 \tag{14}
 $$
-条件 $w^\varepsilon\in H^1([-\varepsilon,\varepsilon]^d)$ 包含了在界面 $\partial B(0,\varepsilon)$ 与 $\partial B(0,r^\varepsilon)$ 上没有跳跃这一事实. 由最大模原理，$0\le w^\varepsilon\le1$. 校正子 $w^\varepsilon$ 随后通过周期性延拓到整个 $\mathbb R^d$，仍记作 $w^\varepsilon$. 于是 $w^\varepsilon\in H^1(\mathbb R^d)$ 且在洞 $T_i^\varepsilon$ 上为零，故 (5) 与 (6) 满足.</p>
-
-<p><b>注7.</b> 利用旋转对称性（极坐标），可以显式解出 (14). 我们有
+利用旋转对称性（极坐标），可以显式解出 (14)：
 $$
 w^\varepsilon(x) = \frac{(r^\varepsilon)^{-d+2}-|x|^{-d+2}}{(r^\varepsilon)^{-d+2}-\varepsilon^{-d+2}},\qquad x\in B(0,\varepsilon)\setminus B(0,r^\varepsilon).
 \tag{15}
 $$
-所有显式计算都依赖这个公式.</p>
+于是 $w^\varepsilon\in H^1[-\varepsilon, \varepsilon]^d$，并有最大模原理 $0\le w^\varepsilon\le1$. 接着将 $w^\varepsilon$ 周期性延拓到整个 $\mathbb R^d$，仍记作 $w^\varepsilon$. 于是 $w^\varepsilon\in H^1(\mathbb R^d)$ 且在洞 $T_i^\varepsilon$ 上为零.</p>
+
 
 <p class="thm"><b>引理5.</b> 我们有
 $$
-\|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\simeq\frac{S_d(d-2)|\Omega|}{(2\varepsilon)^d}(r^\varepsilon)^{-d+2}.
+\|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\sim\frac{S_d(d-2)|\Omega|}{(2\varepsilon)^d}(r^\varepsilon)^{-d+2}.
 \tag{16}
 $$</p>
 
-<p><i>证明.</i> 一方面，简单的计数渐近地给出
-$$
-\|\nabla w^\varepsilon\|_{L^2(\Omega)}^2\simeq\frac{|\Omega|}{(2\varepsilon)^d}\int_{[-\varepsilon,\varepsilon]^d}|\nabla w^\varepsilon|^2,
-$$
-另一方面，基于 (15) 的显式计算给出
+<p><i>证明.</i> 只需计算单个胞腔 $[-\varepsion, \varepsilon]^d$ 上的积分. 显式计算给出
 $$
 \int_{[-\varepsilon,\varepsilon]^d}|\nabla w^\varepsilon|^2 = \frac{S_d(d-2)}{(r^\varepsilon)^{-d+2}-\varepsilon^{-d+2}}.
 $$
