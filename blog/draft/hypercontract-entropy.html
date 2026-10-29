@@ -1,0 +1,217 @@
+<html>
+<head>
+<title>离散时间中的超压缩性与熵衰减</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+
+<p>原文：Justin Salez, <i>Hyper-contractivity and entropy decay in discrete time</i>, arXiv:2602.17305v1 [math.PR], 2026.</p>
+
+<h2>摘要</h2>
+
+<p>考虑任意概率空间 $(X,\mathcal A,\pi)$ 上保持测度的转移核 $T$. 在这一完全一般的层面，我们证明：形如 $\|T\|_{p\to q}\le1$（$p\lt q$）的单步超压缩性估计蕴涵形如 $H(\mu T\mid\pi)\le\theta H(\mu\mid\pi)$ 的单步熵收缩估计，其中 $\theta=p/q$. 既不需要可逆性，也不需要任何正则性. 与连续时间 Markov 半群上指数超压缩性和指数熵衰减之间著名的动态关系相比，这一静态蕴涵既更简单也更强.</p>
+
+<h2>引言</h2>
+
+<p><b>转移核.</b> 全文考虑概率空间 $(X,\mathcal A,\pi)$ 上保持测度的转移核，即映射 $T:X\times\mathcal A\to[0,1]$，满足</p>
+
+<p>(i) 对每个 $x\in X$，$A\mapsto T(x,A)$ 是概率测度；</p>
+
+<p>(ii) 对每个 $A\in\mathcal A$，$x\mapsto T(x,A)$ 可测；</p>
+
+<p>(iii) $\pi$ 被 $T$ 在 $\mathcal P(X)$ 上的自然作用固定，即由
+$$
+(\mu T)(A):=\int_X T(x,A)\,\mu(dx)
+\tag{1}
+$$
+定义的映射 $\mu\mapsto\mu T$ 满足 $\pi T=\pi$.</p>
+
+<p>我们的目的是重新审视 $T$ 的两个基本正则化性质之间的相互作用：一方面是超压缩性，另一方面是熵收缩. 先简要回顾这些概念.</p>
+
+<p><b>超压缩性.</b> 转移核 $T$ 通过熟悉的公式
+$$
+Tf(x):=\int_X f(y)\,T(x,dy)
+\tag{2}
+$$
+自然作用于非负可测函数 $f:X\to[0,\infty]$. 只要 $Tf_+$ 或 $Tf_-$ 有限，这一通过线性性当然可以推广到符号函数. 此外，对每个 $p\ge1$，Jensen 不等式与平稳性 $\pi T=\pi$ 以经典方式保证上述作用在赋以通常范数的 Banach 空间 $L^p(\pi)$ 上是压缩的：
+$$
+\|f\|_p:=\left(\int|f|^p\,d\pi\right)^{1/p}.
+$$</p>
+
+<p>超压缩性是更强的要求：存在 $q\gt p$，使得对一切 $f\in L^p(\pi)$，
+$$
+\|Tf\|_q\le\|f\|_p.
+\tag{3}
+$$</p>
+
+<p>这类估计最早由 Nelson 在 Ornstein–Uhlenbeck 半群上发现 [12]，并由 Bonami 与 Beckner 在离散超立方体上得到 [6,4]. 在 Gross [9]、Bakry 与 Émery [1]、Diaconis 与 Saloff-Coste [11] 的奠基性工作之后，超压缩性已成为 Markov 过程定量研究的基本工具. 近年来，它的影响急剧扩展，在统计物理与计算机科学中带来了重要进展 [10,3].</p>
+
+<p><b>熵收缩.</b> 我们考虑的第二个正则化性质是经典的熵收缩估计，其形式为
+$$
+\forall\mu\in\mathcal P(X),\quad H(\mu T\mid\pi)\le\theta H(\mu\mid\pi),
+\tag{4}
+$$
+其中 $\theta\lt1$. 这里 $H(\cdot\mid\cdot)$ 表示 Kullback–Leibler 散度：
+$$
+H(\mu\mid\pi):=
+\begin{cases}
+\displaystyle\int\log\left(\frac{d\mu}{d\pi}\right)d\mu, & \mu\ll\pi,\\[4pt]
++\infty, & \text{否则}.
+\end{cases}
+$$</p>
+
+<p>在若干其他应用之中，熵收缩在 Markov 过程混合时间的分析 [5,11] 中，以及在量化参考测度 $\pi$ 下著名的测度集中现象中，都扮演着重要角色. 不熟悉这一主题的读者可参阅近期讲义 [7,13] 及其中的参考文献，以获得自包含的介绍和大量例子.</p>
+
+<h2>结果与讨论</h2>
+
+<p>本文建立下述关于超压缩性与熵收缩之间简单、一般且看似新的定量关系.</p>
+
+<div class="thm">
+<p><b>定理1</b> (主要结果)<b>.</b> 对任意参数 $1\le p\le q$，超压缩性估计 (3) 蕴涵熵收缩估计 (4)，其中 $\theta=p/q$.</p>
+</div>
+
+<p>我们强调，定理1适用于任意概率空间上的任意保测转移核：既不需要可逆性，也不需要任何类型的正则性. 特别地，可以把 $T$ 看作 $X$ 上以 $\pi$ 为不变分布的离散时间 Markov 过程的转移核；此时结论可以直接迭代，给出相对熵意义下以几何速率收敛到平衡. 或者，可以取 $T=P_t$，其中 $(P_t)_{t\ge0}$ 是 $(X,\mathcal A,\pi)$ 上给定的保测 Markov 半群，而 $t\ge0$ 是我们想要研究的一个特定时间尺度. 在这一研究充分的连续时间情形中，能够只关注单个时刻似乎是新的；这使我们的静态蕴涵强于其著名的动态对应物. 下面回顾后者.</p>
+
+<p>为简化讨论，我们有意省略技术细节，并请感兴趣的读者参阅优秀文献 [2]（关于欧氏空间或光滑流形上的 Markov 扩散）与 [8]（关于有限状态空间）. 考虑概率空间 $(X,\mathcal A,\pi)$ 上的保测 Markov 半群 $(P_t)_{t\ge0}$，并假设它满足如下形式的指数超压缩性估计：
+$$
+\forall f\in L^2(\pi),\ \forall t\ge0,\quad \|P_tf\|_{1+e^{4\beta t}}\le\|f\|_2,
+\tag{5}
+$$
+其中 $\beta\gt0$. 那么经典微分论证给出对数 Sobolev 不等式
+$$
+\forall f\in\mathcal F,\quad \mathcal E(\sqrt f,\sqrt f)\ge\beta H(f\,d\pi\mid\pi),
+\tag{6}
+$$
+其中 $\mathcal F$ 是 $(X,\mathcal A,\pi)$ 上适当的概率密度类，$\mathcal E(\cdot,\cdot)$ 是与该半群相伴的 Dirichlet 型. 现在，由初等估计
+$$
+\forall a,b\in(0,\infty),\quad b\log\frac ba\ge2\sqrt b(\sqrt b-\sqrt a),
+$$
+对数 Sobolev 不等式 (6) 总蕴涵其「修正」版本
+$$
+\forall f\in\mathcal F,\quad \mathcal E(f,\log f)\ge2\beta H(f\,d\pi\mid\pi),
+\tag{7}
+$$
+再通过 Grönwall 型论证，最终保证指数熵衰减
+$$
+\forall\mu\in\mathcal P(X),\ \forall t\ge0,\quad H(\mu P_t\mid\pi)\le e^{-2\beta t}H(\mu\mid\pi).
+\tag{8}
+$$</p>
+
+<p>换言之，沿 Markov 半群，蕴涵 (5) $\Rightarrow$ (8) 总成立. 超压缩性与熵收缩之间的这一一般关系当然已是成熟事实，并有许多应用. 然而必须认识到，它本质上是动态的：估计 (5) 与 (8) 对所有 $t\ge0$ 成立，而半群结构被关键地用来把它们归约为各自的功能不等式 (6) 与 (7)，然后才能进行适当的比较. 相反，固定某个时刻 $t\ge0$ 并在定理1中取 $T=P_t$，直接得到
+$$
+\forall\mu\in\mathcal P(X),\quad H(\mu P_t\mid\pi)\le\frac{2}{1+e^{4\beta t}}H(\mu\mid\pi),
+$$
+由不等式 $1+e^{4\beta t}\ge2e^{2\beta t}$ 可知它总强于 (8). 例如在有限状态空间上，这立即给出混合时间估计
+$$
+\forall\varepsilon\in(0,1),\quad t_{\mathrm{mix}}(\varepsilon)\le\frac{1}{4\beta}\left[\log\log\frac{1}{\pi_\star}+\log\frac{1}{\varepsilon^2}\right],
+$$
+它比传统估计 (8) 所给出的结果好一倍. 这里使用了经典记号 $\pi_\star:=\min_{x\in X}\pi(x)$ 表示最小平稳质量，并用
+$$
+t_{\mathrm{mix}}(\varepsilon):=\min\left\{t\ge0:\forall\mu\in\mathcal P(X),\ d_{\mathrm{tv}}(\mu P_t,\pi)\le\varepsilon\right\}
+$$
+表示最坏情形下的全变差混合时间. 更重要的是，我们的结果不要求假设 (5) 对所有时刻成立：某个固定时刻的静态超压缩性估计就足以保证同一时刻的熵收缩估计. 在实践中，利用这一瞬时关系可能相当有意义，因为 $P_t$ 的大时间正则化效应往往比在 $t=0$ 处作无穷小计算所预测的强得多.</p>
+
+<p>最后，定理1除了更一般、或许更自然之外，还允许一个通过对偶性给出的初等证明；该证明完全避免使用半群，从而也避免了沿半群安全求导所需的技术性预防措施.</p>
+
+<p><b>注1</b> (逆命题)<b>.</b> <i>众所周知，对 Markov 扩散，蕴涵 (5) $\Rightarrow$ (8) 可以反向；最近在离散状态空间上也建立了它的一个近似版本 [14,15]. 有鉴于此，自然要为我们的主定理寻找一个适当的逆命题. 更确切地说，若可逆转移核 $T$ 满足单步熵收缩估计，并且它足够「正则」，那么能否以合理的代价推出单步超压缩性估计？</i></p>
+
+<h2>定理的证明</h2>
+
+<p><i>证明.</i> 首先回顾，$T$ 有伴随 $T^\star$，它由对偶关系
+$$
+\int gT^\star f\,d\pi=\int fTg\,d\pi
+\tag{9}
+$$
+刻画，其中 $f,g:X\to\mathbb R$ 是任意使这些积分有意义的可测函数. 现在固定 $1\le p\le q$，并假设 $T$ 满足超压缩性
+$$
+\forall g\in L^p(\pi),\quad \|Tg\|_q\le\|g\|_p.
+\tag{10}
+$$
+给定概率测度 $\mu\in\mathcal P(X)$，我们的目标是证明
+$$
+H(\mu T\mid\pi)\le\frac pqH(\mu\mid\pi).
+\tag{11}
+$$</p>
+
+<p>不妨设右端有限，否则无需证明. 换言之，$\mu$ 关于 $\pi$ 有密度 $f$，且 $f\log f\in L^1(\pi)$. 首先，利用 (1) 中 $\mu T$ 的定义以及取 $g=\mathbf 1_A$ 的对偶关系 (9)，得到
+$$
+\forall A\in\mathcal A,\quad(\mu T)(A)=\int fT\mathbf 1_A\,d\pi=\int\mathbf 1_A T^\star f\,d\pi,
+$$
+这说明 $\mu T$ 也关于 $\pi$ 绝对连续，且密度为 $T^\star f$.</p>
+
+<p>其次，对 $g=(T^\star f)^{1/p}$ 应用超压缩性假设 (10)，得到
+$$
+\int\left(Te^{\frac1p\log T^\star f}\right)^q d\pi\le1.
+$$
+另一方面，Jensen 不等式保证，对任意使 $Th^+\lt\infty$ 的可测函数 $h:X\to\mathbb R$，都有 $e^{Th}\le Te^h$；特别地，取 $h:=\frac1p\log T^\star f$. 把这一逐点估计代入上述积分，推出函数
+$$
+\varphi:=\frac qpT\log T^\star f
+$$
+满足 $\int e^\varphi\,d\pi\le1$.</p>
+
+<p>最后，由熵的变分公式（或直接对 $u=fe^{-\varphi}$ 使用凸性估计 $u\log u\ge u-1$），最后一个条件蕴涵
+$$
+\int f\varphi\,d\pi\le\int f\log f\,d\pi.
+$$
+右端是 $H(\mu\mid\pi)$，而左端等于 $\frac pqH(\mu T\mid\pi)$，因为
+$$
+\int fT(\log T^\star f)\,d\pi=\int(T^\star f)\log(T^\star f)\,d\pi=H(\mu T\mid\pi),
+$$
+这里使用了取 $g=\log T^\star f$ 的对偶关系 (9). 于是 (11) 得证.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>致谢</h2>
+
+<p>作者衷心感谢 Liming Wu 提出本文所回答的问题. 本工作由 ERC consolidator grant CUTOFF (101123174) 资助.</p>
+
+<h2>参考文献</h2>
+
+<ol>
+
+<li>Dominique Bakry and Michel Émery. <i>Diffusions hypercontractives</i>. In <i>Séminaire de probabilités, XIX, 1983/84</i>, volume 1123 of Lecture Notes in Math., pages 177–206. Springer, Berlin, 1985.</li>
+
+<li>Dominique Bakry, Ivan Gentil, and Michel Ledoux. <i>Analysis and geometry of Markov diffusion operators</i>, volume 348 of Grundlehren der mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]. Springer, Cham, 2014.</li>
+
+<li>Roland Bauerschmidt, Thierry Bodineau, and Benoit Dagallier. <i>Stochastic dynamics and the Polchinski equation: An introduction</i>. Probability Surveys, 21(none):200–290, 2024.</li>
+
+<li>William Beckner. <i>Inequalities in Fourier analysis</i>. Ann. of Math. (2), 102(1):159–182, 1975.</li>
+
+<li>Sergey G. Bobkov and Prasad Tetali. <i>Modified logarithmic Sobolev inequalities in discrete settings</i>. J. Theoret. Probab., 19(2):289–336, 2006.</li>
+
+<li>Aline Bonami. <i>Étude des coefficients de Fourier des fonctions de $L^p(G)$</i>. Ann. Inst. Fourier (Grenoble), 20:335–402, 1970.</li>
+
+<li>Pietro Caputo. <i>Lecture notes on entropy and Markov chains</i>. Available at: http://www.mat.uniroma3.it/users/caputo/entropy.pdf, 2022.</li>
+
+<li>Persi Diaconis and Laurent Saloff-Coste. <i>Logarithmic Sobolev inequalities for finite Markov chains</i>. Ann. Appl. Probab., 6(3):695–750, 1996.</li>
+
+<li>Leonard Gross. <i>Logarithmic Sobolev inequalities</i>. Amer. J. Math., 97(4):1061–1083, 1975.</li>
+
+<li>Jeff Kahn, Gil Kalai, and Nathan Linial. <i>The influence of variables on Boolean functions</i>. In 29th Annual Symposium on Foundations of Computer Science, pages 68–80. IEEE Comput. Soc. Press, Washington, DC, [1988] ©1988.</li>
+
+<li>Ravi Montenegro and Prasad Tetali. <i>Mathematical aspects of mixing times in Markov chains</i>. Found. Trends Theor. Comput. Sci., 1(3):x+121, 2006.</li>
+
+<li>Edward Nelson. <i>A quartic interaction in two dimensions</i>. In Mathematical Theory of Elementary Particles (Proc. Conf., Dedham, Mass., 1965), pages 69–73. MIT Press, Cambridge, Mass.-London, 1966.</li>
+
+<li>Justin Salez. <i>Modern aspects of Markov chains: entropy, curvature and the cutoff phenomenon</i>, 2025.</li>
+
+<li>Justin Salez, Konstantin Tikhomirov, and Pierre Youssef. <i>Upgrading MLSI to LSI for reversible Markov chains</i>. J. Funct. Anal., 285(9):Paper No. 110076, 15, 2023.</li>
+
+<li>Justin Salez and Pierre Youssef. <i>Intrinsic regularity in the discrete log-sobolev inequality</i>, 2025.</li>
+
+</ol>
+
+<h2>译者注</h2>
+
+<p>原文 (3) 把 $f$ 取在 $L^p(\mu)$ 中，但超压缩性是对参考测度 $\pi$ 的 $L^p$ 空间而言，后文 (10) 亦写作 $L^p(\pi)$；译文统一为 $L^p(\pi)$. 原文在讨论静态估计与 (8) 的比较时写 $1+e^{4\beta t}\ge2e^{\beta t}$，但由此不能推出该估计强于 (8)；按算术–几何平均不等式应为 $1+e^{4\beta t}\ge2e^{2\beta t}$，译文按此书写. 原文证明中把凸性估计写成 $u\log u\ge1-u$，正确形式为 $u\log u\ge u-1$，译文已改正. 除这三处外，正文与公式均照原文翻译，参考文献保留原文.</p>
+
+</div>
+
+<!-- 导航栏与页脚 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+
+</body>
+</html>
