@@ -11,11 +11,11 @@
 
 <h2>摘要</h2>
 
-<p>考虑任意概率空间 $(X,\mathcal A,\pi)$ 上保持测度的转移核 $T$. 在这一完全一般的层面，我们证明：形如 $\|T\|_{p\to q}\le1$（$p\lt q$）的单步超压缩性估计蕴涵形如 $H(\mu T\mid\pi)\le\theta H(\mu\mid\pi)$ 的单步熵收缩估计，其中 $\theta=p/q$. 既不需要可逆性，也不需要任何正则性. 与连续时间 Markov 半群上指数超压缩性和指数熵衰减之间著名的动态关系相比，这一静态蕴涵既更简单也更强.</p>
+<p>考虑任意概率空间 $(X,\mathcal A,\pi)$ 上保持测度的转移核 $T$. 若 $1\le p\lt q\lt\infty$ 且 $\|T\|_{p\to q}\le1$，则 $H(\mu T\mid\pi)\le(p/q)H(\mu\mid\pi)$. 这一单步估计不要求可逆性或正则性. 对连续时间 Markov 半群，它可由某一时刻的超压缩性直接给出同一时刻的熵收缩估计.</p>
 
 <h2>引言</h2>
 
-<p><b>转移核.</b> 全文考虑概率空间 $(X,\mathcal A,\pi)$ 上保持测度（保测）的转移核，即映射 $T:X\times\mathcal A\to[0,1]$，满足</p>
+<p><b>转移核.</b> 记 $\mathcal P(X)$ 为 $(X,\mathcal A)$ 上的概率测度全体. 全文考虑概率空间 $(X,\mathcal A,\pi)$ 上保持测度（保测）的转移核，即映射 $T:X\times\mathcal A\to[0,1]$，满足</p>
 
 <p>(i) 对每个 $x\in X$，$A\mapsto T(x,A)$ 是概率测度；</p>
 
@@ -24,142 +24,260 @@
 <p>(iii) $\pi$ 被 $T$ 在 $\mathcal P(X)$ 上的自然作用固定，即由
 $$
 (\mu T)(A):=\int_X T(x,A)\,\mu(dx)
-\tag{1}
+\tag{1}\label{eq:transition}
 $$
 定义的映射 $\mu\mapsto\mu T$ 满足 $\pi T=\pi$.</p>
 
-<p>我们的目的是重新审视 $T$ 的两个基本正则化性质之间的相互作用：一方面是超压缩性，另一方面是熵收缩. 先简要回顾这些概念.</p>
+<p>下面考察 $T$ 的超压缩性与熵收缩之间的关系.</p>
 
-<p><b>超压缩性.</b> 转移核 $T$ 通过熟悉的公式
+<p><b>超压缩性.</b> 转移核 $T$ 通过公式
 $$
 Tf(x):=\int_X f(y)\,T(x,dy)
-\tag{2}
+\tag{2}\label{eq:operator}
 $$
-自然作用于非负可测函数 $f:X\to[0,\infty]$. 只要 $Tf_+$ 或 $Tf_-$ 有限，该定义当然可以按线性性推广到可正可负的函数. 此外，对每个 $p\ge1$，Jensen 不等式与平稳性 $\pi T=\pi$ 以经典的方式轻易保证上述作用在赋以通常范数的 Banach 空间 $L^p(\pi)$ 上是压缩的：
+作用于非负可测函数 $f:X\to[0,\infty]$. 对可正可负的函数，写 $f=f_+-f_-$；只要 $Tf_+$、$Tf_-$ 不同时为无穷，便可定义 $Tf=Tf_+-Tf_-$. 对 $1\le p\lt\infty$，记
 $$
 \|f\|_p:=\left(\int|f|^p\,d\pi\right)^{1/p}.
-$$</p>
+$$
+由 Jensen 不等式与 $\pi T=\pi$，
+$$
+|Tf|^p\le T|f|^p,\qquad
+\int|Tf|^p\,d\pi\le\int T|f|^p\,d\pi=\int|f|^p\,d\pi.
+$$
+因此 $T$ 是 $L^p(\pi)$ 上的压缩算子.</p>
 
 <p>超压缩性是更强的要求：存在 $q\gt p$，使得对一切 $f\in L^p(\pi)$，
 $$
 \|Tf\|_q\le\|f\|_p.
-\tag{3}
+\tag{3}\label{eq:hypercontractivity}
 $$</p>
 
-<p>这类估计最早由 Nelson 在 Ornstein–Uhlenbeck 半群上发现 [12]，并由 Bonami 与 Beckner 在离散超立方体上得到 [6,4]. 在 Gross [9]、Bakry 与 Émery [1]、Diaconis 与 Saloff-Coste [11] 的奠基性工作之后，超压缩性已成为 Markov 过程定量研究的基本工具. 近年来，它的影响急剧扩展，在统计物理与计算机科学中带来了重要进展 [10,3].</p>
+<p>这类估计最早由 Nelson 在 Ornstein–Uhlenbeck 半群上发现 [12]，并由 Bonami 与 Beckner 在离散超立方体上得到 [6,4]. Gross [9]、Bakry 与 Émery [1]、Diaconis 与 Saloff-Coste [8] 发展了超压缩性在 Markov 过程中的理论；统计物理与计算机科学中的应用可参见 [3,10].</p>
 
 <p><b>熵收缩.</b> 我们考虑的第二个正则化性质是经典的熵收缩估计，其形式为
 $$
 \forall\mu\in\mathcal P(X),\quad H(\mu T\mid\pi)\le\theta H(\mu\mid\pi),
-\tag{4}
+\tag{4}\label{eq:entropy-contraction}
 $$
-其中 $\theta\lt1$. 这里 $H(\cdot\mid\cdot)$ 表示 Kullback–Leibler 散度：
+其中 $0\lt\theta\lt1$. 这里 $H(\cdot\mid\cdot)$ 表示相对熵（Kullback–Leibler 散度）：
 $$
 H(\mu\mid\pi):=
 \begin{cases}
 \displaystyle\int\log\left(\frac{d\mu}{d\pi}\right)d\mu, & \mu\ll\pi,\\[4pt]
 +\infty, & \text{否则}.
 \end{cases}
+$$
+全文取自然对数，并约定 $0\log0=0$. 若 $\mu=f\,d\pi$，则
+$$
+H(\mu\mid\pi)=\int f\log f\,d\pi\in[0,\infty],\qquad f\log f\ge-e^{-1}.
 $$</p>
 
-<p>在若干其他应用之中，熵收缩在 Markov 过程混合时间的分析 [5,11] 中，以及在量化参考测度 $\pi$ 下著名的测度集中现象中，都扮演着重要角色. 不熟悉这一主题的读者可参阅近期讲义 [7,13] 及其中的参考文献，以获得自包含的介绍和大量例子.</p>
+<p>熵收缩可用于估计 Markov 过程的混合时间 [5,11] 及研究测度集中. 相关介绍和例子见 [7,13].</p>
 
 <h2>结果与讨论</h2>
 
-<p>本文建立下述关于超压缩性与熵收缩之间简单、一般且看似新的定量关系.</p>
+<p>本文的结果如下.</p>
 
 <div class="thm">
-<p><b>定理1</b> (主要结果)<b>.</b> 对任意参数 $1\le p\le q$，超压缩性估计 (3) 蕴涵熵收缩估计 (4)，其中 $\theta=p/q$.</p>
+<p><b>定理1</b> (Salez)<b>.</b> 对任意参数 $1\le p\le q\lt\infty$，估计 $\eqref{eq:hypercontractivity}$ 蕴涵 $\eqref{eq:entropy-contraction}$，其中 $\theta=p/q$. 当 $p=q$ 时，结论理解为相对熵不增.</p>
 </div>
 
-<p>我们强调，定理1适用于任意概率空间上的任意保测转移核：既不需要可逆性，也不需要任何类型的正则性. 特别地，可以把 $T$ 看作 $X$ 上以 $\pi$ 为不变分布的离散时间 Markov 过程的转移核；此时结论可以直接迭代，给出相对熵意义下以几何速率收敛到平衡态. 或者，可以取 $T=P_t$，其中 $(P_t)_{t\ge0}$ 是 $(X,\mathcal A,\pi)$ 上给定的保测 Markov 半群，而 $t\ge0$ 是我们想要研究的一个特定时间尺度. 在这一研究充分的连续时间情形中，能够只关注单个时刻似乎是新的；这使我们的静态蕴涵强于其著名的动态对应物. 下面回顾后者.</p>
+<p>定理1不要求可逆性或正则性. 迭代可得
+$$
+H(\mu T^n\mid\pi)\le\left(\frac pq\right)^nH(\mu\mid\pi),\qquad n=0,1,2,\ldots.
+$$
+因此，当 $p\lt q$ 且 $H(\mu\mid\pi)\lt\infty$ 时，相对熵以几何速率趋于零. 也可以固定 $t\ge0$ 并取 $T=P_t$，其中 $(P_t)_{t\ge0}$ 是保测 Markov 半群；此时只需该时刻的超压缩性估计. 下面与连续时间中的微分论证作比较.</p>
 
-<p>为简化讨论，我们有意省略技术细节，并请感兴趣的读者参阅优秀文献 [2]（关于欧氏空间或光滑流形上的 Markov 扩散）与 [8]（关于有限状态空间）. 考虑概率空间 $(X,\mathcal A,\pi)$ 上的保测 Markov 半群 $(P_t)_{t\ge0}$，并假设它满足如下形式的指数超压缩性估计：
+<p>以下在有限状态空间上写明这一微分论证，设 $\pi(x)\gt0$，$(P_t)_{t\ge0}$ 为连续时间保测 Markov 半群. 取
+$$
+\mathcal F:=\left\{f:X\to(0,\infty):\int f\,d\pi=1\right\},\qquad
+\mathcal E(u,v):=\lim_{s\downarrow0}\frac1s\int u(v-P_sv)\,d\pi.
+$$
+非可逆时 $\mathcal E$ 未必对称，以下固定上述变量顺序. 有限状态情形见 [8]，Markov 扩散的相应论证见 [2]. 假设
 $$
 \forall f\in L^2(\pi),\ \forall t\ge0,\quad \|P_tf\|_{1+e^{4\beta t}}\le\|f\|_2,
-\tag{5}
+\tag{5}\label{eq:semigroup-hypercontractivity}
 $$
-其中 $\beta\gt0$. 那么经典微分论证给出对数 Sobolev 不等式
+其中 $\beta\gt0$. 对 $f\in\mathcal F$，有 $\|\sqrt f\|_2=1$，故在 $t=0$ 处取右导数得到
+$$
+0\ge\left.\frac d{dt}\log\|P_t\sqrt f\|_{1+e^{4\beta t}}\right|_{t=0^+}
+=\beta\int f\log f\,d\pi-\mathcal E(\sqrt f,\sqrt f).
+$$
+这就是对数 Sobolev 不等式
 $$
 \forall f\in\mathcal F,\quad \mathcal E(\sqrt f,\sqrt f)\ge\beta H(f\,d\pi\mid\pi),
-\tag{6}
+\tag{6}\label{eq:lsi}
 $$
-其中 $\mathcal F$ 是 $(X,\mathcal A,\pi)$ 上适当的概率密度类，$\mathcal E(\cdot,\cdot)$ 是与该半群相伴的 Dirichlet 型. 现在，由初等估计
+其中 $\mathcal E$ 是与半群相伴的 Dirichlet 型.</p>
+
+<p>由 $\log r\le r-1$，取 $r=\sqrt{a/b}$ 得
 $$
 \forall a,b\in(0,\infty),\quad b\log\frac ba\ge2\sqrt b(\sqrt b-\sqrt a),
 $$
-对数 Sobolev 不等式 (6) 总蕴涵其「修正」版本
+从而对 $s\gt0$，
+$$
+\begin{aligned}
+\int f(\log f-P_s\log f)\,d\pi
+&=\iint f(x)\log\frac{f(x)}{f(y)}\,\pi(dx)P_s(x,dy)\\
+&\ge2\int\sqrt f(\sqrt f-P_s\sqrt f)\,d\pi.
+\end{aligned}
+$$
+除以 $s$ 并令 $s\downarrow0$，得到 $\mathcal E(f,\log f)\ge2\mathcal E(\sqrt f,\sqrt f)$. 结合 $\eqref{eq:lsi}$，即得修正对数 Sobolev 不等式
 $$
 \forall f\in\mathcal F,\quad \mathcal E(f,\log f)\ge2\beta H(f\,d\pi\mid\pi),
-\tag{7}
+\tag{7}\label{eq:mlsi}
 $$
-再通过 Grönwall 型论证，最终保证指数熵衰减
+进而，设 $\mu P_t=f_t\,d\pi$ 且 $f_0\in\mathcal F$. 由 $\int f_t\,d\pi=1$ 及半群的对偶关系，
+$$
+\frac d{dt}H(f_t\,d\pi\mid\pi)
+=\int(\partial_t f_t)\log f_t\,d\pi
+=-\mathcal E(f_t,\log f_t)
+\le-2\beta H(f_t\,d\pi\mid\pi).
+$$
+Grönwall 不等式给出
 $$
 \forall\mu\in\mathcal P(X),\ \forall t\ge0,\quad H(\mu P_t\mid\pi)\le e^{-2\beta t}H(\mu\mid\pi).
-\tag{8}
-$$</p>
+\tag{8}\label{eq:entropy-decay}
+$$
+对可能取零值的初始密度 $f$，先以 $(f+\delta)/(1+\delta)$ 代替 $f$，再令 $\delta\downarrow0$ 即可.</p>
 
-<p>换言之，沿 Markov 半群，蕴涵 (5) $\Rightarrow$ (8) 总成立. 超压缩性与熵收缩之间的这一一般关系当然已是公认的事实，并有许多应用. 然而必须认识到，它本质上是动态的：估计 (5) 与 (8) 对所有 $t\ge0$ 成立，而这里关键地用到半群结构，把它们化归为相应的泛函不等式 (6) 与 (7)，然后才能进行适当的比较. 相反，固定某个时刻 $t\ge0$ 并在定理1中取 $T=P_t$，直接得到
+<p>上述论证通过半群在 $t=0$ 处的导数，将 $\eqref{eq:semigroup-hypercontractivity}$ 化为 $\eqref{eq:lsi}$，再由 $\eqref{eq:mlsi}$ 推出 $\eqref{eq:entropy-decay}$. 定理1则适用于任意概率空间：固定 $t\ge0$，若该时刻满足 $\eqref{eq:semigroup-hypercontractivity}$ 中的范数估计，取 $T=P_t$ 即得
 $$
 \forall\mu\in\mathcal P(X),\quad H(\mu P_t\mid\pi)\le\frac{2}{1+e^{4\beta t}}H(\mu\mid\pi),
 $$
-由不等式 $1+e^{4\beta t}\ge2e^{2\beta t}$ 可知它总强于 (8). 例如在有限状态空间上，这立即给出混合时间估计
+且
 $$
-\forall\varepsilon\in(0,1),\quad t_{\mathrm{mix}}(\varepsilon)\le\frac{1}{4\beta}\left[\log\log\frac{1}{\pi_\star}+\log\frac{1}{\varepsilon^2}\right],
+\frac{2}{1+e^{4\beta t}}\le e^{-2\beta t},
+\qquad
+1+e^{4\beta t}-2e^{2\beta t}=(e^{2\beta t}-1)^2\ge0.
 $$
-它比传统估计 (8) 所给出的结果好一倍. 这里使用了经典记号 $\pi_\star:=\min_{x\in X}\pi(x)$ 表示最小平稳质量，并用
-$$
-t_{\mathrm{mix}}(\varepsilon):=\min\left\{t\ge0:\forall\mu\in\mathcal P(X),\ d_{\mathrm{tv}}(\mu P_t,\pi)\le\varepsilon\right\}
-$$
-表示最坏情形下的全变差混合时间. 更重要的是，我们的结果不要求假设 (5) 对所有时刻成立：某个固定时刻的静态超压缩性估计就足以保证同一时刻的熵收缩估计. 在实践中，利用这一瞬时关系可能相当有意义，因为 $P_t$ 的大时间正则化效应往往比在 $t=0$ 处作无穷小计算所预测的强得多.</p>
+因此这一估计不弱于 $\eqref{eq:entropy-decay}$，且在 $t\gt0$ 时收缩系数严格较小.</p>
 
-<p>最后，定理1除了更一般、或许更自然之外，还给出一个基于对偶性的初等证明；该证明完全避免使用半群，从而也避免了沿半群安全求导所需的技术性预防措施.</p>
+<p>在有限状态空间上，设 $|X|\ge2$ 且 $\pi_\star:=\min_{x\in X}\pi(x)\gt0$. 记
+$$
+d_{\mathrm{tv}}(\mu,\pi):=\frac12\sum_{x\in X}|\mu(x)-\pi(x)|,
+$$
+并定义混合时间
+$$
+t_{\mathrm{mix}}(\varepsilon):=\min\left\{t\ge0:\sup_{\mu\in\mathcal P(X)}d_{\mathrm{tv}}(\mu P_t,\pi)\le\varepsilon\right\}.
+$$
+由
+$$
+H(\mu\mid\pi)
+=\sum_x\mu(x)\log\mu(x)-\sum_x\mu(x)\log\pi(x)
+\le\log\frac1{\pi_\star}
+$$
+及 Pinsker 不等式，若 $\eqref{eq:semigroup-hypercontractivity}$ 成立，则
+$$
+\begin{aligned}
+d_{\mathrm{tv}}(\mu P_t,\pi)^2
+&\le\frac12H(\mu P_t\mid\pi)\\
+&\le\frac{\log(1/\pi_\star)}{1+e^{4\beta t}}
+\le e^{-4\beta t}\log\frac1{\pi_\star}.
+\end{aligned}
+$$
+因此
+$$
+\forall\varepsilon\in(0,1),\quad
+t_{\mathrm{mix}}(\varepsilon)\le\frac1{4\beta}
+\max\left\{0,\log\log\frac1{\pi_\star}+\log\frac1{\varepsilon^2}\right\}.
+$$
+若仅使用 $\eqref{eq:entropy-decay}$，则同样得到
+$$
+t_{\mathrm{mix}}(\varepsilon)\le\frac1{2\beta}
+\max\left\{0,\log\log\frac1{\pi_\star}+\log\frac1{2\varepsilon^2}\right\}.
+$$
+这里 $\log\log(1/\pi_\star)$ 项的系数由 $1/(2\beta)$ 降为 $1/(4\beta)$. 若 $X$ 只有一个点，则 $t_{\mathrm{mix}}(\varepsilon)=0$.</p>
 
-<p><b>注1</b> (逆命题)<b>.</b> <i>众所周知，对 Markov 扩散，蕴涵 (5) $\Rightarrow$ (8) 可以反向；最近在离散状态空间上也建立了它的一个近似版本 [14,15]. 有鉴于此，自然要为我们的主定理寻找一个适当的逆命题. 更确切地说，若可逆转移核 $T$ 满足单步熵收缩估计，并且它足够「正则」，那么能否以合理的代价推出单步超压缩性估计？</i></p>
+<p>定理1的证明仅使用对偶性、Jensen 不等式与熵的变分不等式，无需求导.</p>
+
+<p><b>注1</b> (逆命题)<b>.</b> 对 Markov 扩散，超压缩性与指数熵衰减可在调整常数后相互推出；离散状态空间上的相关结果见 [14,15]. 原文据此提出：若可逆转移核 $T$ 满足单步熵收缩估计，并具有适当的正则性，能否推出单步超压缩性估计？这里不能默认沿用同一个 $\beta$. 对扩散算子，链式法则给出
+$$
+\mathcal E(f,\log f)=4\mathcal E(\sqrt f,\sqrt f).
+$$
+将 $\eqref{eq:entropy-decay}$ 在 $t=0$ 处求导，只得到 $\mathcal E(\sqrt f,\sqrt f)\ge(\beta/2)H(f\,d\pi\mid\pi)$，相应的超压缩估计为 $\|P_tf\|_{1+e^{2\beta t}}\le\|f\|_2$，参见 [2].</p>
 
 <h2>定理的证明</h2>
 
-<p><i>证明.</i> 首先回顾，$T$ 有伴随 $T^\star$，它由对偶关系
+<p><i>证明.</i> 先在 $L^1(\pi)$ 上定义伴随 $T^\star$. 对 $f\in L^1(\pi)$，$f\ge0$，若 $\pi(A)=0$，则
+$$
+\int T\mathbf1_A\,d\pi=\pi(A)=0
+\quad\Longrightarrow\quad
+T\mathbf1_A=0\quad\pi\text{-几乎处处},
+$$
+从而 $((f\,d\pi)T)(A)=\int fT\mathbf1_A\,d\pi=0$. 因此可由 Radon–Nikodym 定理定义
+$$
+T^\star f:=\frac{d((f\,d\pi)T)}{d\pi},\qquad
+T^\star f\ge0,\qquad\int T^\star f\,d\pi=\int f\,d\pi.
+$$
+按正负部分线性延拓后，对 $f\in L^1(\pi)$、$g\in L^\infty(\pi)$ 有
 $$
 \int gT^\star f\,d\pi=\int fTg\,d\pi
-\tag{9}
+\tag{9}\label{eq:duality}
 $$
-刻画，其中 $f,g:X\to\mathbb R$ 是任意使这些积分有意义的可测函数. 现在固定 $1\le p\le q$，并假设 $T$ 满足超压缩性
+这里仅使用算子 $T^\star$，不要求它在任意概率空间上都能表示为反向转移核.</p>
+
+<p>固定 $1\le p\le q\lt\infty$，并假设
 $$
 \forall g\in L^p(\pi),\quad \|Tg\|_q\le\|g\|_p.
-\tag{10}
+\tag{10}\label{eq:assumption}
 $$
 给定概率测度 $\mu\in\mathcal P(X)$，我们的目标是证明
 $$
 H(\mu T\mid\pi)\le\frac pqH(\mu\mid\pi).
-\tag{11}
+\tag{11}\label{eq:conclusion}
 $$</p>
 
-<p>不妨设右端有限，否则无需证明. 换言之，$\mu$ 关于 $\pi$ 有密度 $f$，且 $f\log f\in L^1(\pi)$. 首先，利用 (1) 中 $\mu T$ 的定义以及取 $g=\mathbf 1_A$ 的对偶关系 (9)，得到
+<p>只需考虑 $H(\mu\mid\pi)\lt\infty$. 此时 $\mu=f\,d\pi$，其中 $f\ge0$、$\int f\,d\pi=1$ 且 $f\log f\in L^1(\pi)$. 由 $\eqref{eq:duality}$，
 $$
 \forall A\in\mathcal A,\quad(\mu T)(A)=\int fT\mathbf 1_A\,d\pi=\int\mathbf 1_A T^\star f\,d\pi,
 $$
-这说明 $\mu T$ 也关于 $\pi$ 绝对连续，且密度为 $T^\star f$.</p>
+即 $\mu T=(T^\star f)\,d\pi$.</p>
 
-<p>其次，对 $g=(T^\star f)^{1/p}$ 应用超压缩性假设 (10)，得到
+<p>对任意有界可测函数 $h$，Jensen 不等式与 $\eqref{eq:assumption}$ 给出
 $$
-\int\left(Te^{\frac1p\log T^\star f}\right)^q d\pi\le1.
+\int e^{(q/p)Th}\,d\pi
+\le\int(Te^{h/p})^q\,d\pi
+\le\left(\int e^h\,d\pi\right)^{q/p}.
 $$
-另一方面，Jensen 不等式保证，对任意使 $Th_+\lt\infty$ 的可测函数 $h:X\to\mathbb R$，都有 $e^{Th}\le Te^h$；特别地，取 $h:=\frac1p\log T^\star f$. 把这一逐点估计代入上述积分，推出函数
+另一方面，由凸性不等式 $u\log u\ge u-1$，对任意有界可测函数 $\varphi$ 有
 $$
-\varphi:=\frac qpT\log T^\star f
+f\left(\varphi-\log\int e^\varphi\,d\pi\right)
+\le f\log f-f+\frac{e^\varphi}{\int e^\varphi\,d\pi}.
 $$
-满足 $\int e^\varphi\,d\pi\le1$.</p>
+积分可得
+$$
+\int f\varphi\,d\pi\le H(\mu\mid\pi)+\log\int e^\varphi\,d\pi.
+$$
+取 $\varphi=(q/p)Th$，再用 $\eqref{eq:duality}$ 及上面的指数积分估计，得到
+$$
+\int(T^\star f)h\,d\pi
+\le\frac pqH(\mu\mid\pi)+\log\int e^h\,d\pi.
+$$</p>
 
-<p>最后，由熵的变分公式（或直接对 $u=fe^{-\varphi}$ 使用凸性估计 $u\log u\ge u-1$），最后一个条件蕴涵
+<p>最后，对整数 $n\ge1$ 取有界函数
 $$
-\int f\varphi\,d\pi\le\int f\log f\,d\pi.
+h_n:=\log\left(\min\left\{n,\max\left\{T^\star f,\frac1n\right\}\right\}\right).
 $$
-右端是 $H(\mu\mid\pi)$，而左端等于 $\frac qpH(\mu T\mid\pi)$，因为
+由于
 $$
-\int fT(\log T^\star f)\,d\pi=\int(T^\star f)\log(T^\star f)\,d\pi=H(\mu T\mid\pi),
+e^{h_n}\longrightarrow T^\star f,\qquad
+0\le e^{h_n}\le T^\star f+1,
 $$
-这里使用了取 $g=\log T^\star f$ 的对偶关系 (9). 于是 (11) 得证.</p>
+支配收敛定理给出 $\int e^{h_n}\,d\pi\to1$. 又有
+$$
+(T^\star f)h_n\longrightarrow(T^\star f)\log(T^\star f),\qquad
+(T^\star f)h_n\ge-e^{-1}.
+$$
+这里在 $T^\star f=0$ 处取乘积为零. 由 Fatou 引理，
+$$
+\begin{aligned}
+H(\mu T\mid\pi)
+&\le\liminf_{n\to\infty}\int(T^\star f)h_n\,d\pi\\
+&\le\frac pqH(\mu\mid\pi).
+\end{aligned}
+$$
+于是 $\eqref{eq:conclusion}$ 得证，同时得到输出熵的有限性.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -205,7 +323,11 @@ $$
 
 <h2>译者注</h2>
 
-<p>原文 (3) 把 $f$ 取在 $L^p(\mu)$ 中，但超压缩性是对参考测度 $\pi$ 的 $L^p$ 空间而言，后文 (10) 亦写作 $L^p(\pi)$；译文统一为 $L^p(\pi)$. 原文在讨论静态估计与 (8) 的比较时写 $1+e^{4\beta t}\ge2e^{\beta t}$，但由此不能推出该估计强于 (8)；按算术–几何平均不等式应为 $1+e^{4\beta t}\ge2e^{2\beta t}$，译文按此书写. 原文证明中把凸性估计写成 $u\log u\ge1-u$，正确形式为 $u\log u\ge u-1$，译文已改正. 除这三处外，正文与公式均照原文翻译，参考文献保留原文.</p>
+<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；$L^p$ 压缩性的计算、有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
+
+<p>原文 $\eqref{eq:hypercontractivity}$ 中的 $L^p(\mu)$ 应为 $L^p(\pi)$. 比较静态估计与 $\eqref{eq:entropy-decay}$ 时，原文写作 $1+e^{4\beta t}\ge2e^{\beta t}$，此处使用 $1+e^{4\beta t}\ge2e^{2\beta t}$. 原文证明中的 $u\log u\ge1-u$ 应为 $u\log u\ge u-1$. 引言中 Diaconis 与 Saloff-Coste 的文献编号由原文的 [11] 改为 [8].</p>
+
+<p>原文的混合时间上界未取与零的最大值；例如 $\pi_\star=1/2$ 且 $\varepsilon^2\gt\log2$ 时，其右端为负. 本文补上这一边界修正，并明确假设 $\pi_\star\gt0$；单点情形另行说明. 连续时间的微分推导在本文中限于有限状态空间，定理1及其单时刻应用仍适用于任意概率空间.</p>
 
 </div>
 
