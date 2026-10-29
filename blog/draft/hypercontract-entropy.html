@@ -35,7 +35,13 @@ $$
 Tf(x):=\int_X f(y)\,T(x,dy)
 \tag{2}\label{eq:operator}
 $$
-作用于非负可测函数 $f:X\to[0,\infty]$. 对可正可负的函数，写 $f=f_+-f_-$；只要 $Tf_+$、$Tf_-$ 不同时为无穷，便可定义 $Tf=Tf_+-Tf_-$. 对 $1\le p\lt\infty$，记
+作用于非负可测函数 $f:X\to[0,\infty]$. 其中 $Tf(x)$ 是从状态 $x$ 出发，经过一步转移后 $f$ 的平均值. 函数与分布上的两种作用满足对偶关系
+$$
+\int f\,d(\mu T)=\int Tf\,d\mu.
+$$
+特别地，$T\mathbf1=\mathbf1$，而平稳性 $\pi T=\pi$ 给出 $\int Tf\,d\pi=\int f\,d\pi$. 对可正可负的函数，写 $f=f_+-f_-$；只要 $Tf_+$、$Tf_-$ 不同时为无穷，便可定义 $Tf=Tf_+-Tf_-$.</p>
+
+<p>对 $1\le p\lt\infty$，记
 $$
 \|f\|_p:=\left(\int|f|^p\,d\pi\right)^{1/p}.
 $$
@@ -44,22 +50,38 @@ $$
 |Tf|^p\le T|f|^p,\qquad
 \int|Tf|^p\,d\pi\le\int T|f|^p\,d\pi=\int|f|^p\,d\pi.
 $$
-因此 $T$ 是 $L^p(\pi)$ 上的压缩算子.</p>
+因此每个保测转移核都满足 $\|Tf\|_p\le\|f\|_p$，即在同一个 $L^p(\pi)$ 空间上不增大范数.</p>
 
-<p>超压缩性是更强的要求：存在 $q\gt p$，使得对一切 $f\in L^p(\pi)$，
+<p>在概率空间上，若 $1\le p\lt q\lt\infty$，Hölder 不等式给出
+$$
+L^q(\pi)\subseteq L^p(\pi),\qquad
+\|f\|_p\le\|f\|_q\quad(f\in L^q(\pi)).
+$$
+超压缩性要求 $T$ 将 $L^p(\pi)$ 中的函数送入 $L^q(\pi)$，同时满足
 $$
 \|Tf\|_q\le\|f\|_p.
 \tag{3}\label{eq:hypercontractivity}
-$$</p>
+$$
+也就是说，输入函数只需有有限的 $p$ 阶绝对矩，输出函数的 $q$ 阶绝对矩便受到控制，且范数估计中的常数仍为 $1$. 用算子范数表示，即
+$$
+\|T\|_{p\to q}:=\sup_{0\ne f\in L^p(\pi)}\frac{\|Tf\|_q}{\|f\|_p}\le1.
+$$
+由于 $T\mathbf1=\mathbf1$ 且 $\|\mathbf1\|_p=\|\mathbf1\|_q=1$，常数 $1$ 已是最优的. 有限状态空间上各 $L^p$ 作为集合虽相同，但这一范数估计仍不自动成立.</p>
+
+<p>例如，恒等转移核 $T(x,A)=\mathbf1_A(x)$ 满足 $Tf=f$. 若存在 $A\in\mathcal A$ 使 $0\lt\pi(A)\lt1$，则
+$$
+\|T\mathbf1_A\|_q=\pi(A)^{1/q}\gt\pi(A)^{1/p}=\|\mathbf1_A\|_p,
+$$
+故它不满足 $p\lt q$ 时的超压缩估计. 完全平均的转移核 $T(x,A)=\pi(A)$ 则满足
+$$
+Tf=\int f\,d\pi,\qquad
+\|Tf\|_q=\left|\int f\,d\pi\right|\le\|f\|_p,
+$$
+对任意 $1\le p\le q\lt\infty$ 均成立.</p>
 
 <p>这类估计最早由 Nelson 在 Ornstein–Uhlenbeck 半群上发现 [12]，并由 Bonami 与 Beckner 在离散超立方体上得到 [6,4]. Gross [9]、Bakry 与 Émery [1]、Diaconis 与 Saloff-Coste [8] 发展了超压缩性在 Markov 过程中的理论；统计物理与计算机科学中的应用可参见 [3,10].</p>
 
-<p><b>熵收缩.</b> 我们考虑的第二个正则化性质是经典的熵收缩估计，其形式为
-$$
-\forall\mu\in\mathcal P(X),\quad H(\mu T\mid\pi)\le\theta H(\mu\mid\pi),
-\tag{4}\label{eq:entropy-contraction}
-$$
-其中 $0\lt\theta\lt1$. 这里 $H(\cdot\mid\cdot)$ 表示相对熵（Kullback–Leibler 散度）：
+<p><b>熵收缩.</b> 现在考察分布在 $\mu\mapsto\mu T$ 下如何接近平稳分布 $\pi$. 相对熵（Kullback–Leibler 散度）定义为
 $$
 H(\mu\mid\pi):=
 \begin{cases}
@@ -67,16 +89,57 @@ H(\mu\mid\pi):=
 +\infty, & \text{否则}.
 \end{cases}
 $$
-全文取自然对数，并约定 $0\log0=0$. 若 $\mu=f\,d\pi$，则
+全文取自然对数，并约定 $0\log0=0$. 若 $\mu=f\,d\pi$，则 $f\ge0$、$\int f\,d\pi=1$，且
 $$
-H(\mu\mid\pi)=\int f\log f\,d\pi\in[0,\infty],\qquad f\log f\ge-e^{-1}.
-$$</p>
+H(\mu\mid\pi)=\int f\log f\,d\pi
+=\int(f\log f-f+1)\,d\pi\ge0.
+$$
+这里用到 $u\log u-u+1\ge0$，且等号仅在 $u=1$ 时成立. 因此
+$$
+H(\mu\mid\pi)=0\quad\Longleftrightarrow\quad\mu=\pi.
+$$
+又因 $f\log f\ge-e^{-1}$，定义中的积分总有意义，允许取值 $+\infty$.</p>
+
+<p>例如，将 $\pi$ 限制在集合 $A$ 上再归一化，即对 $0\lt\pi(A)\le1$ 取 $f=\mathbf1_A/\pi(A)$，便有
+$$
+H\!\left(\frac{\mathbf1_A}{\pi(A)}\,d\pi\,\middle|\,\pi\right)
+=\int_A\frac1{\pi(A)}\log\frac1{\pi(A)}\,d\pi
+=\log\frac1{\pi(A)}.
+$$
+将 $\pi$ 限制在质量较小的集合 $A$ 上并重新归一化，所得分布的相对熵便较大.</p>
+
+<p>与 $L^p$ 范数不增类似，每个保测转移核都满足熵不增
+$$
+H(\mu T\mid\pi)\le H(\mu\mid\pi).
+$$
+这可由熵的变分公式直接看出：
+$$
+H(\mu\mid\pi)
+=\sup_h\left\{\int h\,d\mu-\log\int e^h\,d\pi\right\},
+$$
+其中 $h$ 遍历所有有界可测实函数. 对每个这样的 $h$，由对偶关系、$\pi T=\pi$ 及 Jensen 不等式 $e^{Th}\le T(e^h)$，
+$$
+\begin{aligned}
+&\int h\,d(\mu T)-\log\int e^h\,d\pi\\
+&\quad=\int Th\,d\mu-\log\int T(e^h)\,d\pi\\
+&\quad\le\int Th\,d\mu-\log\int e^{Th}\,d\pi\\
+&\quad\le H(\mu\mid\pi).
+\end{aligned}
+$$
+对 $h$ 取上确界即得熵不增. 变分公式在密度情形下所需的凸性与截断步骤将在定理的证明中写明；若 $\mu\not\ll\pi$，取 $\pi(A)=0\lt\mu(A)$ 及 $h=n\mathbf1_A$，上确界即为 $+\infty$.</p>
+
+<p>熵收缩进一步要求存在与初始分布 $\mu$ 无关的常数 $0\lt\theta\lt1$，使
+$$
+\forall\mu\in\mathcal P(X),\quad H(\mu T\mid\pi)\le\theta H(\mu\mid\pi).
+\tag{4}\label{eq:entropy-contraction}
+$$
+当初始熵有限时，这意味着每一步转移都按同一个比例控制剩余的相对熵，而不只是保证它不增加. 以上述两个转移核为例，恒等转移满足 $\mu T=\mu$，因而相对熵保持不变；完全平均的转移满足 $\mu T=\pi$，因而一步后的相对熵为零.</p>
 
 <p>熵收缩可用于估计 Markov 过程的混合时间 [5,11] 及研究测度集中. 相关介绍和例子见 [7,13].</p>
 
 <h2>结果与讨论</h2>
 
-<p>本文的结果如下.</p>
+<p>超压缩性控制函数变换 $f\mapsto Tf$ 的范数，熵收缩控制分布变换 $\mu\mapsto\mu T$ 的相对熵. 两种作用通过 $\int f\,d(\mu T)=\int Tf\,d\mu$ 联系起来. 下述定理表明，超压缩估计中的指数比 $p/q$ 可以直接作为熵收缩系数.</p>
 
 <div class="thm">
 <p><b>定理1</b> (Salez)<b>.</b> 对任意参数 $1\le p\le q\lt\infty$，估计 $\eqref{eq:hypercontractivity}$ 蕴涵 $\eqref{eq:entropy-contraction}$，其中 $\theta=p/q$. 当 $p=q$ 时，结论理解为相对熵不增.</p>
@@ -323,7 +386,7 @@ $$
 
 <h2>译者注</h2>
 
-<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；$L^p$ 压缩性的计算、有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
+<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；引言中两种压缩性质的说明、恒等转移与完全平均转移的例子、熵不增的推导，以及有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
 
 <p>原文 $\eqref{eq:hypercontractivity}$ 中的 $L^p(\mu)$ 应为 $L^p(\pi)$. 比较静态估计与 $\eqref{eq:entropy-decay}$ 时，原文写作 $1+e^{4\beta t}\ge2e^{\beta t}$，此处使用 $1+e^{4\beta t}\ge2e^{2\beta t}$. 原文证明中的 $u\log u\ge1-u$ 应为 $u\log u\ge u-1$. 引言中 Diaconis 与 Saloff-Coste 的文献编号由原文的 [11] 改为 [8].</p>
 
