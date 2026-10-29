@@ -35,7 +35,7 @@ $$
 Tf(x):=\int_X f(y)\,T(x,dy)
 \tag{2}
 $$
-自然作用于非负可测函数 $f:X\to[0,\infty]$. 只要 $Tf_+$ 或 $Tf_-$ 有限，这一通过线性性当然可以推广到符号函数. 此外，对每个 $p\ge1$，Jensen 不等式与平稳性 $\pi T=\pi$ 以经典方式保证上述作用在赋以通常范数的 Banach 空间 $L^p(\pi)$ 上是压缩的：
+自然作用于非负可测函数 $f:X\to[0,\infty]$. 只要 $Tf_+$ 或 $Tf_-$ 有限，这一通过线性性当然可以推广到可正可负的函数. 此外，对每个 $p\ge1$，Jensen 不等式与平稳性 $\pi T=\pi$ 以经典方式保证上述作用在赋以通常范数的 Banach 空间 $L^p(\pi)$ 上是压缩的：
 $$
 \|f\|_p:=\left(\int|f|^p\,d\pi\right)^{1/p}.
 $$</p>
@@ -99,7 +99,7 @@ $$
 \tag{8}
 $$</p>
 
-<p>换言之，沿 Markov 半群，蕴涵 (5) $\Rightarrow$ (8) 总成立. 超压缩性与熵收缩之间的这一一般关系当然已是成熟事实，并有许多应用. 然而必须认识到，它本质上是动态的：估计 (5) 与 (8) 对所有 $t\ge0$ 成立，而半群结构被关键地用来把它们归约为各自的功能不等式 (6) 与 (7)，然后才能进行适当的比较. 相反，固定某个时刻 $t\ge0$ 并在定理1中取 $T=P_t$，直接得到
+<p>换言之，沿 Markov 半群，蕴涵 (5) $\Rightarrow$ (8) 总成立. 超压缩性与熵收缩之间的这一一般关系当然已是公认的事实，并有许多应用. 然而必须认识到，它本质上是动态的：估计 (5) 与 (8) 对所有 $t\ge0$ 成立，而半群结构被关键地用来把它们归约为对应的泛函不等式 (6) 与 (7)，然后才能进行适当的比较. 相反，固定某个时刻 $t\ge0$ 并在定理1中取 $T=P_t$，直接得到
 $$
 \forall\mu\in\mathcal P(X),\quad H(\mu P_t\mid\pi)\le\frac{2}{1+e^{4\beta t}}H(\mu\mid\pi),
 $$
@@ -145,7 +145,7 @@ $$
 $$
 \int\left(Te^{\frac1p\log T^\star f}\right)^q d\pi\le1.
 $$
-另一方面，Jensen 不等式保证，对任意使 $Th^+\lt\infty$ 的可测函数 $h:X\to\mathbb R$，都有 $e^{Th}\le Te^h$；特别地，取 $h:=\frac1p\log T^\star f$. 把这一逐点估计代入上述积分，推出函数
+另一方面，Jensen 不等式保证，对任意使 $Th_+\lt\infty$ 的可测函数 $h:X\to\mathbb R$，都有 $e^{Th}\le Te^h$；特别地，取 $h:=\frac1p\log T^\star f$. 把这一逐点估计代入上述积分，推出函数
 $$
 \varphi:=\frac qpT\log T^\star f
 $$
@@ -155,7 +155,7 @@ $$
 $$
 \int f\varphi\,d\pi\le\int f\log f\,d\pi.
 $$
-右端是 $H(\mu\mid\pi)$，而左端等于 $\frac pqH(\mu T\mid\pi)$，因为
+右端是 $H(\mu\mid\pi)$，而左端等于 $\frac qpH(\mu T\mid\pi)$，因为
 $$
 \int fT(\log T^\star f)\,d\pi=\int(T^\star f)\log(T^\star f)\,d\pi=H(\mu T\mid\pi),
 $$
