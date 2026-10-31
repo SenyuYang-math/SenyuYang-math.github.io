@@ -28,6 +28,38 @@ $$
 $$
 定义的映射 $\mu\mapsto\mu T$ 满足 $\pi T=\pi$.</p>
 
+<p><b>例1</b> (有限状态空间的 Markov 链)<b>.</b> 取 $X=\{1,\ldots,m\}$、$\mathcal A=2^X$. 设 Markov 链的一步转移矩阵为 $P=(p_{ij})$，其中 $p_{ij}\ge0$ 且 $\sum_{j=1}^m p_{ij}=1$. 相应的转移核为
+$$
+T(i,A)=\sum_{j\in A}p_{ij},\qquad A\subseteq X.
+$$
+这里 $T(i,A)$ 表示从状态 $i$ 出发，一步后落入集合 $A$ 的概率. 将概率分布写成行向量，则 $\mu T=\mu P$，而保测条件就是平稳性方程 $\pi P=\pi$.</p>
+
+<p>例如，在 $X=\{1,2\}$ 上取
+$$
+P=\begin{pmatrix}1-a&a\\ b&1-b\end{pmatrix},\qquad
+0\lt a,b\lt1,\qquad
+\pi=\left(\frac{b}{a+b},\frac{a}{a+b}\right).
+$$
+从状态 $1$ 到状态 $2$ 的概率为 $a$，反向转移的概率为 $b$；直接计算可得 $\pi P=\pi$. 因而上述 $T$ 是概率空间 $(X,2^X,\pi)$ 上的保测转移核. 经过 $n$ 步的转移核则由矩阵 $P^n$ 给出.</p>
+
+<p><b>例2</b> (连续状态空间上的连续时间 Markov 过程)<b>.</b> 取 $X=\mathbb R$、$\mathcal A=\mathcal B(\mathbb R)$，其中 $\mathcal B(\mathbb R)$ 为 Borel $\sigma$-代数. 考虑 Ornstein–Uhlenbeck 过程
+$$
+dY_t=-Y_t\,dt+\sqrt2\,dB_t,
+$$
+其中 $(B_t)_{t\ge0}$ 为标准 Brown 运动. 从 $Y_0=x$ 出发，$Y_t$ 服从均值为 $e^{-t}x$、方差为 $1-e^{-2t}$ 的高斯分布，故对 $t\gt0$，其转移核为
+$$
+P_t(x,A)=\int_A\frac{1}{\sqrt{2\pi(1-e^{-2t})}}
+\exp\!\left(-\frac{(y-e^{-t}x)^2}{2(1-e^{-2t})}\right)dy,
+\qquad A\in\mathcal B(\mathbb R).
+$$
+在 $t=0$ 时令 $P_0(x,A)=\mathbf1_A(x)$.</p>
+
+<p>标准高斯测度 $\gamma(dy)=(2\pi)^{-1/2}e^{-y^2/2}\,dy$ 是这个过程的平稳分布. 事实上，若 $G_0,G_1$ 独立且均服从 $\gamma$，则
+$$
+e^{-t}G_0+\sqrt{1-e^{-2t}}\,G_1
+$$
+仍为均值 $0$、方差 $1$ 的高斯随机变量，因而 $\gamma P_t=\gamma$. 固定任意 $t\gt0$，取 $\pi=\gamma$、$T=P_t$，就得到本文所考虑的保测转移核；此时一次转移对应于原过程经过时间 $t$.</p>
+
 <p>下面考察 $T$ 的超压缩性与熵收缩之间的关系.</p>
 
 <p><b>超压缩性.</b> 转移核 $T$ 通过公式
@@ -386,7 +418,7 @@ $$
 
 <h2>译者注</h2>
 
-<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；引言中两种压缩性质的说明、恒等转移与完全平均转移的例子、熵不增的推导，以及有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
+<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；引言中有限状态 Markov 链与 Ornstein–Uhlenbeck 过程的转移核例子、两种压缩性质的说明、恒等转移与完全平均转移的例子、熵不增的推导，以及有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
 
 <p>原文 $\eqref{eq:hypercontractivity}$ 中的 $L^p(\mu)$ 应为 $L^p(\pi)$. 比较静态估计与 $\eqref{eq:entropy-decay}$ 时，原文写作 $1+e^{4\beta t}\ge2e^{\beta t}$，此处使用 $1+e^{4\beta t}\ge2e^{2\beta t}$. 原文证明中的 $u\log u\ge1-u$ 应为 $u\log u\ge u-1$. 引言中 Diaconis 与 Saloff-Coste 的文献编号由原文的 [11] 改为 [8].</p>
 
