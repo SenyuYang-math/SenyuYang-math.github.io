@@ -98,7 +98,7 @@ $$
 $$
 \|T\|_{p\to q}:=\sup_{0\ne f\in L^p(\pi)}\frac{\|Tf\|_q}{\|f\|_p}\le1.
 $$
-由于 $T\mathbf1=\mathbf1$ 且 $\|\mathbf1\|_p=\|\mathbf1\|_q=1$，常数 $1$ 已是最优的. 有限状态空间上各 $L^p$ 作为集合虽相同，但这一范数估计仍不自动成立.</p>
+由于 $T\mathbf1=\mathbf1$ 且 $\|\mathbf1\|_p=\|\mathbf1\|_q=1$，常数 $1$ 已是最优的.</p>
 
 <p>例如，恒等转移核 $T(x,A)=\mathbf1_A(x)$ 满足 $Tf=f$. 若存在 $A\in\mathcal A$ 使 $0\lt\pi(A)\lt1$，则
 $$
@@ -110,6 +110,8 @@ Tf=\int f\,d\pi,\qquad
 \|Tf\|_q=\left|\int f\,d\pi\right|\le\|f\|_p,
 $$
 对任意 $1\le p\le q\lt\infty$ 均成立.</p>
+
+<p><b>非平凡之处.</b> 保测性只保证 $T$ 在每个 $L^p(\pi)$ 上不增大范数，即 $p\to p$ 的压缩；超压缩性要求把 $p$ 阶可积性提升到 $q\gt p$ 阶，且范数常数仍为 $1$. 概率空间上 $L^q(\pi)\subset L^p(\pi)$，所以输入只需 $p$ 阶矩；但这一提升不由保测性自动给出. 常数 $1$ 由 $T\mathbf1=\mathbf1$ 固定，因而不能改进.</p>
 
 <p>这类估计最早由 Nelson 在 Ornstein–Uhlenbeck 半群上发现 [12]，并由 Bonami 与 Beckner 在离散超立方体上得到 [6,4]. Gross [9]、Bakry 与 Émery [1]、Diaconis 与 Saloff-Coste [8] 发展了超压缩性在 Markov 过程中的理论；统计物理与计算机科学中的应用可参见 [3,10].</p>
 
@@ -167,6 +169,8 @@ $$
 $$
 当初始熵有限时，这意味着每一步转移都按同一个比例控制剩余的相对熵，而不只是保证它不增加. 以上述两个转移核为例，恒等转移满足 $\mu T=\mu$，因而相对熵保持不变；完全平均的转移满足 $\mu T=\pi$，因而一步后的相对熵为零.</p>
 
+<p><b>非平凡之处.</b> 保测性只给出熵不增；熵收缩要求存在与 $\mu$ 无关的 $\theta\lt1$，使每一步都按同一比例减少相对熵. 因此它给出以几何速率收敛到 $\pi$，而不只是单调不增；难点在于这一比例必须对所有初始分布一致，且不能用单步的熵不增代替.</p>
+
 <p>熵收缩可用于估计 Markov 过程的混合时间 [5,11] 及研究测度集中. 相关介绍和例子见 [7,13].</p>
 
 <h2>结果与讨论</h2>
@@ -177,11 +181,13 @@ $$
 <p><b>定理1</b> (Salez)<b>.</b> 对任意参数 $1\le p\le q\lt\infty$，估计 $\eqref{eq:hypercontractivity}$ 蕴涵 $\eqref{eq:entropy-contraction}$，其中 $\theta=p/q$. 当 $p=q$ 时，结论理解为相对熵不增.</p>
 </div>
 
-<p>定理1不要求可逆性或正则性. 迭代可得
+<p><b>作用.</b> 定理1把单步超压缩性估计转化为同一步的熵收缩，收缩系数为 $p/q$. 它不要求可逆性、正则性或半群结构，适用于任意概率空间上的任意保测核，也适用于连续时间半群在某个固定时刻的转移核. 证明的核心是对偶性、Jensen 不等式与熵的变分公式，不需要沿半群求导.</p>
+
+<p><b>应用.</b> 对离散时间核，迭代得
 $$
 H(\mu T^n\mid\pi)\le\left(\frac pq\right)^nH(\mu\mid\pi),\qquad n=0,1,2,\ldots.
 $$
-因此，当 $p\lt q$ 且 $H(\mu\mid\pi)\lt\infty$ 时，相对熵以几何速率趋于零. 也可以固定 $t\ge0$ 并取 $T=P_t$，其中 $(P_t)_{t\ge0}$ 是保测 Markov 半群；此时只需该时刻的超压缩性估计. 下面与连续时间中的微分论证作比较.</p>
+故当 $p\lt q$ 且 $H(\mu\mid\pi)\lt\infty$ 时，相对熵以几何速率趋于零. 对连续时间半群，若某时刻 $t$ 满足 $\|P_tf\|_{1+e^{4\beta t}}\le\|f\|_2$，取 $T=P_t$ 得收缩系数 $2/(1+e^{4\beta t})$，它不弱于由微分论证得到的 $e^{-2\beta t}$. 在有限状态空间上配合 Pinsker 不等式，混合时间界中 $\log\log(1/\pi_\star)$ 项的系数由 $1/(2\beta)$ 改进为 $1/(4\beta)$. 这些应用只依赖单时刻估计；定理1本身是单向蕴涵，不给出逆命题.</p>
 
 <p>以下在有限状态空间上写明这一微分论证，设 $\pi(x)\gt0$，$(P_t)_{t\ge0}$ 为连续时间保测 Markov 半群. 取
 $$
@@ -236,7 +242,7 @@ $$
 $$
 对可能取零值的初始密度 $f$，先以 $(f+\delta)/(1+\delta)$ 代替 $f$，再令 $\delta\downarrow0$ 即可.</p>
 
-<p>上述论证通过半群在 $t=0$ 处的导数，将 $\eqref{eq:semigroup-hypercontractivity}$ 化为 $\eqref{eq:lsi}$，再由 $\eqref{eq:mlsi}$ 推出 $\eqref{eq:entropy-decay}$. 定理1则适用于任意概率空间：固定 $t\ge0$，若该时刻满足 $\eqref{eq:semigroup-hypercontractivity}$ 中的范数估计，取 $T=P_t$ 即得
+<p>上述论证通过半群在 $t=0$ 处的导数，将 $\eqref{eq:semigroup-hypercontractivity}$ 化为 $\eqref{eq:lsi}$，再由 $\eqref{eq:mlsi}$ 推出 $\eqref{eq:entropy-decay}$. 定理1不需要这些结构：固定 $t\ge0$，若该时刻满足 $\eqref{eq:semigroup-hypercontractivity}$ 中的范数估计，取 $T=P_t$ 即得
 $$
 \forall\mu\in\mathcal P(X),\quad H(\mu P_t\mid\pi)\le\frac{2}{1+e^{4\beta t}}H(\mu\mid\pi),
 $$
@@ -283,8 +289,6 @@ t_{\mathrm{mix}}(\varepsilon)\le\frac1{2\beta}
 \max\left\{0,\log\log\frac1{\pi_\star}+\log\frac1{2\varepsilon^2}\right\}.
 $$
 这里 $\log\log(1/\pi_\star)$ 项的系数由 $1/(2\beta)$ 降为 $1/(4\beta)$. 若 $X$ 只有一个点，则 $t_{\mathrm{mix}}(\varepsilon)=0$.</p>
-
-<p>定理1的证明仅使用对偶性、Jensen 不等式与熵的变分不等式，无需求导.</p>
 
 <p><b>注1</b> (逆命题)<b>.</b> 对 Markov 扩散，超压缩性与指数熵衰减可在调整常数后相互推出；离散状态空间上的相关结果见 [14,15]. 原文据此提出：若可逆转移核 $T$ 满足单步熵收缩估计，并具有适当的正则性，能否推出单步超压缩性估计？这里不能默认沿用同一个 $\beta$. 对扩散算子，链式法则给出
 $$
@@ -376,10 +380,6 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<h2>致谢</h2>
-
-<p>作者衷心感谢 Liming Wu 提出本文所回答的问题. 本工作由 ERC consolidator grant CUTOFF (101123174) 资助.</p>
-
 <h2>参考文献</h2>
 
 <ol>
@@ -418,7 +418,7 @@ $$
 
 <h2>译者注</h2>
 
-<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；引言中有限状态 Markov 链与 Ornstein–Uhlenbeck 过程的转移核例子、两种压缩性质的说明、恒等转移与完全平均转移的例子、熵不增的推导，以及有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
+<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；引言中有限状态 Markov 链与 Ornstein–Uhlenbeck 过程的转移核例子、两种压缩性质及其非平凡之处的说明、定理1的作用与应用、恒等转移与完全平均转移的例子、熵不增的推导，以及有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
 
 <p>原文 $\eqref{eq:hypercontractivity}$ 中的 $L^p(\mu)$ 应为 $L^p(\pi)$. 比较静态估计与 $\eqref{eq:entropy-decay}$ 时，原文写作 $1+e^{4\beta t}\ge2e^{\beta t}$，此处使用 $1+e^{4\beta t}\ge2e^{2\beta t}$. 原文证明中的 $u\log u\ge1-u$ 应为 $u\log u\ge u-1$. 引言中 Diaconis 与 Saloff-Coste 的文献编号由原文的 [11] 改为 [8].</p>
 
