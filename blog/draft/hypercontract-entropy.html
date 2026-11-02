@@ -115,6 +115,8 @@ $$
 
 <p>这类估计最早由 Nelson 在 Ornstein–Uhlenbeck 半群上发现 [12]，并由 Bonami 与 Beckner 在离散超立方体上得到 [6,4]. Gross [9]、Bakry 与 Émery [1]、Diaconis 与 Saloff-Coste [8] 发展了超压缩性在 Markov 过程中的理论；统计物理与计算机科学中的应用可参见 [3,10].</p>
 
+<p><b>应用例子.</b> 在离散超立方体上，Bonami–Beckner 不等式给出噪声算子的 $L^p$ 范数估计，由此可控制 Boolean 函数的噪声稳定性与变量影响；KKL 影响下界即以此为基础 [10]. 在高斯空间上，Ornstein–Uhlenbeck 半群的超压缩性给出对数 Sobolev 不等式，并推出 Lipschitz 函数的高斯集中 [2,9].</p>
+
 <p><b>熵收缩.</b> 现在考察分布在 $\mu\mapsto\mu T$ 下如何接近平稳分布 $\pi$. 相对熵（Kullback–Leibler 散度）定义为
 $$
 H(\mu\mid\pi):=
@@ -171,7 +173,7 @@ $$
 
 <p><b>非平凡之处.</b> 保测性只给出熵不增；熵收缩要求存在与 $\mu$ 无关的 $\theta\lt1$，使每一步都按同一比例减少相对熵. 因此它给出以几何速率收敛到 $\pi$，而不只是单调不增；难点在于这一比例必须对所有初始分布一致，且不能用单步的熵不增代替.</p>
 
-<p>熵收缩可用于估计 Markov 过程的混合时间 [5,11] 及研究测度集中. 相关介绍和例子见 [7,13].</p>
+<p><b>应用例子.</b> 对以 $\pi$ 为平稳分布的完全图上的随机游走，取 $P=(1-\alpha)I+\alpha\Pi$，其中 $0\lt\alpha\le1$，$\Pi$ 把每个分布映到 $\pi$. 由 $u\log u$ 的凸性（对密度逐点估计后积分）得 $H(\mu P\mid\pi)\le(1-\alpha)H(\mu\mid\pi)$，这是熵收缩的一个直接例子. 更一般地，熵收缩给出相对熵意义下的收敛速率，配合 Pinsker 不等式可估计混合时间 [5,11]，并用于研究测度集中 [7,13].</p>
 
 <h2>结果与讨论</h2>
 
@@ -418,7 +420,7 @@ $$
 
 <h2>译者注</h2>
 
-<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；引言中有限状态 Markov 链与 Ornstein–Uhlenbeck 过程的转移核例子、两种压缩性质及其非平凡之处的说明、定理1的作用与应用、恒等转移与完全平均转移的例子、熵不增的推导，以及有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
+<p>本文据原文译写并补充推导，保留原 PDF 的公式编号 $\eqref{eq:transition}$–$\eqref{eq:conclusion}$ 与参考文献. 定理1及单步估计来自原文；引言中有限状态 Markov 链与 Ornstein–Uhlenbeck 过程的转移核例子、两种压缩性质的非平凡之处与应用例子、定理1的作用与应用、恒等转移与完全平均转移的例子、熵不增的推导，以及有限状态上的微分论证、Pinsker 不等式的应用、伴随算子的构造及证明末尾的截断步骤均为补充. 注1中关于逆向关系的常数说明亦为补充.</p>
 
 <p>原文 $\eqref{eq:hypercontractivity}$ 中的 $L^p(\mu)$ 应为 $L^p(\pi)$. 比较静态估计与 $\eqref{eq:entropy-decay}$ 时，原文写作 $1+e^{4\beta t}\ge2e^{\beta t}$，此处使用 $1+e^{4\beta t}\ge2e^{2\beta t}$. 原文证明中的 $u\log u\ge1-u$ 应为 $u\log u\ge u-1$. 引言中 Diaconis 与 Saloff-Coste 的文献编号由原文的 [11] 改为 [8].</p>
 
