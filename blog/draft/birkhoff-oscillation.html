@@ -9,34 +9,33 @@
 
 <p><i>按：这是Bourgain方法系列的一篇. 本文只讨论线性Birkhoff定理，依据 El Abdalaoui 对Bourgain振荡方法的整理；双线性与多项式情形不在本文范围内.</i></p>
 
-<h2>定理</h2>
+<h2>Birkhoff定理回顾</h2>
 
 <p>设 $(X,\mathcal B,\mu)$ 是概率空间，$T:X\to X$ 是可逆保测变换，$\mathcal I=\{A\in\mathcal B:\mu(A\triangle T^{-1}A)=0\}$. 对 $f\in L^1(X)$，记
 $$
 A_Nf(x)=\frac1N\sum_{n=1}^N f(T^n x).
 \tag{1}
-$$</p>
+$$
+我们叙述Birkhoff逐点遍历定理.</p>
 
 <p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-几乎处处收敛到 $\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
 
-<p>均方收敛由谱定理得到：$A_Nf$ 在 $L^2(X)$ 中收敛到 $Pf=\mathbb E(f|\mathcal I)$. 下面先对 $f\in L^2(X)$ 证明几乎处处收敛，再用 Hopf 极大不等式和 $L^2$ 的稠密性过渡到 $L^1(X)$. 所用的极大不等式是
+<p>经典证明通常先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
+$$
+A_N(g-g\circ T)(x)=\frac{g(Tx)-g(T^{N+1}x)}{N}
+$$
+直接趋于 $0$；而以下的Hopf极大不等式
 $$
 \mu\left\{x:\sup_{N\ge1}|A_Nf(x)|>\lambda\right\}
 \le\frac{C\|f\|_1}{\lambda},
 \qquad \lambda>0.
 \tag{2}
 $$
-这是标准的 Hopf 极大不等式，本文直接引用.</p>
-
-<p>经典证明通常先对 $f\in L^2(X)$ 使用均方遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
-$$
-A_N(g-g\circ T)(x)=\frac{g(Tx)-g(T^{N+1}x)}{N}
-$$
-直接趋于 $0$；极大不等式把几乎处处收敛从这一稠密类推广到整个 $L^2$，最后用稠密性过渡到 $L^1$. 这条路线很短，但稠密类 $\{g-g\circ T\}$ 依赖线性平均的群结构. 对多项式时间，差 $f(T^{P(n)}x)-f(T^{P(n-1)}x)$ 不再是固定函数的平移差；对双线性平均，乘积结构也使线性望远镜失效. 振荡证明不依赖这样的稠密类，而是直接证明一个平方和估计.</p>
+联合稠密性论证就可以得到 $f\in L^1$ 的几乎处处收敛. 这条路线很短，但稠密类 $\{g-g\circ T\}$ 依赖线性平均的群结构. 对更一般的例子——比如稀疏的多项式时间 $f(T^{P(n)}x)$ 或者多线性平均——这种结构就被破坏了. 而Bourgain的振荡估计证明不依赖这样的稠密类，而是直接证明一个平方和估计.</p>
 
 <p>证明的主线是Bourgain的振荡方法. 它把几乎处处收敛化归为一个平方和估计，再通过Calderón转移把估计放到整数平移上，最后用Fourier乘子计算证明这个估计.</p>
 
-<h2>振荡判据</h2>
+<h2>振荡判别</h2>
 
 <p>设 $(f_N)_{N\ge1}$ 是 $L^2(X)$ 中的序列. 对整数
 $$
@@ -51,7 +50,7 @@ $$
 \tag{3}
 $$</p>
 
-<p class="thm"><b>引理2</b> (振荡判据)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
+<p class="thm"><b>引理2</b> (振荡判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
 $$
 \|\mathcal O_{\mathbf N,K}(f)\|_2^2
 \le C_K\|f\|_2^2.
@@ -87,22 +86,22 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>这个判据的意义是：几乎处处收敛是一个关于所有尺度的陈述，而振荡算子把各尺度区间上的振荡合成为一个平方和；只要这个平方和关于区间个数是次线性的，反复振荡就不可能持续. 它不需要预先知道极限，也不需要先找一个使收敛成立的稠密类. 因此，证明的目标从一个收敛性命题变成了估计 (4).</p>
+<p>这个判别法的意义是：从极大估计论证的视角，几乎处处收敛是一个关于所有尺度的陈述，而振荡算子把各尺度区间上的振荡合成为一个平方和；只要这个平方和关于区间个数是次线性的，就能克制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类.</p>
 
 <p>所以问题归结为证明 (4). 下面先在整数平移上证明对应的估计.</p>
 
-<h2>Calderón转移</h2>
+<h2>Transference原理</h2>
 
-<p>在 $\mathbb Z$ 上定义移位算子 $S\phi(x)=\phi(x+1)$，以及
+<p>Bourgain总能在意想不到之处使用Fourier分析，在这里他使用了transference原理将定义域从抽象的 $X$ 转换到离散、有Fourier变换的 $\mathbb Z$，把一般保测变换化为移位算子；只有这里使用了 $T$ 的保测性和可逆性.</p>
+
+<p>在 $\mathbb Z$ 上的函数 $\phi$ 定义移位算子 $S\phi(x)=\phi(x+1)$，以及
 $$
 A_N^S\phi(x)=\frac1N\sum_{n=1}^N\phi(x+n).
 \tag{5}
 $$
-对 $\rho>1$，记
-$$
-S_\rho=\{[\rho^m]:m=1,2,\ldots\}.
-$$
-这是后面用到的稀疏尺度序列.</p>
+另外对 $\rho>1$，记 $S_\rho=\{[\rho^m]:m=1,2,\ldots\}$, 其中 $[\cdot]$ 是向下取整. 这是后面用到的稀疏尺度序列；$\rho=2$ 就得到我们熟悉的二进序列.</p>
+
+<p>现在可以叙述Bourgain证明的核心结果</p>
 
 <p class="thm"><b>定理3</b> (离散振荡估计)<b>.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，使对每个 $\phi\in\ell^2(\mathbb Z)$、每个递增序列 $(N_k)\subset S_\rho$ 和每个 $K$ 都有
 $$
@@ -113,7 +112,7 @@ $$
 \tag{6}
 $$</p>
 
-<p class="thm"><b>引理4</b> (转移)<b>.</b> (6) 推出动力系统上的对应估计：对每个 $f\in L^2(X)$ 和每个递增序列 $(N_k)\subset S_\rho$，
+<p class="thm"><b>引理4</b> (Calderón)<b>.</b> (6) 推出动力系统上的对应估计：对每个 $f\in L^2(X)$ 和每个递增序列 $(N_k)\subset S_\rho$，
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
@@ -138,11 +137,36 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>转移原理把一般保测变换的问题化为移位算子的问题. 在振荡估计中，只有这一步使用 $T$ 的保测性和可逆性；之后的分析都在 $\mathbb Z$ 上进行. 一般系统与具体的 Fourier 分析因此分开：前者只通过转移进入，后者在移位算子上完成.</p>
+<p>于是定理3给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$，对序列 $g_j=A_{M_j}f$ 应用引理2，便知 $A_Nf$ 沿 $N\in S_\rho$ 几乎处处收敛. 对每个 $\rho>1$ 都如此. 下面把稀疏尺度上的收敛推广到所有 $N$.</p>
 
-<p>于是定理1归结为定理3. 下面用Fourier乘子证明定理3.</p>
+<p class="thm"><b>引理7</b> (稀疏尺度到全部尺度)<b>.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ 几乎处处收敛，并且 (2) 成立，则 $A_Nf$ 几乎处处收敛.</p>
 
-<h2>移位算子与Fourier乘子</h2>
+<p><i>证明.</i> 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 由 $S_\rho$ 的定义，$N\le N'\le\rho N+\rho$. 则
+$$
+|A_Nf-A_{N'}f|
+\le\frac{N'-N}{N'}|A_Nf|
++\frac1{N'}\sum_{n=N+1}^{N'}|f(T^nx)|
+\le2\left(\rho-1+\frac{\rho}{N}\right)Mf(x),
+$$
+其中
+$$
+Mf(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|f(T^nx)|.
+$$
+由 (2) 应用于 $|f|$，$Mf\lt\infty$ 几乎处处. 设 $L_\rho(x)$ 是 $A_Nf$ 沿 $S_\rho$ 的极限. 在上式中令 $N\to\infty$，得到
+$$
+\limsup_{N\to\infty}A_Nf(x)\le L_\rho(x)+2(\rho-1)Mf(x),
+$$
+同理
+$$
+\liminf_{N\to\infty}A_Nf(x)\ge L_\rho(x)-2(\rho-1)Mf(x).
+$$
+令 $\rho\downarrow1$，则上下极限相等，故 $A_Nf$ 几乎处处收敛.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>于是定理1归结为定理3，后者的证明则需要 $\mathbb Z$ 上的Fourier分析.</p>
+
+<h2>Fourier乘子</h2>
 
 <p>对 $\phi\in\ell^2(\mathbb Z)$，定义Fourier变换
 $$
@@ -403,32 +427,6 @@ $$
 
 <h2>回到动力系统</h2>
 
-<p>由引理4，定理3给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$，对序列 $g_j=A_{M_j}f$ 应用引理2，便知 $A_Nf$ 沿 $N\in S_\rho$ 几乎处处收敛. 对每个 $\rho>1$ 都如此. 下面把稀疏尺度上的收敛推广到所有 $N$.</p>
-
-<p class="thm"><b>引理7</b> (稀疏尺度到全部尺度)<b>.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ 几乎处处收敛，并且 (2) 成立，则 $A_Nf$ 几乎处处收敛.</p>
-
-<p><i>证明.</i> 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 由 $S_\rho$ 的定义，$N\le N'\le\rho N+\rho$. 则
-$$
-|A_Nf-A_{N'}f|
-\le\frac{N'-N}{N'}|A_Nf|
-+\frac1{N'}\sum_{n=N+1}^{N'}|f(T^nx)|
-\le2\left(\rho-1+\frac{\rho}{N}\right)Mf(x),
-$$
-其中
-$$
-Mf(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|f(T^nx)|.
-$$
-由 (2) 应用于 $|f|$，$Mf\lt\infty$ 几乎处处. 设 $L_\rho(x)$ 是 $A_Nf$ 沿 $S_\rho$ 的极限. 在上式中令 $N\to\infty$，得到
-$$
-\limsup_{N\to\infty}A_Nf(x)\le L_\rho(x)+2(\rho-1)Mf(x),
-$$
-同理
-$$
-\liminf_{N\to\infty}A_Nf(x)\ge L_\rho(x)-2(\rho-1)Mf(x).
-$$
-令 $\rho\downarrow1$，则上下极限相等，故 $A_Nf$ 几乎处处收敛.</p>
-
-<p class="proof-box">$\Box$</p>
 
 <p>这一步说明稀疏序列不是定理的限制，而是一个技术中间步骤：稀疏化使 Fourier 乘子级数有关于 $\theta$ 一致的界；极大不等式再把稀疏尺度上的收敛还原为所有尺度上的收敛. 这也是振荡证明与经典稠密性证明在结构上的一个区别：前者先在一个便于求和的尺度集上工作，再用极大估计回到全部尺度.</p>
 
