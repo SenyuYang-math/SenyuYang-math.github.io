@@ -18,7 +18,7 @@ A_Nf(x)=\frac1N\sum_{n=1}^N f(T^n x).
 $$
 我们叙述 Birkhoff 逐点遍历定理.</p>
 
-<p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-几乎处处收敛到 $\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
+<p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-a.e. 收敛到 $\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
 
 <p>经典证明通常先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
 $$
@@ -35,26 +35,27 @@ $$
 
 <h2>振荡判别</h2>
 
-<p>设 $(f_N)_{N\ge1}$ 是 $L^2(X)$ 中的序列. 对整数
+<p>设 $(f_N)_{N\ge1}$ 是 $L^2(X)$ 中的序列. 对任意整数子列
 $$
-1\le N_1\lt N_2\lt\cdots\lt N_{K+1},
+\mathbf N: 1\le N_1\lt N_2\lt\cdots\lt N_{K+1},
 $$
-定义
+Bourgain定义了 <i>振荡算子</i>
 $$
-\mathcal O_{\mathbf N,K}(f)(x)
+\mathcal O_{\mathbf N, K}: \mathcal O_{\mathbf N,K}(f)(x)
 :=\left(\sum_{k=1}^K
 \sup_{N_k\le N\lt N_{k+1}}
 |f_N(x)-f_{N_{k+1}}(x)|^2\right)^{1/2}.
 \tag{3}
-$$</p>
+$$
+Bourgain用这个振荡算子证明了以下的 a.e. 收敛判别法；$\ell^2$ 求和可以推广为一般的 $\ell^p$ 求和.</p>
 
-<p class="thm"><b>引理2</b> (Bourgain振荡判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
+<p class="thm"><b>引理2</b> (Bourgain 振荡判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
 $$
 \|\mathcal O_{\mathbf N,K}(f)\|_2^2
 \le C_K\|f\|_2^2.
 \tag{4}
 $$
-则 $f_N(x)$ 几乎处处收敛.</p>
+则 $f_N(x)$ a.e. 收敛.</p>
 
 <p><i>证明.</i> 若结论不成立，则存在 $\varepsilon>0$ 和正测度集 $E$，s.t. 对每个固定的 $M$，
 $$
@@ -66,13 +67,13 @@ $$
 E_{N_k,M}:=\left\{x\in E:
 \sup_{N_k\le N\le M}|f_N(x)-f_M(x)|>\frac\varepsilon2\right\}\subset E.
 $$
-注意在 $E_{N_k,M}$ 中与每个 $f_N$ 作差的都是固定的末端值 $f_M$. 对每个 $x\in E$，由非收敛性可取 $n,m>N_k$ 使 $|f_n(x)-f_m(x)|>\varepsilon$. 所以当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|$ 和 $|f_m(x)-f_M(x)|$ 至少有一个大于 $\varepsilon/2$，因此 $x\in E_{N_k,M}$. 因此 
+注意在 $E_{N_k,M}$ 中与每个 $f_N$ 作差的都是固定的末端值 $f_M$. 对每个 $x\in E$，存在 $n,m>N_k$, s.t. $|f_n(x)-f_m(x)|>\varepsilon$. 所以当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|$ 和 $|f_m(x)-f_M(x)|$ 至少有一个大于 $\varepsilon/2$，因此 $x\in E_{N_k,M}$. 因此 
 $$E\subset\liminf_{M\to\infty}E_{N_k,M},$$
 从而 $\mu(E_{N_k,M})\to\mu(E)>0$. 因此可以取到 $N_{k+1}> N_k$, s.t.
 $$
 \mu(E\setminus E_{N_k,N_{k+1}})\lt 2^{-k-1}\mu(E).
 $$
-于是 $E':=\bigcap_{k=1}^K E_{k,N_{k+1}}$ 满足 $\mu(E')\ge\mu(E)/2>0$，并且在 $E'$ 上有 $|\mathcal O_{\mathbf N,K}(f)|^2 \lesssim K\varepsilon^2$. 因此
+于是 $E':=\bigcap_{k=1}^K E_{k,N_{k+1}}$ 满足 $\mu(E')\ge\mu(E)/2>0$，并且在 $E'$ 上有 $|\mathcal O_{\mathbf N,K}(f)|^2 \gtrsim K\varepsilon^2$. 因此
 $$
 K\varepsilon^2\mu(E)
 \lesssim \|\mathcal O_{\mathbf N,K}(f)\|_2^2
@@ -82,7 +83,7 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>这个判别法的意义是：从极大估计论证的视角，几乎处处收敛是一个关于所有尺度的陈述，而振荡算子把各尺度区间上的振荡合成为一个平方和；只要这个平方和关于区间个数是次线性的，就能克制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类.</p>
+<p>Bourgain 振荡判别法的意义是：从经典的极大估计 argument 来看，a.e. 收敛是一个关于所有尺度的陈述，而振荡算子把各尺度区间上的极大振幅收集为一个平方和；只要这个平方和关于区间个数是次线性的，就能克制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了定量估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类；这是又一个 Bourgain 的“定量化”魔法.  Bourgain 对这个判别法相当中意，他如此评价: "As I observed...this approach should rather be considered as a general method than the solution to some isolated problems."</p>
 
 <h2>Transference原理</h2>
 
