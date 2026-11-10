@@ -66,11 +66,13 @@ $$
 E_{N_k,M}:=\left\{x\in E:
 \sup_{N_k\le N\le M}|f_N(x)-f_M(x)|>\frac\varepsilon2\right\}\subset E.
 $$
-注意在 $E_{N_k,M}$ 中与每个 $f_N$ 作差的都是固定的末端值 $f_M$. 对每个 $x\in E$，由非收敛性可取 $n,m>N_k$ 使 $|f_n(x)-f_m(x)|>\varepsilon$. 所以当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|$ 和 $|f_m(x)-f_M(x)|$ 至少有一个大于 $\varepsilon/2$，因此 $x\in E_{N_k,M}$. 因此 $E\subset\liminf_{M\to\infty}E_{N_k,M}$，从而 $\mu(E_{N_k,M})\to\mu(E)>0$. 因此可以取到 $N_{k+1}> N_k$, s.t.
+注意在 $E_{N_k,M}$ 中与每个 $f_N$ 作差的都是固定的末端值 $f_M$. 对每个 $x\in E$，由非收敛性可取 $n,m>N_k$ 使 $|f_n(x)-f_m(x)|>\varepsilon$. 所以当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|$ 和 $|f_m(x)-f_M(x)|$ 至少有一个大于 $\varepsilon/2$，因此 $x\in E_{N_k,M}$. 因此 
+$$E\subset\liminf_{M\to\infty}E_{N_k,M},$$
+从而 $\mu(E_{N_k,M})\to\mu(E)>0$. 因此可以取到 $N_{k+1}> N_k$, s.t.
 $$
 \mu(E\setminus E_{N_k,N_{k+1}})\lt 2^{-k-1}\mu(E).
 $$
-于是 $E':=\bigcap_{k=1}^K E_{k,N_{k+1}}$ 满足 $\mu(E')\ge\mu(E)/2$，并且在 $E'$ 上有 $\mathcal O_{\mathbf N,K}(f)^2 \lesssim K\varepsilon^2$. 因此
+于是 $E':=\bigcap_{k=1}^K E_{k,N_{k+1}}$ 满足 $\mu(E')\ge\mu(E)/2>0$，并且在 $E'$ 上有 $|\mathcal O_{\mathbf N,K}(f)|^2 \lesssim K\varepsilon^2$. 因此
 $$
 K\varepsilon^2\mu(E)
 \lesssim \|\mathcal O_{\mathbf N,K}(f)\|_2^2
