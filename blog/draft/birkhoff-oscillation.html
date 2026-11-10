@@ -39,10 +39,10 @@ $$
 $$
 1\le N_1\lt N_2\lt\cdots\lt N_{K+1},
 $$
-置
+定义
 $$
 \mathcal O_{\mathbf N,K}(f)(x)
-=\left(\sum_{k=1}^K
+:=\left(\sum_{k=1}^K
 \sup_{N_k\le N\lt N_{k+1}}
 |f_N(x)-f_{N_{k+1}}(x)|^2\right)^{1/2}.
 \tag{3}
@@ -65,9 +65,9 @@ $$
 \sup_{N\ge M}|f_N(x)-f_M(x)|>\varepsilon,
 \qquad x\in E.
 $$
-任选 $N_1$. 已选定 $N_k$ 后，对 $M>N_k$ 置
+任选 $N_1$. 已选定 $N_k$ 后，对 $M>N_k$ 定义
 $$
-E_{k,M}=\left\{x\in E:
+E_{k,M}:=\left\{x\in E:
 \sup_{N_k\le N\le M}|f_N(x)-f_M(x)|>\frac\varepsilon2\right\}.
 $$
 对每个 $x\in E$，由非收敛性可取 $n,m>N_k$ 使 $|f_n(x)-f_m(x)|>\varepsilon$. 当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|>\varepsilon/2$ 或 $|f_m(x)-f_M(x)|>\varepsilon/2$，故 $x\in E_{k,M}$. 因此 $E\subset\liminf_{M\to\infty}E_{k,M}$，从而 $\mu(E_{k,M})\to\mu(E)$；取 $N_{k+1}\ge2N_k$ 使
@@ -90,9 +90,9 @@ $$
 
 <p>Bourgain 总能在意想不到之处使用Fourier分析，在这里他使用了 transference 原理将定义域从抽象的 $X$ 转换到离散、有Fourier变换的 $\mathbb Z$，把一般保测变换化为移位算子；只有这里使用了 $T$ 的保测性和可逆性.</p>
 
-<p>在 $\mathbb Z$ 上的函数 $\phi$ 定义移位算子 $S: S\phi(x)=\phi(x+1)$，以及
+<p>对 $\mathbb Z$ 上的函数 $\phi$，定义移位算子 $S\phi(x):=\phi(x+1)$，以及
 $$
-A_N^S\phi(x)=\frac1N\sum_{n=1}^N\phi(x+n).
+A_N^S\phi(x):=\frac1N\sum_{n=1}^N\phi(x+n).
 \tag{5}
 $$
 另外对 $\rho>1$，记 $S_\rho=\{[\rho^m]:m=1,2,\ldots\}$, 其中 $[\cdot]$ 是向下取整. 这是后面用到的稀疏尺度序列；$\rho=2$ 就得到我们熟悉的二进序列.</p>
@@ -119,9 +119,9 @@ $$
 \tag{7}
 $$</p>
 
-<p><i>证明.</i> 固定 $J$，并对固定的 $x\in X$ 在 $\mathbb Z$ 上置
+<p><i>证明.</i> 固定 $J$，并对固定的 $x\in X$ 在 $\mathbb Z$ 上定义
 $$
-\phi_x(n)=f(T^nx)\mathbf1_{[-J,J]}(n).
+\phi_x(n):=f(T^nx)\mathbf1_{[-J,J]}(n).
 $$
 对 $\phi_x$ 应用 (6)，再对 $x$ 积分. 当 $|n|\le J-N_{K+1}$ 时，$A_N^S\phi_x(n)$ 正好等于 $A_Nf(T^nx)$. 利用 $T$ 保测，得到
 $$
@@ -170,12 +170,12 @@ $$
 
 <p>对 $\phi\in\ell^2(\mathbb Z)$，定义Fourier变换
 $$
-\widehat\phi(\theta)=\sum_{n\in\mathbb Z}\phi(n)e^{-in\theta},
+\widehat\phi(\theta):=\sum_{n\in\mathbb Z}\phi(n)e^{-in\theta},
 \qquad \theta\in[-\pi,\pi).
 $$
-对 $N\ge1$ 置
+对 $N\ge1$ 定义
 $$
-m_N(\theta)=\frac1N\sum_{n=1}^N e^{in\theta}.
+m_N(\theta):=\frac1N\sum_{n=1}^N e^{in\theta}.
 \tag{8}
 $$
 则
@@ -188,7 +188,7 @@ $$</p>
 
 <p>再定义频率截断核 $g_N$，使
 $$
-\widehat{g_N}(\theta)=\mathbf1_{[-\pi/N,\pi/N]}(\theta).
+\widehat{g_N}(\theta):=\mathbf1_{[-\pi/N,\pi/N]}(\theta).
 \tag{10}
 $$
 显式地，
