@@ -13,7 +13,8 @@
 
 <p>设 $(X,\mathcal B,\mu)$ 是概率空间，$T:X\to X$ 是可逆保测变换，$\mathcal I=\{A\in\mathcal B:\mu(A\triangle T^{-1}A)=0\}$. 对 $f\in L^1(X)$，记
 $$
-A_Nf(x)=\frac1N\sum_{n=1}^N f(T^n x).
+A_Nf(x)=\frac1N\sum_{n=1}^N f(T^n x), \qquad
+Mf(x)=\sup_{N\geq 1} A_N f(x).
 \tag{1}
 $$
 我们叙述 Birkhoff 逐点遍历定理.</p>
@@ -26,7 +27,7 @@ A_N(g-g\circ T)(x)=\frac{g(Tx)-g(T^{N+1}x)}{N}
 $$
 直接趋于 $0$；而以下的 Hopf 极大不等式
 $$
-\mu\left\{x:\sup_{N\ge1}|A_Nf(x)|>\lambda\right\}
+\mu\left\{x:Mf(x)>\lambda\right\}
 \le\frac{C\|f\|_1}{\lambda},
 \qquad \lambda>0.
 \tag{2}
@@ -153,7 +154,7 @@ $$
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_Nf-A_{N_{k+1}}f|\right\|_2^2.
 $$ -->
-所以左边不小于
+所以 LHS 不小于
 $$
 (2J-2N_{K+1}+1)
 \sum_{k=1}^K
@@ -169,25 +170,17 @@ $$
 <p class="thm"><b>引理7.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，并且 Hopf 极大不等式 (2) 成立，则 $A_Nf$ a.e. 收敛.</p>
 
 <p><i>证明.</i> 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 由 $S_\rho$ 的定义，$N\le N'\le\rho N+\rho$. 则
-$$
+$$\begin{align*}
 |A_Nf-A_{N'}f|
-\le\frac{N'-N}{N'}|A_Nf|
-+\frac1{N'}\sum_{n=N+1}^{N'}|f(T^nx)|
-\le2\left(\rho-1+\frac{\rho}{N}\right)Mf(x),
+& \le\frac{N'-N}{N'}|A_Nf|
++\frac1{N'}\sum_{n=N+1}^{N'}|f(T^nx)|\\
+& \le \left(\rho-1+\frac{\rho}{N}\right)\big(Mf(x)+Mf(T^Nx)\big),
+\end{align*}$$
+由 (2) 应用于 $|f|$，有 $Mf\lt\infty$ a.e. 设 $L_\rho(x)$ 是 $A_Nf$ 沿 $S_\rho$ 的极限. 在上式中令 $N\to\infty$，得到
 $$
-其中极大算子
+\limsup_{N\to\infty}|A_Nf(x)-L_\rho(x)| \le 2(\rho-1)Mf(x),
 $$
-Mf(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|f(T^nx)|.
-$$
-由 (2) 应用于 $|f|$，$Mf\lt\infty$ a.e. 设 $L_\rho(x)$ 是 $A_Nf$ 沿 $S_\rho$ 的极限. 在上式中令 $N\to\infty$，得到
-$$
-\limsup_{N\to\infty}A_Nf(x)\le L_\rho(x)+2(\rho-1)Mf(x),
-$$
-同理
-$$
-\liminf_{N\to\infty}A_Nf(x)\ge L_\rho(x)-2(\rho-1)Mf(x).
-$$
-令 $\rho\downarrow1$，则上下极限相等，故 $A_Nf$ a.e. 收敛.</p>
+令 $\rho\downarrow1$，即有 $A_Nf$ a.e. 收敛.</p>
 
 <p class="proof-box">$\Box$</p>
 
