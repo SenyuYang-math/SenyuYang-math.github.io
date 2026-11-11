@@ -73,7 +73,7 @@ $$E\subset\liminf_{M\to\infty}E_{N_k,M},$$
 $$
 \mu(E\setminus E_{N_k,N_{k+1}})\lt 2^{-k-1}\mu(E).
 $$
-于是 $E':=\bigcap_{k=1}^K E_{k,N_{k+1}}$ 满足 $\mu(E')\ge\mu(E)/2>0$，并且在 $E'$ 上有 $|\mathcal O_{\mathbf N,K}(f)|^2 \gtrsim K\varepsilon^2$. 因此
+于是 $E':=\bigcap_{k=1}^K E_{N_k,N_{k+1}}$ 满足 $\mu(E')\ge\mu(E)/2>0$，并且在 $E'$ 上有 $|\mathcal O_{\mathbf N,K}(f)|^2 \gtrsim K\varepsilon^2$. 因此
 $$
 K\varepsilon^2\mu(E)
 \lesssim \|\mathcal O_{\mathbf N,K}(f)\|_2^2
@@ -118,70 +118,49 @@ $$
 \tag{7}
 $$</p>
 
-<p><i>证明.</i> 取 $J>N_{K+1}$. 对每个 $x\in X$，在 $\mathbb Z$ 上定义
+<p><i>证明.</i> 取充分大的 $J>N_{K+1}$. 对每个 $x\in X$，在 $\mathbb Z$ 上定义
 $$
 \phi_x(n):=f(T^nx)\mathbf1_{[-J,J]}(n).
 $$
-对固定的 $x$，把 (6) 应用于 $\phi_x$，得到
-$$
-\sum_{k=1}^K
-\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|A_N^S\phi_x-A_{N_{k+1}}^S\phi_x|\right\|_{\ell^2(\mathbb Z)}^2
-\le C_\rho\|\phi_x\|_{\ell^2(\mathbb Z)}^2.
-$$
-对 $x$ 积分. 右边为
+对固定的 $x$，把 (6) 应用于 $\phi_x$，并对 $x$ 积分：RHS为
 $$
 \int_X\|\phi_x\|_{\ell^2(\mathbb Z)}^2\,d\mu(x)
 =\int_X\sum_{n=-J}^J|f(T^nx)|^2\,d\mu(x)
 =(2J+1)\|f\|_2^2,
 $$
-这里用了 $T$ 保测.</p>
-
-<p>左边逐项写出是
+这里用了 $T$ 保测；而LHS逐项写出是
 $$
 \int_X\sum_{k=1}^K\sum_{n\in\mathbb Z}
 \sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_N^S\phi_x(n)-A_{N_{k+1}}^S\phi_x(n)|^2\,d\mu(x).
 $$
-由于 $\phi_x$ 有限支撑，这些和都是有限和，且被积函数非负，所以可以与积分交换次序. 当 $|n|\le J-N_{K+1}$ 且 $N\le N_{k+1}$ 时，对 $1\le m\le N$ 有 $|n+m|\le J$，因此
+$\phi_x$ 有限支撑，求和都是有限和，因此可以与积分交换次序. 注意到，当 $|n|\le J-N_{K+1}$ 且 $N\le N_{k+1}$ 时，有
 $$
 A_N^S\phi_x(n)=\frac1N\sum_{m=1}^N f(T^{n+m}x)=A_Nf(T^nx),
 $$
-并且 $A_{N_{k+1}}^S\phi_x(n)=A_{N_{k+1}}f(T^nx)$. 因此左边不小于
+因此LHS不小于
 $$
-\sum_{|n|\le J-N_{K+1}}
-\int_X
-\sum_{k=1}^K
+\sum_{|n|\le J-N_{K+1}} \sum_{k=1}^K \int_X
 \sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_Nf(T^nx)-A_{N_{k+1}}f(T^nx)|^2\,d\mu(x).
-$$</p>
-
-<p>对每个固定的 $n$，由 $T$ 保测，
 $$
+对每个固定的 $n$，由 $T$ 保测，可以去掉上述积分项中的 $T^n$.
+<!-- $$
 \int_X
 \sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_Nf(T^nx)-A_{N_{k+1}}f(T^nx)|^2\,d\mu(x)
 =
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_Nf-A_{N_{k+1}}f|\right\|_2^2.
-$$
+$$ -->
 所以左边不小于
 $$
 (2J-2N_{K+1}+1)
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_Nf-A_{N_{k+1}}f|\right\|_2^2.
-$$</p>
-
-<p>与右边的估计合并，得到
 $$
-(2J-2N_{K+1}+1)
-\sum_{k=1}^K
-\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|A_Nf-A_{N_{k+1}}f|\right\|_2^2
-\le C_\rho(2J+1)\|f\|_2^2.
-$$
-两边除以 $2J+1$，再令 $J\to\infty$，即得 (7).</p>
+与右边的估计合并，再令 $J\to\infty$，即得 (7).</p>
 
 <p class="proof-box">$\Box$</p>
 
