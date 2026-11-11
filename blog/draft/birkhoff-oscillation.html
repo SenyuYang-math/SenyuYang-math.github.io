@@ -197,23 +197,14 @@ $$
 \widehat\phi(\theta):=\sum_{n\in\mathbb Z}\phi(n)e^{-in\theta},
 \qquad \theta\in[-\pi,\pi).
 $$
-对 $N\ge1$ 定义
+于是 $\widehat{S\phi}(\theta)=e^{i\theta}\widehat\phi(\theta)$.对 $N\ge1$,
 $$
-m_N(\theta):=\frac1N\sum_{n=1}^N e^{in\theta}.
-\tag{8}
+\widehat{A_N^S\phi}(\theta)=m_N(\theta)\widehat\phi(\theta), \quad m_N(\theta):=\frac1N\sum_{n=1}^N e^{in\theta}. \tag{8}
 $$
-则
-$$
-\widehat{A_N^S\phi}(\theta)=m_N(\theta)\widehat\phi(\theta),
-\qquad
-\widehat{S\phi}(\theta)=e^{i\theta}\widehat\phi(\theta).
-\tag{9}
-$$</p>
-
-<p>再定义频率截断核 $g_N$，使
+再定义频率截断核 $g_N$，使
 $$
 \widehat{g_N}(\theta):=\mathbf1_{[-\pi/N,\pi/N]}(\theta).
-\tag{10}
+\tag{9}
 $$
 显式地，
 $$
@@ -221,50 +212,33 @@ g_N(x)=\frac1{2\pi}\int_{-\pi/N}^{\pi/N}e^{ix\theta}\,d\theta
 =\frac{\sin(\pi x/N)}{\pi x}\quad(x\ne0),
 \qquad
 g_N(0)=\frac1N.
-\tag{11}
+\tag{10}
 $$
-于是 $g_N*\phi$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}$，它是一个在尺度 $N$ 上的光滑平均. 记
-$$
-P_N\phi=g_N*\phi.
-$$
-它把频率截断到 $[-\pi/N,\pi/N]$.</p>
+记投影算子 $P_N\phi=g_N*\phi$, 它把频率截断到 $[-\pi/N,\pi/N]$, 在物理空间上相当于一个在尺度 $N$ 上的平均化算子.</p>
 
-<p>下面给出在稀疏尺度下移位算子的乘子级数估计.</p>
+<p>下面给出在稀疏尺度下移位算子的乘子级数估计；这是引入稀疏序列 $S_\rho$ 的目的.</p>
 
 <p class="thm"><b>引理5.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，使对每个 $\theta\in[-\pi,\pi)$ 都有
 $$
 \sum_{N\in S_\rho}
 \left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2
 \le C_\rho.
-\tag{12}
+\tag{11}
 $$</p>
 
-<p><i>证明.</i> 不妨设 $\theta\ne0$；$\theta=0$ 时每一项都为零. 把 $N\in S_\rho$ 按 $N|\theta|$ 分成三段.</p>
-
-<p>第一段：$N|\theta|\le1$. 此时 $\mathbf1_{[-\pi/N,\pi/N]}(\theta)=1$，并且
+<p><i>证明.</i> 不妨设 $\theta\ne0$；$\theta=0$ 时每一项都为零. 把 $N\in S_\rho$ 按 $N|\theta|$ 分两段讨论：当 $N|\theta|\le \pi$时，$\mathbf1_{[-\pi/N,\pi/N]}(\theta)=1$，并且
 $$
 |m_N(\theta)-1|
 =\left|\frac1N\sum_{n=1}^N(e^{in\theta}-1)\right|
-\le N|\theta|.
+\le N|\theta|;
 $$
-所以相应的平方不超过 $N^2|\theta|^2$. 因为 $S_\rho$ 是几何序列，满足 $N|\theta|\le1$ 的项之和被最大的 $N$ 控制，至多 $C_\rho$.</p>
-
-<p>第二段：$1\le N|\theta|\le\pi$. 在这个范围内，$S_\rho$ 只有 $O_\rho(1)$ 个元素. 另一方面，
-$$
-|m_N(\theta)|\le\frac1N\frac{1}{|\sin(\theta/2)|}
-\le\frac{\pi}{N|\theta|}\le\pi,
-$$
-并且 $|m_N-1|\le1+|m_N|\le1+\pi$. 所以这一段的总和也被 $C_\rho$ 控制.</p>
-
-<p>第三段：$N|\theta|>\pi$. 此时 $|\theta|>\pi/N$，故 $\mathbf1_{[-\pi/N,\pi/N]}(\theta)=0$，而且
+当 $N|\theta|>\pi$ 时，$|\theta|>\pi/N$，故 $\mathbf1_{[-\pi/N,\pi/N]}(\theta)=0$，而且
 $$
 |m_N(\theta)|
 \le\frac1N\frac{1}{|\sin(\theta/2)|}
 \le\frac{\pi}{N|\theta|}.
 $$
-所以相应的平方不超过 $\pi^2/(N^2|\theta|^2)$. 因为 $S_\rho$ 是几何序列，满足 $N|\theta|>\pi$ 的项之和被最小的 $N$ 控制，至多 $C_\rho$.</p>
-
-<p>三段相加即得 (12).</p>
+现在，因为 $S_\rho$ 是几何序列，则对 $N$ 的求和 $=O_\rho(1)$.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -274,9 +248,9 @@ $$
 
 <p>另外，我们还需要移位算子的极大不等式：记
 $$
-M\phi(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|.
+M^S\phi(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|.
 $$
-则对 $r\in(1, \infty]$, $M$ 是强 $(r,r)$ 型算子；证明是经典的，故略去.</p>
+则对 $r\in(1, \infty]$, $M$ 是强 $(r,r)$ 型算子；证明同样是经典的，略去.</p>
 
 <h2>离散振荡估计的证明</h2>
 
