@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Bourgain的魔法：Birkhoff遍历定理的新证明</title>
+<title>Blog is loading...</title>
 </head>
 
 <body id="body">
@@ -9,7 +9,7 @@
 
 <p><i>按：Jean Bourgain(1954-2018) 绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触 Bourgain 的工作或思想. 这是一个 (不定期) 连载系列，记录 Bourgain 的数学魔法.</i></p>
 
-<p>在1988-1990年期间，Bourgain 发表了一系列突破性工作，重塑遍历论的面貌. 我们将分若干期介绍 Bourgain 证明的多项式遍历定理. 第一期作为引子，将从 Bourgain 的视角给出 Birkhoff 遍历定理这个经典结果的新证明；即使在这个线性的简单例子里，我们也可以领略若干 Bourgain 引入的关键想法. 正如 Bourgain 自己的评价: "As I observed...this approach should rather be considered as a general method than the solution to some isolated problems."</p>
+<p>鸽了一年多终于更新这个系列~ 在1988-1990年期间，Bourgain 发表了一系列突破性工作，重塑遍历论的面貌. 我们将分若干期介绍 Bourgain 证明的多项式遍历定理. 第一期作为引子，将从 Bourgain 的视角给出 Birkhoff 遍历定理这个经典结果的新证明；即使在这个线性的简单例子里，我们也可以领略若干 Bourgain 引入的关键想法. 正如 Bourgain 自己的评价: "As I observed...this approach should rather be considered as a general method than the solution to some isolated problems."</p>
 
 <p>我们先回顾 Birkoff的逐点遍历定理. 设 $(X,\mathcal B,\mu)$ 是概率空间，$T:X\to X$ 是可逆保测变换，$\mathcal I=\{A\in\mathcal B:\mu(A\triangle T^{-1}A)=0\}$. 对 $f\in L^1(X)$，记
 $$
@@ -20,7 +20,7 @@ $$
 
 <p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-a.e. 收敛到 $Pf:=\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
 
-<p>标准证明通常先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
+<p>标准证明是先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：$g-g\circ T$ 的平均
 $$
 A_N(g-g\circ T)(x)=\frac{g(Tx)-g(T^{N+1}x)}{N} \tag{1}
 $$
@@ -35,7 +35,7 @@ $$
 
 <h2>变差判别</h2>
 
-<p>根据极大不等式$+$稠密性，我们只需讨论 $f\in L^2(X)$ 的情形. 设 $(f_N)_{N\ge1}$ 是 $L^2(X)$ 中的序列. 对任意整数子列
+<p>根据极大不等式$+$稠密性，我们只需讨论 $f\in L^2(X)$ 的情形. 设 $(f_N)_{N\ge1}$ 是 $L^2(X)$ 序列. 对任意整数子列
 $$
 \mathbf N: 1\le N_1\lt N_2\lt\cdots\lt N_{K+1},
 $$
@@ -67,7 +67,7 @@ $$
 E_{N_k,M}:=\left\{x\in E:
 \sup_{N_k\le N\le M}|f_N(x)-f_M(x)|>\frac\varepsilon2\right\}\subset E.
 $$
-注意在 $E_{N_k,M}$ 中与每个 $f_N$ 作差的都是固定的末端值 $f_M$. 对每个 $x\in E$，存在 $n,m>N_k$, s.t. $|f_n(x)-f_m(x)|>\varepsilon$. 所以当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|$ 和 $|f_m(x)-f_M(x)|$ 至少有一个大于 $\varepsilon/2$，因此 $x\in E_{N_k,M}$. 因此 
+注意在 $E_{N_k,M}$ 中与每个 $f_N$ 作差的都是固定的末端值 $f_M$. 对每个 $x\in E$，存在 $n,m>N_k$, s.t. $|f_n(x)-f_m(x)|>\varepsilon$. 所以当 $M>\max\{n,m\}$ 时，$|f_n(x)-f_M(x)|$ 和 $|f_m(x)-f_M(x)|$ 至少有一个大于 $\varepsilon/2$，因此 $x\in E_{N_k,M}$, 进而 
 $$E\subset\liminf_{M\to\infty}E_{N_k,M},$$
 从而 $\mu(E_{N_k,M})\to\mu(E)>0$. 因此可以取到 $N_{k+1}> N_k$, s.t.
 $$
@@ -246,7 +246,7 @@ $$
 
 <p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性.</p>
 
-<h2>离散变差估计的证明</h2>
+<h2>完成证明</h2>
 
 <p>现在证明定理 3.</p>
 
@@ -323,7 +323,6 @@ $$
 
 <!-- 导航栏与页脚 -->
 <script src="../../js/blog/post.js"></script>
-<script src="../../js/math-config.js"></script>
 
 </body>
 </html>
