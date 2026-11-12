@@ -169,7 +169,7 @@ $$
 
 <p>于是定理3给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$，对序列 $g_j=A_{M_j}f$ 应用引理2，便知 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
 
-<p class="thm"><b>引理7.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，并且 Hopf 极大不等式 (2) 成立，则 $A_Nf$ a.e. 收敛.</p>
+<p class="thm"><b>引理5.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，并且 Hopf 极大不等式 (2) 成立，则 $A_Nf$ a.e. 收敛.</p>
 
 <p><i>证明.</i> 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 由 $S_\rho$ 的定义，$N\le N'\le\rho N+\rho$. 则
 $$\begin{align*}
@@ -216,15 +216,11 @@ g_N(0)=\frac1N.
 $$
 记投影算子 $P_N\phi=g_N*\phi$, 它把频率截断到 $[-\pi/N,\pi/N]$, 在物理空间上相当于一个在尺度 $N$ 上的平均化算子.</p>
 
-<p>下面给出在稀疏尺度下移位算子的乘子级数估计；这是引入稀疏序列 $S_\rho$ 的目的.</p>
+<p>下面给出在稀疏尺度下移位算子的乘子级数估计.</p>
 
-<p class="thm"><b>引理5.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，使对每个 $\theta\in[-\pi,\pi)$ 都有
-$$
-\sum_{N\in S_\rho}
-\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2
-\le C_\rho.
-\tag{11}
-$$</p>
+<p class="thm"><b>引理6.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，s.t. 对任意 $\theta\in[-\pi,\pi)$ 都一致有
+$$\sum_{N\in S_\rho}\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2=O_{\rho}(1).\tag{11}$$
+</p>
 
 <p><i>证明.</i> 不妨设 $\theta\ne0$；$\theta=0$ 时每一项都为零. 把 $N\in S_\rho$ 按 $N|\theta|$ 分两段讨论：当 $N|\theta|\le \pi$时，$\mathbf1_{[-\pi/N,\pi/N]}(\theta)=1$，并且
 $$
@@ -238,13 +234,11 @@ $$
 \le\frac1N\frac{1}{|\sin(\theta/2)|}
 \le\frac{\pi}{N|\theta|}.
 $$
-现在，因为 $S_\rho$ 是几何序列，则对 $N$ 的求和 $=O_\rho(1)$.</p>
+现在，因为 $S_\rho$ 是几何列，则对 $N$ 的求和 $=O_\rho(1)$.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<p>引理5的证明只用到 $|\sin(\theta/2)|\ge|\theta|/\pi$ 和几何级数的性质. 它说明：除了 $N$ 与 $1/|\theta|$ 可比的有限个尺度外，$m_N(\theta)$ 与频率截断的差别按 $N^{-2}$ 衰减.</p>
-
-<p>更具体地说，$N$ 远大于 $1/|\theta|$ 的项按 $N^{-2}$ 衰减；$N$ 与 $1/|\theta|$ 可比或更小的项只有 $O_\rho(1)$ 个，并由几何级数控制. 稀疏序列 $S_\rho$ 的作用正在于此：它使级数有关于 $\theta$ 一致的界. 如果对所有 $N$ 求和，虽然对每个固定 $\theta$ 级数收敛，但难以得到关于 $\theta$ 一致的界；稀疏化是证明中必要的技术步骤.</p>
+<p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性.</p>
 
 <p>另外，我们还需要移位算子的极大不等式：记
 $$
