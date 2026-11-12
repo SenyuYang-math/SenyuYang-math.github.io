@@ -9,7 +9,7 @@
 
 <p><i>按：Jean Bourgain(1954-2018) 绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触 Bourgain 的工作或思想. 这是一个 (不定期) 连载系列，记录 Bourgain 的数学魔法.</i></p>
 
-<p>在1988-1990年期间，Bourgain 发表了一系列突破性工作，重塑遍历论的面貌. 我们将分两期介绍 Bourgain 证明的多项式遍历定理. 第一期作为引子，将从 Bourgain 的视角给出 Birkhoff 遍历定理这个经典结果的新证明；即使在这个线性的简单例子里，我们也可以领略若干 Bourgain 引入的关键想法</p>
+<p>在1988-1990年期间，Bourgain 发表了一系列突破性工作，重塑遍历论的面貌. 我们将分若干期介绍 Bourgain 证明的多项式遍历定理. 第一期作为引子，将从 Bourgain 的视角给出 Birkhoff 遍历定理这个经典结果的新证明；即使在这个线性的简单例子里，我们也可以领略若干 Bourgain 引入的关键想法. 正如 Bourgain 自己的评价: "As I observed...this approach should rather be considered as a general method than the solution to some isolated problems."</p>
 
 <p>我们先回顾 Birkoff的逐点遍历定理. 设 $(X,\mathcal B,\mu)$ 是概率空间，$T:X\to X$ 是可逆保测变换，$\mathcal I=\{A\in\mathcal B:\mu(A\triangle T^{-1}A)=0\}$. 对 $f\in L^1(X)$，记
 $$
@@ -19,7 +19,7 @@ Mf(x)=\sup_{N\geq 1} A_N f(x).
 $$
 </p>
 
-<p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-a.e. 收敛到 $Pf:=\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
+<p class="thm"><b>定理 1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-a.e. 收敛到 $Pf:=\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
 
 <p>标准证明通常先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
 $$
@@ -32,15 +32,15 @@ $$
 \qquad \lambda>0.
 \tag{2}
 $$
-联合稠密性论证就可以得到 $f\in L^1$ 的 a.e. 收敛. 这条路线很短，但稠密类 $\{g-g\circ T\}$ 依赖线性平均的群结构. 对更一般的例子——比如稀疏的多项式时间 $f(T^{P(n)}x)$ 或者多线性平均——这种结构就被破坏了. 而 Bourgain 的振荡方法证明不依赖这样的稠密类，而是直接证明下一节的振荡平方和估计.</p>
+联合稠密性论证就可以得到 $f\in L^1$ 的 a.e. 收敛. 这条路线很短，但稠密类 $\{g-g\circ T\}$ 依赖线性平均的群结构. 对更一般的例子——比如稀疏的多项式时间 $f(T^{P(n)}x)$ 或者多线性平均——这种结构就被破坏了. 而 Bourgain 的方法不依赖这样的稠密类，而是直接证明下一节的变差平方和估计，因此适用更广泛的遍历模型.</p>
 
-<h2>振荡判别</h2>
+<h2>变差判别</h2>
 
 <p>设 $(f_N)_{N\ge1}$ 是 $L^2(X)$ 中的序列. 对任意整数子列
 $$
 \mathbf N: 1\le N_1\lt N_2\lt\cdots\lt N_{K+1},
 $$
-Bourgain定义了 <i>振荡算子</i>
+Bourgain定义了 <i>变差算子</i>
 $$
 \mathcal O_{\mathbf N, K}: \mathcal O_{\mathbf N,K}(f)(x)
 :=\left(\sum_{k=1}^K
@@ -48,9 +48,9 @@ $$
 |f_N(x)-f_{N_{k+1}}(x)|^2\right)^{1/2}.
 \tag{3}
 $$
-Bourgain用这个振荡算子证明了以下的 a.e. 收敛判别法；$\ell^2$ 求和可以推广为一般的 $\ell^p$ 求和.</p>
+Bourgain用这个变差算子证明了以下的 a.e. 收敛判别法；$\ell^2$ 求和可以推广为一般的 $\ell^p$ 求和.</p>
 
-<p class="thm"><b>引理2</b> (Bourgain 振荡判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
+<p class="thm"><b>引理 2</b> (Bourgain 变差判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
 $$
 \|\mathcal O_{\mathbf N,K}(f)\|_2^2
 \le C_K\|f\|_2^2.
@@ -80,19 +80,15 @@ K\varepsilon^2\mu(E)
 \lesssim \|\mathcal O_{\mathbf N,K}(f)\|_2^2
 \le C_K\|f\|_2^2.
 $$
-令 $K\to\infty$，这与 $C_K=o(K)$ 矛盾！振荡判别得证.</p>
+令 $K\to\infty$，这与 $C_K=o(K)$ 矛盾！变差判别得证.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<p>Bourgain 振荡判别法的意义是：从经典的极大估计 argument 来看， a.e. 收敛是一个关于所有尺度的陈述，而振荡算子把各尺度区间上的极大振幅收集为一个平方和；只要这个平方和关于区间个数是次线性的，就能限制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了定量估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类；这是又一个 Bourgain 的“定量化”魔法.  Bourgain 对这个判别法相当中意，他如此评价: "As I observed...this approach should rather be considered as a general method than the solution to some isolated problems."</p>
+<p><b>注.</b> Bourgain变差判别强于 a.e. 收敛本身，是一个充分条件.</p>
+
+<p>Bourgain 变差判别法的意义是：从经典的极大估计 argument 来看， a.e. 收敛是一个关于所有尺度的陈述，而变差算子把各尺度区间上的极大振幅收集为一个平方和；只要这个平方和关于区间个数是次线性的，就能限制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了定量估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类；这是又一个 Bourgain 的“定量化”魔法.</p>
 
 <h2>Transference原理</h2>
-
-<p>对 $\rho>1$，记
-$$
-S_\rho=\{[\rho^m]:m=1,2,\ldots\},
-$$
-其中 $[\cdot]$ 是向下取整. 这是后面用到的稀疏尺度序列；$\rho=2$ 就得到我们熟悉的二进尺度.</p>
 
 <p>Bourgain 总能在意想不到之处使用Fourier分析，在这里他使用了 Calderón 的 transference 原理将定义域从抽象的 $X$ 转换到离散、有Fourier变换的 $\mathbb Z$，把一般保测变换化为移位算子；只有这里使用了 $T$ 的保测性和可逆性.</p>
 
@@ -100,11 +96,16 @@ $$
 $$
 A_N^S\phi(x):=\frac1N\sum_{n=1}^N\phi(x+n).
 \tag{5}
-$$</p>
+$$
+另外，对 $\rho>1$，记
+$$
+S_\rho=\{[\rho^m]:m=1,2,\ldots\},
+$$
+其中 $[\cdot]$ 是向下取整. 这是后面用到的稀疏尺度序列；$\rho=2$ 就得到我们熟悉的二进尺度.</p>
 
 <p>现在可以叙述Bourgain证明的核心结果</p>
 
-<p class="thm"><b>定理3</b> ($\mathbb Z$ 稀疏振荡估计)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 存在常数 $C_\rho$，使对每个 $\phi\in\ell^2(\mathbb Z)$ 和每个 $K$ 都有
+<p class="thm"><b>定理3</b> ($\mathbb Z$ 稀疏变差估计)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 存在常数 $C_\rho$，使对每个 $\phi\in\ell^2(\mathbb Z)$ 和每个 $K$ 都有
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
@@ -113,9 +114,9 @@ $$
 \tag{6}
 $$</p>
 
-<p>接下来我们将这个离散、稀疏的结果与之前的振荡判别相联系.</p>
+<p>接下来我们将这个离散、稀疏的结果与之前的变差判别相联系.</p>
 
-<p class="thm"><b>引理4</b> (transference原理)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 则 (6) 推出动力系统上的对应估计：对每个 $f\in L^2(X)$，
+<p class="thm"><b>引理4</b> (transference原理)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 则 (6) 推出动力系统上的稀疏变差估计：对每个 $f\in L^2(X)$，
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
@@ -170,9 +171,9 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>于是定理3和引理4给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$. 对序列 $g_j=A_{M_j}f$ 应用引理2：引理2 的指标区间 $[j_k,j_{k+1})$ 对应 $S_\rho$ 中的尺度区间 $[M_{j_k},M_{j_{k+1}})$，而 (7) 正是这些尺度上的振荡估计. 因此 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
+<p>于是定理3和引理4给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$. 对序列 $g_j=A_{M_j}f$ 应用引理2：引理2 的指标区间 $[j_k,j_{k+1})$ 对应 $S_\rho$ 中的尺度区间 $[M_{j_k},M_{j_{k+1}})$，而 (7) 正是这些尺度上的变差估计. 因此 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
 
-<p class="thm"><b>引理5</b> (从稀疏尺度回到全部尺度)<b>.</b> 设 $f\in L^\infty(X)$，$\|f\|_\infty\le1$. 若对某个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，则 $A_Nf$ a.e. 收敛.</p>
+<p class="thm"><b>引理5.</b> 设 $f\in L^\infty(X)$，$\|f\|_\infty\le1$. 若对某个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，则对全体 $N\in \mathbb N$, $A_Nf$ a.e. 收敛.</p>
 
 <p><i>证明.</i> 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 则 $N\le N'\le\rho N+\rho$，并且
 $$
@@ -194,11 +195,9 @@ $$
 
 <p>这里也是振荡证明与标准证明的一个区别：前者先在一个便于求和的尺度集上工作，再用极大估计回到全部尺度.</p>
 
-<p>需要注意：引理2 本身不能只假设稀疏序列 $N_k\in S_\rho$. 对一般序列 $f_N$，非稀疏尺度上的振荡不受控制，结论会失败. 对 $A_Nf$ 之所以足够，是因为引理5 把 $S_\rho$ 上的收敛桥接到全部 $N$；稀疏条件只应加在定理3（以及它在 $A_Nf$ 上的应用）里，不应加进引理2.</p>
-
 <p>于是定理1归结为定理3，后者的证明则需要 $\mathbb Z$ 上的Fourier分析.</p>
 
-<h2>移位算子的Fourier分析</h2>
+<h2>Fourier分析</h2>
 
 <p>对 $\phi\in\ell^2(\mathbb Z)$，定义Fourier变换
 $$
@@ -248,17 +247,9 @@ $$
 
 <p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性.</p>
 
-<p>另外，我们还需要移位算子的极大不等式：记
-$$
-M^S\phi(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|.
-$$
-则对 $r\in(1, \infty]$, $M$ 是强 $(r,r)$ 型算子；证明同样是经典的，略去.</p>
-
 <h2>离散振荡估计的证明</h2>
 
 <p>现在证明定理3.</p>
-
-<p>证明的结构是：首尾两项由乘子级数引理控制；中间项用卷积恒等式化为一个粗尺度核作用于环带投影，再由极大不等式和乘子级数分别控制；环带投影的望远镜求和给出 $\ell^2$ 估计. 这是整条证明的解析核心.</p>
 
 <p><i>证明.</i> 以下设 $(N_k)\subset S_\rho$. 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_{k+1}}^S\phi$ 写成三部分：
 $$\begin{align*}
@@ -313,37 +304,33 @@ $$
 令 $h_k=(g_{N_k}-g_{N_{k+1}})*\phi$. 于是当 $N\in S_\rho\cap[N_k,N_{k+1}]$ 时，第三项等于 $g_N*h_k$. 进一步分解
 $$
 \sup_{N\in S_\rho}|g_N*h_k|
-\le\sup_{N\ge1}|A_N*h_k|
-+\sup_{N\in S_\rho}|(g_N-A_N)*h_k|.
+\le\sup_{N\ge1}|A_N^S*h_k|
++\sup_{N\in S_\rho}|(g_N-A_N^S)*h_k|.
 $$
-第一部分由移位算子的极大不等式控制：
+第一部分由移位算子的极大不等式控制（证明是经典的，略去）：
 $$
-\left\|\sup_{N\ge1}|A_N*h_k|\right\|_2
+\left\|\sup_{N\ge1}|A_N^S*h_k|\right\|_2
 \lesssim \|h_k\|_2.
 $$
 第二部分中，$g_N-A_N$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以同样由引理6和 Plancherel定理，
 $$
-\left\|\sup_{N\in S_\rho}|(g_N-A_N)*h_k|\right\|_2^2
-\le\sum_{N\in S_\rho}\|(g_N-A_N)*h_k\|_2^2
+\left\|\sup_{N\in S_\rho}|(g_N-A_N^S)*h_k|\right\|_2^2
+\le\sum_{N\in S_\rho}\|(g_N-A_N^S)*h_k\|_2^2
 \lesssim_\rho \|h_k\|_2^2.
 $$
 因此
 $$
 \begin{aligned}\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|(g_N-g_{N_{k+1}})*\phi|\right\|_2 \lesssim_\rho \|(g_{N_k}-g_{N_{k+1}})*\phi\|_2\lesssim \|\phi\|_{2}^2,
+|(g_N-g_{N_{k+1}})*\phi|\right\|_2 \lesssim_\rho \|(g_{N_k}-g_{N_{k+1}})*\phi\|_2\lesssim_\rho \|\phi\|_{2}^2,
 \end{aligned}
 $$
-第三项的估计成立，即得到 (6). 定理3证毕.</p>
+第三项的估计成立，即得到 (6). 定理 3, 进而 Birkhoff 遍历定理证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<h2>几点说明</h2>
-
-<p>第四，同样的振荡框架可以处理双线性平均
-$$
-\frac1N\sum_{n=1}^N f(T^{P(n)}x)g(T^{Q(n)}x),
-$$
-只需把线性乘子换成双线性形式，并重复本文的分解与极大估计. 这正是 El Abdalaoui 文中定理2.1的证明路线；本文只展开了线性情形.</p>
+<p>
+  Bourgain式的新证明比标准证明绕了很多弯，但我们已经能体会到 Bourgain 引入的新想法有着巨大的推广潜力（尤其是变差判别）. 在后面，多项式遍历定理的证明依然沿着上述的证明框架进行，但需要更复杂的工具，比如新的极大算子估计、多频率分析和 Hardy-Littlewood 圆法. 未完待续~
+</p>
 
 <h2>参考文献</h2>
 
