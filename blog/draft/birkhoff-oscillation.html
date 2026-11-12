@@ -15,15 +15,14 @@
 $$
 A_Nf(x):=\frac1N\sum_{n=1}^N f(T^n x), \qquad
 Mf(x):=\sup_{N\geq 1} A_N f(x).
-\tag{1}
 $$
 </p>
 
-<p class="thm"><b>定理 1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-a.e. 收敛到 $Pf:=\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
+<p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-a.e. 收敛到 $Pf:=\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
 
 <p>标准证明通常先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
 $$
-A_N(g-g\circ T)(x)=\frac{g(Tx)-g(T^{N+1}x)}{N} \tag{A}
+A_N(g-g\circ T)(x)=\frac{g(Tx)-g(T^{N+1}x)}{N} \tag{1}
 $$
 直接趋于 $0$；而以下的 Hopf 极大不等式
 $$
@@ -32,7 +31,7 @@ $$
 \qquad \lambda>0.
 \tag{2}
 $$
-联合稠密性论证就可以得到 $f\in L^1$ 的 a.e. 收敛. 这种极大不等式$+$稠密性的论证是经典的，但稠密类 $\{g-g\circ T\}$ 依赖线性平均的群结构（即式子 (A)）. 对更一般的例子——比如稀疏的多项式时间 $f(T^{P(n)}x)$ 或者多线性平均——这种结构就被破坏了. 而 Bourgain 的方法不依赖寻找某个稠密类，而是直接证明下一节的变差平方和估计，因此适用更广泛的遍历模型.</p>
+联合稠密性论证就可以得到 $f\in L^1$ 的 a.e. 收敛. 这种极大不等式$+$稠密性的论证是经典的，但稠密类 $\{g-g\circ T\}$ 依赖线性平均的群结构（即式子 (1)）. 对更一般的例子——比如稀疏的多项式时间 $f(T^{P(n)}x)$ 或者多线性平均——这种结构就被破坏了. 而 Bourgain 的方法不依赖寻找某个稠密类，而是直接证明下一节的变差平方和估计，因此适用更广泛的遍历模型.</p>
 
 <h2>变差判别</h2>
 
@@ -46,15 +45,15 @@ $$
 :=\left(\sum_{k=1}^K
 \sup_{N_k\le N\lt N_{k+1}}
 |f_N(x)-f_{N_{k+1}}(x)|^2\right)^{1/2}.
-\tag{3}
+
 $$
 Bourgain用这个变差算子证明了以下的 a.e. 收敛判别法；$\ell^2$ 求和可以推广为一般的 $\ell^p$ 求和.</p>
 
-<p class="thm"><b>引理 2</b> (Bourgain 变差判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
+<p class="thm"><b>引理2</b> (Bourgain 变差判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
 $$
 \|\mathcal O_{\mathbf N,K}(f)\|_2
 \le C_K\|f\|_2.
-\tag{4}
+\tag{3}
 $$
 则 $f_N(x)$ a.e. 收敛.</p>
 
@@ -86,7 +85,7 @@ $$
 
 <p><b>注.</b> Bourgain变差判别远强于 a.e. 收敛，是一个充分条件.</p>
 
-<p>Bourgain 变差判别法的意义是：从经典的极大估计 argument 来看， a.e. 收敛是一个关于所有尺度的陈述，而变差算子把各尺度区间上的极大振幅收集为一个平方和；只要这个平方和关于区间个数是次线性的，就能限制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了定量估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类；这是又一个 Bourgain 的“定量化”魔法.</p>
+<p>Bourgain 变差判别法的意义是：从经典的极大估计 argument 来看， a.e. 收敛是一个关于所有尺度的陈述，而变差算子把各尺度区间上的极大振幅收集为一个平方和；只要这个平方和关于区间个数是次线性的，就能限制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了定量估计 (3)，并且不需要事先知道某个使收敛成立的稠密函数类；这是又一个 Bourgain 的“定量化”魔法.</p>
 
 <h2>Transference原理</h2>
 
@@ -95,7 +94,7 @@ $$
 <p>对 $\mathbb Z$ 上的函数 $\phi$，定义移位算子 $S\phi(x):=\phi(x+1)$，以及
 $$
 A_N^S\phi(x):=\frac1N\sum_{n=1}^N\phi(x+n).
-\tag{5}
+
 $$
 另外，对 $\rho>1$，记
 $$
@@ -111,25 +110,25 @@ $$
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_N^S\phi-A_{N_{k+1}}^S\phi|\right\|_{\ell^2(\mathbb Z)}^2
 \le C_\rho\|\phi\|_{\ell^2(\mathbb Z)}^2.
-\tag{6}
+\tag{4}
 $$</p>
 
 <p>接下来我们将这个离散、稀疏的结果与之前的变差判别相联系.</p>
 
-<p class="thm"><b>引理4</b> (transference原理)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 则 (6) 推出动力系统上的稀疏变差估计：对每个 $f\in L^2(X)$，
+<p class="thm"><b>引理4</b> (transference原理)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 则 (4) 推出动力系统上的稀疏变差估计：对每个 $f\in L^2(X)$，
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_Nf-A_{N_{k+1}}f|\right\|_2^2
 \le C_\rho\|f\|_2^2.
-\tag{7}
+\tag{5}
 $$</p>
 
 <p><i>证明.</i> 取充分大的 $J>N_{K+1}$. 对每个 $x\in X$，在 $\mathbb Z$ 上定义
 $$
 \phi_x(n):=f(T^nx)\mathbf1_{[-J,J]}(n).
 $$
-对固定的 $x$，把 (6) 应用于 $\phi_x$，并对 $x$ 积分：RHS 为
+对固定的 $x$，把 (4) 应用于 $\phi_x$，并对 $x$ 积分：RHS 为
 $$
 \int_X\|\phi_x\|_{\ell^2(\mathbb Z)}^2\,d\mu(x)
 =\int_X\sum_{n=-J}^J|f(T^nx)|^2\,d\mu(x)
@@ -167,11 +166,11 @@ $$
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
 |A_Nf-A_{N_{k+1}}f|\right\|_2^2.
 $$
-与 RHS 的估计合并，再令 $J\to\infty$，即得 (7).</p>
+与 RHS 的估计合并，再令 $J\to\infty$，即得 (5).</p>
 
 <p class="proof-box">$\Box$</p>
 
-<p>于是定理 3 和引理 4 给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$. 对序列 $g_j=A_{M_j}f$ 应用引理 2：引理 2 的指标区间 $[j_k,j_{k+1})$ 对应 $S_\rho$ 中的尺度区间 $[M_{j_k},M_{j_{k+1}})$，而 (7) 正是这些尺度上的变差估计. 因此 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
+<p>于是定理3 和引理4 给出动力系统上的估计 (5). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$. 对序列 $g_j=A_{M_j}f$ 应用引理2：引理2 的指标区间 $[j_k,j_{k+1})$ 对应 $S_\rho$ 中的尺度区间 $[M_{j_k},M_{j_{k+1}})$，而 (5) 正是这些尺度上的变差估计. 因此 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
 
 <p class="thm"><b>引理5.</b> 设 $f\in L^2(X)$，$\|f\|_\infty\le1$. 若对某个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，则对全体 $N\in \mathbb N$, $A_Nf$ a.e. 收敛.</p>
 
@@ -206,12 +205,12 @@ $$
 $$
 于是 $\widehat{S\phi}(\theta)=e^{i\theta}\widehat\phi(\theta)$.对 $N\ge1$,
 $$
-\widehat{A_N^S\phi}(\theta)=m_N(\theta)\widehat\phi(\theta), \quad m_N(\theta):=\frac1N\sum_{n=1}^N e^{in\theta}. \tag{8}
+\widehat{A_N^S\phi}(\theta)=m_N(\theta)\widehat\phi(\theta), \quad m_N(\theta):=\frac1N\sum_{n=1}^N e^{in\theta}. 
 $$
 再定义频率截断核 $g_N$，使
 $$
 \widehat{g_N}(\theta):=\mathbf1_{[-\pi/N,\pi/N]}(\theta).
-\tag{9}
+
 $$
 显式地，
 $$
@@ -219,14 +218,14 @@ g_N(x)=\frac1{2\pi}\int_{-\pi/N}^{\pi/N}e^{ix\theta}\,d\theta
 =\frac{\sin(\pi x/N)}{\pi x}\quad(x\ne0),
 \qquad
 g_N(0)=\frac1N.
-\tag{10}
+
 $$
 记投影算子 $P_N\phi=g_N*\phi$, 它把频率截断到 $[-\pi/N,\pi/N]$, 在物理空间上相当于一个在尺度 $N$ 上的平均化算子.</p>
 
 <p>下面给出移位算子乘子的主部，以及在稀疏尺度下误差累积的控制.</p>
 
 <p class="thm"><b>引理6.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，s.t. 对任意 $\theta\in[-\pi,\pi)$ 都一致有
-$$\sum_{N\in S_\rho}\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2=O_{\rho}(1).\tag{11}$$
+$$\sum_{N\in S_\rho}\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2=O_{\rho}(1).$$
 </p>
 
 <p><i>证明.</i> 不妨设 $\theta\ne0$；$\theta=0$ 时每一项都为零. 把 $N\in S_\rho$ 按 $N|\theta|$ 分两段讨论：当 $N|\theta|\le \pi$时，$\mathbf1_{[-\pi/N,\pi/N]}(\theta)=1$，并且
@@ -247,7 +246,7 @@ $$
 
 <p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性.</p>
 
-<h2>离散振荡估计的证明</h2>
+<h2>离散变差估计的证明</h2>
 
 <p>现在证明定理3.</p>
 
@@ -257,7 +256,7 @@ A_N^S\phi-A_{N_{k+1}}^S\phi
 & =(A_N^S\phi-g_N*\phi)
 +(g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi)\\
 & \quad +(g_N*\phi-g_{N_{k+1}}*\phi).
-\end{align*}\tag{13}$$</p>
+\end{align*}$$</p>
 
 <p>第一项和第二项的Fourier乘子分别为
 $$
@@ -278,19 +277,7 @@ $$
 |\widehat\phi(\theta)|^2 \,d\theta \lesssim_\rho \|\phi\|_{2}^2.
 $$
 第一项的估计得证. 第二项由于 $(N_k)\subset S_\rho$, 证明是类似的.</p>
-<!-- $$
-\begin{aligned}
-&\sum_{k=1}^K
-\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|A_N^S\phi-g_N*\phi|\right\|_2^2 \\
-&\quad+
-\sum_{k=1}^K
-\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi|\right\|_2^2 \\
-&\le 2C_\rho\|\phi\|_2^2.
-\end{aligned}
-\tag{14}
-$$</p> -->
+
 
 <p>第三项是 $g_N*\phi-g_{N_{k+1}}*\phi$. 由于 $N_k\le N\le N_{k+1}$，有
 $$
@@ -324,7 +311,7 @@ $$
 |(g_N-g_{N_{k+1}})*\phi|\right\|_2 \lesssim_\rho \|(g_{N_k}-g_{N_{k+1}})*\phi\|_2\lesssim_\rho \|\phi\|_{2}^2,
 \end{aligned}
 $$
-第三项的估计成立，即得到 (6). 定理 3, 进而 Birkhoff 遍历定理证毕.</p>
+第三项的估计成立，即得到 (4). 定理3, 进而 Birkhoff 遍历定理证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
