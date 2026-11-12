@@ -95,25 +95,27 @@ $$
 A_N^S\phi(x):=\frac1N\sum_{n=1}^N\phi(x+n).
 \tag{5}
 $$
-</p>
+另外对 $\rho>1$，记 $S_\rho=\{[\rho^m]:m=1,2,\ldots\}$, 其中 $[\cdot]$ 是向下取整. 这是后面用到的稀疏尺度序列；$\rho=2$ 就得到我们熟悉的二进尺度.</p>
 
 <p>现在可以叙述Bourgain证明的核心结果</p>
 
-<p class="thm"><b>定理3</b> (离散振荡估计)<b>.</b> 存在数列 $C_K=o(K)$，使对每个 $\phi\in\ell^2(\mathbb Z)$、每个满足 $N_{k+1}\ge2N_k$ 的递增序列 $(N_k)$ 和每个 $K$ 都有
+<p class="thm"><b>定理3</b> ($\mathbb Z$ 稀疏振荡估计)<b>.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，使对每个 $\phi\in\ell^2(\mathbb Z)$、每个递增序列 $(N_k)\subset S_\rho$ 和每个 $K$ 都有
 $$
 \sum_{k=1}^K
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|A_N^S\phi-A_{N_k}^S\phi|\right\|_{\ell^2(\mathbb Z)}^2
-\le C_K\|\phi\|_{\ell^2(\mathbb Z)}^2.
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_N^S\phi-A_{N_{k+1}}^S\phi|\right\|_{\ell^2(\mathbb Z)}^2
+\le C_\rho\|\phi\|_{\ell^2(\mathbb Z)}^2.
 \tag{6}
 $$</p>
 
-<p class="thm"><b>引理4</b> (transference原理，Calderón)<b>.</b> (6) 推出动力系统上的对应估计：对每个 $f\in L^2(X)$ 和每个满足 $N_{k+1}\ge2N_k$ 的递增序列 $(N_k)$，
+<p>接下来我们将这个离散、稀疏的结果与之前的振荡判别相联系.</p>
+
+<p class="thm"><b>引理4</b> (transference原理)<b>.</b> (6) 推出动力系统上的对应估计：对每个 $f\in L^2(X)$ 和每个递增序列 $(N_k)\subset S_\rho$，
 $$
 \sum_{k=1}^K
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|A_Nf-A_{N_k}f|\right\|_2^2
-\le C_K\|f\|_2^2.
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_Nf-A_{N_{k+1}}f|\right\|_2^2
+\le C_\rho\|f\|_2^2.
 \tag{7}
 $$</p>
 
@@ -130,8 +132,8 @@ $$
 这里用了 $T$ 保测；而 LHS 逐项写出是
 $$
 \int_X\sum_{k=1}^K\sum_{n\in\mathbb Z}
-\sup_{N_k\le N\le N_{k+1}}
-|A_N^S\phi_x(n)-A_{N_k}^S\phi_x(n)|^2\,d\mu(x).
+\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_N^S\phi_x(n)-A_{N_{k+1}}^S\phi_x(n)|^2\,d\mu(x).
 $$
 $\phi_x$ 有限支撑，求和都是有限和，因此可以与积分交换次序. 注意到，当 $|n|\le J-N_{K+1}$ 且 $N\le N_{k+1}$ 时，有
 $$
@@ -140,34 +142,51 @@ $$
 因此 LHS 不小于
 $$
 \sum_{|n|\le J-N_{K+1}} \sum_{k=1}^K \int_X
-\sup_{N_k\le N\le N_{k+1}}
-|A_Nf(T^nx)-A_{N_k}f(T^nx)|^2\,d\mu(x).
+\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_Nf(T^nx)-A_{N_{k+1}}f(T^nx)|^2\,d\mu(x).
 $$
-对每个固定的 $n$，由 $T$ 保测，可以去掉上述积分项中的 $T^n$.</p>
-
-<p>所以左边不小于
+对每个固定的 $n$，由 $T$ 保测，可以去掉上述积分项中的 $T^n$.
+<!-- $$
+\int_X
+\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_Nf(T^nx)-A_{N_{k+1}}f(T^nx)|^2\,d\mu(x)
+=
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_Nf-A_{N_{k+1}}f|\right\|_2^2.
+$$ -->
+所以 LHS 不小于
 $$
 (2J-2N_{K+1}+1)
 \sum_{k=1}^K
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|A_Nf-A_{N_k}f|\right\|_2^2.
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_Nf-A_{N_{k+1}}f|\right\|_2^2.
 $$
-与右边的估计合并，再令 $J\to\infty$，即得 (7).</p>
+与 RHS 的估计合并，再令 $J\to\infty$，即得 (7).</p>
 
 <p class="proof-box">$\Box$</p>
 
-<p class="thm"><b>引理5</b> (移位算子的极大不等式)<b>.</b> 记
-$$
-M^S\phi(x):=\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|.
-$$
-则对每个 $r>1$，存在常数 $C_r$，使
-$$
-\|M^S\phi\|_{\ell^r(\mathbb Z)}
-\le C_r\|\phi\|_{\ell^r(\mathbb Z)}.
-$$
-这是 Hardy--Littlewood 极大不等式在 $\mathbb Z$ 上的形式；证明略.</p>
+<p>于是定理3给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$，对序列 $g_j=A_{M_j}f$ 应用引理2，便知 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
 
-<p>于是定理1通过振荡判别和 Transference 归结为定理3. 下面用 Bourgain 的频率分解证明定理3.</p>
+<p class="thm"><b>引理5.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，并且 Hopf 极大不等式 (2) 成立，则 $A_Nf$ a.e. 收敛.</p>
+
+<p><i>证明.</i> 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 由 $S_\rho$ 的定义，$N\le N'\le\rho N+\rho$. 则
+$$\begin{align*}
+|A_Nf-A_{N'}f|
+& \le\frac{N'-N}{N'}|A_Nf|
++\frac1{N'}\sum_{n=N+1}^{N'}|f(T^nx)|\\
+& \le \left(\rho-1+\frac{\rho}{N}\right)\big(Mf(x)+Mf(T^Nx)\big),
+\end{align*}$$
+由 (2) 应用于 $|f|$，有 $Mf\lt\infty$ a.e. 设 $L_\rho(x)$ 是 $A_Nf$ 沿 $S_\rho$ 的极限. 在上式中令 $N\to\infty$，得到
+$$
+\limsup_{N\to\infty}|A_Nf(x)-L_\rho(x)| \le 2(\rho-1)Mf(x),
+$$
+令 $\rho\downarrow1$，即有 $A_Nf$ a.e. 收敛.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>这里也是振荡证明与标准证明的一个区别：前者先在一个便于求和的尺度集上工作，再用极大估计回到全部尺度.</p>
+
+<p>于是定理1归结为定理3，后者的证明则需要 $\mathbb Z$ 上的Fourier分析.</p>
 
 <h2>移位算子的Fourier分析</h2>
 
@@ -176,7 +195,7 @@ $$
 \widehat\phi(\theta):=\sum_{n\in\mathbb Z}\phi(n)e^{-in\theta},
 \qquad \theta\in[-\pi,\pi).
 $$
-于是 $\widehat{S\phi}(\theta)=e^{i\theta}\widehat\phi(\theta)$. 对 $N\ge1$,
+于是 $\widehat{S\phi}(\theta)=e^{i\theta}\widehat\phi(\theta)$.对 $N\ge1$,
 $$
 \widehat{A_N^S\phi}(\theta)=m_N(\theta)\widehat\phi(\theta), \quad m_N(\theta):=\frac1N\sum_{n=1}^N e^{in\theta}. \tag{8}
 $$
@@ -195,95 +214,130 @@ g_N(0)=\frac1N.
 $$
 记投影算子 $P_N\phi=g_N*\phi$, 它把频率截断到 $[-\pi/N,\pi/N]$, 在物理空间上相当于一个在尺度 $N$ 上的平均化算子.</p>
 
-<p>Bourgain 的原始证明把频率变量分成 lacunary 块. 对 $j\in\mathbb Z$，定义
-$$
-\widehat{\Delta_j\phi}(\theta)
-:=\mathbf1_{\{2^{-j-1}\lt|\theta|\le2^{-j}\}}(\theta)\widehat\phi(\theta).
-\tag{11}
-$$
-于是 $\phi=\sum_j\Delta_j\phi$（零频率部分只影响极限，下面不再单独讨论）.</p>
+<p>下面给出移位算子乘子的主部，以及在稀疏尺度下误差累积的控制.</p>
 
-<p class="thm"><b>引理6</b> (Bourgain 频率块极大估计)<b>.</b> 存在绝对常数 $C,c>0$，使对每个 $j,k$、每个满足 $N_{k+1}\ge2N_k$ 的递增序列 $(N_k)$ 和每个 $\phi\in\ell^2(\mathbb Z)$，都有
-$$
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|(A_N^S-P_N)\Delta_j\phi|\right\|_{\ell^2(\mathbb Z)}
-\le Ce^{-c|j-k|}\|\Delta_j\phi\|_{\ell^2(\mathbb Z)},
-\tag{12}
-$$
-以及
-$$
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|(P_N-P_{N_k})\Delta_j\phi|\right\|_{\ell^2(\mathbb Z)}
-\le Ce^{-c|j-k|}\|\Delta_j\phi\|_{\ell^2(\mathbb Z)}.
-\tag{13}
-$$</p>
+<p class="thm"><b>引理6.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，s.t. 对任意 $\theta\in[-\pi,\pi)$ 都一致有
+$$\sum_{N\in S_\rho}\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2=O_{\rho}(1).\tag{11}$$
+</p>
 
-<p><i>证明概要.</i> 这是 Bourgain 原文 Lemma 2 在移位算子上的形式. 把 $A_N^S-P_N$ 与 $P_N-P_{N_k}$ 的乘子写成核的 Fourier 积分，按 $j\lt k$、$j=k$、$j>k$ 三种情形讨论：$j\ll k$ 时利用
+<p><i>证明.</i> 不妨设 $\theta\ne0$；$\theta=0$ 时每一项都为零. 把 $N\in S_\rho$ 按 $N|\theta|$ 分两段讨论：当 $N|\theta|\le \pi$时，$\mathbf1_{[-\pi/N,\pi/N]}(\theta)=1$，并且
 $$
-|\widehat K(\lambda)|\le C|\lambda|^{-1},
+|m_N(\theta)-1|
+=\left|\frac1N\sum_{n=1}^N(e^{in\theta}-1)\right|
+\le N|\theta|;
 $$
-$j\gg k$ 时利用
+当 $N|\theta|>\pi$ 时，$|\theta|>\pi/N$，故 $\mathbf1_{[-\pi/N,\pi/N]}(\theta)=0$，而且
 $$
-|1-\widehat K(\lambda)|\le C|\lambda|,
+|m_N(\theta)|
+\le\frac1N\frac{1}{|\sin(\theta/2)|}
+\le\frac{\pi}{N|\theta|}.
 $$
-$j\approx k$ 时用极大算子的 $L^2$ 有界性；$N_{k+1}\ge2N_k$ 的 lacunarity 保证三种情形之间以几何级数过渡. 详细的分情形估计见 Bourgain 原文 §3.</p>
+现在，因为 $S_\rho$ 是几何列，则对 $N$ 的求和 $=O_\rho(1)$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性. 这个技巧应当归功于 Etamedi.</p>
+
+<p>另外，我们还需要移位算子的极大不等式：记
+$$
+M^S\phi(x)=\sup_{N\ge1}\frac1N\sum_{n=1}^N|\phi(x+n)|.
+$$
+则对 $r\in(1, \infty]$, $M$ 是强 $(r,r)$ 型算子；证明同样是经典的，略去.</p>
 
 <h2>离散振荡估计的证明</h2>
 
 <p>现在证明定理3.</p>
 
-<p><i>证明.</i> 对 $N_k\le N\le N_{k+1}$，写
+<p>证明的结构是：首尾两项由乘子级数引理控制；中间项用卷积恒等式化为一个粗尺度核作用于环带投影，再由极大不等式和乘子级数分别控制；环带投影的望远镜求和给出 $\ell^2$ 估计. 这是整条证明的解析核心.</p>
+
+<p><i>证明.</i> 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_{k+1}}^S\phi$ 写成三部分：
 $$
-A_N^S\phi-A_{N_k}^S\phi
-=(A_N^S\phi-P_N\phi)
-+(P_N\phi-P_{N_k}\phi)
-+(P_{N_k}\phi-A_{N_k}^S\phi).
+A_N^S\phi-A_{N_{k+1}}^S\phi
+=(A_N^S\phi-g_N*\phi)
++(g_N*\phi-g_{N_{k+1}}*\phi)
++(g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi).
+\tag{13}
+$$</p>
+
+<p>第一项和第三项的Fourier乘子分别为
+$$
+m_N-\mathbf1_{[-\pi/N,\pi/N]},
+\qquad
+\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}-m_{N_{k+1}}.
+$$
+由引理6和 Plancherel 定理，第一项的平方和不超过 $C_\rho\|\phi\|_2^2$；第三项同理，因为 $N_{k+1}\in S_\rho$. 因此这两部分的贡献为
+$$
+\begin{aligned}
+&\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|A_N^S\phi-g_N*\phi|\right\|_2^2 \\
+&\quad+
+\sum_{k=1}^K
+\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi|\right\|_2^2 \\
+&\le 2C_\rho\|\phi\|_2^2.
+\end{aligned}
 \tag{14}
+$$</p>
+
+<p>中间项是 $g_N*\phi-g_{N_{k+1}}*\phi$. 由于 $N_k\le N\le N_{k+1}$，频率区间满足
 $$
-把 $\phi$ 分成频率块 $\phi=\sum_j\Delta_j\phi$. 由引理6，对每个 $j$，
+1_{[-\pi/N,\pi/N]}\subset1_{[-\pi/N_k,\pi/N_k]},
+\qquad
+1_{[-\pi/N_{k+1},\pi/N_{k+1}]}\subset1_{[-\pi/N,\pi/N]}.
 $$
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|(A_N^S-P_N)\Delta_j\phi|\right\|_2
-\le Ce^{-c|j-k|}\|\Delta_j\phi\|_2,
+由上面的嵌套关系，
 $$
-第三项 $P_{N_k}\phi-A_{N_k}^S\phi=-(A_{N_k}^S-P_{N_k})\phi$ 是同一估计在 $N=N_k$ 的特例，中间项由 (13) 控制. 因此
+1_{[-\pi/N,\pi/N]}\bigl(1_{[-\pi/N_k,\pi/N_k]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]}\bigr)
+=1_{[-\pi/N,\pi/N]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]},
 $$
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|A_N^S\phi-A_{N_k}^S\phi|\right\|_2
-\le C\sum_j e^{-c|j-k|}\|\Delta_j\phi\|_2.
+两端正是 $g_N*(g_{N_k}-g_{N_{k+1}})$ 与 $g_N-g_{N_{k+1}}$ 的 Fourier 乘子. 因此
+$$
+g_N-g_{N_{k+1}}
+=g_N*(g_{N_k}-g_{N_{k+1}}).
 \tag{15}
 $$
-对 $k$ 求和：
+令 $h_k=(g_{N_k}-g_{N_{k+1}})*\phi$. 当 $N\in S_\rho\cap[N_k,N_{k+1}]$ 时，中间项等于 $g_N*h_k$. 由三角不等式，
 $$
-\sum_{k=1}^K
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|A_N^S\phi-A_{N_k}^S\phi|\right\|_2
-\le C\sum_j
-\left(\sum_{k=1}^K e^{-c|j-k|}\right)\|\Delta_j\phi\|_2
-\le C\sum_{j\in J_K}\|\Delta_j\phi\|_2,
+\sup_{N\in S_\rho}|g_N*h_k|
+\le\sup_{N\ge1}|A_N*h_k|
++\sup_{N\in S_\rho}|(g_N-A_N)*h_k|.
+$$
+第一项由引理6（取 $r=2$）控制：
+$$
+\left\|\sup_{N\ge1}|A_N*h_k|\right\|_2
+\le C\|h_k\|_2.
+$$
+第二项由引理5和Plancherel定理控制：$g_N-A_N$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以
+$$
+\left\|\sup_{N\in S_\rho}|(g_N-A_N)*h_k|\right\|_2^2
+\le\sum_{N\in S_\rho}\|(g_N-A_N)*h_k\|_2^2
+\le C_\rho\|h_k\|_2^2.
+$$
+因此
+$$
+\begin{aligned}
+&\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|(g_N-g_{N_{k+1}})*\phi|\right\|_2 \\
+&\le C_\rho\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2.
+\end{aligned}
 \tag{16}
+$$</p>
+
+<p>最后，由Plancherel定理和区间 $[-\pi/N_k,\pi/N_k]$ 的嵌套性，
 $$
-其中 $J_K$ 是离某个 $k\le K$ 不超过 $C\log K$ 的频率块；更远的块按指数衰减并入常数. 由于 $|J_K|\le CK\log K$，由 Cauchy--Schwarz 和频率块的正交性，
-$$
-\sum_{k=1}^K
-\left\|\sup_{N_k\le N\le N_{k+1}}
-|A_N^S\phi-A_{N_k}^S\phi|\right\|_2
-\le C\sqrt{K\log K}\|\phi\|_2.
+\begin{aligned}
+&\sum_{k=1}^K
+\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2^2 \\
+&=\int_{-\pi}^{\pi}\sum_{k=1}^K
+\Bigl|\mathbf1_{[-\pi/N_k,\pi/N_k]}(\theta) \\
+&\qquad\qquad-\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}(\theta)\Bigr|^2
+|\widehat\phi(\theta)|^2\,d\theta \\
+&\le\|\phi\|_2^2.
+\end{aligned}
 \tag{17}
 $$
-另一方面，由引理5，
-$$
-M_k\phi:=\sup_{N_k\le N\le N_{k+1}}
-|A_N^S\phi-A_{N_k}^S\phi|
-$$
-满足 $\|M_k\phi\|_2\le C\|\phi\|_2$（至多把常数并入 $C$）. 因此
-$$
-\sum_{k=1}^K\|M_k\phi\|_2^2
-\le \max_{k\le K}\|M_k\phi\|_2
-\sum_{k=1}^K\|M_k\phi\|_2
-\le C\sqrt{K\log K}\|\phi\|_2^2.
-$$
-取 $C_K=C\sqrt{K\log K}$，则 $C_K=o(K)$，即得 (6). 定理3证毕.</p>
+把 (14)、(16)、(17) 代入 (13)，并用 $(a+b+c)^2\le3(a^2+b^2+c^2)$，便得到 (6). 定理3证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -296,8 +350,6 @@ $$
 只需把线性乘子换成双线性形式，并重复本文的分解与极大估计. 这正是 El Abdalaoui 文中定理2.1的证明路线；本文只展开了线性情形.</p>
 
 <p>最后，与经典证明相比，振荡证明不是更短的证明，而是结构更清晰的证明. 它把论证分成振荡判据、Calderón转移和 $\mathbb Z$ 上的Fourier估计三部分；一般系统只通过转移进入，解析困难集中在移位算子上. 振荡判据不依赖稠密类，因此可以用于没有明显望远镜结构的平均；振荡估计本身也是比 a.e. 收敛更强的定量结论. 代价是证明更长、技术复杂度更高：它仍然使用极大不等式（Hardy--Littlewood 和 Hopf）、均方遍历定理和Fourier分析，只是重新组织了这些工具的使用. 多项式情形遵循同一分层：Weyl和取代几何和，圆法取代频率截断，多频率极大估计取代乘子级数引理；解析核心需要在多项式情形重新做一遍，本文不展开.</p>
-
-<p>这里采用 Bourgain 原始的频率块分解；El Abdalaoui 的写法把平均尺度稀疏化为 $S_\rho=\{[\rho^m]\}$，再用极大不等式回到全部尺度，是另一种（更初等的）简化.</p>
 
 <h2>参考文献</h2>
 
