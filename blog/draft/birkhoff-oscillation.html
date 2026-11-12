@@ -1,29 +1,27 @@
 <html>
 <head>
-<title>Birkhoff遍历定理的振荡证明</title>
+<title>Bourgain的魔法：Birkhoff遍历定理的新证明</title>
 </head>
 
 <body id="body">
 <!--正文区块-->
 <div id="container" class="container">
 
-<p><i>按：Jean Bourgain(1954-2018)绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触Bourgain的工作或思想. 这是一个(不定期)连载系列，记录Bourgain的数学魔法.</i></p>
+<p><i>按：Jean Bourgain(1954-2018) 绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触 Bourgain 的工作或思想. 这是一个 (不定期) 连载系列，记录 Bourgain 的数学魔法.</i></p>
 
-<p>在1988-1990年期间，Bourgain发表了一系列突破性工作，重塑遍历论的面貌. 我们将分两期介绍Bourgain证明的多项式遍历定理；第一期将先引入一部分前置工具，从Bourgain的视角给出Birkhoff遍历定理这个经典结果的新证明，作为Bourgain定理的引子.</p>
+<p>在1988-1990年期间，Bourgain 发表了一系列突破性工作，重塑遍历论的面貌. 我们将分两期介绍 Bourgain 证明的多项式遍历定理. 第一期作为引子，将从 Bourgain 的视角给出 Birkhoff 遍历定理这个经典结果的新证明；即使在这个线性的简单例子里，我们也可以领略若干 Bourgain 引入的关键想法</p>
 
-<h2>Birkhoff定理回顾</h2>
-
-<p>设 $(X,\mathcal B,\mu)$ 是概率空间，$T:X\to X$ 是可逆保测变换，$\mathcal I=\{A\in\mathcal B:\mu(A\triangle T^{-1}A)=0\}$. 对 $f\in L^1(X)$，记
+<p>我们先回顾 Birkoff的逐点遍历定理. 设 $(X,\mathcal B,\mu)$ 是概率空间，$T:X\to X$ 是可逆保测变换，$\mathcal I=\{A\in\mathcal B:\mu(A\triangle T^{-1}A)=0\}$. 对 $f\in L^1(X)$，记
 $$
 A_Nf(x)=\frac1N\sum_{n=1}^N f(T^n x), \qquad
 Mf(x)=\sup_{N\geq 1} A_N f(x).
 \tag{1}
 $$
-我们叙述 Birkhoff 逐点遍历定理.</p>
+</p>
 
 <p class="thm"><b>定理1</b> (Birkhoff)<b>.</b> 对每个 $f\in L^1(X)$，$A_Nf$ 在 $\mu$-a.e. 收敛到 $Pf:=\mathbb E(f|\mathcal I)$，并且在 $L^1(X)$ 中收敛.</p>
 
-<p>经典证明通常先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
+<p>标准证明通常先对 $f\in L^2(X)$ 使用 $L^2$ 遍历定理，再把 $f-Pf$ 分解为 $g-g\circ T$ 的闭包：对 $g-g\circ T$，平均
 $$
 A_N(g-g\circ T)(x)=\frac{g(Tx)-g(T^{N+1}x)}{N}
 $$
@@ -86,7 +84,7 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>Bourgain 振荡判别法的意义是：从经典的极大估计 argument 来看， a.e. 收敛是一个关于所有尺度的陈述，而振荡算子把各尺度区间上的极大振幅收集为一个平方和；只要这个平方和关于区间个数是次线性的，就能克制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了定量估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类；这是又一个 Bourgain 的“定量化”魔法.  Bourgain 对这个判别法相当中意，他如此评价: "As I observed...this approach should rather be considered as a general method than the solution to some isolated problems."</p>
+<p>Bourgain 振荡判别法的意义是：从经典的极大估计 argument 来看， a.e. 收敛是一个关于所有尺度的陈述，而振荡算子把各尺度区间上的极大振幅收集为一个平方和；只要这个平方和关于区间个数是次线性的，就能限制大振荡的反复出现. 因此，证明的目标从一个收敛性命题变成了定量估计 (4)，并且不需要事先知道某个使收敛成立的稠密函数类；这是又一个 Bourgain 的“定量化”魔法.  Bourgain 对这个判别法相当中意，他如此评价: "As I observed...this approach should rather be considered as a general method than the solution to some isolated problems."</p>
 
 <h2>Transference原理</h2>
 
@@ -97,7 +95,7 @@ $$
 A_N^S\phi(x):=\frac1N\sum_{n=1}^N\phi(x+n).
 \tag{5}
 $$
-另外对 $\rho>1$，记 $S_\rho=\{[\rho^m]:m=1,2,\ldots\}$, 其中 $[\cdot]$ 是向下取整. 这是后面用到的稀疏尺度序列；$\rho=2$ 就得到我们熟悉的二进序列.</p>
+另外对 $\rho>1$，记 $S_\rho=\{[\rho^m]:m=1,2,\ldots\}$, 其中 $[\cdot]$ 是向下取整. 这是后面用到的稀疏尺度序列；$\rho=2$ 就得到我们熟悉的二进尺度.</p>
 
 <p>现在可以叙述Bourgain证明的核心结果</p>
 
@@ -186,9 +184,9 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>引理说明稀疏序列不是定理的限制，而是一个技术中间步骤：稀疏化使 Fourier 乘子级数有关于 $\theta$ 一致的界；极大不等式再把稀疏尺度上的收敛还原为所有尺度上的收敛. 这也是振荡证明与经典稠密性证明在结构上的一个区别：前者先在一个便于求和的尺度集上工作，再用极大估计回到全部尺度.</p>
+<p>这里也是振荡证明与标准证明的一个区别：前者先在一个便于求和的尺度集上工作，再用极大估计回到全部尺度.</p>
 
-<p>于是定理1通过振荡判别和稠密性论证归结为定理3，后者的证明则需要 $\mathbb Z$ 上的Fourier分析.</p>
+<p>于是定理1归结为定理3，后者的证明则需要 $\mathbb Z$ 上的Fourier分析.</p>
 
 <h2>移位算子的Fourier分析</h2>
 
@@ -216,7 +214,7 @@ g_N(0)=\frac1N.
 $$
 记投影算子 $P_N\phi=g_N*\phi$, 它把频率截断到 $[-\pi/N,\pi/N]$, 在物理空间上相当于一个在尺度 $N$ 上的平均化算子.</p>
 
-<p>下面给出在稀疏尺度下移位算子的乘子级数估计.</p>
+<p>下面给出移位算子乘子的主部，以及在稀疏尺度下误差累积的控制.</p>
 
 <p class="thm"><b>引理6.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，s.t. 对任意 $\theta\in[-\pi,\pi)$ 都一致有
 $$\sum_{N\in S_\rho}\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2=O_{\rho}(1).\tag{11}$$
@@ -238,7 +236,7 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性.</p>
+<p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性. 这个技巧应当归功于 Etamedi.</p>
 
 <p>另外，我们还需要移位算子的极大不等式：记
 $$
@@ -267,7 +265,7 @@ m_N-\mathbf1_{[-\pi/N,\pi/N]},
 \qquad
 \mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}-m_{N_{k+1}}.
 $$
-由引理5和Plancherel定理，第一项的平方和不超过 $C_\rho\|\phi\|_2^2$；第三项同理，因为 $N_{k+1}\in S_\rho$. 因此这两部分的贡献为
+由引理6和 Plancherel 定理，第一项的平方和不超过 $C_\rho\|\phi\|_2^2$；第三项同理，因为 $N_{k+1}\in S_\rho$. 因此这两部分的贡献为
 $$
 \begin{aligned}
 &\sum_{k=1}^K
