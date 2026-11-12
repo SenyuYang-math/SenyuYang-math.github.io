@@ -8,6 +8,7 @@ btitle[4] = "非平凡铺满欧氏空间的直线族"; bdate[4] = "09/17"; bintr
 btitle[5] = "一个Pólya定理(与Hardy的改进)"; bdate[5] = "09/20"; bintro[5] = "整函数在算术集上的取值给出了增长行为的分类.";
 btitle[6] = "一个点能落在多少三角形中"; bdate[6] = "09/23"; bintro[6] = "多项式剖分的一个平面特例.";
 btitle[7] = "多孔介质的相变尺度"; bdate[7] = "10/20"; bintro[7] = "Tartar的振荡测试方法在均质化理论的应用.";
+btitle[8] = "Bourgain的魔法：Birkhoff遍历定理的新证明"; bdate[8] = "11/12"; bintro[8] = "介绍Bourgain多项式遍历定理的第一篇，引入变差判别和Fourier分析.";
 // btitle[10] = "Šverák的反例：秩一凸但不quasiconvex的函数"; bdate[10] = "10/12"; bintro[10] = "秩一凸性不蕴含quasiconvexity，反例把一个三线性函数沿秩一直线延拓到整个矩阵空间.";
 // btitle[11] = "Bourgain的魔法：逐点遍历定理"; bdate[11] = "09/25"; bintro[11] = "多项式遍历平均的逐点收敛，以及圆法、转移原理与多频率熵估计.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
