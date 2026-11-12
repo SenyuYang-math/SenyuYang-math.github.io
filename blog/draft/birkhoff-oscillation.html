@@ -236,7 +236,7 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性. 这个技巧应当归功于 Etamedi.</p>
+<p>这正是引入稀疏序列 $S_\rho$ 的目的：假如对所有 $N$ 求和，虽然对每个固定的 $\theta$ 级数收敛，但没有一致性.</p>
 
 <p>另外，我们还需要移位算子的极大不等式：记
 $$
@@ -265,8 +265,10 @@ m_N-\mathbf1_{[-\pi/N,\pi/N]},
 \qquad
 \mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}-m_{N_{k+1}}.
 $$
-由引理6和 Plancherel 定理，第一项的平方和不超过 $C_\rho\|\phi\|_2^2$；第三项同理，因为 $N_{k+1}\in S_\rho$. 因此这两部分的贡献为
-$$
+使用一个放缩 
+$$\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}} \cdots \leq \sum_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}} \cdots,$$
+再由引理6和 Plancherel 定理，对 $k$ 求和，这两部分对 $\mathcal O_{\mathbf N,K}$ 的贡献为 $O_\rho(1)$.</p>
+<!-- $$
 \begin{aligned}
 &\sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
@@ -278,7 +280,7 @@ $$
 &\le 2C_\rho\|\phi\|_2^2.
 \end{aligned}
 \tag{14}
-$$</p>
+$$</p> -->
 
 <p>中间项是 $g_N*\phi-g_{N_{k+1}}*\phi$. 由于 $N_k\le N\le N_{k+1}$，频率区间满足
 $$
