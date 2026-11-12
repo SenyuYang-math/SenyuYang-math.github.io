@@ -1,0 +1,519 @@
+<html>
+<head>
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+
+<p><i>按：Jean Bourgain(1954-2018)绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触Bourgain的工作或思想. 这是一个(不定期)连载系列，记录Bourgain的数学魔法.</i></p>
+
+<h2>问题与定理</h2>
+
+<p>这次介绍 Bourgain 在 [1] 中构造 affine extractors 的工作. 问题是从一个未知仿射子空间上的均匀分布，通过预先给定的映射得到接近均匀分布的随机比特. 我们将详细说明 [1, §3] 对任意固定正熵率的构造. 证明用到有限域上的多线性指数和估计，而构造本身由一个多项式给出.</p>
+
+<p>设随机变量 $X$ 在 $a+V\subseteq\mathbb F_2^n$ 上均匀分布，其中 $V$ 是 $\mathbb F_2$-线性子空间. 这样的分布称为 affine source. 它的 min-entropy 为
+$$
+H_\infty(X)=-\log_2\max_x\mathbb P(X=x)=\dim_{\mathbb F_2}V.
+\notag
+$$
+因此熵率至少为 $\delta$ 就是 $\dim V\ge\delta n$. 对 $\mathbb F_2^\ell$ 上的两个概率分布 $\mu,\nu$，总变差距离定义为
+$$
+d_{\mathrm{TV}}(\mu,\nu)
+=\frac12\sum_{u\in\mathbb F_2^\ell}|\mu(u)-\nu(u)|.
+\notag
+$$
+记 $U_\ell$ 为 $\mathbb F_2^\ell$ 上的均匀分布. 若映射 $F:\mathbb F_2^n\to\mathbb F_2^\ell$ 对每个 $\dim V\ge k$ 的 affine source 都满足 $d_{\mathrm{TV}}(F(X),U_\ell)\le\varepsilon$，则称 $F$ 为误差 $\varepsilon$ 的 $(n,k)$ affine extractor.</p>
+
+<p class="thm"><b>定理1</b> (Bourgain [1, §3 及引言])<b>.</b> 给定 $0\lt\delta\le1$，存在 $\tau=\tau(\delta)&gt;0$、$c=c(\delta)&gt;0$ 及 $n_0=n_0(\delta)$，使对每个 $n\ge n_0$，都能显式构造映射
+$$
+F:\mathbb F_2^n\longrightarrow\mathbb F_2^\ell,
+\qquad \ell\ge\tau n,
+\notag
+$$
+使每个满足 $\dim V\ge\delta n$ 的 affine source $X$ 都有
+$$
+d_{\mathrm{TV}}(F(X),U_\ell)\le2^{-cn}.
+\label{eq:extractor}
+$$
+这里显式构造指确定性的构造与求值算法，其运行时间关于 $n$ 为多项式，允许常数依赖于 $\delta$.</p>
+
+<p>为证明定理1，先考虑 $n=rm$，其中 $r$ 只依赖于 $\delta$，$m$ 是充分大的素数. 将每个长为 $m$ 的坐标块与 $K=\mathbb F_{2^m}$ 对应，便有 $\mathbb F_2^n=K^r$. 记 $q=2^m$. Bourgain 构造一个多项式 $p\in K[x_1,\ldots,x_r]$，证明对每个非平凡加性特征 $\psi:K\to\{1,-1\}$ 及每个 $\dim V\ge\delta rm$ 的仿射子空间都有
+$$
+\left|\mathbb E_{x\in a+V}\psi(p(x))\right|
+\le q^{-\gamma},
+\qquad \gamma=\gamma(\delta)&gt;0.
+\label{eq:character}
+$$
+全文有限集合上的 $\mathbb E$ 都表示均匀平均. 取 $\psi(u)=(-1)^{\operatorname{Tr}_{K/\mathbb F_2}(u)}$，就得到一个输出比特，其偏离均匀分布的总变差距离是上式左端的一半. 文章最后再由所有 $\psi$ 的一致估计导出 $\eqref{eq:extractor}$.</p>
+
+<h2>指数和、差分与多项式的选择</h2>
+
+<p>证明所用的有限域结果如下. 在 $K=\mathbb F_{2^m}$ 中要求 $m$ 为素数，是为了排除 $\mathbb F_2$ 以外的真子域.</p>
+
+<p class="thm"><b>定理2</b> (Bourgain–Glibichuk–Konyagin，采用 [1, 定理0.1] 的表述)<b>.</b> 对每个 $\eta&gt;0$，存在整数 $s=s(\eta)\ge2$ 及常数 $b=b(\eta)&gt;0$、$C=C(\eta)&gt;0$，使得当 $m$ 为充分大的素数时，对任意满足
+$$
+A_1,\ldots,A_s\subseteq K,
+\qquad |A_j|&gt;q^\eta\quad(1\le j\le s)
+\notag
+$$
+的集合及任意非平凡加性特征 $\psi$，都有
+$$
+\left|\mathbb E_{u_1\in A_1,\ldots,u_s\in A_s}
+\psi(u_1\cdots u_s)\right|\le Cq^{-b}.
+\label{eq:bgk}
+$$</p>
+
+<p>我们引用定理2，相关的指数和估计见 [2]. 接下来要把 $\eqref{eq:character}$ 中彼此相关的坐标转化为 $\eqref{eq:bgk}$ 中独立取值的变量.</p>
+
+<p>对 $K$ 值函数 $\phi$，定义差分
+$$
+\Delta_z\phi(y)=\phi(y+z)-\phi(y).
+\notag
+$$
+特征 $2$ 下减法与加法相同. 我们先记录平均值的差分估计.</p>
+
+<p class="thm"><b>引理3</b> (van der Corput 差分，见 [1, §3.2])<b>.</b> 设 $G$ 为有限 $\mathbb F_2$-向量空间，$H\subseteq G$ 为子空间，$\phi:G\to K$. 对每个整数 $t\ge1$，有
+$$
+\left|\mathbb E_{y\in G}\psi(\phi(y))\right|^{2^t}
+\le
+\mathbb E_{z_1,\ldots,z_t\in H}
+\left|\mathbb E_{y\in G}
+\psi\bigl(\Delta_{z_1}\cdots\Delta_{z_t}\phi(y)\bigr)\right|.
+\label{eq:difference}
+$$</p>
+
+<p><i>证明.</i> 在 $G/H$ 上使用 Cauchy–Schwarz 不等式，得到
+$$
+\begin{aligned}
+\left|\mathbb E_{y\in G}\psi(\phi(y))\right|^2
+&amp;\le\mathbb E_{y+H\in G/H}
+\left|\mathbb E_{h\in H}\psi(\phi(y+h))\right|^2\\
+&amp;=\mathbb E_{z\in H}\mathbb E_{y\in G}
+\psi\bigl(\phi(y+z)-\phi(y)\bigr)\\
+&amp;\le\mathbb E_{z\in H}
+\left|\mathbb E_{y\in G}\psi(\Delta_z\phi(y))\right|.
+\end{aligned}
+\notag
+$$
+逐次应用这个不等式，并在外层平均上使用 Jensen 不等式，即得 $\eqref{eq:difference}$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>现在考虑 $x^\lambda$. 写出二进制展开
+$$
+\lambda=\sum_{j\ge0}\varepsilon_j2^j,
+\qquad \varepsilon_j\in\{0,1\}.
+\notag
+$$
+由于 $x\mapsto x^{2^j}$ 是 $\mathbb F_2$-线性映射，
+$$
+x^\lambda=\prod_{\varepsilon_j=1}x^{2^j}
+\notag
+$$
+是 $\sum_j\varepsilon_j$ 个线性因子的乘积. 一次差分将它写成若干项之和，每项至多含 $\sum_j\varepsilon_j-1$ 个仿射 $\mathbb F_2$-线性因子. 因而当 $t&gt;\sum_j\varepsilon_j$ 时，$\Delta_{z_1}\cdots\Delta_{z_t}x^\lambda=0$. 当
+$$
+t=\sum_j\varepsilon_j-1
+\notag
+$$
+时，则有
+$$
+\Delta_{z_1}\cdots\Delta_{z_t}x^\lambda
+=c(z_1,\ldots,z_t)
++\sum_{\varepsilon_j=1}P_j(z_1,\ldots,z_t)x^{2^j},
+\label{eq:linearized}
+$$
+其中 $c$ 与 $x$ 无关，且
+$$
+P_j(z_1,\ldots,z_t)
+=\sum_{\substack{\pi:\{1,\ldots,t\}\to\{k:\varepsilon_k=1,\ k\ne j\}\\
+\pi\text{ 为双射}}}
+\prod_{a=1}^t z_a^{2^{\pi(a)}}.
+\label{eq:coefficient}
+$$
+不同双射产生不同的单项式，故每个 $P_j$ 都是非零多项式，且 $\deg P_j=\lambda-2^j$. 例如
+$$
+\Delta_zx^3=zx^2+z^2x+z^3.
+\notag
+$$
+这里 $3=1+2$，一次差分后得到仿射 $\mathbb F_2$-线性函数. 公式 $\eqref{eq:linearized}$ 中的常数项在后面的乘积中一并保留.</p>
+
+<p>取 $\eta=\delta/8$，由定理2选择 $s=s(\delta/8)$. 稍后选定 $r&gt; s$. 把 $\{1,\ldots,r\}$ 的所有 $s$ 元子集按如下次序排列
+$$
+I\prec I'
+\quad\Longleftrightarrow\quad
+\max(I\mathbin{\triangle}I')\in I'.
+\notag
+$$
+也就是先比较最大的指标，相同时比较次大的指标，依次继续. 若排列结果为 $I_1\prec\cdots\prec I_M$，其中 $M=\binom rs$，可明确取
+$$
+\lambda_{I_\nu}=2^{(4s)^{M-\nu+1}}-1,
+\qquad 1\le\nu\le M.
+\label{eq:powers}
+$$
+写 $\lambda_I=\sum_j\varepsilon_{I,j}2^j$，则
+$$
+\sum_j\varepsilon_{I,j}
+&gt;2s\sum_j\varepsilon_{I',j}
+\qquad(I\prec I').
+\label{eq:separation}
+$$
+指数的选择只依赖于 $r,s$. Bourgain 所用的多项式是
+$$
+p(x_1,\ldots,x_r)
+=\sum_{\substack{I\subseteq\{1,\ldots,r\}\\|I|=s}}
+\left(\prod_{i\in I}x_i\right)^{\lambda_I}.
+\label{eq:polynomial}
+$$
+选定适当的指标集 $\overline I$ 及相应子空间后，我们将沿每个选定子空间分别作 $\sum_j\varepsilon_{\overline I,j}-1$ 次差分. 条件 $\eqref{eq:separation}$ 使 $I\succ\overline I$ 的各项消失，而子空间的分解将用于逐次消去 $I\prec\overline I$ 的各项.</p>
+
+<h2>子空间的分解与选择</h2>
+
+<p>设 $V\subseteq K^r$ 为 $\mathbb F_2$-线性子空间，$\dim V\ge\delta rm$. 记 $\pi_j:K^r\to K$ 为第 $j$ 个坐标投影. 令
+$$
+V_0=V,\qquad
+V_j=\{x\in V:x_1=\cdots=x_j=0\},
+\notag
+$$
+并选取补空间 $Y_j$ 使 $V_{j-1}=Y_j\oplus V_j$. 于是
+$$
+V=Y_1\oplus\cdots\oplus Y_r,
+\qquad
+x_j=a_j+\sum_{i\le j}\sigma_{ij}(y_i),
+\quad y_i\in Y_i,
+\label{eq:triangular}
+$$
+其中 $\sigma_{ij}=\pi_j|_{Y_i}$，$\sigma_{ii}$ 是单射. 特别地，
+$$
+\dim Y_i\le m,
+\qquad \sum_{i=1}^r\dim Y_i\ge\delta rm.
+\notag
+$$
+各个 $y_i$ 独立均匀取值于 $Y_i$ 时，$\eqref{eq:triangular}$ 在 $a+V$ 上均匀取值.</p>
+
+<p>这里 $x_j$ 可以同时依赖于此前的所有 $y_i$. 为了在差分以后消去这些依赖，需要如下选择.</p>
+
+<p class="thm"><b>引理4</b> (Bourgain [1, §3.4])<b>.</b> 给定 $\delta,s$，当 $r$ 充分大时，存在指标
+$$
+i_1\lt\cdots\lt i_s
+\notag
+$$
+及子空间 $\widetilde Y_i\subseteq Y_i$，其中 $i\in R\cap[i_1,i_s]$，
+$$
+R=\left\{i:\dim Y_i&gt;\frac{\delta m}{2}\right\},
+\notag
+$$
+满足 $i_1,\ldots,i_s\in R$，
+$$
+\dim\widetilde Y_{i_k}&gt;\frac{\delta m}{4}
+\qquad(1\le k\le s),
+\label{eq:dimension}
+$$
+且对每个 $2\le k\le s$ 及 $i\in R\cap[i_1,i_{k-1}]$ 都有
+$$
+\sigma_{i,i_k}(\widetilde Y_i)
+\subseteq
+\sum_{\substack{j\in R\\i_{k-1}\lt j\le i_k}}
+\sigma_{j,i_k}(\widetilde Y_j).
+\label{eq:containment}
+$$
+这里右端是子空间之和.</p>
+
+<p><i>证明.</i> 首先，
+$$
+\delta rm
+\le\sum_i\dim Y_i
+\le |R|m+r\frac{\delta m}{2},
+\notag
+$$
+故 $|R|\ge\delta r/2$. 取
+$$
+L=\left\lceil\frac{20s}{\delta}\right\rceil,
+\qquad
+\frac{\delta r}{2}\ge(2L)^{s+1}.
+\label{eq:rchoice}
+$$
+以下从大的指标向小的指标选择，并逐次缩小部分 $Y_i$.</p>
+
+<p>先令 $i_s=\max R$，所有空间起初为 $Y_i$. 考虑一般的一步. 当前候选指标构成 $R$ 中的一个连续区间 $\mathcal C$，最大指标 $i_k$ 已选定，当前子空间记为 $Y_i'\subseteq Y_i$. 对整数 $0\le j\le i_k$，令
+$$
+W_j=\sum_{\substack{i\in\mathcal C\\j\lt i\le i_k}}
+\sigma_{i,i_k}(Y_i').
+\notag
+$$
+这些空间随 $j$ 的增大递减，维数变化的总和至多为 $m$.</p>
+
+<p>将 $\mathcal C\setminus\{i_k\}$ 按指标顺序分成 $L$ 个连续组，每组的大小至少为 $\lfloor(|\mathcal C|-1)/L\rfloor$. 对一组 $\mathcal Q$，记其最小、最大指标为 $a,b$. 各组的 $\dim W_{a-1}-\dim W_b$ 之和至多为 $m$，故有一组满足
+$$
+\dim W_{a-1}-\dim W_b\le\frac mL.
+\notag
+$$
+选择这一组，令 $i_{k-1}=b$. 对 $i\in\mathcal Q$，把 $Y_i'$ 替换为
+$$
+Y_i'\cap\sigma_{i,i_k}^{-1}(W_b).
+\label{eq:restriction}
+$$
+由于 $\sigma_{i,i_k}(Y_i')\subseteq W_{a-1}$，这个替换损失的维数至多为 $m/L$. 对 $b\lt i\le i_k$ 的空间保留当前选择，下一步只在 $\mathcal Q$ 中继续. 如此就使早期空间在第 $i_k$ 个坐标的像包含于 $W_b$，得到 $\eqref{eq:containment}$ 对指标 $k$ 的结论. 后续仅缩小左端的空间，已经取得的包含关系仍然成立.</p>
+
+<p>每一步保留至少 $\lfloor(|\mathcal C|-1)/L\rfloor$ 个候选. 在这里需要进行 $s-1$ 步，$\eqref{eq:rchoice}$ 保证始终有足够的候选指标. 每个最终选中的空间损失的维数至多为
+$$
+\frac{(s-1)m}{L}\lt\frac{\delta m}{20}.
+\notag
+$$
+它原来的维数大于 $\delta m/2$，因而满足 $\eqref{eq:dimension}$. 引理得证.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>我们说明 $\eqref{eq:containment}$ 在证明中的作用. 固定 $k\ge2$，在 $x_{i_k}$ 中，早期变量的贡献为
+$$
+\sum_{\substack{i\in R\\i_1\le i\le i_{k-1}}}
+\sigma_{i,i_k}(\widetilde y_i).
+\notag
+$$
+由 $\eqref{eq:containment}$，它属于映射
+$$
+\bigoplus_{\substack{j\in R\\i_{k-1}\lt j\le i_k}}
+\widetilde Y_j\longrightarrow K,
+\qquad
+(\widetilde y_j)_j\longmapsto
+\sum_{\substack{j\in R\\i_{k-1}\lt j\le i_k}}
+\sigma_{j,i_k}(\widetilde y_j)
+\label{eq:blockmap}
+$$
+的像. 选取这个映射到其像的线性右逆，就能通过平移 $i_{k-1}\lt j\le i_k$ 的变量，消去 $x_{i_k}$ 中的早期变量. 对每个固定的早期变量，这个平移都是双射，因而保持联合均匀分布. 同时，所有 $x_j$ 在 $j\le i_{k-1}$ 时只含早期变量，其表达式不受这次换元影响.</p>
+
+<h2>指数和估计与定理的证明</h2>
+
+<p><i>证明.</i> 先证明 $\eqref{eq:character}$. 取引理4给出的子空间，令
+$$
+\overline I=\{i_1,\ldots,i_s\},
+\qquad
+\lambda_{\overline I}=\sum_j\varepsilon_{\overline I,j}2^j,
+\qquad
+t=\sum_j\varepsilon_{\overline I,j}-1.
+\notag
+$$
+把 $Y_i$ 分成 $\widetilde Y_i$ 的陪集，并固定陪集参数. 也固定 $i\notin R\cap[i_1,i_s]$ 的所有变量. 在下面的估计中，这些固定项均可并入 $a_j$. 自由变量为
+$$
+\widetilde y_i\in\widetilde Y_i,
+\qquad i\in R\cap[i_1,i_s].
+\notag
+$$
+只需对每一种固定参数一致地证明所需估计，然后取平均.</p>
+
+<p>先在 $\widetilde y_{i_s}$ 方向使用引理3，作 $t$ 次差分. 对任意 $I$，$\eqref{eq:triangular}$ 说明
+$$
+\left(\prod_{j\in I}x_j\right)^{\lambda_I}
+=\prod_{j\in I}\prod_{\varepsilon_{I,a}=1}x_j^{2^a}
+\notag
+$$
+作为任意一个自由变量的函数，是至多 $s\sum_a\varepsilon_{I,a}$ 个仿射 $\mathbb F_2$-线性因子的乘积. 由 $\eqref{eq:separation}$ 及 $\eqref{eq:powers}$，
+$$
+t&gt;s\sum_a\varepsilon_{I,a}
+\qquad(I\succ\overline I).
+\notag
+$$
+所以这些项全部消失. 当 $\max I\lt i_s$ 时，原项与 $\widetilde y_{i_s}$ 无关，也在差分后消失. 因此余下的项满足
+$$
+\max I=i_s,
+\qquad
+\max(I\setminus\{i_s\})\le i_{s-1},
+\notag
+$$
+并且具有形式
+$$
+\left(\prod_{j\in I\setminus\{i_s\}}x_j^{\lambda_I}\right)
+\Delta_{z_{s,1}}\cdots\Delta_{z_{s,t}}x_{i_s}^{\lambda_I}.
+\label{eq:firststep}
+$$
+这里 $z_{s,a}\in\widetilde Y_{i_s}$，在差分因子中将其与 $\sigma_{i_s,i_s}(z_{s,a})\in K$ 对应.</p>
+
+<p>固定这些方向参数，使用 $\eqref{eq:blockmap}$ 后的换元. 换元后
+$$
+x_{i_s}=c_s+
+\sum_{\substack{i\in R\\i_{s-1}\lt i\le i_s}}
+\sigma_{i,i_s}(\widetilde y_i),
+\notag
+$$
+其中 $c_s$ 固定，因而 $\eqref{eq:firststep}$ 最后一个因子与 $i\le i_{s-1}$ 的自由变量无关. 方向参数保持固定，换元只作用于平均中的基变量.</p>
+
+<p>接着在 $\widetilde y_{i_{s-1}}$ 方向作 $t$ 次差分. 此时 $\eqref{eq:firststep}$ 的最后一个因子可以作为系数提出. 满足 $\max(I\setminus\{i_s\})\lt i_{s-1}$ 的项消失，余下的项成为
+$$
+\left(\prod_{j\in I\setminus\{i_{s-1},i_s\}}x_j^{\lambda_I}\right)
+\left(\Delta_{z_{s-1,1}}\cdots\Delta_{z_{s-1,t}}
+x_{i_{s-1}}^{\lambda_I}\right)
+\left(\Delta_{z_{s,1}}\cdots\Delta_{z_{s,t}}
+x_{i_s}^{\lambda_I}\right).
+\notag
+$$
+再平移 $i_{s-2}\lt i\le i_{s-1}$ 的变量，消去 $x_{i_{s-1}}$ 中的早期变量. 这个换元只涉及更早的变量，上一轮得到的最后一个因子仍只依赖于 $i_{s-1}\lt i\le i_s$ 的变量.</p>
+
+<p>逐次继续. 在处理 $i_k$ 以前，余下的每个集合 $I$ 的最大 $s-k$ 个指标已经依次等于 $i_s,\ldots,i_{k+1}$. 在 $\widetilde y_{i_k}$ 方向差分后，下一个指标必须等于 $i_k$，否则该项消失. 再用 $\eqref{eq:containment}$ 消去相应因子对早期变量的依赖. 到 $k=1$ 时，只剩下 $I=\overline I$.</p>
+
+<p>为写出最后的平均，令 $i_0=i_1-1$. 每次换元以后，所保留的相应坐标具有形式
+$$
+x_{i_k}=c_k+
+\sum_{\substack{i\in R\\i_{k-1}\lt i\le i_k}}
+\sigma_{i,i_k}(\widetilde y_i),
+\qquad 1\le k\le s,
+\label{eq:independentblocks}
+$$
+其中 $c_k$ 是固定项. 因而各个差分因子分别只依赖于互不相交的变量组. 逐次应用 $\eqref{eq:difference}$ 及 Jensen 不等式，得到
+$$
+\begin{aligned}
+&amp;\left|\mathbb E_{\widetilde y_i\in\widetilde Y_i}
+\psi(p(x))\right|^{2^{st}}\\
+&amp;\quad\le
+\mathbb E_{\substack{z_{k,a}\in\widetilde Y_{i_k}\\1\le k\le s,\ 1\le a\le t}}
+\left|
+\mathbb E_{\widetilde y_i\in\widetilde Y_i}
+\psi\left(
+\prod_{k=1}^s
+\Delta_{z_{k,1}}\cdots\Delta_{z_{k,t}}
+x_{i_k}^{\lambda_{\overline I}}
+\right)\right|.
+\end{aligned}
+\label{eq:iterated}
+$$
+内层的所有基变量始终在同一个绝对值里面. 这使每一轮差分后的换元都能在联合平均中进行.</p>
+
+<p>下面估计 $\eqref{eq:iterated}$ 的右端. 由 $\eqref{eq:linearized}$，第 $k$ 个差分因子为
+$$
+c(z_{k,1},\ldots,z_{k,t})+
+\sum_{\varepsilon_{\overline I,j}=1}
+P_j(z_{k,1},\ldots,z_{k,t})x_{i_k}^{2^j},
+\label{eq:lastfactor}
+$$
+此处方向参数通过 $\sigma_{i_k,i_k}$ 看成 $K$ 中的元素. 固定一个满足 $\varepsilon_{\overline I,j}=1$ 的 $j$. 对非零多项式 $P$ 及有限集合 $A\subseteq K$，通常的多项式零点估计给出
+$$
+|\{(z_1,\ldots,z_t)\in A^t:P(z_1,\ldots,z_t)=0\}|
+\le(\deg P)|A|^{t-1}.
+\notag
+$$
+这个估计由单变量根数界及变量个数的归纳得到. 将它用于 $\eqref{eq:coefficient}$，再用 $\eqref{eq:dimension}$，可知
+$$
+\begin{aligned}
+&amp;\mathbb P_{z_{k,1},\ldots,z_{k,t}\in\widetilde Y_{i_k}}
+\bigl(P_j(z_{k,1},\ldots,z_{k,t})=0\bigr)\\
+&amp;\qquad\le
+\frac{\lambda_{\overline I}-2^j}{|\widetilde Y_{i_k}|}
+\le C_\delta q^{-\delta/4}.
+\end{aligned}
+\label{eq:exceptional}
+$$
+故除去总比例至多为 $C_\delta q^{-\delta/4}$ 的方向参数，可保证每个因子至少有一个 $P_j\ne0$.</p>
+
+<p>固定一组这样的方向参数，并固定每组中除 $\widetilde y_{i_k}$ 以外的基变量. 根据 $\eqref{eq:independentblocks}$ 和 $\eqref{eq:lastfactor}$，第 $k$ 个因子成为
+$$
+\widetilde y_{i_k}\longmapsto
+c_k'+\sum_{\varepsilon_{\overline I,j}=1}
+P_j(z_{k,1},\ldots,z_{k,t})
+\bigl(\sigma_{i_k,i_k}(\widetilde y_{i_k})\bigr)^{2^j}.
+\label{eq:affinemap}
+$$
+这是一个仿射 $\mathbb F_2$-线性映射. 其线性部分作为 $K$ 上的多项式非零，次数至多为
+$$
+D=\max_{\varepsilon_{\overline I,j}=1}2^j.
+\notag
+$$
+$D$ 只依赖于 $\delta$. 每个纤维的大小至多为 $D$，故像集 $A_k$ 满足
+$$
+|A_k|\ge\frac{|\widetilde Y_{i_k}|}{D}
+&gt;\frac{q^{\delta/4}}D
+&gt;q^{\delta/8},
+\label{eq:imagesize}
+$$
+最后一步在 $m$ 充分大时成立. 仿射线性映射的各个非空纤维等大，所以均匀输入在 $A_k$ 上诱导均匀分布.</p>
+
+<p>现在各个因子独立均匀取值于 $A_1,\ldots,A_s$. 将定理2应用于这些像集，并将 $\eqref{eq:exceptional}$ 中的方向参数用平凡界 $1$ 估计，得到
+$$
+\left|\mathbb E_{\widetilde y_i\in\widetilde Y_i}
+\psi(p(x))\right|^{2^{st}}
+\le C_\delta q^{-b}+C_\delta q^{-\delta/4}.
+\label{eq:finalbound}
+$$
+这里 $b=b(\delta/8)&gt;0$. 令
+$$
+T=\max_{|I|=s}\left(\sum_j\varepsilon_{I,j}-1\right),
+\qquad
+\gamma=\frac{\min\{b,\delta/4\}}{2^{sT+1}}.
+\notag
+$$
+由于 $t\le T$，对充分大的 $m$，$\eqref{eq:finalbound}$ 蕴含
+$$
+\left|\mathbb E_{\widetilde y_i\in\widetilde Y_i}
+\psi(p(x))\right|\le q^{-\gamma}.
+\notag
+$$
+对先前固定的全部参数取平均，即得 $\eqref{eq:character}$. 估计对平移 $a$ 及非平凡特征 $\psi$ 都一致.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>最后证明定理1的多比特输出. 取 $\mathbb F_2$-线性无关的 $\beta_1,\ldots,\beta_\ell\in K$，定义
+$$
+F(x)=\bigl(
+\operatorname{Tr}_{K/\mathbb F_2}(\beta_1p(x)),\ldots,
+\operatorname{Tr}_{K/\mathbb F_2}(\beta_\ell p(x))
+\bigr).
+\label{eq:output}
+$$
+对 $u\in\mathbb F_2^\ell\setminus\{0\}$，$\sum_j u_j\beta_j\ne0$. 由迹配对的非退化性，$z\mapsto(-1)^{\operatorname{Tr}((\sum_j u_j\beta_j)z)}$ 是非平凡加性特征，所以 $\eqref{eq:character}$ 给出
+$$
+\left|\mathbb E(-1)^{u\cdot F(X)}\right|\le q^{-\gamma}.
+\notag
+$$
+记 $\mu$ 为 $F(X)$ 的分布. 由 Cauchy–Schwarz 不等式和 $\mathbb F_2^\ell$ 上的 Parseval 恒等式，
+$$
+\begin{aligned}
+d_{\mathrm{TV}}(\mu,U_\ell)
+&amp;\le\frac12\left(
+2^\ell\sum_{v\in\mathbb F_2^\ell}|\mu(v)-2^{-\ell}|^2
+\right)^{1/2}\\
+&amp;=\frac12\left(
+\sum_{u\ne0}\left|\mathbb E(-1)^{u\cdot F(X)}\right|^2
+\right)^{1/2}\\
+&amp;\le\frac12\sqrt{2^\ell-1}\,q^{-\gamma}.
+\end{aligned}
+\label{eq:variation}
+$$
+取 $\ell=\lfloor\min\{\gamma,1\}m\rfloor$，便得到与 $rm$ 成比例的输出长度，且误差至多为 $2^{-\gamma m/2}/2$.</p>
+
+<p>对一般充分大的输入长度 $n$，先用熵率 $\delta/3$ 选定上述构造的 $r$. 令 $M=\lceil n/r\rceil$，由 Bertrand 定理选取素数 $M\le m\lt2M$，并记 $N=rm$. 当 $n\ge2r$ 时，
+$$
+n\le N\lt2n+2r\le3n.
+\notag
+$$
+将输入末尾补零，得到线性嵌入 $\mathbb F_2^n\hookrightarrow\mathbb F_2^N$. 仿射子空间的维数保持不变，且
+$$
+\dim V\ge\delta n\ge\frac\delta3N.
+\notag
+$$
+因此可以应用熵率 $\delta/3$ 的构造. 又因 $m\ge n/r$，输出长度及误差指数均与原输入长度 $n$ 成比例，得到 $\eqref{eq:extractor}$. 对固定 $\delta$，$r,s$ 及 $\eqref{eq:powers}$ 中的全部指数都是常数，有限域的构造和 $\eqref{eq:polynomial}$、$\eqref{eq:output}$ 的求值可在关于 $n$ 的多项式时间内完成. 定理1得证.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p><b>关于证明的说明.</b> 多项式、子空间选择和逐次差分均来自 [1, §3]. 本文补写了子空间选择中的维数计数、变量平移的换元以及多比特输出的 Fourier 计算，并在差分公式中保留了常数项. 指数 $\eqref{eq:powers}$ 是满足原文对二进制展开中非零位个数的要求的一种具体选择. 定理2作为外部结果引用，其有限域形式以 [1, 定理0.1] 为准.</p>
+
+<h2>参考文献</h2>
+
+<p>[1] J. Bourgain, <i>On the Construction of Affine Extractors</i>. Geometric and Functional Analysis <b>17</b> (2007), 33–57. <a href="https://doi.org/10.1007/s00039-007-0593-z" target="_blank">论文链接</a>.</p>
+
+<p>[2] J. Bourgain, A. A. Glibichuk, S. V. Konyagin, <i>Estimates for the Number of Sums and Products and for Exponential Sums in Fields of Prime Order</i>. Journal of the London Mathematical Society <b>73</b> (2006), 380–398. <a href="https://doi.org/10.1112/S0024610706022721" target="_blank">论文链接</a>.</p>
+
+</div>
+
+<!-- 导航栏、页脚与数学排版 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+<script>
+window.MathJax.tex.tags = 'all';
+// 草稿使用本页标题，数学配置仍由站点脚本加载.
+window.infoinput = function () {
+  document.getElementById('blogtitle').textContent = "Bourgain的魔法：affine extractors";
+  document.getElementById('blogdate').textContent = '草稿';
+  document.getElementById('pagetitle').textContent = "Bourgain的魔法：affine extractors";
+};
+</script>
+</body>
+</html>
