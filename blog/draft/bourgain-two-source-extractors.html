@@ -1,0 +1,399 @@
+<html>
+<head>
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<!--正文区块-->
+<div id="container" class="container">
+
+<p><i>按：Jean Bourgain(1954-2018)绝对属于当代最富创造力的一批数学家，在诸多领域留下不胜数的成果和洞见. 也许每个分析学工作者都会在生命的某个阶段接触Bourgain的工作或思想. 这是一个(不定期)连载系列，记录Bourgain的数学魔法.</i></p>
+
+<h2>问题与定理</h2>
+
+<p>这次介绍 Bourgain 在2005年的论文 [1] 中构造 two-source extractors 的工作. 给定两个独立随机变量，我们希望通过一个预先给定的函数，得到接近均匀分布的随机比特. Bourgain 的结果允许两个源的熵率都略低于 $1/2$. 我们将围绕 [1, §3] 中的多项式 $xy+x^2y^2$，详细说明这一结论的证明. 部分推导参考 Rao 的讲义 [2].</p>
+
+<p>对有限集上的随机变量 $X$，定义其 min-entropy 为
+$$
+H_\infty(X)=-\log_2\max_x\mathbb P(X=x).
+\notag
+$$
+若 $X$ 在 $A$ 上均匀分布，则 $H_\infty(X)=\log_2|A|$. 对 $\mathbb F_p$ 上的随机变量，熵率指 $H_\infty(X)/\log_2p$. 本文中 $p$ 始终是充分大的奇素数，并记
+$$
+e_p(t)=\exp\left(\frac{2\pi i t}{p}\right),
+\qquad t\in\mathbb F_p.
+\notag
+$$
+指数中的 $t$ 可取任一整数代表.</p>
+
+<p class="thm"><b>定理1</b> (Bourgain [1, 命题3.5、3.6])<b>.</b> 存在绝对常数 $0\lt\varepsilon\lt1/2$、$c&gt;0$，使得对每个充分大的素数 $p$，函数
+$$
+f(x,y)=\operatorname{sign}\sin\left(
+\frac{2\pi}{p}(xy+x^2y^2)\right),
+\qquad x,y\in\mathbb F_p,
+\label{eq:function}
+$$
+满足如下性质. 约定 $\operatorname{sign}0=1$. 若 $X,Y$ 独立，且
+$$
+H_\infty(X),H_\infty(Y)
+\ge\left(\frac12-\varepsilon\right)\log_2p,
+\notag
+$$
+则
+$$
+\left|\mathbb E f(X,Y)\right|\le p^{-c}.
+\label{eq:extractor}
+$$</p>
+
+<p>把 $f=1,-1$ 分别编码为 $0,1$，所得分布与均匀比特的总变差距离为 $|\mathbb E f(X,Y)|/2$. 因此 $f$ 给出一个 two-source extractor，且
+$$
+p^{-c}=2^{-c\log_2p}.
+\notag
+$$
+给定 $p$，函数的求值只需模 $p$ 的加法、乘法，以及将 $xy+x^2y^2$ 的最小非负整数代表与 $(p-1)/2$ 比较，运行时间关于 $\log p$ 为多项式.</p>
+
+<p>先证明下列指数和估计. 对适当的绝对常数 $\varepsilon&gt;0$、$b&gt;0$，若 $X,Y$ 满足定理1的熵条件，则
+$$
+\max_{a\in\mathbb F_p\setminus\{0\}}
+\left|\mathbb E e_p\bigl(a(XY+X^2Y^2)\bigr)\right|
+\le p^{-b}.
+\label{eq:characters}
+$$
+最后再用 $\mathbb F_p$ 上的 Fourier 展开，由此得到 $\eqref{eq:extractor}$. 注意
+$$
+xy+x^2y^2=(x,x^2)\cdot(y,y^2).
+\notag
+$$
+所以需要估计两个取值于抛物线上的随机变量的内积.</p>
+
+<h2>平方、卷积与指数和</h2>
+
+<p>以下在 $G=\mathbb F_p^2$ 上工作，$u\cdot v=u_1v_1+u_2v_2$. 对 $G$ 上的概率质量函数 $\mu,\nu$，使用计数测度定义
+$$
+\|\mu\|_2^2=\sum_{u\in G}|\mu(u)|^2,
+\qquad
+(\mu*\nu)(u)=\sum_{v\in G}\mu(v)\nu(u-v),
+\qquad
+\widetilde\mu(u)=\mu(-u).
+\notag
+$$
+若 $U,U'$ 是独立同分布、概率质量函数为 $\mu$ 的随机变量，则 $U-U'$ 的概率质量函数为 $\mu*\widetilde\mu$.</p>
+
+<p class="thm"><b>引理2</b> (Cauchy–Schwarz 差分，见 [1, §3]、[2, 引理3.3])<b>.</b> 对任意 $a\ne0$ 及 $G$ 上的概率质量函数 $\mu,\nu$，有
+$$
+\begin{aligned}
+&amp;\left|\sum_{u,v\in G}\mu(u)\nu(v)e_p(a u\cdot v)\right|^{16}\\
+&amp;\quad\le p\,
+\|\mu*\widetilde\mu*\mu*\widetilde\mu\|_2
+\|\nu*\widetilde\nu*\nu*\widetilde\nu\|_2.
+\end{aligned}
+\label{eq:differencebound}
+$$</p>
+
+<p><i>证明.</i> 因 $\nu$ 的总质量为 $1$，Cauchy–Schwarz 不等式给出
+$$
+\begin{aligned}
+&amp;\left|\sum_{u,v}\mu(u)\nu(v)e_p(a u\cdot v)\right|^2\\
+&amp;\quad\le\sum_v\nu(v)
+\left|\sum_u\mu(u)e_p(a u\cdot v)\right|^2\\
+&amp;\quad=\sum_{u,u',v}\mu(u)\mu(u')\nu(v)
+e_p\bigl(a(u-u')\cdot v\bigr)\\
+&amp;\quad=\sum_{w,v}(\mu*\widetilde\mu)(w)\nu(v)
+e_p(a w\cdot v).
+\end{aligned}
+\label{eq:onesquaring}
+$$
+最后一个数为非负实数. 因而平方一次，就把 $\mu$ 换成 $\mu*\widetilde\mu$. 再对这个概率分布应用同一估计，因 $\mu*\widetilde\mu$ 关于原点对称，所得分布为 $\mu*\widetilde\mu*\mu*\widetilde\mu$. 对 $\mu$、$\nu$ 各作两次这样的操作，得到
+$$
+\begin{aligned}
+&amp;\left|\sum_{u,v}\mu(u)\nu(v)e_p(a u\cdot v)\right|^{16}\\
+&amp;\quad\le
+\left|\sum_{u,v}
+(\mu*\widetilde\mu*\mu*\widetilde\mu)(u)
+(\nu*\widetilde\nu*\nu*\widetilde\nu)(v)
+e_p(a u\cdot v)\right|.
+\end{aligned}
+\notag
+$$</p>
+
+<p>另一方面，对 $G$ 上任意函数 $\alpha,\beta$，由 Cauchy–Schwarz 不等式及加性特征的正交性，
+$$
+\begin{aligned}
+\left|\sum_{u,v}\alpha(u)\beta(v)e_p(a u\cdot v)\right|
+&amp;\le\|\alpha\|_2
+\left(\sum_u\left|\sum_v\beta(v)e_p(a u\cdot v)\right|^2\right)^{1/2}\\
+&amp;=p\|\alpha\|_2\|\beta\|_2.
+\end{aligned}
+\label{eq:parseval}
+$$
+这里使用 $a\ne0$，从而 $\sum_{u\in G}e_p(a u\cdot(v-v'))$ 在 $v=v'$ 时等于 $p^2$，其余情形等于 $0$. 合并以上两式即得 $\eqref{eq:differencebound}$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>现在令 $A\subseteq\mathbb F_p$，记 $\mu_A$ 为 $(x,x^2)$ 在 $x\in A$ 上均匀取值时的分布，即
+$$
+\mu_A(u)=\frac1{|A|}
+|\{x\in A:(x,x^2)=u\}|.
+\notag
+$$
+定义四重和的表示数
+$$
+r_A(s,t)=\left|\left\{
+(x_1,x_2,x_3,x_4)\in A^4:
+\begin{aligned}
+x_1+x_2+x_3+x_4&amp;=s,\\
+x_1^2+x_2^2+x_3^2+x_4^2&amp;=t
+\end{aligned}
+\right\}\right|.
+\label{eq:representations}
+$$
+于是
+$$
+\|\mu_A*\widetilde\mu_A*\mu_A*\widetilde\mu_A\|_2^2
+=\frac1{|A|^8}\sum_{s,t\in\mathbb F_p}r_A(s,t)^2.
+\label{eq:collision}
+$$
+事实上，左端乘以 $|A|^8$，计数的是两组交错和
+$$
+(x_1,x_1^2)-(x_2,x_2^2)+(x_3,x_3^2)-(x_4,x_4^2)
+\notag
+$$
+相等的八元组. 把负号对应的变量移至另一侧，每侧都有四个正号，恰好得到 $\eqref{eq:collision}$ 右端的计数.</p>
+
+<p>下面用点线关联估计控制 $\sum_{s,t}r_A(s,t)^2$.</p>
+
+<h2>抛物线上的四重和</h2>
+
+<p>我们引用如下有限域点线关联定理. 这是本证明使用的 sum-product 理论的结果.</p>
+
+<p class="thm"><b>定理3</b> (Bourgain–Katz–Tao [3]，采用 [1, 定理2.2] 的形式)<b>.</b> 存在绝对常数 $0\lt\beta\le1/4$、$C&gt;0$，使得对 $\mathbb F_p^2$ 中的点集 $P$、直线集 $\mathcal L$，若
+$$
+|P|,|\mathcal L|\le N,
+\qquad p\le N\le p^{3/2},
+\notag
+$$
+则
+$$
+|\{(z,l)\in P\times\mathcal L:z\in l\}|
+\le C N^{3/2-\beta}.
+\label{eq:incidences}
+$$</p>
+
+<p class="thm"><b>引理4</b> (Bourgain [1, 命题3.6的证明])<b>.</b> 存在绝对常数 $\theta&gt;0$、$C&gt;0$，使对任意 $A\subseteq\mathbb F_p$，$1\le|A|\le\sqrt p$，都有
+$$
+\sum_{s,t\in\mathbb F_p}r_A(s,t)^2
+\le C p^{3-\theta}.
+\label{eq:energy}
+$$
+其中可取 $\theta=\beta/4$，$\beta$ 如定理3.</p>
+
+<p><i>证明.</i> 先记录两个平凡估计. 显然
+$$
+\sum_{s,t}r_A(s,t)=|A|^4\le p^2.
+\label{eq:totalmass}
+$$
+固定 $x_1,x_2$ 以后，条件 $\eqref{eq:representations}$ 给定了 $x_3+x_4$ 及 $x_3^2+x_4^2$. 因 $p$ 为奇数，$x_3x_4$ 也被确定，故有至多两个有序对 $(x_3,x_4)$. 因而
+$$
+\max_{s,t}r_A(s,t)\le2|A|^2\le2p.
+\label{eq:maxrepresentation}
+$$
+令
+$$
+\theta=\frac\beta4,
+\qquad
+H=\{(s,t)\in\mathbb F_p^2:r_A(s,t)&gt;p^{1-\theta}\}.
+\notag
+$$
+由 $\eqref{eq:totalmass}$，
+$$
+|H|\le p^{1+\theta}.
+\label{eq:heavycardinality}
+$$</p>
+
+<p>为估计 $H$ 上的表示数，作双射
+$$
+(s,t)\longmapsto\left(s,\frac{s^2-t}{2}\right),
+\notag
+$$
+并记 $H$ 的像为 $P$. 若 $(x_1,x_2,x_3,x_4)$ 被 $r_A(s,t)$ 计数，令 $v=(s^2-t)/2$，则
+$$
+v=\sum_{1\le i\lt j\le4}x_ix_j.
+\notag
+$$
+消去 $x_4=s-x_1-x_2-x_3$，得到
+$$
+\begin{aligned}
+v={}&amp;(x_1+x_2+x_3)s-(x_1+x_2+x_3)^2\\
+&amp;+x_1x_2+x_2x_3+x_3x_1.
+\end{aligned}
+\label{eq:line}
+$$
+固定 $x_3\in A$ 时，每个 $(x_1,x_2)\in A^2$ 在 $(s,v)$ 平面上给出一条直线.</p>
+
+<p>这些直线的重数至多为 $2$. 事实上，斜率确定 $x_1+x_2$，再由截距确定 $x_1x_2$，所以无序对 $\{x_1,x_2\}$ 被确定. 记这些互异直线的集合为 $\mathcal L_{x_3}$，则
+$$
+|\mathcal L_{x_3}|\le|A|^2\le p.
+\notag
+$$
+对每个固定的 $(s,t),x_1,x_2,x_3$，$x_4$ 至多有一个取值. 因此，放宽 $x_4\in A$ 的限制并用定理3，得到
+$$
+\begin{aligned}
+\sum_{(s,t)\in H}r_A(s,t)
+&amp;\le2\sum_{x_3\in A}
+|\{(z,l)\in P\times\mathcal L_{x_3}:z\in l\}|\\
+&amp;\le C|A|p^{(1+\theta)(3/2-\beta)}.
+\end{aligned}
+\label{eq:heavymass}
+$$
+这里取 $N=\lceil p^{1+\theta}\rceil$. 由于 $\theta\le1/16$，当 $p$ 充分大时 $N\le p^{3/2}$，故定理3确实适用.</p>
+
+<p>在 $H$ 以外使用定义中的阈值，在 $H$ 上使用 $\eqref{eq:maxrepresentation}$ 及 $\eqref{eq:heavymass}$，可得
+$$
+\begin{aligned}
+\sum_{s,t}r_A(s,t)^2
+&amp;\le p^{1-\theta}\sum_{(s,t)\notin H}r_A(s,t)
++2p\sum_{(s,t)\in H}r_A(s,t)\\
+&amp;\le p^{3-\theta}
++C p^{3/2+(1+\theta)(3/2-\beta)}\\
+&amp;=p^{3-\theta}
++C p^{3-\beta+(3/2-\beta)\theta}.
+\end{aligned}
+\notag
+$$
+因 $\theta=\beta/4$，有
+$$
+-\beta+(3/2-\beta)\theta
+\le-\frac{5\beta}{8}\le-\theta.
+\notag
+$$
+所以 $\eqref{eq:energy}$ 成立.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>从指数和到随机比特</h2>
+
+<p><i>证明.</i> 先设 $X,Y$ 分别在 $A,B\subseteq\mathbb F_p$ 上均匀分布，且
+$$
+|A|=|B|=K,
+\qquad
+K=\left\lfloor p^{1/2-\varepsilon}\right\rfloor,
+\qquad
+\varepsilon=\frac\theta{32}.
+\label{eq:entropychoice}
+$$
+由 $\eqref{eq:differencebound}$、$\eqref{eq:collision}$ 及引理4，对任意 $a\ne0$，
+$$
+\begin{aligned}
+&amp;\left|\mathbb E_{x\in A,y\in B}
+e_p\bigl(a(xy+x^2y^2)\bigr)\right|^{16}\\
+&amp;\quad\le\frac{p}{|A|^4|B|^4}
+\left(\sum_{s,t}r_A(s,t)^2\right)^{1/2}
+\left(\sum_{s,t}r_B(s,t)^2\right)^{1/2}\\
+&amp;\quad\le\frac{C p^{4-\theta}}{K^8}
+\le C p^{-\theta+8\varepsilon}
+=C p^{-3\theta/4}.
+\end{aligned}
+\label{eq:charactersflat}
+$$
+其中 $K\ge p^{1/2-\varepsilon}/2$ 对充分大的 $p$ 成立. 因而
+$$
+\max_{a\ne0}
+\left|\mathbb E_{x\in A,y\in B}
+e_p\bigl(a(xy+x^2y^2)\bigr)\right|
+\le C p^{-3\theta/64}.
+\label{eq:characterestimate}
+$$</p>
+
+<p>现在去掉均匀分布的假设. 任意满足 $\max_x\mathbb P(X=x)\le1/K$ 的概率分布，都是 $K$ 元子集上均匀分布的凸组合. 为说明这一点，考虑多面体
+$$
+\left\{(w_x)_{x\in\mathbb F_p}:
+0\le w_x\le\frac1K,\quad \sum_xw_x=1\right\}.
+\notag
+$$
+其极点的每个坐标都为 $0$ 或 $1/K$. 事实上，若仅有一个坐标严格位于端点之间，由总质量为 $1$ 可知它也是 $1/K$ 的整数倍，矛盾. 若至少有两个这样的坐标，对它们作大小相同、符号相反的微小扰动，就能把该点写成两个不同点的平均. 因而每个极点恰有 $K$ 个非零坐标，结论成立.</p>
+
+<p>若 $X,Y$ 满足定理1的熵条件，则
+$$
+\max_x\mathbb P(X=x),\ \max_y\mathbb P(Y=y)
+\le p^{-1/2+\varepsilon}\le\frac1K.
+\notag
+$$
+将两个分布分别写成上述凸组合. 因 $X,Y$ 独立，联合分布是这些均匀乘积分布的凸组合. 对 $\eqref{eq:characterestimate}$ 取加权平均，便得到
+$$
+\max_{a\ne0}
+\left|\mathbb E e_p\bigl(a(XY+X^2Y^2)\bigr)\right|
+\le C p^{-3\theta/64}.
+\label{eq:charactergeneral}
+$$
+这证明了 $\eqref{eq:characters}$，例如可取 $b=\theta/32$，并增大 $p$ 的下界.</p>
+
+<p>最后处理 $\eqref{eq:function}$ 中的符号函数. 令
+$$
+h(t)=\operatorname{sign}\sin\frac{2\pi t}{p},
+\qquad h(0)=1.
+\notag
+$$
+在最小非负整数代表中，$h(t)=1$ 对应 $0\le t\le(p-1)/2$，其余取值为 $-1$. 作归一化 Fourier 展开
+$$
+h(t)=\sum_{j=0}^{p-1}\widehat h(j)e_p(jt),
+\qquad
+\widehat h(j)=\frac1p\sum_{t=0}^{p-1}h(t)e_p(-jt).
+\label{eq:fourier}
+$$
+由于正、负值的个数分别为 $(p+1)/2$、$(p-1)/2$，有 $\widehat h(0)=1/p$. 对 $1\le j\le p-1$，几何级数求和给出
+$$
+\widehat h(j)=\frac2p\sum_{t=0}^{(p-1)/2}e_p(-jt),
+\qquad
+|\widehat h(j)|
+\le\frac{2}{p|\sin(\pi j/p)|}
+\le\frac1{\min\{j,p-j\}}.
+\notag
+$$
+因而
+$$
+\sum_{j=1}^{p-1}|\widehat h(j)|
+\le2\sum_{j=1}^{(p-1)/2}\frac1j
+\le C\log p.
+\label{eq:fourierlone}
+$$
+将 $\eqref{eq:charactergeneral}$ 代入 $\eqref{eq:fourier}$，并用 $\eqref{eq:fourierlone}$，得到
+$$
+\begin{aligned}
+|\mathbb E f(X,Y)|
+&amp;\le\frac1p+
+\sum_{j=1}^{p-1}|\widehat h(j)|
+\left|\mathbb E e_p\bigl(j(XY+X^2Y^2)\bigr)\right|\\
+&amp;\le\frac1p+C(\log p)p^{-3\theta/64}.
+\end{aligned}
+\notag
+$$
+对充分大的 $p$，右端至多为 $p^{-\theta/64}$. 所以取 $c=\theta/64$ 就得到 $\eqref{eq:extractor}$，定理1得证.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p><b>关于证明的说明.</b> 函数 $\eqref{eq:function}$、四重和的表示数以及直线 $\eqref{eq:line}$ 均来自 [1, §3]. 差分与卷积的表述参考 [2, §3.2.1]. 本文在差分中采用足以证明结论的 $16$ 次幂估计，并把原文对表示数的分层计数合并为阈值 $p^{1-\theta}$ 两侧的估计. 所用点线关联定理作为外部结果引用. 定理以原文的素数域 $\mathbb F_p$ 为输入空间，熵率相对于 $\log_2p$ 计算.</p>
+
+<h2>参考文献</h2>
+
+<p>[1] J. Bourgain, <i>More on the Sum-Product Phenomenon in Prime Fields and Its Applications</i>. International Journal of Number Theory <b>1</b> (2005), 1–32. <a href="https://doi.org/10.1142/S1793042105000108" target="_blank">论文链接</a>.</p>
+
+<p>[2] A. Rao, <i>An Exposition of Bourgain’s 2-Source Extractor</i>. 2007. <a href="https://homes.cs.washington.edu/~anuprao/pubs/bourgain.pdf" target="_blank">讲义链接</a>.</p>
+
+<p>[3] J. Bourgain, N. Katz, T. Tao, <i>A sum-product estimate in finite fields, and applications</i>. Geometric and Functional Analysis <b>14</b> (2004), 27–57. <a href="https://arxiv.org/abs/math/0301343" target="_blank">论文链接</a>.</p>
+
+</div>
+
+<!-- 导航栏、页脚与数学排版 -->
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+<script>
+window.MathJax.tex.tags = 'all';
+// 草稿使用本页标题，数学配置仍由站点脚本加载.
+window.infoinput = function () {
+  document.getElementById('blogtitle').textContent = "Bourgain的魔法：two-source extractors";
+  document.getElementById('blogdate').textContent = '草稿';
+  document.getElementById('pagetitle').textContent = "Bourgain的魔法：two-source extractors";
+};
+</script>
+</body>
+</html>
