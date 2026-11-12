@@ -165,7 +165,7 @@ $$
 
 <p class="proof-box">$\Box$</p>
 
-<p>于是定理3给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$，对序列 $g_j=A_{M_j}f$ 应用引理2，便知 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
+<p>于是定理3和引理4给出动力系统上的估计 (7). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$. 对序列 $g_j=A_{M_j}f$ 应用引理2：引理2 的指标区间 $[j_k,j_{k+1})$ 对应 $S_\rho$ 中的尺度区间 $[M_{j_k},M_{j_{k+1}})$，而 (7) 正是这些尺度上的振荡估计. 因此 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
 
 <p class="thm"><b>引理5.</b> 设 $f\in L^2(X)$. 若对每个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，并且 Hopf 极大不等式 (2) 成立，则 $A_Nf$ a.e. 收敛.</p>
 
@@ -250,7 +250,7 @@ $$
 
 <p>证明的结构是：首尾两项由乘子级数引理控制；中间项用卷积恒等式化为一个粗尺度核作用于环带投影，再由极大不等式和乘子级数分别控制；环带投影的望远镜求和给出 $\ell^2$ 估计. 这是整条证明的解析核心.</p>
 
-<p><i>证明.</i> 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_{k+1}}^S\phi$ 写成三部分：
+<p><i>证明.</i> 以下设 $(N_k)\subset S_\rho$. 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_{k+1}}^S\phi$ 写成三部分：
 $$
 A_N^S\phi-A_{N_{k+1}}^S\phi
 =(A_N^S\phi-g_N*\phi)
@@ -267,7 +267,7 @@ m_N-\mathbf1_{[-\pi/N,\pi/N]},
 $$
 使用一个放缩 
 $$\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}} \cdots \leq \sum_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}} \cdots,$$
-再由引理6和 Plancherel 定理，对 $k$ 求和，这两部分对 $\mathcal O_{\mathbf N,K}$ 的贡献为 $O_\rho(1)$.</p>
+再由引理6和 Plancherel 定理，对 $k$ 求和，这两部分对 $\mathcal O_{\mathbf N,K}$ 的贡献为 $O_\rho(1)$. 这里 $N_{k+1}\in S_\rho$ 由 $(N_k)\subset S_\rho$ 保证.</p>
 <!-- $$
 \begin{aligned}
 &\sum_{k=1}^K
@@ -339,7 +339,7 @@ $$
 \end{aligned}
 \tag{17}
 $$
-把 (14)、(16)、(17) 代入 (13)，并用 $(a+b+c)^2\le3(a^2+b^2+c^2)$，便得到 (6). 定理3证毕.</p>
+把第一、三项的估计以及 (15)、(16)、(17) 代入 (13)，并用 $(a+b+c)^2\le3(a^2+b^2+c^2)$，便得到 (6). 定理3证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
