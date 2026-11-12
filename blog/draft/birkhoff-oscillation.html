@@ -261,23 +261,32 @@ $$
 <p>证明的结构是：首尾两项由乘子级数引理控制；中间项用卷积恒等式化为一个粗尺度核作用于环带投影，再由极大不等式和乘子级数分别控制；环带投影的望远镜求和给出 $\ell^2$ 估计. 这是整条证明的解析核心.</p>
 
 <p><i>证明.</i> 以下设 $(N_k)\subset S_\rho$. 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_{k+1}}^S\phi$ 写成三部分：
-$$
+$$\begin{align*}
 A_N^S\phi-A_{N_{k+1}}^S\phi
-=(A_N^S\phi-g_N*\phi)
-+(g_N*\phi-g_{N_{k+1}}*\phi)
-+(g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi).
-\tag{13}
-$$</p>
+& =(A_N^S\phi-g_N*\phi)
++(g_{N_{k+1}}*\phi-A_{N_{k+1}}^S\phi)\\
+& \quad +(g_N*\phi-g_{N_{k+1}}*\phi).
+\end{align*}\tag{13}$$</p>
 
-<p>第一项和第三项的Fourier乘子分别为
+<p>第一项和第二项的Fourier乘子分别为
 $$
 m_N-\mathbf1_{[-\pi/N,\pi/N]},
 \qquad
 \mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}-m_{N_{k+1}}.
 $$
-使用一个放缩 
-$$\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}} \cdots \leq \sum_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}} \cdots,$$
-再由引理6和 Plancherel 定理，对 $k$ 求和，这两部分对 $\mathcal O_{\mathbf N,K}$ 的贡献为 $O_\rho(1)$. 这里 $N_{k+1}\in S_\rho$ 由 $(N_k)\subset S_\rho$ 保证.</p>
+于是把 $\sup$ 放缩为 $\sum$,
+$$\sum_{k=1}^K
+\left\|\sup_{N\in S_\rho\cap[N_k,N_{k+1}]}
+|(A_N^S-g_N)*\phi|\right\|_2^2
+\lesssim \sum_{N\in S_\rho}
+\left\|(A_N^S-g_N)*\phi\right\|_2^2.$$
+再由引理6和 Plancherel 定理，
+$$
+\sum_{N\in S_\rho} \left\|(A_N^S-g_N)*\phi\right\|_2^2
+=\int_{-\pi}^{\pi} \left(\sum_{N\in S_\rho}|a_N(\theta)|^2\right)
+|\widehat\phi(\theta)|^2 \,d\theta \lesssim_\rho \|\phi\|_{2}^2.
+$$
+第一项的估计得证. 第二项由于 $(N_k)\subset S_\rho$, 证明是类似的.</p>
 <!-- $$
 \begin{aligned}
 &\sum_{k=1}^K
@@ -292,64 +301,39 @@ $$\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}} \cdots \leq \sum_{\substack
 \tag{14}
 $$</p> -->
 
-<p>中间项是 $g_N*\phi-g_{N_{k+1}}*\phi$. 由于 $N_k\le N\le N_{k+1}$，频率区间满足
+<p>第三项是 $g_N*\phi-g_{N_{k+1}}*\phi$. 由于 $N_k\le N\le N_{k+1}$，有
 $$
-1_{[-\pi/N,\pi/N]}\subset1_{[-\pi/N_k,\pi/N_k]},
-\qquad
-1_{[-\pi/N_{k+1},\pi/N_{k+1}]}\subset1_{[-\pi/N,\pi/N]}.
+1_{[-\pi/N,\pi/N]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]}=1_{[-\pi/N,\pi/N]}\bigl(1_{[-\pi/N_k,\pi/N_k]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]}\bigr),
 $$
-由上面的嵌套关系，
-$$
-1_{[-\pi/N,\pi/N]}\bigl(1_{[-\pi/N_k,\pi/N_k]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]}\bigr)
-=1_{[-\pi/N,\pi/N]}-1_{[-\pi/N_{k+1},\pi/N_{k+1}]},
-$$
-两端正是 $g_N*(g_{N_k}-g_{N_{k+1}})$ 与 $g_N-g_{N_{k+1}}$ 的 Fourier 乘子. 因此
+翻译回物理空间即有
 $$
 g_N-g_{N_{k+1}}
 =g_N*(g_{N_k}-g_{N_{k+1}}).
-\tag{15}
 $$
-令 $h_k=(g_{N_k}-g_{N_{k+1}})*\phi$. 当 $N\in S_\rho\cap[N_k,N_{k+1}]$ 时，中间项等于 $g_N*h_k$. 由三角不等式，
+令 $h_k=(g_{N_k}-g_{N_{k+1}})*\phi$. 于是当 $N\in S_\rho\cap[N_k,N_{k+1}]$ 时，第三项等于 $g_N*h_k$. 进一步分解
 $$
 \sup_{N\in S_\rho}|g_N*h_k|
 \le\sup_{N\ge1}|A_N*h_k|
 +\sup_{N\in S_\rho}|(g_N-A_N)*h_k|.
 $$
-第一项由移位算子的极大不等式控制：
+第一部分由移位算子的极大不等式控制：
 $$
 \left\|\sup_{N\ge1}|A_N*h_k|\right\|_2
-\le C\|h_k\|_2.
+\lesssim \|h_k\|_2.
 $$
-第二项由引理6和Plancherel定理控制：$g_N-A_N$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以
+第二部分中，$g_N-A_N$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以同样由引理6和 Plancherel定理，
 $$
 \left\|\sup_{N\in S_\rho}|(g_N-A_N)*h_k|\right\|_2^2
 \le\sum_{N\in S_\rho}\|(g_N-A_N)*h_k\|_2^2
-\le C_\rho\|h_k\|_2^2.
+\lesssim_\rho \|h_k\|_2^2.
 $$
 因此
 $$
-\begin{aligned}
-&\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|(g_N-g_{N_{k+1}})*\phi|\right\|_2 \\
-&\le C_\rho\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2.
+\begin{aligned}\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
+|(g_N-g_{N_{k+1}})*\phi|\right\|_2 \lesssim_\rho \|(g_{N_k}-g_{N_{k+1}})*\phi\|_2\lesssim \|\phi\|_{2}^2,
 \end{aligned}
-\tag{16}
-$$</p>
-
-<p>最后，由Plancherel定理和区间 $[-\pi/N_k,\pi/N_k]$ 的嵌套性，
 $$
-\begin{aligned}
-&\sum_{k=1}^K
-\|(g_{N_k}-g_{N_{k+1}})*\phi\|_2^2 \\
-&=\int_{-\pi}^{\pi}\sum_{k=1}^K
-\Bigl|\mathbf1_{[-\pi/N_k,\pi/N_k]}(\theta) \\
-&\qquad\qquad-\mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}(\theta)\Bigr|^2
-|\widehat\phi(\theta)|^2\,d\theta \\
-&\le\|\phi\|_2^2.
-\end{aligned}
-\tag{17}
-$$
-把第一、三项的估计以及 (15)、(16)、(17) 代入 (13)，并用 $(a+b+c)^2\le3(a^2+b^2+c^2)$，便得到 (6). 定理3证毕.</p>
+第三项的估计成立，即得到 (6). 定理3证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -360,8 +344,6 @@ $$
 \frac1N\sum_{n=1}^N f(T^{P(n)}x)g(T^{Q(n)}x),
 $$
 只需把线性乘子换成双线性形式，并重复本文的分解与极大估计. 这正是 El Abdalaoui 文中定理2.1的证明路线；本文只展开了线性情形.</p>
-
-<p>最后，与经典证明相比，振荡证明不是更短的证明，而是结构更清晰的证明. 它把论证分成振荡判据、Calderón转移和 $\mathbb Z$ 上的Fourier估计三部分；一般系统只通过转移进入，解析困难集中在移位算子上. 振荡判据不依赖稠密类，因此可以用于没有明显望远镜结构的平均；振荡估计本身也是比 a.e. 收敛更强的定量结论. 代价是证明更长、技术复杂度更高：它仍然使用极大不等式（Hardy--Littlewood 和 Hopf）、均方遍历定理和Fourier分析，只是重新组织了这些工具的使用. 多项式情形遵循同一分层：Weyl和取代几何和，圆法取代频率截断，多频率极大估计取代乘子级数引理；解析核心需要在多项式情形重新做一遍，本文不展开.</p>
 
 <h2>参考文献</h2>
 
