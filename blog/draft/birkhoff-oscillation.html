@@ -49,7 +49,7 @@ $$
 $$
 Bourgain用这个变差算子证明了以下的 a.e. 收敛判别法；$\ell^2$ 求和可以推广为一般的 $\ell^p$ 求和.</p>
 
-<p class="thm"><b>引理2</b> (Bourgain 变差判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
+<p class="thm"><b>引理 2</b> (Bourgain 变差判别)<b>.</b> 假设存在数列 $C_K=o(K)$，使对每个递增序列 $\mathbf N=(N_k)$ 和每个 $K$ 都有
 $$
 \|\mathcal O_{\mathbf N,K}(f)\|_2
 \le C_K\|f\|_2.
@@ -104,7 +104,7 @@ $$
 
 <p>现在可以叙述Bourgain证明的核心结果</p>
 
-<p class="thm"><b>定理3</b> ($\mathbb Z$ 稀疏变差估计)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 存在常数 $C_\rho$，使对每个 $\phi\in\ell^2(\mathbb Z)$ 和每个 $K$ 都有
+<p class="thm"><b>定理 3</b> ($\mathbb Z$ 稀疏变差估计)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 存在常数 $C_\rho$，使对每个 $\phi\in\ell^2(\mathbb Z)$ 和每个 $K$ 都有
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
@@ -115,7 +115,7 @@ $$</p>
 
 <p>接下来我们将这个离散、稀疏的结果与之前的变差判别相联系.</p>
 
-<p class="thm"><b>引理4</b> (transference原理)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 则 (4) 推出动力系统上的稀疏变差估计：对每个 $f\in L^2(X)$，
+<p class="thm"><b>引理 4</b> (transference原理)<b>.</b> 设 $\rho>1$，$(N_k)\subset S_\rho$ 是递增序列. 则 (4) 推出动力系统上的稀疏变差估计：对每个 $f\in L^2(X)$，
 $$
 \sum_{k=1}^K
 \left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
@@ -172,7 +172,7 @@ $$
 
 <p>于是定理3 和引理4 给出动力系统上的估计 (5). 把 $S_\rho$ 的元素按递增顺序记为 $M_j$. 对序列 $g_j=A_{M_j}f$ 应用引理2：引理2 的指标区间 $[j_k,j_{k+1})$ 对应 $S_\rho$ 中的尺度区间 $[M_{j_k},M_{j_{k+1}})$，而 (5) 正是这些尺度上的变差估计. 因此 $A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛. 以下引理则继续把稀疏尺度上的收敛延伸到所有 $N$.</p>
 
-<p class="thm"><b>引理5.</b> 设 $f\in L^2(X)$，$\|f\|_\infty\le1$. 若对某个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，则对全体 $N\in \mathbb N$, $A_Nf$ a.e. 收敛.</p>
+<p class="thm"><b>引理 5.</b> 设 $f\in L^2(X)$，$\|f\|_\infty\le1$. 若对某个 $\rho>1$，$A_Nf$ 沿 $N\in S_\rho$ a.e. 收敛，则对全体 $N\in \mathbb N$, $A_Nf$ a.e. 收敛.</p>
 
 <p><i>证明.</i> 先对 $f\in L^\infty(X)$ 讨论. 对每个 $N$，取 $S_\rho$ 中不小于 $N$ 的最小元素 $N'$. 则 $N\le N'\le\rho N+\rho$，并且
 $$
@@ -224,7 +224,7 @@ $$
 
 <p>下面给出移位算子乘子的主部，以及在稀疏尺度下误差累积的控制.</p>
 
-<p class="thm"><b>引理6.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，s.t. 对任意 $\theta\in[-\pi,\pi)$ 都一致有
+<p class="thm"><b>引理 6.</b> 对每个 $\rho>1$，存在常数 $C_\rho$，s.t. 对任意 $\theta\in[-\pi,\pi)$ 都一致有
 $$\sum_{N\in S_\rho}\left|m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta)\right|^2=O_{\rho}(1).$$
 </p>
 
@@ -248,7 +248,7 @@ $$
 
 <h2>离散变差估计的证明</h2>
 
-<p>现在证明定理3.</p>
+<p>现在证明定理 3.</p>
 
 <p><i>证明.</i> 以下设 $(N_k)\subset S_\rho$. 对 $N_k\le N\le N_{k+1}$，把 $A_N^S\phi-A_{N_{k+1}}^S\phi$ 写成三部分：
 $$\begin{align*}
@@ -264,21 +264,15 @@ m_N-\mathbf1_{[-\pi/N,\pi/N]},
 \qquad
 \mathbf1_{[-\pi/N_{k+1},\pi/N_{k+1}]}-m_{N_{k+1}}.
 $$
-记
-$$
-a_N(\theta):=m_N(\theta)-\mathbf1_{[-\pi/N,\pi/N]}(\theta).
-$$
 于是把 $\sup$ 放缩为 $\sum$,
 $$\sum_{k=1}^K
 \left\|\sup_{N\in S_\rho\cap[N_k,N_{k+1}]}
 |(A_N^S-g_N)*\phi|\right\|_2^2
 \lesssim \sum_{N\in S_\rho}
 \left\|(A_N^S-g_N)*\phi\right\|_2^2.$$
-再由引理6和 Plancherel 定理，
+再由引理 6 和 Plancherel 定理，
 $$
-\sum_{N\in S_\rho} \left\|(A_N^S-g_N)*\phi\right\|_2^2
-=\int_{-\pi}^{\pi} \left(\sum_{N\in S_\rho}|a_N(\theta)|^2\right)
-|\widehat\phi(\theta)|^2 \,d\theta \lesssim_\rho \|\phi\|_{2}^2.
+\sum_{N\in S_\rho} \left\|(A_N^S-g_N)*\phi\right\|_2^2 \lesssim_\rho \|\phi\|_{2}^2.
 $$
 第一项的估计得证. 第二项由于 $(N_k)\subset S_\rho$, 证明是类似的.</p>
 
@@ -303,19 +297,13 @@ $$
 \left\|\sup_{N\ge1}|A_N^S h_k|\right\|_2
 \lesssim \|h_k\|_2.
 $$
-第二部分中，$g_N*h_k-A_N^S h_k$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以同样由引理6和 Plancherel定理，
+第二部分中，$g_N*h_k-A_N^S h_k$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以同样由引理 6 和 Plancherel定理，
 $$
 \left\|\sup_{N\in S_\rho}|g_N*h_k-A_N^S h_k|\right\|_2^2
 \le\sum_{N\in S_\rho}\|g_N*h_k-A_N^S h_k\|_2^2
 \lesssim_\rho \|h_k\|_2^2.
 $$
-因此
-$$
-\left\|\sup_{\substack{N_k\le N\le N_{k+1}\\N\in S_\rho}}
-|(g_N-g_{N_{k+1}})*\phi|\right\|_2
-\lesssim_\rho \|h_k\|_2.
-$$
-对 $k$ 求和，并用频率区间的嵌套性，
+再对 $k$ 求和，并用频率区间的嵌套结构，
 $$
 \sum_{k=1}^K\|h_k\|_2^2
 =\int_{-\pi}^{\pi}\sum_{k=1}^K
@@ -324,32 +312,13 @@ $$
 |\widehat\phi(\theta)|^2\,d\theta
 \le\|\phi\|_2^2.
 $$
-把三部分的估计对 $k$ 求和并合并，即得 (4). 定理3, 进而 Birkhoff 遍历定理证毕.</p>
+第三项的估计成立，即得 (4). 定理3, 进而定理 1 证毕.</p>
 
 <p class="proof-box">$\Box$</p>
 
 <p>
   Bourgain式的新证明比标准证明绕了很多弯，但我们已经能体会到 Bourgain 引入的新想法有着巨大的推广潜力（尤其是变差判别）. 在后面，多项式遍历定理的证明依然沿着上述的证明框架进行，但需要更复杂的工具，比如新的极大算子估计、多频率分析和 Hardy-Littlewood 圆法. 未完待续~
 </p>
-
-<h2>参考文献</h2>
-
-<ol>
-
-<li>G. D. Birkhoff, <i>Proof of the ergodic theorem</i>, Proc. Nat. Acad. Sci. USA 17 (1931), 656--660.</li>
-
-<li>J. Bourgain, <i>An approach to pointwise ergodic theorems</i>, in <i>Geometric Aspects of Functional Analysis</i>, Lecture Notes in Math. 1317, Springer, 1988, 204--223.</li>
-
-<li>J. Bourgain, <i>On the maximal ergodic theorem for certain subsets of the integers</i>, Israel J. Math. 61 (1988), 39--72.</li>
-
-<li>E. H. El Abdalaoui, <i>Simple proof of Bourgain bilinear ergodic theorem and its extension to polynomials and polynomials in primes</i>, arXiv:1908.02281.</li>
-
-<li>A. Calderón, <i>Ergodic theory and translation-invariant operators</i>, Proc. Nat. Acad. Sci. USA 59 (1968), 349--353.</li>
-
-<li>N. Wiener, <i>The Fourier Integral and Certain of Its Applications</i>, Cambridge University Press, 1933.</li>
-
-</ol>
-
 </div>
 
 <!-- 导航栏与页脚 -->
