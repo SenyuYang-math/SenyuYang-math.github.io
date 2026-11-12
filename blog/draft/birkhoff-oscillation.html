@@ -296,17 +296,17 @@ $$
 $$
 \sup_{N\in S_\rho}|g_N*h_k|
 \le\sup_{N\ge1}|A_N^S h_k|
-+\sup_{N\in S_\rho}|(g_N-A_N^S)h_k|.
++\sup_{N\in S_\rho}|g_N*h_k-A_N^S h_k|.
 $$
 第一部分由移位算子的极大不等式控制（证明是经典的，略去）：
 $$
 \left\|\sup_{N\ge1}|A_N^S h_k|\right\|_2
 \lesssim \|h_k\|_2.
 $$
-第二部分中，$g_N-A_N^S$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以同样由引理6和 Plancherel定理，
+第二部分中，$g_N*h_k-A_N^S h_k$ 的Fourier乘子是 $1_{[-\pi/N,\pi/N]}-m_N$，所以同样由引理6和 Plancherel定理，
 $$
-\left\|\sup_{N\in S_\rho}|(g_N-A_N^S)h_k|\right\|_2^2
-\le\sum_{N\in S_\rho}\|(g_N-A_N^S)h_k\|_2^2
+\left\|\sup_{N\in S_\rho}|g_N*h_k-A_N^S h_k|\right\|_2^2
+\le\sum_{N\in S_\rho}\|g_N*h_k-A_N^S h_k\|_2^2
 \lesssim_\rho \|h_k\|_2^2.
 $$
 因此
