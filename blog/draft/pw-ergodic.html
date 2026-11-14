@@ -6,11 +6,12 @@
 <body id="body">
 <div id="container" class="container">
 
-<p>本文是 Bourgain 多项式遍历定理系列的第二期. <a href="https://senyuyang-math.github.io/blog/2026/8.html">第一期</a>介绍了 Birkhoff 遍历定理的变差证明，本期沿用其中的记号，说明多项式平均怎样通过 Hardy–Littlewood 圆法分解为有理频率附近的连续平均. <a href="pw-ergodic-iii.html">第三期</a>将证明多频率引理，完成离散估计及遍历定理的证明. 两篇均为草稿.</p>
+
+<p>本期续<a href="https://senyuyang-math.github.io/blog/2026/8.html">第一期</a>，介绍多项式平均的 Hardy–Littlewood 圆法分解. <a href="pw-ergodic-iii.html">第三期</a>将证明多频率引理及多项式遍历定理.</p>
 
 <h2>第一期所用结论与记号</h2>
 
-<p>继续设 $(X,\mathcal B,\mu)$ 是概率空间，$T$ 是可逆保测变换，$S\phi(x)=\phi(x+1)$ 是整数格上的移位. 离散函数仍记为 $\phi$，Fourier 变换仍采用第一期的约定
+<p>设 $(X,\mathcal B,\mu)$ 是概率空间，$T$ 是可逆保测变换，$S\phi(x)=\phi(x+1)$ 是整数格上的移位. 沿用第一期的 Fourier 变换约定
 $$
 \widehat\phi(\theta)=\sum_{x\in\mathbb Z}\phi(x)e^{-ix\theta},
 \qquad \theta\in\mathbb T:=\mathbb R/(2\pi\mathbb Z),
@@ -18,9 +19,7 @@ $$
 \|\phi\|_{\ell^2}^2=\frac1{2\pi}\int_{-\pi}^{\pi}|\widehat\phi(\theta)|^2\,d\theta.
 \label{eq:II-fourier}
 $$
-以下用 $[-\pi,\pi)$ 表示圆周. 对 $\rho&gt;1$，仍记 $S_\rho=\{\lfloor\rho^m\rfloor:m\ge1\}$，重复的整数只取一次.</p>
-
-<p>这里只罗列后文所需的第一期结论，证明可见第一期相应章节.</p>
+用 $[-\pi,\pi)$ 表示圆周. 对 $\rho&gt;1$，记 $S_\rho=\{\lfloor\rho^m\rfloor:m\ge1\}$，其中重复的整数只取一次. 后文将使用第一期的以下结论.</p>
 
 <p class="thm"><b>引理A</b> (第一期引理2，Bourgain变差判别)<b>.</b> 对函数序列 $(f_N)$ 及任意递增序列 $\mathbf N=(N_k)_{k=1}^{K+1}$，记
 $$
@@ -29,18 +28,18 @@ $$
 |f_N-f_{N_{k+1}}|^2\right)^{1/2}.
 \label{eq:II-oscillation}
 $$
-若存在 $b_K=o(K)$，使对所有 $\mathbf N$ 都有 $\|\mathcal O_{\mathbf N,K}(f_N)\|_2^2\le b_K$，则 $f_N$ a.e. 收敛. 应用于算子序列 $f_N=B_Nf$ 时，可取 $b_K=C_K\|f\|_2^2$，其中 $C_K=o(K)$. 同一结论适用于按递增顺序排列的 $S_\rho$ 上的序列.</p>
+若存在 $b_K=o(K)$，使对所有 $\mathbf N$ 都有 $\|\mathcal O_{\mathbf N,K}(f_N)\|_2^2\le b_K$，则 $f_N$ 几乎处处收敛. 将 $S_\rho$ 按递增顺序编号，结论同样适用.</p>
 
-<p class="thm"><b>引理B</b> (第一期引理4，Calderón转移原理)<b>.</b> 整数平移平均的最大估计、有限区间上的变差估计，可以转移到保测系统. 对多项式位移 $P(n)$，证明中的截断余量相应取为 $\max_{n\le M}|P(n)|$，其余论证相同.</p>
+<p class="thm"><b>引理B</b> (第一期引理4，Calderón转移原理)<b>.</b> 整数平移平均的最大估计和有限尺度变差估计可转移到保测系统. 对多项式位移 $P(n)$，轨道截断的余量取为 $\max_{n\le M}|P(n)|$.</p>
 
-<p class="thm"><b>引理C</b> (第一期引理5所用的稀疏尺度补全)<b>.</b> 若对每个 $f\in L^2(X)$，平均 $A_N^P f$ 对一列 $\rho_j\downarrow1$ 都沿 $S_{\rho_j}$ a.e. 收敛，并且算子族 $(A_N^P)$ 满足 $L^2$ 最大估计，则对每个 $f\in L^2(X)$，它都对所有整数 $N$ a.e. 收敛. 对有界函数，使用第一期证明中的估计
+<p class="thm"><b>引理C</b> (第一期引理5，稀疏尺度上的收敛与全序列收敛)<b>.</b> 设 $\rho_j\downarrow1$. 若对每个 $f\in L^2(X)$ 及每个 $j$，$A_N^P f$ 沿 $S_{\rho_j}$ 几乎处处收敛，且 $(A_N^P)$ 满足 $L^2$ 最大估计，则 $A_N^P f$ 沿全体整数几乎处处收敛. 对有界函数，有
 $$
 |A_N^P f-A_{N'}^P f|
 \le 2\left(\rho-1+\frac\rho N\right)\|f\|_\infty,
 \qquad N\le N'=\min(S_\rho\cap[N,\infty)).
 \label{eq:II-sparse-completion}
 $$
-一般 $L^2$ 函数通过有界逼近及相应的多项式最大估计处理.</p>
+再由有界函数逼近及最大估计得到 $L^2$ 情形.</p>
 
 <p class="thm"><b>引理D</b> (第一期Fourier分析一节及定理3的证明)<b>.</b> 设 $(M_j)$ 是递增正整数列，且每个区间 $[2^v,2^{v+1})$ 中至多有 $C_0$ 项. 记
 $$
@@ -53,7 +52,7 @@ $$
 \le C_{C_0}\|\phi\|_{\ell^2}^2.
 \label{eq:II-projection-oscillation}
 $$
-第一期取 $M_j\in S_\rho$. 其证明对这里的尺度列同样适用，因为引理6的乘子误差在每个二进尺度内只有有界多项，而最后的频率区间仍然嵌套. 后文使用 $M_j=N_j^d$，其中 $N_j$ 按顺序遍历 $S_\rho$.</p>
+第一期的证明只用到每个二进区间内的尺度数有界，以及投影区间的嵌套性. 后文取 $M_j=N_j^d$，其中 $N_j$ 依次遍历 $S_\rho$.</p>
 
 <h2>多项式遍历定理</h2>
 
@@ -64,13 +63,11 @@ A_N^P f(x)=\frac1N\sum_{n=1}^N f(T^{P(n)}x),
 A_N^{S,P}\phi(x)=\frac1N\sum_{n=1}^N\phi(x+P(n)).
 \label{eq:II-averages}
 $$
-当 $P(n)=n$ 时，分别就是第一期的 $A_N$ 与 $A_N^S$.</p>
+$P(n)=n$ 时，分别记为 $A_N$ 与 $A_N^S$.</p>
 
-<p class="thm"><b>定理1</b> (Bourgain，$L^2$ 形式，[1–3])<b>.</b> 对每个 $f\in L^2(X)$，$A_N^P f(x)$ 在 $\mu$-a.e. 收敛.</p>
+<p class="thm"><b>定理1</b> (Bourgain，$L^2$ 情形，[1–3])<b>.</b> 对每个 $f\in L^2(X)$，$A_N^P f(x)$ 几乎处处收敛.</p>
 
-<p>这里允许保测变换具有非平凡的不变集. 多项式时间还会保留一部分有理谱，因此其极限需要由多项式及系统的谱共同决定. Bourgain 同时证明了所有 $L^p,\ p&gt;1$ 的结论，本系列讨论 $L^2$ 情形.</p>
-
-<p>依照第一期的框架，我们把证明归结为如下整数格估计.</p>
+<p>Bourgain 的结论对所有 $L^p,\ p&gt;1$ 成立. 由引理A–C，定理1归结为以下估计.</p>
 
 <p class="thm"><b>命题2</b> (离散最大与稀疏变差估计，[1–3])<b>.</b> 存在 $C_P$，使
 $$
@@ -86,9 +83,7 @@ $$
 \label{eq:II-discrete-oscillation}
 $$</p>
 
-<p>引理B将这两个估计转移到动力系统，引理A给出每个稀疏尺度上的收敛，再由引理C得到定理1. 一次多项式 $P(n)=an+b$ 的情形也可以直接对 $T^a$ 及 $f\circ T^b$ 应用第一期的 Birkhoff 定理. 以下设 $d\ge2$.</p>
-
-<p>先记录均方收敛，用来说明最后得到的逐点极限.</p>
+<p>$P(n)=an+b$ 时，对 $T^a$ 及 $f\circ T^b$ 应用 Birkhoff 定理即可. 以下设 $d\ge2$.</p>
 
 <p class="thm"><b>引理3</b> (均方收敛，[3])<b>.</b> 对每个 $f\in L^2(X)$，$A_N^P f$ 在 $L^2(X)$ 中收敛.</p>
 
@@ -100,13 +95,13 @@ $$
 m_N^P(\theta)=\frac1N\sum_{n=1}^Ne^{iP(n)\theta}.
 \label{eq:II-spectral}
 $$
-当 $\theta/(2\pi)$ 为有理数时，被平均的数列周期，故 $m_N^P(\theta)$ 收敛. 当它是无理数时，Weyl 等分布定理给出 $m_N^P(\theta)\to0$. 再由 $|m_N^P|\le1$ 及控制收敛定理，$A_N^P f$ 在 $L^2$ 中是 Cauchy 列.</p>
+当 $\theta/(2\pi)$ 为有理数时，$(e^{iP(n)\theta})_n$ 为周期序列，故 $m_N^P(\theta)$ 收敛. 无理数情形由 Weyl 等分布定理得 $m_N^P(\theta)\to0$. 由 $|m_N^P|\le1$ 及控制收敛定理，$A_N^P f$ 在 $L^2$ 中为 Cauchy 序列.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<h2>Hardy–Littlewood圆法中的两个因子</h2>
+<h2>完全指数和与振荡积分</h2>
 
-<p>由 $\eqref{eq:II-fourier}$，$A_N^{S,P}$ 的 Fourier 乘子正是 $m_N^P$. 第一期开头的线性平均只有零频率附近需要保留. 多项式平均在有理频率 $2\pi a/q$ 附近也会出现显著贡献.</p>
+<p>$A_N^{S,P}$ 的 Fourier 乘子为 $m_N^P$. 考察它在 $2\pi a/q$ 附近的取值.</p>
 
 <p>对 $(a,q)=1$，定义完全指数和及连续振荡积分
 $$
@@ -121,27 +116,27 @@ m_N^P(2\pi a/q+\beta)
 =\frac1N\sum_{r=1}^q e^{2\pi iaP(r)/q}
 \sum_{\substack{1\le n\le N\\n\equiv r\pmod q}}e^{i\beta P(n)}.
 $$
-将每个剩余类上的内和用步长为 $q$ 的 Riemann 和替换，就得到
+对每个剩余类作 Riemann 求和，得
 $$
 m_N^P(2\pi a/q+\beta)
 =G_P(a/q)\Phi_N^P(\beta)
 +O_P\!\left(\frac qN(1+N^d|\beta|)\right).
 \label{eq:II-major-local}
 $$
-具体地，对 $h(t)=e^{i\beta P(t)}$，每个剩余类的求和误差由 $C(1+\int_0^N|h'(t)|\,dt)$ 控制. 对 $r$ 求和再除以 $N$，便是 $\eqref{eq:II-major-local}$ 的误差.</p>
+对 $h(t)=e^{i\beta P(t)}$，每个剩余类的求和误差不超过 $C(1+\int_0^N|h'(t)|\,dt)$. 对 $r$ 求和并除以 $N$，即得 $\eqref{eq:II-major-local}$.</p>
 
-<p>连续因子有低频及高频两种估计
+<p>振荡积分满足
 $$
 |\Phi_N^P(\beta)-1|\le C_PN^d|\beta|,
 \qquad
 |\Phi_N^P(\beta)|\le C_P\min\{1,(N^d|\beta|)^{-1/d}\}.
 \label{eq:II-continuous-bounds}
 $$
-第一式由 $|e^{iu}-1|\le|u|$ 得到. 第二式对 $t=Nu$ 后的积分使用 $d$ 阶 van der Corput 引理，因为相位的 $d$ 阶导数是 $d!c_dN^d\beta$，其中 $c_d\ne0$ 是 $P$ 的最高次系数.</p>
+第一式由 $|e^{iu}-1|\le|u|$ 得到. 对第二式，令 $t=Nu$，再用 $d$ 阶 van der Corput 引理. 相位的 $d$ 阶导数为 $d!c_dN^d\beta$，其中 $c_d$ 为 $P$ 的最高次系数.</p>
 
 <h2>Weyl不等式与次弧</h2>
 
-<p>下面使用 Weyl 差分的标准估计. 其差分过程将多项式相位依次降为线性相位，最后使用几何级数估计. 详细的指数和论证可见 [3,4].</p>
+<p>反复差分将多项式相位降为线性相位，再估计几何级数，可得下述不等式 [3,4].</p>
 
 <p class="thm"><b>引理4</b> (Weyl不等式，[3,4])<b>.</b> 若 $(a,q)=1$ 且 $|\xi-a/q|\le q^{-2}$，则对每个 $\varepsilon&gt;0$，
 $$
@@ -156,15 +151,15 @@ $$
 \label{eq:II-gauss-decay}
 $$</p>
 
-<p>对一般 $P$，应用 Weyl 差分时最高次系数为 $c_d\xi$. Weyl 不等式允许有理逼近条件中的右端为 $Cq^{-2}$，其常数相应依赖于固定的 $C$. 具体地，令 $g=\gcd(|c_d|,q)$，则 $c_da/q$ 约分后的分母为 $q'=q/g$，并且
+<p>对一般 $P$，相位的最高次系数为 $c_d\xi$. Weyl 不等式也适用于 $|\xi-a/q|\le Cq^{-2}$，常数依赖于 $C$. 令 $g=\gcd(|c_d|,q)$，则 $c_da/q$ 约分后的分母为 $q'=q/g$，且
 $$
 \left|c_d\xi-\frac{c_da/g}{q'}\right|
 \le |c_d|q^{-2}
 =\frac{|c_d|}{g^2}(q')^{-2}.
 $$
-这里 $q/|c_d|\le q'\le q$，故得到 $\eqref{eq:II-weyl}$，常数只额外依赖于 $P$. 第二式由第一式取 $N=q,\ \xi=a/q$，并将 $\varepsilon$ 取得足够小得到.</p>
+由 $q/|c_d|\le q'\le q$ 得 $\eqref{eq:II-weyl}$. 再取 $N=q,\ \xi=a/q$ 及充分小的 $\varepsilon$，得 $\eqref{eq:II-gauss-decay}$.</p>
 
-<p>选择小常数 $\kappa&gt;0$. Dirichlet 逼近给出
+<p>取充分小的 $\kappa&gt;0$. 由 Dirichlet 逼近定理，存在互素整数 $a,q$，使
 $$
 1\le q\le N^{d-\kappa},
 \qquad
@@ -172,23 +167,23 @@ $$
 \le\frac1{qN^{d-\kappa}}.
 \label{eq:II-dirichlet}
 $$
-整数取整只改变下面估计的常数. 若 $q&gt;N^\kappa$，则 $\eqref{eq:II-weyl}$ 中的三个量均为 $O(N^{-\kappa})$ 或更小，因而对某个 $\delta_0&gt;0$，有
+整数取整只影响常数. 若 $q&gt;N^\kappa$，则 $q^{-1}+N^{-1}+qN^{-d}=O(N^{-\kappa})$. 由 $\eqref{eq:II-weyl}$，存在 $\delta_0&gt;0$，使
 $$
 |m_N^P(\theta)|\le C_PN^{-\delta_0}.
 \label{eq:II-minor}
 $$
-若 $q\le N^\kappa$，则 $\theta$ 落在有理中心 $2\pi a/q$ 的 $O(N^{-d+\kappa})$ 邻域内，$\eqref{eq:II-major-local}$ 的误差为 $O_P(N^{-1+2\kappa})$. 这些小分母附近的邻域称为主弧，其余部分称为次弧.</p>
+若 $q\le N^\kappa$，则 $\theta$ 位于 $2\pi a/q$ 的 $O(N^{-d+\kappa})$ 邻域内，$\eqref{eq:II-major-local}$ 的误差为 $O_P(N^{-1+2\kappa})$. 这些邻域称为主弧，其补集称为次弧.</p>
 
-<h2>按分母分层的圆法分解</h2>
+<h2>按分母分组的圆法分解</h2>
 
-<p>为了在下一期使用与尺度无关的频率投影，我们给每个分母层选择固定的光滑截断. 取 $0\le\eta\le1$，使 $\eta=1$ 于 $[-1/4,1/4]$，支撑在 $[-1/2,1/2]$. 固定 $B=20d$，对 $s=0,1,\ldots$ 记
+<p>取光滑函数 $0\le\eta\le1$，使 $\eta=1$ 于 $[-1/4,1/4]$，支撑在 $[-1/2,1/2]$. 固定 $B=20d$，对 $s=0,1,\ldots$ 记
 $$
 \mathcal R_s=\left\{\frac aq\pmod1:(a,q)=1,\ 2^s\le q\lt2^{s+1}\right\},
 \qquad
 \eta_s(\beta)=\eta(2^{B(s+1)}\beta).
 \label{eq:II-rational-layers}
 $$
-其中 $q=1$ 的分数用 $0/1$ 表示. 同层分数的角频率间距至少为 $2\pi\,2^{-2s-2}$，故 $\eta_s(\theta-2\pi a/q)$ 的支撑互不相交. 所有频率邻域均在圆周上理解，$\beta$ 取中心附近的有符号代表.</p>
+其中 $q=1$ 时取 $0/1$. 对固定的 $s$，不同分数的角频率间距至少为 $2\pi\,2^{-2s-2}$，故各截断函数 $\eta_s(\theta-2\pi a/q)$ 的支撑不交. 频率邻域均在圆周上理解，$\beta$ 取中心附近的有符号代表.</p>
 
 <p>定义
 $$
@@ -199,56 +194,52 @@ G_P(a/q)\Phi_N^P(\theta-2\pi a/q)
 l_N(\theta)=\sum_{s\ge0}L_{N,s}(\theta).
 \label{eq:II-model}
 $$
-由同层支撑不交及 $\eqref{eq:II-gauss-decay}$，
+由截断函数的支撑不交及 $\eqref{eq:II-gauss-decay}$，
 $$
 \|L_{N,s}\|_\infty\le C_P2^{-\gamma s}.
 \label{eq:II-layer-bound}
 $$
-因此定义 $l_N$ 的级数在乘子范数中一致收敛.</p>
-
-<p class="thm"><b>命题5</b> (圆法逼近，参见 [3,4])<b>.</b> 存在 $\delta&gt;0$，使
+<b>命题5</b> (圆法逼近，参见 [3,4])<b>.</b> 存在 $\delta&gt;0$，使
 $$
 m_N^P=l_N+E_N,
 \qquad \|E_N\|_{L^\infty(\mathbb T)}\le C_PN^{-\delta}.
 \label{eq:II-circle}
 $$</p>
 
-<p><i>证明.</i> 取 $0\lt\kappa\lt1/(100B)$，先考虑充分大的 $N$. 将模型分成 $2^s\le N^\kappa$ 的低分母层与其余层. 由 $\eqref{eq:II-layer-bound}$，后者的乘子范数总和至多为 $C_PN^{-\kappa\gamma}$. 低分母部分出现的分母至多为 $2N^\kappa$.</p>
+<p><i>证明.</i> 取 $0\lt\kappa\lt1/(100B)$，设 $N$ 充分大. 由 $\eqref{eq:II-layer-bound}$，$l_N$ 中 $2^s&gt;N^\kappa$ 的各项之和的 $L^\infty$ 范数不超过 $C_PN^{-\kappa\gamma}$. 其余各项的分母均小于 $2N^\kappa$.</p>
 
-<p>先设 $\theta$ 位于某个 $q\le N^\kappa$ 的主弧内，记 $\beta=\theta-2\pi a/q$，并要求 $|\beta|\le C N^{-d+\kappa}$，其中固定的 $C$ 大于 Dirichlet 逼近所需的常数. 因为
+<p>先设 $\theta$ 位于某个 $q\le N^\kappa$ 的主弧内，记 $\beta=\theta-2\pi a/q$，其中 $|\beta|\le C N^{-d+\kappa}$，$C$ 为充分大的固定常数. 由
 $$
 2^{B(s+1)}|\beta|
 \le C_B N^{-d+(B+1)\kappa}\longrightarrow0,
 $$
-对应的 $\eta_s$ 等于 $1$，其模型项就是 $G_P(a/q)\Phi_N^P(\beta)$. 由 $\eqref{eq:II-major-local}$，它与 $m_N^P(\theta)$ 的差为 $O_P(N^{-1+2\kappa})$.</p>
+得 $\eta_s(\beta)=1$. 由 $\eqref{eq:II-major-local}$，$G_P(a/q)\Phi_N^P(\beta)$ 与 $m_N^P(\theta)$ 的差为 $O_P(N^{-1+2\kappa})$.</p>
 
-<p>其他分母至多为 $2N^\kappa$ 的既约分数与 $a/q$ 的角距离至少为 $cN^{-2\kappa}$. 主弧半径为更小的量，因此这些中心与 $\theta$ 的距离也至少为 $c'N^{-2\kappa}$. 由 $\eqref{eq:II-continuous-bounds}$，每层在该点的贡献至多为 $C_PN^{-1+2\kappa/d}$. 这里用到每层支撑互不相交，故无须乘以该层的频率数. 对 $O(\log N)$ 层求和仍得到 $N$ 的负幂.</p>
+<p>其他分母至多为 $2N^\kappa$ 的既约分数与 $a/q$ 的角距离至少为 $cN^{-2\kappa}$. 由 $N^{-d+\kappa}=o(N^{-2\kappa})$，它们与 $\theta$ 的角距离也至少为 $c'N^{-2\kappa}$. 对固定的 $s$，至多一个截断函数在 $\theta$ 处非零. 由 $\eqref{eq:II-continuous-bounds}$ 对 $s$ 求和，得其余各项之和为 $O_P((\log N)N^{-1+2\kappa/d})$.</p>
 
-<p>再设 $\theta$ 位于上述所有主弧之外. Dirichlet 逼近中的分母必大于 $N^\kappa$，故 $\eqref{eq:II-minor}$ 控制原乘子. 模型中分母 $q\le N^\kappa$ 的项满足 $|\beta|\ge C N^{-d+\kappa}$，由连续因子的衰减，每层的贡献至多为 $C_PN^{-\kappa/d}$. 对 $O(\log N)$ 层求和即可. 边界层中 $N^\kappa\lt q\lt2N^\kappa$ 的项由完全指数和衰减直接控制为 $C_PN^{-\kappa\gamma}$.</p>
+<p>再设 $\theta$ 位于次弧. Dirichlet 逼近中的分母大于 $N^\kappa$，故 $m_N^P(\theta)$ 满足 $\eqref{eq:II-minor}$. 对 $q\le N^\kappa$，有 $|\beta|\ge C N^{-d+\kappa}$. 由 $\eqref{eq:II-continuous-bounds}$ 及截断函数的支撑不交，这些项之和为 $O_P((\log N)N^{-\kappa/d})$. 对 $N^\kappa\lt q\lt2N^\kappa$，由 $\eqref{eq:II-gauss-decay}$ 得各项之和为 $O_P(N^{-\kappa\gamma})$.</p>
 
-<p>合并以上估计，并将指数略微减小以吸收 $\log N$，即得 $\eqref{eq:II-circle}$. 有限多个小 $N$ 由增大常数处理.</p>
+<p>取 $\delta$ 小于以上各衰减指数，得 $\eqref{eq:II-circle}$. 增大常数可包含其余有限个 $N$.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<h2>圆法之后需要的估计</h2>
+<h2>误差求和</h2>
 
-<p>圆法误差沿每个 $S_\rho$ 平方可和. 由 Plancherel 定理，
+<p>由 $\eqref{eq:II-circle}$ 及 Plancherel 定理，
 $$
 \sum_{N\in S_\rho}\|(E_N\widehat\phi)^\vee\|_{\ell^2}^2
 \le C_{P,\rho}\|\phi\|_{\ell^2}^2.
 \label{eq:II-error-square}
 $$
-最大函数可由这个平方和控制. 以右端值为基准的振荡平方和也至多为该平方和的固定倍数，因为区间内部的每个尺度至多出现一次，右端尺度也至多出现一次.</p>
+相应的最大函数和变差算子的 $\ell^2$ 范数平方也由右端估计. 对变差算子，先用 $|u_N-u_{N_{k+1}}|^2\le2|u_N|^2+2|u_{N_{k+1}}|^2$，再对尺度求和.</p>
 
-<p>剩下的模型 $L_{N,s}$ 含有 $O(2^{2s})$ 个频率，而每个完全指数和提供 $2^{-\gamma s}$ 的衰减. 下一期将证明 Bourgain 多频率最大引理，将频率数带来的损失控制为任意小的正幂，并据此得到
+<p>第三期将用 Bourgain 多频率最大引理证明
 $$
 \left\|\sup_{N\in S_\rho}|(L_{N,s}\widehat\phi)^\vee|\right\|_{\ell^2}
 \le C_{P,\rho}2^{-\gamma s/2}\|\phi\|_{\ell^2}.
 \label{eq:II-next-estimate}
 $$
-对固定的有限多个分母层，第一期的单频投影变差估计将控制振荡. 大分母部分由上式求和控制. 这两步给出命题2，再通过本期列出的第一期结论完成定理1.</p>
-
-<p><b>关于证明的说明.</b> 本期保留原草稿的谱论、Weyl 和与圆法分解，改为直接处理尖锐多项式平均，并在稀疏尺度上累积误差. 固定分母截断及与第一期投影估计的衔接是本系列采用的组织方式. Weyl 不等式与 van der Corput 振荡积分估计作为标准结果引用，证明来源列于下方.</p>
+结合引理D及 $\eqref{eq:II-error-square}$，可得命题2.</p>
 
 <h2>参考文献</h2>
 

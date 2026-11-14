@@ -6,11 +6,12 @@
 <body id="body">
 <div id="container" class="container">
 
-<p>这是介绍 Bourgain 多项式遍历定理的第三期. <a href="pw-ergodic.html">第二期</a> 已经用 Hardy–Littlewood 圆法把离散多项式平均分解成有理频率附近的连续模型. 这一期证明多频率引理，并完成第二期定理1的证明. 记号继续沿用前两期.</p>
+
+<p>本期续<a href="pw-ergodic.html">第二期</a>，证明 Bourgain 多频率最大引理，再用第二期的圆法分解证明多项式遍历定理.</p>
 
 <h2>前两期所用结论</h2>
 
-<p>第二期已将<a href="../2026/8.html">第一期</a>的变差判别、转移原理、稀疏尺度补全及单频投影估计集中列为引理A–D. 本期直接调用这些结论. 对 $\rho&gt;1$ 及递增子列 $\mathbf N=(N_k)_{k=1}^{K+1}\subset S_\rho$，将稀疏变差简记为
+<p>第二期引理A–D列出了<a href="../2026/8.html">第一期</a>的变差判别、转移原理、稀疏尺度上的收敛与全序列收敛、投影的变差估计. 对 $\rho&gt;1$ 及递增子列 $\mathbf N=(N_k)_{k=1}^{K+1}\subset S_\rho$，记
 $$
 \mathcal O_{\mathbf N,K}^{\rho}(B_Nh)
 =\left(\sum_{k=1}^K
@@ -18,7 +19,7 @@ $$
 |B_Nh-B_{N_{k+1}}h|^2\right)^{1/2}.
 $$</p>
 
-<p>特别地，对 $\mathcal T=\{N^d:N\in S_\rho\}$ 的任意递增子列 $(M_k)$，第二期引理D给出
+<p>对 $\mathcal T=\{N^d:N\in S_\rho\}$ 的任意递增子列 $(M_k)$，第二期引理D给出
 $$
 \sum_{k=1}^K\left\|
 \sup_{\substack{M_k\le M\lt M_{k+1}\\M\in\mathcal T}}
@@ -26,11 +27,11 @@ $$
 \le C'\|h\|_2^2.
 \label{III-projection}
 $$
-这里 $\widehat{P_Mh}=\mathbf1_{[-\pi/M,\pi/M]}\widehat h$，$\mathcal T=\{N^d:N\in S_\rho\}$，常数依赖于 $\rho,d$，与区间数 $K$ 无关. 此外，本期使用第二期命题5的圆法分解与其中各因子的估计.</p>
+其中 $\widehat{P_Mh}=\mathbf1_{[-\pi/M,\pi/M]}\widehat h$，$C'$ 只依赖于 $\rho,d$. 以下沿用第二期命题5的记号.</p>
 
 <h2>单频平滑平均的变差</h2>
 
-<p>先准备多频率证明所需的一个标准单频结果. 在实线上继续使用角频率约定
+<p>实线上的 Fourier 变换约定为
 $$
 \widehat h(\theta)=\int_{\mathbb R}h(x)e^{-ix\theta}\,dx,
 \qquad
@@ -44,7 +45,7 @@ V^r(v_j:j)
 \|v_{j_i}-v_{j_{i-1}}\|^r\right)^{1/r}.
 $$</p>
 
-<p class="thm"><b>引理1</b> (单频平滑变差，Lépingle不等式的一个推论)<b>.</b> 对每个固定的 $r&gt;2$，
+<p class="thm"><b>引理1</b> (平滑卷积的变差估计，[3])<b>.</b> 对每个 $r&gt;2$，
 $$
 \left\|\sup_j|\chi_j*h|\right\|_2\le C\|h\|_2,
 \qquad
@@ -52,12 +53,12 @@ $$
 \label{III-scalar}
 $$</p>
 
-<p>第一式由 Hardy–Littlewood 最大不等式得到. 第二式是标准的平滑平均变差估计. 令 $\mathbb E_j$ 是长度为 $2^j$ 的二进区间上的条件期望，Lépingle 不等式控制 $V^r(\mathbb E_jh:j)$，而 Schwartz 核的平方函数比较给出
+<p>第一式由 Hardy–Littlewood 最大不等式得到. 对第二式，令 $\mathbb E_j$ 为长度 $2^j$ 的二进区间上的条件期望. 由 [3, 引理3.2及第4节]，
 $$
 \left\|\left(\sum_j|\chi_j*h-\mathbb E_jh|^2\right)^{1/2}\right\|_2
 \le C\|h\|_2.
 $$
-再用 $V^r(u_j:j)\le2(\sum_j|u_j|^2)^{1/2}$ 控制误差，便得到第二式. 本文将 Lépingle 不等式和这个平方函数比较作为标准辅助结果使用，参见 [3, 第2–4节，特别是引理3.2及其在第4节的应用].</p>
+结合 $V^r(u_j:j)\le2(\sum_j|u_j|^2)^{1/2}$ 及 Lépingle 鞅变差不等式，即得第二式.</p>
 
 <p>对有限向量 $H=(h_\alpha)_\alpha$，Minkowski 不等式给出
 $$
@@ -65,18 +66,17 @@ V^r((\chi_j*h_\alpha)_\alpha:j)
 \le\left(\sum_\alpha
 V^r(\chi_j*h_\alpha:j)^2\right)^{1/2}.
 $$
-因此 $\eqref{III-scalar}$ 的向量值版本满足
+由 $\eqref{III-scalar}$，
 $$
 \left\|\sup_j\|(\chi_j*h_\alpha)_\alpha\|_{\ell^2}\right\|_2
 +\left\|V^r((\chi_j*h_\alpha)_\alpha:j)\right\|_2
 \le C_r\left(\sum_\alpha\|h_\alpha\|_2^2\right)^{1/2}.
 \label{III-vector}
-$$
-常数与向量的维数无关.</p>
+$$</p>
 
 <h2>多频率引理</h2>
 
-<p class="thm"><b>引理2</b> (Bourgain多频率最大引理)<b>.</b> 设 $\Theta\subset\mathbb R$ 是有限的 $1$-分离集合，$R=|\Theta|\ge1$. 则对任意 $\varepsilon&gt;0$，
+<p class="thm"><b>引理2</b> (Bourgain多频率最大引理，[1,2])<b>.</b> 设 $\Theta\subset\mathbb R$ 是有限的 $1$-分离集合，$R=|\Theta|\ge1$. 对任意 $\varepsilon&gt;0$，
 $$
 \left\|\sup_{2^j\ge R^2}
 \left|\sum_{\alpha\in\Theta}
@@ -84,18 +84,17 @@ e^{i\alpha x}(\chi_j*h_\alpha)(x)\right|\right\|_{L^2(\mathbb R)}
 \le C_\varepsilon R^\varepsilon
 \left(\sum_\alpha\|h_\alpha\|_2^2\right)^{1/2}.
 \label{III-multifrequency}
-$$
-这是 Bourgain 多频率引理的一个较弱但足够用于本文的形式，证明采用熵覆盖的方法，参见 [1,2].</p>
+$$</p>
 
-<p><i>证明.</i> 先只取有限多个尺度. 对 $\ell^2(\Theta)$ 中的有限集合 $\mathcal X$，设 $N_\lambda$ 是用半径 $\lambda$ 的球覆盖 $\mathcal X$ 所需的最少球数，并记 $F=\sup_{v\in\mathcal X}\|v\|_{\ell^2}$. 频率分离给出
+<p><i>证明.</i> 先取有限多个 $j$. 对有限集 $\mathcal X\subset\ell^2(\Theta)$，记以半径 $\lambda$ 的球覆盖 $\mathcal X$ 所需的最少球数为 $N_\lambda$，并记 $F=\sup_{v\in\mathcal X}\|v\|_{\ell^2}$. 由频率的 $1$-分离性，
 $$
 \int_0^1\left|\sum_\alpha e^{i\alpha y}v_\alpha\right|^2dy
 \le C\|v\|_{\ell^2}^2.
 \label{III-orthogonality}
 $$
-例如取一个在 $[0,1]$ 上模长至少为 $1$、Fourier 支集在 $[-1/4,1/4]$ 内的 Schwartz 函数 $w$，用 $|w|^2$ 控制积分. 展开平方后，非对角项因 $\widehat{|w|^2}$ 的支集而消失.</p>
+取 Schwartz 函数 $w$，使 $|w|\ge1$ 于 $[0,1]$，且 $\operatorname{supp}\widehat w\subset[-1/4,1/4]$. 用实线上的 $|w|^2$ 加权积分作上界. 展开平方，由 $\operatorname{supp}\widehat{|w|^2}\subset[-1/2,1/2]$，非对角项均为零.</p>
 
-<p>对 $\mathcal X$ 逐层取半径 $2^{-v}$ 的覆盖，并将每个细层中心连到一个距离最近的粗层中心. 每层至多有 $N_{2^{-v}}$ 条边，边向量的长度为 $O(2^{-v})$. 对每条链作伸缩求和，再由 $\eqref{III-orthogonality}$ 和逐点 Cauchy–Schwarz 不等式，得到
+<p>对每个 $v$ 取半径 $2^{-v}$ 的最小覆盖，将每个球心与上一级最近的球心作差. 第 $v$ 级至多有 $N_{2^{-v}}$ 个差向量，范数均为 $O(2^{-v})$. 将各级差相加，由 $\eqref{III-orthogonality}$ 及 Cauchy–Schwarz 不等式，得
 $$
 \left\|\sup_{z\in\mathcal X}
 \left|\sum_\alpha e^{i\alpha y}z_\alpha\right|\right\|_{L^2(0,1)}
@@ -104,19 +103,19 @@ $$
 \min\{N_{2^{-v}}^{1/2},R^{1/2}\}\right).
 \label{III-entropy}
 $$
-前一个界是对该层全部边向量的 $L^2$ 范数求平方和，后一个界使用每条边的 $\ell^1$ 范数至多为其 $\ell^2$ 范数的 $\sqrt R$ 倍.</p>
+对各差向量应用 $\eqref{III-orthogonality}$ 并求平方和，得 $N_{2^{-v}}^{1/2}$ 项. 由 $\|z\|_{\ell^1}\le\sqrt R\|z\|_{\ell^2}$ 得 $R^{1/2}$ 项.</p>
 
-<p>现在设 $\mathcal X=\{v_j\}$ 来自有序向量列，并记 $V=V^r(v_j:j)$. 从第一个向量开始，每当轨迹离开当前半径 $\lambda$ 的球时选取一个新中心. 相邻中心相距大于 $\lambda$，故
+<p>设 $\mathcal X=\{v_j\}$，记 $V=V^r(v_j:j)$. 从第一个向量开始，依次选取第一个与当前球心距离大于 $\lambda$ 的 $v_j$ 为新球心. 由变差的定义，
 $$
 N_\lambda\le1+(V/\lambda)^r.
 $$
-在 $\lambda_0=V R^{-1/r}$ 处分开 $\eqref{III-entropy}$ 的求和. 小于 $\lambda_0$ 的部分用 $\sqrt R$ 控制，得到 $C\lambda_0\sqrt R$. 大于 $\lambda_0$ 的部分用 $1+(V/\lambda)^{r/2}$ 控制，并对几何级数求和. 因为 $r&gt;2$，结果为
+设 $V&gt;0$，取 $\lambda_0=V R^{-1/r}$. 在 $\eqref{III-entropy}$ 中，对 $2^{-v}\le\lambda_0$ 用 $R^{1/2}$ 估计，对 $2^{-v}&gt;\lambda_0$ 用 $1+(V2^v)^{r/2}$ 估计. 对几何级数求和，得
 $$
 \left\|\sup_j\left|\sum_\alpha e^{i\alpha y}v_{j,\alpha}\right|\right\|_{L^2(0,1)}
 \le C_r\bigl(F+R^{1/2-1/r}V\bigr).
 \label{III-entropy-variation}
 $$
-如果 $V=0$，向量列为常数，结论直接来自 $\eqref{III-orthogonality}$.</p>
+$V=0$ 时由 $\eqref{III-orthogonality}$ 得到同一结论.</p>
 
 <p>令
 $$
@@ -124,7 +123,7 @@ F_j(x)=(\chi_j*h_\alpha(x))_{\alpha\in\Theta},
 \qquad
 \Xi_j(x)=\sum_\alpha e^{i\alpha x}F_{j,\alpha}(x).
 $$
-把 $x+y$ 处的系数冻结在 $x$，其中 $0\le y\le1$. Schwartz 核的导数估计给出
+对 $0\le y\le1$，由卷积核的导数估计，
 $$
 |F_{j,\alpha}(x+y)-F_{j,\alpha}(x)|
 \le C2^{-j}M_{\rm HL}h_\alpha(x)
@@ -139,9 +138,7 @@ e^{i\alpha(x+y)}F_{j,\alpha}(x)\right|
 \left(\sum_\alpha|M_{\rm HL}h_\alpha(x)|^2\right)^{1/2}.
 \label{III-freeze}
 $$
-此误差在 $L^2(dx\,dy)$ 中由 $C(\sum_\alpha\|h_\alpha\|_2^2)^{1/2}$ 控制.</p>
-
-<p>对固定 $x$，将 $\eqref{III-entropy-variation}$ 用于向量列 $(e^{i\alpha x}F_{j,\alpha}(x))_\alpha$，再对 $x$ 积分. 利用 $\eqref{III-vector}$、$\eqref{III-freeze}$ 及平移不变性
+对固定的 $x$，将 $\eqref{III-entropy-variation}$ 用于 $(e^{i\alpha x}F_{j,\alpha}(x))_\alpha$，再对 $x$ 积分. 由 $\eqref{III-vector}$、$\eqref{III-freeze}$、Hardy–Littlewood 最大不等式及
 $$
 \int_{\mathbb R}\int_0^1\sup_j|\Xi_j(x+y)|^2dy\,dx
 =\left\|\sup_j|\Xi_j|\right\|_2^2,
@@ -152,22 +149,22 @@ $$
 \le C_r R^{1/2-1/r}
 \left(\sum_\alpha\|h_\alpha\|_2^2\right)^{1/2}.
 $$
-选定充分接近 $2$ 的 $r&gt;2$，使 $1/2-1/r\lt\varepsilon$，就得到 $\eqref{III-multifrequency}$. 最后对有限尺度集使用单调收敛，去掉截断.</p>
+取 $r&gt;2$ 使 $1/2-1/r\lt\varepsilon$，得 $\eqref{III-multifrequency}$. 再由单调收敛定理去掉尺度截断.</p>
 
 <p class="proof-box">$\Box$</p>
 
 <h2>从实线到整数格</h2>
 
-<p>记 $\Theta_s=\{2\pi a/q:a/q\in\mathcal R_s\}$，每个角频率取 $[-\pi,\pi)$ 中的代表. 同一分母层的间距至少为 $c2^{-2s}$. 取二进数 $\Delta_s=2^{-2s-C_0}$ 小于这个间距，并作伸缩 $y=\Delta_sx$. 这样频率变成 $1$-分离的，$2^j\Delta_s$ 仍是二进尺度，引理2的尺度条件相应变成 $2^j\Delta_s\ge R^2$.</p>
+<p>记 $\Theta_s=\{2\pi a/q:a/q\in\mathcal R_s\}$，角频率取 $[-\pi,\pi)$ 中的代表. 其间距至少为 $c2^{-2s}$. 取 $\Delta_s=2^{-2s-C_0}$ 小于该间距，作变量代换 $y=\Delta_sx$. 引理2适用于 $\Delta_s^{-1}\Theta_s$，尺度条件为 $2^j\Delta_s\ge R^2$.</p>
 
-<p>还要说明实线上的估计如何给出整数格上的估计. 将每个小弧提升到实线，并定义
+<p>将 $\widehat\phi$ 作 $2\pi$-周期延拓，定义实线上的函数 $h_\alpha$，使
 $$
 \widehat h_\alpha(\beta)
 =G_P(a/q)\eta_s(\beta)\widehat\phi(\alpha+\beta),
 \qquad \alpha=2\pi a/q\in\Theta_s,
 \label{III-pieces}
 $$
-其中 $\widehat\phi$ 作 $2\pi$-周期延拓. 第二期的截断 $\eta_s$ 保证同层小弧互不相交，因此
+对固定的 $s$，各截断函数的支撑不交，故
 $$
 \sum_{\alpha\in\Theta_s}\|h_\alpha\|_{L^2(\mathbb R)}^2
 \le a_s^2\|\phi\|_{\ell^2(\mathbb Z)}^2,
@@ -176,20 +173,20 @@ a_s=\sup_{a/q\in\mathcal R_s}|G_P(a/q)|
 \le C_P2^{-\gamma s}.
 \label{III-energy}
 $$
-实线函数
+令
 $$
 H_j(x)=\sum_{\alpha\in\Theta_s}
 e^{i\alpha x}(\chi_j*h_\alpha)(x)
 $$
-在整数 $x$ 上，正好是周期乘子
+则 $H_j(n)$ 等于周期乘子
 $$
 \sum_{\alpha\in\Theta_s}
 G_P(a/q)\eta_s(\theta-\alpha)
 \widehat\chi(2^j(\theta-\alpha))
 $$
-作用于 $\phi$ 的结果. 跨过 $\pm\pi$ 的弧也用上述周期提升处理.</p>
+作用于 $\phi$ 所得函数在 $n$ 处的值.</p>
 
-<p>单位区间上的 Sobolev 不等式逐个应用于 $H_j$，再取上确界，给出
+<p>由单位区间上的 Sobolev 不等式，
 $$
 \sum_{n\in\mathbb Z}\sup_j|H_j(n)|^2
 \le C\left(
@@ -197,47 +194,46 @@ $$
 +\left\|\sup_j|\partial_xH_j|\right\|_{L^2}^2\right).
 \label{III-sampling}
 $$
-第二项仍可使用引理2，因为
+又有
 $$
 \partial_xH_j
 =\sum_\alpha e^{i\alpha x}
 \chi_j*(h_\alpha'+i\alpha h_\alpha),
 $$
-而 $\alpha\in[-\pi,\pi)$、$\widehat h_\alpha$ 支撑在固定有界区间内，故
+由 $\alpha\in[-\pi,\pi)$ 及 $\operatorname{supp}\widehat h_\alpha\subset[-1,1]$，
 $$
 \sum_\alpha\|h_\alpha'+i\alpha h_\alpha\|_2^2
 \le C\sum_\alpha\|h_\alpha\|_2^2.
-$$
-这就把所需最大估计转到了 $\ell^2(\mathbb Z)$.</p>
+$$</p>
 
-<h2>每个分母层的最大估计</h2>
+<h2>$L_{N,s}$ 的最大估计</h2>
 
-<p>以下使用第二期的 $L_{N,s}$、$\Phi_N^P$、$E_N$，并用 $L_{N,s}\phi$ 简写乘子算子 $(L_{N,s}\widehat\phi)^\vee$. 固定 $\rho&gt;1$，所有尺度先限制在 $S_\rho$. 第二期连续模型的两个界为
+<p>记 $L_{N,s}\phi=(L_{N,s}\widehat\phi)^\vee$. 固定 $\rho&gt;1$，取 $N\in S_\rho$. 第二期已证
 $$
 |\Phi_N^P(\beta)-1|\le C_PN^d|\beta|,
 \qquad
 |\Phi_N^P(\beta)|\le C_P(N^d|\beta|)^{-1/d}.
 \label{III-continuous}
 $$
-令 $j(N)=[\log_2N^d]$，以光滑低通乘子代替连续因子，记
+令 $j(N)=[\log_2N^d]$，记
 $$
 B_{N,s}(\theta)
 =\sum_{\alpha\in\Theta_s}G_P(a/q)
 \eta_s(\theta-\alpha)
 \widehat\chi(2^{j(N)}(\theta-\alpha)).
 $$
-因为 $2^{j(N)}$ 与 $N^d$ 可比，$\eqref{III-continuous}$ 给出
+由 $2^{j(N)}\le N^d\lt2^{j(N)+1}$、$\eqref{III-continuous}$ 及 $\widehat\chi$ 的定义，
 $$
 |\Phi_N^P(\beta)-\widehat\chi(2^{j(N)}\beta)|
 \le C_P\min\{N^d|\beta|,(N^d|\beta|)^{-1/d}\}.
 $$
-每个二进区间内只有 $O_\rho(1)$ 个 $S_\rho$ 的元素，故
+每个二进区间内有 $O_\rho(1)$ 个 $S_\rho$ 的元素，故
 $$
 \sup_{\beta\ne0}\sum_{N\in S_\rho}
 \min\{N^d|\beta|,(N^d|\beta|)^{-1/d}\}^2
 \le C_{P,\rho}.
 $$
-利用同层小弧的互不相交性与 Plancherel 定理，得到
+由截断函数的支撑不交及 Plancherel 定理，
 $$
 \sum_{N\in S_\rho}
 \|(L_{N,s}-B_{N,s})\phi\|_2^2
@@ -245,36 +241,36 @@ $$
 \label{III-model-error}
 $$</p>
 
-<p class="thm"><b>命题3</b> (分母层最大估计)<b>.</b> 存在 $\sigma&gt;0$，使
+<p class="thm"><b>命题3.</b> 存在 $\sigma&gt;0$，使
 $$
 \left\|\sup_{N\in S_\rho}|L_{N,s}\phi|\right\|_2
 \le C_{P,\rho}2^{-\sigma s}\|\phi\|_2.
 \label{III-layer-maximal}
 $$</p>
 
-<p><i>证明.</i> $\Theta_s$ 有 $O(2^{2s})$ 个元素，间距至少为 $c2^{-2s}$. 当 $j(N)\ge C(s+1)$ 时，引理2的伸缩版本与 $\eqref{III-sampling}$ 适用. 由 $\eqref{III-energy}$，
+<p><i>证明.</i> 由 $|\Theta_s|=O(2^{2s})$ 及频率间距的下界，当 $j(N)\ge C(s+1)$ 时，可用引理2及 $\eqref{III-sampling}$. 结合 $\eqref{III-energy}$，得
 $$
 \left\|\sup_{\substack{N\in S_\rho\\j(N)\ge C(s+1)}}
 |B_{N,s}\phi|\right\|_2
 \le C_\varepsilon2^{2\varepsilon s}a_s\|\phi\|_2.
 $$
-其余的尺度只有 $O_{P,\rho}(s+1)$ 个. 每个乘子的模由 $Ca_s$ 控制，故这一部分的最大函数在 $\ell^2$ 中至多为 $C_{P,\rho}\sqrt{s+1}\,a_s\|\phi\|_2$. 再用 $\eqref{III-model-error}$ 控制误差，选取 $2\varepsilon\lt\gamma/2$，并将多项式因子吸收到指数衰减中，即得 $\sigma=\gamma/2$ 和 $\eqref{III-layer-maximal}$.</p>
+满足 $j(N)\lt C(s+1)$ 的尺度有 $O_{P,\rho}(s+1)$ 个，且 $\|B_{N,s}\|_\infty\le Ca_s$. 由 $\sup_N|u_N|\le(\sum_N|u_N|^2)^{1/2}$，得这部分最大函数的 $\ell^2$ 范数不超过 $C_{P,\rho}\sqrt{s+1}\,a_s\|\phi\|_2$. 取 $2\varepsilon\lt\gamma/2$，由 $a_s\le C_P2^{-\gamma s}$、$\sqrt{s+1}\,2^{-\gamma s}\le C_\gamma2^{-\gamma s/2}$ 及 $\eqref{III-model-error}$，得 $\eqref{III-layer-maximal}$，其中 $\sigma=\gamma/2$.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<p>对 $s$ 求和，再用第二期的 $\|E_N\|_\infty\le C_PN^{-\delta}$，得到
+<p>对 $s$ 求和，并用第二期的 $\|E_N\|_\infty\le C_PN^{-\delta}$，得
 $$
 \left\|\sup_{N\in S_\rho}|A_N^{S,P}\phi|\right\|_2
 \le C_{P,\rho}\|\phi\|_2.
 \label{III-sparse-maximal}
 $$
-特别地取 $\rho=2$. 对任意 $N\ge2$，选取 $2^{k-1}\lt N\le2^k$，其中 $k\ge1$. 正平均满足
+取 $\rho=2$. 对 $N\ge2$，取 $k\ge1$ 使 $2^{k-1}\lt N\le2^k$. 由平均的正性，
 $$
 |A_N^{S,P}\phi|
 \le A_N^{S,P}|\phi|
 \le2A_{2^k}^{S,P}|\phi|.
 $$
-再将 $A_1^{S,P}\phi=\phi(\cdot+P(1))$ 的 $\ell^2$ 范数并入常数，得到全体整数尺度上的最大估计
+由 $\|A_1^{S,P}\phi\|_2=\|\phi\|_2$，得
 $$
 \left\|\sup_{N\ge1}|A_N^{S,P}\phi|\right\|_2
 \le C_P\|\phi\|_2.
@@ -283,7 +279,7 @@ $$</p>
 
 <h2>稀疏变差估计</h2>
 
-<p class="thm"><b>命题4</b> (固定分母层的变差估计)<b>.</b> 对每个固定的 $s$，
+<p class="thm"><b>命题4.</b> 对每个 $s$，
 $$
 \|\mathcal O_{\mathbf N,K}^{\rho}(L_{N,s}\phi)\|_2
 \le C_{P,\rho,s}\|\phi\|_2,
@@ -291,7 +287,7 @@ $$
 $$
 其中常数与 $K$ 及所选的 $\mathbf N$ 无关.</p>
 
-<p><i>证明.</i> 这次用尖锐低通乘子 $\mathbf1_{[-\pi/N^d,\pi/N^d]}$ 代替 $\Phi_N^P$. 与 $\eqref{III-model-error}$ 相同的论证说明误差满足
+<p><i>证明.</i> 在 $L_{N,s}$ 中用 $\mathbf1_{[-\pi/N^d,\pi/N^d]}$ 代替 $\Phi_N^P$，所得乘子记为 $Q_{N,s}$. 按 $\eqref{III-model-error}$ 的证明，
 $$
 \sum_{N\in S_\rho}\|(L_{N,s}-Q_{N,s})\phi\|_2^2
 \le C_{P,\rho}a_s^2\|\phi\|_2^2,
@@ -308,13 +304,11 @@ $$
 \le8\sum_{N\in S_\rho}\|u_N\|_2^2,
 \label{III-square-oscillation}
 $$
-所以误差的变差估计成立.</p>
-
-<p>对主部，先在整数格上定义 $h_\alpha$，使其 Fourier 变换为 $\eqref{III-pieces}$ 的周期提升. 去掉调制 $e^{i\alpha x}$ 后，每个频率分量正是 $P_{N^d}h_\alpha$. 当 $N=1$ 时投影为恒等算子. 由 $\eqref{III-projection}$，每个分量满足与 $K$ 无关的变差估计. 对有限个 $\alpha\in\Theta_s$ 用三角不等式相加，得到 $\eqref{III-layer-oscillation}$. 这里常数允许依赖于固定的 $s$.</p>
+在整数格上定义 $h_\alpha$，使其 Fourier 变换为 $\eqref{III-pieces}$ 的周期延拓. 则 $Q_{N,s}\phi=\sum_{\alpha\in\Theta_s}e^{i\alpha x}P_{N^d}h_\alpha$. 对各项应用 $\eqref{III-projection}$，再用三角不等式及 $\eqref{III-square-oscillation}$，得 $\eqref{III-layer-oscillation}$.</p>
 
 <p class="proof-box">$\Box$</p>
 
-<p>现在固定一个分母层上界 $S$，记
+<p>固定 $S$，记
 $$
 L_{N,\le S}=\sum_{s=0}^S L_{N,s},
 \qquad
@@ -325,34 +319,31 @@ $$
 \|\mathcal O_{\mathbf N,K}^{\rho}(L_{N,\le S}\phi)\|_2^2
 \le C_{P,\rho,S}\|\phi\|_2^2.
 $$
-命题3则给出尾部最大估计
+由命题3，
 $$
 \left\|\sup_{N\in S_\rho}|L_{N,&gt;S}\phi|\right\|_2
 \le C_{P,\rho}2^{-\sigma S}\|\phi\|_2.
 $$
-用每个区间内的差至多为全局最大函数的两倍控制尾部，再由 $\eqref{III-square-oscillation}$ 控制圆法误差，得到
+对 $L_{N,&gt;S}\phi$ 的每个区间差取 $2\sup_N|L_{N,&gt;S}\phi|$ 为上界，并对 $(E_N\widehat\phi)^\vee$ 应用 $\eqref{III-square-oscillation}$，得
 $$
 \|\mathcal O_{\mathbf N,K}^{\rho}(A_N^{S,P}\phi)\|_2^2
 \le C_{P,\rho}
 \bigl(C_{P,\rho,S}+K2^{-2\sigma S}+1\bigr)\|\phi\|_2^2.
 \label{III-oscillation}
-$$
-这里 $\sum_{N\in S_\rho}\|E_N\|_\infty^2\lt\infty$，所以误差项的常数与 $K$ 无关.</p>
+$$</p>
 
 <p>令 $\omega_{P,\rho}(K)$ 是 $\eqref{III-oscillation}$ 左端除以 $\|\phi\|_2^2$ 后，对所有 $\phi\ne0$ 和 $\mathbf N$ 取的上确界. 对每个固定的 $S$，
 $$
 \limsup_{K\to\infty}\frac{\omega_{P,\rho}(K)}K
 \le C_{P,\rho}2^{-2\sigma S}.
 $$
-再令 $S\to\infty$，便得到 $\omega_{P,\rho}(K)=o(K)$. 这与 $\eqref{III-full-maximal}$ 一起证明了第二期命题2.</p>
+令 $S\to\infty$，得 $\omega_{P,\rho}(K)=o(K)$. 结合 $\eqref{III-full-maximal}$，第二期命题2得证.</p>
 
 <h2>多项式遍历定理的证明</h2>
 
-<p><i>第二期定理1的证明.</i> 由第二期引理B，$\eqref{III-full-maximal}$ 与 $\eqref{III-oscillation}$ 给出动力系统上的最大与稀疏变差估计. 引理A说明，对每个 $\rho&gt;1$ 和 $f\in L^2(X)$，$A_N^Pf$ 沿 $S_\rho$ a.e. 收敛. 取一列 $\rho_j\downarrow1$，应用引理C，即得全体整数尺度上的 a.e. 收敛. 第二期引理3的均方收敛同时说明，这个逐点极限与 $L^2$ 极限相同.</p>
+<p><i>第二期定理1的证明.</i> 由第二期引理B，将 $\eqref{III-full-maximal}$ 与 $\eqref{III-oscillation}$ 转移到 $X$ 上. 引理A给出 $A_N^Pf$ 沿每个 $S_\rho$ 的几乎处处收敛. 取 $\rho_j\downarrow1$，由引理C得全序列的几乎处处收敛. 由第二期引理3，逐点极限与 $L^2$ 极限相同.</p>
 
 <p class="proof-box">$\Box$</p>
-
-<p><b>关于证明的说明.</b> 本期在原草稿的基础上整理. 单频辅助估计直接引用上述标准结果，多频率熵论证和由最大估计返回稀疏变差的步骤在正文给出.</p>
 
 <h2>参考文献</h2>
 
