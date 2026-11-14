@@ -10,7 +10,8 @@ btitle[6] = "一个点能落在多少三角形中"; bdate[6] = "09/23"; bintro[6
 btitle[7] = "多孔介质的相变尺度"; bdate[7] = "10/20"; bintro[7] = "Tartar的振荡测试方法在均质化理论的应用.";
 btitle[8] = "Bourgain的魔法：Birkhoff遍历定理的新证明"; bdate[8] = "11/12"; bintro[8] = "介绍Bourgain多项式遍历定理的第一篇，引入变差判别和Fourier分析.";
 // btitle[10] = "Šverák的反例：秩一凸但不quasiconvex的函数"; bdate[10] = "10/12"; bintro[10] = "秩一凸性不蕴含quasiconvexity，反例把一个三线性函数沿秩一直线延拓到整个矩阵空间.";
-// btitle[11] = "Bourgain的魔法：逐点遍历定理"; bdate[11] = "09/25"; bintro[11] = "多项式遍历平均的逐点收敛，以及圆法、转移原理与多频率熵估计.";
+// btitle[11] = "Bourgain的魔法：多项式遍历定理与Hardy–Littlewood圆法"; bdate[11] = "11/14"; bintro[11] = "系列第二期，多项式平均的有理频率、Weyl和与圆法分解.";
+// btitle[12] = "Bourgain的魔法：多频率引理与多项式遍历定理"; bdate[12] = "11/14"; bintro[12] = "系列第三期，多频率熵估计、稀疏变差与逐点收敛的证明.";
 // btitle[] = ""; bdate[] = ""; bintro[] = "";
 var amount = btitle.length;
 
