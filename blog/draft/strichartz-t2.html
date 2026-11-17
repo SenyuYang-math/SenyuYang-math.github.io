@@ -1,0 +1,560 @@
+<html>
+<head>
+<title id="pagetitle">Blog is loading...</title>
+</head>
+<body id="body">
+<div id="container" class="container">
+<p>设 $\mathbb T^2=(\mathbb R/2\pi\mathbb Z)^2$. Herr 与 Kwak 在2024年的论文 [1] 中证明，对任意非空有限集 $S\subset\mathbb Z^2$，Schrödinger 演化在长度 $(\log\#S)^{-1}$ 的时间区间上满足一致的 $L^2\to L^4_{t,x}$ 估计. 这里的时间长度只依赖频率个数，不依赖频率集的直径.</p>
+
+<p>以下沿用 [1, §§2–3] 的证明，集中讨论其定理1.2. 为使推导完整，本文补写时间积分核的计算、异常点剔除中的基数与范数估计、计数界的插值和离散求和，以及最优性的初等计数证明. 其中偶三角核是原文双重时间积分的等价改写；插值所用权重来自原文，其展开计算与加权情形的二次插值在下文写出. 所用的 Szemerédi–Trotter 定理单独陈述.</p>
+
+<h2>端点估计与对数时间尺度</h2>
+
+<p>空间积分采用归一化测度 $d\mu(x)=(2\pi)^{-2}dx$，于是
+$$
+\begin{aligned}
+\widehat\phi(\xi)&amp;=\int_{\mathbb T^2}\phi(x)e^{-ix\cdot\xi}\,d\mu(x),\\
+\|\phi\|_2^2&amp;=\sum_{\xi\in\mathbb Z^2}|\widehat\phi(\xi)|^2,\\
+e^{it\Delta}\phi(x)&amp;=\sum_{\xi\in\mathbb Z^2}\widehat\phi(\xi)e^{ix\cdot\xi-it|\xi|^2}.
+\end{aligned}
+\notag
+$$
+记 $\widehat{P_S\phi}=\mathbf1_S\widehat\phi$，并约定 $\log r=\max\{1,\ln r\}$，$r&gt;0$. 下文 $A\lesssim B$ 的常数均为绝对常数；固定几何阈值后，允许依赖该阈值.</p>
+
+<p class="thm"><b>定理1</b> ([1, 定理1.2])<b>.</b> 存在绝对常数 $C_0&gt;0$，使任意非空有限集 $S\subset\mathbb Z^2$ 及 $\phi\in L^2(\mathbb T^2)$ 满足下式，其中 $I_S=[0,1/\log\#S]$：
+$$
+\|e^{it\Delta}P_S\phi\|_{L^4(I_S\times\mathbb T^2)}
+\le C_0\|\phi\|_2.
+\label{main}
+$$</p>
+
+<p>由于 $e^{is\Delta}$ 保持 Fourier 支集和 $L^2$ 范数，$\eqref{main}$ 对任意同长度的时间区间成立. 将 $[0,2\pi]$ 分成 $O(\log\#S)$ 段，便得到 [1, 定理1.1]：
+$$
+\|e^{it\Delta}P_S\phi\|_{L^4([0,2\pi]\times\mathbb T^2)}
+\lesssim (\log\#S)^{1/4}\|\phi\|_2.
+\label{full-period}
+$$</p>
+
+<p>Bourgain 在1993年证明了二维有理环面的端点估计 [2]. 对 $S_N=[-N,N]^2\cap\mathbb Z^2$，其常数可取
+$$
+\|e^{it\Delta}P_{S_N}\phi\|_{L^4([0,2\pi]\times\mathbb T^2)}
+\lesssim \exp\!\left(C\frac{\ln N}{\ln\ln N}\right)\|\phi\|_2
+\qquad(N\ge3).
+\notag
+$$
+端点证明中的 Cauchy–Schwarz 不等式将问题化为圆上格点数的最大值估计，随后使用约数函数上界. 另一方面，当 $\widehat\phi_N=\mathbf1_{S_N}$ 时，左侧至少为 $c(\ln N)^{1/4}\|\phi_N\|_2$. 因而需要确定的正是这个对数损失的大小.</p>
+
+<p>Bourgain–Demeter 在2015年证明的 $\ell^2$ decoupling 定理 [3] 扩展并统一了有理与无理环面的许多 Strichartz 估计，但其二维 $L^4$ 端点界没有给出上述精确对数常数. 关联几何在这里也有更早的来源：Pach–Sharir 于1992年证明，平面 $n$ 点集中形成同一固定角的有序三元组数为 $O(n^2\log n)$ [4]. 取直角，并用三个顶点确定矩形，可得到 $\widehat\phi=\mathbf1_S$ 时的 $\eqref{full-period}$. [3, §2.4] 已讨论这一联系.</p>
+
+<p>Herr–Kwak 的论文于2023年首次预印，2024年正式发表. 它处理任意 Fourier 权重，并证明更强的短时间估计 $\eqref{main}$. 截短全周期积分本身不会带来所需的时间因子；短时间内还必须控制非共振平行四边形. 证明同时使用四个顶点，并保留一个格点边向量的整除条件.</p>
+
+<p>短时间估计的动机也来自二维三次 NLS：其三次项满足 $\||u|^2u\|_{L^{4/3}_{t,x}}=\|u\|_{L^4_{t,x}}^3$，因此 $L^4$ 是非线性迭代中的自然空间. 原文用定理1.2证明 $H^s$、$s&gt;0$ 中小 $L^2$ 数据的整体适定性. 在该应用中，依次出现的时间长度为 $\asymp1/\log(K^jN_0)$，其中 $K&gt;1$ 固定；这些长度之和发散. 若只有 $(\log\#S)^{-\gamma}$、$\gamma&gt;1$ 的时间长度，相应级数收敛. 这说明精确的对数指数对该应用也有作用 [1, §4].</p>
+
+<h2>四次范数与平行四边形</h2>
+
+<p>对有限支集序列 $a:\mathbb Z^2\to\mathbb C$，记
+$$
+Ea(t,x)=\sum_\xi a(\xi)e^{ix\cdot\xi-it|\xi|^2}.
+\notag
+$$
+设 $\mathcal Q$ 为满足 $\xi_1+\xi_3=\xi_2+\xi_4$ 的有序四元组 $Q=(\xi_1,\xi_2,\xi_3,\xi_4)$ 的集合，允许顶点重合. 定义
+$$
+\begin{aligned}
+\Omega(Q)&amp;=|\xi_1|^2-|\xi_2|^2+|\xi_3|^2-|\xi_4|^2\\
+&amp;=2(\xi_1-\xi_2)\cdot(\xi_1-\xi_4),\\
+\tau(Q)&amp;=|\Omega(Q)|,\qquad
+\mathcal Q_\tau=\{Q\in\mathcal Q:\tau(Q)=\tau\}.
+\end{aligned}
+\label{modulation}
+$$
+将有符号的 $\Omega$ 与非负的 $\tau$ 分开，可统一后面的核与整除条件. $\mathcal Q_0$ 是矩形集合，含退化矩形. 对非负序列 $f$，记 $f(Q)=\prod_{k=1}^4f(\xi_k)$.</p>
+
+<p>先说明需要怎样的计数界. 给定 $T&gt;0$，取偶三角核
+$$
+\begin{aligned}
+w_T(t)&amp;=\left(1-\frac{|t|}{2T}\right)_+,\\
+K_T(\omega)&amp;=\int_{\mathbb R}w_T(t)e^{-it\omega}\,dt\\
+&amp;
+=\begin{cases}
+\dfrac{1-\cos(2T\omega)}{T\omega^2},&amp;\omega\ne0,\\[4pt]
+2T,&amp;\omega=0.
+\end{cases}
+\end{aligned}
+\label{kernel}
+$$
+此式可由 $w_T=(2T)^{-1}\mathbf1_{[-T,T]}*\mathbf1_{[-T,T]}$ 直接计算. 特别地，$K_T\ge0$，且 $K_T(\omega)\lesssim\min\{T,(T\omega^2)^{-1}\}$；在 $[0,T]$ 上还有 $w_T\ge1/2$.</p>
+
+<p>定义
+$$
+\|a\|_{X_T}=\left(\int_{\mathbb R}\int_{\mathbb T^2}w_T(t)|Ea(t,x)|^4\,d\mu(x)dt\right)^{1/4}.
+\notag
+$$
+它满足三角不等式. 展开四次方并作空间积分，利用 $K_T\ge0$，得到
+$$
+\begin{aligned}
+\|a\|_{X_T}^4
+&amp;=\sum_{Q\in\mathcal Q}a(\xi_1)\overline{a(\xi_2)}a(\xi_3)\overline{a(\xi_4)}K_T(\Omega(Q))\\
+&amp;\le\sum_{Q\in\mathcal Q}\prod_{k=1}^4|a(\xi_k)|K_T(\Omega(Q))
+=\big\||a|\big\|_{X_T}^4.
+\end{aligned}
+\label{positive}
+$$
+因此，若 $0\le h\le g$，则 $\|h\|_{X_T}\le\|g\|_{X_T}$. 这一单调性依赖非负的 Fourier 核，不能直接由点态不等式 $h\le g$ 推出 $|Eh|\le|Eg|$.</p>
+
+<p>对 $M\in\{1,2,4,\ldots\}$，将 $\tau\approx M$ 固定解释为 $M\le\tau\lt2M$. 若
+$$
+R(f)=\sum_{Q\in\mathcal Q_0}f(Q),\qquad
+B_M(f)=\frac1M\sum_{M\le\tau\lt2M}\sum_{Q\in\mathcal Q_\tau}f(Q),
+\notag
+$$
+则 $\eqref{kernel}$ 给出
+$$
+\|f\|_{X_T}^4
+\lesssim TR(f)+\sum_{M=1,2,4,\ldots}\min\{TM,(TM)^{-1}\}B_M(f).
+\label{kernel-count}
+$$
+二进制尺度求和满足
+$$
+\sum_{M=1,2,4,\ldots}\min\{TM,(TM)^{-1}\}\lesssim1
+\qquad(0\lt T\le1),
+\label{time-sum}
+$$
+因为在 $M\le T^{-1}$ 与 $M&gt;T^{-1}$ 两侧分别是递增、递减的几何级数.</p>
+
+<h2>需要证明的加权计数命题</h2>
+
+<p class="thm"><b>命题2</b> ([1, 命题3.1])<b>.</b> 固定一个足够大的整数 $C$. 设 $m\ge1$，$S_0,\ldots,S_m\subset\mathbb Z^2$ 两两不交，$\#S_j\le2^j$，$\lambda_j\ge0$，且
+$$
+f=\sum_{j=0}^m\lambda_j2^{-j/2}\mathbf1_{S_j}.
+\notag
+$$
+假设对每个 $j$ 及每个 $\xi\in S_j$，至多有一条过 $\xi$ 的直线 $\ell$ 满足 $\#(\ell\cap S_j)\ge2^{j/2+C}$. 则
+$$
+R(f)\lesssim m\|\lambda\|_{\ell^2}^4,
+\qquad
+\sup_{M=1,2,4,\ldots}B_M(f)\lesssim\|\lambda\|_{\ell^2}^4.
+\label{count-prop}
+$$
+常数与 $m$、各集合及权重无关.</p>
+
+<p>取 $T=1/m$，由 $\eqref{kernel-count}$–$\eqref{time-sum}$ 即有 $\|f\|_{X_{1/m}}\lesssim\|\lambda\|_2$. 一般非负序列还不满足命题的几何假设；后面将用 Szemerédi–Trotter 定理剔除异常点，并使余项的 $\ell^2$ 范数按几何级数下降. 先证明命题2.</p>
+
+<p class="thm"><b>定理3</b> (Szemerédi–Trotter 点线关联定理 [5])<b>.</b> 若 $P\subset\mathbb R^2$ 是 $n$ 点集，$\mathcal L$ 是 $L$ 条不同直线组成的有限集，则关联数满足
+$$
+I(P,\mathcal L)=\#\{(p,\ell)\in P\times\mathcal L:p\in\ell\}
+\le A\big(n^{2/3}L^{2/3}+n+L\big),
+\label{st}
+$$
+其中 $A$ 是绝对常数. 因而对任意整数 $k\ge2$，过至少 $k$ 个 $P$ 中点的直线数满足
+$$
+\#\{\ell:\#(\ell\cap P)\ge k\}\lesssim\frac{n^2}{k^3}+\frac nk.
+\label{rich}
+$$</p>
+
+<p>后一结论的推导如下. 当 $k\ge2A$ 时，把 $kL\le I(P,\mathcal L)$ 代入 $\eqref{st}$，吸收右侧的 $AL$；其余两项中至少一项控制 $kL$，分别给出 $L\lesssim n^2/k^3$ 或 $L\lesssim n/k$. 对有界的 $2\le k\lt2A$，每条这样的直线确定至少一对点，而一对点只确定一条直线，所以 $L\le\binom n2$，也满足 $\eqref{rich}$. 后文只使用 $\eqref{rich}$.</p>
+
+<h2>从平行四边形归约到矩形</h2>
+
+<p>对 $\xi\in S_j$ 及过它的两条互相垂直的直线 $\ell_1,\ell_2$，令
+$$
+r(\xi;\ell_1,\ell_2)=\max\{\#(\ell_1\cap S_j),\#(\ell_2\cap S_j)\}.
+\notag
+$$
+按照 $r\ge2^{j/2+C}$、$2\le r\lt2^{j/2+C}$、$r=1$，分别称这个十字为第1、2、3型. 非退化矩形的每个顶点用其两条边所在直线确定类型. 记 $\mathcal R^{\alpha,\beta}$ 为顶点 $\xi_1,\xi_2$ 都是第 $\alpha$ 型、$\xi_3,\xi_4$ 都是第 $\beta$ 型的有序非退化矩形集. 这些集合没有穷尽所有矩形，但下述 Cauchy–Schwarz 归约足以使用它们.</p>
+
+<p>对非零格点向量 $v=(v_1,v_2)$，定义 $d(v)=\gcd(|v_1|,|v_2|)$，其中 $\gcd(a,0)=a$；$v^\perp=(-v_2,v_1)$.</p>
+
+<p class="thm"><b>引理4</b> ([1, 引理3.2])<b>.</b> 对任意整数 $\tau\ge0$，命题2中的 $f$ 满足
+$$
+\sum_{Q\in\mathcal Q_\tau}f(Q)
+\lesssim\sum_{\alpha,\beta=1}^3
+\sum_{\substack{Q\in\mathcal R^{\alpha,\beta}\\d(\xi_1-\xi_4)\mid\tau}}f(Q)
++\|f\|_2^4.
+\label{rect-reduction}
+$$</p>
+
+<p><i>证明.</i> 固定边向量 $v=\xi_1-\xi_4=\xi_2-\xi_3\ne0$，并设
+$$
+c_\sigma(v)=\sum_{x\cdot v=\sigma}f(x)f(x-v),\qquad \sigma\in\mathbb Z.
+\notag
+$$
+由 $\eqref{modulation}$，$\tau=2|(\xi_1-\xi_2)\cdot v|$，故必有 $d(v)\mid\tau$. 固定 $v$ 的平行四边形权重为
+$$
+\sum_{|\sigma-\rho|=\tau/2}c_\sigma(v)c_\rho(v)
+\le2\sum_\sigma c_\sigma(v)^2.
+\label{segment-cs}
+$$
+若 $\tau$ 为奇数，左侧为空；其余情形对平移后的序列使用 Cauchy–Schwarz 即得此式.</p>
+
+<p>将 $c_\sigma(v)$ 按线段两端的十字类型拆成九项 $c_\sigma^{\alpha,\beta}(v)$. 十字方向为 $v$ 与 $v^\perp$，由端点及方向唯一确定. 于是
+$$
+c_\sigma(v)^2\le9\sum_{\alpha,\beta}\big(c_\sigma^{\alpha,\beta}(v)\big)^2.
+\notag
+$$
+平方中的两条线段 $(x,x-v)$、$(y,y-v)$ 满足 $(x-y)\cdot v=0$. 当 $x\ne y$ 时，它们组成矩形 $(x,y,y-v,x-v)$，且属于 $\mathcal R^{\alpha,\beta}$. 当 $x=y$ 时，所有 $v,\sigma$ 上的贡献不超过 $\sum_{x,z}f(x)^2f(z)^2=\|f\|_2^4$. 最初排除的 $v=0$ 也只贡献 $\|f\|_2^4$. 对满足整除条件的 $v$ 求和得到 $\eqref{rect-reduction}$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>矩形的三个计数界</h2>
+
+<p>以下只计非退化矩形. 固定 $\mathbf j=(j_1,j_2,j_3,j_4)$，并令 $\mathbf a=(a_1,a_2,a_3,a_4)$ 为非负整数四元组. 记 $\mathcal R(\mathbf j,\mathbf a)$ 为对每个 $k=1,2,3,4$ 满足 $\xi_k\in S_{j_k}$ 且
+$$
+2^{a_k}\le\max\{\#(\overleftrightarrow{\xi_k\xi_{k+1}}\cap S_{j_k}),\#(\overleftrightarrow{\xi_k\xi_{k-1}}\cap S_{j_k})\}\lt2^{a_k+1}
+\label{bins}
+$$
+的矩形集，指标按模4理解. 对第2型顶点有 $1\le a_k\lt j_k/2+C$；对第3型顶点有 $a_k=0$.</p>
+
+<p class="thm"><b>引理5</b> ([1, 引理3.4–3.5])<b>.</b> 记 $N(\mathbf j,\mathbf a)=\#\mathcal R(\mathbf j,\mathbf a)$. 恒有
+$$
+N(\mathbf j,\mathbf a)\lesssim2^{j_1+j_2+a_3}.
+\label{elementary-count}
+$$
+若 $1\le a_1\lt j_1/2+C$，则还有
+$$
+\begin{aligned}
+N(\mathbf j,\mathbf a)&amp;\lesssim2^{2j_1-2a_1+a_2+a_4},\\
+N(\mathbf j,\mathbf a)&amp;\lesssim2^{2j_1-2a_1+a_2+a_3},\\
+W(\mathbf j,\mathbf a):=\sum_{Q\in\mathcal R(\mathbf j,\mathbf a)}\frac1{d(\xi_1-\xi_4)}
+&amp;\lesssim2^{2j_1-2a_1+a_2+a_4/2}.
+\end{aligned}
+\label{three-counts}
+$$</p>
+
+<p><i>证明.</i> 对 $\eqref{elementary-count}$，先选 $\xi_1,\xi_2$，至多 $2^{j_1+j_2}$ 种. $\xi_3$ 位于过 $\xi_2$ 且垂直于 $\xi_1\xi_2$ 的直线上，依 $\eqref{bins}$ 至多有 $2^{a_3+1}$ 种选择. 此后 $\xi_4=\xi_1+\xi_3-\xi_2$ 唯一确定.</p>
+
+<p>现在假设 $1\le a_1\lt j_1/2+C$. 由 $\eqref{rich}$，含至少 $2^{a_1}$ 个 $S_{j_1}$ 中点的直线数至多为
+$$
+O\big(2^{2j_1-3a_1}+2^{j_1-a_1}\big)=O_C(2^{2j_1-3a_1}).
+\notag
+$$
+最后一步用了 $2a_1\lt j_1+2C$. 每个满足 $\eqref{bins}$ 的十字，其两条直线中至少一条含有 $[2^{a_1},2^{a_1+1})$ 个 $S_{j_1}$ 中点. 选此直线、其上的 $\xi_1$，再作垂线，得到至多 $O_C(2^{2j_1-2a_1})$ 个十字；交换两条直线只多常数因子. 固定十字后，$\xi_2$ 有 $O(2^{a_2})$ 种选择. 再选 $\xi_4$ 或 $\xi_3$，分别至多有 $O(2^{a_4})$、$O(2^{a_3})$ 种选择，得到前两个界.</p>
+
+<p>加权界需要格点结构. 固定 $\xi_1$ 及过它的格点方向直线，取该方向的本原向量 $v_0$，即 $d(v_0)=1$. 线上其他格点写为 $\xi_4=\xi_1+nv_0$，$n\in\mathbb Z\setminus\{0\}$，于是 $d(\xi_1-\xi_4)=|n|$. 若有 $L$ 个候选点，每个 $|n|$ 至多出现两次，因此
+$$
+\sum_{\xi_4}\frac1{d(\xi_1-\xi_4)}
+\le2\sum_{r=1}^L\frac1r
+\lesssim\log(2+L)\lesssim2^{a_4/2}
+\qquad(L\lt2^{a_4+1}).
+\label{gcd-harmonic}
+$$
+候选点无须连续. 将其代替前面的 $O(2^{a_4})$ 个选择，便得第三个界.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>第2型矩形的插值与求和</h2>
+
+<p class="thm"><b>引理6</b> ([1, 引理3.3])<b>.</b> 对命题2中的 $f$，有
+$$
+\begin{aligned}
+\sum_{Q\in\mathcal R^{\alpha,\beta}}f(Q)&amp;\lesssim\|\lambda\|_2^4
+&amp;&amp;((\alpha,\beta)\ne(2,2)),\\
+\sum_{Q\in\mathcal R^{2,2}}f(Q)&amp;\lesssim m\|\lambda\|_2^4,\\
+\sum_{Q\in\mathcal R^{2,2}}\frac{f(Q)}{d(\xi_1-\xi_4)}&amp;\lesssim\|\lambda\|_2^4.
+\end{aligned}
+\label{typed-bounds}
+$$</p>
+
+<p><i>证明.</i> 先证明四个顶点都是第2型的情形. 令
+$$
+J=j_1+j_2+j_3+j_4,\qquad
+D=\sum_{k=1}^4\big(|j_k-j_{k+1}|+|a_k-a_{k+1}|\big).
+\notag
+$$
+式 $\eqref{three-counts}$ 的前两个界及其循环换标给出八个指数
+$$
+\begin{aligned}
+A_{k,1}&amp;=2j_k-2a_k+a_{k+1}+a_{k+2},\\
+A_{k,2}&amp;=2j_k-2a_k+a_{k+1}+a_{k+3},\\
+N&amp;\lesssim2^{A_{k,l}}.
+\end{aligned}
+\label{eight}
+$$
+若 $c_{k,l}\ge0$ 且 $\sum c_{k,l}=1$，这些界的加权几何平均给出 $N\lesssim2^{\sum c_{k,l}A_{k,l}}$. 分别取
+$$
+(c_{k,l})=\frac1{24}\begin{pmatrix}2&amp;3\\3&amp;4\\0&amp;6\\3&amp;3\end{pmatrix},
+\qquad
+(c_{k,l})=\frac1{12}\begin{pmatrix}1&amp;2\\1&amp;2\\3&amp;0\\1&amp;2\end{pmatrix}.
+\label{weights}
+$$
+第一组中 $a_k$ 的系数均为零，$j_k$ 的系数为 $(5/12,7/12,1/2,1/2)$；第二组中 $j_k$ 的系数均为 $1/2$，$a_k$ 的系数为 $(1/6,-1/6,0,0)$. 因而
+$$
+N\lesssim2^{J/2-(j_1-j_2)/12},\qquad
+N\lesssim2^{J/2+(a_1-a_2)/6}.
+\notag
+$$
+循环换标及反向排列给出每条相邻边的两种符号，所以对 $k=1,2,3,4$，
+$$
+N\lesssim2^{J/2-|j_k-j_{k+1}|/12},\qquad
+N\lesssim2^{J/2-|a_k-a_{k+1}|/6}.
+\notag
+$$
+再将这八个界各取 $1/8$ 次方相乘，得到
+$$
+N(\mathbf j,\mathbf a)\lesssim2^{J/2-D/96}.
+\label{decay-N}
+$$</p>
+
+<p>对指定边 $\xi_1\xi_4$ 上的加权和 $W$，先用 $W\le N$ 得到 $\eqref{eight}$ 的全部八个界，再用 $\eqref{three-counts}$ 将其中 $A_{1,2}$ 的界改进为 $W\lesssim2^{A_{1,2}-a_4/2}$. 由于 $\frac18\sum_{k,l}A_{k,l}=J/2$，八项等权平均给出 $W\lesssim2^{J/2-a_4/16}$. 与 $\eqref{decay-N}$ 再作一次几何平均，得
+$$
+W(\mathbf j,\mathbf a)\lesssim2^{J/2-D/192-a_4/32}.
+\label{decay-W}
+$$
+这个推导始终对同一条边加权，无须在换标时变更加权边.</p>
+
+<p>说明这两个衰减界如何求和. 对任意固定 $\delta&gt;0$，延拓 $\lambda_j=0$ 到 $\mathbb Z$，由 $2uv\le u^2+v^2$ 有
+$$
+\sum_{r,s\in\mathbb Z}2^{-\delta|r-s|}\lambda_r\lambda_s
+\le\left(\sum_{h\in\mathbb Z}2^{-\delta|h|}\right)\|\lambda\|_2^2.
+\label{schur}
+$$
+因此，保留 $|j_1-j_2|$ 与 $|j_3-j_4|$ 两项，就能对四个 $j$ 求和，结果为 $O_\delta(\|\lambda\|_2^4)$.</p>
+
+<p>对 $a$ 的求和，固定 $a_4$，保留链上的三个差 $|a_1-a_2|+|a_2-a_3|+|a_3-a_4|$. 用差分变量逐次求和，得
+$$
+\sum_{a_1,a_2,a_3\ge1}
+2^{-\delta(|a_1-a_2|+|a_2-a_3|+|a_3-a_4|)}\lesssim_\delta1.
+\label{a-chain}
+$$
+未加权时，$1\le a_4\lt m/2+C$，剩余求和为 $O(m)$. 加权时，$\eqref{decay-W}$ 还含 $2^{-a_4/32}$，剩余求和为 $O(1)$. 每个矩形的权重是 $2^{-J/2}\lambda_{j_1}\lambda_{j_2}\lambda_{j_3}\lambda_{j_4}$，恰好消去 $\eqref{decay-N}$、$\eqref{decay-W}$ 中的 $2^{J/2}$. 这证明 $\eqref{typed-bounds}$ 的后两式.</p>
+
+<h2>其余类型的矩形</h2>
+
+<p>继续证明引理6的第一式. 若 $\alpha=1$，则 $\xi_1$ 和 $\xi_2$ 都为第1型. 对固定对角顶点 $(\xi_1,\xi_3)$，$\xi_1$ 处的唯一高密度直线必须包含 $\xi_2$ 或 $\xi_4$. 另一顶点由正交投影唯一确定，因此剩余两顶点的有序选择至多两种. 固定另一对角 $(\xi_2,\xi_4)$ 时，使用 $\xi_2$ 处的唯一高密度直线也有相同结论. Cauchy–Schwarz 给出
+$$
+\begin{aligned}
+\sum_{Q\in\mathcal R^{1,\beta}}f(Q)
+&amp;\le\left(\sum_{Q\in\mathcal R^{1,\beta}}f(\xi_1)^2f(\xi_3)^2\right)^{1/2}
+\left(\sum_{Q\in\mathcal R^{1,\beta}}f(\xi_2)^2f(\xi_4)^2\right)^{1/2}\\
+&amp;\lesssim\|f\|_2^4\le\|\lambda\|_2^4.
+\end{aligned}
+\notag
+$$
+$\beta=1$ 的情形通过循环换标相同.</p>
+
+<p>若 $(\alpha,\beta)=(3,3)$，记固定 $\mathbf j$ 的矩形数为 $q_{\mathbf j}$. 引理5及循环换标给出
+$$
+q_{\mathbf j}\lesssim2^{\min_k(j_k+j_{k+1})}.
+\notag
+$$
+令 $x=j_1-j_3$、$y=j_2-j_4$，则有恒等式
+$$
+\min_k(j_k+j_{k+1})-J/2
+=-\frac{|x|+|y|}{2}.
+\label{type33}
+$$
+事实上，左侧四个候选值分别是 $(x+y)/2$、$(-x+y)/2$、$(-x-y)/2$、$(x-y)/2$. 因此 $q_{\mathbf j}2^{-J/2}$ 对两条对角的指标差指数衰减，用 $\eqref{schur}$ 即可求和.</p>
+
+<p>最后考虑 $(\alpha,\beta)=(2,3)$，即 $a_1,a_2\ge1$，$a_3=a_4=0$. 因为 $\xi_3,\xi_4$ 是第3型，由 $\eqref{elementary-count}$ 的三种换标得到
+$$
+q_{\mathbf j}\lesssim2^{\min\{j_1+j_4,\ j_2+j_3,\ j_1+j_2\}}.
+\label{type23-first}
+$$
+还需要第四个界. 固定 $a_1,a_2$，$\eqref{elementary-count}$ 与 $\eqref{three-counts}$ 的换标给出
+$$
+\begin{aligned}
+N(\mathbf j,\mathbf a)
+&amp;\lesssim2^{j_3+j_4+\min(a_1,a_2)}
+\le2^{j_3+j_4+(a_1+a_2)/2},\\
+N(\mathbf j,\mathbf a)
+&amp;\lesssim\min\{2^{2j_1-2a_1},2^{2j_2-2a_2}\}
+\le2^{j_1+j_2-a_1-a_2}.
+\end{aligned}
+\notag
+$$
+第二行中，顶点1的界使用 $\eqref{three-counts}$ 第二式的反向换标，使后两项成为 $a_4+a_3=0$；顶点2的界使用循环换标，使后两项成为 $a_3+a_4=0$. 前一行取 $3/5$ 次方，后一行取 $2/5$ 次方，得到
+$$
+N(\mathbf j,\mathbf a)
+\lesssim2^{\frac35(j_3+j_4)+\frac25(j_1+j_2)-\frac1{10}(a_1+a_2)}.
+\notag
+$$
+对 $a_1,a_2\ge1$ 求和，几何级数收敛，故
+$$
+q_{\mathbf j}\lesssim2^{\frac35(j_3+j_4)+\frac25(j_1+j_2)}.
+\label{type23-second}
+$$
+将 $\eqref{type23-first}$、$\eqref{type23-second}$ 中的四个指数减去 $J/2$，所得为
+$$
+\frac{x-y}{2},\quad\frac{-x+y}{2},\quad\frac{x+y}{2},\quad-\frac{x+y}{10}.
+\notag
+$$
+前两项的最小值为 $-|x-y|/2$，后两项的最小值不超过 $-|x+y|/10$. 又因 $\max\{|x-y|,|x+y|\}=|x|+|y|$，得到
+$$
+q_{\mathbf j}2^{-J/2}\lesssim2^{-(|j_1-j_3|+|j_2-j_4|)/10}.
+\notag
+$$
+再次使用 $\eqref{schur}$ 完成求和. $(3,2)$ 通过循环换标归于同一情形，引理6得证.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>整除条件如何消去非共振部分的对数</h2>
+
+<p><i>证明.</i> 对命题2，注意 $\|f\|_2^2=\sum_j\lambda_j^22^{-j}\#S_j\le\|\lambda\|_2^2$. 当 $\tau=0$ 时，引理4和引理6立即给出 $R(f)\lesssim m\|\lambda\|_2^4$.</p>
+
+<p>当 $\tau&gt;0$ 时，对固定正整数 $d$ 有
+$$
+\frac1M\#\{\tau\in\mathbb Z:M\le\tau\lt2M,\ d\mid\tau\}\lesssim\frac1d.
+\label{multiples}
+$$
+若 $d\ge2M$，集合为空；若 $d\lt2M$，候选倍数不超过 $\lfloor2M/d\rfloor\le2M/d$. 这个分情况论证避免了额外的 $1/M$ 误差.</p>
+
+<p>将 $\eqref{rect-reduction}$ 对 $M\le\tau\lt2M$ 求和、除以 $M$，交换有限求和，并使用 $\eqref{multiples}$，得到
+$$
+B_M(f)\lesssim
+\sum_{\alpha,\beta=1}^3\sum_{Q\in\mathcal R^{\alpha,\beta}}
+\frac{f(Q)}{d(\xi_1-\xi_4)}+\|f\|_2^4
+\lesssim\|\lambda\|_2^4.
+\notag
+$$
+最后一步对 $(2,2)$ 使用引理6的加权界，其余类型使用 $d\ge1$ 及未加权界. 命题2得证.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>这里可以明确看到两个不同的求和结果. 共振矩形允许四个线密度指标 $a_k$ 一同变化，$\eqref{a-chain}$ 后剩下 $O(m)$ 个尺度. 对非零调制的平均，整除条件产生 $d^{-1}$，再由 $\eqref{gcd-harmonic}$ 和 $\eqref{decay-W}$ 给出 $a_4$ 的额外衰减，于是尺度求和有一致上界. 如果先丢掉整除条件，便只能得到 $B_M(f)\lesssim m\|\lambda\|_2^4$，不能推出定理1的时间长度.</p>
+
+<h2>一般 Fourier 权重与异常点剔除</h2>
+
+<p>剩下将任意有限支集序列化为命题2中的形式. 设 $n=\#S\ge1$，取
+$$
+m=1+\lfloor\log_2n\rfloor,\qquad T=1/m.
+\notag
+$$
+先考虑任意非负序列 $f$，其支集包含在 $S$ 内. 从 $f_0=f$ 出发，逐次构造非负余项 $f_\nu$. 在每一步，将 $S$ 中的点按 $f_\nu$ 的值递减排列为 $\xi_1,\ldots,\xi_n$，并把越界的序列值约定为零. 定义
+$$
+S_j^0=\{\xi_r:2^j\le r\lt2^{j+1},\ r\le n\},\qquad
+\lambda_j=2^{j/2}f_\nu(\xi_{2^j})\quad(0\le j\le m),
+\notag
+$$
+其中越界时 $S_j^0=\varnothing$、$\lambda_j=0$. 有 $\#S_j^0\le2^j$，且 $f_\nu\le\lambda_j2^{-j/2}$ 于 $S_j^0$ 上成立. 对 $j\ge1$，前一块的 $2^{j-1}$ 个值均不小于 $f_\nu(\xi_{2^j})$，故
+$$
+\sum_{j=0}^m\lambda_j^2
+=\sum_{j=0}^m2^jf_\nu(\xi_{2^j})^2
+\le3\|f_\nu\|_2^2.
+\label{rank-l2}
+$$
+这里对 $j\ge1$ 使用互不相交的指标块 $[2^{j-1},2^j)$，$j=0$ 的首项再计一次.</p>
+
+<p>令 $\mathcal L_j$ 为至少含 $2^{j/2+C}$ 个 $S_j^0$ 中点的直线集. 由 $\eqref{rich}$，
+$$
+\#\mathcal L_j\lesssim2^{j/2-3C}+2^{j/2-C}\lesssim2^{j/2-C}.
+\notag
+$$
+设 $E_j\subset S_j^0$ 为落在至少两条 $\mathcal L_j$ 中不同直线上的点. 两条不同直线至多相交于一点，所以
+$$
+\#E_j\le\binom{\#\mathcal L_j}{2}\lesssim2^{j-2C}.
+\label{exception}
+$$
+令 $E=\bigcup_jE_j$，并定义
+$$
+f_{\nu+1}=f_\nu\mathbf1_E,\qquad
+S_j=S_j^0\setminus E_j,\qquad
+h_\nu=f_\nu-f_{\nu+1},\qquad
+g_\nu=\sum_{j=0}^m\lambda_j2^{-j/2}\mathbf1_{S_j}.
+\notag
+$$
+每个 $S_j$ 中的点至多位于一条含至少 $2^{j/2+C}$ 个 $S_j$ 中点的直线上：这样的直线在 $S_j^0$ 中也达到同一阈值，而同时位于两条者已被删去. 因此 $g_\nu$ 满足命题2的假设，且 $0\le h_\nu\le g_\nu$.</p>
+
+<p>由 $\eqref{exception}$ 和 $\eqref{rank-l2}$，
+$$
+\|f_{\nu+1}\|_2^2
+\le\sum_j\lambda_j^22^{-j}\#E_j
+\lesssim2^{-2C}\sum_j\lambda_j^2
+\lesssim2^{-2C}\|f_\nu\|_2^2.
+\notag
+$$
+固定足够大的 $C$，使 $\|f_{\nu+1}\|_2\le\frac12\|f_\nu\|_2$，从而 $\|f_\nu\|_2\le2^{-\nu}\|f\|_2$. 由命题2、$\eqref{kernel-count}$、$\eqref{time-sum}$ 及正核单调性，
+$$
+\|h_\nu\|_{X_T}\le\|g_\nu\|_{X_T}
+\lesssim\|\lambda\|_2\lesssim\|f_\nu\|_2.
+\notag
+$$
+由于支集包含在固定的 $n$ 点集中，$\|f_\nu\|_{X_T}\le(2T)^{1/4}\sqrt n\,\|f_\nu\|_2\to0$. 因而可以在 $X_T$ 中使用望远镜分解 $f=\sum_{\nu\ge0}h_\nu$，由三角不等式得
+$$
+\|f\|_{X_T}\le\sum_{\nu\ge0}\|h_\nu\|_{X_T}
+\lesssim\sum_{\nu\ge0}2^{-\nu}\|f\|_2
+\lesssim\|f\|_2.
+\label{general-f}
+$$</p>
+
+<p>对任意复序列 $a$ 支持于 $S$，由 $\eqref{positive}$、$\eqref{general-f}$ 和 $w_T\ge1/2$ 于 $[0,T]$，
+$$
+\|Ea\|_{L^4([0,T]\times\mathbb T^2)}\lesssim\|a\|_{X_T}
+\le\big\||a|\big\|_{X_T}\lesssim\|a\|_2.
+\notag
+$$
+以 $a(\xi)=\mathbf1_S(\xi)\widehat\phi(\xi)$ 代入，即得长度 $1/m$ 上的一致估计. 又因 $m\asymp\log n$，长度 $1/\log n$ 的区间可由绝对常数个长度不超过 $1/m$ 的区间覆盖. 每段使用时间平移后的数据，四次积分相加，得到 $\eqref{main}$. 定理1证毕.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>时间长度的最优性</h2>
+
+<p>最后补出方盒例子的计数下界，并说明它为何限制定理1中的时间长度. 对 $S_N=[-N,N]^2\cap\mathbb Z^2$ 及 $\widehat\phi_N=\mathbf1_{S_N}$，全周期时间正交性给出
+$$
+\|e^{it\Delta}\phi_N\|_{L^4([0,2\pi]\times\mathbb T^2)}^4
+=2\pi\#(\mathcal Q_0\cap S_N^4).
+\label{period-count}
+$$</p>
+
+<p>取整数点 $p\in[-N/2,N/2]^2$，以及本原向量 $v=(r,s)\in\mathbb N^2$，其中 $r,s\ge1$、$\gcd(r,s)=1$、$q=\|v\|_\infty\le N/8$. 对
+$$
+1\le k,l\le\left\lfloor\frac N{4q}\right\rfloor,
+\notag
+$$
+四点 $p,p+kv,p+kv+lv^\perp,p+lv^\perp$ 构成 $S_N$ 内的矩形. 固定这个有序顶点排列后，$p,v,k,l$ 可由矩形恢复，因此没有重复计数.</p>
+
+<p>对二进制整数 $R\ge2$，壳层 $R/2\lt\|v\|_\infty\le R$ 中有 $\gtrsim R^2$ 个这样的本原向量. 一个初等验证是
+$$
+\#\{1\le r,s\le R:\gcd(r,s)=1\}
+\ge R^2-\sum_{d=2}^{\infty}\lfloor R/d\rfloor^2
+\ge(2-\pi^2/6)R^2.
+\notag
+$$
+扣除内方盒的至多 $R^2/4$ 个点后，系数 $7/4-\pi^2/6&gt;0$. 因而每个 $2\le R\le N/8$ 的二进制尺度贡献至少
+$$
+cN^2\cdot R^2\cdot(N/R)^2=cN^4
+\notag
+$$
+个矩形. 对 $\asymp\ln N$ 个尺度求和，由 $\eqref{period-count}$ 及 $\|\phi_N\|_2^4=(\#S_N)^2\asymp N^4$，得到
+$$
+\|e^{it\Delta}\phi_N\|_{L^4([0,2\pi]\times\mathbb T^2)}^4
+\gtrsim(\ln N)\|\phi_N\|_2^4.
+\label{lower}
+$$</p>
+
+<p>假设某个时间长度 $0\lt T_N\le2\pi$ 对所有支持于 $S_N$ 的数据满足常数一致的估计
+$$
+\|e^{it\Delta}\psi\|_{L^4([0,T_N]\times\mathbb T^2)}\le A\|\psi\|_2,
+\notag
+$$
+其中 $A$ 与 $N$ 无关. 对 $\psi=e^{is\Delta}\phi_N$ 应用此式，再将全周期分成至多 $\lceil2\pi/T_N\rceil$ 段，由 $\eqref{lower}$ 得
+$$
+\ln N\lesssim A^4(1+T_N^{-1}),\qquad
+T_N\lesssim_A(\ln N)^{-1}
+\quad(N\text{ 充分大}).
+\notag
+$$
+由于 $\log\#S_N\asymp\ln N$，定理1中的时间长度在绝对常数意义下最优. 这一结论针对对全部数据成立的一致估计；论证所需的是全周期下界与时间平移.</p>
+
+<h2>参考文献</h2>
+
+<p>[1] S. Herr, B. Kwak, <i>Strichartz estimates and global well-posedness of the cubic NLS on $\mathbb T^2$</i>. Forum of Mathematics, Pi <b>12</b> (2024), e14, 1–21. 本文所用证明为期刊版的 §§2–3. <a href="https://doi.org/10.1017/fmp.2024.11" target="_blank">期刊正文</a>, <a href="https://arxiv.org/abs/2309.14275" target="_blank">预印本记录</a>.</p>
+
+<p>[2] J. Bourgain, <i>Fourier transform restriction phenomena for certain lattice subsets and applications to nonlinear evolution equations. I. Schrödinger equations</i>. Geometric and Functional Analysis <b>3</b> (1993), 107–156. <a href="https://math.mit.edu/classes/18.158/bourgain-restriction.pdf" target="_blank">原文</a>.</p>
+
+<p>[3] J. Bourgain, C. Demeter, <i>The proof of the $\ell^2$ decoupling conjecture</i>. Annals of Mathematics <b>182</b> (2015), 351–389. <a href="https://annals.math.princeton.edu/2015/182-1/p09" target="_blank">期刊页面</a>.</p>
+
+<p>[4] J. Pach, M. Sharir, <i>Repeated angles in the plane and related problems</i>. Journal of Combinatorial Theory, Series A <b>59</b> (1992), 12–22. <a href="https://doi.org/10.1016/0097-3165(92" target="_blank">期刊页面</a>90094-B).</p>
+
+<p>[5] E. Szemerédi, W. T. Trotter, Jr., <i>Extremal problems in discrete geometry</i>. Combinatorica <b>3</b> (1983), 381–392. <a href="https://doi.org/10.1007/BF02579194" target="_blank">期刊页面</a>.</p>
+</div>
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+<script>
+window.MathJax.tex.tags = 'all';
+window.infoinput = function () {
+  document.getElementById('blogtitle').textContent = '二维环面上的短时间 Strichartz 估计';
+  document.getElementById('blogdate').textContent = '草稿';
+  document.getElementById('pagetitle').textContent = '二维环面上的短时间 Strichartz 估计';
+};
+</script>
+</body>
+</html>
