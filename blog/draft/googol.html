@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 <title id="pagetitle">Blog is loading...</title>
 </head>
@@ -60,11 +60,13 @@ $$
 
 <p>对 $r\ge2$，规则 $\tau_r$ 在最大值位于第 $j\ge r$ 个位置时成功，当且仅当前 $j-1$ 个数的最大值位于前 $r-1$ 个位置. 故
 $$
+\begin{aligned}
 q_r:=R(\pi,\tau_r)
-=\frac1n\sum_{j=r}^n\frac{r-1}{j-1},
-\qquad q_1=\frac1n,
-\qquad q_{r+1}-q_r
-=\frac1n\left(\sum_{k=r}^{n-1}\frac1k-1\right).
+&amp;=\frac1n\sum_{j=r}^n\frac{r-1}{j-1},
+\qquad q_1=\frac1n,\\
+q_{r+1}-q_r
+&amp;=\frac1n\left(\sum_{k=r}^{n-1}\frac1k-1\right).
+\end{aligned}
 \label{eq:threshold-difference}
 $$
 最后一式对 $1\le r\le n-1$ 均成立，决定了最优阈值.</p>
@@ -101,14 +103,15 @@ $$
 
 <p class="thm"><b>定理2</b> (Gnedin [1, 定理])<b>.</b> 对每个整数 $n\ge3$，存在仅依赖于 $n$ 的常数 $\varepsilon_n&gt;0$，使得当 $0\lt\varepsilon\lt\varepsilon_n$ 时，$(0,\infty)^n$ 上的概率密度
 $$
+\begin{aligned}
 p_\varepsilon(x_1,\ldots,x_n)
-=g_\varepsilon\!\left(\max_{1\le j\le n}x_j\right),
-\qquad
-g_\varepsilon(x)=\frac{\varepsilon}{2n}
+&amp;=g_\varepsilon\!\left(\max_{1\le j\le n}x_j\right),\\
+g_\varepsilon(x)&amp;=\frac{\varepsilon}{2n}
 \begin{cases}
 x^{-n+\varepsilon},&amp;0\lt x\le1,\\
 x^{-n-\varepsilon},&amp;x&gt;1,
 \end{cases}
+\end{aligned}
 \label{eq:density}
 $$
 满足
@@ -227,10 +230,12 @@ x^{j-i-1}\int_x^\infty g(y)y^{n-j}\,dy.
 $$
 这里 $\mathcal T$ 是纪录链的一步转移算子，空和取 $0$. 将 $\eqref{eq:one-step}$ 除以 $\eqref{eq:stop-reward}$，定义
 $$
-R_i(x):=\frac{(\mathcal Tw)_i(x)}{w_i(x)}
-=\frac1{g(x)x^n}\sum_{j=i+1}^n
+\begin{aligned}
+R_i(x)&amp;:=\frac{(\mathcal Tw)_i(x)}{w_i(x)}\\
+&amp;=\frac1{g(x)x^n}\sum_{j=i+1}^n
 x^{j-1}\int_x^\infty g(y)y^{n-j}\,dy,
 \qquad R_n(x)=0.
+\end{aligned}
 \label{eq:ratio}
 $$
 对每个固定的 $x&gt;0$，求和项为正，故
@@ -347,10 +352,11 @@ $$
 
 <p>当 $x\ge1$ 时，积分直接给出
 $$
+\begin{aligned}
 \int_x^\infty g_\varepsilon(y)y^{n-k-1}\,dy
-=\frac{c_\varepsilon}{k+\varepsilon}x^{-k-\varepsilon},
-\qquad
-A_{k,\varepsilon}(x)=\frac1{k+\varepsilon}.
+&amp;=\frac{c_\varepsilon}{k+\varepsilon}x^{-k-\varepsilon},\\
+A_{k,\varepsilon}(x)&amp;=\frac1{k+\varepsilon}.
+\end{aligned}
 \label{eq:large-x}
 $$
 当 $0\lt x\le1$ 时，积分须在 $1$ 处分开，得到
@@ -376,12 +382,13 @@ $$
 $$
 两种情形合起来给出对全部 $x&gt;0$ 一致成立的估计
 $$
+\begin{gathered}
 \frac1{k+\varepsilon}\le A_{k,\varepsilon}(x)
-\le\frac1{k-\varepsilon},
-\qquad
+\le\frac1{k-\varepsilon},\\
 \sum_{k=i}^{n-1}\frac1{k+\varepsilon}
 \le R_i(x)\le
 \sum_{k=i}^{n-1}\frac1{k-\varepsilon}.
+\end{gathered}
 \label{eq:uniform-sandwich}
 $$
 因此只需使
@@ -395,12 +402,13 @@ $$
 
 <p>也可以给出具体的充分范围. 记
 $$
-\delta_n=\min\left\{
+\begin{aligned}
+\delta_n&amp;=\min\left\{
 1-\sum_{k=d}^{n-1}\frac1k,
 \ \sum_{k=d-1}^{n-1}\frac1k-1
-\right\}&gt;0,
-\qquad
-\varepsilon_n=\min\left\{\frac12,\frac{\delta_n}{4}\right\}.
+\right\}&gt;0,\\
+\varepsilon_n&amp;=\min\left\{\frac12,\frac{\delta_n}{4}\right\}.
+\end{aligned}
 \label{eq:epsilon-range}
 $$
 对 $k\ge1$、$0\lt\varepsilon\lt1/2$，有
