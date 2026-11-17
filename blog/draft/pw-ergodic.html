@@ -6,12 +6,11 @@
 <body id="body">
 <div id="container" class="container">
 
-
 <p>本期续<a href="https://senyuyang-math.github.io/blog/2026/8.html">第一期</a>，介绍多项式平均的 Hardy–Littlewood 圆法分解. <a href="pw-ergodic-iii.html">第三期</a>将证明多频率引理及多项式遍历定理.</p>
 
-<h2>第一期所用结论与记号</h2>
+<h2>第一期的结论及其多项式版本</h2>
 
-<p>设 $(X,\mathcal B,\mu)$ 是概率空间，$T$ 是可逆保测变换，$S\phi(x)=\phi(x+1)$ 是整数格上的移位. 沿用第一期的 Fourier 变换约定
+<p>设 $(X,\mathcal B,\mu)$ 是概率空间，$T$ 是可逆保测变换，$S\phi(x)=\phi(x+1)$ 是整数格上的移位. 固定 $P(t)=\sum_{j=0}^d c_jt^j\in\mathbb Z[t]$，其中 $d\ge1$，$c_d\ne0$. 沿用第一期的 Fourier 变换约定
 $$
 \widehat\phi(\theta)=\sum_{x\in\mathbb Z}\phi(x)e^{-ix\theta},
 \qquad \theta\in\mathbb T:=\mathbb R/(2\pi\mathbb Z),
@@ -19,9 +18,16 @@ $$
 \|\phi\|_{\ell^2}^2=\frac1{2\pi}\int_{-\pi}^{\pi}|\widehat\phi(\theta)|^2\,d\theta.
 \label{eq:II-fourier}
 $$
-用 $[-\pi,\pi)$ 表示圆周. 对 $\rho&gt;1$，记 $S_\rho=\{\lfloor\rho^m\rfloor:m\ge1\}$，其中重复的整数只取一次. 后文将使用第一期的以下结论.</p>
+用 $[-\pi,\pi)$ 表示圆周，记 $\|\theta\|_{\mathbb T}=\min_{\ell\in\mathbb Z}|\theta-2\pi\ell|$. 对 $\rho&gt;1$，记 $S_\rho=\{\lfloor\rho^m\rfloor:m\ge1\}$，重复的整数只取一次. 对 $f\in L^2(X)$、$\phi\in\ell^2(\mathbb Z)$，定义
+$$
+A_N^P f(x)=\frac1N\sum_{n=1}^N f(T^{P(n)}x),
+\qquad
+A_N^{S,P}\phi(x)=\frac1N\sum_{n=1}^N\phi(x+P(n)).
+\label{eq:II-averages}
+$$
+$P(n)=n$ 时，分别记为 $A_N$ 与 $A_N^S$.</p>
 
-<p class="thm"><b>引理A</b> (第一期引理2，Bourgain变差判别)<b>.</b> 对函数序列 $(f_N)$ 及任意递增序列 $\mathbf N=(N_k)_{k=1}^{K+1}$，记
+<p class="thm"><b>引理A</b> (第一期引理2，Bourgain变差判别)<b>.</b> 对 $L^2(X)$ 中的序列 $(f_N)$ 及任意递增正整数列 $\mathbf N=(N_k)_{k=1}^{K+1}$，记
 $$
 \mathcal O_{\mathbf N,K}(f_N)
 =\left(\sum_{k=1}^K\sup_{N_k\le N\lt N_{k+1}}
@@ -30,16 +36,122 @@ $$
 $$
 若存在 $b_K=o(K)$，使对所有 $\mathbf N$ 都有 $\|\mathcal O_{\mathbf N,K}(f_N)\|_2^2\le b_K$，则 $f_N$ 几乎处处收敛. 将 $S_\rho$ 按递增顺序编号，结论同样适用.</p>
 
-<p class="thm"><b>引理B</b> (第一期引理4，Calderón转移原理)<b>.</b> 整数平移平均的最大估计和有限尺度变差估计可转移到保测系统. 对多项式位移 $P(n)$，轨道截断的余量取为 $\max_{n\le M}|P(n)|$.</p>
+<p class="thm"><b>引理B</b> (Calderón转移原理，参见第一期引理4)<b>.</b> 设 $\varnothing\ne\Lambda\subset\mathbb N$. 对 $K\ge1$ 及 $\mathbf N=(N_k)_{k=1}^{K+1}$，其中 $N_1\lt\cdots\lt N_{K+1}$、$N_k\in\Lambda$，记
+$$
+\mathcal O^{\Lambda}_{\mathbf N,K}(u_N)
+=\left(\sum_{k=1}^K
+\sup_{\substack{N_k\le N\lt N_{k+1}\\N\in\Lambda}}
+|u_N-u_{N_{k+1}}|^2\right)^{1/2}.
+\label{eq:II-restricted-oscillation}
+$$
+若存在 $C_0\ge0$，使对任意 $\phi\in\ell^2(\mathbb Z)$，有
+$$
+\left\|\sup_{N\in\Lambda}|A_N^{S,P}\phi|\right\|_{\ell^2}
+\le C_0\|\phi\|_{\ell^2},
+\label{eq:II-transfer-max-discrete}
+$$
+则对任意 $f\in L^2(X)$，有
+$$
+\left\|\sup_{N\in\Lambda}|A_N^P f|\right\|_2
+\le C_0\|f\|_2.
+\label{eq:II-transfer-max-system}
+$$
+若存在数列 $(C_K)_{K\ge1}\subset[0,\infty)$，使对任意 $\phi\in\ell^2(\mathbb Z)$、$K$ 及 $\mathbf N$，有
+$$
+\left\|\mathcal O^{\Lambda}_{\mathbf N,K}(A_N^{S,P}\phi)\right\|_{\ell^2}^2
+\le C_K\|\phi\|_{\ell^2}^2,
+\label{eq:II-transfer-osc-discrete}
+$$
+则对任意 $f\in L^2(X)$、$K$ 及 $\mathbf N$，有
+$$
+\left\|\mathcal O^{\Lambda}_{\mathbf N,K}(A_N^P f)\right\|_2^2
+\le C_K\|f\|_2^2.
+\label{eq:II-transfer-osc-system}
+$$</p>
 
-<p class="thm"><b>引理C</b> (第一期引理5，稀疏尺度上的收敛与全序列收敛)<b>.</b> 设 $\rho_j\downarrow1$. 若对每个 $f\in L^2(X)$ 及每个 $j$，$A_N^P f$ 沿 $S_{\rho_j}$ 几乎处处收敛，且 $(A_N^P)$ 满足 $L^2$ 最大估计，则 $A_N^P f$ 沿全体整数几乎处处收敛. 对有界函数，有
+<p><i>证明.</i> 先设 $\Lambda\subset\{1,\ldots,M\}$，取整数 $L\ge1$，令
+$$
+R=\max_{1\le n\le M}|P(n)|,
+\qquad
+\phi_{x,L}(j)=f(T^jx)\mathbf1_{[-L-R,L+R]}(j).
+$$
+对 $|j|\le L$ 及 $N\in\Lambda$，有
+$$
+\begin{aligned}
+A_N^{S,P}\phi_{x,L}(j)&amp;=A_N^P f(T^jx),\\
+\int_X\|\phi_{x,L}\|_{\ell^2}^2\,d\mu(x)
+&amp;=(2L+2R+1)\|f\|_2^2.
+\end{aligned}
+$$
+分别对 $\phi_{x,L}$ 应用 $\eqref{eq:II-transfer-max-discrete}$ 或 $\eqref{eq:II-transfer-osc-discrete}$，积分并利用 $T$ 保测，得相应的估计
+$$
+\begin{aligned}
+\left\|\sup_{N\in\Lambda}|A_N^P f|\right\|_2^2
+&amp;\le\frac{2L+2R+1}{2L+1}C_0^2\|f\|_2^2,\\
+\left\|\mathcal O^{\Lambda}_{\mathbf N,K}(A_N^P f)\right\|_2^2
+&amp;\le\frac{2L+2R+1}{2L+1}C_K\|f\|_2^2.
+\end{aligned}
+$$
+令 $L\to\infty$. 对一般的 $\Lambda$，应用于 $\Lambda\cap\{1,\ldots,M\}$，再令 $M\to\infty$，由单调收敛定理得 $\eqref{eq:II-transfer-max-system}$ 或 $\eqref{eq:II-transfer-osc-system}$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p class="thm"><b>引理C</b> (第一期引理5的多项式版本)<b>.</b> 设 $(\rho_j)_{j\ge1}\subset(1,\infty)$，$\rho_j\downarrow1$. 假设存在常数 $C$，使对任意 $f\in L^2(X)$，有
+$$
+\left\|\sup_{N\ge1}|A_N^P f|\right\|_2\le C\|f\|_2,
+\label{eq:II-system-maximal}
+$$
+且对每个 $j$，$A_N^P f$ 沿 $S_{\rho_j}$ 几乎处处收敛. 则对每个 $f\in L^2(X)$，$A_N^P f$ 沿全体正整数几乎处处收敛.</p>
+
+<p><i>证明.</i> 先设 $f\in L^\infty(X)$. 对 $\rho&gt;1$ 及 $N\ge1$，令
+$$
+N'=\min(S_\rho\cap[N,\infty)),
+\qquad N\le N'\le\rho N+\rho.
+$$
+由
+$$
+A_N^P f-A_{N'}^P f
+=\frac{N'-N}{N'}A_N^P f
+-\frac1{N'}\sum_{n=N+1}^{N'}f(T^{P(n)}x),
+$$
+得
 $$
 |A_N^P f-A_{N'}^P f|
-\le 2\left(\rho-1+\frac\rho N\right)\|f\|_\infty,
-\qquad N\le N'=\min(S_\rho\cap[N,\infty)).
+\le2\frac{N'-N}{N'}\|f\|_\infty
+\le 2\left(\rho-1+\frac\rho N\right)\|f\|_\infty.
 \label{eq:II-sparse-completion}
 $$
-再由有界函数逼近及最大估计得到 $L^2$ 情形.</p>
+记
+$$
+D_f(x)=\lim_{M\to\infty}\sup_{N,N'\ge M}
+|A_N^P f(x)-A_{N'}^P f(x)|.
+$$
+在所有稀疏收敛结论成立的公共满测度集上，令 $\ell_j(x)=\lim_{N\to\infty,\,N\in S_{\rho_j}}A_N^P f(x)$. 由 $\eqref{eq:II-sparse-completion}$，
+$$
+\begin{aligned}
+\limsup_{N\to\infty}|A_N^P f(x)-\ell_j(x)|
+&amp;\le2(\rho_j-1)\|f\|_\infty,\\
+D_f(x)&amp;\le4(\rho_j-1)\|f\|_\infty\xrightarrow[j\to\infty]{}0.
+\end{aligned}
+$$</p>
+
+<p>对一般的 $f\in L^2(X)$，取
+$$
+f_m=f\mathbf1_{\{|f|\le m\}},
+\qquad \|f-f_m\|_2\longrightarrow0.
+$$
+由有界函数的情形及 $\eqref{eq:II-system-maximal}$，对 $\varepsilon&gt;0$，有
+$$
+\begin{aligned}
+D_f&amp;\le D_{f_m}+2\sup_{N\ge1}|A_N^P(f-f_m)|\\
+&amp;=2\sup_{N\ge1}|A_N^P(f-f_m)|,\\
+\mu\{D_f&gt;\varepsilon\}
+&amp;\le\frac{4C^2}{\varepsilon^2}\|f-f_m\|_2^2
+\longrightarrow0.
+\end{aligned}
+$$</p>
+
+<p class="proof-box">$\Box$</p>
 
 <p class="thm"><b>引理D</b> (第一期Fourier分析一节及定理3的证明)<b>.</b> 设 $(M_j)$ 是递增正整数列，且每个区间 $[2^v,2^{v+1})$ 中至多有 $C_0$ 项. 记
 $$
@@ -52,30 +164,24 @@ $$
 \le C_{C_0}\|\phi\|_{\ell^2}^2.
 \label{eq:II-projection-oscillation}
 $$
-第一期的证明只用到每个二进区间内的尺度数有界，以及投影区间的嵌套性. 后文取 $M_j=N_j^d$，其中 $N_j$ 依次遍历 $S_\rho$.</p>
+第一期的证明只用到上述计数条件及投影区间的嵌套性. 后文取 $S_\rho=\{N_1\lt N_2\lt\cdots\}$、$M_j=N_j^d$，此时
+$$
+\sup_{v\ge0}\#\{j:2^v\le N_j^d\lt2^{v+1}\}\le C_{\rho,d}.
+$$</p>
 
 <h2>多项式遍历定理</h2>
-
-<p>设 $P\in\mathbb Z[t]$ 是非常数多项式，$d=\deg P$. 定义
-$$
-A_N^P f(x)=\frac1N\sum_{n=1}^N f(T^{P(n)}x),
-\qquad
-A_N^{S,P}\phi(x)=\frac1N\sum_{n=1}^N\phi(x+P(n)).
-\label{eq:II-averages}
-$$
-$P(n)=n$ 时，分别记为 $A_N$ 与 $A_N^S$.</p>
 
 <p class="thm"><b>定理1</b> (Bourgain，$L^2$ 情形，[1–3])<b>.</b> 对每个 $f\in L^2(X)$，$A_N^P f(x)$ 几乎处处收敛.</p>
 
 <p>Bourgain 的结论对所有 $L^p,\ p&gt;1$ 成立. 由引理A–C，定理1归结为以下估计.</p>
 
-<p class="thm"><b>命题2</b> (离散最大与稀疏变差估计，[1–3])<b>.</b> 存在 $C_P$，使
+<p class="thm"><b>定理2</b> (离散最大与稀疏变差估计，[1–3])<b>.</b> 存在 $C_P$，使对任意 $\phi\in\ell^2(\mathbb Z)$，有
 $$
 \left\|\sup_{N\ge1}|A_N^{S,P}\phi|\right\|_{\ell^2}
 \le C_P\|\phi\|_{\ell^2}.
 \label{eq:II-maximal}
 $$
-此外，对每个 $\rho&gt;1$，存在 $\omega_{P,\rho}(K)=o(K)$，使对所有 $(N_k)\subset S_\rho$ 都有
+此外，对每个 $\rho&gt;1$，存在 $\omega_{P,\rho}(K)=o(K)$，使对任意 $K\ge1$、递增序列 $\mathbf N=(N_k)_{k=1}^{K+1}\subset S_\rho$ 及 $\phi\in\ell^2(\mathbb Z)$，有
 $$
 \sum_{k=1}^K\left\|\sup_{\substack{N_k\le N\lt N_{k+1}\\N\in S_\rho}}
 |A_N^{S,P}\phi-A_{N_{k+1}}^{S,P}\phi|\right\|_{\ell^2}^2
@@ -95,7 +201,19 @@ $$
 m_N^P(\theta)=\frac1N\sum_{n=1}^Ne^{iP(n)\theta}.
 \label{eq:II-spectral}
 $$
-当 $\theta/(2\pi)$ 为有理数时，$(e^{iP(n)\theta})_n$ 为周期序列，故 $m_N^P(\theta)$ 收敛. 无理数情形由 Weyl 等分布定理得 $m_N^P(\theta)\to0$. 由 $|m_N^P|\le1$ 及控制收敛定理，$A_N^P f$ 在 $L^2$ 中为 Cauchy 序列.</p>
+由周期性及 Weyl 等分布定理，
+$$
+\lim_{N\to\infty}m_N^P(\theta)
+=\begin{cases}
+\displaystyle\frac1q\sum_{r=1}^q e^{2\pi iaP(r)/q},
+&amp;\theta/(2\pi)=a/q,\ (a,q)=1,\\[6pt]
+0,&amp;\theta/(2\pi)\notin\mathbb Q.
+\end{cases}
+$$
+由 $|m_N^P|\le1$、$\eqref{eq:II-spectral}$ 及控制收敛定理，
+$$
+\lim_{N,M\to\infty}\|(A_N^P-A_M^P)f\|_2^2=0.
+$$</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -116,23 +234,34 @@ m_N^P(2\pi a/q+\beta)
 =\frac1N\sum_{r=1}^q e^{2\pi iaP(r)/q}
 \sum_{\substack{1\le n\le N\\n\equiv r\pmod q}}e^{i\beta P(n)}.
 $$
-对每个剩余类作 Riemann 求和，得
+对 $h(t)=e^{i\beta P(t)}$ 作 Riemann 求和，有
+$$
+\begin{aligned}
+\left|\sum_{\substack{1\le n\le N\\n\equiv r\pmod q}}h(n)
+-\frac1q\int_0^N h(t)\,dt\right|
+&amp;\le C\left(1+\int_0^N|h'(t)|\,dt\right)\\
+&amp;\le C_P(1+N^d|\beta|).
+\end{aligned}
+$$
+对 $r$ 求和并除以 $N$，得
 $$
 m_N^P(2\pi a/q+\beta)
 =G_P(a/q)\Phi_N^P(\beta)
 +O_P\!\left(\frac qN(1+N^d|\beta|)\right).
 \label{eq:II-major-local}
 $$
-对 $h(t)=e^{i\beta P(t)}$，每个剩余类的求和误差不超过 $C(1+\int_0^N|h'(t)|\,dt)$. 对 $r$ 求和并除以 $N$，即得 $\eqref{eq:II-major-local}$.</p>
-
-<p>振荡积分满足
+振荡积分满足
 $$
 |\Phi_N^P(\beta)-1|\le C_PN^d|\beta|,
 \qquad
 |\Phi_N^P(\beta)|\le C_P\min\{1,(N^d|\beta|)^{-1/d}\}.
 \label{eq:II-continuous-bounds}
 $$
-第一式由 $|e^{iu}-1|\le|u|$ 得到. 对第二式，令 $t=Nu$，再用 $d$ 阶 van der Corput 引理. 相位的 $d$ 阶导数为 $d!c_dN^d\beta$，其中 $c_d$ 为 $P$ 的最高次系数.</p>
+第一式由 $|e^{iu}-1|\le|u|$ 得到. 对第二式，令 $t=Nu$，由
+$$
+\frac{d^d}{du^d}\bigl(\beta P(Nu)\bigr)=d!c_dN^d\beta
+$$
+及 $d$ 阶 van der Corput 引理即得.</p>
 
 <h2>Weyl不等式与次弧</h2>
 
@@ -159,20 +288,32 @@ $$
 $$
 由 $q/|c_d|\le q'\le q$ 得 $\eqref{eq:II-weyl}$. 再取 $N=q,\ \xi=a/q$ 及充分小的 $\varepsilon$，得 $\eqref{eq:II-gauss-decay}$.</p>
 
-<p>取充分小的 $\kappa&gt;0$. 由 Dirichlet 逼近定理，存在互素整数 $a,q$，使
+<p>取 $\kappa=(4000d)^{-1}$，令 $Q_N=\lceil N^{d-\kappa}\rceil$. 由 Dirichlet 逼近定理，存在互素整数 $a,q$，使
 $$
-1\le q\le N^{d-\kappa},
+1\le q\le Q_N,
 \qquad
 \left|\frac\theta{2\pi}-\frac aq\right|
-\le\frac1{qN^{d-\kappa}}.
+\le\frac1{qQ_N}.
 \label{eq:II-dirichlet}
 $$
-整数取整只影响常数. 若 $q&gt;N^\kappa$，则 $q^{-1}+N^{-1}+qN^{-d}=O(N^{-\kappa})$. 由 $\eqref{eq:II-weyl}$，存在 $\delta_0&gt;0$，使
+若 $q&gt;N^\kappa$，则 $q^{-1}+N^{-1}+qN^{-d}\le4N^{-\kappa}$. 在 $\eqref{eq:II-weyl}$ 中取 $\varepsilon=\kappa/2^d$，得
 $$
-|m_N^P(\theta)|\le C_PN^{-\delta_0}.
+|m_N^P(\theta)|\le C_PN^{-\delta_0},
+\qquad \delta_0=\frac\kappa{2^d}.
 \label{eq:II-minor}
 $$
-若 $q\le N^\kappa$，则 $\theta$ 位于 $2\pi a/q$ 的 $O(N^{-d+\kappa})$ 邻域内，$\eqref{eq:II-major-local}$ 的误差为 $O_P(N^{-1+2\kappa})$. 这些邻域称为主弧，其补集称为次弧.</p>
+定义主弧和次弧
+$$
+\begin{aligned}
+\mathfrak M_N(a/q)
+&amp;=\{\theta\in\mathbb T:\|\theta-2\pi a/q\|_{\mathbb T}\le4\pi N^{-d+\kappa}\},\\
+\mathfrak M_N
+&amp;=\bigcup_{\substack{1\le q\le N^\kappa\\0\le a\lt q,\ (a,q)=1}}\mathfrak M_N(a/q),\\
+\mathfrak m_N&amp;=\mathbb T\setminus\mathfrak M_N.
+\end{aligned}
+\label{eq:II-arcs}
+$$
+由 $\eqref{eq:II-dirichlet}$，$\theta\in\mathfrak m_N$ 时，其有理逼近的分母满足 $q&gt;N^\kappa$，故 $\eqref{eq:II-minor}$ 在 $\mathfrak m_N$ 上成立.</p>
 
 <h2>按分母分组的圆法分解</h2>
 
@@ -183,7 +324,7 @@ $$
 \eta_s(\beta)=\eta(2^{B(s+1)}\beta).
 \label{eq:II-rational-layers}
 $$
-其中 $q=1$ 时取 $0/1$. 对固定的 $s$，不同分数的角频率间距至少为 $2\pi\,2^{-2s-2}$，故各截断函数 $\eta_s(\theta-2\pi a/q)$ 的支撑不交. 频率邻域均在圆周上理解，$\beta$ 取中心附近的有符号代表.</p>
+其中 $q=1$ 时取 $0/1$. 对固定的 $s$，不同分数的角频率间距至少为 $2\pi\,2^{-2s-2}$，故各截断函数 $\eta_s(\theta-2\pi a/q)$ 的支撑不交. 以下差值 $\beta=\theta-2\pi a/q$ 均取 $[-\pi,\pi)$ 中的代表.</p>
 
 <p>定义
 $$
@@ -198,28 +339,66 @@ $$
 $$
 \|L_{N,s}\|_\infty\le C_P2^{-\gamma s}.
 \label{eq:II-layer-bound}
-$$
-<b>命题5</b> (圆法逼近，参见 [3,4])<b>.</b> 存在 $\delta&gt;0$，使
+$$</p>
+
+<p class="thm"><b>命题5</b> (圆法逼近，参见 [3,4])<b>.</b> 存在 $\delta&gt;0$，使
 $$
 m_N^P=l_N+E_N,
 \qquad \|E_N\|_{L^\infty(\mathbb T)}\le C_PN^{-\delta}.
 \label{eq:II-circle}
 $$</p>
 
-<p><i>证明.</i> 取 $0\lt\kappa\lt1/(100B)$，设 $N$ 充分大. 由 $\eqref{eq:II-layer-bound}$，$l_N$ 中 $2^s&gt;N^\kappa$ 的各项之和的 $L^\infty$ 范数不超过 $C_PN^{-\kappa\gamma}$. 其余各项的分母均小于 $2N^\kappa$.</p>
+<p><i>证明.</i> 先设 $N\ge N_0(P)$. 由 $\eqref{eq:II-layer-bound}$，
+$$
+\left\|\sum_{2^s&gt;N^\kappa}L_{N,s}\right\|_\infty
+\le C_P\sum_{2^s&gt;N^\kappa}2^{-\gamma s}
+\le C_PN^{-\kappa\gamma}.
+\label{eq:II-circle-tail}
+$$</p>
 
-<p>先设 $\theta$ 位于某个 $q\le N^\kappa$ 的主弧内，记 $\beta=\theta-2\pi a/q$，其中 $|\beta|\le C N^{-d+\kappa}$，$C$ 为充分大的固定常数. 由
+<p>设 $\theta\in\mathfrak M_N(a/q)$，$q\le N^\kappa$，$(a,q)=1$. 取 $s$ 使 $a/q\in\mathcal R_s$，记 $\beta=\theta-2\pi a/q$. 由
 $$
 2^{B(s+1)}|\beta|
 \le C_B N^{-d+(B+1)\kappa}\longrightarrow0,
 $$
-得 $\eta_s(\beta)=1$. 由 $\eqref{eq:II-major-local}$，$G_P(a/q)\Phi_N^P(\beta)$ 与 $m_N^P(\theta)$ 的差为 $O_P(N^{-1+2\kappa})$.</p>
+得 $\eta_s(\beta)=1$. 由 $\eqref{eq:II-major-local}$，
+$$
+\left|m_N^P(\theta)-G_P(a/q)\Phi_N^P(\beta)\right|
+\le C_PN^{-1+2\kappa}.
+$$
+对既约分数 $a'/q'\not\equiv a/q\pmod1$，$1\le q'\le2N^\kappa$，有
+$$
+\|\theta-2\pi a'/q'\|_{\mathbb T}
+\ge\frac{2\pi}{qq'}-|\beta|
+\ge cN^{-2\kappa}.
+$$
+由同组截断函数的支撑不交及 $\eqref{eq:II-continuous-bounds}$，
+$$
+\left|\sum_{2^s\le N^\kappa}L_{N,s}(\theta)
+-G_P(a/q)\Phi_N^P(\beta)\right|
+\le C_P(1+\log N)N^{-1+2\kappa/d}.
+\label{eq:II-other-arcs}
+$$</p>
 
-<p>其他分母至多为 $2N^\kappa$ 的既约分数与 $a/q$ 的角距离至少为 $cN^{-2\kappa}$. 由 $N^{-d+\kappa}=o(N^{-2\kappa})$，它们与 $\theta$ 的角距离也至少为 $c'N^{-2\kappa}$. 对固定的 $s$，至多一个截断函数在 $\theta$ 处非零. 由 $\eqref{eq:II-continuous-bounds}$ 对 $s$ 求和，得其余各项之和为 $O_P((\log N)N^{-1+2\kappa/d})$.</p>
-
-<p>再设 $\theta$ 位于次弧. Dirichlet 逼近中的分母大于 $N^\kappa$，故 $m_N^P(\theta)$ 满足 $\eqref{eq:II-minor}$. 对 $q\le N^\kappa$，有 $|\beta|\ge C N^{-d+\kappa}$. 由 $\eqref{eq:II-continuous-bounds}$ 及截断函数的支撑不交，这些项之和为 $O_P((\log N)N^{-\kappa/d})$. 对 $N^\kappa\lt q\lt2N^\kappa$，由 $\eqref{eq:II-gauss-decay}$ 得各项之和为 $O_P(N^{-\kappa\gamma})$.</p>
-
-<p>取 $\delta$ 小于以上各衰减指数，得 $\eqref{eq:II-circle}$. 增大常数可包含其余有限个 $N$.</p>
+<p>设 $\theta\in\mathfrak m_N$. 对 $\beta=\theta-2\pi a/q$，由 $\eqref{eq:II-continuous-bounds}$ 及 $\eqref{eq:II-gauss-decay}$，
+$$
+\begin{aligned}
+|\Phi_N^P(\beta)|&amp;\le C_PN^{-\kappa/d},
+&amp;&amp;q\le N^\kappa,\\
+|G_P(a/q)|&amp;\le C_PN^{-\kappa\gamma},
+&amp;&amp;N^\kappa\lt q\lt2N^\kappa.
+\end{aligned}
+$$
+由同组截断函数的支撑不交，对 $s$ 求和，得
+$$
+\left|\sum_{2^s\le N^\kappa}L_{N,s}(\theta)\right|
+\le C_P\left((1+\log N)N^{-\kappa/d}+N^{-\kappa\gamma}\right).
+$$
+结合 $\eqref{eq:II-minor}$、$\eqref{eq:II-circle-tail}$ 及 $\eqref{eq:II-other-arcs}$，取
+$$
+\delta=\frac12\min\left\{\delta_0,\ \kappa\gamma,\ 1-2\kappa,\ \frac\kappa d\right\}&gt;0,
+$$
+即得 $\eqref{eq:II-circle}$. 有限个 $N\lt N_0(P)$ 并入常数.</p>
 
 <p class="proof-box">$\Box$</p>
 
@@ -231,7 +410,16 @@ $$
 \le C_{P,\rho}\|\phi\|_{\ell^2}^2.
 \label{eq:II-error-square}
 $$
-相应的最大函数和变差算子的 $\ell^2$ 范数平方也由右端估计. 对变差算子，先用 $|u_N-u_{N_{k+1}}|^2\le2|u_N|^2+2|u_{N_{k+1}}|^2$，再对尺度求和.</p>
+令 $u_N=(E_N\widehat\phi)^\vee$，则对任意 $\mathbf N\subset S_\rho$，有
+$$
+\begin{aligned}
+\left\|\sup_{N\in S_\rho}|u_N|\right\|_{\ell^2}^2
+&amp;\le\sum_{N\in S_\rho}\|u_N\|_{\ell^2}^2,\\
+\left\|\mathcal O^{S_\rho}_{\mathbf N,K}(u_N)\right\|_{\ell^2}^2
+&amp;\le4\sum_{N\in S_\rho}\|u_N\|_{\ell^2}^2
+\le C_{P,\rho}\|\phi\|_{\ell^2}^2.
+\end{aligned}
+$$</p>
 
 <p>第三期将用 Bourgain 多频率最大引理证明
 $$
@@ -239,7 +427,7 @@ $$
 \le C_{P,\rho}2^{-\gamma s/2}\|\phi\|_{\ell^2}.
 \label{eq:II-next-estimate}
 $$
-结合引理D及 $\eqref{eq:II-error-square}$，可得命题2.</p>
+结合引理D及 $\eqref{eq:II-error-square}$，可得定理2.</p>
 
 <h2>参考文献</h2>
 
