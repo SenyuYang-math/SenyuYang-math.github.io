@@ -1,0 +1,492 @@
+﻿<html>
+<head>
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<div id="container" class="container">
+
+<p>给定 $n$ 张纸条，甲在上面写下互不相同的正实数，随机打乱顺序，乙依次翻看. 每次看到一个数，乙可以选取它并结束游戏，也可以继续. 已经放弃的数不能再选，直到最后仍未停止时必须选取最后一个数. 乙的目标是选中全部 $n$ 个数的最大值.</p>
+
+<p>如果乙只使用已经出现的数的相对名次，这是经典的秘书问题. 其最优策略是先放弃约 $n/e$ 个数，再选取第一个超过此前全部观测值的数，成功率趋于 $1/e$. Googol 游戏允许乙利用观测到的具体数值，因此还需要考虑这些数值能否提高成功率. Gnedin 在1994年的论文 [1] 中构造了一个概率分布，使经典秘书策略在这一更大的策略类中仍然最优.</p>
+
+<h2>从秘书问题到极小极大问题</h2>
+
+<p>固定整数 $n\ge3$. 记
+$$
+\mathcal F_i=\sigma(X_1,\ldots,X_i),\qquad
+M_i=\max_{1\le j\le i}X_j,\qquad M=M_n.
+\notag
+$$
+当 $X_i=M_i$ 时，称第 $i$ 次观测为一个纪录. 乙的策略是取值于 $\{1,\ldots,n\}$、适应于 $(\mathcal F_i)$ 的停止时刻 $\tau$. 我们也允许乙使用独立的随机化.</p>
+
+<p>甲可以随机选数，再随机排列. 等价地，甲选择一个交换分布 $\pi$，即 $(X_1,\ldots,X_n)$ 的分布在坐标置换下不变，且坐标几乎处处为互不相同的正实数. 记这些分布组成的集合为 $\mathcal P_n$，并定义
+$$
+R(\pi,\tau)=\mathbb P_\pi(X_\tau=M).
+\label{eq:payoff}
+$$
+乙希望增大 $R$，甲希望减小 $R$. 对交换分布，全部数值的名次排列在 $n!$ 个排列上均匀分布. 因此只使用相对名次的秘书策略，对每个 $\pi\in\mathcal P_n$ 都有相同的成功率.</p>
+
+<p class="thm"><b>命题1</b> (经典秘书问题，见 [2, §2])<b>.</b> 存在唯一整数 $d\in\{2,\ldots,n-1\}$，使
+$$
+\sum_{k=d}^{n-1}\frac1k\lt1\lt
+\sum_{k=d-1}^{n-1}\frac1k.
+\label{eq:cutoff}
+$$
+在只依赖相对名次的停止规则中，最优规则为
+$$
+\tau_d=
+\min\bigl(\{i\in\{d,\ldots,n\}:X_i=M_i\}\cup\{n\}\bigr).
+\label{eq:rule}
+$$
+对每个 $\pi\in\mathcal P_n$，它的成功率为
+$$
+\varphi_n=R(\pi,\tau_d)
+=\frac{d-1}{n}\sum_{k=d-1}^{n-1}\frac1k,
+\qquad \varphi_n\longrightarrow e^{-1}.
+\label{eq:secretary-value}
+$$</p>
+
+<p><i>证明.</i> 在均匀随机排列中，第 $i$ 个数在前 $i$ 个数中的名次，相互独立地均匀分布于 $\{1,\ldots,i\}$. 这可以由排列与逐次相对名次序列之间的一一对应得到. 因而第 $i$ 次观测为纪录的概率为 $1/i$. 给定此前的相对名次，若它是纪录，选取它的成功概率为 $i/n$.</p>
+
+<p>令 $v_i$ 表示已放弃前 $i$ 次观测后，仅使用相对名次能够取得的最优成功率，并约定放弃全部观测的收益为 $v_n=0$. 其值与已经出现的相对名次无关，且满足
+$$
+v_n=0,\qquad
+v_{i-1}=v_i+\frac1i\left(\frac in-v_i\right)_+,
+\qquad 1\le i\le n.
+\label{eq:rank-recursion}
+$$
+在 $i\lt n$ 的非纪录位置继续总可以取得最优收益，最后一次为非纪录时的收益为 $0$. 是纪录时，比较 $i/n$ 与 $v_i$. 由 $v_{i-1}\ge v_i$，继续的收益随 $i$ 递减，停止的收益 $i/n$ 随 $i$ 递增. 因此最优规则具有 $\eqref{eq:rule}$ 的形式.</p>
+
+<p>对 $r\ge2$，规则 $\tau_r$ 在最大值位于第 $j\ge r$ 个位置时成功，当且仅当前 $j-1$ 个数的最大值位于前 $r-1$ 个位置. 故
+$$
+\begin{aligned}
+q_r:=R(\pi,\tau_r)
+&amp;=\frac1n\sum_{j=r}^n\frac{r-1}{j-1},
+\qquad q_1=\frac1n,\\
+q_{r+1}-q_r
+&amp;=\frac1n\left(\sum_{k=r}^{n-1}\frac1k-1\right).
+\end{aligned}
+\label{eq:threshold-difference}
+$$
+最后一式对 $1\le r\le n-1$ 均成立，决定了最优阈值.</p>
+
+<p>这里需要排除连续若干项调和级数之和等于 $1$ 的情形. 单项 $1/k$ 在 $k\ge2$ 时小于 $1$. 对至少两个连续正整数，分母中含有最高次 $2$ 的幂的那个整数唯一. 否则，两个具有相同最高 $2$-进指数的整数之间还会出现一个具有更高指数的整数. 以全部分母的最小公倍数通分，唯一对应最高指数的分子为奇数，其余分子均为偶数，而公分母为偶数. 所以和式不是整数. 又因 $n\ge3$，有
+$$
+\sum_{k=1}^{n-1}\frac1k&gt;1,
+\qquad \frac1{n-1}\lt1.
+\notag
+$$
+于是 $\eqref{eq:cutoff}$ 中的 $d$ 存在且唯一，$\eqref{eq:secretary-value}$ 的有限和公式也随之得到. 比较调和和与积分，得
+$$
+\sum_{k=d}^{n-1}\frac1k
+=\log\frac nd+O(d^{-1}).
+\notag
+$$
+由 $\eqref{eq:cutoff}$ 先有 $d\to\infty$，再得 $d/n\to e^{-1}$，从而 $\varphi_n\to e^{-1}$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>命题1给出乙对任何选数方式都能保证的成功率. 要使甲也取得最优策略，需要找到一个确定的分布 $\pi_*$，满足
+$$
+R(\pi_*,\tau)\le\varphi_n
+\qquad\text{对每个使用完整数值信息的停止规则 }\tau.
+\label{eq:least-favourable}
+$$
+即使事先把 $\pi_*$ 告诉乙，这个上界仍须成立.</p>
+
+<p>这个问题源于 Gardner 在1960年2月介绍的 Googol 游戏. Samuels (1981) 在允许实数、均匀分布区间端点未知的模型中证明了相对名次策略的极小极大性. Berezovskiy 与 Gnedin (1984) 以及 Ferguson (1989) 对正数情形得到相应结果. Ferguson 进一步证明，对任意 $\eta&gt;0$，甲可以选择一个交换分布，使乙的最优成功率不超过 $\varphi_n+\eta$. 因而游戏的值已确定为 $\varphi_n$，能否取到这个值仍有待证明. [1, §1] [2, §§6–8]</p>
+
+<p>Samuels 在1989年的评论 [3] 中明确提出了这一可达性问题. $n=2$ 的否定答案与 Cover 的工作有关，Silverman 与 Nádas 在1992年解决了 $n=3$ 的情形. Gnedin 的构造对每个 $n&gt;2$ 都给出满足 $\eqref{eq:least-favourable}$ 的分布. [1, §1]</p>
+
+<h2>Gnedin 的定理</h2>
+
+<p class="thm"><b>定理2</b> (Gnedin [1, 定理])<b>.</b> 对每个整数 $n\ge3$，存在仅依赖于 $n$ 的常数 $\varepsilon_n&gt;0$，使得当 $0\lt\varepsilon\lt\varepsilon_n$ 时，$(0,\infty)^n$ 上的概率密度
+$$
+\begin{aligned}
+p_\varepsilon(x_1,\ldots,x_n)
+&amp;=g_\varepsilon\!\left(\max_{1\le j\le n}x_j\right),\\
+g_\varepsilon(x)&amp;=\frac{\varepsilon}{2n}
+\begin{cases}
+x^{-n+\varepsilon},&amp;0\lt x\le1,\\
+x^{-n-\varepsilon},&amp;x&gt;1,
+\end{cases}
+\end{aligned}
+\label{eq:density}
+$$
+满足
+$$
+\sup_\tau\mathbb P_\varepsilon(X_\tau=M)
+=\mathbb P_\varepsilon(X_{\tau_d}=M)
+=\varphi_n.
+\label{eq:gnedin}
+$$
+这里 $d$ 由 $\eqref{eq:cutoff}$ 定义，上确界取遍适应于完整观测历史 $(\mathcal F_i)$ 的停止时刻，以及它们的独立随机化.</p>
+
+<p>证明先考虑一般的 $p(x_1,\ldots,x_n)=g(M)$. 这种密度的边缘分布保留相同的形式，下一次纪录的条件分布也只依赖当前纪录值与时刻. 由此可以把 $\tau_d$ 的最优性写成两个关于 $g$ 的积分不等式，再检验 $\eqref{eq:density}$.</p>
+
+<h2>由最大值决定的密度</h2>
+
+<p>设 $g:(0,\infty)\to(0,\infty)$ 连续，且
+$$
+n\int_0^\infty g(x)x^{n-1}\,dx=1.
+\label{eq:normalization}
+$$
+对立方体 $(0,x)^n$ 的体积 $x^n$ 求导，得到
+$$
+\int_{(0,\infty)^n}g\!\left(\max_jx_j\right)
+\,dx_1\cdots dx_n
+=n\int_0^\infty g(x)x^{n-1}\,dx.
+\notag
+$$
+所以 $p=g(M)$ 是交换概率密度，且最大值 $M$ 的密度为 $ng(x)x^{n-1}$.</p>
+
+<p>定义 $g_n=g$，并对 $1\le i\lt n$ 定义
+$$
+g_i(x)=g(x)x^{n-i}
++(n-i)\int_x^\infty g(y)y^{n-i-1}\,dy.
+\label{eq:marginal-g}
+$$
+则前 $i$ 个观测的联合密度为
+$$
+p_i(x_1,\ldots,x_i)=g_i\!\left(\max_{1\le j\le i}x_j\right).
+\label{eq:marginal}
+$$
+事实上，固定前 $i$ 个数的最大值为 $x$，把余下 $n-i$ 个坐标分成最大值不超过 $x$ 与超过 $x$ 的两部分. 第一部分的体积为 $x^{n-i}$，第二部分的最大值体积元为 $(n-i)y^{n-i-1}dy$，分别给出 $\eqref{eq:marginal-g}$ 中的两项.</p>
+
+<p>在纪录时刻 $i$ 观察到 $X_i=x=M_i$ 后，立即选取它的条件成功概率为 $w_i(x)$，其中
+$$
+w_i(x)=\frac{g(x)x^{n-i}}{g_i(x)}.
+\label{eq:stop-reward}
+$$
+分子来自未来全部坐标位于 $(0,x)$ 的积分，分母是当前历史的密度. 若当前观测不是纪录，立即选取的成功概率为 $0$.</p>
+
+<p>令
+$$
+W_i=\mathbb P(X_i=M\mid\mathcal F_i).
+\notag
+$$
+对任意停止时刻 $\tau$，条件期望公式给出
+$$
+\mathbb P(X_\tau=M)
+=\sum_{i=1}^n\mathbb E\bigl[\mathbf1_{\{\tau=i\}}W_i\bigr]
+=\mathbb E W_\tau.
+\label{eq:reward-reduction}
+$$
+在 $i\lt n$ 时停在非纪录上没有收益，把这种决策改成继续不会降低成功率. 因此可以把决策限制在纪录时刻. 若此后没有纪录，就在第 $n$ 次观测结束游戏，收益为 $0$.</p>
+
+<h2>纪录值与纪录时刻的转移</h2>
+
+<p>设第 $i$ 次观测为纪录，纪录值为 $x$. 令 $J$ 为下一次纪录的时刻，若以后没有纪录，记为吸收状态 $\partial$，并约定其收益为 $0$.</p>
+
+<p class="thm"><b>引理3</b> (Gnedin [1, 引理])<b>.</b> 给定第 $i$ 次观测为纪录及全部历史 $\mathcal F_i$，对 $i\lt j\le n$、$y&gt;x$，下一次纪录的转移核为
+$$
+K_{ij}(x,dy)
+=\frac{g_j(y)}{g_i(x)}x^{j-i-1}\,dy,
+\label{eq:record-kernel}
+$$
+此后没有纪录的概率为
+$$
+K_i(x,\{\partial\})
+=\frac{g(x)x^{n-i}}{g_i(x)}=w_i(x).
+\label{eq:absorption}
+$$
+这些条件分布与历史中的其他观测值无关.</p>
+
+<p><i>证明.</i> 固定一个以纪录值 $x$ 结束的历史 $(x_1,\ldots,x_{i-1},x)$. 下一次纪录出现在 $j$，值落在 $dy$ 中，要求
+$$
+x_{i+1},\ldots,x_{j-1}\in(0,x),\qquad y&gt;x.
+\notag
+$$
+在这一区域内，前 $j$ 个坐标的联合密度为 $g_j(y)$. 对中间 $j-i-1$ 个坐标积分，再除以前 $i$ 个坐标的密度 $g_i(x)$，得到
+$$
+\frac1{g_i(x)}
+\int_{(0,x)^{j-i-1}}g_j(y)
+\,dx_{i+1}\cdots dx_{j-1}\,dy
+=\frac{g_j(y)}{g_i(x)}x^{j-i-1}\,dy.
+\notag
+$$
+对所有未来坐标均小于 $x$ 的事件作同样积分，即得 $\eqref{eq:absorption}$. 这些事件互斥，且覆盖全部未来情形，所以转移概率之和为 $1$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>若依次记纪录时刻为 $T_1=1,T_2,\ldots$，则
+$$
+Z_k=(X_{T_k},T_k)
+\notag
+$$
+在尚有纪录时构成 Markov 链，纪录结束后进入 $\partial$. 引理3给出的 Markov 性相对于全部观测历史成立，因此在纪录之间看到的其他数值也已包含在条件化之中.</p>
+
+<p>从纪录 $(x,i)$ 出发，若放弃当前纪录，选取下一次纪录，条件成功概率为
+$$
+\begin{aligned}
+(\mathcal Tw)_i(x)
+&amp;=\sum_{j=i+1}^n\int_x^\infty
+K_{ij}(x,dy)\,w_j(y)\\
+&amp;=\frac1{g_i(x)}\sum_{j=i+1}^n
+x^{j-i-1}\int_x^\infty g(y)y^{n-j}\,dy.
+\end{aligned}
+\label{eq:one-step}
+$$
+这里 $\mathcal T$ 是纪录链的一步转移算子，空和取 $0$. 将 $\eqref{eq:one-step}$ 除以 $\eqref{eq:stop-reward}$，定义
+$$
+\begin{aligned}
+R_i(x)&amp;:=\frac{(\mathcal Tw)_i(x)}{w_i(x)}\\
+&amp;=\frac1{g(x)x^n}\sum_{j=i+1}^n
+x^{j-1}\int_x^\infty g(y)y^{n-j}\,dy,
+\qquad R_n(x)=0.
+\end{aligned}
+\label{eq:ratio}
+$$
+对每个固定的 $x&gt;0$，求和项为正，故
+$$
+R_1(x)&gt;R_2(x)&gt;\cdots&gt;R_n(x)=0.
+\label{eq:time-monotonicity}
+$$
+于是，若两个相邻时刻 $d-1,d$ 满足适当的不等式，全部时刻的最优决策就能由倒推确定.</p>
+
+<h2>阈值策略的最优性判据</h2>
+
+<p class="thm"><b>命题4</b> (见 [1, §3, (5)–(7)])<b>.</b> 设正连续函数 $g$ 满足 $\eqref{eq:normalization}$，$2\le d\le n-1$. 则 $\tau_d$ 在全部使用数值信息的停止规则中最优，当且仅当
+$$
+R_d(x)\le1\le R_{d-1}(x)
+\qquad\text{对每个 }x&gt;0.
+\label{eq:criterion}
+$$</p>
+
+<p><i>证明.</i> 先证明充分性. 令 $V_i(x)$ 为在纪录状态 $(x,i)$ 尚未作出决策时，能够取得的最优条件成功概率. 引理3与有限步倒推给出
+$$
+\begin{aligned}
+V_n(x)&amp;=w_n(x)=1,\\
+V_i(x)&amp;=\max\left\{w_i(x),
+\sum_{j=i+1}^n\int_x^\infty K_{ij}(x,dy)V_j(y)\right\},
+\quad i\lt n.
+\end{aligned}
+\label{eq:bellman}
+$$
+这也直接证明了最优规则的存在性. 对于随机化决策，两个动作的收益按随机化概率取平均，同样不超过右侧的最大值.</p>
+
+<p>由 $\eqref{eq:time-monotonicity}$、$\eqref{eq:criterion}$，当 $i\ge d$ 时，$(\mathcal Tw)_i\le w_i$. 从 $i=n$ 向前归纳，若未来纪录状态均满足 $V_j=w_j$，则 $\eqref{eq:bellman}$ 中继续的收益恰为 $(\mathcal Tw)_i$，所以 $V_i=w_i$. 因而所有 $i\ge d$ 的纪录状态都可以最优地立即停止.</p>
+
+<p>当 $i\lt d$ 时，$(\mathcal Tw)_i\ge w_i$，而 $V_j\ge w_j$ 对每个未来状态成立. 因此
+$$
+\sum_{j=i+1}^n\int_x^\infty K_{ij}(x,dy)V_j(y)
+\ge(\mathcal Tw)_i(x)\ge w_i(x).
+\notag
+$$
+所以在 $i\lt d$ 的纪录状态选择继续也是最优的. 结合这两部分，得到 $\tau_d$ 的最优性，包括收益相等时的决策.</p>
+
+<p>再证明必要性. 在策略 $\tau_d$ 下，到达时刻 $d$ 以前尚未停止. 若第 $d$ 次观测为纪录 $x$，策略选取当前纪录，收益为 $w_d(x)$. 另一个可行策略是放弃它并选取下一次纪录，收益为 $(\mathcal Tw)_d(x)$. 因此最优性要求 $R_d(x)\le1$.</p>
+
+<p>同理，若第 $d-1$ 次观测为纪录 $x$，策略 $\tau_d$ 恰好选取下一次纪录，条件收益为 $(\mathcal Tw)_{d-1}(x)$. 改成立即选取当前纪录的收益为 $w_{d-1}(x)$，所以最优性要求 $R_{d-1}(x)\ge1$.</p>
+
+<p>以上比较首先给出关于纪录值分布几乎处处的不等式. 对任意 $i$，纪录值的非归一化密度为
+$$
+\mathbb P(X_i\in dx,\ X_i=M_i)
+=x^{i-1}g_i(x)\,dx&gt;0.
+\label{eq:record-value-density}
+$$
+并且 $R_i$ 连续. 若任一不等式在某个 $x$ 处失败，就在一个开区间上严格失败. 只在纪录值落入该区间时改变上述决策，将严格提高总成功率，产生矛盾. 故 $\eqref{eq:criterion}$ 对全部 $x&gt;0$ 成立.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>原文通过比较“现在停止”与“下一次纪录停止”来确定停止区域. 命题4的倒推说明了这种比较在这里为何足够. 一旦时刻达到 $d$，以后的每个纪录也都应当立即选取. 在时刻 $d$ 之前，仅选取下一次纪录的收益已经不低于立即选取的收益.</p>
+
+<h2>从尺度不变的表达式构造概率密度</h2>
+
+<p>由 $\eqref{eq:ratio}$，若形式上取
+$$
+g_0(x)=cx^{-n},\qquad c&gt;0,
+\notag
+$$
+则对 $j\ge2$，
+$$
+\int_x^\infty g_0(y)y^{n-j}\,dy
+=\frac c{j-1}x^{1-j},
+\qquad
+R_i(x)=\sum_{k=i}^{n-1}\frac1k
+\quad(i\ge1).
+\label{eq:formal-power}
+$$
+此时 $\eqref{eq:criterion}$ 正好成为 $\eqref{eq:cutoff}$，且与纪录值 $x$ 无关. 但归一化积分为
+$$
+n\int_0^\infty g_0(x)x^{n-1}\,dx
+=nc\int_0^\infty\frac{dx}{x}=\infty.
+\notag
+$$
+在对数坐标 $u=\log x$ 中，$dx/x=du$. 因而可以先考虑在对数尺度上恒定的密度，再使它在两端缓慢衰减. 取
+$$
+g_\varepsilon(x)=c_\varepsilon x^{-n}e^{-\varepsilon|\log x|},
+\qquad c_\varepsilon=\frac{\varepsilon}{2n},
+\label{eq:log-form}
+$$
+就得到 $\eqref{eq:density}$，并且
+$$
+\begin{aligned}
+n\int_0^\infty g_\varepsilon(x)x^{n-1}\,dx
+&amp;=\frac\varepsilon2\left(
+\int_0^1x^{\varepsilon-1}\,dx
++\int_1^\infty x^{-\varepsilon-1}\,dx\right)\\
+&amp;=1.
+\end{aligned}
+\label{eq:normalized-power}
+$$
+相应的最大值满足
+$$
+\mathbb P(\log M\in du)
+=\frac\varepsilon2e^{-\varepsilon|u|}\,du.
+\label{eq:log-maximum}
+$$
+接下来需要验证，对数尺度上的这一衰减能够保留 $\eqref{eq:criterion}$ 的两个方向，且参数的选取对全部 $x&gt;0$ 一致有效.</p>
+
+<h2>对全部纪录值一致的估计</h2>
+
+<p>以下取 $0\lt\varepsilon\lt1/2$，并令 $g=g_\varepsilon$. 对 $k\in\{1,\ldots,n-1\}$，定义 $\eqref{eq:ratio}$ 中的单项
+$$
+A_{k,\varepsilon}(x)
+=\frac{x^k}{g_\varepsilon(x)x^n}
+\int_x^\infty g_\varepsilon(y)y^{n-k-1}\,dy.
+\label{eq:single-term}
+$$
+于是 $R_i(x)=\sum_{k=i}^{n-1}A_{k,\varepsilon}(x)$.</p>
+
+<p>当 $x\ge1$ 时，积分直接给出
+$$
+\begin{aligned}
+\int_x^\infty g_\varepsilon(y)y^{n-k-1}\,dy
+&amp;=\frac{c_\varepsilon}{k+\varepsilon}x^{-k-\varepsilon},\\
+A_{k,\varepsilon}(x)&amp;=\frac1{k+\varepsilon}.
+\end{aligned}
+\label{eq:large-x}
+$$
+当 $0\lt x\le1$ 时，积分须在 $1$ 处分开，得到
+$$
+\begin{aligned}
+\int_x^\infty g_\varepsilon(y)y^{n-k-1}\,dy
+&amp;=c_\varepsilon\left(
+\frac{x^{-k+\varepsilon}-1}{k-\varepsilon}
++\frac1{k+\varepsilon}\right),\\
+A_{k,\varepsilon}(x)
+&amp;=\frac1{k-\varepsilon}
+-\frac{2\varepsilon x^{k-\varepsilon}}
+{(k-\varepsilon)(k+\varepsilon)}.
+\end{aligned}
+\label{eq:small-x}
+$$
+因为 $0\lt x^{k-\varepsilon}\le1$，并且
+$$
+\frac1{k-\varepsilon}
+-\frac{2\varepsilon}{(k-\varepsilon)(k+\varepsilon)}
+=\frac1{k+\varepsilon},
+\notag
+$$
+两种情形合起来给出对全部 $x&gt;0$ 一致成立的估计
+$$
+\begin{gathered}
+\frac1{k+\varepsilon}\le A_{k,\varepsilon}(x)
+\le\frac1{k-\varepsilon},\\
+\sum_{k=i}^{n-1}\frac1{k+\varepsilon}
+\le R_i(x)\le
+\sum_{k=i}^{n-1}\frac1{k-\varepsilon}.
+\end{gathered}
+\label{eq:uniform-sandwich}
+$$
+因此只需使
+$$
+\sum_{k=d}^{n-1}\frac1{k-\varepsilon}\lt1,
+\qquad
+\sum_{k=d-1}^{n-1}\frac1{k+\varepsilon}&gt;1.
+\label{eq:perturbed-harmonic}
+$$
+两个有限和在 $\varepsilon=0$ 处分别严格小于与大于 $1$，所以这样的正参数存在.</p>
+
+<p>也可以给出具体的充分范围. 记
+$$
+\begin{aligned}
+\delta_n&amp;=\min\left\{
+1-\sum_{k=d}^{n-1}\frac1k,
+\ \sum_{k=d-1}^{n-1}\frac1k-1
+\right\}&gt;0,\\
+\varepsilon_n&amp;=\min\left\{\frac12,\frac{\delta_n}{4}\right\}.
+\end{aligned}
+\label{eq:epsilon-range}
+$$
+对 $k\ge1$、$0\lt\varepsilon\lt1/2$，有
+$$
+0\le\frac1{k-\varepsilon}-\frac1k
+\le\frac{2\varepsilon}{k^2},
+\qquad
+0\le\frac1k-\frac1{k+\varepsilon}
+\le\frac\varepsilon{k^2}.
+\notag
+$$
+利用 $\sum_{k=1}^\infty k^{-2}\lt2$，当 $0\lt\varepsilon\lt\varepsilon_n$ 时，
+$$
+\begin{aligned}
+\sum_{k=d}^{n-1}\frac1{k-\varepsilon}
+&amp;\le\sum_{k=d}^{n-1}\frac1k+4\varepsilon\lt1,\\
+\sum_{k=d-1}^{n-1}\frac1{k+\varepsilon}
+&amp;\ge\sum_{k=d-1}^{n-1}\frac1k-2\varepsilon&gt;1.
+\end{aligned}
+\notag
+$$
+结合 $\eqref{eq:uniform-sandwich}$，得到
+$$
+R_d(x)\lt1\lt R_{d-1}(x)
+\qquad\text{对全部 }x&gt;0.
+\label{eq:strict-criterion}
+$$
+由命题4，$\tau_d$ 对密度 $p_\varepsilon$ 最优. 该密度交换且无并列值，命题1又给出其成功率为 $\varphi_n$，所以定理2得证.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>最优策略的可达性</h2>
+
+<p>记 $\pi_\varepsilon$ 为定理2构造的分布. 对任意 $\pi\in\mathcal P_n$ 及任意停止规则 $\tau$，已有
+$$
+R(\pi_\varepsilon,\tau)
+\le R(\pi_\varepsilon,\tau_d)
+=\varphi_n
+=R(\pi,\tau_d).
+\label{eq:saddle}
+$$
+因此
+$$
+\sup_\tau\inf_{\pi\in\mathcal P_n}R(\pi,\tau)
+=\inf_{\pi\in\mathcal P_n}\sup_\tau R(\pi,\tau)
+=\varphi_n,
+\label{eq:minimax}
+$$
+并且两位玩家的最优策略分别由 $\tau_d$ 与 $\pi_\varepsilon$ 取到. 从 $\varphi_n+\eta$ 的上界到 $\varphi_n$ 的可达性，依靠的是 $\eqref{eq:cutoff}$ 两侧严格的调和和间隙. 它们允许把 $cx^{-n}$ 改成可积密度，同时保留全部纪录值上的最优决策.</p>
+
+<p>$n=2$ 的例外也可以直接说明. 取与观测独立、在 $(0,\infty)$ 上有处处正密度的阈值 $T$，分布函数为 $F$. 当 $X_1&gt;T$ 时选取 $X_1$，否则选取 $X_2$. 给定两个数 $a\lt b$，对它们的两种等概率顺序平均，成功率为
+$$
+\frac12+\frac12\bigl(F(b)-F(a)\bigr)&gt;\frac12.
+\notag
+$$
+对任意无并列值的交换分布再取平均，仍严格大于 $1/2$，而相对名次策略的最优成功率只有 $1/2$. 这说明 $n&gt;2$ 的限制在定理中必不可少.</p>
+
+<p><b>关于证明的说明.</b> 密度构造、纪录链转移及停止比较来自 [1, §§2–3]. 本文补写了经典阈值的推导、调和和不等于整数的论证、纪录链上的有限步最优性证明，以及原文留给读者的必要性证明. 命题4采用正连续 $g$，以便将几乎处处的必要条件提升为逐点条件. 决策收益相等时，两种动作均可最优，因此判据使用非严格不等式. 定理2的构造满足严格不等式 $\eqref{eq:strict-criterion}$. 对数坐标下的动机解释、统一估计 $\eqref{eq:uniform-sandwich}$ 及明确参数范围 $\eqref{eq:epsilon-range}$ 是本文对原文计算的展开. 最后一段用随机阈值补写了 $n=2$ 的例外.</p>
+
+<h2>参考文献</h2>
+
+<p>[1] A. V. Gnedin, <i>A Solution to the Game of Googol</i>. The Annals of Probability <b>22</b> (1994), no. 3, 1588–1595. <a href="https://doi.org/10.1214/aop/1176988613" target="_blank">论文链接</a>.</p>
+
+<p>[2] T. S. Ferguson, <i>Who Solved the Secretary Problem?</i> Statistical Science <b>4</b> (1989), no. 3, 282–289. <a href="https://doi.org/10.1214/ss/1177012493" target="_blank">论文链接</a>.</p>
+
+<p>[3] S. M. Samuels, <i>Comment: Who Will Solve the Secretary Problem?</i> Statistical Science <b>4</b> (1989), no. 3, 289–291. <a href="https://www2.math.upenn.edu/~kazdan/210/LectureNotes/secretary/Sec.pdf" target="_blank">原刊及评论</a>.</p>
+
+</div>
+
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+<script>
+window.MathJax.tex.tags = 'all';
+window.infoinput = function () {
+  document.getElementById('blogtitle').textContent = "Googol 游戏的极小极大策略";
+  document.getElementById('blogdate').textContent = '草稿';
+  document.getElementById('pagetitle').textContent = "Googol 游戏的极小极大策略";
+};
+</script>
+</body>
+</html>
