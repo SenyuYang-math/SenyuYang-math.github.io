@@ -1,0 +1,955 @@
+﻿<html>
+<head>
+<title id="pagetitle">Blog is loading...</title>
+</head>
+
+<body id="body">
+<div id="container" class="container">
+
+<h2>问题与历史</h2>
+
+<p>设 $1\le k\le n\le N$、$0\lt\delta\lt1$. 若 $x\in\mathbb C^N$ 至多有 $k$ 个非零坐标，则称 $x$ 为 $k$-稀疏向量. 一个 $n\times N$ 矩阵 $\Phi$ 满足阶数为 $k$、常数为 $\delta$ 的 restricted isometry property，简称 RIP，是指对每个这样的 $x$，都有
+$$
+(1-\delta)\|x\|_2^2\le\|\Phi x\|_2^2\le(1+\delta)\|x\|_2^2.
+\label{rip-definition}
+$$
+给定 $n,N,\delta$，希望构造满足 $\eqref{rip-definition}$ 且 $k$ 尽可能大的矩阵.</p>
+
+<p>这一问题与有限维空间的几何及稀疏信号恢复相联系. Kashin 在1977年关于有限维集合宽度的工作中已经得到与随机构造有关的早期结果. Candès、Romberg、Tao 在2005至2006年前后的工作建立了 RIP 与稀疏信号恢复之间的联系. 对独立取值于 $\{\pm n^{-1/2}\}$ 的随机矩阵，当 $\delta$ 固定时，以高概率可达到
+$$
+k\asymp_\delta\frac{n}{\log(2N/n)}.
+\notag
+$$
+原文引用的上界表明，这一阶数量级对于一般 RIP 矩阵也是最优的. 因而希望用确定算法构造具有相近参数的矩阵. Tao 在2007年提出的 deterministic UUP matrices 问题中也专门讨论了随机构造与显式构造之间的差距. 本段历史及下述早期构造见 [1, §1及其参考文献]、[2].</p>
+
+<p>设矩阵的列 $u_1,\ldots,u_N\in\mathbb C^n$ 均为单位向量. 定义 coherence
+$$
+\mu=\max_{r\ne s}|\langle u_r,u_s\rangle|.
+\notag
+$$
+本文内积对第一个变量线性.</p>
+
+<p class="thm"><b>命题1</b> ([1, 命题1])<b>.</b> 若列向量的 coherence 为 $\mu$，则矩阵满足阶数为 $k$、常数为 $(k-1)\mu$ 的 RIP.</p>
+
+<p><i>证明.</i> 对 $k$-稀疏向量 $x$，
+$$
+\begin{aligned}
+\big|\|\Phi x\|_2^2-\|x\|_2^2\big|
+&\le\mu\sum_{r\ne s}|x_r||x_s|\\
+&=\mu(\|x\|_1^2-\|x\|_2^2)
+\le(k-1)\mu\|x\|_2^2.
+\end{aligned}
+\notag
+$$</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>在 [1] 之前，已知显式 RIP 构造都通过小 coherence 得到. Kashin、Alon–Goldreich–Håstad–Peralta、DeVore、Nelson–Temlyakov 等人的构造给出
+$$
+\mu\ll\frac{\log N}{\sqrt n\log n},
+\qquad
+k\asymp_\delta\frac{\sqrt n\log n}{\log N}.
+\notag
+$$
+另一方面，Levenshtein 的下界在 $2\log N\le n\le N/2$ 时给出
+$$
+\mu\gg
+\left(\frac{\log N}{n\log(n/\log N)}\right)^{1/2}
+\ge\frac1{\sqrt n}.
+\notag
+$$
+因此，由命题1保证固定 $\delta$ 的 RIP 时，所得 $k$ 至多为 $O_\delta(\sqrt n)$. Bourgain、Dilworth、Ford、Konyagin、Kutzarova 的工作 [1] 给出了超过这一阶数的显式构造.</p>
+
+<p class="thm"><b>定理1</b> ([1, 定理1])<b>.</b> 存在有效常数 $\varepsilon_0>0$ 及可显式指定的整数 $n_0$，使得对任意整数
+$$
+n\ge n_0,\qquad n\le N\le n^{1+\varepsilon_0},
+\notag
+$$
+都能显式构造一个 $n\times N$ 复矩阵，满足阶数为 $\lfloor n^{1/2+\varepsilon_0}\rfloor$、常数为 $n^{-\varepsilon_0}$ 的 RIP.</p>
+
+<p>下文沿用原文的记号和定理、引理编号，按原文第2至第6节的次序展开证明. 省略计算在相应位置补出. 两处需要调整原文书写的计算集中列于附录，并在正文引用. 估计中的常数对 $p$ 一致，可依赖于固定参数 $m,\alpha,\gamma$. 所引用的加法组合定理注明原文出处.</p>
+
+<h2>矩阵的构造</h2>
+
+<p>固定充分大的偶数 $m$. 给定充分大的 $n$，取不超过 $n$ 的最大素数 $p$. Bertrand 定理给出 $p\ge n/2$. 记
+$$
+e_p(t)=\exp(2\pi it/p),\qquad t\in\mathbb F_p.
+\notag
+$$
+先构造列向量
+$$
+u_{a,b}=\frac1{\sqrt p}\big(e_p(ax^2+bx)\big)_{x\in\mathbb F_p},
+\qquad (a,b)\in\mathcal A\times\mathcal B.
+\label{rip-columns}
+$$
+最后选取其中 $N$ 列，并添上 $n-p$ 行零，得到所需大小的矩阵. 添零行保持每个向量的像的范数.</p>
+
+<p>取
+$$
+\begin{gathered}
+\alpha=\frac1{8m^2},\qquad
+L=\lfloor p^\alpha\rfloor,\qquad U=L^{4m-1},\\
+\mathcal A=\{x^2+Ux:1\le x\le L\}.
+\end{gathered}
+\label{rip-A}
+$$
+再令
+$$
+\beta=\frac\alpha2=\frac1{16m^2},\qquad
+M=2^{1/\beta-1},\qquad
+r=\left\lfloor\frac{\beta\log p}{\log2}\right\rfloor,
+\notag
+$$
+并定义
+$$
+\mathcal B=
+\left\{\sum_{j=1}^r x_j(2M)^{j-1}:0\le x_j\le M-1\right\}
+\subset\mathbb F_p.
+\label{rip-B}
+$$
+这里先将右端视为整数集合，再取模 $p$. 因为
+$$
+(2M)^r=2^{r/\beta}\le p,
+\qquad
+\max\mathcal B
+=\frac{M-1}{2M-1}\big((2M)^r-1\big)\lt\frac p2,
+\notag
+$$
+取模保持这些整数互异. 同时
+$$
+|\mathcal A|=L\asymp p^\alpha,
+\qquad |\mathcal B|=M^r\asymp_m p^{1-\beta},
+\qquad |\mathcal A||\mathcal B|\asymp_m p^{1+\beta}.
+\label{rip-column-count}
+$$
+第一式中，$x^2+Ux$ 随 $x$ 严格增加，且最大值 $L^2+UL\lt p$. 因此，对充分大的 $n$，只要 $N\le n^{1+\beta/2}$，就有足够多的列. 将 $\mathcal A,\mathcal B$ 分别按整数代表递增排列，即可规定选取列的次序.</p>
+
+<p>对固定 $a$，不同 $b$ 所对应的列正交. 当 $a_1\ne a_2$ 时，配方及二次 Gauss 和公式给出
+$$
+\langle u_{a_1,b_1},u_{a_2,b_2}\rangle
+=\frac{\sigma_p}{\sqrt p}
+\left(\frac{a_1-a_2}{p}\right)
+e_p\left(-\frac{(b_1-b_2)^2}{4(a_1-a_2)}\right),
+\label{rip-gauss}
+$$
+其中 $(d/p)$ 为 Legendre 符号，$\sigma_p=1$ 或 $i$，分别对应 $p\equiv1$ 或 $3\pmod4$. 特别地，这些列的 coherence 为 $p^{-1/2}$. 为估计较大阶数的 RIP，原文进一步估计多对列内积的和.</p>
+
+<p class="thm"><b>引理1</b> ([1, 引理1])<b>.</b> 设 $k\ge2^{10}$，$s$ 为正整数，$\Phi$ 的列均为单位向量，coherence 满足 $\mu\le1/k$. 若对任意不相交的指标集 $J_1,J_2$，$|J_i|\le k$，都有
+$$
+\left|\left\langle\sum_{j\in J_1}u_j,\sum_{j\in J_2}u_j\right\rangle\right|
+\le\delta k,
+\label{rip-absolute-flat}
+$$
+则 $\Phi$ 满足阶数为 $2sk$、常数为 $44s\sqrt\delta\log k$ 的 RIP.</p>
+
+<p>引理1将在下一节证明. 为得到 $\eqref{rip-absolute-flat}$，先对 $\mathcal A,\mathcal B$ 规定如下条件. 对 $a\in\mathcal A$ 及 $a_1,\ldots,a_{2m}\in\mathcal A\setminus\{a\}$，要求
+$$
+\begin{gathered}
+\sum_{j=1}^m\frac1{a-a_j}
+=\sum_{j=m+1}^{2m}\frac1{a-a_j}
+\\\Longrightarrow\quad
+(a_1,\ldots,a_m)\text{ 与 }(a_{m+1},\ldots,a_{2m})\text{ 互为排列}.
+\end{gathered}
+\label{rip-reciprocal}
+$$
+对有限集 $S,T\subset\mathbb F_p$，定义加法能量
+$$
+E(S,T)=\#\{(s_1,s_2,t_1,t_2)\in S^2\times T^2:s_1+t_1=s_2+t_2\}.
+\notag
+$$
+对 $\mathcal B$，要求存在 $\gamma>0$，使
+$$
+S\subset\mathcal B,\quad |S|\ge p^{1/3}
+\quad\Longrightarrow\quad
+E(S,S)\le p^{-\gamma}|S|^3.
+\label{rip-hereditary-energy}
+$$</p>
+
+<p class="thm"><b>引理2</b> ([1, 引理2])<b>.</b> 设 $m$ 为正偶数，$0\lt\alpha\lt0.01$，
+$$
+0\lt\gamma\le\min\left(\alpha,\frac1{3m}\right).
+\notag
+$$
+设 $|\mathcal A|\le p^\alpha$，$\mathcal A$ 满足 $\eqref{rip-reciprocal}$，$\mathcal B$ 满足 $\eqref{rip-hereditary-energy}$. 对充分大的 $p=p(m,\alpha,\gamma)$，任意不相交的集合
+$$
+\Omega_1,\Omega_2\subset\mathcal A\times\mathcal B,
+\qquad |\Omega_i|\le\sqrt p,
+\notag
+$$
+满足
+$$
+\begin{gathered}
+\left|\sum_{(a_1,b_1)\in\Omega_1}
+\sum_{(a_2,b_2)\in\Omega_2}
+\langle u_{a_1,b_1},u_{a_2,b_2}\rangle\right|
+\le p^{1/2-\varepsilon_1},\\
+\varepsilon_1=\frac{c_0\gamma}{20}-\frac{43\alpha}{m}.
+\end{gathered}
+\label{rip-lemma2}
+$$
+其中 $c_0$ 是后文命题3中的绝对常数.</p>
+
+<p>集合 $\eqref{rip-A}$ 满足 $\eqref{rip-reciprocal}$，其整数计算见附录. 后文推论4将证明 $\eqref{rip-B}$ 满足 $\eqref{rip-hereditary-energy}$，其中
+$$
+\gamma=\frac\beta{50}=\frac\alpha{100}.
+\notag
+$$
+取偶数 $m>86000c_0^{-1}$，就有 $\varepsilon_1>0$. 引理2的证明在最后一节给出.</p>
+
+<p><i>由引理1、2推出定理1.</i> 取
+$$
+k=\lfloor\sqrt p\rfloor,
+\qquad s=\lfloor p^{\varepsilon_1/4}\rfloor,
+\qquad \varepsilon_0=\frac{\varepsilon_1}{5}.
+\label{rip-final-parameters}
+$$
+由 $\eqref{rip-lemma2}$，引理1中的 $\delta$ 可取
+$$
+\delta=\frac{p^{1/2-\varepsilon_1}}{k}\le2p^{-\varepsilon_1}.
+\notag
+$$
+又 $\mu=p^{-1/2}\le1/k$，故引理1给出阶数 $2sk$、常数至多
+$$
+44s\sqrt\delta\log k\ll p^{-\varepsilon_1/4}\log p.
+\notag
+$$
+对充分大的 $n$，由 $p\ge n/2$ 得
+$$
+2sk\ge n^{1/2+\varepsilon_1/5},
+\qquad
+44s\sqrt\delta\log k\le n^{-\varepsilon_1/5}.
+\notag
+$$
+此外 $\varepsilon_0\lt\beta/2$，故 $\eqref{rip-column-count}$ 保证列数足够. 选取前 $N$ 列、添零行，即得定理1. 所有参数均可有效指定，且构造由有限次整数运算、素数检验及单位根求值给出.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>Flat RIP</h2>
+
+<p>称单位列向量组成的矩阵满足阶数为 $k$、常数为 $\eta$ 的 flat RIP，是指对任意不相交的 $J_1,J_2$，$|J_i|\le k$，都有
+$$
+\left|\left\langle\sum_{j\in J_1}u_j,\sum_{j\in J_2}u_j\right\rangle\right|
+\le\eta\sqrt{|J_1||J_2|}.
+\label{rip-flat}
+$$</p>
+
+<p class="thm"><b>引理3</b> ([1, 引理3])<b>.</b> 设 $k\ge2^{10}$，$s$ 为正整数. 若 $\Phi$ 满足阶数为 $k$、常数为 $\eta$ 的 flat RIP，则满足阶数为 $2sk$、常数为 $44s\eta\log k$ 的 RIP.</p>
+
+<p><i>证明.</i> 首先，若 $0\le x_j,y_j\le1$，由
+$$
+x_j=\int_0^1\mathbf1_{\{x_j>t\}}\,dt
+\notag
+$$
+及 $\eqref{rip-flat}$，有
+$$
+\left|\left\langle\sum_{j\in J_1}x_ju_j,\sum_{j\in J_2}y_ju_j\right\rangle\right|
+\le\eta\sqrt{|J_1||J_2|}.
+\notag
+$$
+再设 $x,y$ 非负且 $\|x\|_2=\|y\|_2=1$. 将系数分层
+$$
+J_{1,\nu}=\{j\in J_1:2^{-\nu}\lt x_j\le2^{1-\nu}\},
+\qquad \nu\ge1,
+\notag
+$$
+对 $y$ 类似定义 $J_{2,\nu}$. 因
+$$
+\sum_{\nu\ge1}4^{-\nu}|J_{i,\nu}|\le1,
+\notag
+$$
+令 $t=\lfloor3+\log k/(2\log2)\rfloor$，Cauchy–Schwarz 不等式给出
+$$
+\sum_{\nu\ge1}2^{-\nu}|J_{i,\nu}|^{1/2}
+\le\sqrt t+2^{-t}\sqrt k\le\sqrt t+\frac14.
+\notag
+$$
+于是
+$$
+\left|\left\langle\sum_{J_1}x_ju_j,\sum_{J_2}y_ju_j\right\rangle\right|
+\le4\eta\left(\sqrt t+\frac14\right)^2
+\le5.5\eta\log k.
+\label{rip-nonnegative}
+$$
+最后一个数值不等式由 $k\ge2^{10}$ 得到.</p>
+
+<p>对一般复系数，将 $J_i$ 各分成 $s$ 个大小至多为 $k$ 的集合，再把每个复数分成实部正负及虚部正负四个非负部分. 这四个部分的平方和等于原复数模的平方. 对每对部分应用 $\eqref{rip-nonnegative}$，再用 Cauchy–Schwarz，不相交支撑 $|J_i|\le sk$ 上得到
+$$
+\left|\left\langle\sum_{J_1}x_ju_j,\sum_{J_2}y_ju_j\right\rangle\right|
+\le22s\eta(\log k)\|x\|_2\|y\|_2.
+\label{rip-complex-bilinear}
+$$
+这里每一侧共有 $4s$ 部分，故两次 Cauchy–Schwarz 合计产生因子 $4s$.</p>
+
+<p>设 $x$ 的支撑包含于大小为 $2q$ 的集合 $J$，其中 $q=sk$. 对 $J=J_1\sqcup J_2$、$|J_1|=|J_2|=q$ 的全部有序划分取平均，记为 $\mathbb E_J$. 每对不同指标 $(i,j)$ 落入 $J_1\times J_2$ 的概率为 $q/[2(2q-1)]$，所以
+$$
+\|\Phi x\|_2^2-\|x\|_2^2
+=\frac{2(2q-1)}q\,
+\mathbb E_J\left\langle\sum_{J_1}x_ju_j,\sum_{J_2}x_ju_j\right\rangle.
+\notag
+$$
+由 $\|x_{J_1}\|_2\|x_{J_2}\|_2\le\|x\|_2^2/2$，再用 $\eqref{rip-complex-bilinear}$，即得 $44s\eta\log k$ 的结论. 若 $N\lt2q$，用 $2q$ 个位置中的零系数补足同一平均计算即可.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p><i>引理1的证明.</i> 由 coherence 假设及 $\eqref{rip-absolute-flat}$，
+$$
+\left|\left\langle\sum_{J_1}u_j,\sum_{J_2}u_j\right\rangle\right|
+\le\min\left(\delta k,\frac{|J_1||J_2|}{k}\right)
+\le\sqrt\delta\sqrt{|J_1||J_2|}.
+\notag
+$$
+应用引理3即可.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>加法组合的记号与引用结果</h2>
+
+<p>对加法交换群中的集合，记
+$$
+A+B=\{a+b:a\in A,b\in B\},
+\qquad A-B=\{a-b:a\in A,b\in B\}.
+\notag
+$$
+对 $b\in\mathbb F_p$，记 $bA=\{ba:a\in A\}$. 本文在 $\mathbb F_p$ 上均使用计数测度
+$$
+\|f\|_q=\left(\sum_x|f(x)|^q\right)^{1/q},
+\qquad (f*g)(x)=\sum_y f(y)g(x-y).
+\notag
+$$
+于是
+$$
+E(A,B)=E(A,-B)=\|\mathbf1_A*\mathbf1_B\|_2^2,
+\qquad E(A,A)\le|A|^3.
+\notag
+$$</p>
+
+<p class="thm"><b>引理4</b> (Plünnecke–Ruzsa 估计的一个特例，[1, 引理4])<b>.</b> 对加法交换群中任意有限非空集合 $A$，
+$$
+|A+A|\le\frac{|A-A|^2}{|A|}.
+\label{rip-pr}
+$$</p>
+
+<p>若 $F\subset A\times A$，记限制和集
+$$
+A+_F A=\{a+a':(a,a')\in F\}.
+\notag
+$$
+原文以下列形式使用 Balog–Szemerédi–Gowers 引理.</p>
+
+<p class="thm"><b>引理5</b> ([1, 引理5，引用 Tao–Vu 的引理2.30])<b>.</b> 设 $G$ 为加法交换群，$A\subset G$ 为有限非空集合，$K\ge1$. 若 $E(A,A)\ge|A|^3/K$，则存在 $F\subset A\times A$，使
+$$
+|F|\ge\frac{|A|^2}{2K},\qquad |A+_F A|\le2K|A|.
+\notag
+$$</p>
+
+<p class="thm"><b>引理6</b> (Bourgain–Garaev，[1, 引理6])<b>.</b> 设 $G$ 为加法交换群，$A\subset G$ 为有限非空集合，$L\ge1$，$F\subset A\times A$，且
+$$
+|F|\ge|A|^2/L,\qquad |A+_F A|\le L|A|.
+\notag
+$$
+则存在 $A'\subset A$，满足
+$$
+|A'|\ge\frac{|A|}{10L},\qquad |A'-A'|\le10^4L^9|A|.
+\notag
+$$</p>
+
+<p class="thm"><b>推论1</b> ([1, 推论1])<b>.</b> 若 $E(A,A)\ge|A|^3/K$，则存在 $A'\subset A$，使
+$$
+|A'|\ge\frac{|A|}{20K},\qquad |A'-A'|\le10^7K^9|A|.
+\label{rip-bsg}
+$$</p>
+
+<p>推论1由前两引理取 $L=2K$ 得到. 下面的另一项输入控制一个集合与其不同伸缩之间的平均能量.</p>
+
+<p class="thm"><b>命题3</b> (Bourgain，[1, 命题3，引用其参考文献10的定理C])<b>.</b> 存在绝对常数 $0\lt c_0\lt1$，使得对任意素数 $p$、非空集合 $A\subset\mathbb F_p$、$T\subset\mathbb F_p^*$，若 $|A|\ge|T|$，则
+$$
+\sum_{b\in T}E(A,bA)
+\ll\min\left(\frac p{|A|},|T|\right)^{-c_0}|A|^3|T|.
+\label{rip-bourgain-energy}
+$$
+原文注记5指出，由 Bourgain–Glibichuk 的显式版本可取 $c_0=1/10430$. 隐含常数为绝对常数.</p>
+
+<p class="thm"><b>推论2</b> ([1, 推论2])<b>.</b> 若 $A\subset\mathbb F_p$ 非空，$\lambda\colon\mathbb F_p\to[0,\infty)$ 满足 $\sum_b\lambda(b)=1$，则
+$$
+\begin{aligned}
+&\sum_{b\ne0}\lambda(b)\|\mathbf1_A*\mathbf1_{bA}\|_2\\
+&\quad\ll\left(\|\lambda\|_2+|A|^{-1/2}+|A|^{1/2}p^{-1/2}\right)^{c_0}|A|^{3/2}.
+\end{aligned}
+\label{rip-weighted-energy}
+$$</p>
+
+<p><i>证明.</i> 对任意非空 $T\subset\mathbb F_p^*$，若 $|T|\le|A|$，直接应用命题3. 若 $|T|>|A|$，则将 $T$ 分成大小介于 $|A|/2$ 与 $|A|$ 之间的块，块数至多为 $2|T|/|A|$. 对各块应用命题3，再求和，得到
+$$
+\sum_{b\in T}E(A,bA)
+\ll\min\left(|A|,|T|,\frac p{|A|}\right)^{-c_0}|A|^3|T|.
+\notag
+$$
+令 $h=c_0/2$，再用 Cauchy–Schwarz，有
+$$
+\sum_{b\in T}\|\mathbf1_A*\mathbf1_{bA}\|_2
+\ll|A|^{3/2}\big[(|A|^{-h}+(|A|/p)^h)|T|+|T|^{1-h}\big].
+\notag
+$$
+将非零元素排列为 $b_1,\ldots,b_{p-1}$，使 $w_j=\lambda(b_j)$ 递减，补 $w_p=0$. 对前 $j$ 项使用上式，再作 Abel 求和，得到
+$$
+\sum_{b\ne0}\lambda(b)\|\mathbf1_A*\mathbf1_{bA}\|_2
+\ll|A|^{3/2}\left[|A|^{-h}+(|A|/p)^h+\sum_{j=1}^{p-1}w_jj^{-h}\right].
+\notag
+$$
+记 $t=\|\lambda\|_2$、$u=t^{-2}$. 因 $\sum w_j\le1$、$\sum w_j^2\le t^2$，
+$$
+\begin{aligned}
+\sum_{j\le u}w_jj^{-h}
+&\le t\left(\sum_{j\le u}j^{-c_0}\right)^{1/2}
+\ll tu^{(1-c_0)/2}=t^{c_0},\\
+\sum_{j>u}w_jj^{-h}&\le u^{-h}=t^{c_0}.
+\end{aligned}
+\notag
+$$
+代入后即得结论.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>直积集合中的和集估计</h2>
+
+<p>映射
+$$
+\sum_{j=1}^r x_j(2M)^{j-1}\longmapsto(x_1,\ldots,x_r)
+\notag
+$$
+将 $\mathcal B$ 与 $\mathcal C_{M,r}=\{0,\ldots,M-1\}^r$ 对应起来. 两个数字相加至多为 $2M-2$，故没有进位. 又两个 $\mathcal B$ 中的整数之和小于 $p$，故模 $p$ 的加法关系与整数加法关系一致. 该映射保持四项加法关系，因而是 Freiman 同构. 对 $B_1,B_2\subset\mathcal B$，它保持 $|B_1+B_2|$.</p>
+
+<p class="thm"><b>定理5</b> ([1, 定理5])<b>.</b> 设 $M\ge2$，$r$ 为非负整数. 令 $\tau=\tau_M$ 为方程
+$$
+M^{-2\tau}+(1-M^{-1})^\tau=1
+\label{rip-tau}
+$$
+的唯一解. 则 $1/2\lt\tau\lt1$，且对任意 $A,B\subset\mathcal C_{M,r}$，
+$$
+|A+B|\ge(|A||B|)^\tau.
+\label{rip-product-sumset}
+$$</p>
+
+<p>原文通过两个数值引理证明定理5. 对正整数 $K,L$，一条 UR-path 是从 $(0,0)$ 到 $(K-1,L-1)$ 的格点路径，每步将一个坐标增加 $1$.</p>
+
+<p class="thm"><b>引理7</b> ([1, 引理7])<b>.</b> 若 $KL\le M^2$，$u_0\ge\cdots\ge u_{K-1}\ge0$，$v_0\ge\cdots\ge v_{L-1}\ge0$，则存在一条 UR-path $((i_n,j_n))_{n=1}^{K+L-1}$，使
+$$
+\sum_{n=1}^{K+L-1}(u_{i_n}v_{j_n})^\tau
+\ge\left(\sum_i u_i\right)^\tau\left(\sum_jv_j\right)^\tau.
+\label{rip-path}
+$$</p>
+
+<p><i>证明.</i> 对 $K+L$ 归纳. 若一个数列全为零，结论直接成立. 其余情形可将两个数列分别归一化为总和 $1$. $K=1$ 或 $L=1$ 时，由 $0\lt\tau\lt1$ 有结论. 归纳步骤分别考虑第一步向右或向上. 若所有路径和的最大值为 $S$，则
+$$
+S\ge(u_0v_0)^\tau+
+\max\big((1-u_0)^\tau,(1-v_0)^\tau\big).
+\notag
+$$
+令 $w=\sqrt{u_0v_0}$. 由 $u_0\ge1/K$、$v_0\ge1/L$，有 $w\ge1/M$. 又 $\min(u_0,v_0)\le w$，故
+$$
+S\ge w^{2\tau}+(1-w)^\tau.
+\notag
+$$
+函数 $f(x)=x^{2\tau}+(1-x)^\tau-1$ 在 $(0,1)$ 上满足 $f'''\lt0$，并在 $0,1/M,1$ 为零. Rolle 定理保证它在这三点以外没有零点. 对充分接近 $1$ 的 $x\lt1$，$f(x)>0$，于是 $f(x)\ge0$ 对 $x\in[1/M,1]$ 成立. 因而 $S\ge1$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p class="thm"><b>引理8</b> ([1, 引理8])<b>.</b> 对任意非负数 $U_0,\ldots,U_{M-1},V_0,\ldots,V_{M-1}$，
+$$
+\sum_{\mu=0}^{2M-2}\max_{\substack{\kappa+\lambda=\mu\\0\le\kappa,\lambda\le M-1}}
+(U_\kappa V_\lambda)^\tau
+\ge\left(\sum_\kappa U_\kappa\right)^\tau
+\left(\sum_\lambda V_\lambda\right)^\tau.
+\label{rip-numerical}
+$$</p>
+
+<p><i>证明.</i> 分别排序为 $u_i=U_{\pi_i}$、$v_j=V_{\sigma_j}$，其中 $u_i,v_j$ 递减. 取引理7给出的路径，记
+$$
+P_n=\{\pi_{i_1},\ldots,\pi_{i_n}\},\qquad
+Q_n=\{\sigma_{j_1},\ldots,\sigma_{j_n}\}.
+\notag
+$$
+路径的第 $n$ 个顶点满足 $i_n+j_n=n-1$，所以
+$$
+|P_n+Q_n|\ge|P_n|+|Q_n|-1=i_n+j_n+1=n.
+\notag
+$$
+这里使用整数有限集的初等不等式 $|P+Q|\ge|P|+|Q|-1$，可将两个递增数列从最小和到最大和依次相加得到. 集合 $P_n+Q_n$ 随 $n$ 递增，故可依次选出互不相同的 $\mu_n\in P_n+Q_n$. 每个 $\mu_n$ 都有表示 $\kappa+\lambda$，其中
+$$
+U_\kappa\ge u_{i_n},\qquad V_\lambda\ge v_{j_n}.
+\notag
+$$
+对这些互异的 $\mu_n$ 求和，再用引理7，即得结论.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p><i>定理5的证明.</i> 对 $r$ 归纳，$r=0$ 时直接成立. 沿最后一个坐标分层，记 $A_i,B_j\subset\mathcal C_{M,r-1}$ 为相应截面，$D_n$ 为 $D=A+B$ 的第 $n$ 层. 若 $i+j=n$，则 $A_i+B_j\subset D_n$. 由归纳假设及引理8，
+$$
+\begin{aligned}
+|A+B|&=\sum_n|D_n|
+\ge\sum_n\max_{i+j=n}|A_i+B_j|\\
+&\ge\sum_n\max_{i+j=n}(|A_i||B_j|)^\tau
+\ge\left(\sum_i|A_i|\right)^\tau
+\left(\sum_j|B_j|\right)^\tau.
+\end{aligned}
+\notag
+$$
+这就是 $\eqref{rip-product-sumset}$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>令 $T=\max\mathcal B$，则 $T-\mathcal B=\mathcal B$. 因此，对 $B\subset\mathcal B$，集合 $T-B$ 仍包含于 $\mathcal B$，且
+$$
+|B-B|=|B+(T-B)|\ge|B|^{2\tau}.
+\label{rip-strong-difference}
+$$
+对本构造所取的 $M$，有
+$$
+2\tau-1\ge\frac{4\beta}{5}.
+\label{rip-tau-lower}
+$$
+补出原文此处的数值计算. 令 $\tau_0=1/2+2\beta/5$、$h=1/M$. 因 $\beta\le1/16$，$M\ge2^{15}$，
+$$
+\begin{gathered}
+h^{2\tau_0}=h\,2^{-(4/5)(1-\beta)}\ge2^{-4/5}h,\\
+1-(1-h)^{\tau_0}\le\frac{\tau_0h}{1-h}
+\le\frac{21h}{40(1-2^{-15})}\lt2^{-4/5}h.
+\end{gathered}
+\notag
+$$
+方程 $\eqref{rip-tau}$ 左端随 $\tau$ 严格递减，故 $\tau>\tau_0$.</p>
+
+<p class="thm"><b>推论3</b> ([1, 推论3])<b>.</b> 若 $B\subset\mathcal B$、$|B|>p^{1/4}$，则
+$$
+|B-B|\ge p^{\beta/5}|B|.
+\notag
+$$
+这由 $\eqref{rip-strong-difference}$、$\eqref{rip-tau-lower}$ 立即得到.</p>
+
+<p class="thm"><b>推论4</b> ([1, 推论4])<b>.</b> 固定 $m$，对充分大的素数 $p=p(m)$，若 $S\subset\mathcal B$、$|S|\ge p^{1/3}$，则
+$$
+E(S,S)\le p^{-\beta/50}|S|^3.
+\label{rip-energy-cor4}
+$$</p>
+
+<p><i>证明.</i> 写 $E(S,S)=|S|^3/K$. 若 $K\le p^{\beta/50}$，由推论1得到 $B\subset S$，使
+$$
+|B|\ge\frac{|S|}{20K}\ge\frac1{20}p^{1/3-\beta/50},
+\qquad
+\frac{|B-B|}{|B|}\le2\cdot10^8K^{10}\le2\cdot10^8p^{\beta/5}.
+\notag
+$$
+另一方面，由 $\eqref{rip-strong-difference}$、$\eqref{rip-tau-lower}$，
+$$
+\frac{|B-B|}{|B|}
+\ge\frac1{20}p^{(1/3-\beta/50)4\beta/5}.
+\notag
+$$
+由于
+$$
+\left(\frac13-\frac\beta{50}\right)\frac{4\beta}{5}-\frac\beta5
+=\frac\beta{15}-\frac{2\beta^2}{125}>0,
+\notag
+$$
+对充分大的 $p$ 矛盾. 所以 $K>p^{\beta/50}$，得到结论. 此处保留 $\eqref{rip-strong-difference}$ 的指数即可吸收推论1中的数值常数.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>引理2的证明</h2>
+
+<p>由 $\eqref{rip-gauss}$，取复共轭后，只需证明
+$$
+\left|\sum_{\substack{(a_1,b_1)\in\Omega_1,(a_2,b_2)\in\Omega_2\\a_1\ne a_2}}
+\left(\frac{a_1-a_2}{p}\right)
+e_p\left(\frac{(b_1-b_2)^2}{4(a_1-a_2)}\right)\right|
+\le p^{1-\varepsilon_1}.
+\label{rip-phase-target}
+$$
+当 $a_1=a_2$ 时，因 $\Omega_1,\Omega_2$ 不相交，相应的两个 $b$ 不同，列内积为零. 以下所有含 $(a_1-a_2)^{-1}$ 的和均排除 $a_2=a_1$.</p>
+
+<p>记 $\Omega_i(a)=\{b:(a,b)\in\Omega_i\}$. 按纤维大小的二次幂将每一侧分层. 对一对分层块，记对应的 $a$ 集合为 $A_i$，并有
+$$
+M_i/2\le|\Omega_i(a)|\lt M_i\quad(a\in A_i),
+\qquad |A_i|M_i\le2\sqrt p.
+\label{rip-balanced}
+$$
+相应的双重和记为 $S(A_1,A_2)$. 共有 $O((\log p)^2)$ 对分层块.</p>
+
+<p>若任一侧 $|A_i|M_i\lt p^{1/2-\gamma/10}$，则直接计数给出
+$$
+|S(A_1,A_2)|\le2p^{1-\gamma/10}.
+\notag
+$$
+其余情形可对两侧同时假设
+$$
+M_i\ge p^{1/2-\alpha-\gamma/10}.
+\label{rip-large-fibre}
+$$
+特别地，每个非空纤维的大小至少为 $p^{1/3}$.</p>
+
+<h3>二次指数和与能量</h3>
+
+<p class="thm"><b>引理9</b> ([1, 引理9])<b>.</b> 对 $\theta\in\mathbb F_p^*$、$B_1,B_2\subset\mathbb F_p$，
+$$
+\begin{aligned}
+&\left|\sum_{b_1\in B_1,b_2\in B_2}e_p\big(\theta(b_1-b_2)^2\big)\right|\\
+&\quad\le|B_1|^{1/2}|B_2|^{1/2}
+E(B_1,B_1)^{1/8}E(B_2,B_2)^{1/8}p^{1/8}.
+\end{aligned}
+\label{rip-lemma9}
+$$</p>
+
+<p><i>证明.</i> 记左侧的和为 $W$. 先用 Cauchy–Schwarz 不等式，有
+$$
+|W|^2\le |B_1|\sum_{b_2,b_2'\in B_2}
+e_p\big(\theta(b_2^2-(b_2')^2)\big)
+\sum_{b_1\in B_1}e_p\big(-2\theta b_1(b_2-b_2')\big).
+\notag
+$$
+再对 $(b_2,b_2')$ 使用 Cauchy–Schwarz，得到
+$$
+|W|^4\le |B_1|^2|B_2|^2
+\sum_{b_2,b_2'\in B_2}
+\left|\sum_{b_1\in B_1}e_p\big(-2\theta b_1(b_2-b_2')\big)\right|^2.
+\notag
+$$
+展开平方，按两个差值分别求和，即得
+$$
+|W|^4\le|B_1|^2|B_2|^2
+\sum_{x,y}\lambda_x\mu_y e_p(-2\theta xy),
+\notag
+$$
+其中 $\lambda=\mathbf1_{B_1}*\mathbf1_{-B_1}$、$\mu=\mathbf1_{B_2}*\mathbf1_{-B_2}$. 再用 Cauchy–Schwarz 及字符正交性，
+$$
+\left|\sum_{x,y}\lambda_x\mu_y e_p(-2\theta xy)\right|^2
+\le\|\lambda\|_2^2\sum_x\left|\sum_y\mu_y e_p(-2\theta xy)\right|^2
+=p\|\lambda\|_2^2\|\mu\|_2^2.
+\notag
+$$
+由 $\|\lambda\|_2^2=E(B_1,B_1)$、$\|\mu\|_2^2=E(B_2,B_2)$，取八次方根即得结论.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<p>将引理9用于两个纤维，结合 $\eqref{rip-hereditary-energy}$，得到
+$$
+|S(A_1,A_2)|
+\le4(|A_1||A_2|)^{1/8}p^{1-\gamma/4}.
+\notag
+$$
+若两个 $|A_i|$ 都小于 $p^{\gamma/2}$，右端至多为 $4p^{1-\gamma/8}$. 否则交换两侧，可设
+$$
+|A_2|\ge p^{\gamma/2}.
+\label{rip-many-a}
+$$
+固定 $a_1\in A_1$，对 $B\subset\mathbb F_p$ 定义
+$$
+T_{a_1}(A_2,B)=
+\sum_{\substack{b_1\in B,\ a_2\in A_2\setminus\{a_1\}\\b_2\in\Omega_2(a_2)}}
+\left(\frac{a_1-a_2}{p}\right)
+e_p\left(\frac{(b_1-b_2)^2}{4(a_1-a_2)}\right).
+\label{rip-T}
+$$</p>
+
+<h3>小差集上的指数和</h3>
+
+<p class="thm"><b>引理10</b> ([1, 引理10])<b>.</b> 在引理2的条件下，设 $\eqref{rip-balanced}$、$\eqref{rip-many-a}$ 成立，$a_1\in A_1$. 若
+$$
+p^{1/2-6\alpha}\le|B|\le p^{1/2},
+\qquad |B-B|\le p^{28\alpha}|B|,
+\label{rip-small-difference}
+$$
+则
+$$
+|T_{a_1}(A_2,B)|\le|B|p^{1/2-\varepsilon_2},
+\qquad
+\varepsilon_2=\frac{c_0\gamma}{20}-\frac{42\alpha}{m}.
+\label{rip-lemma10}
+$$</p>
+
+<p>先依照原文，用引理10完成引理2，再证明引理10.</p>
+
+<h3>从引理10推出引理2</h3>
+
+<p>固定 $a_1$，在 $\Omega_1(a_1)$ 中取一个按包含关系极大的子集 $B_0$，使 $\eqref{rip-lemma10}$ 的结论成立. 空集满足该估计，所以这样的极大集合存在. 记 $B_1=\Omega_1(a_1)\setminus B_0$. 由引理9，使用 $E(\Omega_2(a_2),\Omega_2(a_2))\le M_2^3$，有
+$$
+\begin{aligned}
+|T_{a_1}(A_2,B_1)|
+&\le |A_2||B_1|^{1/2}E(B_1,B_1)^{1/8}M_2^{7/8}p^{1/8}\\
+&\le2|B_1|^{1/2}E(B_1,B_1)^{1/8}p^{9/16+\alpha/8}.
+\end{aligned}
+\label{rip-residual}
+$$
+第二步使用 $|A_2|M_2\le2\sqrt p$ 及 $|A_2|\le p^\alpha$.</p>
+
+<p>这里用能量分界
+$$
+E(B_1,B_1)\le p^{-5\alpha/2}M_1^3.
+\label{rip-cutoff}
+$$
+这一数值选择用于补足原文应用推论1时的集合大小换算，计算见附录. 若 $\eqref{rip-cutoff}$ 不成立，则由 $E(B_1,B_1)\le|B_1|^3$，有
+$$
+|B_1|>p^{-5\alpha/6}M_1,
+\qquad E(B_1,B_1)>p^{-5\alpha/2}|B_1|^3.
+\notag
+$$
+推论1以 $K=p^{5\alpha/2}$ 给出 $B_1'\subset B_1$，满足
+$$
+|B_1'|\ge\frac{M_1}{20p^{10\alpha/3}}\ge p^{1/2-6\alpha},
+\qquad
+|B_1'-B_1'|\le p^{28\alpha}|B_1'|.
+\notag
+$$
+又 $|B_1'|\le|\Omega_1(a_1)|\le\sqrt p$，故可应用引理10. 因 $T$ 对 $B$ 可加，三角不等式说明 $B_0\cup B_1'$ 仍满足 $\eqref{rip-lemma10}$ 的结论，与极大性矛盾.</p>
+
+<p>所以 $\eqref{rip-cutoff}$ 必须成立. 代入 $\eqref{rip-residual}$，得
+$$
+|T_{a_1}(A_2,B_1)|\le2M_1^{7/8}p^{9/16-3\alpha/16}.
+\notag
+$$
+加上 $B_0$ 的贡献，再对 $a_1$ 求和，由 $|A_1|M_1\le2\sqrt p$、$|A_1|\le p^\alpha$，得到
+$$
+|S(A_1,A_2)|\le2p^{1-\varepsilon_2}+4p^{1-\alpha/16}.
+\label{rip-block-bound}
+$$
+由于
+$$
+\varepsilon_2-\varepsilon_1=\frac\alpha m>0,
+\qquad \varepsilon_1\lt\frac\gamma{20}\le\frac\alpha{20},
+\notag
+$$
+$\eqref{rip-block-bound}$ 以及前面两种情形的界均有严格的指数余量. 对充分大的 $p$，可吸收全部 $O((\log p)^2)$ 个分层块，得到 $\eqref{rip-phase-target}$，从而证明引理2.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h3>引理10的证明</h3>
+
+<p>固定 $a_1$，记 $A_2^*=A_2\setminus\{a_1\}$、$q=|A_2^*|$. 由 $\eqref{rip-many-a}$，对充分大的 $p$，$q\ge p^{\gamma/2}/2$. 先对 $(a_2,b_2)$ 使用 Cauchy–Schwarz，Legendre 符号因模长为 $1$ 而消去. 由于这些指标总数不超过 $\sqrt p$，再用 Hölder 不等式，有
+$$
+|T_{a_1}(A_2,B)|^2
+\le\sqrt p\,|B|^{2-2/m}H^{1/m},
+\qquad H=\sum_{b,b_1\in B}|F(b,b_1)|^m,
+\label{rip-holder-moment}
+$$
+其中
+$$
+F(b,b_1)=\sum_{\substack{a_2\in A_2^*\\b_2\in\Omega_2(a_2)}}
+e_p\left(\frac{b_1^2-b^2}{4(a_1-a_2)}
+-\frac{b_2(b_1-b)}{2(a_1-a_2)}\right).
+\notag
+$$
+记 $C=B+B$、$D=B-B$. 换元 $x=b_1+b$、$y=b_1-b$，因为 $p$ 为奇素数，该换元单射. 将求和域扩大到 $C\times D$，再展开偶数次矩 $m$. 定义
+$$
+\lambda(\xi)=\#\left\{\begin{gathered}
+(a^{(1)},\ldots,a^{(m)})\in(A_2^*)^m:\\
+\displaystyle\sum_{i=1}^{m/2}\left(\frac1{a_1-a^{(i)}}-
+\frac1{a_1-a^{(i+m/2)}}\right)=\xi
+\end{gathered}\right\}.
+\label{rip-lambda}
+$$
+将展开式中 $b_2$ 求和的系数合并，存在 $|\epsilon_{y,\xi}|\le1$，使
+$$
+H\le M_2^m\left|\sum_{y\in D,\xi\in\mathbb F_p}
+\lambda(\xi)\epsilon_{y,\xi}\sum_{x\in C}e_p(xy\xi/4)\right|.
+\label{rip-moment-expansion}
+$$
+具体地，对固定 $y,\xi$，每个 $a$ 元组的 $b_2$ 元组至多为 $M_2^m$ 个，相应字符均为模长 $1$ 的数. 因而其系数模长至多为 $M_2^m\lambda(\xi)$，得到上述归一化系数.</p>
+
+<p>由 $\eqref{rip-reciprocal}$，
+$$
+\lambda(0)\le(m/2)!q^{m/2},\qquad
+\sum_\xi\lambda(\xi)=q^m,\qquad
+\sum_\xi\lambda(\xi)^2\le m!q^m.
+\label{rip-lambda-bounds}
+$$
+第一式使用 $m/2$ 项版本，可在等式两侧添上同样的 $m/2$ 项，归结到 $\eqref{rip-reciprocal}$. 第三式计数两个 $m$ 元组产生同一个 $\xi$ 的情形，移项后得到两组各 $m$ 个倒数的相等关系. 固定一组，另一组至多有 $m!$ 个排列.</p>
+
+<p>先分离 $\xi=0$，其贡献至多为 $M_2^m\lambda(0)|C||D|$. 对 $\xi\ne0$，定义
+$$
+\zeta(z)=\sum_{\substack{y\in D,\xi\ne0\\y\xi=z}}\lambda(\xi),
+\qquad
+\zeta'(z)=\sum_{\substack{y\in D,\xi\ne0\\y\xi=z}}
+\lambda(\xi)\epsilon_{y,\xi}.
+\notag
+$$
+由 $|\zeta'|\le\zeta$，Hölder 不等式及字符正交性给出
+$$
+\begin{aligned}
+&\left|\sum_{x\in C,z}\zeta'(z)e_p(xz/4)\right|\\
+&\quad\le|C|^{3/4}\left(\sum_x\left|\sum_z\zeta'(z)e_p(xz/4)\right|^4\right)^{1/4}\\
+&\quad=|C|^{3/4}p^{1/4}\|\zeta'*\zeta'\|_2^{1/2}
+\le|C|^{3/4}p^{1/4}\|\zeta*\zeta\|_2^{1/2}.
+\end{aligned}
+\label{rip-fourth-moment}
+$$
+而
+$$
+\|\zeta*\zeta\|_2
+\le\sum_{\xi,\xi'\ne0}\lambda(\xi)\lambda(\xi')
+\|\mathbf1_D*\mathbf1_{(\xi'/\xi)D}\|_2.
+\label{rip-convolution-dilations}
+$$
+这是将 $\zeta=\sum_{\xi\ne0}\lambda(\xi)\mathbf1_{\xi D}$ 代入卷积后，使用三角不等式，再将卷积变量乘以 $\xi^{-1}$ 得到的.</p>
+
+<p>令 $\lambda_1=\lambda/q^m$，则 $\lambda_1$ 是概率测度，且
+$$
+\|\lambda_1\|_2\le\sqrt{m!}\,q^{-m/2}\ll_m p^{-m\gamma/4}.
+\notag
+$$
+对固定 $\xi'\ne0$，映射 $\xi\mapsto\xi'/\xi$ 是 $\mathbb F_p^*$ 上的置换. 将 $\lambda_1$ 按此映射推前，并将零点质量保持为 $\lambda_1(0)$，其 $\ell^2$ 范数保持不变. 对集合 $D$ 应用推论2，得到
+$$
+\sum_{\xi\ne0}\lambda_1(\xi)
+\|\mathbf1_D*\mathbf1_{(\xi'/\xi)D}\|_2
+\ll\left(\|\lambda_1\|_2+|D|^{-1/2}+|D|^{1/2}p^{-1/2}\right)^{c_0}|D|^{3/2}.
+\notag
+$$
+由 $\eqref{rip-small-difference}$ 及 $\alpha\lt0.01$，有
+$$
+p^{0.44}\le |B|\le|D|\le p^{0.78}.
+\notag
+$$
+又 $m\gamma\le1/3$，所以对充分大的 $p$，
+$$
+\|\lambda_1\|_2+|D|^{-1/2}+|D|^{1/2}p^{-1/2}
+\ll_m p^{-m\gamma/4}+p^{-0.22}+p^{-0.11}
+\le p^{-m\gamma/5}.
+\notag
+$$
+代入 $\eqref{rip-convolution-dilations}$，得到
+$$
+\|\zeta*\zeta\|_2
+\ll q^{2m}p^{-c_0m\gamma/5}|D|^{3/2}.
+\notag
+$$
+将这一估计、$\eqref{rip-lambda-bounds}$、$\eqref{rip-fourth-moment}$ 代回 $\eqref{rip-moment-expansion}$，得
+$$
+\begin{aligned}
+H&\le(m/2)!(M_2q)^m q^{-m/2}|C||D|\\
+&\quad+O\left((M_2q)^m|C|^{3/4}|D|^{3/4}p^{1/4-c_0m\gamma/10}\right).
+\end{aligned}
+\label{rip-moment-two-terms}
+$$
+现在逐项使用假设. 由引理4及 $\eqref{rip-small-difference}$，
+$$
+|C|\le p^{56\alpha}|B|,\qquad
+|D|\le p^{28\alpha}|B|,\qquad
+p^{1/4}\le|B|^{1/2}p^{3\alpha}.
+\notag
+$$
+此外 $M_2q\le2\sqrt p$、$q^{-m/2}\ll_m p^{-m\gamma/4}$. 因而 $\eqref{rip-moment-two-terms}$ 的两项分别满足
+$$
+\begin{aligned}
+H&\ll_m 2^m p^{m/2}|B|^2
+\left(p^{-m\gamma/4+84\alpha}
++p^{-c_0m\gamma/10+66\alpha}\right)\\
+&\le |B|^2p^{m/2-c_0m\gamma/10+84\alpha}.
+\end{aligned}
+\label{rip-moment-final}
+$$
+最后一步吸收固定常数. 第一项有余量 $m\gamma(1/4-c_0/10)>0$，第二项有余量 $18\alpha>0$. 代回 $\eqref{rip-holder-moment}$，得到
+$$
+|T_{a_1}(A_2,B)|^2
+\le |B|^2p^{1-c_0\gamma/10+84\alpha/m},
+\notag
+$$
+取平方根即为 $\eqref{rip-lemma10}$.</p>
+
+<p class="proof-box">$\Box$</p>
+
+<h2>附录：两处计算的补充</h2>
+
+<h3>集合 $\mathcal A$ 的倒数关系</h3>
+
+<p>验证 $\eqref{rip-reciprocal}$ 时，合并重复项并约去两侧相同项. 若仍有非零关系，则存在互不相同的 $x,x_1,\ldots,x_t\in\{1,\ldots,L\}$ 及非零整数 $\lambda_j$，使
+$$
+\begin{gathered}
+1\le t\le2m,\qquad\sum_j|\lambda_j|\le2m,\\
+V=\sum_{j=1}^t\frac{\lambda_j}{(x-x_j)(x+x_j+U)}=0\quad\text{于 }\mathbb F_p.
+\end{gathered}
+\notag
+$$
+先将 $V$ 视为有理数. 令
+$$
+D_1=\prod_{j=1}^t(x-x_j),\qquad
+D_2=\prod_{j=1}^t(x+x_j+U),\qquad P=D_1D_2V\in\mathbb Z.
+\notag
+$$
+模整数 $Q=x+x_1+U$，$P$ 中除第一项以外的各项均为零，而第一项同余于
+$$
+V_1=\lambda_1\prod_{j=2}^t(x-x_j)\prod_{j=2}^t(x_j-x_1).
+\notag
+$$
+此整数非零. 对 $L\ge2m$，
+$$
+0\lt|V_1|\le2mL^{2t-2}\le2mL^{4m-2}\le U\lt Q.
+\notag
+$$
+所以 $P\ne0$. 再直接估计清除分母后的整数
+$$
+\begin{aligned}
+|P|&\le2m\big[L(U+2L)\big]^{t-1}
+\le2m(2LU)^{2m-1}\\
+&\ll_m L^{8m^2-4m}
+\le C_m p^{1-1/(2m)}\lt p
+\end{aligned}
+\notag
+$$
+对充分大的 $p$ 成立. 因而 $P$ 模 $p$ 非零. 所有分母因子均为绝对值小于 $p$ 的非零整数，故模 $p$ 可逆，推出 $V\ne0$，矛盾.</p>
+
+<p>这里将原文清除分母后的最后一个估计写为对整数 $P$ 的估计，以完成模 $p$ 非零的论证. 合并后的项数记为 $t$，其范围为 $t\le2m$.</p>
+
+<h3>推论1与引理10之间的大小换算</h3>
+
+<p>原文在能量分界 $E(B_1,B_1)\le p^{-3\alpha}M_1^3$ 的高能量一侧，应用推论1得到
+$$
+|B_1'|\ge\frac{|B_1|}{20p^{3\alpha}},
+\qquad |B_1'-B_1'|\le10^7p^{27\alpha}|B_1|.
+\notag
+$$
+引理10要求右端以 $|B_1'|$ 表示. 上述两式直接换算给出的是
+$$
+|B_1'-B_1'|\le2\cdot10^8p^{30\alpha}|B_1'|.
+\notag
+$$
+正文采用 $\eqref{rip-cutoff}$，即将分界指数取为 $5\alpha/2$. 此时推论1给出
+$$
+\begin{aligned}
+|B_1'-B_1'|
+&\le10^7p^{45\alpha/2}|B_1|\\
+&\le2\cdot10^8p^{25\alpha}|B_1'|
+\le p^{28\alpha}|B_1'|.
+\end{aligned}
+\notag
+$$
+同时，由 $\eqref{rip-large-fibre}$、$\gamma\le\alpha$，
+$$
+|B_1'|\ge\frac1{20}p^{1/2-13\alpha/3-\gamma/10}
+\ge p^{1/2-6\alpha}.
+\notag
+$$
+低能量一侧相应给出正文的 $4p^{1-\alpha/16}$ 项. 它与 $\varepsilon_1\lt\alpha/20$ 一起，足以完成分层求和. 这样保留原文引理2、引理10及定理1中的参数与结论.</p>
+
+<h2>参考文献</h2>
+
+<p>[1] J. Bourgain, S. J. Dilworth, K. Ford, S. Konyagin, D. Kutzarova, <i>Explicit constructions of RIP matrices and related problems</i>. Duke Mathematical Journal <b>159</b> (2011), no. 1, 145–185. 本文编号沿用预印本 v3. <a href="https://arxiv.org/abs/1008.4535v3" target="_blank">预印本</a>，<a href="https://people.math.sc.edu/dilworth/preprints_files/BDFKK.pdf" target="_blank">作者提供的出版版</a>.</p>
+
+<p>[2] T. Tao, <i>Open question deterministic UUP matrices</i>, 2007. <a href="https://terrytao.wordpress.com/2007/07/02/open-question-deterministic-uup-matrices/" target="_blank">原始问题</a>.</p>
+
+<p>[3] J. Bourgain, <i>Multilinear exponential sums in prime fields under optimal entropy condition on the sources</i>. Geometric and Functional Analysis <b>18</b> (2009), no. 5, 1477–1502. 本文命题3所引结果的来源.</p>
+
+<p>[4] J. Bourgain, M. Z. Garaev, <i>On a variant of sum-product estimates and explicit exponential sum bounds in prime fields</i>. Mathematical Proceedings of the Cambridge Philosophical Society <b>146</b> (2009), no. 1, 1–21. 本文引理6所引结果的来源. <a href="https://doi.org/10.1017/S0305004108001230" target="_blank">出版社记录</a>.</p>
+
+<p>[5] T. Tao, V. Vu, <i>Additive Combinatorics</i>. Cambridge University Press, 2006. 本文引理4、引理5所引结果的来源.</p>
+
+</div>
+<script src="../../js/blog/post.js"></script>
+<script src="../../js/math-config.js"></script>
+<script>
+window.MathJax.tex.tags = 'all';
+window.infoinput = function () {
+  document.getElementById('blogtitle').textContent = 'Bourgain的魔法：RIP矩阵的显式构造';
+  document.getElementById('blogdate').textContent = '草稿';
+  document.getElementById('pagetitle').textContent = 'Bourgain的魔法：RIP矩阵的显式构造';
+};
+</script>
+</body>
+</html>
